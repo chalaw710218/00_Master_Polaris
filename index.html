@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>00_Master_Polaris | 人生與事業總中樞</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent-1: #3b82f6;
+            --accent-2: #8b5cf6;
+            --glass-bg: rgba(30, 41, 59, 0.7);
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #020617 0%, #0f172a 100%);
+            color: var(--text-main);
+            font-family: 'Noto Sans TC', 'Outfit', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Ambient Background Glow */
+        .ambient-glow {
+            position: fixed;
+            top: 20%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60vw;
+            height: 60vw;
+            background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, rgba(59, 130, 246, 0) 70%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        header {
+            text-align: center;
+            padding: 4rem 2rem 2rem;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 3rem;
+            font-weight: 800;
+            margin: 0;
+            background: linear-gradient(to right, #60a5fa, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 2px;
+        }
+
+        h2 {
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: var(--text-muted);
+            margin-top: 1rem;
+        }
+
+        .dashboard {
+            width: 90%;
+            max-width: 1200px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+            animation: fadeInUp 1s ease-out;
+            padding-bottom: 5rem;
+        }
+
+        .card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 2rem;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin: 0 0 1rem 0;
+        }
+
+        .card-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .card-list li {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .card-list li::before {
+            content: '▹';
+            color: var(--accent-1);
+            margin-right: 8px;
+        }
+
+        .status-badge {
+            display: inline-block;
+            background: rgba(59, 130, 246, 0.2);
+            color: #60a5fa;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+        }
+
+        .highlight-badge {
+            background: rgba(239, 68, 68, 0.2);
+            color: #f87171;
+            border-color: rgba(239, 68, 68, 0.3);
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="ambient-glow"></div>
+    
+    <header>
+        <h1>00_Master_Polaris</h1>
+        <h2>Antigravity 系統總中樞 ｜ 人生與事業導航儀</h2>
+    </header>
+
+    <main class="dashboard">
+        <!-- 引擎 -->
+        <div class="card">
+            <div class="card-icon">⚙️</div>
+            <div class="status-badge">System Core</div>
+            <h3 class="card-title">00-00 Gamification Engine</h3>
+            <ul class="card-list">
+                <li>獨自升級遊戲引擎</li>
+                <li>經驗值與任務結算</li>
+                <li>狀態監測與數值轉換</li>
+            </ul>
+        </div>
+
+        <!-- 物流 -->
+        <div class="card">
+            <div class="card-icon">🚚</div>
+            <div class="status-badge">Branch A</div>
+            <h3 class="card-title">00-01 Logistics System</h3>
+            <ul class="card-list">
+                <li>外送收費標準調整專案</li>
+                <li>都蘭路線擴展與時間排程</li>
+                <li>外送車次與即時調度系統</li>
+            </ul>
+        </div>
+
+        <!-- 團購 -->
+        <div class="card">
+            <div class="card-icon">🛒</div>
+            <div class="status-badge">Branch B</div>
+            <h3 class="card-title">00-02 GroupBuy Products</h3>
+            <ul class="card-list">
+                <li>冷凍肉品定價模型與成本庫</li>
+                <li>大宗肉品分裝與規格標籤</li>
+            </ul>
+        </div>
+
+        <!-- 品牌 -->
+        <div class="card">
+            <div class="card-icon">✨</div>
+            <div class="status-badge">Branch C</div>
+            <h3 class="card-title">00-03 Brand LifeButler</h3>
+            <ul class="card-list">
+                <li>LINE/Telegram 整合與自動回覆</li>
+                <li>AppSheet 社區客戶管理系統</li>
+            </ul>
+        </div>
+
+        <!-- 個人成長 -->
+        <div class="card">
+            <div class="card-icon">🌱</div>
+            <div class="status-badge">Branch D</div>
+            <h3 class="card-title">00-04 Personal Growth</h3>
+            <ul class="card-list">
+                <li>社區經理人培訓</li>
+                <li>地方資源對接</li>
+            </ul>
+        </div>
+
+        <!-- AI 教育 -->
+        <div class="card">
+            <div class="card-icon">🤖</div>
+            <div class="status-badge">Branch E</div>
+            <h3 class="card-title">00-05 AI Education</h3>
+            <ul class="card-list">
+                <li>教學課程模組與教材知識庫</li>
+                <li>學員常見問題與助教紀錄</li>
+            </ul>
+        </div>
+
+        <!-- 循環經濟 -->
+        <div class="card">
+            <div class="card-icon">♻️</div>
+            <div class="status-badge highlight-badge">Branch F (New)</div>
+            <h3 class="card-title">00-06 Circular Economy</h3>
+            <ul class="card-list">
+                <li>在地二手資材與循環包材</li>
+                <li>社區共享資源與減廢推廣</li>
+            </ul>
+        </div>
+
+        <!-- TWQR -->
+        <div class="card">
+            <div class="card-icon">💳</div>
+            <div class="status-badge highlight-badge">Branch G (New)</div>
+            <h3 class="card-title">00-07 TWQR Promotion</h3>
+            <ul class="card-list">
+                <li>在地合作店家開發與導流</li>
+                <li>金流整合與營運推廣專案</li>
+            </ul>
+        </div>
+    </main>
+</body>
+</html>
