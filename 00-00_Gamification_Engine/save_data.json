@@ -1,0 +1,33 @@
+{
+  "version": "2.1",
+  "player_name": "Pinshuo",
+  "level": 1,
+  "exp": {
+    "current": 0,
+    "next_level_requirement": 30,
+    "total": 0
+  },
+  "gold": 0,
+  "attributes": {
+    "STR": 45.0,
+    "INT": 50.0,
+    "AGI": 45.0,
+    "WILL": 45.0,
+    "CHA": 50.0,
+    "IMP": 50.0
+  },
+  "hidden_attributes": {},
+  "unspent_points": {
+    "level_points": 0,
+    "knowledge_points": 0,
+    "will_points": 0
+  },
+  "practice_stacks": {
+    "daily_str": 0,
+    "daily_int": 0,
+    "daily_agi": 0,
+    "daily_will": 0,
+    "daily_cha": 0,
+    "daily_imp": 0
+  }
+}
