@@ -1,33 +1,34 @@
 {
-  "version": "2.1",
-  "player_name": "Pinshuo",
-  "level": 1,
-  "exp": {
-    "current": 0,
-    "next_level_requirement": 30,
-    "total": 0
-  },
-  "gold": 0,
-  "attributes": {
-    "STR": 45.0,
-    "INT": 50.0,
-    "AGI": 45.0,
-    "WILL": 45.0,
-    "CHA": 50.0,
-    "IMP": 50.0
-  },
-  "hidden_attributes": {},
-  "unspent_points": {
-    "level_points": 0,
-    "knowledge_points": 0,
-    "will_points": 0
-  },
-  "practice_stacks": {
-    "daily_str": 0,
-    "daily_int": 0,
-    "daily_agi": 0,
-    "daily_will": 0,
-    "daily_cha": 0,
-    "daily_imp": 0
-  }
+ "version": "2.1",
+ "player_name": "Pinshuo",
+ "level": 4,
+ "exp": {
+   "current": 60,
+   "next_level_requirement": 150,
+   "total": 250
+ },
+ "gold": 0,
+ "attributes": {
+   "STR": 45.0,
+   "INT": 57.0,
+   "AGI": 45.0,
+   "WILL": 47.0,
+   "CHA": 53.0,
+   "IMP": 54.0
+ },
+ "hidden_attributes": {},
+ "unspent_points": {
+   "level_points": 9,
+   "knowledge_points": 0,
+   "will_points": 0
+ },
+ "practice_stacks": {
+   "daily_str": 0,
+   "daily_int": 0,
+   "daily_agi": 0,
+   "daily_will": 0,
+   "daily_cha": 0,
+   "daily_imp": 0
+ },
+ "notes": "史詩級升級！連續突破：計畫書、筆試、供應商 SOP、中秋行銷、白皮書。等級躍升至 Lv.4！"
 }
