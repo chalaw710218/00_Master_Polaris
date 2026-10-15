@@ -23,3 +23,7 @@ desktop.ini
 
 # 本地日誌 (排除除錯日誌，若有)
 *.log
+
+# 排除上游開源點餐代碼庫 (避免破壞性 submodule 衝突)
+00-09_Project_OpenSource_Ordering/TastyIgniter/
+
