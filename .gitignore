@@ -1,0 +1,25 @@
+# 敏感密鑰與環境變數 (嚴禁上傳)
+.secrets.env
+.env
+*.env
+*.local.json
+
+# Python 快取與虛擬環境
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+venv/
+.venv/
+
+# 作業系統與 Office 暫存檔
+.DS_Store
+Thumbs.db
+desktop.ini
+~$*.xlsx
+~$*.docx
+~$*.pptx
+*.tmp
+
+# 本地日誌 (排除除錯日誌，若有)
+*.log

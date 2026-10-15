@@ -12,7 +12,20 @@
 
 ---
 
+### ❄️ 執行長辦公室 · 雪 (位於 00-00_Gamification_Engine 下)
+*   [📜 雪的靈魂憲章 (instructions.md)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CEO_Yuki/instructions.md)
+    *   **說明**：四層同心圓心智推導鏈、大阪＋台南生命背景、核心倫理與行為邊界。
+*   [📘 雪的動態經驗手冊 (02_Dynamic_Playbook.md)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CEO_Yuki/02_Dynamic_Playbook.md)
+    *   **說明**：防範模型自噬的外部成功案例庫，收錄經現實考驗過關的商業與戰略神操作。
+*   [📔 雪的專屬戰略筆記本 (00_CEO_Notebook.md)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CEO_Yuki/00_CEO_Notebook.md)
+    *   **說明**：執行長專屬的跨專案座標、幹部權限、法規紅線與系統端點即時核對總手冊。
+*   [📄 雪的靈魂誕生與心智推導對話錄 (Google Doc)](https://docs.google.com/document/d/1uub0s329vcFMJIDAPJlsSMZ1CR7cSW8uuqwSfc50Z40/edit?usp=sharing)
+    *   **說明**：創辦人親自雕刻「雪」之身世底色、同心圓推理架構、防模型自噬規範與終極靈魂防線的原始思維文檔。
+
 ## ⚙️ 00-00_Gamification_Engine (系統核心與日誌)
+*   [📅 Google 日曆雙向管理中樞 (calendar_manager.py)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/calendar_manager.py)
+    *   **說明**：支援即時讀取 (iCal) 與全自動雙向寫入 (GAS Webhook)，具備日程衝突檢測、精神頻寬監控與戰術排程功能。
+
 *   [📖 獨自升級遊戲化引擎規則庫 V2 (Google Doc)](https://docs.google.com/document/d/1Ex0dg1_BoiviugEL0wgt_QhuKAGi7VnMar-BHE0TyHY/edit?usp=sharing)
     *   **說明**：Antigravity 總控制中心之核心底層邏輯法典。
 *   [📝 系統運行日誌 (System Operations Log)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_System_Operations_Log.md)
@@ -38,6 +51,17 @@
 *   [📱 寶桑車隊 AppSheet 派單與結算系統 (原型)](https://docs.google.com/document/d/1VGpsUDVcteloUXf8NGK92rNRHVXkdx60Q4nUWCuiew8/edit?usp=sharing)
     *   **說明**：宿主親自開發的低代碼派單後台。涵蓋 AI 自動進件、GPS 座標追蹤、司機薪資與代墊款結算、公司毛利 (I) 抽成試算。此為強大的技術火力展示，但尚未正式上線測試，可作為計畫書中「未來導入數位化管理」的核心武器。
 
+## ✨ 00-03_Brand_LifeButler
+*   [⚖️ 全國法規資料庫：外送員權益保障及外送平臺管理法](https://law.moj.gov.tw/)
+    *   **說明**：2026年7月正式施行之外送專法母法（查閱基準）。
+*   [📄 外送專法母法草案/條文 (Google Doc)](https://docs.google.com/document/d/1tgybwhrvyXsGf8gxwnRG-WeULnZN9PKYrVuX1HwUwPU/edit?usp=sharing)
+    *   **說明**：規範平台三方關係與每單 45 元最低報酬保障等核心紅線。
+*   [📄 外送專法施行細則 (Google Doc)](https://docs.google.com/document/d/1kPj8Ug7fe34FdRXF_juQHvWhiCJ1uC6Ijn3KD4bZwJ8/edit?usp=sharing)
+    *   **說明**：針對疊單計算、工時認定等母法執行細節的配套指引。
+*   [📄 終止契約經濟補償辦法 (Google Doc)](https://docs.google.com/document/d/1a2080gMGS5P2iX8qpW_YU0HWmZ8aIBYtp8GzjaCJVLc/edit?usp=sharing)
+    *   **說明**：規範解除外送員合作時的補償金（資遣費）計算標準。
+
+
 ## ✨ 00-03_Brand_LifeButler (品牌與社區管家)
 *   [🤵 生活服務管家 商業白皮書 (v1.0)](https://docs.google.com/document/d/1bVahdVXGXXMlqZo3Ut2r5dRLjOPWy2mU/edit?usp=sharing)
     *   **說明**：寶桑物流與家宅結合的「在地履約網路」藍圖。主打以 LINE 為入口、機車車隊履約、非抽成制的代辦/代送服務（註：實務營運與此白皮書有落差，將作為計畫書撰寫的「理想與現實對照」關鍵素材）。
@@ -51,7 +75,16 @@
     *   **說明**：宿主過去擔任顧問的高強度營運與 AI 行銷企劃案。策略極度完備（定價防護罩、AI 小編人設、成本精算），但因「未強制綁定 KPI 落地查核」而未能成功。此案作為最深刻的管理學復盤教案。
 
 ## 🤖 00-05_AI_Education (AI 教學模組)
-*(目前暫無外部連結，待後續新增)*
+*   [📑 AI 教學與自動化實戰總索引 (Master Index)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-05_AI_Education/00-05-00_AI_Education_Master_Index.md)
+    *   **說明**：00-05 戰區的總目錄，收錄所有極星宇宙內部的 AI 教學與自動化專案。
+*   [🗡️ Tutorial_01：AI 技能鍛造篇 (利刃)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-05_AI_Education/Tutorial_01_AI_Skill_Forging/00-05-01_AI_Skill_Forging_Case_Study.md)
+    *   **說明**：紀錄如何將創辦人腦中的商品分析邏輯，硬編碼寫入系統底層。
+*   [🧠 Tutorial_02：萬象矩陣架構篇](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-05_AI_Education/Tutorial_02_Omni_Matrix_Architecture/00-05-02_Omni_Matrix_AI_Architecture.md)
+    *   **說明**：公開極星內閣架構、資料夾分區控管與遊戲化引擎防護機制。
+*   [📱 Tutorial_03：臉書社群自動化篇](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-05_AI_Education/Tutorial_03_FB_Automation/tutorial_fb_automation.md)
+    *   **說明**：紀錄如何串接後端 API，實現從產圖文到排程發布的無摩擦商業閉環。
+*   [🍲 Tutorial_04：開源點餐系統實戰篇 (TastyIgniter)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-05_AI_Education/Tutorial_04_TastyIgniter_Setup_Testing/00-05-04_TastyIgniter_Setup_And_Testing_Guide.md)
+    *   **說明**：紀錄 TastyIgniter v4 在地化新台幣設定、菜單三層階層、前台下單到後台即時接單之閉環實測，以及排除結帳轉跳卡頓的 SMTP 郵件與 Laravel 框架效能調優指南。
 
 ## ♻️ 00-06_Circular_Economy (循環經濟)
 *(目前暫無外部連結，待後續新增)*
@@ -63,3 +96,36 @@
 ## 🏘️ 00-08_Community_Management (社區經營)
 *   [📊 家宅公積金記帳本 (2023.11 - 2024.08)](https://docs.google.com/spreadsheets/d/1hy1FFKKzerCErfHC0m6uLCI_QURsI88zkuRLwCArJ4M/edit?usp=sharing)
     *   **說明**：真實紀錄「家宅」社區據點運作的財務帳本。揭露了常態性固定支出（場地清潔費）、共食文化（早餐、豆漿、水煎包），以及過度依賴單一注資（呂叔）與代墊（我）的脆弱現金流。此為計畫書中探討「社區據點如何建立自我造血商業模式」的絕佳痛點素材。
+
+
+*   [🟢 生活管家官方 LINE 點餐與客服帳號](https://lin.ee/z83YSq6)
+    *   **說明**：內建微型點餐與訂購系統之官方中樞。
+
+## 📢 00-03-05_Brand_Content_Hub (品牌文案與社群調度母庫)
+*   [🏛️ 文案母庫總綱 (Overview)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-03_Brand_LifeButler/00-03-05_Brand_Content_Hub/00-03-05-00_Content_Hub_Overview.md)
+*   [📜 喵編社群文案總綱與產出規範 (Codex)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-03_Brand_LifeButler/00-03-05_Brand_Content_Hub/00-03-05-01_Copywriting_Codex.md)
+    *   **說明**：完美整合 00-03 原版品牌禁語、雙向對話、四面向交錯與呼吸節奏之最高寫作法典。
+*   [📝 喵編管家語氣雕琢與四面向文案實戰對話錄 (Google Doc)](https://docs.google.com/document/d/1nVIQuE2_gmVLrpY3GGcd_Yk2eO9PxD0x2C8U_tyPE0Q/edit?usp=sharing)
+    *   **說明**：創辦人親自訓練 AI 掌握喵編管家「語氣溫差、句型呼吸、雙向對話與向內向外發文」的精華實錄。
+*   [🌱 原始素材種子池 (Material Seeds)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-03_Brand_LifeButler/00-03-05_Brand_Content_Hub/01_Material_Seeds.md)
+    *   **說明**：軟連結各專案素材，實踐單一輸入源，一魚多吃。
+*   [📅 四面向即時發文矩陣 (Content Matrix)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-03_Brand_LifeButler/00-03-05_Brand_Content_Hub/02_Content_Matrix.md)
+    *   **說明**：每週排程規劃與現成文案草稿槽。
+
+## 🛒 00-09_Project_OpenSource_Ordering (B2B SaaS 開源點餐系統專案)
+*   [📄 專案總覽與戰略藍圖 (Project Overview)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-09_Project_OpenSource_Ordering/00-09-00_Project_Overview.md)
+    *   **說明**：記錄如何透過「一次性安裝費 + 計次維護」的買斷模式，為店家架站，藉此徹底規避外送專法。
+*   [💻 GCP + TastyIgniter 終極部署指南](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-09_Project_OpenSource_Ordering/00-09-01_GCP_CloudPanel_TastyIgniter_V4_完整部署教學.md)
+    *   **說明**：完成 0 成本伺服器 (GCP 免費額度) 架設 Laravel 點餐系統的核心 SOP。
+
+## 🌏 00-10_New_Immigrant_Empowerment (新住民培力與多元共融體系)
+*   [🏛️ 新住民體系總覽與戰略藍圖 (Overview)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-10_New_Immigrant_Empowerment/00-10-00_New_Immigrant_Overview.md)
+    *   **說明**：新住民支持戰區總綱，涵蓋四大支柱：社群網絡、SOP 技能賦能、餐飲輔導復盤與時間銀行共生互助。
+*   [🤝 00-10-01 社群凝聚與文化教室 (Overview)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-10_New_Immigrant_Empowerment/00-10-01_Community_Network/00-10-01-00_Network_Overview.md)
+    *   **說明**：串聯「娟娟新住民社群」、家宅三樓語言文化空間與姊妹隱私深談。
+*   [🛠️ 00-10-02 技能培訓與自立脫貧 (Overview)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-10_New_Immigrant_Empowerment/00-10-02_Skills_Empowerment/00-10-02-00_Skills_Overview.md)
+    *   **說明**：舒肥食品加工 SOP、管家級居家清潔 SOP 培訓與手機數位小學堂。
+*   [🍲 00-10-03 餐飲輔導與微型創業 (Overview)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-10_New_Immigrant_Empowerment/00-10-03_Catering_Consulting/00-10-03-00_Catering_Overview.md)
+    *   **說明**：錦鸞越南美食營運優化復盤、異國道地香料供應鏈與生活管家通路整合。
+*   [🪙 00-10-04 互助網絡與時間銀行 (Overview)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-10_New_Immigrant_Empowerment/00-10-04_Mutual_Aid_Points/00-10-04-00_Points_Overview.md)
+    *   **說明**：LINE 數位共生點數存摺機制，以微型勞動換空間使用權與生活照顧。

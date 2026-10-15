@@ -1,34 +1,34 @@
 {
- "version": "2.1",
- "player_name": "Pinshuo",
- "level": 4,
- "exp": {
-   "current": 60,
-   "next_level_requirement": 150,
-   "total": 250
- },
- "gold": 0,
- "attributes": {
-   "STR": 45.0,
-   "INT": 57.0,
-   "AGI": 45.0,
-   "WILL": 47.0,
-   "CHA": 53.0,
-   "IMP": 54.0
- },
- "hidden_attributes": {},
- "unspent_points": {
-   "level_points": 9,
-   "knowledge_points": 0,
-   "will_points": 0
- },
- "practice_stacks": {
-   "daily_str": 0,
-   "daily_int": 0,
-   "daily_agi": 0,
-   "daily_will": 0,
-   "daily_cha": 0,
-   "daily_imp": 0
- },
- "notes": "史詩級升級！連續突破：計畫書、筆試、供應商 SOP、中秋行銷、白皮書。等級躍升至 Lv.4！"
+  "version": "2.1",
+  "player_name": "Pinshuo",
+  "level": 4,
+  "exp": {
+    "current": 60,
+    "next_level_requirement": 150,
+    "total": 250
+  },
+  "gold": 0,
+  "attributes": {
+    "STR": 45.0,
+    "INT": 60.0,
+    "AGI": 45.0,
+    "WILL": 53.0,
+    "CHA": 53.0,
+    "IMP": 54.0
+  },
+  "hidden_attributes": {},
+  "unspent_points": {
+    "level_points": 0,
+    "knowledge_points": 0,
+    "will_points": 0
+  },
+  "practice_stacks": {
+    "daily_str": 0,
+    "daily_int": 0,
+    "daily_agi": 0,
+    "daily_will": 0,
+    "daily_cha": 0,
+    "daily_imp": 0
+  },
+  "notes": "系統處於【萬象矩陣】運轉狀態。已完成：1. 高階主管(蒙格/林納斯/桑德伯格/泰勒絲)原型與技能綁定。 2. 外送專法法規解耦與物流 B2B 化。 3. 完成 WILL+6, INT+3 配點，智力突破 60 大關。"
 }
