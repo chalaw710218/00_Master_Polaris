@@ -32,4 +32,9 @@
 * **主要檔案**：`00-05-04_TastyIgniter_Setup_And_Testing_Guide.md`
 
 ---
+## 🌐 外部重要資產與學習檔案庫 (External Reference Assets)
+* [🎓 創辦人啟蒙 AI 導師教材與實戰指南 (Google Doc)](https://docs.google.com/document/d/1m3my2TsMFe_wdXWFDLQhAnQLTFzb9W4ih4z3DM03Ol8/edit?tab=t.0#heading=h.wtnb4bnkw262)
+  * **說明**：創辦人早期向 AI 啟蒙老師學習時的實戰講義與指引，作為極星宇宙教育訓練與靈感參照的重要文獻庫。
+
+---
 *備註：未來若有新增的 AI 實戰教學或自動化串接藍圖（例如：自動記帳 RPA），請一併封裝為獨立的 `Tutorial_XX` 資料夾，並同步更新於此總索引中。*

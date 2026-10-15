@@ -41,8 +41,13 @@
  │    ├── 📁 00-09-01_GCP_Cloud_Infra (分支：GCP e2-micro 免費主機環境與 TastyIgniter V4)
  │    └── 📁 00-09-02_Hardware_PRT_Driver (分支：跨網段 ESC/POS 雲端出單機驅動與派單 API)
  │
- └── 📁 00-10_New_Immigrant_Empowerment (子目錄 J：新住民培力與多元共融) 🌏 [全新啟動]
+ ├── 📁 00-10_New_Immigrant_Empowerment (子目錄 J：新住民培力與多元共融) 🌏 [全新啟動]
       ├── 📁 00-10-01_Community_Network (分支：社群凝聚與家宅三樓語言文化教室)
       ├── 📁 00-10-02_Skills_Empowerment (分支：舒肥食品加工/管家清潔SOP培訓與數位平權)
       ├── 📁 00-10-03_Catering_Consulting (分支：錦鸞越南美食顧問復盤與特色熟食選品)
       └── 📁 00-10-04_Mutual_Aid_Points (分支：LINE 數位共生點數存摺與以勞換顧網絡)
+ │
+ └── 📁 00-11_Reverse_Engineering_Lab (子目錄 K：逆向工程與拆解實驗室) 🔬 [林納斯主掌 · 本機隔離]
+      ├── 📁 dissection_bench (專案拆解台：外部開源/閉源目標代碼沙盒)
+      ├── 📁 analysis_notes (協議分析與通訊流程報告)
+      └── 📁 prototypes (自研改裝與技術反哺驗證)

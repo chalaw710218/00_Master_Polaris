@@ -1,20 +1,20 @@
 {
-  "version": "2.1",
+  "version": "2.2",
   "player_name": "Pinshuo",
-  "level": 4,
+  "level": 5,
   "exp": {
-    "current": 60,
-    "next_level_requirement": 150,
-    "total": 250
+    "current": 30,
+    "next_level_requirement": 250,
+    "total": 370
   },
   "gold": 0,
   "attributes": {
-    "STR": 45.0,
-    "INT": 60.0,
-    "AGI": 45.0,
-    "WILL": 53.0,
-    "CHA": 53.0,
-    "IMP": 54.0
+    "STR": 46.0,
+    "INT": 64.0,
+    "AGI": 50.0,
+    "WILL": 57.0,
+    "CHA": 56.0,
+    "IMP": 58.0
   },
   "hidden_attributes": {},
   "unspent_points": {
@@ -23,12 +23,12 @@
     "will_points": 0
   },
   "practice_stacks": {
-    "daily_str": 0,
-    "daily_int": 0,
-    "daily_agi": 0,
-    "daily_will": 0,
-    "daily_cha": 0,
-    "daily_imp": 0
+    "daily_str": 1,
+    "daily_int": 4,
+    "daily_agi": 5,
+    "daily_will": 4,
+    "daily_cha": 3,
+    "daily_imp": 4
   },
-  "notes": "系統處於【萬象矩陣】運轉狀態。已完成：1. 高階主管(蒙格/林納斯/桑德伯格/泰勒絲)原型與技能綁定。 2. 外送專法法規解耦與物流 B2B 化。 3. 完成 WILL+6, INT+3 配點，智力突破 60 大關。"
+  "notes": "【升級至 Lv.5】完成五大戰略里程碑：1. GitHub Pages V2.0 戰略駕駛艙全球上線（排查 Submodule 與 Jekyll 衝突底層修復）。 2. 00-08 家宅實體據點與公積金制度落實。 3. 00-11 逆向工程實驗室沙盒開闢。 4. 00-07 與 00-11 官網首頁撤除與遠端解綁最高等級商業脫敏。 5. 00-11 正式全權交割予工程長林納斯 (Linus)。"
 }

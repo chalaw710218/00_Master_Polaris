@@ -87,6 +87,8 @@
     *   **說明**：紀錄 TastyIgniter v4 在地化新台幣設定、菜單三層階層、前台下單到後台即時接單之閉環實測，以及排除結帳轉跳卡頓的 SMTP 郵件與 Laravel 框架效能調優指南。
 *   [📖 Haba 筆記方法論與雙軌 Hugo 網站架設規範 (Google Drive)](https://drive.google.com/file/d/1tTvKNMntsJfLB4p0gA3DS14Ns6fGFOVj/view) ｜ [本地存檔](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-05_AI_Education/Haba_Notes_Methodology_Spec.md)
     *   **說明**：創辦人親自引入之靜態筆記與知識庫架構規範。結合 GitHub Actions 自動發布、雙主題架構（PaperMod 時間流隨筆 ＋ Hugo-Book 結構化知識庫），並制定 AI 寫作專屬技能 (`SKILL.md`) 與 PostLabels 控制平面。
+*   [🎓 創辦人啟蒙 AI 導師教材與實戰指南 (Google Doc)](https://docs.google.com/document/d/1m3my2TsMFe_wdXWFDLQhAnQLTFzb9W4ih4z3DM03Ol8/edit?tab=t.0#heading=h.wtnb4bnkw262)
+    *   **說明**：創辦人過去向 AI 啟蒙老師學習時的珍貴教學文件與實戰指導精華，收錄作為 00-05 AI 教育與培訓戰區的外部重要參考資產。
 
 
 
@@ -132,4 +134,9 @@
 *   [🍲 00-10-03 餐飲輔導與微型創業 (Overview)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-10_New_Immigrant_Empowerment/00-10-03_Catering_Consulting/00-10-03-00_Catering_Overview.md)
     *   **說明**：錦鸞越南美食營運優化復盤、異國道地香料供應鏈與生活管家通路整合。
 *   [🪙 00-10-04 互助網絡與時間銀行 (Overview)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-10_New_Immigrant_Empowerment/00-10-04_Mutual_Aid_Points/00-10-04-00_Points_Overview.md)
-    *   **說明**：LINE 數位共生點數存摺機制，以微型勞動換空間使用權與生活照顧。
+    *   **說明**：LINE 數位共生點數存摺機制，以微型勞動換空間使用權與生活照顧。
+
+## 🔬 00-11_Reverse_Engineering_Lab (逆向工程與拆解實驗室 · 本機隔離)
+*   [🏛️ 逆向工程實驗室總綱 (Overview)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-11_Reverse_Engineering_Lab/00-11-00_Reverse_Engineering_Overview.md)
+    *   **說明**：**【本機隔離研發 · 林納斯主掌】**。專案拆解台沙盒環境、第三方系統通訊協議解密、底層架構安全性審計與開源技術反哺極星宇宙。嚴禁推送到任何外部公開庫。
+
