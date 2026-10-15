@@ -27,3 +27,7 @@ desktop.ini
 # 排除上游開源點餐代碼庫 (避免破壞性 submodule 衝突)
 00-09_Project_OpenSource_Ordering/TastyIgniter/
 
+# 外部合作與高度機密模組 (僅限本機留存，嚴禁推送到遠端公開庫)
+00-07_TWQR_Promotion/
+00-11_Reverse_Engineering_Lab/
+
