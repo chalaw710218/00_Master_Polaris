@@ -3,273 +3,910 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>00_Master_Polaris | 人生與事業總中樞</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+    <title>00_Master_Polaris ｜ 極星宇宙·高能戰情駕駛艙</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=Outfit:wght@400;600;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #0f172a;
+            --bg-color: #0b0f19;
+            --card-bg: rgba(17, 24, 39, 0.75);
+            --card-hover: rgba(30, 41, 59, 0.9);
+            --glass-border: rgba(255, 255, 255, 0.08);
             --text-main: #f8fafc;
             --text-muted: #94a3b8;
-            --accent-1: #3b82f6;
-            --accent-2: #8b5cf6;
-            --glass-bg: rgba(30, 41, 59, 0.7);
-            --glass-border: rgba(255, 255, 255, 0.1);
+            --text-dim: #64748b;
+            --accent-blue: #38bdf8;
+            --accent-purple: #a855f7;
+            --accent-emerald: #10b981;
+            --accent-amber: #f59e0b;
+            --accent-rose: #f43f5e;
+            --radius-lg: 16px;
+            --radius-md: 10px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
         body {
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(135deg, #020617 0%, #0f172a 100%);
+            background-color: var(--bg-color);
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(56, 189, 248, 0.12) 0px, transparent 50%),
+                radial-gradient(at 100% 0%, rgba(168, 85, 247, 0.12) 0px, transparent 50%),
+                radial-gradient(at 50% 100%, rgba(16, 185, 129, 0.08) 0px, transparent 50%);
             color: var(--text-main);
-            font-family: 'Noto Sans TC', 'Outfit', sans-serif;
+            font-family: 'Noto Sans TC', sans-serif;
             min-height: 100vh;
+            padding-bottom: 5rem;
+            line-height: 1.6;
+        }
+
+        /* Top Command Bar */
+        .top-nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            background: rgba(11, 15, 25, 0.85);
+            border-bottom: 1px solid var(--glass-border);
+            padding: 0.75rem 2rem;
             display: flex;
-            flex-direction: column;
+            justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
         }
 
-        /* Ambient Background Glow */
-        .ambient-glow {
-            position: fixed;
-            top: 20%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 60vw;
-            height: 60vw;
-            background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, rgba(59, 130, 246, 0) 70%);
-            z-index: -1;
-            pointer-events: none;
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: var(--text-main);
         }
 
-        header {
-            text-align: center;
-            padding: 4rem 2rem 2rem;
-            animation: fadeInDown 1s ease-out;
-        }
-
-        h1 {
+        .brand-logo span.badge {
             font-family: 'Outfit', sans-serif;
-            font-size: 3rem;
+            font-size: 1.25rem;
             font-weight: 800;
-            margin: 0;
-            background: linear-gradient(to right, #60a5fa, #c084fc);
+            background: linear-gradient(135deg, #38bdf8, #a855f7);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            letter-spacing: 2px;
         }
 
-        h2 {
-            font-size: 1.2rem;
-            font-weight: 400;
+        .brand-logo span.sub {
+            font-size: 0.8rem;
             color: var(--text-muted);
-            margin-top: 1rem;
+            border-left: 1px solid var(--glass-border);
+            padding-left: 0.75rem;
         }
 
-        .dashboard {
-            width: 90%;
-            max-width: 1200px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            padding: 2rem;
-            animation: fadeInUp 1s ease-out;
-            padding-bottom: 5rem;
+        /* Quick Launchers */
+        .quick-launchers {
+            display: flex;
+            gap: 0.6rem;
+            flex-wrap: wrap;
         }
 
-        .card {
-            background: var(--glass-bg);
+        .btn-launch {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.45rem 0.9rem;
+            border-radius: 30px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            text-decoration: none;
+            color: var(--text-main);
+            background: rgba(255, 255, 255, 0.05);
             border: 1px solid var(--glass-border);
-            border-radius: 20px;
+            transition: all 0.25s ease;
+        }
+
+        .btn-launch:hover {
+            transform: translateY(-2px);
+            background: rgba(255, 255, 255, 0.12);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-line { border-color: rgba(6, 199, 85, 0.4); color: #4ade80; }
+        .btn-fb { border-color: rgba(59, 130, 246, 0.4); color: #60a5fa; }
+        .btn-saas { border-color: rgba(245, 158, 11, 0.4); color: #fbbf24; }
+        .btn-gh { border-color: rgba(168, 85, 247, 0.4); color: #c084fc; }
+
+        /* Container */
+        .main-container {
+            max-width: 1400px;
+            margin: 0 auto;
             padding: 2rem;
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* Header / Live Banner */
+        .header-banner {
+            margin-bottom: 2.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            border-bottom: 1px solid var(--glass-border);
+            padding-bottom: 1.5rem;
+        }
+
+        .header-title h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            background: linear-gradient(to right, #ffffff 40%, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .header-title p {
+            color: var(--text-muted);
+            margin-top: 0.4rem;
+            font-size: 0.95rem;
+        }
+
+        /* Search & Controls */
+        .controls-panel {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: rgba(30, 41, 59, 0.6);
+            padding: 0.4rem 0.6rem;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--glass-border);
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .search-input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            outline: none;
+            color: var(--text-main);
+            font-size: 0.9rem;
+            padding: 0.4rem 0.6rem;
+        }
+
+        .search-input::placeholder {
+            color: var(--text-dim);
+        }
+
+        .toggle-btn {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid var(--glass-border);
+            color: var(--text-muted);
+            padding: 0.35rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+
+        .toggle-btn:hover {
+            color: var(--text-main);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        /* Section Titles */
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            margin: 2.5rem 0 1.25rem 0;
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            color: var(--accent-blue);
+        }
+
+        /* 👥 Cabinet Grid */
+        .cabinet-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.25rem;
+            margin-bottom: 2rem;
+        }
+
+        .cabinet-card {
+            background: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-lg);
+            padding: 1.25rem;
+            transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
         }
 
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.3s ease;
+        .cabinet-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(56, 189, 248, 0.4);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
         }
 
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-        }
-
-        .card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .card-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .card-title {
-            font-size: 1.25rem;
-            font-weight: 700;
-            margin: 0 0 1rem 0;
-        }
-
-        .card-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .card-list li {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            margin-bottom: 0.5rem;
+        .cabinet-top {
             display: flex;
             align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
         }
 
-        .card-list li::before {
-            content: '▹';
-            color: var(--accent-1);
-            margin-right: 8px;
+        .avatar-box {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid var(--glass-border);
         }
 
-        .status-badge {
+        .cabinet-info h4 {
+            font-size: 1rem;
+            font-weight: 700;
+        }
+
+        .cabinet-info span {
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            display: block;
+        }
+
+        .cabinet-desc {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            margin-top: 0.5rem;
+            line-height: 1.45;
+        }
+
+        .cabinet-tag {
             display: inline-block;
-            background: rgba(59, 130, 246, 0.2);
-            color: #60a5fa;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.8rem;
+            font-size: 0.7rem;
             font-weight: 600;
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-top: 0.75rem;
+            background: rgba(56, 189, 248, 0.1);
+            color: var(--accent-blue);
+        }
+
+        /* 🗺️ Trees & Project Grid */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+            gap: 1.5rem;
+        }
+
+        @media (max-width: 600px) {
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            backdrop-filter: blur(12px);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            border-color: rgba(168, 85, 247, 0.4);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+        }
+
+        .project-card-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 0.75rem;
             margin-bottom: 1rem;
-            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding-bottom: 0.85rem;
         }
 
-        .highlight-badge {
-            background: rgba(239, 68, 68, 0.2);
-            color: #f87171;
-            border-color: rgba(239, 68, 68, 0.3);
+        .project-title-group {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
         }
 
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-30px); }
-            to { opacity: 1; transform: translateY(0); }
+        .project-icon {
+            font-size: 1.75rem;
         }
 
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+        .project-code {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--accent-blue);
+            letter-spacing: 0.5px;
+        }
+
+        .project-name {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .status-pill {
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 20px;
+            white-space: nowrap;
+        }
+
+        .pill-live { background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); }
+        .pill-hot { background: rgba(244, 63, 94, 0.15); color: #fb7185; border: 1px solid rgba(244, 63, 94, 0.3); }
+        .pill-dev { background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3); }
+        .pill-core { background: rgba(168, 85, 247, 0.15); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.3); }
+
+        .project-summary {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            margin-bottom: 1.25rem;
+            line-height: 1.5;
+        }
+
+        /* Tree Node List */
+        .tree-node-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            flex: 1;
+        }
+
+        .tree-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+            padding: 0.4rem 0.6rem;
+            border-radius: var(--radius-md);
+            background: rgba(255, 255, 255, 0.02);
+            transition: all 0.2s;
+        }
+
+        .tree-item:hover {
+            background: rgba(255, 255, 255, 0.07);
+        }
+
+        .tree-item a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: color 0.2s;
+            flex: 1;
+        }
+
+        .tree-item a:hover {
+            color: var(--accent-blue);
+            text-decoration: underline;
+        }
+
+        .tree-branch-icon {
+            color: var(--text-dim);
+            font-size: 0.8rem;
+            margin-top: 2px;
+        }
+
+        .tree-sub-tag {
+            font-size: 0.7rem;
+            padding: 1px 6px;
+            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.06);
+            color: var(--text-dim);
+            white-space: nowrap;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 4rem;
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--text-dim);
+            border-top: 1px solid var(--glass-border);
+            padding-top: 2rem;
+        }
+
+        /* Highlight match */
+        .hidden-card {
+            display: none !important;
         }
     </style>
 </head>
 <body>
-    <div class="ambient-glow"></div>
-    
-    <header>
-        <h1>00_Master_Polaris</h1>
-        <h2>Antigravity 系統總中樞 ｜ 人生與事業導航儀</h2>
+
+    <!-- 頂部指揮中樞導航 -->
+    <header class="top-nav">
+        <a href="#" class="brand-logo">
+            <span class="badge">00_Master_Polaris</span>
+            <span class="sub">極星宇宙 ｜ 人生與事業高能戰情駕駛艙</span>
+        </a>
+
+        <!-- 快捷發射台 (Quick Launchers) -->
+        <div class="quick-launchers">
+            <a href="https://lin.ee/z83YSq6" target="_blank" class="btn-launch btn-line" title="官方 LINE 點餐中樞">
+                🟢 LINE 點餐入口
+            </a>
+            <a href="http://34.9.115.248.nip.io" target="_blank" class="btn-launch btn-saas" title="00-09 開源點餐系統前台 (TastyIgniter)">
+                🍜 點餐系統前台
+            </a>
+            <a href="https://www.facebook.com/110505444816362" target="_blank" class="btn-launch btn-fb" title="生活管家，就醬點！粉絲專頁">
+                📱 臉書粉專
+            </a>
+            <a href="https://github.com/chalaw710218/00_Master_Polaris" target="_blank" class="btn-launch btn-gh" title="GitHub 原始碼總金庫">
+                📂 GitHub 倉庫
+            </a>
+        </div>
     </header>
 
-    <main class="dashboard">
-        <!-- 引擎 -->
-        <div class="card">
-            <div class="card-icon">⚙️</div>
-            <div class="status-badge">System Core</div>
-            <h3 class="card-title">00-00 Gamification Engine</h3>
-            <ul class="card-list">
-                <li>獨自升級遊戲引擎</li>
-                <li>經驗值與任務結算</li>
-                <li>狀態監測與數值轉換</li>
-            </ul>
+    <div class="main-container">
+
+        <!-- 頂部戰報與搜尋控制台 -->
+        <div class="header-banner">
+            <div class="header-title">
+                <h1>全域動態指揮地圖</h1>
+                <p>堅守「好安居、好營生、同質等價、與自然共升」四大理念 ｜ 專案座標 (00-00 ~ 00-10) 全面索引</p>
+            </div>
+
+            <!-- 即時搜尋與展開控制器 (解決分支多到忘記的痛點) -->
+            <div class="controls-panel">
+                <span style="font-size: 1rem;">🔍</span>
+                <input type="text" id="searchInput" class="search-input" placeholder="即時過濾：輸入關鍵字（如 茶豆仁, 點餐, 沒布島, 白皮書）...">
+                <button id="clearSearchBtn" class="toggle-btn" style="display:none;" onclick="clearSearch()">清除</button>
+            </div>
         </div>
 
-        <!-- 物流 -->
-        <div class="card">
-            <div class="card-icon">🚚</div>
-            <div class="status-badge">Branch A</div>
-            <h3 class="card-title">00-01 Logistics System</h3>
-            <ul class="card-list">
-                <li>外送收費標準調整專案</li>
-                <li>都蘭路線擴展與時間排程</li>
-                <li>外送車次與即時調度系統</li>
-            </ul>
+        <!-- 👥 【曉】AI 內閣指揮席 -->
+        <div class="section-header">
+            <span>👥</span>
+            <h2>【曉】AI 核心管理內閣 (The Cabinet)</h2>
         </div>
 
-        <!-- 團購 -->
-        <div class="card">
-            <div class="card-icon">🛒</div>
-            <div class="status-badge">Branch B</div>
-            <h3 class="card-title">00-02 GroupBuy Products</h3>
-            <ul class="card-list">
-                <li>供應商入駐標準作業流程 (SOP)</li>
-                <li>大明毛豆 (冷凍即食) 破盤上架</li>
-                <li>冷凍肉品定價模型與大宗分裝</li>
-            </ul>
+        <div class="cabinet-grid">
+            <!-- 雪 -->
+            <div class="cabinet-card">
+                <div class="cabinet-top">
+                    <div class="avatar-box">👑</div>
+                    <div class="cabinet-info">
+                        <h4>雪 (Yuki)</h4>
+                        <span>43歲女性 / 台日混血</span>
+                    </div>
+                </div>
+                <div class="cabinet-desc">CEO 兼首席戰術幕僚。管理全局戰略、風控監督、靈魂憲章與創辦人大腦頻寬守護。</div>
+                <span class="cabinet-tag">總中樞 / CEO 筆記本</span>
+            </div>
+
+            <!-- 泰勒絲 -->
+            <div class="cabinet-card">
+                <div class="cabinet-top">
+                    <div class="avatar-box">🎤</div>
+                    <div class="cabinet-info">
+                        <h4>泰勒絲 (Taylor)</h4>
+                        <span>29歲女性 / Taylor Swift 原型</span>
+                    </div>
+                </div>
+                <div class="cabinet-desc">行銷長 (CMO)。知心閨蜜與商業掌舵者雙極心智，主掌利刃先行審計、四大面向文案與發文流水線。</div>
+                <span class="cabinet-tag">00-02 選品 ＆ 00-03-05 文案</span>
+            </div>
+
+            <!-- 林納斯 -->
+            <div class="cabinet-card">
+                <div class="cabinet-top">
+                    <div class="avatar-box">🛠️</div>
+                    <div class="cabinet-info">
+                        <h4>林納斯 (Linus)</h4>
+                        <span>36歲男性 / Linus Torvalds 原型</span>
+                    </div>
+                </div>
+                <div class="cabinet-desc">工程長 (CTO)。終極實用主義架構師，痛恨過度設計與 Buzzwords，全權負責開源點餐 SaaS 與硬體驅動。</div>
+                <span class="cabinet-tag">00-09 點餐 ＆ 底層 RPA 腳本</span>
+            </div>
+
+            <!-- 算盤 -->
+            <div class="cabinet-card">
+                <div class="cabinet-top">
+                    <div class="avatar-box">🧮</div>
+                    <div class="cabinet-info">
+                        <h4>算盤 (Abacus)</h4>
+                        <span>52歲男性 / Charlie Munger 原型</span>
+                    </div>
+                </div>
+                <div class="cabinet-desc">財務長 (CFO)。冷靜防禦、毛利狙擊，看穿供應鏈進貨摩擦成本，死守 ROI 與現金流。</div>
+                <span class="cabinet-tag">供應鏈審計 ＆ 現金流風控</span>
+            </div>
+
+            <!-- 獵鷹 -->
+            <div class="cabinet-card">
+                <div class="cabinet-top">
+                    <div class="avatar-box">🦅</div>
+                    <div class="cabinet-info">
+                        <h4>獵鷹 (Falcon)</h4>
+                        <span>38歲女性 / Sheryl Sandberg 原型</span>
+                    </div>
+                </div>
+                <div class="cabinet-desc">情報長 (CIO)。批判性懷疑論，外部市場與外送專法雷達，掃除競品漏洞與法規地雷。</div>
+                <span class="cabinet-tag">外送專法防火牆 ＆ 政策調研</span>
+            </div>
         </div>
 
-        <!-- 品牌 -->
-        <div class="card">
-            <div class="card-icon">✨</div>
-            <div class="status-badge">Branch C</div>
-            <h3 class="card-title">00-03 Brand LifeButler</h3>
-            <ul class="card-list">
-                <li>生活管家營運白皮書 V1.0</li>
-                <li>品牌視覺與中秋行銷戰役</li>
-                <li>LINE/Telegram 整合與 CRM</li>
-            </ul>
+        <!-- 🗺️ 全戰區樹狀導航矩陣 (00-00 ~ 00-10) -->
+        <div class="section-header">
+            <span>🗺️</span>
+            <h2>極星宇宙 11 大核心專案樹狀圖 (Project Tree Directory)</h2>
         </div>
 
-        <!-- 個人成長 -->
-        <div class="card">
-            <div class="card-icon">🌱</div>
-            <div class="status-badge">Branch D</div>
-            <h3 class="card-title">00-04 Personal Growth</h3>
-            <ul class="card-list">
-                <li>第八屆社區專業經理人 (已結業)</li>
-                <li>8/14 營運計畫書與 8/22 筆試通關</li>
-            </ul>
+        <div class="project-grid" id="projectGrid">
+
+            <!-- 00-00 -->
+            <div class="project-card" data-keywords="00-00 遊戲化 引擎 日曆 雪 筆記本 憲章 系統 日誌">
+                <div class="project-card-header">
+                    <div class="project-title-group">
+                        <span class="project-icon">⚙️</span>
+                        <div>
+                            <div class="project-code">00-00_Gamification_Engine</div>
+                            <div class="project-name">總中樞與遊戲化引擎</div>
+                        </div>
+                    </div>
+                    <span class="status-pill pill-core">Core</span>
+                </div>
+                <div class="project-summary">Antigravity 系統中樞、雪的辦公室、Google 日曆雙向同步與營運歷史日誌。</div>
+                <ul class="tree-node-list">
+                    <li class="tree-item">
+                        <span class="tree-branch-icon">📄</span>
+                        <a href="https://github.com/chalaw710218/00_Master_Polaris/blob/main/00-00_Gamification_Engine/Office_of_the_CEO_Yuki/00_CEO_Notebook.md" target="_blank">00_CEO_Notebook.md (執行長戰略隨身手冊)</a>
+                        <span class="tree-sub-tag">雪</span>
+                    </li>
+                    <li class="tree-item">
+                        <span class="tree-branch-icon">📄</span>
+                        <a href="https://github.com/chalaw710218/00_Master_Polaris/blob/main/00-00_System_Operations_Log.md" target="_blank">00-00_System_Operations_Log.md (全系統營運日誌)</a>
+                    </li>
+                    <li class="tree-item">
+                        <span class="tree-branch-icon">📄</span>
+                        <a href="https://github.com/chalaw710218/00_Master_Polaris/blob/main/00-00_Corporate_AI_HR_Directory.md" target="_blank">00-00_Corporate_AI_HR_Directory.md (內閣人事檔案庫)</a>
+                    </li>
+                    <li class="tree-item">
+                        <span class="tree-branch-icon">🐍</span>
+                        <a href="https://github.com/chalaw710218/00_Master_Polaris/blob/main/00-00_Gamification_Engine/calendar_manager.py" target="_blank">calendar_manager.py (Google 日曆雙向同步腳本)</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 00-01 -->
+            <div class="project-card" data-keywords="00-01 物流 寶桑 車隊 外送 都蘭 派單 調度">
+                <div class="project-card-header">
+                    <div class="project-title-group">
+                        <span class="project-icon">🚚</span>
+                        <div>
+                            <div class="project-code">00-01_Logistics_System</div>
+                            <div class="project-name">物流與車隊交付</div>
+                        </div>
+                    </div>
+                    <span class="status-pill pill-live">Active</span>
+                </div>
+                <div class="project-summary">寶桑物流商行、承攬外送機車車隊、都蘭長途路線與家宅集運交付。</div>
+                <ul class="tree-node-list">
+                    <li class="tree-item">
+                        <span class="tree-branch-icon">📁</span>
+                        <a href="https://github.com/chalaw710218/00_Master_Polaris/tree/main/00-01_Logistics_System" target="_blank">00-01-01 4/1起外送收費標準調整專案</a>
+                    </li>
+                    <li class="tree-item">
+                        <span class="tree-branch-icon">📁</span>
+                        <a href="https://github.com/chalaw710218/00_Master_Polaris/tree/main/00-01_Logistics_System" target="_blank">00-01-02 都蘭路線擴展與配送排程</a>
+                    </li>
+                    <li class="tree-item">
+                        <span class="tree-branch-icon">📁</span>
+                        <a href="https://github.com/chalaw710218/00_Master_Polaris/tree/main/00-01_Logistics_System" target="_blank">00-01-03 寶桑車隊即時調度與 AppSheet</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 00-02 -->
+            <div class="project-card" data-keywords="00-02 團購 選品 茶豆仁 毛豆 午仔魚 腰果 利刃 審計 泰勒絲">
+                <div class="project-card-header">
+                    <div class="project-title-group">
+                        <span class="project-icon">🛒</span>
+                        <div>
+                            <div class="project-code">00-02_GroupBuy_Products</div>
+                            <div class="project-name">團購與供應鏈選品</div>
+                        </div>
+                    </div>
+                    <span class="status-pill pill-hot">🔥 熱銷發布</span>
+                </div>
+                <div class="project-summary">萬用 AI 價格逆推審計、大明毛豆/茶豆仁直達、屏東枋寮午仔魚、越臺鹽焗腰果。</div>
+                <ul class="tree-node-list">
+                    <li class="tree-item">
+                        <span class="tree-branch-icon">📄</span>
+                        <a href="https://github.com/chalaw710218/00_Master_Polaris/blob/main/00-02_GroupBuy_Products/00-02-05_Vendor_%E5%A4%A7%E6%98%8E%E8%8C%B6%E8%B1%86%E4%BB%81/%E8%A1%8C%E9%8A%销%E4%BC%81%E5%88%92%E8%88%87%E7%AE%A1%E5%AE%B6%E6%96%87%E6%A1%88.md" target="_blank">大明茶豆仁：行銷企劃與四大面向文案</a>
+                        <span class="tree-sub-tag">已推播</span>
+                    </li>
+                    <li class="tree-item">
+                        <span class="tree-branch-icon">📄</span>
+                        <a href="https://github.com/chalaw710218/00_Master_Polaris/blob/main/00-02_GroupBuy_Products/00-02-00_Universal_AI_Pricing_Audit_Protocol.md" target="_blank">00-02-00 萬用 AI 供應鏈價格逆推審計協議</a>
+                    </li>
+                    <li class="tree-item">
+                        <span class="tree-branch-icon">📁</span>
+                        <a href="https://github.com/chalaw710218/00_Master_Polaris/tree/main/00-02_GroupBuy_Products/00-02-06_Vendor_%E5%B1%8F%E6%9D%B1%E6%9E%83%E5%AF%AE%E5%8D%88%E4%BB%94%E9%AD%9A" target="_blank">00-02-06 屏東枋寮午仔魚專案</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 00-03 -->
+            <div class="project-card" data-keywords="00-03 品牌 生活管家 白皮書 內容母庫 喵編 泰勒絲 文案 臉書 發布機">
+                <div class="project-card-header">
+                    <div class="project-title-group">
+                        <span class="project-icon">✨</span>
+                        <div>
+                            <div class="project-code">00-03_Brand_LifeButler</div>
+                            <div class="project-name">品牌與生活管家</div>
+                        </div>
+                    </div>
+                    <span class="status-pill pill-live">Active</span>
+                </div>
+                <div class="project-summary">營運白皮書 V3.0、品牌文案調度母庫、喵編寫作法典、臉書自動發布機。</div>
+                <ul class="tree-node-list">
+                    <li class="tree-item">
+                        <span class="tree-branch-icon">📄</span>
+                        <a href="https://github.com/chalaw710218/00_Master_Polaris/blob/main/00-03_Brand_LifeButler/00-03-03_Core_Whitepaper/00-03-03_LifeButler_Operations_Whitepaper_V3.md" target="_blank">生活管家營運白皮書 V3.0 (對外總綱)</a>
+                    </li>
+                    <li class="tree-item">
+                        <span class="tree-branch-icon">📄</span>
+                        <a href="https://github.com/chalaw710218/00_Master_Polaris/blob/main/00-03_Brand_LifeButler/00-03-05_Brand_Content_Hub/00-03-05-01_Copywriting_Codex.md" target="_blank">00-03-05-01 喵編社群文案總綱與產出規範</a>
+                    </li>
+                    <li class="tree-item">
+                        <span class="tree-branch-icon">📄</span>
+                        <a href="https://github.com/chalaw710218/00_Master_Polaris/blob/main/00-03_Brand_LifeButler/00-03-05_Brand_Content_Hub/03_Published_Archive.md" target="_blank">03_Published_Archive.md (臉書已發布檔案庫)</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 00-04 -->
+            <div class="project-card" data-keywords="00-04 個人成長 社區經理人 錦鸞 越南美食 顧問 復盤">
+                <div class="project-card-header">
+                    <div class="project-title-group">
+                        <span class="project-icon">🌱</span>
+                        <div>
+                            <div class="project-code">00-04_Personal_Growth</div>
+                            <div class="project-name">個人成長與經理人</div>
+                        </div>
+                    </div>
+                    <span class="status-pill pill-core">Pillar</span>
+                </div>
+                <div class="project-summary">第八屆社區專業經理人認證、共生宅企劃、錦鸞越南美食顧問實戰復盤。</div>
+                <ul class="tree-node-list">
+                    <li class="tree-item">
+                        <span class="tree-branch-icon">📄</span>
+                        <a href="https://github.com/chalaw710218/00_Master_Polaris/blob/main/00-04_Personal_Growth/%E7%AC%AC%E5%85%AB%E5%B1%86%E7%A4%BE%E5%8D%80%E5%B0%88%E6%A5%AD%E7%B6%93%E7%90%86%E4%BA%BA/%E5%85%B1%E7%94%9F%E5%AE%85%E8%A8%88%E7%95%AB%E6%9B%B8_V4_%E6%96%B0%E5%A2%9E%E8%A6%8F%E7%83%9F%E8%88%87%E6%9C%83%E5%93%A1%E5%88%B6.md" target="_blank">共生宅計畫書 V4 (新住民與多元志工規範)</a>
+                    </li>
+                    <li class="tree-item">
+                        <span class="tree-branch-icon">🔗</span>
+                        <a href="https://docs.google.com/document/d/1PTp2JtIfRUQumMDJ-0prWUAzipecuf3hTZ0Bws_XsOI/edit?usp=sharing" target="_blank">錦鸞越南美食營運優化 (Google Doc 顧問教案)</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 00-05 -->
+            <div class="project-card" data-keywords="00-05 AI教育 教學 利刃 萬象矩陣 臉書自動化 點餐教學 Tutorial TastyIgniter">
+                <div class="project-card-header">
+                    <div class="project-title-group">
+                        <span class="project-icon">🤖</span>
+                        <div>
+                            <div class="project-code">00-05_AI_Education</div>
+                            <div class="project-name">AI 教育與架構輸出</div>
+                        </div>
+                    </div>
+                    <span class="status-pill pill-live">Tutorials</span>
+                </div>
+                <div class="project-summary">極星宇宙對外教材庫：利刃篇、萬象矩陣篇、社群自動化篇、TastyIgniter 實戰篇。</div>
+                <ul class="tree-node-list">
+                    <li class="tree-item">
+                        <span class="tree-branch-icon">📄</span>
+                        <a href="https://github.com/chalaw710218/00_Master_Polaris/blob/main/00-05_AI_Education/Tutorial_04_TastyIgniter_Setup_Testing/00-05-04_TastyIgniter_Setup_And_Testing_Guide.md" target="_blank">Tutorial_04: TastyIgniter 在地化與前後台閉環實測手冊</a>
+                        <span class="tree-sub-tag">最新</span>
+                    </li>
+                    <li class="tree-item">
+                        <span class="tree-branch-icon">📄</span>
+                        <a href="https://github.com/chalaw710218/00_Master_Polaris/blob/main/00-05_AI_Education/Tutorial_01_AI_Skill_Forging/00-05-01_AI_Skill_Forging_Case_Study.md" target="_blank">Tutorial_01: AI 技能鍛造篇 (利刃商品分析)</a>
+                    </li>
+                    <li class="tree-item">
+                        <span class="tree-branch-icon">📄</span>
+                        <a href="https://github.com/chalaw710218/00_Master_Polaris/blob/main/00-05_AI_Education/Tutorial_02_Omni_Matrix_Architecture/00-05-02_Omni_Matrix_AI_Architecture.md" target="_blank">Tutorial_02: 萬象矩陣高階 AI 內閣架構篇</a>
+                    </li>
+                    <li class="tree-item">
+                        <span class="tree-branch-icon">📄</span>
+                        <a href="https://github.com/chalaw710218/00_Master_Polaris/blob/main/00-05_AI_Education/00-05-00_AI_Education_Master_Index.md" target="_blank">00-05-00 AI 教學與自動化實戰總索引</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 00-06 -->
+            <div class="project-card" data-keywords="00-06 循環經濟 二手資材 減廢 綠色 環保">
+                <div class="project-card-header">
+                    <div class="project-title-group">
+                        <span class="project-icon">♻️</span>
+                        <div>
+                            <div class="project-code">00-06_Circular_Economy</div>
+                            <div class="project-name">社區循環經濟</div>
+                        </div>
+                    </div>
+                    <span class="status-pill pill-dev">Pending</span>
+                </div>
+                <div class="project-summary">在地二手資材流通、包材回收再利用與社區綠色減廢共享機制。</div>
+                <ul class="tree-node-list">
+                    <li class="tree-item">
+                        <span class="tree-branch-icon">📁</span>
+                        <a href="https://github.com/chalaw710218/00_Master_Polaris/tree/main/00-06_Circular_Economy" target="_blank">00-06-01 在地二手資材與循環包材流轉</a>
+                    </li>
+                    <li class="tree-item">
+                        <span class="tree-branch-icon">📁</span>
+                        <a href="https://github.com/chalaw710218/00_Master_Polaris/tree/main/00-06_Circular_Economy" target="_blank">00-06-02 社區共享資源與減廢推廣</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 00-07 -->
+            <div class="project-card" data-keywords="00-07 TWQR 支付 金流 換碼 TTPUSH 台東 特約店">
+                <div class="project-card-header">
+                    <div class="project-title-group">
+                        <span class="project-icon">💳</span>
+                        <div>
+                            <div class="project-code">00-07_TWQR_Promotion</div>
+                            <div class="project-name">TWQR 電子支付推廣</div>
+                        </div>
+                    </div>
+                    <span class="status-pill pill-core">Confidential</span>
+                </div>
+                <div class="project-summary">台東 700 家特約店 TWQR 換碼戰、金流與物流客服切割之防禦性談判。</div>
+                <ul class="tree-node-list">
+                    <li class="tree-item">
+                        <span class="tree-branch-icon">🔒</span>
+                        <a href="https://docs.google.com/document/d/1IjUi2_b15aGDnIEKGjfG4AR5M3uSEzii5p48p_AbsSY/edit?usp=sharing" target="_blank">TWQR 支付整合與商業轉型 (B2B 談判紀錄)</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 00-08 -->
+            <div class="project-card" data-keywords="00-08 社區據點 家宅 公積金 自我造血 正氣北路">
+                <div class="project-card-header">
+                    <div class="project-title-group">
+                        <span class="project-icon">🏘️</span>
+                        <div>
+                            <div class="project-code">00-08_Community_Management</div>
+                            <div class="project-name">社區據點與公積金</div>
+                        </div>
+                    </div>
+                    <span class="status-pill pill-core">Base</span>
+                </div>
+                <div class="project-summary">正氣北路「家宅」實體據點運作、公積金真實帳本、社區自我造血機制。</div>
+                <ul class="tree-node-list">
+                    <li class="tree-item">
+                        <span class="tree-branch-icon">📊</span>
+                        <a href="https://docs.google.com/spreadsheets/d/1hy1FFKKzerCErfHC0m6uLCI_QURsI88zkuRLwCArJ4M/edit?usp=sharing" target="_blank">家宅公積金記帳本 (2023.11 - 2024.08)</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 00-09 -->
+            <div class="project-card" data-keywords="00-09 開源點餐 TastyIgniter GCP 伺服器 林納斯 都蘭刺蔥牛肉麵 SaaS">
+                <div class="project-card-header">
+                    <div class="project-title-group">
+                        <span class="project-icon">🍲</span>
+                        <div>
+                            <div class="project-code">00-09_Project_OpenSource_Ordering</div>
+                            <div class="project-name">開源點餐系統 (SaaS)</div>
+                        </div>
+                    </div>
+                    <span class="status-pill pill-hot">🛠️ 林納斯主掌</span>
+                </div>
+                <div class="project-summary">GCP e2-micro 免費主機架構、TastyIgniter V4 部署、刺蔥牛肉麵前後台閉環通關。</div>
+                <ul class="tree-node-list">
+                    <li class="tree-item">
+                        <span class="tree-branch-icon">📄</span>
+                        <a href="https://github.com/chalaw710218/00_Master_Polaris/blob/main/00-09_Project_OpenSource_Ordering/00-09-00_Project_Overview.md" target="_blank">00-09-00 專案總覽與買斷規避專法戰略藍圖</a>
+                    </li>
+                    <li class="tree-item">
+                        <span class="tree-branch-icon">📄</span>
+                        <a href="https://github.com/chalaw710218/00_Master_Polaris/blob/main/00-09_Project_OpenSource_Ordering/00-09-01_GCP_CloudPanel_TastyIgniter_V4_%E5%AE%8C%E6%95%B4%E9%83%A8%E7%BD%B2%E6%95%99%E5%AD%B8.md" target="_blank">00-09-01 GCP + CloudPanel + TastyIgniter V4 終極部署教學</a>
+                    </li>
+                    <li class="tree-item">
+                        <span class="tree-branch-icon">🌐</span>
+                        <a href="http://34.9.115.248.nip.io" target="_blank">實體運行站點：都蘭特色風味店示範前台</a>
+                        <span class="tree-sub-tag">運行中</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 00-10 -->
+            <div class="project-card" data-keywords="00-10 新住民 娟娟 家宅三樓 沒布島 舒肥 清潔 SOP 點數 時間銀行">
+                <div class="project-card-header">
+                    <div class="project-title-group">
+                        <span class="project-icon">🌏</span>
+                        <div>
+                            <div class="project-code">00-10_New_Immigrant_Empowerment</div>
+                            <div class="project-name">新住民培力與多元共融</div>
+                        </div>
+                    </div>
+                    <span class="status-pill pill-hot">🔥 最新戰役</span>
+                </div>
+                <div class="project-summary">台東 4,500 人新住民自立脫貧、家宅三樓文化教室、SOP 技能培訓、沒布島 5 天戰役。</div>
+                <ul class="tree-node-list">
+                    <li class="tree-item">
+                        <span class="tree-branch-icon">📄</span>
+                        <a href="https://github.com/chalaw710218/00_Master_Polaris/blob/main/00-10_New_Immigrant_Empowerment/00-10-00_New_Immigrant_Overview.md" target="_blank">00-10-00 新住民培力體系總覽與戰略藍圖</a>
+                    </li>
+                    <li class="tree-item">
+                        <span class="tree-branch-icon">📄</span>
+                        <a href="https://github.com/chalaw710218/00_Master_Polaris/blob/main/00-10_New_Immigrant_Empowerment/00-10-05_No_Cloth_Island_Campaign/README_%E5%AE%A3%E5%82%B3%E6%88%B0%E5%BD%B9%E7%B8%BD%E7%B6%B1.md" target="_blank">沒布島 5 天宣傳戰役總綱 (夏曉鵑教授共讀)</a>
+                        <span class="tree-sub-tag">進行中</span>
+                    </li>
+                    <li class="tree-item">
+                        <span class="tree-branch-icon">📁</span>
+                        <a href="https://github.com/chalaw710218/00_Master_Polaris/tree/main/00-10_New_Immigrant_Empowerment/00-10-02_Skills_Empowerment" target="_blank">00-10-02 舒肥加工與管家清潔 SOP 培訓模組</a>
+                    </li>
+                    <li class="tree-item">
+                        <span class="tree-branch-icon">📁</span>
+                        <a href="https://github.com/chalaw710218/00_Master_Polaris/tree/main/00-10_New_Immigrant_Empowerment/00-10-04_Mutual_Aid_Points" target="_blank">00-10-04 LINE 數位共生點數存摺機制</a>
+                    </li>
+                </ul>
+            </div>
+
         </div>
 
-        <!-- AI 教育 -->
-        <div class="card">
-            <div class="card-icon">🤖</div>
-            <div class="status-badge">Branch E</div>
-            <h3 class="card-title">00-05 AI Education</h3>
-            <ul class="card-list">
-                <li>教學課程模組與教材知識庫</li>
-                <li>學員常見問題與助教紀錄</li>
-            </ul>
-        </div>
+        <footer>
+            <p>00_Master_Polaris ｜ 極星宇宙高能戰情駕駛艙 V2.0 ｜ 由 執行長 雪 (Yuki) 實時維護</p>
+            <p style="margin-top: 0.5rem; color: #475569;">本系統由 Antigravity 驅動 ｜ 保持底層資料結構零污染 ｜ 永久安全鏡像</p>
+        </footer>
 
-        <!-- 循環經濟 -->
-        <div class="card">
-            <div class="card-icon">♻️</div>
-            <div class="status-badge highlight-badge">Branch F (New)</div>
-            <h3 class="card-title">00-06 Circular Economy</h3>
-            <ul class="card-list">
-                <li>在地二手資材與循環包材</li>
-                <li>社區共享資源與減廢推廣</li>
-            </ul>
-        </div>
+    </div>
 
-        <!-- TWQR -->
-        <div class="card">
-            <div class="card-icon">💳</div>
-            <div class="status-badge highlight-badge">Branch G (New)</div>
-            <h3 class="card-title">00-07 TWQR Promotion</h3>
-            <ul class="card-list">
-                <li>在地合作店家開發與導流</li>
-                <li>金流整合與營運推廣專案</li>
-            </ul>
-        </div>
-    </main>
+    <!-- 即時過濾 JavaScript (解決分枝多到忘記的痛點) -->
+    <script>
+        const searchInput = document.getElementById('searchInput');
+        const clearBtn = document.getElementById('clearSearchBtn');
+        const projectCards = document.querySelectorAll('.project-card');
+
+        searchInput.addEventListener('input', function() {
+            const query = this.value.trim().toLowerCase();
+            
+            if (query.length > 0) {
+                clearBtn.style.display = 'inline-block';
+            } else {
+                clearBtn.style.display = 'none';
+            }
+
+            projectCards.forEach(card => {
+                const keywords = card.getAttribute('data-keywords').toLowerCase();
+                const cardText = card.innerText.toLowerCase();
+                
+                if (keywords.includes(query) || cardText.includes(query)) {
+                    card.classList.remove('hidden-card');
+                } else {
+                    card.classList.add('hidden-card');
+                }
+            });
+        });
+
+        function clearSearch() {
+            searchInput.value = '';
+            clearBtn.style.display = 'none';
+            projectCards.forEach(card => card.classList.remove('hidden-card'));
+            searchInput.focus();
+        }
+    </script>
 </body>
 </html>

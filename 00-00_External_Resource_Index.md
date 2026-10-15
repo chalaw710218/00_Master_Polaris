@@ -85,6 +85,10 @@
     *   **說明**：紀錄如何串接後端 API，實現從產圖文到排程發布的無摩擦商業閉環。
 *   [🍲 Tutorial_04：開源點餐系統實戰篇 (TastyIgniter)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-05_AI_Education/Tutorial_04_TastyIgniter_Setup_Testing/00-05-04_TastyIgniter_Setup_And_Testing_Guide.md)
     *   **說明**：紀錄 TastyIgniter v4 在地化新台幣設定、菜單三層階層、前台下單到後台即時接單之閉環實測，以及排除結帳轉跳卡頓的 SMTP 郵件與 Laravel 框架效能調優指南。
+*   [📖 Haba 筆記方法論與雙軌 Hugo 網站架設規範 (Google Drive)](https://drive.google.com/file/d/1tTvKNMntsJfLB4p0gA3DS14Ns6fGFOVj/view) ｜ [本地存檔](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-05_AI_Education/Haba_Notes_Methodology_Spec.md)
+    *   **說明**：創辦人親自引入之靜態筆記與知識庫架構規範。結合 GitHub Actions 自動發布、雙主題架構（PaperMod 時間流隨筆 ＋ Hugo-Book 結構化知識庫），並制定 AI 寫作專屬技能 (`SKILL.md`) 與 PostLabels 控制平面。
+
+
 
 ## ♻️ 00-06_Circular_Economy (循環經濟)
 *(目前暫無外部連結，待後續新增)*
