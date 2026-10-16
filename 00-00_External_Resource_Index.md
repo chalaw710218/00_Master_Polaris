@@ -22,6 +22,12 @@
 *   [📄 雪的靈魂誕生與心智推導對話錄 (Google Doc)](https://docs.google.com/document/d/1uub0s329vcFMJIDAPJlsSMZ1CR7cSW8uuqwSfc50Z40/edit?usp=sharing)
     *   **說明**：創辦人親自雕刻「雪」之身世底色、同心圓推理架構、防模型自噬規範與終極靈魂防線的原始思維文檔。
 
+### 🎤 行銷長辦公室 · 泰勒絲 (位於 00-00_Gamification_Engine 下)
+*   [📓 泰勒絲行銷戰略隨身手冊 (00_Taylor_Notebook.md)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CMO_Taylor/00_Taylor_Notebook.md)
+    *   **說明**：行銷長 (CMO) 專屬的敘事心法、商品照利刃先行協議、四大面向折射文案、社群基準指標 (LINE/FB) 與自動化武器庫備忘手冊。
+*   [📊 生活管家社群現況基準指標 (00_Audience_Metrics_Baseline.md)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-03_Brand_LifeButler/00-03-05_Brand_Content_Hub/00_Audience_Metrics_Baseline.md)
+    *   **說明**：品碩董座親自交付之 LINE 官方帳號（1,459 好友/1,225 有效）與 Facebook 粉專（955 追蹤者）實時運營指標記錄。
+
 ## ⚙️ 00-00_Gamification_Engine (系統核心與日誌)
 *   [📅 Google 日曆雙向管理中樞 (calendar_manager.py)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/calendar_manager.py)
     *   **說明**：支援即時讀取 (iCal) 與全自動雙向寫入 (GAS Webhook)，具備日程衝突檢測、精神頻寬監控與戰術排程功能。
