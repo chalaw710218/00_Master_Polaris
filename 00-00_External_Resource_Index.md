@@ -118,6 +118,7 @@
     *   **說明**：集中管理生活管家台前 IP 角色陣容（01 喵編、02 闆仔、03 生活管家），包含專屬 persona 人設卡與視覺圖庫。
 *   [🐱 喵編角色卡 (01_喵編_Meow/persona.md)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-03_Brand_LifeButler/00-03-04_Brand_Characters/01_喵編_Meow/persona.md)
 *   [🧔 闆仔角色卡 (02_闆仔_Boss/persona.md)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-03_Brand_LifeButler/00-03-04_Brand_Characters/02_闆仔_Boss/persona.md)
+*   [❄️ 雪角色卡 (03_雪_Yuki/persona.md)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-03_Brand_LifeButler/00-03-04_Brand_Characters/03_雪_Yuki/persona.md)
 
 ## 📢 00-03-05_Brand_Content_Hub (品牌文案與社群調度母庫)
 *   [🏛️ 文案母庫總綱 (Overview)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-03_Brand_LifeButler/00-03-05_Brand_Content_Hub/00-03-05-00_Content_Hub_Overview.md)
