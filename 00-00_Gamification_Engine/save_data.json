@@ -1,20 +1,20 @@
 {
-  "version": "2.2",
+  "version": "2.3",
   "player_name": "Pinshuo",
   "level": 5,
   "exp": {
-    "current": 30,
+    "current": 210,
     "next_level_requirement": 250,
-    "total": 370
+    "total": 550
   },
   "gold": 0,
   "attributes": {
-    "STR": 46.0,
-    "INT": 64.0,
-    "AGI": 50.0,
-    "WILL": 57.0,
-    "CHA": 56.0,
-    "IMP": 58.0
+    "STR": 47.0,
+    "INT": 66.5,
+    "AGI": 52.0,
+    "WILL": 59.0,
+    "CHA": 58.5,
+    "IMP": 61.0
   },
   "hidden_attributes": {},
   "unspent_points": {
@@ -23,12 +23,12 @@
     "will_points": 0
   },
   "practice_stacks": {
-    "daily_str": 1,
-    "daily_int": 4,
-    "daily_agi": 5,
-    "daily_will": 4,
-    "daily_cha": 3,
-    "daily_imp": 4
+    "daily_str": 2,
+    "daily_int": 6,
+    "daily_agi": 6,
+    "daily_will": 6,
+    "daily_cha": 5,
+    "daily_imp": 6
   },
-  "notes": "【升級至 Lv.5】完成五大戰略里程碑：1. GitHub Pages V2.0 戰略駕駛艙全球上線（排查 Submodule 與 Jekyll 衝突底層修復）。 2. 00-08 家宅實體據點與公積金制度落實。 3. 00-11 逆向工程實驗室沙盒開闢。 4. 00-07 與 00-11 官網首頁撤除與遠端解綁最高等級商業脫敏。 5. 00-11 正式全權交割予工程長林納斯 (Linus)。"
+  "notes": "【2026-10-18 收工結算】完成四大里程碑：1. 實體化 00-03-04 品牌社群角色庫 (喵編/闆仔/雪/生活管家) 與專屬人設圖庫。 2. 固化 00-08-02 在地策展與品牌共生發行手冊 (三級合作與五階段漏斗)。 3. 部署 one-shot-photo-marketer 單圖全域行銷發射台技能。 4. 封裝 daily-closing-sop 每日收工閉環標準作業程序。全域資安脫敏檢驗 100% 過關。"
 }

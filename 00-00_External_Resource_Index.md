@@ -27,6 +27,8 @@
     *   **說明**：行銷長 (CMO) 專屬的敘事心法、商品照利刃先行協議、四大面向折射文案、社群基準指標 (LINE/FB) 與自動化武器庫備忘手冊。
 *   [📊 生活管家社群現況基準指標 (00_Audience_Metrics_Baseline.md)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-03_Brand_LifeButler/00-03-05_Brand_Content_Hub/00_Audience_Metrics_Baseline.md)
     *   **說明**：品碩董座親自交付之 LINE 官方帳號（1,459 好友/1,225 有效）與 Facebook 粉專（955 追蹤者）實時運營指標記錄。
+*   [🚀 單圖全域行銷發射台技能 (one-shot-photo-marketer/SKILL.md)](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/.agents/skills/one-shot-photo-marketer/SKILL.md)
+    *   **說明**：品碩僅需丟一張照片，自動分類識別、全網情報肉搜或利刃審計、調用角色庫（喵編/闆仔/雪）產出全套文案，並無縫串接臉書自動排程發布。
 
 ## ⚙️ 00-00_Gamification_Engine (系統核心與日誌)
 *   [📅 Google 日曆雙向管理中樞 (calendar_manager.py)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/calendar_manager.py)
@@ -36,6 +38,8 @@
     *   **說明**：Antigravity 總控制中心之核心底層邏輯法典。
 *   [📝 系統運行日誌 (System Operations Log)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_System_Operations_Log.md)
     *   **說明**：記錄我們所有重大戰略決策與討論里程碑的極簡日誌。
+*   [🌙 每日收工閉環標準作業程序 (daily-closing-sop/SKILL.md)](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/.agents/skills/daily-closing-sop/SKILL.md)
+    *   **說明**：品碩表示收工或休息時觸發，自動進行戰果盤點、資安審查、日誌索引歸檔、屬性結算，並一鍵打包推送至 GitHub。
 *   [🗺️ Polaris 系統總地圖](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-01_Master_Polaris_Map.md)
     *   **說明**：整個事業體的目錄導航儀。
 
@@ -108,6 +112,8 @@
 ## 🏘️ 00-08_Community_Management (社區經營)
 *   [📊 家宅公積金記帳本 (2023.11 - 2024.08)](https://docs.google.com/spreadsheets/d/1hy1FFKKzerCErfHC0m6uLCI_QURsI88zkuRLwCArJ4M/edit?usp=sharing)
     *   **說明**：真實紀錄「家宅」社區據點運作的財務帳本。揭露了常態性固定支出（場地清潔費）、共食文化（早餐、豆漿、水煎包），以及過度依賴單一注資（呂叔）與代墊（我）的脆弱現金流。此為計畫書中探討「社區據點如何建立自我造血商業模式」的絕佳痛點素材。
+*   [🎪 在地策展與品牌共生發行手冊 (00-08-02_Cooperation_Playbook.md)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-08_Community_Management/00-08-02_Cooperation_Playbook_在地策展與品牌發行協同手冊.md)
+    *   **說明**：將《島上沒有布》成功經驗固化之標準作業手冊。規範三級合作接入（基礎相挺、深度共生、商業代操）、五階段情感漏斗發行模板與私域閉環底線。
 
 
 *   [🟢 生活管家官方 LINE 點餐與客服帳號](https://lin.ee/z83YSq6)
