@@ -16,8 +16,11 @@
  │    └── 📁 00-02-02_Branch_Costco_Sourcing (分支：好市多/大宗肉品分裝與規格標籤)
  │
  ├── 📁 00-03_Brand_LifeButler (子目錄 C：品牌「生活管家，就醬點！」)
- │    ├── 📁 00-03-01_Branch_LINE_Telegram_Bot (分支：LINE Bot / Telegram 整合與自動回覆)
- │    └── 📁 00-03-02_Branch_Customer_CRM (分支：AppSheet 社區客戶管理系統)
+ │    ├── 📁 00-03-01_Marketing_Assets (分支：品牌視覺資材與識別標章)
+ │    ├── 📁 00-03-02_Branch_Customer_CRM (分支：社區客戶關係管理與名單)
+ │    ├── 📁 00-03-03_Core_Whitepaper (分支：生活管家品牌核心營運白皮書 V3.0)
+ │    ├── 📁 00-03-04_Brand_Characters (分支：品牌社群角色庫 · 喵編/闆仔/管家)
+ │    └── 📁 00-03-05_Brand_Content_Hub (分支：品牌內容調度母庫與發文矩陣)
  │
  ├── 📁 00-04_Personal_Growth (子目錄 D：個人成長與地方資源)
  │    └── 📁 00-04-01_Branch_Community_Manager (分支：社區經理人培訓與資源對接)

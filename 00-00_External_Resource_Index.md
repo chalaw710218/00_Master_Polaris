@@ -113,6 +113,12 @@
 *   [🟢 生活管家官方 LINE 點餐與客服帳號](https://lin.ee/z83YSq6)
     *   **說明**：內建微型點餐與訂購系統之官方中樞。
 
+## 🎭 00-03-04_Brand_Characters (品牌社群角色庫 · 演員班底)
+*   [🏛️ 品牌角色庫總綱 (Overview)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-03_Brand_LifeButler/00-03-04_Brand_Characters/00-03-04-00_Characters_Overview.md)
+    *   **說明**：集中管理生活管家台前 IP 角色陣容（01 喵編、02 闆仔、03 生活管家），包含專屬 persona 人設卡與視覺圖庫。
+*   [🐱 喵編角色卡 (01_喵編_Meow/persona.md)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-03_Brand_LifeButler/00-03-04_Brand_Characters/01_喵編_Meow/persona.md)
+*   [🧔 闆仔角色卡 (02_闆仔_Boss/persona.md)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-03_Brand_LifeButler/00-03-04_Brand_Characters/02_闆仔_Boss/persona.md)
+
 ## 📢 00-03-05_Brand_Content_Hub (品牌文案與社群調度母庫)
 *   [🏛️ 文案母庫總綱 (Overview)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-03_Brand_LifeButler/00-03-05_Brand_Content_Hub/00-03-05-00_Content_Hub_Overview.md)
 *   [📜 喵編社群文案總綱與產出規範 (Codex)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-03_Brand_LifeButler/00-03-05_Brand_Content_Hub/00-03-05-01_Copywriting_Codex.md)
