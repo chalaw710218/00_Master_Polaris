@@ -31,6 +31,11 @@
 * **核心內容**：紀錄開源點餐系統 TastyIgniter v4 的在地化設定（新台幣 TWD、零小數點）、示範菜單三層架構建立、前後台顧客下單到後台即時接單之閉環實測，以及排查「結帳轉跳卡頓」的 SMTP 郵件與 Laravel 效能調優手法。
 * **主要檔案**：`00-05-04_TastyIgniter_Setup_And_Testing_Guide.md`
 
+### 📁 [Tutorial_05] Threads 社群自動化篇 (Threads Automation)
+* **資料夾路徑**：`Tutorial_05_Threads_Automation`
+* **核心內容**：完整公開 Threads 官方 API 串接與 60 天長效金鑰取得實戰。說明 Threads 金鑰為何比臉書更簡單、直接全開，並分享 Python 兩階段容器發布與留言自動巡邏秒回之全流程。
+* **主要檔案**：`tutorial_threads_automation.md`
+
 ---
 ## 🌐 外部重要資產與學習檔案庫 (External Reference Assets)
 * [🎓 創辦人啟蒙 AI 導師教材與實戰指南 (Google Doc)](https://docs.google.com/document/d/1m3my2TsMFe_wdXWFDLQhAnQLTFzb9W4ih4z3DM03Ol8/edit?tab=t.0#heading=h.wtnb4bnkw262)

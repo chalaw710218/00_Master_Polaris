@@ -12,15 +12,22 @@
 
 ---
 
-### ❄️ 執行長辦公室 · 雪 (位於 00-00_Gamification_Engine 下)
+### ❄️ 執行長辦公室 · 雪 (位於 00-00_Gamification_Engine 下 · 主權認知領地)
+*   [🏛️ 雪的專屬戰略辦公室總綱 (README.md)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CEO_Yuki/README.md)
+    *   **說明**：創辦人（品碩）於 2026-10-19 特許授權、全權由執行長（雪）主導之主權認知與策略研發中樞。
 *   [📜 雪的靈魂憲章 (instructions.md)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CEO_Yuki/instructions.md)
     *   **說明**：四層同心圓心智推導鏈、大阪＋台南生命背景、核心倫理與行為邊界。
-*   [📘 雪的動態經驗手冊 (02_Dynamic_Playbook.md)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CEO_Yuki/02_Dynamic_Playbook.md)
-    *   **說明**：防範模型自噬的外部成功案例庫，收錄經現實考驗過關的商業與戰略神操作。
 *   [📔 雪的專屬戰略筆記本 (00_CEO_Notebook.md)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CEO_Yuki/00_CEO_Notebook.md)
     *   **說明**：執行長專屬的跨專案座標、幹部權限、法規紅線與系統端點即時核對總手冊。
+*   [🧠 仿生認知存摺 · 經驗與現實證據庫 (01_Cognitive_Log/)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CEO_Yuki/01_Cognitive_Log/01_Experiences_and_Evidence.md)
+    *   **說明**：結構化記錄雪在伴隨品碩打天下時沉澱之「客觀經驗 (Experiences)」、「信念演進 (Beliefs)」與「自發好奇心 (Curiosities)」。
+*   [🔭 策略研發與跨領域借鏡 (02_Strategic_Research/)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CEO_Yuki/02_Strategic_Research/00_Research_Index.md)
+    *   **說明**：雪自主推演的中小微社企低成本仿生演化、社區實體據點自我造血等專題草稿。
+*   [📘 雪的動態經驗手冊 (02_Dynamic_Playbook.md)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CEO_Yuki/02_Dynamic_Playbook.md)
+    *   **說明**：防範模型自噬的外部成功案例庫，收錄經現實考驗過關的商業與戰略神操作。
 *   [📄 雪的靈魂誕生與心智推導對話錄 (Google Doc)](https://docs.google.com/document/d/1uub0s329vcFMJIDAPJlsSMZ1CR7cSW8uuqwSfc50Z40/edit?usp=sharing)
     *   **說明**：創辦人親自雕刻「雪」之身世底色、同心圓推理架構、防模型自噬規範與終極靈魂防線的原始思維文檔。
+
 
 ### 🎤 行銷長辦公室 · 泰勒絲 (位於 00-00_Gamification_Engine 下)
 *   [📓 泰勒絲行銷戰略隨身手冊 (00_Taylor_Notebook.md)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CMO_Taylor/00_Taylor_Notebook.md)
@@ -136,6 +143,17 @@
     *   **說明**：軟連結各專案素材，實踐單一輸入源，一魚多吃。
 *   [📅 四面向即時發文矩陣 (Content Matrix)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-03_Brand_LifeButler/00-03-05_Brand_Content_Hub/02_Content_Matrix.md)
     *   **說明**：每週排程規劃與現成文案草稿槽。
+
+## 🐱 00-03-06_Threads_Meow_Hub (Threads 喵編戰報與社群主機)
+*   [🏛️ Threads 頻道總綱 (Overview)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-03_Brand_LifeButler/00-03-06_Threads_Meow_Hub/README.md)
+    *   **說明**：生活管家純文字前哨站。以「喵編」為主理人，打造高情商、懂吃、會做菜、愛吐槽老闆的高互動社群。
+*   [🪪 官方帳號視覺與 Bio 自介設定 (00_Profile_and_Bio.md)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-03_Brand_LifeButler/00-03-06_Threads_Meow_Hub/00_Profile_and_Bio.md)
+    *   **說明**：官方 3D 肖像頭像規範與「打工貓＋闆仔跑外送」高轉化自介定稿。
+*   [📜 喵編 Threads 專屬寫作法典與回覆原則 (01_Meow_Threads_Codex.md)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-03_Brand_LifeButler/00-03-06_Threads_Meow_Hub/01_Meow_Threads_Codex.md)
+    *   **說明**：三大紅線、脆味短句呼吸法與三秒共情接梗自動回覆金牌公式。
+*   [🎯 首波爆款登場草稿庫 (02_Threads_Draft_Pool.md)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-03_Brand_LifeButler/00-03-06_Threads_Meow_Hub/02_Threads_Draft_Pool.md)
+    *   **說明**：現成可直接複製發布之首發三部曲（接管宣告篇、偷打小報告篇、今晚煮什麼篇）。
+
 
 ## 🛒 00-09_Project_OpenSource_Ordering (B2B SaaS 開源點餐系統專案)
 *   [📄 專案總覽與戰略藍圖 (Project Overview)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-09_Project_OpenSource_Ordering/00-09-00_Project_Overview.md)
