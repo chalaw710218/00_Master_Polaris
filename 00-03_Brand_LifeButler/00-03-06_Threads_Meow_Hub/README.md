@@ -15,6 +15,7 @@
 ├── 01_Meow_Threads_Codex.md       # 喵編 Threads 專屬寫作法典與回覆原則 (脆味指南)
 ├── 02_Threads_Draft_Pool.md       # 即時脆文靈感庫與首波登場草稿 (首發三部曲)
 ├── 03_Published_Archive.md        # 已發布脆文與互動數據復盤
+├── 04_Shadow_Kage_Operative/      # 【影的戰術沙盒】雪的孿生對照組 ｜ 仿生學習與泰勒絲副官
 └── scripts/                       # 自動化串接腳本庫 (Threads API / 回覆機)
 ```
 

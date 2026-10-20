@@ -86,12 +86,64 @@ def upload_local_image_to_meta_cdn(image_path):
 
     return None
 
-def create_media_container(text, image_url=None, reply_to_id=None):
+def prepare_web_safe_video(video_path):
+    """
+    確保 MP4 包含 Meta Threads 要求之標準音軌 (Silent AAC)、yuv420p 色彩與 faststart header
+    """
+    import subprocess
+    path = Path(video_path)
+    if not path.exists():
+        return None
+
+    ffmpeg_bin = Path(r"C:\Python312\Lib\site-packages\imageio_ffmpeg\binaries\ffmpeg-win-x86_64-v7.1.exe")
+    if not ffmpeg_bin.exists():
+        return path
+
+    safe_path = path.parent / f"{path.stem}_safe.mp4"
+    cmd = [
+        str(ffmpeg_bin), "-y",
+        "-i", str(path),
+        "-f", "lavfi", "-i", "anullsrc=channel_layout=stereo:sample_rate=44100",
+        "-c:v", "libx264", "-pix_fmt", "yuv420p",
+        "-c:a", "aac", "-shortest",
+        "-movflags", "+faststart",
+        str(safe_path)
+    ]
+    res = subprocess.run(cmd, capture_output=True, text=True)
+    if res.returncode == 0 and safe_path.exists():
+        return safe_path
+    return path
+
+def upload_local_video_to_public_cdn(video_path):
+    """
+    將本地 MP4 短影音上傳至支援 Meta Threads 串流轉碼抓取之公開 CDN (Catbox)
+    """
+    if not video_path:
+        return None
+    if str(video_path).startswith("http://") or str(video_path).startswith("https://"):
+        return str(video_path)
+
+    safe_video = prepare_web_safe_video(video_path)
+    print(f"📤 正在將短影音託管至公開串流 CDN: {safe_video.name}...")
+    try:
+        with open(safe_video, "rb") as f:
+            r = requests.post("https://catbox.moe/user/api.php", data={"reqtype": "fileupload"}, files={"fileToUpload": f}, timeout=30)
+        if r.status_code == 200 and r.text.startswith("https://"):
+            cdn_url = r.text.strip()
+            print(f"✅ 短影音已成功託管至公開串流 CDN: {cdn_url}")
+            return cdn_url
+    except Exception as e:
+        print(f"❌ 影音託管異常: {e}")
+    return None
+
+def create_media_container(text, image_url=None, video_url=None, reply_to_id=None, topic_tag=None):
     """
     第一階段：建立 Threads 媒體容器
     :param text: 發文文字內容 (最多 500 字)
-    :param image_url: 圖片公開 URL (若有圖片，必須為可公開存取的網址)
+    :param image_url: 圖片公開 URL
+    :param video_url: 影片公開 URL (MP4 / MOV)
     :param reply_to_id: 若是回覆某則串文或留言，填入該 post/comment ID
+    :param topic_tag: Threads 官方主題標籤
     """
     if not THREADS_USER_ID or not THREADS_ACCESS_TOKEN:
         print("❌ 錯誤：尚未在 .secrets.env 中設定 THREADS_USER_ID 或 THREADS_ACCESS_TOKEN！")
@@ -103,7 +155,10 @@ def create_media_container(text, image_url=None, reply_to_id=None):
         "text": text
     }
 
-    if image_url:
+    if video_url:
+        payload["media_type"] = "VIDEO"
+        payload["video_url"] = video_url
+    elif image_url:
         payload["media_type"] = "IMAGE"
         payload["image_url"] = image_url
     else:
@@ -111,6 +166,9 @@ def create_media_container(text, image_url=None, reply_to_id=None):
 
     if reply_to_id:
         payload["reply_to_id"] = reply_to_id
+
+    if topic_tag:
+        payload["topic_tag"] = topic_tag
 
     response = requests.post(url, data=payload)
     res_data = response.json()
@@ -145,27 +203,73 @@ def publish_container(creation_id):
         print(f"❌ 發布失敗: {res_data}")
         return None
 
-def publish_thread(text, image=None, reply_to_id=None):
+def publish_thread(text, image=None, video=None, reply_to_id=None, topic_tag=None):
     """
-    完整發文流程封裝
+    完整發文流程封裝（支援純文字、高清圖片與 MP4 微動態短影音）
     :param text: 貼文內容
     :param image: 可以是公開 HTTP 網址，也可以是電腦本機的圖片路徑 (如 C:/photo.jpg)
+    :param video: 可以是公開 HTTP 網址，也可以是電腦本機的 MP4 影片路徑 (如 C:/video.mp4)
     :param reply_to_id: 可選，若為回覆特定串文填入 ID
+    :param topic_tag: 可選，Threads 官方主題分類 (例如：台東生活、生活服務、美食外送、耍廢日常、在地服務、好店推薦)
     """
     print("🚀 [喵編發射台] 準備推送貼文至 Threads...")
     
+    # 若未指定 topic_tag 且非回覆留言，啟動智慧主題判定
+    if not topic_tag and not reply_to_id:
+        text_lower = text.lower()
+        if any(k in text_lower for k in ["午仔魚", "生鮮", "外送", "煮飯", "便當", "菜單", "好吃的"]):
+            topic_tag = "美食外送"
+        elif any(k in text_lower for k in ["跑腿", "代買", "倒垃圾", "服務", "生活管家", "免跑腿"]):
+            topic_tag = "生活服務"
+        elif any(k in text_lower for k in ["貓", "闆仔", "耍廢", "日常", "偷懶"]):
+            topic_tag = "耍廢日常"
+        elif any(k in text_lower for k in ["台東", "太平洋", "正氣路", "在地", "山海"]):
+            topic_tag = "台東生活"
+        else:
+            topic_tag = "生活服務" # 預設生活服務同溫層
+
+    if topic_tag and not reply_to_id:
+        print(f"🏷️ 掛載主題標籤 (Topic Tag): > {topic_tag}")
+
+    video_url = None
     image_url = None
-    if image:
+
+    if video:
+        video_url = upload_local_video_to_public_cdn(video)
+        if not video_url:
+            print("⚠️ 影片轉載失敗，將嘗試降級為圖片或純文字！")
+
+    if not video_url and image:
         image_url = upload_local_image_to_meta_cdn(image)
         if not image_url:
             print("⚠️ 圖片轉載失敗，將改為純文字發布！")
 
-    creation_id = create_media_container(text=text, image_url=image_url, reply_to_id=reply_to_id)
+    creation_id = create_media_container(text=text, image_url=image_url, video_url=video_url, reply_to_id=reply_to_id, topic_tag=topic_tag)
     if not creation_id:
         return None
 
-    # Meta 建議在建立容器後稍微等待 2~4 秒確保容器就緒
-    time.sleep(3)
+    # 若為影片容器，必須輪詢轉碼進度 (Polling status until FINISHED)
+    if video_url:
+        print(f"⏳ 正在等待 Meta 伺服器對短影音進行轉碼 (Creation ID: {creation_id})...")
+        for i in range(25):
+            time.sleep(5)
+            check_url = f"{API_BASE}/{creation_id}?fields=status,error_message&access_token={THREADS_ACCESS_TOKEN}"
+            check_res = requests.get(check_url).json()
+            status = check_res.get("status")
+            print(f"   ↳ 轉碼進度 [{i+1}/25]: {status}")
+            if status == "FINISHED":
+                print("✨ 影音轉碼就緒！")
+                break
+            elif status == "ERROR":
+                print(f"❌ 影音轉碼失敗: {check_res}")
+                return None
+        else:
+            print("⚠️ 影音轉碼超時！")
+            return None
+    else:
+        # 圖片或純文字容器稍等 3 秒
+        time.sleep(3)
+
     return publish_container(creation_id)
 
 if __name__ == "__main__":

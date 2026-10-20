@@ -1,0 +1,266 @@
+{
+  "last_updated": "2026-10-19T18:29:40",
+  "total_captured": 185,
+  "description": "生活管家在 Threads 上主動追蹤的核心同溫層與海巡戰略目標庫（含批次一至批次五完整解構）",
+  "categories": {
+    "taitung_flagship_slow_food_and_culture": [
+      {
+        "username": "slowfoodtaitung",
+        "name": "臺東慢食節",
+        "strategic_value": "全台灣知名度與美譽度最高的產地旬味旗艦盛會！與生活管家『台版微型道之驛與關係人口旬之味訂閱（11號戰術協議）』完美契合，是品牌價值升級的最強文化錨點！"
+      },
+      {
+        "username": "sinapayan_youth",
+        "name": "sinapayan 喜拿巴漾青年工作站",
+        "strategic_value": "台東在地青年創生、部落文化傳承的重要基地，地方創生與在地青年連結點"
+      },
+      {
+        "username": "taitungstation",
+        "name": "台東站 TTSTN",
+        "strategic_value": "台東在地青年潮流、藝術、音樂與在地文化發信站"
+      },
+      {
+        "username": "travel_zztaitung",
+        "name": "台東製造",
+        "strategic_value": "台東在地人文、風土、深度生活的第一指標自媒體！無可取代的超級在地精神領袖"
+      },
+      {
+        "username": "taiwanballoonfestival",
+        "name": "臺灣國際熱氣球嘉年華",
+        "strategic_value": "全台東夏季第一超級旗艦 IP"
+      },
+      {
+        "username": "starrytaitung_",
+        "name": "StarryTaitung 台東最美星空",
+        "strategic_value": "台東縣府觀光旗艦 IP"
+      }
+    ],
+    "cat_and_lifestyle_cafes": [
+      {
+        "username": "healing.space_20...",
+        "name": "癒室 台東貓咪早午餐",
+        "strategic_value": "貓咪主題早午餐！與喵編（Meow）角色人設簡直天作之合，天然自帶貓奴高互動同溫層"
+      },
+      {
+        "username": "love_love_cat_cake",
+        "name": "小瑪莉貓的手作甜點",
+        "strategic_value": "貓咪＋手作甜點名店，喵編跨界互動必訪節點"
+      },
+      {
+        "username": "maidorwedding",
+        "name": "美朵影像婚紗",
+        "strategic_value": "在地影像創作，主理人為貓奴愛好者"
+      },
+      {
+        "username": "yuan.b778",
+        "name": "石臼一二",
+        "strategic_value": "台東指標文青老宅咖啡與手作甜點"
+      },
+      {
+        "username": "unccoffee",
+        "name": "瑰夏咖啡 GESHA COFFEE",
+        "strategic_value": "精品瑰夏咖啡專業烘焙"
+      },
+      {
+        "username": "deepcoffee241",
+        "name": "Deep coffee",
+        "strategic_value": "台東知名獨立精品咖啡店"
+      },
+      {
+        "username": "homu_cafe_",
+        "name": "和暮咖啡",
+        "strategic_value": "在地溫暖系獨立咖啡"
+      },
+      {
+        "username": "hello_hiyu",
+        "name": "海癒小村咖啡店",
+        "strategic_value": "太平洋海邊療癒咖啡廳"
+      }
+    ],
+    "taitung_specialty_agri_and_smoked_foods": [
+      {
+        "username": "riceandbear",
+        "name": "米熊共生",
+        "strategic_value": "東台灣友善生態農業與有機耕作品牌，健康食材源頭聯盟"
+      },
+      {
+        "username": "makauy1081201",
+        "name": "馬告先生鹹豬肉",
+        "strategic_value": "在地超人氣原民風味馬告鹹豬肉，生鮮真空包與特色餐飲合作夥伴"
+      },
+      {
+        "username": "956leissmoker",
+        "name": "雨田燻 Lei's Smoker",
+        "strategic_value": "關山／台東知名職人手工煙燻肉品，具強烈在地風味與高客單價潛力"
+      },
+      {
+        "username": "exiletime.963",
+        "name": "逐日鮮果",
+        "strategic_value": "在地鮮果水果商"
+      },
+      {
+        "username": "domine164",
+        "name": "DoMine 獨賣美味",
+        "strategic_value": "在地特色私房烘焙料理"
+      },
+      {
+        "username": "gratinpotato_618",
+        "name": "擁刨焗烤馬鈴薯",
+        "strategic_value": "台東夜市與特色焗烤小吃"
+      }
+    ],
+    "taitung_food_influencers_and_media": [
+      {
+        "username": "hungryyyummy",
+        "name": "台東餓人 (藍勾勾)",
+        "strategic_value": "台東最權威的在地美食指南大號！"
+      },
+      {
+        "username": "liveintaitung",
+        "name": "臺東人吃臺東",
+        "strategic_value": "在地人專屬的美食與生活社群"
+      },
+      {
+        "username": "coffee_food_with...",
+        "name": "台東美食_小吃_住宿",
+        "strategic_value": "台東在地綜合探店指南"
+      },
+      {
+        "username": "taitungeat",
+        "name": "台東美食x景點",
+        "strategic_value": "台東美食景點聚合"
+      },
+      {
+        "username": "tellit.now",
+        "name": "Tell It Now! 探店大王",
+        "strategic_value": "探店創作者"
+      }
+    ],
+    "taitung_local_food_night_and_snacks": [
+      {
+        "username": "momenteats",
+        "name": "台東時刻宵夜",
+        "strategic_value": "台東深夜宵夜代名詞！"
+      },
+      {
+        "username": "yuanlung.667",
+        "name": "台東緣龍無骨鹽酥雞",
+        "strategic_value": "台東超人氣鹽酥雞名店"
+      },
+      {
+        "username": "baosang_xiaoxiao...",
+        "name": "寶桑小小鹽酥雞",
+        "strategic_value": "寶桑路炸物老味道"
+      },
+      {
+        "username": "shuramen.taitung",
+        "name": "曙 SHU",
+        "strategic_value": "台東排隊拉麵名店"
+      },
+      {
+        "username": "taikkacp_hang_bah",
+        "name": "台客夫妻串燒",
+        "strategic_value": "在地人氣串燒與深夜宵夜"
+      },
+      {
+        "username": "sankou_food_office",
+        "name": "仨口食事處",
+        "strategic_value": "在地日式居酒屋與日式食堂"
+      },
+      {
+        "username": "tsao_min",
+        "name": "草民 Tsao Min",
+        "strategic_value": "老宅早午餐／蔬食指標"
+      },
+      {
+        "username": "box950455",
+        "name": "東食力盒子-更生店",
+        "strategic_value": "健康餐盒外送剛需"
+      },
+      {
+        "username": "threedays_2019",
+        "name": "三日酵 THREEDAYS",
+        "strategic_value": "天然酵母發酵烘焙名店"
+      },
+      {
+        "username": "bagel.chasing",
+        "name": "貝果追",
+        "strategic_value": "手作貝果名店"
+      },
+      {
+        "username": "chaiyuan_bakery",
+        "name": "柴源製菓",
+        "strategic_value": "精緻手作點心"
+      },
+      {
+        "username": "howhow_sweets",
+        "name": "好好·食甜",
+        "strategic_value": "手作甜點名店"
+      },
+      {
+        "username": "threemonths_cat",
+        "name": "三個月試用期 餐車",
+        "strategic_value": "風格餐車美食"
+      },
+      {
+        "username": "chin_san2024",
+        "name": "小陳麵舖",
+        "strategic_value": "家常麵食"
+      },
+      {
+        "username": "nice_fried_day_tai...",
+        "name": "賀雞會",
+        "strategic_value": "台東炸雞人氣店"
+      },
+      {
+        "username": "likericeball",
+        "name": "like 來顆烤飯糰",
+        "strategic_value": "特色烤飯糰"
+      },
+      {
+        "username": "ju_fu_mochi",
+        "name": "祝福麻糬",
+        "strategic_value": "傳統手工麻糬"
+      }
+    ],
+    "taitung_indigenous_and_cultural_lore": [
+      {
+        "username": "wowspangcah",
+        "name": "阿美族文化自媒體 (Pangcah)",
+        "strategic_value": "阿美族語與文化核心自媒體，深度契合 Bawsa（大自然饋贈互助）哲學！"
+      },
+      {
+        "username": "sakinu.hanaku_st...",
+        "name": "撒花工作室",
+        "strategic_value": "排灣族／南迴原民文化咖啡與工藝"
+      },
+      {
+        "username": "ms.ricewine",
+        "name": "我是「喝點米酒」",
+        "strategic_value": "在地米酒文化與部落幽默"
+      }
+    ],
+    "taitung_new_settlers_and_lifestyle_network": [
+      {
+        "username": "taitunghouse",
+        "name": "台東優質房仲",
+        "strategic_value": "新住民移居的第一手人脈樞紐"
+      },
+      {
+        "username": "backpackerdog_h...",
+        "name": "都蘭背包狗青年旅館",
+        "strategic_value": "都蘭浪人客棧傳奇"
+      },
+      {
+        "username": "hello_cornerbook",
+        "name": "街角書店 Carreau du Coin",
+        "strategic_value": "在地獨立書店文化節點"
+      },
+      {
+        "username": "claireshu0308",
+        "name": "舒夢蘭 Claire Meng",
+        "strategic_value": "金鐘主持人、自然生態生活家"
+      }
+    ]
+  }
+}

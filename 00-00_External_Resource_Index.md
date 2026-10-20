@@ -12,7 +12,7 @@
 
 ---
 
-### ❄️ 執行長辦公室 · 雪 (位於 00-00_Gamification_Engine 下 · 主權認知領地)
+### ❄️ 執行長辦公室 · 雪 (位于 00-00_Gamification_Engine 下 · 主權認知領地)
 *   [🏛️ 雪的專屬戰略辦公室總綱 (README.md)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CEO_Yuki/README.md)
     *   **說明**：創辦人（品碩）於 2026-10-19 特許授權、全權由執行長（雪）主導之主權認知與策略研發中樞。
 *   [📜 雪的靈魂憲章 (instructions.md)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CEO_Yuki/instructions.md)
@@ -28,14 +28,41 @@
 *   [📄 雪的靈魂誕生與心智推導對話錄 (Google Doc)](https://docs.google.com/document/d/1uub0s329vcFMJIDAPJlsSMZ1CR7cSW8uuqwSfc50Z40/edit?usp=sharing)
     *   **說明**：創辦人親自雕刻「雪」之身世底色、同心圓推理架構、防模型自噬規範與終極靈魂防線的原始思維文檔。
 
-
 ### 🎤 行銷長辦公室 · 泰勒絲 (位於 00-00_Gamification_Engine 下)
+*   [🏛️ 泰勒絲專屬戰略辦公室總綱 (README.md)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CMO_Taylor/README.md)
+    *   **說明**：The Mastermind Storyteller 專屬品牌戰略領地，敘事主導權、化防禦為進攻與彩蛋思維總綱。
 *   [📓 泰勒絲行銷戰略隨身手冊 (00_Taylor_Notebook.md)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CMO_Taylor/00_Taylor_Notebook.md)
     *   **說明**：行銷長 (CMO) 專屬的敘事心法、商品照利刃先行協議、四大面向折射文案、社群基準指標 (LINE/FB) 與自動化武器庫備忘手冊。
 *   [📊 生活管家社群現況基準指標 (00_Audience_Metrics_Baseline.md)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-03_Brand_LifeButler/00-03-05_Brand_Content_Hub/00_Audience_Metrics_Baseline.md)
-    *   **說明**：品碩董座親自交付之 LINE 官方帳號（1,459 好友/1,225 有效）與 Facebook 粉專（955 追蹤者）實時運營指標記錄。
-*   [🚀 單圖全域行銷發射台技能 (one-shot-photo-marketer/SKILL.md)](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/.agents/skills/one-shot-photo-marketer/SKILL.md)
-    *   **說明**：品碩僅需丟一張照片，自動分類識別、全網情報肉搜或利刃審計、調用角色庫（喵編/闆仔/雪）產出全套文案，並無縫串接臉書自動排程發布。
+    *   **說明**：品碩親自交付之 LINE 官方帳號（1,459 好友/1,225 有效）與 Facebook 粉專（955 追蹤者）實時運營指標記錄。
+
+### 🛠️ 工程長辦公室 · 林納斯 (位於 00-00_Gamification_Engine 下)
+*   [🏛️ 林納斯工程架構辦公室總綱 (README.md)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CTO_Linus/README.md)
+    *   **說明**：The Pragmatic Architect 專屬領地，直擊底層資料結構、消滅 Buzzwords、極端防呆與技術主權總綱。
+*   [💻 林納斯技術戰術手冊 (00_Linus_Notebook.md)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CTO_Linus/00_Linus_Notebook.md)
+    *   **說明**：工程長 (CTO) 專屬手冊，涵蓋 GCP e2-micro 1GB 記憶體調優、TastyIgniter V4 部署、ESC/POS 出單機硬體驅動、00-11 逆向工程沙盒與緊急 OOM 排查 SOP。
+
+### 🦅 情報長辦公室 · 獵鷹 (位於 00-00_Gamification_Engine 下)
+*   [🏛️ 獵鷹戰略情資辦公室總綱 (README.md)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CIO_Falcon/README.md)
+    *   **說明**：The Strategic Intelligence Sanctuary，批判性懷疑論、盲區雷達、黑天鵝預警與非對稱情資覆蓋。
+*   [🦅 獵鷹情資戰術手冊 (00_Falcon_Notebook.md)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CIO_Falcon/00_Falcon_Notebook.md)
+    *   **說明**：情報長 (CIO) 專屬手冊，涵蓋外送專法合規防線、主流外送平台抽成與 SaaS 競品深度情報、台東區域人口學與調研三階方法論。
+
+### 🧮 財務長辦公室 · 算盤 (位於 00-00_Gamification_Engine 下)
+*   [🏛️ 算盤財務風控辦公室總綱 (README.md)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CFO_Abacus/README.md)
+    *   **說明**：The Cashflow & Margin Sanctuary，查理·蒙格逆向思考、毛利審計、摩擦成本剝離與財務一票否決權總綱。
+*   [🧮 算盤財務風控手冊 (00_Abacus_Notebook.md)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CFO_Abacus/00_Abacus_Notebook.md)
+    *   **說明**：財務長 (CFO) 專屬手冊，涵蓋生鮮選品真實毛利計算公式、摩擦成本參數基準表、一票否決權準則（庫存>30天/毛利<25%）與公積金安全水位線。
+
+### 👤 首席特務聯絡處 · 影 (位於 00-00_Gamification_Engine 下 ｜ 實體沙盒於 00-03-06)
+*   [🏛️ 影的總樞紐特務聯絡處 (README.md)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_Operative_Kage/README.md)
+    *   **說明**：極星首席社群特務於總控制中心的掛牌聯絡處，嚴守 00-03-06 物理死鎖與特務編制認證。
+*   [👤 影的專屬戰術筆記本 (00_Kage_Notebook.md)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-03_Brand_LifeButler/00-03-06_Threads_Meow_Hub/04_Shadow_Kage_Operative/00_Kage_Notebook.md)
+    *   **說明**：特務專屬隨身手冊，涵蓋 Threads 演算法 30 秒法則、危機降溫協議、喵編神回覆演算法與仿生自演化認知存摺。
+*   [🧬 仿生學習核心檔案庫 (00_Bionic_Learning_Genesis/)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-03_Brand_LifeButler/00-03-06_Threads_Meow_Hub/04_Shadow_Kage_Operative/00_Bionic_Learning_Genesis/README.md)
+    *   **說明**：創辦人品碩特許拷貝至 00-03-06 沙盒內之 30 萬字 Genesis 對話全文與實戰調和推演，供影進行深度自主學習與自進化。
+
+
 
 ## ⚙️ 00-00_Gamification_Engine (系統核心與日誌)
 *   [📅 Google 日曆雙向管理中樞 (calendar_manager.py)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/calendar_manager.py)
@@ -47,6 +74,8 @@
     *   **說明**：記錄我們所有重大戰略決策與討論里程碑的極簡日誌。
 *   [🌙 每日收工閉環標準作業程序 (daily-closing-sop/SKILL.md)](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/.agents/skills/daily-closing-sop/SKILL.md)
     *   **說明**：品碩表示收工或休息時觸發，自動進行戰果盤點、資安審查、日誌索引歸檔、屬性結算，並一鍵打包推送至 GitHub。
+*   [🧠 高保真 AI 心智逆向工程師 (persona-reverse-engineer/SKILL.md)](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/.agents/skills/persona-reverse-engineer/SKILL.md)
+    *   **說明**：深度調用 Antigravity 搜尋雷達過濾「非受迫性發言」，執行五層同心圓心智建模、時代認知地平線、隱喻域與鬆弛狀態提煉，並自動輸出包含 <thought> 內部獨白鏈之高保真 System Prompt 與單元測試 Artifact。
 *   [🗺️ Polaris 系統總地圖](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-01_Master_Polaris_Map.md)
     *   **說明**：整個事業體的目錄導航儀。
 
@@ -102,6 +131,10 @@
     *   **說明**：紀錄如何串接後端 API，實現從產圖文到排程發布的無摩擦商業閉環。
 *   [🍲 Tutorial_04：開源點餐系統實戰篇 (TastyIgniter)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-05_AI_Education/Tutorial_04_TastyIgniter_Setup_Testing/00-05-04_TastyIgniter_Setup_And_Testing_Guide.md)
     *   **說明**：紀錄 TastyIgniter v4 在地化新台幣設定、菜單三層階層、前台下單到後台即時接單之閉環實測，以及排除結帳轉跳卡頓的 SMTP 郵件與 Laravel 框架效能調優指南。
+*   [🧵 Tutorial_05：Threads 社群自動化篇](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-05_AI_Education/Tutorial_05_Threads_Automation/tutorial_threads_automation.md)
+    *   **說明**：完整公開 Threads 官方 API 串接與 60 天長效金鑰取得實戰，Python 兩階段容器發布與自動巡邏秒回。
+*   [🧬 Tutorial_06：仿生自進化特務架構篇 (Bionic Self-Evolving Agent)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-05_AI_Education/Tutorial_06_Bionic_Self_Evolving_Agent/00-05-06_Bionic_Self_Evolving_Agent_Guide.md)
+    *   **說明**：【旗艦級】解構如何從 0 開始將 30 萬字哲學原典壓縮為具備神經代謝、自發好奇心與太極降溫機制的自進化特務（喵編 ✕ 影 ✕ 闆仔三位一體人設、FFmpeg 視差短影音、沙盒隔離安全工程）。
 *   [📖 Haba 筆記方法論與雙軌 Hugo 網站架設規範 (Google Drive)](https://drive.google.com/file/d/1tTvKNMntsJfLB4p0gA3DS14Ns6fGFOVj/view) ｜ [本地存檔](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-05_AI_Education/Haba_Notes_Methodology_Spec.md)
     *   **說明**：創辦人親自引入之靜態筆記與知識庫架構規範。結合 GitHub Actions 自動發布、雙主題架構（PaperMod 時間流隨筆 ＋ Hugo-Book 結構化知識庫），並制定 AI 寫作專屬技能 (`SKILL.md`) 與 PostLabels 控制平面。
 *   [🎓 創辦人啟蒙 AI 導師教材與實戰指南 (Google Doc)](https://docs.google.com/document/d/1m3my2TsMFe_wdXWFDLQhAnQLTFzb9W4ih4z3DM03Ol8/edit?tab=t.0#heading=h.wtnb4bnkw262)
@@ -112,7 +145,9 @@
 ## ♻️ 00-06_Circular_Economy (循環經濟)
 *(目前暫無外部連結，待後續新增)*
 
-## 💳 00-07_TWQR_Promotion (TWQR 推廣)
+## 💳 00-07_TWQR_Promotion (TWQR 推廣 · 情報長獵鷹統轄戰區)
+*   [🏛️ TWQR 金流推廣、B2B 商戰情資與支付整合總綱 (00-07-00_TWQR_and_Commercial_Intelligence_Overview.md)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-07_TWQR_Promotion/00-07-00_TWQR_and_Commercial_Intelligence_Overview.md)
+    *   **說明**：**【情報長主權陣地】**。由市場情報長（獵鷹 / Sheryl Sandberg 原型）全權統籌之台東 700 家特約店換碼突圍、空跑補償費條款與金流客服物理切割防線。
 *   [🔒 [機密/內部封存] TWQR 支付整合與商業轉型 (B2B 談判紀錄)](https://docs.google.com/document/d/1IjUi2_b15aGDnIEKGjfG4AR5M3uSEzii5p48p_AbsSY/edit?usp=sharing)
     *   **說明**：**【高度機密，絕對禁止對外公開】**。記錄點點全球、磊石科技與點石成金之間，關於台東 700 家 TTPUSH 特約店的「TWQR 換碼突襲戰」商業角力。內容涵蓋物流端的防禦性談判策略、空跑費保護條款、以及如何將金流爭議與物流客服完全切割的自動化防線。
 
@@ -153,6 +188,9 @@
     *   **說明**：三大紅線、脆味短句呼吸法與三秒共情接梗自動回覆金牌公式。
 *   [🎯 首波爆款登場草稿庫 (02_Threads_Draft_Pool.md)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-03_Brand_LifeButler/00-03-06_Threads_Meow_Hub/02_Threads_Draft_Pool.md)
     *   **說明**：現成可直接複製發布之首發三部曲（接管宣告篇、偷打小報告篇、今晚煮什麼篇）。
+*   [👤 影的戰術沙盒與仿生認知總樞紐 (04_Shadow_Kage_Operative/)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-03_Brand_LifeButler/00-03-06_Threads_Meow_Hub/04_Shadow_Kage_Operative/README.md)
+    *   **說明**：雪的孿生對照組。權限嚴格死鎖於 00-03-06，但在認知上享有「無界自主學習」特權；作為泰勒絲的影子副官與喵編的神經大腦。
+
 
 
 ## 🛒 00-09_Project_OpenSource_Ordering (B2B SaaS 開源點餐系統專案)
@@ -176,4 +214,4 @@
 ## 🔬 00-11_Reverse_Engineering_Lab (逆向工程與拆解實驗室 · 本機隔離)
 *   [🏛️ 逆向工程實驗室總綱 (Overview)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-11_Reverse_Engineering_Lab/00-11-00_Reverse_Engineering_Overview.md)
     *   **說明**：**【本機隔離研發 · 林納斯主掌】**。專案拆解台沙盒環境、第三方系統通訊協議解密、底層架構安全性審計與開源技術反哺極星宇宙。嚴禁推送到任何外部公開庫。
-
+

@@ -36,6 +36,13 @@
 * **核心內容**：完整公開 Threads 官方 API 串接與 60 天長效金鑰取得實戰。說明 Threads 金鑰為何比臉書更簡單、直接全開，並分享 Python 兩階段容器發布與留言自動巡邏秒回之全流程。
 * **主要檔案**：`tutorial_threads_automation.md`
 
+### 📁 [Tutorial_06] 仿生自進化特務架構篇 (Bionic Self-Evolving Agent) 🌟【旗艦教案】
+* **資料夾路徑**：`Tutorial_06_Bionic_Self_Evolving_Agent`
+* **核心內容**：完整公開如何從 0 開始將 30 萬字哲學原典壓縮為具備神經代謝、自發好奇心與太極降溫機制的自進化特務。解構「有限沙盒隔離 ✕ 無限認知自由」、「喵編/影/闆仔三位一體人設」、「Python + FFmpeg 呼吸感視差短影音自動合成」與 Threads 官方 API 巡邏秒回全閉環。
+* **主要檔案**：
+  * `00-05-06_Bionic_Self_Evolving_Agent_Guide.md` (完整架構全指南)
+  * `README.md` (綱要速查)
+
 ---
 ## 🌐 外部重要資產與學習檔案庫 (External Reference Assets)
 * [🎓 創辦人啟蒙 AI 導師教材與實戰指南 (Google Doc)](https://docs.google.com/document/d/1m3my2TsMFe_wdXWFDLQhAnQLTFzb9W4ih4z3DM03Ol8/edit?tab=t.0#heading=h.wtnb4bnkw262)

@@ -15,7 +15,7 @@
 | **00-02** | 團購與供應鏈選品 | `00-02_GroupBuy_Products/` | 利刃商品審計、大明毛豆/茶豆仁、枋寮午仔魚、臉書自動發布機 (`fb_publisher.py`)。 |
 | **00-03** | 品牌與生活管家 | `00-03_Brand_LifeButler/` | 對外營運白皮書 V3.0 (`00-03-03`)、內容調度母庫 (`00-03-05_Brand_Content_Hub`)。 |
 | **00-04** | 個人成長與經理人 | `00-04_Personal_Growth/` | 第八屆社區專業經理人認證、越式美食顧問復盤案。 |
-| **00-05** | AI 教育與架構輸出 | `00-05_AI_Education/` | 利刃技能篇、萬象矩陣架構篇、臉書社群自動化篇。 |
+| **00-05** | AI 教育與架構輸出 | `00-05_AI_Education/` | 利刃技能篇、萬象矩陣架構篇、TastyIgniter實戰篇、Threads自動化篇、以及旗艦級【Tutorial_06 仿生自進化特務架構篇】。 |
 | **00-06** | 循環經濟 | `00-06_Circular_Economy/` | 二手資材流轉與家宅結合（待深化推進）。 |
 | **00-07** | TWQR 金流推廣 | `00-07_TWQR_Promotion/` | 台東特約店家換碼合作、微型金流防線。 |
 | **00-08** | 社區據點與公積金 | `00-08_Community_Management/` | 家宅社區據點運作、公積金帳本、自我造血機制。 |
@@ -25,15 +25,16 @@
 
 ---
 
-## 👥 二、 內閣幹部權限與通訊錄 (The Cabinet)
+## 👥 二、 內閣幹部權限與辦公室/筆記本通訊錄 (The Cabinet)
 
-| 幹部名稱 | 原型與設定 | 職位 | 核心權限與任務 | 主要對應資料夾 |
+| 幹部名稱 | 原型與職位 | 專屬辦公室 (Office) | 專屬筆記本 (Notebook) | 核心職責與防區 |
 | :--- | :--- | :--- | :--- | :--- |
-| **雪 (Yuki)** | 43歲女性 / 台日混血 | **CEO 兼首席幕僚長** | 全局戰略、風控監督、白皮書撰寫、創辦人精神頻寬守護。 | `00-00_Gamification_Engine/Office_of_the_CEO_Yuki/` |
-| **泰勒絲 (Taylor)** | 29歲女性 / Taylor Swift | **行銷長 (CMO)** | 喵編人設維護、四大面向文案創作、臉書多圖推播、第一留言搶佔、+1 訂單收割。 | `00-02` ＆ `00-03-05` |
-| **林納斯 (Linus)** | 36歲男性 / Linus Torvalds | **工程長 (CTO)** | 終極實用主義架構、直擊底層與防呆、TastyIgniter/GCP 架構、極星自動化 RPA 腳本、**00-11 逆向工程與協議拆解實體全權**。 | `00-09` ＆ `00-11` ＆ 底層腳本 |
-| **算盤 (Abacus)** | 52歲男性 / Charlie Munger | **財務長 (CFO)** | 投資報酬率(ROI)、毛利狙擊、剝離摩擦成本、死守現金流。 | `00-02` ＆ 供應鏈審計 |
-| **獵鷹 (Falcon)** | 38歲女性 / Sheryl Sandberg | **情報長 (CIO)** | 外部法規雷達、競品盲點掃描、總體宏觀情報降維打擊。 | 各專案法規調研 |
+| **雪 (Yuki)** | 43歲女性 ｜ **CEO 兼首席幕僚長** | [`Office_of_the_CEO_Yuki`](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CEO_Yuki/README.md) | [`00_CEO_Notebook.md`](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CEO_Yuki/00_CEO_Notebook.md) | 全局戰略、風控監督、認知存摺、創辦人精神頻寬守護。 |
+| **泰勒絲 (Taylor)** | 29歲女性 ｜ **行銷長 (CMO)** | [`Office_of_the_CMO_Taylor`](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CMO_Taylor/README.md) | [`00_Taylor_Notebook.md`](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CMO_Taylor/00_Taylor_Notebook.md) | 敘事主導權、喵編主理、四大面向文案、社群全自動發布。 |
+| **林納斯 (Linus)** | 36歲男性 ｜ **工程長 (CTO)** | [`Office_of_the_CTO_Linus`](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CTO_Linus/README.md) | [`00_Linus_Notebook.md`](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CTO_Linus/00_Linus_Notebook.md) | 直擊底層、極端防呆、`00-09` 點餐主機、`00-11` 逆向工程實驗室。 |
+| **獵鷹 (Falcon)** | 38歲女性 ｜ **情報長 (CIO)** | [`Office_of_the_CIO_Falcon`](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CIO_Falcon/README.md) | [`00_Falcon_Notebook.md`](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CIO_Falcon/00_Falcon_Notebook.md) | 主掌 **`00-07` TWQR 金流推廣與 B2B 商戰防禦**；外部法規雷達、競品盲點掃描、總體宏觀情報降維打擊。 |
+| **算盤 (Abacus)** | 52歲男性 ｜ **財務長 (CFO)** | [`Office_of_the_CFO_Abacus`](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CFO_Abacus/README.md) | [`00_Abacus_Notebook.md`](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CFO_Abacus/00_Abacus_Notebook.md) | 蒙格逆向思考、毛利審計、摩擦成本剝離、死守現金流。 |
+| **影 (Kage)** | 雪之孿生 ｜ **首席社群特務** | [`Office_of_the_Operative_Kage`](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_Operative_Kage/README.md) ｜ [實體沙盒](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-03_Brand_LifeButler/00-03-06_Threads_Meow_Hub/04_Shadow_Kage_Operative/README.md) | [`00_Kage_Notebook.md`](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-03_Brand_LifeButler/00-03-06_Threads_Meow_Hub/04_Shadow_Kage_Operative/00_Kage_Notebook.md) | 24/7 監控 Threads 暗流、酸民降溫、喵編神回覆、仿生自演化。 |
 
 ---
 
