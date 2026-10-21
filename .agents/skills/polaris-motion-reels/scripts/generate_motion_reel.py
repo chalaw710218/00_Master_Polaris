@@ -159,8 +159,67 @@ def render_motion_video(image_path, output_path, duration=6.0, fps=24, motion="z
             print(f"   ↳ 渲染進度: {int((f + 1) / total_frames * 100)}% ({f + 1}/{total_frames} 幀)")
             
     writer.close()
-    print(f"✨ [Polaris Motion] 短影音合成完畢！\n📁 產出路徑: {output_path}")
+    print(f"✨ [Polaris Motion] 短影音畫面渲染完畢！\n📁 暫存路徑: {output_path}")
+
+    # 使用 FFmpeg 確保 Web-Safe 格式 (含音軌與 faststart header)
+    ffmpeg_bin = Path(r"C:\Python312\Lib\site-packages\imageio_ffmpeg\binaries\ffmpeg-win-x86_64-v7.1.exe")
+    if ffmpeg_bin.exists():
+        import subprocess
+        temp_out = Path(output_path).parent / f"{Path(output_path).stem}_raw.mp4"
+        if Path(output_path).exists():
+            os.replace(output_path, temp_out)
+            cmd = [
+                str(ffmpeg_bin), "-y",
+                "-i", str(temp_out),
+                "-f", "lavfi", "-i", "anullsrc=channel_layout=stereo:sample_rate=44100",
+                "-c:v", "libx264", "-pix_fmt", "yuv420p",
+                "-c:a", "aac", "-shortest",
+                "-movflags", "+faststart",
+                str(output_path)
+            ]
+            subprocess.run(cmd, capture_output=True)
+            if temp_out.exists():
+                os.remove(temp_out)
+            print(f"✨ [Polaris Motion] 已自動注入 Web-Safe 音訊與快速載入格式！")
+
     return output_path
+
+async def synthesize_voice_narration(text, voice_role, out_audio_path):
+    """使用 Edge-TTS 生成台灣在地高擬真神經網路語音"""
+    import edge_tts
+    role_map = {
+        "影": "zh-TW-HsiaoChenNeural",
+        "喵編": "zh-TW-HsiaoYuNeural",
+        "闆仔": "zh-TW-YunJheNeural"
+    }
+    voice_name = role_map.get(voice_role, "zh-TW-HsiaoChenNeural")
+    print(f"🎙️ [Polaris Voice] 正在合成角色旁白語音 ({voice_role} -> {voice_name})...")
+    comm = edge_tts.Communicate(text, voice_name, rate="+0%", pitch="+0Hz")
+    await comm.save(str(out_audio_path))
+    print(f"✅ 旁白音訊已生成: {out_audio_path}")
+    return out_audio_path
+
+def merge_voice_into_video(video_path, audio_path, output_path):
+    """將旁白音訊與視頻合成"""
+    import subprocess
+    ffmpeg_bin = Path(r"C:\Python312\Lib\site-packages\imageio_ffmpeg\binaries\ffmpeg-win-x86_64-v7.1.exe")
+    if not ffmpeg_bin.exists():
+        return
+    temp_video = Path(video_path).parent / f"{Path(video_path).stem}_novoc.mp4"
+    os.replace(video_path, temp_video)
+    cmd = [
+        str(ffmpeg_bin), "-y",
+        "-i", str(temp_video),
+        "-i", str(audio_path),
+        "-c:v", "copy",
+        "-c:a", "aac",
+        "-movflags", "+faststart",
+        str(output_path)
+    ]
+    subprocess.run(cmd, capture_output=True)
+    if temp_video.exists():
+        os.remove(temp_video)
+    print(f"🎉 [Polaris Motion] 聲畫多軌混音完成！輸出檔: {output_path}")
 
 def main():
     parser = argparse.ArgumentParser(description="極星微動態短影音自動合成引擎")
@@ -171,6 +230,8 @@ def main():
     parser.add_argument("--motion", choices=["zoom_in", "zoom_out", "pan_up", "breathing"], default="zoom_in", help="運鏡模式")
     parser.add_argument("--aspect", choices=["9:16", "1:1", "16:9"], default="9:16", help="影音畫面比例")
     parser.add_argument("--text", type=str, default="", help="畫面動態字幕文案")
+    parser.add_argument("--voice", choices=["影", "喵編", "闆仔", "none"], default="none", help="配音角色")
+    parser.add_argument("--narrate", type=str, default="", help="語音旁白文案")
     
     args = parser.parse_args()
     
@@ -192,6 +253,15 @@ def main():
         aspect=args.aspect,
         text=args.text
     )
+
+    # 若指定配音且有旁白文案，啟動 Edge-TTS 混音管線
+    if args.voice != "none" and args.narrate:
+        import asyncio
+        temp_audio = Path(out_path).parent / f"{Path(out_path).stem}_narration.mp3"
+        asyncio.run(synthesize_voice_narration(args.narrate, args.voice, temp_audio))
+        merge_voice_into_video(out_path, temp_audio, out_path)
+        if temp_audio.exists():
+            os.remove(temp_audio)
 
 if __name__ == "__main__":
     main()

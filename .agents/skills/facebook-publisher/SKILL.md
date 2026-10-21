@@ -133,6 +133,8 @@ else:
     sys.exit(1)
 ```
 
-### Step 5: 回報使用者與記錄歸檔
-*   若為即時發布：回報成功並提醒前往前台粉專確認。
-*   若為預約排程：回報預約成功與預計推播時間，並在 `02_Content_Matrix.md` 與 `03_Published_Archive.md` 標記為【已排程・待發布】。
+### Step 5: 回報使用者與記錄歸檔 (全自動零漏接閉環)
+*   **全自動歸檔 Hook**：腳本發布成功後，已內建自動追加寫入 `00-03_Brand_LifeButler/00-03-05_Brand_Content_Hub/00_Social_Posts_Master_Archive.md`。
+*   **人工確認/排程標記**：
+    *   若為即時發布：回報成功並提醒前往前台粉專確認。
+    *   若為預約排程：回報預約成功與預計推播時間，並在 `00_Social_Posts_Master_Archive.md` 與 `02_Content_Matrix.md` 標記為【已排程・待發布】。

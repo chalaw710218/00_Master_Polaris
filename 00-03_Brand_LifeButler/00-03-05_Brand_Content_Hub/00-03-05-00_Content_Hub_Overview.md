@@ -23,4 +23,5 @@
 
 1. **[01_Material_Seeds.md](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-03_Brand_LifeButler/00-03-05_Brand_Content_Hub/01_Material_Seeds.md)**：原始素材種子池（軟連結指向 `00-01`、`00-02`、`00-09` 等各區真實資產）。
 2. **[02_Content_Matrix.md](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-03_Brand_LifeButler/00-03-05_Brand_Content_Hub/02_Content_Matrix.md)**：四面向即時發文排程與現成草稿庫。
-3. **[03_Published_Archive.md](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-03_Brand_LifeButler/00-03-05_Brand_Content_Hub/03_Published_Archive.md)**：已發布文章庫存與二次利用（短影音/官網轉載）追蹤。
+3. **[00_Social_Posts_Master_Archive.md](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-03_Brand_LifeButler/00-03-05_Brand_Content_Hub/00_Social_Posts_Master_Archive.md)**：**【核心總庫】** 全域社群發布文案歷史全集（收錄 `00-02` 選品與 `00-10` 文化策展所有完整貼文、圖文與留言，內建發布即歸檔 Hook，零漏接）。
+4. **[03_Published_Archive.md](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-03_Brand_LifeButler/00-03-05_Brand_Content_Hub/03_Published_Archive.md)**：已發布文章庫存與二次利用（短影音/官網轉載）追蹤。

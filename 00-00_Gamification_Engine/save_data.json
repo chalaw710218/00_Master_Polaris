@@ -1,34 +1,34 @@
 {
   "version": "2.5",
   "player_name": "Pinshuo",
-  "level": 6,
+  "level": 7,
   "exp": {
-    "current": 270,
-    "next_level_requirement": 300,
-    "total": 860
+    "current": 50,
+    "next_level_requirement": 350,
+    "total": 940
   },
   "gold": 86,
   "attributes": {
-    "STR": 48.5,
-    "INT": 71.5,
-    "AGI": 56.0,
-    "WILL": 62.5,
-    "CHA": 62.5,
-    "IMP": 65.5
+    "STR": 50.0,
+    "INT": 75.0,
+    "AGI": 58.5,
+    "WILL": 65.5,
+    "CHA": 65.0,
+    "IMP": 69.0
   },
   "hidden_attributes": {},
   "unspent_points": {
-    "level_points": 2,
-    "knowledge_points": 2,
+    "level_points": 3,
+    "knowledge_points": 3,
     "will_points": 1
   },
   "practice_stacks": {
-    "daily_str": 4,
-    "daily_int": 9,
-    "daily_agi": 9,
-    "daily_will": 9,
-    "daily_cha": 8,
-    "daily_imp": 9
+    "daily_str": 5,
+    "daily_int": 10,
+    "daily_agi": 10,
+    "daily_will": 10,
+    "daily_cha": 9,
+    "daily_imp": 10
   },
-  "notes": "【2026-10-21 每日結算】圓滿達成五大戰略戰役：1. 鍛造高保真心智逆向工程師 (persona-reverse-engineer) 技能。 2. 情報長獵鷹 (Sheryl Sandberg) 心智高保真升級並全權統轄 00-07 TWQR 商戰防區（防空跑＋客服物理切割）。 3. 00 遊戲化引擎屬性評分模型與世界觀標尺全域校準。 4. 極星內閣全體情感共鳴與同舟問候。 5. 編撰發布旗艦級【Tutorial_06 仿生自進化特務架構篇】，將 30 萬字哲學原典、沙盒死鎖與視差短影音全流程代碼化沉澱。"
+  "notes": "【2026-10-22 每日結算】1. 突破供應鏈底層難題：進貨分期沖銷解耦、BOM物料倍率轉換、物流配送80%與。 2. 完成「無損安全熱升級」，守護 617 筆真實訂單。 3. 全面通關 Google 官方服務帳號 (polaris-bot)，完成 polaris_workspace_hub.py，實體在原生 Google 試算表完成【北極星連線驗收】即時寫入！創辦人榮升 Lv. 7！"
 }

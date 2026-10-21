@@ -89,6 +89,7 @@ def publish_post_with_first_comment(message, image_paths=None, first_comment=Non
     
     # 3. 自動發布第一留言 (First Comment 模組)
     comment_text = first_comment if first_comment is not None else DEFAULT_FIRST_COMMENT
+    comment_id = None
     if comment_text.strip():
         print("💬 正在自動搶佔第一留言 (First Comment)...")
         url_comment = f'https://graph.facebook.com/v20.0/{post_id}/comments'
@@ -99,11 +100,57 @@ def publish_post_with_first_comment(message, image_paths=None, first_comment=Non
         r_comment = requests.post(url_comment, data=comment_payload)
         comment_res = r_comment.json()
         if 'id' in comment_res:
+            comment_id = comment_res['id']
             print(f"✅ 第一留言發布成功！Comment ID: {comment_res['id']}")
         else:
             print(f"⚠️ 第一留言發布未成功: {comment_res}")
             
+    # 4. 全自動不漏接歸檔 Hook (寫入 00-03-05 歷史總庫)
+    _auto_archive_post(post_id, message, image_paths, comment_text, comment_id)
+            
     return True, post_id
+
+def _auto_archive_post(post_id, message, image_paths=None, comment_text=None, comment_id=None):
+    """發布成功後，全自動追加寫入 00-03-05 社群全集總庫，確保 100% 零漏接"""
+    try:
+        from datetime import datetime
+        now_str = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        p = Path(__file__).resolve()
+        archive_path = None
+        for parent in [p] + list(p.parents):
+            target = parent / "00-03_Brand_LifeButler" / "00-03-05_Brand_Content_Hub" / "00_Social_Posts_Master_Archive.md"
+            if target.exists():
+                archive_path = target
+                break
+        if not archive_path:
+            return
+            
+        first_line = message.strip().split('\n')[0][:50]
+        entry = f"""
+
+---
+
+### 📝 【自動補登】Facebook 貼文 ({now_str})
+* **發布日期**：{now_str} ｜ **平台**：Facebook 粉專「生活的一部分，就醬點！」
+* **貼文 ID**：`{post_id}`{f" ｜ **第一留言 ID**：`{comment_id}`" if comment_id else ""}
+* **主題摘要**：{first_line}...
+* **搭配素材**：{image_paths if image_paths else "純文字貼文"}
+* **【發布全文】**：
+```text
+{message}
+```
+"""
+        if comment_text:
+            entry += f"""* **【第一則留言 (First Comment)】**：
+```text
+{comment_text}
+```
+"""
+        with open(archive_path, 'a', encoding='utf-8') as f:
+            f.write(entry)
+        print(f"🗄️ [自動歸檔] 已無縫同步寫入 00-03-05 社群發布歷史總庫！")
+    except Exception as e:
+        print(f"⚠️ 自動歸檔略過 (不影響主發布流程): {e}")
 
 if __name__ == '__main__':
     print("臉書自動發文機 V2.0 (含第一留言模組) 測試載入完成。")

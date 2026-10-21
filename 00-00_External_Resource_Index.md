@@ -67,6 +67,12 @@
 ## ⚙️ 00-00_Gamification_Engine (系統核心與日誌)
 *   [📅 Google 日曆雙向管理中樞 (calendar_manager.py)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/calendar_manager.py)
     *   **說明**：支援即時讀取 (iCal) 與全自動雙向寫入 (GAS Webhook)，具備日程衝突檢測、精神頻寬監控與戰術排程功能。
+*   [📬 Gmail 智慧郵件情報中樞 (email_manager.py)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/email_manager.py)
+    *   **說明**：透過 SSL IMAP 安全協定讀取郵件，具備高層郵件日報生成、附件追蹤，並自動將信件分派至算盤（財務審計）、獵鷹（法規公文）與泰勒絲（品牌行銷）。
+*   [⚡ Google Workspace 雙向讀寫中樞 (polaris_workspace_hub.py)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/polaris_workspace_hub.py)
+    *   **說明**：透過 Google 官方服務帳號 (polaris-bot)，賦予全體內閣夥伴自由建立、讀取、修改與追加 Google 試算表與 Google 文件的完整自動化能力。
+*   [📊 生活管家·系統化管理 V3 原生 Google 試算表](https://docs.google.com/spreadsheets/d/1-UE-TGLP510NBnt1AEkkj2cQrDasWjKLVFyA5P4kD6A/edit)
+    *   **說明**：【全線打通連線】涵蓋 13 張工作表、617 筆歷史訂單、BOM 物料換算、進貨分期沖銷、車手 80% 抽成與  公積金自動化核算之即時線上中樞。
 
 *   [📖 獨自升級遊戲化引擎規則庫 V2 (Google Doc)](https://docs.google.com/document/d/1Ex0dg1_BoiviugEL0wgt_QhuKAGi7VnMar-BHE0TyHY/edit?usp=sharing)
     *   **說明**：Antigravity 總控制中心之核心底層邏輯法典。
@@ -82,6 +88,8 @@
 ---
 
 ## 🛒 00-02_GroupBuy_Products (團購與商品供應鏈)
+*   [📦 點點訂單自動化核銷與客戶數據中心 (00-02-09-00_Order_Hub_Overview.md)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-02_GroupBuy_Products/00-02-09_Order_and_Customer_Hub/00-02-09-00_Order_Hub_Overview.md)
+    *   **說明**：【蒙格財務長親自核可】自動攔截點點點 (notify@dotdot.cc) Email，0.2 秒解析完整品項、金額與預約取餐，自動對比客戶資料庫並登錄帳本，徹底消滅手動打單摩擦成本。
 *   [🧠 萬用 AI 供應鏈價格逆推與審計協議 (系統文件)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-02_GroupBuy_Products/00-02-00_Universal_AI_Pricing_Audit_Protocol.md)
     *   **說明**：我們共同開發的談判殺手鐧，內含萬用對話模版與對手 AI 逆向推導邏輯。
 *   [🥩 AI 供應鏈定價逆推實戰紀錄 (Google Doc)](https://docs.google.com/document/d/1THho9-I3Jp7xd0ciB9HtyfDCHJRcMld0NZmyry_0zX0/edit?usp=sharing)
@@ -92,6 +100,8 @@
 ---
 
 ## 🚚 00-01_Logistics_System (物流與配送)
+*   [🏛️ 寶桑物流與車隊交付總綱 (00-01-00_Logistics_System_Overview.md)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-01_Logistics_System/00-01-00_Logistics_System_Overview.md)
+    *   **說明**：【物流交付端中樞】遵照 00-03-03 白皮書 Stage 1&2 建置之車隊營運總綱，收錄 4/1 費率調整、都蘭路線擴展、AppSheet 派單後台與外送專法 3PL 解耦合規防禦架構。
 *   [📦 家宅＋團購落地計劃書 (原始定稿版)](https://docs.google.com/document/d/16gIJYl4QAKjxukbYu6LuuiEA87LZnNuy/edit?usp=sharing)
     *   **說明**：寶桑物流旗下據點「家宅」的初始營運企劃，涵蓋冷鏈集單、到府交付與公基金制度（註：目前實際營運已與此初版有所偏離，作為歷史對照與優化參考）。
 *   [📱 寶桑車隊 AppSheet 派單與結算系統 (原型)](https://docs.google.com/document/d/1VGpsUDVcteloUXf8NGK92rNRHVXkdx60Q4nUWCuiew8/edit?usp=sharing)
@@ -109,6 +119,8 @@
 
 
 ## ✨ 00-03_Brand_LifeButler (品牌與社區管家)
+*   [📰 全域社群發文中央總存檔庫 (00_Social_Posts_Master_Archive.md)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-03_Brand_LifeButler/00-03-05_Brand_Content_Hub/00_Social_Posts_Master_Archive.md)
+    *   **說明**：【全域單一真理來源 (SSOT)】集中收錄並自動歸檔生活管家全體社群發文（涵蓋 00-02 團購選品、00-10 新住民公益共生、日常走心貼文等完整圖文、文案、發布序號與第一則留言引流劇本）。
 *   [🤵 生活服務管家 商業白皮書 (v1.0)](https://docs.google.com/document/d/1bVahdVXGXXMlqZo3Ut2r5dRLjOPWy2mU/edit?usp=sharing)
     *   **說明**：寶桑物流與家宅結合的「在地履約網路」藍圖。主打以 LINE 為入口、機車車隊履約、非抽成制的代辦/代送服務（註：實務營運與此白皮書有落差，將作為計畫書撰寫的「理想與現實對照」關鍵素材）。
 *   [🎯 AI 團購獲客行銷策略 (暫緩執行版)](https://docs.google.com/document/d/1mXUHTny9PRYFJDHO467CewXxsjB0s6Nb2kgUdcCpsas/edit?usp=sharing)
@@ -143,7 +155,8 @@
 
 
 ## ♻️ 00-06_Circular_Economy (循環經濟)
-*(目前暫無外部連結，待後續新增)*
+*   [🏛️ 社區循環經濟與綠色實踐總綱 (00-06-00_Circular_Economy_Overview.md)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-06_Circular_Economy/00-06-00_Circular_Economy_Overview.md)
+    *   **說明**：【與自然共升理念陣地】遵照 00-03-03 白皮書 Stage 2 規劃，以家宅為核心之二手包材流轉、紙箱回收借還、社區惜食分享與減廢推廣總綱。
 
 ## 💳 00-07_TWQR_Promotion (TWQR 推廣 · 情報長獵鷹統轄戰區)
 *   [🏛️ TWQR 金流推廣、B2B 商戰情資與支付整合總綱 (00-07-00_TWQR_and_Commercial_Intelligence_Overview.md)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-07_TWQR_Promotion/00-07-00_TWQR_and_Commercial_Intelligence_Overview.md)
@@ -152,6 +165,8 @@
     *   **說明**：**【高度機密，絕對禁止對外公開】**。記錄點點全球、磊石科技與點石成金之間，關於台東 700 家 TTPUSH 特約店的「TWQR 換碼突襲戰」商業角力。內容涵蓋物流端的防禦性談判策略、空跑費保護條款、以及如何將金流爭議與物流客服完全切割的自動化防線。
 
 ## 🏘️ 00-08_Community_Management (社區經營)
+*   [🏛️ 家宅實體據點與公積金營運總綱 (00-08-00_Community_Management_Overview.md)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-08_Community_Management/00-08-00_Community_Management_Overview.md)
+    *   **說明**：【家宅實體中樞】管理家宅 1F 物流取貨、2F 辦公生活、3F 新住民教室之分區營運、水電公積金制度與自我造血商業循環。
 *   [📊 家宅公積金記帳本 (2023.11 - 2024.08)](https://docs.google.com/spreadsheets/d/1hy1FFKKzerCErfHC0m6uLCI_QURsI88zkuRLwCArJ4M/edit?usp=sharing)
     *   **說明**：真實紀錄「家宅」社區據點運作的財務帳本。揭露了常態性固定支出（場地清潔費）、共食文化（早餐、豆漿、水煎包），以及過度依賴單一注資（呂叔）與代墊（我）的脆弱現金流。此為計畫書中探討「社區據點如何建立自我造血商業模式」的絕佳痛點素材。
 *   [🎪 在地策展與品牌共生發行手冊 (00-08-02_Cooperation_Playbook.md)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-08_Community_Management/00-08-02_Cooperation_Playbook_在地策展與品牌發行協同手冊.md)
@@ -163,6 +178,8 @@
 
 ## 🎭 00-03-04_Brand_Characters (品牌社群角色庫 · 演員班底)
 *   [🏛️ 品牌角色庫總綱 (Overview)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-03_Brand_LifeButler/00-03-04_Brand_Characters/00-03-04-00_Characters_Overview.md)
+*   [📜 跨資料夾協同憲章與視覺真理來源協定 (Charter)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-03_Brand_LifeButler/00-03-04_Brand_Characters/00_Cross_Folder_Collaboration_Charter.md)
+    *   **說明**：【全域最高約束】解決跨資料夾割裂、資訊孤島與生成照片不一致之頂層協定。確立 00-00 內閣為心智大腦、00-03-04 為角色視覺唯一真理來源 (SSOT)，並規定官方團隊合照法定 7 席位（6 人 ＋ 1 貓）與 3D 院線電影動畫統一風格。
     *   **說明**：集中管理生活管家台前 IP 角色陣容（01 喵編、02 闆仔、03 生活管家），包含專屬 persona 人設卡與視覺圖庫。
 *   [🐱 喵編角色卡 (01_喵編_Meow/persona.md)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-03_Brand_LifeButler/00-03-04_Brand_Characters/01_喵編_Meow/persona.md)
 *   [🧔 闆仔角色卡 (02_闆仔_Boss/persona.md)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-03_Brand_LifeButler/00-03-04_Brand_Characters/02_闆仔_Boss/persona.md)
@@ -170,6 +187,8 @@
 
 ## 📢 00-03-05_Brand_Content_Hub (品牌文案與社群調度母庫)
 *   [🏛️ 文案母庫總綱 (Overview)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-03_Brand_LifeButler/00-03-05_Brand_Content_Hub/00-03-05-00_Content_Hub_Overview.md)
+*   [📰 全域社群發文中央總存檔庫 (Master Archive)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-03_Brand_LifeButler/00-03-05_Brand_Content_Hub/00_Social_Posts_Master_Archive.md)
+    *   **說明**：【全域單一真理來源 (SSOT)】集中收錄生活管家全通路已發布貼文（00-02 選品 ＋ 00-10 新住民公益等 12 篇文案、圖片、Post ID 與留言劇本），並與發布 API 勾子實時綁定自動無感歸檔。
 *   [📜 喵編社群文案總綱與產出規範 (Codex)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-03_Brand_LifeButler/00-03-05_Brand_Content_Hub/00-03-05-01_Copywriting_Codex.md)
     *   **說明**：完美整合 00-03 原版品牌禁語、雙向對話、四面向交錯與呼吸節奏之最高寫作法典。
 *   [📝 喵編管家語氣雕琢與四面向文案實戰對話錄 (Google Doc)](https://docs.google.com/document/d/1nVIQuE2_gmVLrpY3GGcd_Yk2eO9PxD0x2C8U_tyPE0Q/edit?usp=sharing)

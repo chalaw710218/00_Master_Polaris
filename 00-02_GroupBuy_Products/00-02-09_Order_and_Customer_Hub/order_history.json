@@ -1,0 +1,122 @@
+{
+  "0286525063": {
+    "processed_at": "2026-10-21T16:51:59.444809",
+    "order_id": "0286525063",
+    "order_number": "7",
+    "user_name": "芷琳",
+    "user_phone": "+886900000000",
+    "order_time": "2026-10-21 16:14",
+    "take_meal_time": "2026-10-22 15:00",
+    "amount": 670,
+    "payment_type": "現場（尚未付款）",
+    "products": [
+      {
+        "name": "國產清雞胸肉（3kg裝）",
+        "qty": 1,
+        "price": 420
+      },
+      {
+        "name": "豬梅花火鍋肉片(1kg裝)",
+        "qty": 1,
+        "price": 250
+      }
+    ],
+    "comment": "無"
+  },
+  "0286524691": {
+    "processed_at": "2026-10-21T16:52:01.108090",
+    "order_id": "0286524691",
+    "order_number": "6",
+    "user_name": "zoe",
+    "user_phone": "+886972939611",
+    "order_time": "2026-10-21 16:11",
+    "take_meal_time": "2026-10-22 16:40",
+    "amount": 670,
+    "payment_type": "現場（尚未付款）",
+    "products": [
+      {
+        "name": "國產清雞胸肉（3kg裝）",
+        "qty": 1,
+        "price": 420
+      },
+      {
+        "name": "國產豬梅花1cm厚切肉排(1kg裝)",
+        "qty": 1,
+        "price": 250
+      }
+    ],
+    "comment": "無"
+  },
+  "0286454847": {
+    "processed_at": "2026-10-21T16:52:02.411177",
+    "order_id": "0286454847",
+    "order_number": "5",
+    "user_name": "杜蕙君",
+    "user_phone": "+886900000000",
+    "order_time": "2026-10-21 11:03",
+    "take_meal_time": "2026-10-22 15:00",
+    "amount": 246,
+    "payment_type": "現場（尚未付款）",
+    "products": [
+      {
+        "name": "台灣產冷凍茶豆仁",
+        "qty": 1,
+        "price": 54
+      },
+      {
+        "name": "屏東枋寮直送｜特級活凍午仔魚",
+        "qty": 1,
+        "price": 129
+      },
+      {
+        "name": "都蘭村",
+        "qty": 1,
+        "price": 63
+      }
+    ],
+    "comment": "無"
+  },
+  "0286454419": {
+    "processed_at": "2026-10-21T16:52:03.843531",
+    "order_id": "0286454419",
+    "order_number": "4",
+    "user_name": "Judy",
+    "user_phone": "+886900000000",
+    "order_time": "2026-10-21 11:02",
+    "take_meal_time": "2026-10-22 15:00",
+    "amount": 575,
+    "payment_type": "現場（尚未付款）",
+    "products": [
+      {
+        "name": "屏東枋寮直送｜特級活凍午仔魚",
+        "qty": 4,
+        "price": 129
+      },
+      {
+        "name": "台灣產頂級鹽味毛豆",
+        "qty": 1,
+        "price": 59
+      }
+    ],
+    "comment": "無"
+  },
+  "0286304726": {
+    "processed_at": "2026-10-21T16:52:05.165194",
+    "order_id": "0286304726",
+    "order_number": "3",
+    "user_name": "饅頭妹-鞏貞君",
+    "user_phone": "0921579305",
+    "order_time": "2026-10-20 18:36",
+    "take_meal_time": "2026-10-22 15:00",
+    "amount": 840,
+    "payment_type": "現場（尚未付款）",
+    "products": [
+      {
+        "name": "國產清雞胸肉（3kg裝）",
+        "qty": 2,
+        "price": 420
+      }
+    ],
+    "comment": "無"
+  }
+}

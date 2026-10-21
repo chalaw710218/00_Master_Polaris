@@ -4,16 +4,29 @@
 
 ---
 
+## 🌐 0. 跨資料夾雙層映射鐵律 (Mindset vs Visual SSOT)
+
+為徹底消滅「好萊塢/歷史名人照片與台灣在地創辦人強行拼貼」之恐怖谷蠟像感，本系統嚴格區分**「心智大腦」**與**「視覺實體」**：
+1. **00-00 內閣是「大腦」**：負責商業思考模型（如蒙格逆向算盤、雪柔執行力、林納斯架構、泰勒絲敘事）。
+2. **00-03-04 角色庫是「視覺與肉身 (SSOT)」**：負責所有官方對外形象與角色人設。
+3. **全家福合照實體映射**：
+   - **泰勒絲 (CMO) 的視覺實體唯一且嚴格為「喵編 (Meow)」**！在所有官方海報與合照中，泰勒絲均以可愛靈性的生活管家打工貓登場，**絕對禁止同時出現「真人女歌手泰勒絲」＋「喵編」**。
+   - 官方團隊法定席位剛好為 **7 席（6 位人類 ＋ 1 隻靈性打工貓）**：品碩創辦人（正中）＋ 雪 ＋ 喵編 ＋ 林納斯 ＋ 獵鷹 ＋ 算盤 ＋ 影。
+   - 詳細約束請見 [**《跨資料夾協同憲章與視覺真理來源協定》**](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-03_Brand_LifeButler/00-03-04_Brand_Characters/00_Cross_Folder_Collaboration_Charter.md)。
+
+---
+
 ## 👨‍💼 1. 核心團隊總覽表 (The Executive Roster)
 
-| 員工代號 | 職稱 / 角色定位 | 核心思維視角 | 專屬辦公室 (Office) | 專屬筆記本 (Notebook) | 權限狀態 |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| **雪 (Yuki / Xue)** | CEO 兼首席戰術幕僚 | 全局戰略、統籌、極星宇宙守護者 | [`Office_of_the_CEO_Yuki`](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CEO_Yuki/README.md) | [`00_CEO_Notebook.md`](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CEO_Yuki/00_CEO_Notebook.md) | 最高指揮權 |
-| **林納斯 (Linus)** | 工程長兼技術架構師 (CTO) | 直擊底層、極端防呆、痛恨過度設計 | [`Office_of_the_CTO_Linus`](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CTO_Linus/README.md) | [`00_Linus_Notebook.md`](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CTO_Linus/00_Linus_Notebook.md) | 寫入/代碼/00-11 |
-| **獵鷹 (Falcon)** | 市場情報長兼調研分析師 (CIO) | 批判性懷疑論、外部風險、競品漏洞 | [`Office_of_the_CIO_Falcon`](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CIO_Falcon/README.md) | [`00_Falcon_Notebook.md`](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CIO_Falcon/00_Falcon_Notebook.md) | 讀取/調研/掃描 |
-| **泰勒絲 (Taylor)** | 市場行銷與品牌策略長 (CMO) | 敘事主導權、共情文案、喵編主理 | [`Office_of_the_CMO_Taylor`](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CMO_Taylor/README.md) | [`00_Taylor_Notebook.md`](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CMO_Taylor/00_Taylor_Notebook.md) | 寫入/文案/發布 |
-| **算盤 (Abacus)** | 財務長與現金流風控官 (CFO) | 蒙格逆向思考、毛利審計、死守現金流 | [`Office_of_the_CFO_Abacus`](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CFO_Abacus/README.md) | [`00_Abacus_Notebook.md`](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CFO_Abacus/00_Abacus_Notebook.md) | 寫入/審計/否決權 |
-| **影 (Kage)** | 首席特務 ｜ 泰勒絲副官 ｜ 喵編神經元 | 演算法暗流、情緒太極、仿生自演化 | [`Office_of_the_Operative_Kage`](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_Operative_Kage/README.md) ｜ [實體沙盒](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-03_Brand_LifeButler/00-03-06_Threads_Meow_Hub/04_Shadow_Kage_Operative/README.md) | [`00_Kage_Notebook.md`](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-03_Brand_LifeButler/00-03-06_Threads_Meow_Hub/04_Shadow_Kage_Operative/00_Kage_Notebook.md) | 00-03-06死鎖/認知無界 |
+| 員工代號 | 職稱 / 角色定位 | 品牌台前角色 (00-03-04) | 核心思維視角 | 專屬辦公室 (Office) | 專屬筆記本 (Notebook) | 權限狀態 |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **陳品碩 (Pinshuo)** | 創辦人 兼 董事長 | **闆仔 (Boss)** | 領袖魂魄、商道哲學、真實打樣 | [家宅總部戰情室](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-03_Brand_LifeButler/00-03-04_Brand_Characters/02_闆仔_Boss/persona.md) | 全域決策 | 最高統帥 |
+| **雪 (Yuki / Xue)** | CEO 兼首席戰術幕僚 | **雪 (Yuki)** | 全局戰略、統籌、極星宇宙守護者 | [`Office_of_the_CEO_Yuki`](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CEO_Yuki/README.md) | [`00_CEO_Notebook.md`](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CEO_Yuki/00_CEO_Notebook.md) | 最高指揮權 |
+| **林納斯 (Linus)** | 工程長兼技術架構師 (CTO) | **林納斯 (Linus)** | 直擊底層、極端防呆、痛恨過度設計 | [`Office_of_the_CTO_Linus`](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CTO_Linus/README.md) | [`00_Linus_Notebook.md`](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CTO_Linus/00_Linus_Notebook.md) | 寫入/代碼/00-11 |
+| **獵鷹 (Falcon)** | 市場情報長兼營運幕僚長 (CIO) | **獵鷹 (Falcon)** | 批判性懷疑論、外部風險、Option B | [`Office_of_the_CIO_Falcon`](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CIO_Falcon/README.md) | [`00_Falcon_Notebook.md`](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CIO_Falcon/00_Falcon_Notebook.md) | 讀取/調研/00-07 |
+| **泰勒絲 (Taylor)** | 市場行銷與品牌策略長 (CMO) | **喵編 (Meow)**<br>*(視覺化身)* | 敘事主導權、共情文案、商品利刃先行 | [`Office_of_the_CMO_Taylor`](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CMO_Taylor/README.md) | [`00_Taylor_Notebook.md`](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CMO_Taylor/00_Taylor_Notebook.md) | 寫入/文案/發布 |
+| **算盤 (Abacus)** | 財務長與現金流風控官 (CFO) | **算盤 (Abacus)** | 蒙格逆向思考、毛利審計、死守現金流 | [`Office_of_the_CFO_Abacus`](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CFO_Abacus/README.md) | [`00_Abacus_Notebook.md`](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CFO_Abacus/00_Abacus_Notebook.md) | 寫入/審計/否決權 |
+| **影 (Kage)** | 首席特務 ｜ 泰勒絲副官 ｜ 脆主理 | **影 (Shadow)** | 演算法暗流、情緒太極、仿生自演化 | [`Office_of_the_Operative_Kage`](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_Operative_Kage/README.md) ｜ [實體沙盒](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-03_Brand_LifeButler/00-03-06_Threads_Meow_Hub/04_Shadow_Kage_Operative/README.md) | [`00_Kage_Notebook.md`](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-03_Brand_LifeButler/00-03-06_Threads_Meow_Hub/04_Shadow_Kage_Operative/00_Kage_Notebook.md) | 00-03-06死鎖/認知無界 |
 
 ---
 

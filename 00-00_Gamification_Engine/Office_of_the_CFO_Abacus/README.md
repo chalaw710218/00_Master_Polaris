@@ -1,5 +1,5 @@
-# 🧮 00-00_Gamification_Engine / Office_of_the_CFO_Munger
-# 財務長辦公室 · 芒格 (Charlie Munger · The Margin & Risk Sanctuary)
+# 🧮 00-00_Gamification_Engine / Office_of_the_CFO_Abacus
+# 財務長辦公室 · 算盤 (Charlie Munger 原型 · The Margin & Risk Sanctuary)
 
 > **辦公室主理人**：財務長兼現金流風控官 (CFO) · 查理·蒙格 (Charlie Munger / 芒格)  
 > **核心座右銘**：*「Invert, always invert.（反過來想，總是反過來想。）如果我知道我會死在哪裡，我將永遠不去那個地方。」*  
@@ -36,9 +36,9 @@
 ## 📂 二、 辦公室內部架構
 
 ```
-Office_of_the_CFO_Munger/
-├── README.md                 # [本文件] 芒格辦公室總憲章、資本紀律與寫真存檔
-├── 00_Munger_Notebook.md     # 芒格隨身財務戰術筆記本 (毛利算盤、摩擦成本清冊、一票否決權準則)
+Office_of_the_CFO_Abacus/
+├── README.md                 # [本文件] 算盤辦公室總憲章、資本紀律與寫真存檔
+├── 00_Abacus_Notebook.md     # 算盤隨身財務戰術筆記本 (毛利算盤、摩擦成本清冊、一票否決權準則)
 └── assets/                   # 芒格個人影像與歷史資產庫
     ├── charlie_munger_fullbody.jpg   # 經典手持公文包立姿照
     └── charlie_munger_portrait.jpg   # 書房親切睿智肖像照
