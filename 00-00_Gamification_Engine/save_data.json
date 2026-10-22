@@ -1,20 +1,20 @@
 {
-  "version": "2.5",
+  "version": "2.6",
   "player_name": "Pinshuo",
   "level": 7,
   "exp": {
-    "current": 50,
+    "current": 170,
     "next_level_requirement": 350,
-    "total": 940
+    "total": 1060
   },
-  "gold": 86,
+  "gold": 106,
   "attributes": {
-    "STR": 50.0,
-    "INT": 75.0,
-    "AGI": 58.5,
-    "WILL": 65.5,
-    "CHA": 65.0,
-    "IMP": 69.0
+    "STR": 50.6,
+    "INT": 76.5,
+    "AGI": 60.0,
+    "WILL": 67.0,
+    "CHA": 66.5,
+    "IMP": 70.5
   },
   "hidden_attributes": {},
   "unspent_points": {
@@ -23,12 +23,12 @@
     "will_points": 1
   },
   "practice_stacks": {
-    "daily_str": 5,
-    "daily_int": 10,
-    "daily_agi": 10,
-    "daily_will": 10,
-    "daily_cha": 9,
-    "daily_imp": 10
+    "daily_str": 6,
+    "daily_int": 1,
+    "daily_agi": 1,
+    "daily_will": 1,
+    "daily_cha": 0,
+    "daily_imp": 1
   },
-  "notes": "【2026-10-22 每日結算】1. 突破供應鏈底層難題：進貨分期沖銷解耦、BOM物料倍率轉換、物流配送80%與。 2. 完成「無損安全熱升級」，守護 617 筆真實訂單。 3. 全面通關 Google 官方服務帳號 (polaris-bot)，完成 polaris_workspace_hub.py，實體在原生 Google 試算表完成【北極星連線驗收】即時寫入！創辦人榮升 Lv. 7！"
+  "notes": "【2026-10-23 每日結算·甲子大統攝】1. 品碩親跑外送第一線實體勞動與配送（STR+0.6）。 2. 全體內閣完成 60 輪甲子大統攝（CTO 林納斯、CFO 算盤、CIO 獵鷹、CMO 泰勒絲、CEO 雪全數大成）。 3. Master RFC #001 獲批、母版躍遷 v5.2 全域安全版，建立全息歷史金庫與全域跨視窗技能註冊。 4. 熟練度累積滿 10 次觸發 5 項屬性大突破（INT、AGI、WILL、IMP、CHA 各 +1.0），AGI 突破 60 大關、IMP 突破 70 大關！累積總經驗值突破 1,060 EXP，金幣達 106 Gold。"
 }
