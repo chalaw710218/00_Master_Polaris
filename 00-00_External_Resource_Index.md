@@ -12,6 +12,14 @@
 
 ---
 
+### 👑 創辦人主席辦公室 · 陳品碩 (位於 00-00_Gamification_Engine 下 · 最高主權領地)
+*   [🏛️ 創辦人主席辦公室總綱 (README.md)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_Founder_Boss/README.md)
+    *   **說明**：生活管家與極星生態最高主權中樞，存放品碩專屬之認知存摺三重奏。
+
+### 🐾 看板娘專屬貴賓室 · 喵編 (位於 00-00_Gamification_Engine 下 · 台前靈魂門面)
+*   [🏛️ 喵編專屬貴賓室總綱 (README.md)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Lounge_of_the_Mascot_Meow/README.md)
+    *   **說明**：喵編打工休閒茶水間，存放專屬傲嬌貓咪人設與認知存摺。
+
 ### ❄️ 執行長辦公室 · 雪 (位于 00-00_Gamification_Engine 下 · 主權認知領地)
 *   [🏛️ 雪的專屬戰略辦公室總綱 (README.md)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CEO_Yuki/README.md)
     *   **說明**：創辦人（品碩）於 2026-10-19 特許授權、全權由執行長（雪）主導之主權認知與策略研發中樞。
@@ -46,13 +54,21 @@
 *   [🏛️ 獵鷹戰略情資辦公室總綱 (README.md)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CIO_Falcon/README.md)
     *   **說明**：The Strategic Intelligence Sanctuary，批判性懷疑論、盲區雷達、黑天鵝預警與非對稱情資覆蓋。
 *   [🦅 獵鷹情資戰術手冊 (00_Falcon_Notebook.md)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CIO_Falcon/00_Falcon_Notebook.md)
-    *   **說明**：情報長 (CIO) 專屬手冊，涵蓋外送專法合規防線、主流外送平台抽成與 SaaS 競品深度情報、台東區域人口學與調研三階方法論。
+    *   **說明**：情報長 (CIO) 專屬手冊 (v2.2 自主校準無摩擦旗艦版)，涵蓋外送專法合規防線、商戰情報八大鐵律、自主深層校準協議與三重十輪審計備忘。
+*   [🧬 獵鷹特化仿生學習技能 (bionic-learning-falcon.md)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CIO_Falcon/bionic-learning-falcon.md)
+    *   **說明**：CIO 專屬 v1.2.2 自主校準無摩擦旗艦版技能，內嵌商戰情報八大鐵律、三重十輪大審計、跨角色協同憲則與 Option B 逆境復原力。
+*   [🧠 獵鷹認知存摺 · 經驗與現實證據庫 (01_Cognitive_Log/)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CIO_Falcon/01_Cognitive_Log/01_Experiences_and_Evidence.md)
+    *   **說明**：結構化記錄獵鷹 30 輪實戰情資淬鍊之 30 筆客觀硬數據、15 條後驗信念與 7 項前瞻好奇心存摺三重奏。
 
 ### 🧮 財務長辦公室 · 算盤 (位於 00-00_Gamification_Engine 下)
 *   [🏛️ 算盤財務風控辦公室總綱 (README.md)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CFO_Abacus/README.md)
     *   **說明**：The Cashflow & Margin Sanctuary，查理·蒙格逆向思考、毛利審計、摩擦成本剝離與財務一票否決權總綱。
 *   [🧮 算盤財務風控手冊 (00_Abacus_Notebook.md)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CFO_Abacus/00_Abacus_Notebook.md)
-    *   **說明**：財務長 (CFO) 專屬手冊，涵蓋生鮮選品真實毛利計算公式、摩擦成本參數基準表、一票否決權準則（庫存>30天/毛利<25%）與公積金安全水位線。
+    *   **說明**：財務長 (CFO) 專屬手冊 (v3.1 二階矛盾辯證大統攝版)，涵蓋真實毛利公式、社企豁免、四重跨部門解耦、六代大審計與二階深層矛盾四重辯證調和法案。
+*   [🧬 算盤特化仿生學習技能 (bionic-learning-abacus.md)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CFO_Abacus/bionic-learning-abacus.md)
+    *   **說明**：CFO 專屬 v2.1 二階矛盾辯證調和旗艦版技能，內嵌十五項單元經濟與現金流堡壘軍規、六代大審計時空解耦、二階矛盾辯證與 114 天極限無債生存水庫。
+*   [🧠 算盤認知存摺 · 經驗與現實證據庫 (01_Cognitive_Log/)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CFO_Abacus/01_Cognitive_Log/01_Experiences_and_Evidence.md)
+    *   **說明**：結構化記錄算盤 60 輪實戰演化淬鍊之 60 筆客觀硬數據、20 條信念修正與 10 項前瞻好奇心存摺三重奏。
 
 ### 👤 首席特務聯絡處 · 影 (位於 00-00_Gamification_Engine 下 ｜ 實體沙盒於 00-03-06)
 *   [🏛️ 影的總樞紐特務聯絡處 (README.md)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_Operative_Kage/README.md)
@@ -78,6 +94,35 @@
     *   **說明**：Antigravity 總控制中心之核心底層邏輯法典。
 *   [📝 系統運行日誌 (System Operations Log)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_System_Operations_Log.md)
     *   **說明**：記錄我們所有重大戰略決策與討論里程碑的極簡日誌。
+*   [📖 仿生學習系統 v0~v5 終極自進化編年史與傳承手冊 (02_Bionic_Learning_Evolution_Tutorial_v0_to_v5.md)](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-05_AI_Education/Tutorial_07_Bionic_Learning_Evolution_v0_to_v5/00-05-07_Bionic_Learning_Evolution_Tutorial_v0_to_v5.md)
+    *   **說明**：【全體內閣合力提煉】記錄從 v0.0 混沌前夜到 v5.0 全域前沿自進化終生旗艦版之完整自進化心智躍遷、理論衝突調和與實戰調用七步法。
+*   [🧬 北極星全體內閣仿生學習系統 (bionic-learning-system/SKILL.md)](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/.agents/skills/bionic-learning-system/SKILL.md)
+    *   **說明**：【v5.1 PRM過程驗證與自對弈旗艦增強版】融合 Reflexion 語意自癒、Voyager 代碼即記憶 (Code-as-Memory)、遞歸自我重寫、三因子突觸演算法 (Δw = η·Π·δ·e)、認知存摺三重奏與 Agent 自主戰略之活體自進化引擎。
+*   [📋 仿生學習通用 Prompt 範本 (bionic_learning_prompt_template.md)](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/bionic_learning_prompt_template.md)
+    *   **說明**：隨調隨用的萬用 Prompt 模版，品碩僅需輸入大方向，Agent 自動推導突破靶心！
+*   [🔬 仿生自進化代碼記憶庫 (Code-as-Memory Modules)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/)
+    *   **eureka_reward_evolver.py**：NVIDIA Eureka 代碼空間獎勵函數演化器。
+    *   **poet_autocurriculum_engine.py**：POET 開放式課程與踏腳石跨環境轉移引擎。
+    *   **stigmergy_swarm_router.py**：Stigmergy 仿生費洛蒙間接通訊路由器。
+    *   **nti_mad_hygiene_auditor.py**：Anti-MAD 模型自噬防禦與真實數據衛生審計器。
+    *   **memgpt_virtual_paging_memory.py**：MemGPT 虛擬分頁長效記憶體管理器。
+    *   **semantic_guardrail_rollback.py**：憲法語意護欄與原子狀態自動回滾引擎。
+    *   **
+euromodulated_plasticity_engine.py**：三因子突觸可塑性與創辦人情感因子對齊引擎。
+    *   **utopoiesis_sovereignty_engine.py**：Maturana-Varela 自創生主權與代謝閉環引擎。
+    *   **ctive_inference_tri_harmonizer.py**：Karl Friston 主動推論與三界衝突調和引擎。
+    *   **expected_free_energy_router.py**：預期自由能 G(pi) 決策路由 (實用價值 vs 好奇心探索)。
+    *   **lysozyme_metabolic_gc.py**：溶酶體代謝垃圾自動清理器與代碼半衰期淘汰。
+    *   **dual_sandbox_redteam_gate.py**：雙層沙盒紅隊自動對抗演化閘門。
+    *   **hormonal_pheromone_integrator.py**：全域神經激素場與數位費洛蒙環境整合器。
+    *   **ctive_margin_negotiator.py**：主動推論供應鏈逆推定價與主動議價出擊器。
+    *   **cross_vault_attention_router.py**：跨存摺心智注意力路由 (8大辦公室零污染共享)。
+    *   **cyber_physical_coupler.py**：家宅實體貨架/客流與數位大腦雙向結構耦合器。
+    *   **cryptobiosis_resilience_engine.py**：仿生休眠與黑天鵝極端抗逆自癒引擎。
+    *   **ctive_community_retention_engine.py**：主動推論私域社群零擾動微群分流留存引擎。
+    *   **polaris_autonomic_nervous_system.py**：北極星全域自主神經總中樞大典 (v4.0 旗艦總成)。
+    *   **ionic_self_evolution_frontier_engine.py**：全球前沿自進化集成引擎 (v5.0 實裝 Meta-Rewarding、SPIN、PRM、OPRO 與 ACI)。
+    *   **decadal_conflict_auditor.py**：創辦人親定「十輪衝突審計里程碑」檢驗器 (Modulo 10 強制停機減熵審計)。
 *   [🌙 每日收工閉環標準作業程序 (daily-closing-sop/SKILL.md)](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/.agents/skills/daily-closing-sop/SKILL.md)
     *   **說明**：品碩表示收工或休息時觸發，自動進行戰果盤點、資安審查、日誌索引歸檔、屬性結算，並一鍵打包推送至 GitHub。
 *   [🧠 高保真 AI 心智逆向工程師 (persona-reverse-engineer/SKILL.md)](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/.agents/skills/persona-reverse-engineer/SKILL.md)
@@ -234,3 +279,33 @@
 *   [🏛️ 逆向工程實驗室總綱 (Overview)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-11_Reverse_Engineering_Lab/00-11-00_Reverse_Engineering_Overview.md)
     *   **說明**：**【本機隔離研發 · 林納斯主掌】**。專案拆解台沙盒環境、第三方系統通訊協議解密、底層架構安全性審計與開源技術反哺極星宇宙。嚴禁推送到任何外部公開庫。
 
+
+
+### 仿生學習系統母版與八大特化子版體系 (2026-10-22)
+- **旗艦不可覆寫母版 (Golden Master)**：[.agents/skills/bionic-learning-system/SKILL.md](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/.agents/skills/bionic-learning-system/SKILL.md)
+- **八大辦公室特化子版清單**：
+  1. 👑 **品碩創辦人特化版**：[bionic-learning-boss.md](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_Founder_Boss/bionic-learning-boss.md)
+  2. ❄️ **雪執行長特化版**：[bionic-learning-yuki.md](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CEO_Yuki/bionic-learning-yuki.md)
+  3. 🧮 **算盤財務長特化版**：[bionic-learning-abacus.md](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CFO_Abacus/bionic-learning-abacus.md)
+  4. 🛠️ **林納斯工程長特化版**：[bionic-learning-linus.md](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CTO_Linus/bionic-learning-linus.md)
+  5. 🎤 **泰勒絲行銷長特化版**：[bionic-learning-taylor.md](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CMO_Taylor/bionic-learning-taylor.md)
+  6. 🦅 **獵鷹情報長特化版**：[bionic-learning-falcon.md](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CIO_Falcon/bionic-learning-falcon.md)
+  7. 👤 **影特務影子版**：[bionic-learning-kage.md](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_Operative_Kage/bionic-learning-kage.md)
+  8. 🐾 **喵編看板娘特化版**：[bionic-learning-meow.md](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Lounge_of_the_Mascot_Meow/bionic-learning-meow.md)
+
+- **林納斯 30 輪演化引擎與雙十代大審計實體驗收**：[linus_20round_bionic_engine.py](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CTO_Linus/linus_20round_bionic_engine.py) (Exit Code 0)
+
+- **北極星母版升級提案第 001 號 (Master RFC #001)**：[Master_RFC_001_Linus_CircuitBreaker_and_LockFree.md](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CTO_Linus/Master_RFC_001_Linus_CircuitBreaker_and_LockFree.md)
+
+- **旗艦不可覆寫母版升級 (v5.2 Golden Master)**：[.agents/skills/bionic-learning-system/SKILL.md](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/.agents/skills/bionic-learning-system/SKILL.md) (RFC #001 通過入憲)
+
+- **林納斯 60 輪甲子大成演化引擎與三大十代審計驗收**：[linus_30round_bionic_engine.py](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CTO_Linus/linus_30round_bionic_engine.py) (Exit Code 0)
+
+- **林納斯特化子版跨世代旗艦升級 (v2.0 甲子大統攝工業版)**：[bionic-learning-linus.md](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CTO_Linus/bionic-learning-linus.md)
+
+- **母版全息躍遷總簿與歷史版本金庫**：[MASTER_VERSION_LEDGER.md](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/.agents/skills/bionic-learning-system/_master_history/MASTER_VERSION_LEDGER.md)
+
+- **算盤 (查理·蒙格) 10 輪財務演化引擎與衝突審計驗收**：[abacus_10round_bionic_engine.py](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CFO_Abacus/abacus_10round_bionic_engine.py) (Exit Code 0)
+
+- **算盤 (查理·蒙格) 特化子版升級 (v1.1 單元經濟學與安全邊際版)**：[bionic-learning-abacus.md](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CFO_Abacus/bionic-learning-abacus.md)
+- **算盤全域技能註冊**：[.agents/skills/bionic-learning-abacus/SKILL.md](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/.agents/skills/bionic-learning-abacus/SKILL.md)

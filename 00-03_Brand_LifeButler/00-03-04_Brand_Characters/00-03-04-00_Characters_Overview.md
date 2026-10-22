@@ -55,4 +55,6 @@
 * **【2D 漫畫插畫版】合體海報**：`trio_master_poster_comic_2d.jpg`（182cm 黑西裝闆仔 ＋ 175cm 霧藍長髮雪 ＋ 抱魚小喵編，粉專置頂、立牌與印刷專用）
 * **【寫實電影 3D 版】合體海報**：`trio_master_poster_cinematic_3d.jpg`（好萊塢院線大片級 Live-Action 質感，官網 Hero Banner、年度形象片與商務提案專用）
 * **【真實生活感全家福合照】**：`trio_family_photo_realistic.jpg`（台東正氣北路生活站點門前午後實拍，溫暖日常人情溫度，品牌故事與團隊簡介專用）
-* **【極星核心內閣全員終極大合照】**：`cabinet_grand_family_portrait.jpg`（闆仔 ＋ 雪 ＋ 喵編 ＋ 林納斯 ＋ 獵鷹 ＋ 算盤 ＋ 影，全體 7 位核心內閣齊聚之史詩級官方全家福）
+* **【寫實電影 3D 版全體成員大合照】**：`cabinet_cinematic_3d_family_photo.jpg`（依各角色 3D 建模立繪生成，台東景觀露台午後暖陽下 16:9 影視級全體 7 位成員終極大合照）
+* **【高對比黑黃雙色剪影藝術海報】**：`cabinet_silhouette_black_yellow.jpg`（極簡版畫與絲網印刷風格，人物純黑剪影 vs 鮮明暖金黃背景，強烈視覺衝擊力之旗艦主視覺海報）
+

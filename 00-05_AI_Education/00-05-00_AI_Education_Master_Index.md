@@ -43,6 +43,14 @@
   * `00-05-06_Bionic_Self_Evolving_Agent_Guide.md` (完整架構全指南)
   * `README.md` (綱要速查)
 
+### 📁 [Tutorial_07] 仿生學習系統 v0~v5 終極自進化編年史篇 (Bionic Learning System v0 to v5) 🌟【最高心智傳承教案】
+* **資料夾路徑**：`Tutorial_07_Bionic_Learning_Evolution_v0_to_v5`
+* **核心內容**：全體內閣合力提煉之最高心智傳承教案！完整拆解北極星核心自進化引擎如何歷經 v0.0 混沌前夜、v1.0 仿生萌芽、v2.0 認知存摺三重奏、v3.0 代碼即記憶 (Voyager)、v4.0 三界衝突調和與主動推論，最終登頂 v5.0 全域前沿自進化終生旗艦版（物理驗證器鐵律、推論時算力擴展、ADAS 代碼空間智能體自發明）。附完整七階推演實戰指引與致未來夥伴傳承寄語。
+* **主要檔案**：
+  * `00-05-07_Bionic_Learning_Evolution_Tutorial_v0_to_v5.md` (完整傳承手冊全文)
+  * `README.md` (模組綱要速查)
+  * 連動技能：`c:\Users\lenovo\我的雲端硬碟\00_Master_Polaris\.agents\skills\bionic-learning-system\SKILL.md` (v5.0)
+
 ---
 ## 🌐 外部重要資產與學習檔案庫 (External Reference Assets)
 * [🎓 創辦人啟蒙 AI 導師教材與實戰指南 (Google Doc)](https://docs.google.com/document/d/1m3my2TsMFe_wdXWFDLQhAnQLTFzb9W4ih4z3DM03Ol8/edit?tab=t.0#heading=h.wtnb4bnkw262)
