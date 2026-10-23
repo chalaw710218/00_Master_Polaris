@@ -263,6 +263,16 @@ euromodulated_plasticity_engine.py**：三因子突觸可塑性與創辦人情�
 
 
 
+## ⚖️ 00-03-07_5D_AI_Pricing_Hub (5D AI 價值精算與智慧判讀中樞)
+*   [🏛️ 5D 判讀中樞總綱 (README.md)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-03_Brand_LifeButler/00-03-07_5D_AI_Pricing_Hub/README.md)
+    *   **說明**：生活管家直面客戶委託的核心定價與智慧判讀大腦。將口語委託瞬間轉化為確定性定價與防彈客服話術。
+*   [🤖 5D AI 裁判長系統提示詞 (01_AI_Interpreter_Prompt.md)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-03_Brand_LifeButler/00-03-07_5D_AI_Pricing_Hub/01_AI_Interpreter_Prompt.md)
+    *   **說明**：專門調校給 AI 的五維情境逆推、隱形摩擦力拆解、Rule 1~4 檢核與話術生成 Prompt。
+*   [📂 4 大黃金基準官方案例庫 (02_Canonical_Cases/)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-03_Brand_LifeButler/00-03-07_5D_AI_Pricing_Hub/02_Canonical_Cases/)
+    *   **說明**：收錄送藥案、公車總站常規餐點、2,400 元高價餐點、當日都蘭 80 分鐘急件等實戰範本。
+*   [⚡ 5D 判讀命令列快取工具 (scripts/run_interpret.py)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-03_Brand_LifeButler/00-03-07_5D_AI_Pricing_Hub/scripts/run_interpret.py)
+    *   **說明**：本地端秒級讀取口語委託文字，調用 5D 確定性引擎輸出結構化報告與一鍵複製話術。
+
 ## 🛒 00-09_Project_OpenSource_Ordering (B2B SaaS 開源點餐系統專案)
 *   [📄 專案總覽與戰略藍圖 (Project Overview)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-09_Project_OpenSource_Ordering/00-09-00_Project_Overview.md)
     *   **說明**：記錄如何透過「一次性安裝費 + 計次維護」的買斷模式，為店家架站，藉此徹底規避外送專法。
