@@ -48,7 +48,7 @@ def parse_task_text(text: str) -> dict:
     從客人口語委託中提煉初步 5D 參數，供 5D 引擎精算
     """
     params = {
-        "base_minutes": 35.0,
+        "base_minutes": 36.0,  # 0.6 hr (涵蓋常規接單、前往、等候與配送之總顯隱工時)
         "d1_friction": 1.0,
         "d2_difficulty": 1.0,
         "d3_degree": 1.0,
@@ -72,26 +72,30 @@ def parse_task_text(text: str) -> dict:
         if "代墊" in text or "先付" in text or "付給" in text or val >= 500:
             params["advance_payment"] = val
 
-    # 2. 跨運具 / 公車總站
+    # 2. 跨運具 / 公車總站 (D1 設為 0.6 hr 總站待命規格)
     if "公車" in text or "總站" in text or "客運" in text or "火車站" in text or "鼎東" in text:
-        params["d1_friction"] = 1.5
         params["task_name"] = "跨運具站台代收直送"
         params["d5_delight"] = 1.1
 
-    # 3. 藥品 / 醫療 / 諮詢
+    # 3. 現做熟食 / 便當 / 餐點（賞味時效保鮮，D4=1.2）
+    if "便當" in text or "餐點" in text or "食物" in text or "熟食" in text or "熱食" in text or "吃" in text:
+        if not params["is_urgent"]:
+            params["d4_development"] = 1.2
+
+    # 4. 藥品 / 醫療 / 諮詢 (需向藥師轉述溝通，D3=1.1)
     if "藥" in text or "診所" in text or "醫院" in text or "扭傷" in text or "看診" in text:
         params["d3_degree"] = 1.1
         params["task_name"] = "專業藥品諮詢與代買配送"
-        params["d5_delight"] = 1.2
+        params["d5_delight"] = 1.1
 
-    # 4. 急件 / 臨時插單
+    # 5. 急件 / 臨時插單 (D4 狂飆至 1.6)
     if "急" in text or "立刻" in text or "馬上" in text or "臨時" in text or "剛上車" in text or "快到了" in text:
         params["is_urgent"] = True
         params["d4_development"] = 1.6
         params["d5_delight"] = 1.2
         params["task_name"] = "當日緊急調度專車急件"
 
-    # 5. 高價品判定
+    # 6. 高價品判定 (毀損賠償高，D2=1.5)
     if params["item_value"] >= 2000:
         params["d2_difficulty"] = 1.5
         if not params["is_urgent"]:
