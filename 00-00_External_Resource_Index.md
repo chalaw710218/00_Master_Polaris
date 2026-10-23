@@ -90,6 +90,12 @@
 *   [📊 生活管家·系統化管理 V3 原生 Google 試算表](https://docs.google.com/spreadsheets/d/1-UE-TGLP510NBnt1AEkkj2cQrDasWjKLVFyA5P4kD6A/edit)
     *   **說明**：【全線打通連線】涵蓋 13 張工作表、617 筆歷史訂單、BOM 物料換算、進貨分期沖銷、車手 80% 抽成與  公積金自動化核算之即時線上中樞。
 
+*   [📖 創辦人原創 · 5D 價值精算（估價）時間矩陣 (Google Doc)](https://docs.google.com/document/d/1_4XDfAnMBFbrG1Ln_oJ24ETo74Oba19rNR-3i5YxSSE/edit?usp=sharing)
+    *   **說明**：創辦人（品碩）親自原創之全方位專案價值與勞務成本精算系統。涵蓋 D1 工時摩擦力、D2 風險勞力、D3 專業技術、D4 急迫影響力、D5 情緒安心度與防彈衣四大鐵律。
+*   [🧮 北極星 5D 價值精算引擎技能 (polaris-5d-pricing-engine/SKILL.md)](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/.agents/skills/polaris-5d-pricing-engine/SKILL.md)
+    *   **說明**：【全域技能】將 5D 矩陣、TP 時間點數、四大防彈原則、高價代墊風控紅線與防禦型客服話術模板全面入憲。
+*   [⚡ 5D 確定性演算法引擎 (polaris_5d_pricing_engine.py)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/polaris_5d_pricing_engine.py)
+    *   **說明**：純 Python 確定性演算法核心，秒級精算 TP 點數、建議價格、代墊款紅黃綠風控警告，並自動生成防彈對客話術。通過 4 大官方案例 100% 驗證。
 *   [📖 獨自升級遊戲化引擎規則庫 V2 (Google Doc)](https://docs.google.com/document/d/1Ex0dg1_BoiviugEL0wgt_QhuKAGi7VnMar-BHE0TyHY/edit?usp=sharing)
     *   **說明**：Antigravity 總控制中心之核心底層邏輯法典。
 *   [📝 系統運行日誌 (System Operations Log)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_System_Operations_Log.md)
