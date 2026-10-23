@@ -53,7 +53,7 @@ image_paths = [
 ]
 
 # 2. 貼文文案
-message = \"\"\"這裡放純文字文案（嚴禁外連網址）\"\"\"
+message = """這裡放純文字文案（嚴禁外連網址）"""
 
 # 3. 排程設定（若為即時發布，設為 None；若為排程發布，填入指定 datetime 物件）
 SCHEDULED_TIME = None  # 例如: datetime.datetime(2026, 10, 16, 12, 0, 0)

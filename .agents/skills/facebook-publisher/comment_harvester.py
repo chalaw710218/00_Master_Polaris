@@ -2,9 +2,19 @@ import requests
 import json
 import csv
 import os
+import sys
 from pathlib import Path
 from datetime import datetime
-from order_parser import process_raw_comments
+
+# 確保同目錄模組 order_parser 可被正確匯入 (無論自何處調用)
+_CUR_DIR = Path(__file__).resolve().parent
+if str(_CUR_DIR) not in sys.path:
+    sys.path.insert(0, str(_CUR_DIR))
+
+try:
+    from order_parser import process_raw_comments
+except ImportError:
+    from .order_parser import process_raw_comments
 
 # ==========================================
 # 👑 【生活管家】+1 留言訂單收割機 (Order Harvester)
