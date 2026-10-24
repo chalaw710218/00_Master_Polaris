@@ -1,0 +1,48 @@
+{
+  "last_updated": "2026-10-25T01:16:00+08:00",
+  "rule": "創辦人（品碩）親定鐵律：發文圖片絕對不可重複使用！每篇貼文必須使用全新未發布過的獨特圖片。",
+  "published_images": [
+    {
+      "filename": "shadow_master_portrait.jpg",
+      "published_at": "2026-10-19",
+      "post_id": "18382679092238383",
+      "topic": "附圖首發篇"
+    },
+    {
+      "filename": "shadow_casual_lifestyle.jpg",
+      "published_at": "2026-10-20",
+      "post_id": "18394604479200338",
+      "topic": "小編（影）午後自白篇"
+    },
+    {
+      "filename": "meow_typhoon_window.jpg",
+      "published_at": "2026-10-22",
+      "post_id": "18063073280658428",
+      "topic": "颱風天窗邊膠帶篇"
+    },
+    {
+      "filename": "meow_midnight_typhoon_watch.jpg",
+      "published_at": "2026-10-23",
+      "post_id": "18055627192806584",
+      "topic": "颱風夜值班守護篇"
+    },
+    {
+      "filename": "meow_afternoon_calm.jpg",
+      "published_at": "2026-10-23",
+      "post_id": "18064560737678519",
+      "topic": "颱風走後午後寧靜篇"
+    },
+    {
+      "filename": "meow_dusk_festival_wait.jpg",
+      "published_at": "2026-10-24",
+      "post_id": "17900912370608025",
+      "topic": "慢食節延期暮色守候篇"
+    },
+    {
+      "filename": "meow_night_sleep.jpg",
+      "published_at": "2026-10-25",
+      "post_id": "18119149115092782",
+      "topic": "凌晨一點風停熟睡毛球篇"
+    }
+  ]
+}

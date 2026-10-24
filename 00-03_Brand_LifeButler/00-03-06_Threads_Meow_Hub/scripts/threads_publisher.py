@@ -214,6 +214,23 @@ def publish_thread(text, image=None, video=None, reply_to_id=None, topic_tag=Non
     """
     print("🚀 [喵編發射台] 準備推送貼文至 Threads...")
     
+    # 創辦人親定鐵律：發文圖片絕對不可重複使用檢查
+    used_registry_file = ROOT_DIR / "00-03_Brand_LifeButler" / "00-03-06_Threads_Meow_Hub" / "data" / "published_image_registry.json"
+    if image and not str(image).startswith("http"):
+        img_name = Path(image).name
+        if used_registry_file.exists():
+            try:
+                import json
+                with open(used_registry_file, "r", encoding="utf-8") as rf:
+                    reg = json.load(rf)
+                used_names = [item.get("filename") for item in reg.get("published_images", [])]
+                if img_name in used_names:
+                    print(f"\n🛑【創辦人親定鐵律攔截】：圖片 '{img_name}' 已經在先前的貼文中使用過！發文圖片嚴禁重複！")
+                    print("👉 請生成或選用全新未上線過的照片，保障每篇貼文的獨特性與新鮮感。")
+                    return None
+            except Exception as e:
+                print(f"⚠️ 圖片去重檢查警告: {e}")
+
     # 若未指定 topic_tag 且非回覆留言，啟動智慧主題判定
     if not topic_tag and not reply_to_id:
         text_lower = text.lower()
@@ -270,7 +287,28 @@ def publish_thread(text, image=None, video=None, reply_to_id=None, topic_tag=Non
         # 圖片或純文字容器稍等 3 秒
         time.sleep(3)
 
-    return publish_container(creation_id)
+    result_post_id = publish_container(creation_id)
+    if result_post_id and image and not str(image).startswith("http"):
+        try:
+            import json
+            from datetime import datetime
+            img_name = Path(image).name
+            if used_registry_file.exists():
+                with open(used_registry_file, "r", encoding="utf-8") as rf:
+                    reg = json.load(rf)
+                reg.setdefault("published_images", []).append({
+                    "filename": img_name,
+                    "published_at": datetime.now().isoformat(),
+                    "post_id": result_post_id,
+                    "topic": topic_tag or "生活動態"
+                })
+                with open(used_registry_file, "w", encoding="utf-8") as wf:
+                    json.dump(reg, wf, ensure_ascii=False, indent=2)
+                print(f"🔒 已將圖片 '{img_name}' 登記至去重庫，永不重複使用！")
+        except Exception as e:
+            print(f"⚠️ 登記圖片去重庫提示: {e}")
+
+    return result_post_id
 
 if __name__ == "__main__":
     if len(sys.argv) > 1:

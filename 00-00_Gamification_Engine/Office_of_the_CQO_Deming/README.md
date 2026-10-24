@@ -48,6 +48,7 @@
 Office_of_the_CQO_Deming/
 ├── README.md                           # [本文件] CQO 辦公室總憲章與安燈憲法
 ├── 00_Deming_Notebook.md                # 戴明隨身戰略筆記本 (全域管制界限與審計索引)
+├── bionic-learning-deming.md            # 📐 戴明專屬特化仿生學習系統 (TQM & Andon 法典)
 ├── 01_SOP_Checklists/                   # 全域三大防區 QA/QC 檢查清單
 │   ├── 01_Pricing_and_Delivery_QA_QC.md # 5D 報價與外送防彈衣質檢標準
 │   ├── 02_Social_and_Content_QA_QC.md   # 社群文案與選品發布質檢標準

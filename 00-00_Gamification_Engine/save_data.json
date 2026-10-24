@@ -1,24 +1,24 @@
 {
   "version": "2.6",
   "player_name": "Pinshuo",
-  "level": 7,
+  "level": 8,
   "exp": {
-    "current": 170,
-    "next_level_requirement": 350,
-    "total": 1060
+    "current": 0,
+    "next_level_requirement": 400,
+    "total": 1240
   },
-  "gold": 106,
+  "gold": 156,
   "attributes": {
-    "STR": 50.6,
-    "INT": 76.5,
-    "AGI": 60.0,
-    "WILL": 67.0,
-    "CHA": 66.5,
-    "IMP": 70.5
+    "STR": 52.2,
+    "INT": 78.9,
+    "AGI": 61.0,
+    "WILL": 68.6,
+    "CHA": 67.7,
+    "IMP": 72.7
   },
   "hidden_attributes": {},
   "unspent_points": {
-    "level_points": 3,
+    "level_points": 5,
     "knowledge_points": 3,
     "will_points": 1
   },
@@ -30,5 +30,5 @@
     "daily_cha": 0,
     "daily_imp": 1
   },
-  "notes": "【2026-10-23 每日結算·甲子大統攝】1. 品碩親跑外送第一線實體勞動與配送（STR+0.6）。 2. 全體內閣完成 60 輪甲子大統攝（CTO 林納斯、CFO 算盤、CIO 獵鷹、CMO 泰勒絲、CEO 雪全數大成）。 3. Master RFC #001 獲批、母版躍遷 v5.2 全域安全版，建立全息歷史金庫與全域跨視窗技能註冊。 4. 熟練度累積滿 10 次觸發 5 項屬性大突破（INT、AGI、WILL、IMP、CHA 各 +1.0），AGI 突破 60 大關、IMP 突破 70 大關！累積總經驗值突破 1,060 EXP，金幣達 106 Gold。"
+  "notes": "【2026-10-25 每日結算·品質中樞大躍升】1. 品碩親跑外送第一線 7.5 小時深夜出勤（STR+0.8, WILL+0.8）。 2. 迎聘第六大天王 CQO 戴明博士進駐內閣，實裝雙盲黑箱審計與安燈繩 (Andon Cord) 90 分絕對硬攔截引擎。 3. 劃定全新第十二號實體主權資料夾 00-12_Quality_Assurance_and_Control。 4. 封裝 polaris-cabinet-onboarding 總控入閣技能。 5. 林納斯主導全域 23 個自研技能六大防區重構與手機速查卡。 6. 累積經驗值達 1,240 EXP，正式升級至 Level 8！金幣達 131 Gold。"
 }
