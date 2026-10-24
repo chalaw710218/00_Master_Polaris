@@ -54,7 +54,14 @@
       ├── 📁 00-10-03_Catering_Consulting (分支：錦鸞越南美食顧問復盤與特色熟食選品)
       └── 📁 00-10-04_Mutual_Aid_Points (分支：LINE 數位共生點數存摺與以勞換顧網絡)
  │
- └── 📁 00-11_Reverse_Engineering_Lab (子目錄 K：逆向工程與拆解實驗室) 🔬 [林納斯主掌 · 本機隔離]
+ ├── 📁 00-11_Reverse_Engineering_Lab (子目錄 K：逆向工程與拆解實驗室) 🔬 [林納斯主掌 · 本機隔離]
       ├── 📁 dissection_bench (專案拆解台：外部開源/閉源目標代碼沙盒)
       ├── 📁 analysis_notes (協議分析與通訊流程報告)
       └── 📁 prototypes (自研改裝與技術反哺驗證)
+ │
+ └── 📁 00-12_Quality_Assurance_and_Control (子目錄 L：全域全面品質管理與安燈總控中樞) 📐 [戴明博士主掌] 🔥 [全新啟動]
+      ├── 📁 01_Master_SOP_Vault (全系統法定 SOP 總母庫)
+      ├── 📁 02_SPC_Control_Charts (統計變異管制界限與日誌)
+      ├── 📁 03_Andon_Intercept_Logs (安燈繩 90 分硬攔截實錄)
+      ├── 📁 04_Audit_Certificates (品質合格認證與憑證存檔)
+      └── 📁 05_Kaizen_Improvements (PDSA 持續改善專案庫)
