@@ -1,9 +1,17 @@
+import sys
 import urllib.request
 import json
 import re
 import os
 from pathlib import Path
 from datetime import datetime, timedelta
+
+if sys.platform == "win32":
+    try:
+        sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+        sys.stderr.reconfigure(encoding="utf-8", errors="replace")
+    except Exception:
+        pass
 
 # 自動載入 .secrets.env
 def _load_env():
