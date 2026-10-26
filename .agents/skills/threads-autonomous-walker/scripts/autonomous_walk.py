@@ -95,22 +95,31 @@ def engage_friend_post(page, url, comment_text, friend_name="友店"):
     page.keyboard.type(comment_text, delay=20)
     page.wait_for_timeout(1000)
 
-    # 4. 點擊膠囊內的發布箭頭
-    box_rect = box.bounding_box()
-    arrow_clicked = False
-    for svg in page.locator('svg').all():
-        b = svg.bounding_box()
-        if b and box_rect and abs(b['y'] - box_rect['y']) < 35 and b['x'] > box_rect['x']:
-            svg.click(force=True)
-            arrow_clicked = True
-            page.wait_for_timeout(2500)
+    # 4. 點擊膠囊內的發布箭頭 (鎖定寬度 >20 且位於膠囊右側之黑色圓形送出按鈕)
+    send_btn = None
+    for btn in page.locator('div[role="button"], button').all():
+        b = btn.bounding_box()
+        if b and 880 < b['x'] < 960 and b['y'] > 850 and b['width'] > 20:
+            send_btn = btn
             break
+
+    if send_btn:
+        print(" -> 點擊送出箭頭按鈕...")
+        send_btn.click(force=True)
+    else:
+        print(" -> 依精確坐標點擊送出按鈕 (916, 990)...")
+        page.mouse.click(916, 990)
+
+    page.wait_for_timeout(3000)
 
     # 5. 若打開了回覆彈窗，點擊「發佈」按鈕
     modal_btn = page.locator('div[role="button"]:has-text("發佈"), button:has-text("發佈")')
     if modal_btn.count() > 0:
+        print(" -> 點擊彈窗發佈按鈕...")
         modal_btn.last.click(force=True)
-        page.wait_for_timeout(4500)
+        page.wait_for_timeout(5000)
+    else:
+        page.wait_for_timeout(4000)
 
     clean_name = friend_name.replace(" ", "_").replace("@", "")
     shot_path = SCREENSHOT_DIR / f"walk_reply_{clean_name}.png"
