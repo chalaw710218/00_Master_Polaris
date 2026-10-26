@@ -1,7 +1,7 @@
 # 【就醬點 / 萬象矩陣】AI 教學與自動化實戰總索引 (Master Index)
 
-> **建立時間**：2026-09-26
-> **維護者**：👑 執行長 雪 (CEO)
+> **建立時間**：2026-09-26  
+> **維護者**：👑 執行長 雪 (CEO)  
 > **目的**：紀錄並索引 `00-05_AI_Education` 資料夾下的所有教學專案。確保極星宇宙的「數位資產與自動化知識」能夠有系統地沉澱、追蹤，方便未來內部培訓與外部教學調閱。
 
 ---
@@ -52,6 +52,25 @@
   * 連動技能：`c:\Users\lenovo\我的雲端硬碟\00_Master_Polaris\.agents\skills\bionic-learning-system\SKILL.md` (v5.0)
 
 ---
+
+## 🎓 系列實戰課與工作坊 (Masterclasses & Workshops)
+
+### 📁 [2026 秋季實戰班] 2026 秋季極星 AI 家教實戰系列班 (Three-Week Masterclass)
+* **資料夾路徑**：`2026_Autumn_AI_Tutoring_Series`
+* **收費標準**：**每堂 NT$ 500 元 / 人**（**老學員享專屬回娘家禮遇·免費參加**）
+* **授課節奏**：每週三 14:00 - 16:00（1 小時精講 ＋ 1 小時實作排錯閉環）
+* **三週綱要**：
+  * **第 1 講 (10/28)**：NotebookLM 與「漏斗式三層深挖」提示法（廣義全景 ➔ 垂直深挖 ➔ 終極求解）
+  * **第 2 講 (11/04)**：Antigravity 操作與 Meta 自動發文串接（FB / Threads API 官方排程）
+  * **第 3 講 (11/11)**：資料架構管理與 Antigravity 擬人化工程（命名空間 ＋ 心智逆向工程 ＋ AI 分身）
+* **主要檔案**：
+  * `2026_Autumn_AI_Tutoring_Series/README.md` (三週總綱與課表)
+  * `Lesson_01_NotebookLM_Prompt_Engineering/syllabus.md`
+  * `Lesson_02_Antigravity_Meta_Automation/syllabus.md`
+  * `Lesson_03_Data_Architecture_Persona_Engineering/syllabus.md`
+
+---
+
 ## 🌐 外部重要資產與學習檔案庫 (External Reference Assets)
 * [🎓 創辦人啟蒙 AI 導師教材與實戰指南 (Google Doc)](https://docs.google.com/document/d/1m3my2TsMFe_wdXWFDLQhAnQLTFzb9W4ih4z3DM03Ol8/edit?tab=t.0#heading=h.wtnb4bnkw262)
   * **說明**：創辦人早期向 AI 啟蒙老師學習時的實戰講義與指引，作為極星宇宙教育訓練與靈感參照的重要文獻庫。
