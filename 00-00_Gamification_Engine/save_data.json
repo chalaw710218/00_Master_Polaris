@@ -1,20 +1,20 @@
 {
-  "version": "2.6",
+  "version": "2.7",
   "player_name": "Pinshuo",
   "level": 8,
   "exp": {
-    "current": 0,
+    "current": 280,
     "next_level_requirement": 400,
-    "total": 1240
+    "total": 1520
   },
-  "gold": 156,
+  "gold": 181,
   "attributes": {
-    "STR": 52.2,
-    "INT": 78.9,
-    "AGI": 61.0,
-    "WILL": 68.6,
-    "CHA": 67.7,
-    "IMP": 72.7
+    "STR": 52.6,
+    "INT": 79.7,
+    "AGI": 61.6,
+    "WILL": 69.5,
+    "CHA": 68.4,
+    "IMP": 73.5
   },
   "hidden_attributes": {},
   "unspent_points": {
@@ -24,11 +24,15 @@
   },
   "practice_stacks": {
     "daily_str": 6,
-    "daily_int": 1,
-    "daily_agi": 1,
-    "daily_will": 1,
-    "daily_cha": 0,
-    "daily_imp": 1
+    "daily_int": 2,
+    "daily_agi": 2,
+    "daily_will": 2,
+    "daily_cha": 1,
+    "daily_imp": 2
   },
-  "notes": "【2026-10-25 每日結算·品質中樞大躍升】1. 品碩親跑外送第一線 7.5 小時深夜出勤（STR+0.8, WILL+0.8）。 2. 迎聘第六大天王 CQO 戴明博士進駐內閣，實裝雙盲黑箱審計與安燈繩 (Andon Cord) 90 分絕對硬攔截引擎。 3. 劃定全新第十二號實體主權資料夾 00-12_Quality_Assurance_and_Control。 4. 封裝 polaris-cabinet-onboarding 總控入閣技能。 5. 林納斯主導全域 23 個自研技能六大防區重構與手機速查卡。 6. 累積經驗值達 1,240 EXP，正式升級至 Level 8！金幣達 131 Gold。"
+  "tomorrow_scheduled_tasks": [
+    "借打石機挖樹根（物理勞務與環境拓荒）",
+    "聯繫洪一華討論代購團購的事（告知星期三 AI 補課）"
+  ],
+  "notes": "【2026-10-27 每日結算·行銷三位一體與資安雲端雙閉環】1. 臉書與脆文案剛性骨架確立（四大面向折射、喵編與闆仔雙主軸、雪宏觀亮相，對外嚴禁提極星）。 2. 秋季 AI 家教班時程更新（11/3、11/10、11/17），Google Calendar API 自動建檔，雙軌文案與第一課 NotebookLM 講義落地。 3. 八大天王辦公室仿生學習系統 60 輪無衝突審計過關。 4. CloudPanel (34.9.115.248) 雲端連線驗證與 PHP2Shell 防禦手冊。 5. 00-11 逆向工程實驗室整理與 SoloLeveling-System 歸位。 6. 登錄明日兩大核心任務：借打石機挖樹根、聯繫洪一華討論團購並告知週三補課。 累積經驗達 1,520 EXP (280/400)，金幣達 181 Gold。"
 }

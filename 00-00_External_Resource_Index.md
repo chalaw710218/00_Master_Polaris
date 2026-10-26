@@ -325,3 +325,7 @@ euromodulated_plasticity_engine.py**：三因子突觸可塑性與創辦人情�
 
 - **算盤 (查理·蒙格) 特化子版升級 (v1.1 單元經濟學與安全邊際版)**：[bionic-learning-abacus.md](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CFO_Abacus/bionic-learning-abacus.md)
 - **算盤全域技能註冊**：[.agents/skills/bionic-learning-abacus/SKILL.md](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/.agents/skills/bionic-learning-abacus/SKILL.md)
+
+
+- **秋季 AI 家教班第一課（簡報與講師手稿）**：[slides.md](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-05_AI_Education/2026_Autumn_AI_Tutoring_Series/Lesson_01_NotebookLM_Prompt_Engineering/slides.md) ｜ [slides.html](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-05_AI_Education/2026_Autumn_AI_Tutoring_Series/Lesson_01_NotebookLM_Prompt_Engineering/slides.html) ｜ [speaker_notes.md](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-05_AI_Education/2026_Autumn_AI_Tutoring_Series/Lesson_01_NotebookLM_Prompt_Engineering/speaker_notes.md)
+- **開源點餐系統 (TastyIgniter) PHP2Shell 資安升級防禦手冊**：[00-09-02_PHP2Shell_CVE-2026-109618_升級實戰教學.md](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-09_Project_OpenSource_Ordering/00-09-02_PHP2Shell_CVE-2026-109618_升級實戰教學.md)

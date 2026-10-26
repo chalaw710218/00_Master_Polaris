@@ -25,7 +25,8 @@
   * **成果**：成功於 GCP 免費層 (e2-micro) 部署 Ubuntu 22.04 + CloudPanel。
   * **成果**：完美克服 CloudPanel 雙層代理 (Nginx + Varnish) 導致的 HTTPS 混合內容與 CSRF 憑證失效問題。
   * **成果**：解決 PHP 8.4 版本不對稱與 MariaDB 鎖死問題，**成功部署 TastyIgniter v4 並登入超級管理員後台**。
-  * **文件產出**：已產出《GCP_CloudPanel_TastyIgniter_V4_完整部署教學.md》。
+  * **成果**：針對 2026 年 10 月全球爆發之「PHP2Shell (CVE-2026-109618/109619)」核彈級 RCE 漏洞，連夜完成極星底層除錯升級，成功升級至官方安全修補版本 **PHP 8.4.27**！
+  * **文件產出**：已產出《GCP_CloudPanel_TastyIgniter_V4_完整部署教學.md》與《00-09-02_PHP2Shell_CVE-2026-109618_升級實戰教學.md》。
 
 * **[🔥 進行中] 階段二：實體店面硬體與物流整合 (硬體與車隊 API)**
   * **目標 1**：出單機串接 (Cloud Printers / ESC/POS)。消費者線上點餐後，實體店面廚房直接印出工單。

@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2026 秋季極星 AI 家教實戰系列班 · 第 1 講教學簡報</title>
+  <style>
+    :root {
+      --bg-dark: #0f172a;
+      --card-bg: rgba(30, 41, 59, 0.75);
+      --card-border: rgba(148, 163, 184, 0.15);
+      --amber: #f59e0b;
+      --amber-light: #fef3c7;
+      --amber-glow: rgba(245, 158, 11, 0.25);
+      --blue: #38bdf8;
+      --emerald: #10b981;
+      --rose: #f43f5e;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      user-select: none;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+      overflow: hidden;
+      height: 100vh;
+      width: 100vw;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-image: 
+        radial-gradient(circle at 15% 20%, rgba(245, 158, 11, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 85% 80%, rgba(56, 189, 248, 0.08) 0%, transparent 40%);
+    }
+
+    /* Top Progress Bar */
+    #progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 5px;
+      background: linear-gradient(90deg, var(--amber), var(--blue));
+      width: 0%;
+      transition: width 0.3s ease;
+      z-index: 100;
+      box-shadow: 0 0 10px var(--amber-glow);
+    }
+
+    /* Deck Container */
+    #deck {
+      position: relative;
+      width: 92vw;
+      max-width: 1400px;
+      height: 86vh;
+      max-height: 840px;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 24px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(16px);
+      overflow: hidden;
+    }
+
+    .slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      padding: 50px 70px;
+      display: flex;
+      flex-direction: column;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateX(30px);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+      overflow-y: auto;
+    }
+
+    .slide.active {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateX(0);
+    }
+
+    /* Typography */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 14px;
+      align-self: flex-start;
+    }
+    .badge-amber { background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3); }
+    .badge-blue { background: rgba(56, 189, 248, 0.15); color: #7dd3fc; border: 1px solid rgba(56, 189, 248, 0.3); }
+    .badge-emerald { background: rgba(16, 185, 129, 0.15); color: #6ee7b7; border: 1px solid rgba(16, 185, 129, 0.3); }
+    .badge-rose { background: rgba(244, 63, 94, 0.15); color: #fda4af; border: 1px solid rgba(244, 63, 94, 0.3); }
+
+    h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 20px;
+      background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    h2 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      line-height: 1.25;
+      margin-bottom: 18px;
+      color: #f1f5f9;
+    }
+
+    h3 {
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: var(--amber);
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1.15rem;
+      line-height: 1.65;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    .highlight {
+      color: #fbbf24;
+      font-weight: 600;
+    }
+
+    /* Grid Layouts */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      height: 100%;
+      align-items: center;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 15px;
+    }
+
+    /* Feature Cards */
+    .card {
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid rgba(148, 163, 184, 0.12);
+      border-radius: 16px;
+      padding: 24px 26px;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+    .card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(245, 158, 11, 0.35);
+    }
+    .card-accent {
+      border-left: 4px solid var(--amber);
+    }
+    .card-rose {
+      border-left: 4px solid var(--rose);
+    }
+    .card-emerald {
+      border-left: 4px solid var(--emerald);
+    }
+
+    /* Funnel Diagram Component */
+    .funnel-container {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 10px;
+    }
+    .funnel-step {
+      display: flex;
+      align-items: center;
+      background: rgba(15, 23, 42, 0.7);
+      border-radius: 12px;
+      padding: 16px 20px;
+      border: 1px solid rgba(148, 163, 184, 0.15);
+      position: relative;
+    }
+    .funnel-step.step-1 { border-left: 6px solid #38bdf8; width: 100%; }
+    .funnel-step.step-2 { border-left: 6px solid #fbbf24; width: 92%; margin: 0 auto; }
+    .funnel-step.step-3 { border-left: 6px solid #10b981; width: 84%; margin: 0 auto; }
+
+    .funnel-num {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      margin-right: 18px;
+      flex-shrink: 0;
+    }
+    .step-1 .funnel-num { background: rgba(56, 189, 248, 0.2); color: #38bdf8; }
+    .step-2 .funnel-num { background: rgba(251, 191, 36, 0.2); color: #fbbf24; }
+    .step-3 .funnel-num { background: rgba(16, 185, 129, 0.2); color: #10b981; }
+
+    .funnel-content h4 {
+      font-size: 1.15rem;
+      margin-bottom: 4px;
+      color: #f8fafc;
+    }
+    .funnel-content p {
+      font-size: 0.95rem;
+      margin: 0;
+      color: #94a3b8;
+    }
+
+    /* Prompt Box */
+    .prompt-box {
+      background: #090d16;
+      border: 1px solid #1e293b;
+      border-radius: 12px;
+      padding: 18px 20px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 0.95rem;
+      color: #e2e8f0;
+      line-height: 1.6;
+      position: relative;
+      margin-top: 10px;
+    }
+    .prompt-tag {
+      position: absolute;
+      top: -10px;
+      right: 16px;
+      background: var(--amber);
+      color: #0f172a;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 2px 10px;
+      border-radius: 4px;
+    }
+
+    /* Bottom Controls */
+    #controls {
+      position: fixed;
+      bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(148, 163, 184, 0.2);
+      padding: 8px 18px;
+      border-radius: 9999px;
+      backdrop-filter: blur(10px);
+      z-index: 100;
+    }
+
+    .btn {
+      background: transparent;
+      border: none;
+      color: var(--text-main);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+    .btn:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--amber);
+    }
+
+    #counter {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      min-width: 60px;
+      text-align: center;
+      letter-spacing: 0.05em;
+    }
+
+    /* Print Styles for PDF Export */
+    @media print {
+      body {
+        overflow: visible;
+        height: auto;
+        background: #ffffff !important;
+        color: #000000 !important;
+      }
+      #deck {
+        width: 100% !important;
+        height: auto !important;
+        max-width: none !important;
+        border: none !important;
+        box-shadow: none !important;
+      }
+      .slide {
+        position: relative !important;
+        opacity: 1 !important;
+        transform: none !important;
+        page-break-after: always;
+        height: 100vh !important;
+        display: flex !important;
+      }
+      #controls, #progress-bar {
+        display: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="progress-bar"></div>
+
+  <div id="deck">
+
+    <!-- SLIDE 1: Cover -->
+    <div class="slide active">
+      <span class="badge badge-amber">Polaris AI Masterclass · Lesson 01</span>
+      <h1 style="font-size: 3.2rem; margin-top: 10px;">NotebookLM 深度應用<br><span style="color: var(--amber); -webkit-text-fill-color: initial;">漏斗式三層深挖提示法</span></h1>
+      <p style="font-size: 1.35rem; max-width: 800px; margin-top: 10px; color: #cbd5e1;">
+        告別「一上來就亮底牌問出罐頭廢話」的直覺誤區<br>現場手把手鍛造個人與企業的「零幻覺專屬私密智囊」
+      </p>
+      <div style="margin-top: auto; display: flex; gap: 40px; padding-top: 20px; border-top: 1px solid rgba(148, 163, 184, 0.15);">
+        <div>
+          <span style="font-size: 0.85rem; color: var(--text-muted); display: block;">主講人</span>
+          <span style="font-size: 1.1rem; font-weight: 600;">陳品碩（闆仔） ＆ 雪 (CEO)</span>
+        </div>
+        <div>
+          <span style="font-size: 0.85rem; color: var(--text-muted); display: block;">上課節奏</span>
+          <span style="font-size: 1.1rem; font-weight: 600;">14:00-15:00 觀念精講 ｜ 15:00-16:00 實機做完下課</span>
+        </div>
+        <div>
+          <span style="font-size: 0.85rem; color: var(--text-muted); display: block;">極星教育</span>
+          <span style="font-size: 1.1rem; font-weight: 600; color: var(--amber);">生活管家 · 家宅總部</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 2: Agenda -->
+    <div class="slide">
+      <span class="badge badge-blue">Time & Flow · 雙核兩小時閉環</span>
+      <h2>今日 120 分鐘學習路線圖</h2>
+      <p>拒絕「講師台上炫技、學員回家卡死」；前半段拆透原理，後半段直接巡桌把成果做出來！</p>
+      
+      <div class="grid-2" style="margin-top: 20px;">
+        <div class="card card-accent" style="height: 100%;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+            <h3>🧭 上半場：核心精講 (60 Mins)</h3>
+            <span class="badge badge-amber" style="margin: 0;">14:00 - 15:00</span>
+          </div>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 14px; color: #e2e8f0; font-size: 1.05rem;">
+            <li>🔸 <strong>第一節 (20m)</strong>：NotebookLM 核心原理與資料接地（為什麼傳統 ChatGPT 會瞎掰？）</li>
+            <li>🔸 <strong>第二節 (25m)</strong>：靈魂心法——「漏斗式三層深挖」提問法全解析</li>
+            <li>🔸 <strong>第三節 (15m)</strong>：現場實機對照示範 ＆ Audio Overview 雙人音訊生成</li>
+          </ul>
+        </div>
+
+        <div class="card card-emerald" style="height: 100%;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+            <h3>🛠️ 下半場：實機闖關 ＆ 排錯 (60 Mins)</h3>
+            <span class="badge badge-emerald" style="margin: 0;">15:00 - 16:00</span>
+          </div>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 14px; color: #e2e8f0; font-size: 1.05rem;">
+            <li>🔹 <strong>闖關一 (15m)</strong>：裝載個人手邊 3~5 份資料，建立專屬私密智庫</li>
+            <li>🔹 <strong>闖關二 (30m)</strong>：三層漏斗連續提問闖關（廣角 ➔ 追問 ➔ 終極求解）</li>
+            <li>🔹 <strong>闖關三 (15m)</strong>：生成個人專屬播客、現場巡桌一對一除錯驗收</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 3: The Pain Point -->
+    <div class="slide">
+      <span class="badge badge-rose">The Fatal Trap · 痛點直擊</span>
+      <h2>為什麼你問 AI，永遠只得到「官腔廢話」？</h2>
+      <p>很多人興沖沖把幾十頁的產品型錄或企劃書丟給 AI，然後敲下這句話：</p>
+
+      <div class="prompt-box" style="border-left: 4px solid var(--rose);">
+        <div class="prompt-tag" style="background: var(--rose); color: white;">致命直覺提問</div>
+        「請閱讀這份資料，給我最落地的行銷策略與破局方案！」
+      </div>
+
+      <div class="grid-2" style="margin-top: 25px;">
+        <div class="card card-rose">
+          <h4 style="color: #fda4af; font-size: 1.2rem; margin-bottom: 8px;">❌ AI 回敬你的「罐頭公文」：</h4>
+          <ul style="color: #cbd5e1; font-size: 1rem; line-height: 1.8; padding-left: 20px;">
+            <li>要加強社群宣傳、提升品牌形象</li>
+            <li>精準鎖定核心客群、擴大曝光渠道</li>
+            <li>優化客戶體驗、定期舉辦促銷活動</li>
+          </ul>
+          <p style="margin-top: 10px; color: #fda4af; font-weight: 600; font-size: 0.95rem;">
+            👉 說了等於沒說，挑不出毛病但完全無法落地！
+          </p>
+        </div>
+
+        <div class="card card-accent">
+          <h4 style="color: #fbbf24; font-size: 1.2rem; margin-bottom: 8px;">💡 真正的死因到底在哪？</h4>
+          <p style="color: #cbd5e1; line-height: 1.7;">
+            不是 AI 笨，而是我們犯了<strong>「太心急、一開始就直接亮底牌單刀直入」</strong>的錯誤！
+          </p>
+          <p style="color: #94a3b8; font-size: 1rem;">
+            就像你走進診所，醫生連病例都還沒翻開，你就逼他開特效藥——AI 在 Context 尚未預熱時，只能在字面關鍵字瞎猜！
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 4: What is NotebookLM -->
+    <div class="slide">
+      <span class="badge badge-blue">Zero-Hallucination Brain · 接地架構</span>
+      <h2>什麼是 NotebookLM？零幻覺的企業第二大腦</h2>
+      <p>Google 專為知識工作者打造的私密接地智庫，從根源消滅傳統 LLM 的瞎掰毛病。</p>
+
+      <div class="grid-3" style="margin-top: 20px;">
+        <div class="card card-accent">
+          <div style="font-size: 2.2rem; margin-bottom: 10px;">🔒</div>
+          <h3>100% 接地 (Grounding)</h3>
+          <p>只根據你上傳的資料回答！資料沒寫的它絕不亂猜，嚴格鎖定在你自己的知識邊界內。</p>
+        </div>
+
+        <div class="card card-blue" style="border-left: 4px solid var(--blue);">
+          <div style="font-size: 2.2rem; margin-bottom: 10px;">📑</div>
+          <h3>即時出處標註 (Citations)</h3>
+          <p>每一個回答末端都有灰色數字標註，點擊直接跳轉高亮原文出處，商業決策有憑有據。</p>
+        </div>
+
+        <div class="card card-emerald">
+          <div style="font-size: 2.2rem; margin-bottom: 10px;">📂</div>
+          <h3>多來源混合裝載</h3>
+          <p>單一筆記本可吃下 50 份資料，支援 PDF、Google Docs、網頁 URL、音訊轉逐字稿甚至 YouTube。</p>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top: 20px; background: rgba(56, 189, 248, 0.08); border-color: rgba(56, 189, 248, 0.2);">
+        <p style="margin: 0; color: #bae6fd; font-size: 1.05rem;">
+          💡 <strong>核心隱私保障</strong>：你的私密資料絕不會被拿去訓練公共模型，資料完全屬於你個人與企業。
+        </p>
+      </div>
+    </div>
+
+    <!-- SLIDE 5: The Funnel Overview -->
+    <div class="slide">
+      <span class="badge badge-amber">Core Methodology · 今日靈魂心法</span>
+      <h2>「漏斗式三層深挖提問法」架構</h2>
+      <p>將 AI 提問從「單次碰運氣」升級為「三階步步逼近的精密手術」。</p>
+
+      <div class="funnel-container">
+        <div class="funnel-step step-1">
+          <div class="funnel-num">1</div>
+          <div class="funnel-content">
+            <h4>第一層：廣角鋪陳 · 全景掃描 (Macro Context) —— 宏觀通讀，不亮底牌</h4>
+            <p>絕不問結論！先逼 AI 完整閱讀資料，客觀畫出全域框架與 3 大核心支柱，建立知識地圖。</p>
+          </div>
+        </div>
+
+        <div class="funnel-step step-2">
+          <div class="funnel-num">2</div>
+          <div class="funnel-content">
+            <h4>第二層：層層堆疊 · 垂直深挖 (Meso Probing) —— 以子之矛，反逼因果</h4>
+            <p>挑選第一層整理出的骨幹節點，追問客觀數據、底層因果鏈與過去嘗試過的失敗教訓。</p>
+          </div>
+        </div>
+
+        <div class="funnel-step step-3">
+          <div class="funnel-num">3</div>
+          <div class="funnel-content">
+            <h4>第三層：圖窮匕見 · 微觀求解 (Micro Resolution) —— 脈絡飽和，一擊必殺</h4>
+            <p>此時上下文已極度高溫預熱！拋出你個人最真實的限制、預算與痛點，收穫直擊要害的破局方案。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 6: Funnel Layer 1 -->
+    <div class="slide">
+      <span class="badge badge-blue">Layer 1 · 宏觀掃描</span>
+      <h2>第一層【廣義全景 · 鋪開地圖】</h2>
+      <p><strong>心法原則</strong>：先別告訴 AI 你想幹嘛！不帶任何個人主觀預設立場，先讓 AI 把它看到的「全域地圖」鋪開。</p>
+
+      <div class="card card-accent" style="margin-top: 15px;">
+        <h4 style="color: #fbbf24; margin-bottom: 8px;">🎯 為什麼要這樣做？</h4>
+        <p style="margin: 0; color: #cbd5e1;">
+          LLM 就像一個需要暖機的大腦。這一步是在建立<strong>「全域注意力索引 (Global Attention Map)」</strong>。當它先對全局建立概念，後續的思考才不會狹隘、斷章取義或胡言亂語。
+        </p>
+      </div>
+
+      <div class="prompt-box">
+        <div class="prompt-tag">第一層示範 PROMPT</div>
+「請先不要給我任何業務建議或下結論。<br>
+請全面閱讀我上傳的這幾份資料，用中立客觀的視角幫我梳理：<br>
+這幾份文件最核心探討的 3 個主要面向是什麼？各自的核心論點與架構框架為何？」
+      </div>
+
+      <p style="margin-top: 15px; font-size: 1rem; color: #94a3b8;">
+        👉 <strong>成果檢核</strong>：AI 應該會條列清晰的 3 大區塊架構，這就是我們接下來要深挖的基石！
+      </p>
+    </div>
+
+    <!-- SLIDE 7: Funnel Layer 2 -->
+    <div class="slide">
+      <span class="badge badge-amber">Layer 2 · 垂直深挖</span>
+      <h2>第二層【層層堆疊 · 垂直深挖】</h2>
+      <p><strong>心法原則</strong>：檢視 AI 第一層整理出來的架構節點，挑選最要害的章節，要求它提供「數據」與「因果」。</p>
+
+      <div class="grid-2" style="margin-top: 15px;">
+        <div class="card card-accent">
+          <h4>⛏️ 逼出資料裡的「隱性知識」</h4>
+          <p style="font-size: 1rem; color: #cbd5e1;">
+            很多報告最精華的其實是<strong>「客觀摩擦成本」</strong>與<strong>「曾做過但失敗的嘗試」</strong>。我們要逼 AI 把藏在字裡行間的真實障礙翻出來！
+          </p>
+        </div>
+        <div class="card card-emerald">
+          <h4>🔥 上下文完全預熱 (Context Saturation)</h4>
+          <p style="font-size: 1rem; color: #cbd5e1;">
+            此時 AI 已經從表面掃描，深入到具體條款與邏輯因果，大腦狀態已經調整至「專案專家」模式。
+          </p>
+        </div>
+      </div>
+
+      <div class="prompt-box">
+        <div class="prompt-tag">第二層示範 PROMPT</div>
+「在剛剛提到的第 2 點（例如：顧客回流率偏低與配送摩擦成本）之中：<br>
+1. 原文中具體提到了哪些客觀數據或案例？<br>
+2. 造成這些現象的底層因果鏈是什麼？<br>
+3. 資料中是否有提及過去曾嘗試過、但成效不彰的解法？」
+      </div>
+    </div>
+
+    <!-- SLIDE 8: Funnel Layer 3 -->
+    <div class="slide">
+      <span class="badge badge-emerald">Layer 3 · 終極求解</span>
+      <h2>第三層【圖窮匕見 · 微觀求解】</h2>
+      <p><strong>心法原則</strong>：在深厚脈絡完全飽和後，這時才把你的「真實限制」與「私人困局」拋出來！</p>
+
+      <div class="prompt-box" style="border-left: 4px solid var(--emerald);">
+        <div class="prompt-tag" style="background: var(--emerald); color: white;">第三層示範 PROMPT</div>
+「很好！現在完全立足於前面梳理出的全域框架，以及第 2 層深挖到的失敗教訓與摩擦成本：<br><br>
+我目前正遇到［具體描述我的產品 / 現有預算 / 時間與人手限制］，<br>
+請站在這份資料的角度，為我量身制定一套最可執行的 3 步破局方案，並說明為何能避開剛剛提到的坑。」
+      </div>
+
+      <div class="grid-2" style="margin-top: 20px;">
+        <div class="card card-emerald">
+          <h4 style="color: #6ee7b7;">🌟 這一層產出的答案有何不同？</h4>
+          <ul style="color: #cbd5e1; font-size: 0.95rem; line-height: 1.7; padding-left: 20px;">
+            <li>不再是空泛的「加強宣傳」，而是「運用資料中的第 3 項工具」</li>
+            <li>主動提醒你避開過去踩過的失敗路徑</li>
+            <li>精確吻合你的時間與資源預算限制</li>
+          </ul>
+        </div>
+        <div class="card card-accent">
+          <h4 style="color: #fbbf24;">⚡ 關鍵心智躍遷</h4>
+          <p style="color: #cbd5e1; font-size: 0.95rem; line-height: 1.7;">
+            你不再是向一個「無知機器人」問路，而是向一位「已經通讀你全部營運機密、又了解你限制的頂級商業顧問」做閉門諮詢！
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 9: Real Case Comparison -->
+    <div class="slide">
+      <span class="badge badge-rose">Showcase · 實況對照組</span>
+      <h2>現場實機對照：兩種問法的天壤之別</h2>
+      <p>以「生活管家 5D 報價單與客服談判」為例，現場投影實測對比：</p>
+
+      <div class="grid-2" style="margin-top: 15px;">
+        <div class="card card-rose">
+          <h4 style="color: #fda4af;">❌ 傳統直覺問法 (單刀直入)</h4>
+          <p style="font-size: 0.9rem; color: #94a3b8; font-style: italic;">「我客戶嫌貴想砍價，我該怎麼回？」</p>
+          <div style="background: rgba(0,0,0,0.3); padding: 12px; border-radius: 8px; margin-top: 10px; font-size: 0.9rem; color: #f8fafc;">
+            <strong>AI 回答：</strong><br>
+            您好，您可以向客戶強調服務品質好、技術專業，或者適度給予 9 折優惠維持長期合作關係……<br>
+            <span style="color: #fda4af;">（毫無防禦力的退讓廢話）</span>
+          </div>
+        </div>
+
+        <div class="card card-emerald">
+          <h4 style="color: #6ee7b7;">✅ 漏斗三層深挖法 (層層堆疊)</h4>
+          <p style="font-size: 0.9rem; color: #94a3b8; font-style: italic;">經過第 1 層全景與第 2 層「隱形工時 D1 與情緒安心 D5」深挖後：</p>
+          <div style="background: rgba(0,0,0,0.3); padding: 12px; border-radius: 8px; margin-top: 10px; font-size: 0.9rem; color: #f8fafc;">
+            <strong>AI 回答：</strong><br>
+            依據您的 5D 憲綱：1. 堅持「勞務與實報實銷分離」，拒絕打折；2. 調出 D1 採買工時清單禮貌展示；3. 提供選項：若預算有限，可刪減 D5 隨行安心項目，絕不委屈自己……<br>
+            <span style="color: #6ee7b7;">（刀刀見血的高情商防禦話術）</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 10: Audio Overview Feature -->
+    <div class="slide">
+      <span class="badge badge-blue">Bonus Feature · 黑科技加碼</span>
+      <h2>Audio Overview：一鍵把生硬報告變雙人 Podcast</h2>
+      <p>開車通勤、做家事沒空讀長篇資料？讓兩位美式幽默 AI 主持人「聊」給你聽！</p>
+
+      <div class="grid-2" style="margin-top: 20px;">
+        <div class="card card-blue">
+          <h3>🎙️ 什麼是 Audio Overview？</h3>
+          <p>
+            NotebookLM 內建的語音生成功能。它能自動把上傳的所有筆記與資料，轉換為長達 8~15 分鐘的雙人深度對談廣播節目。
+          </p>
+          <ul style="color: #cbd5e1; font-size: 0.95rem; line-height: 1.8; padding-left: 20px; margin-top: 10px;">
+            <li>自帶幽默互動、互相拋梗、語氣起伏自然逼真</li>
+            <li>自動萃取文件中最有趣的對比與核心痛點</li>
+            <li>通勤耳機隨身聽，無痛吸收整份厚重企劃</li>
+          </ul>
+        </div>
+
+        <div class="card card-accent" style="text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+          <div style="font-size: 4rem; margin-bottom: 15px;">🎧</div>
+          <h3 style="color: #fbbf24;">現場 1 鍵生成體驗</h3>
+          <p style="font-size: 1rem; color: #cbd5e1; margin-top: 8px;">
+            下半場實作時，每個人都會現場點擊「Generate」，戴上耳機聽聽看你自己的資料被編成專屬電台有多震撼！
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 11: Hands-on Practice Guide -->
+    <div class="slide">
+      <span class="badge badge-emerald">Hands-on Drill · 下半場實作</span>
+      <h2>下半場：60 分鐘現場闖關實戰</h2>
+      <p>請打開你的筆記型電腦！創辦人與幕僚現場巡桌排錯，保證帶著成果下課！</p>
+
+      <div class="grid-3" style="margin-top: 20px;">
+        <div class="card card-accent">
+          <div class="funnel-num" style="background: rgba(245, 158, 11, 0.2); color: #fbbf24; margin-bottom: 12px;">1</div>
+          <h4>關卡一：建立智庫 (15m)</h4>
+          <p style="font-size: 0.95rem; color: #cbd5e1;">
+            上傳 3~5 份手邊資料（產品型錄、過往企劃、客戶對答或筆記），驗證 Citation 來源跳轉正常。
+          </p>
+        </div>
+
+        <div class="card card-emerald">
+          <div class="funnel-num" style="background: rgba(16, 185, 129, 0.2); color: #10b981; margin-bottom: 12px;">2</div>
+          <h4>關卡二：三層漏斗提問 (30m)</h4>
+          <p style="font-size: 0.95rem; color: #cbd5e1;">
+            套用講義模板：<br>
+            1. 廣角鋪開全域地圖<br>
+            2. 挑要點追問 2 次細節<br>
+            3. 輸入真實難題求解並截圖
+          </p>
+        </div>
+
+        <div class="card card-blue" style="border-left: 4px solid var(--blue);">
+          <div class="funnel-num" style="background: rgba(56, 189, 248, 0.2); color: #38bdf8; margin-bottom: 12px;">3</div>
+          <h4>關卡三：生成播客 (15m)</h4>
+          <p style="font-size: 0.95rem; color: #cbd5e1;">
+            點擊生成 Audio Overview，戴耳機試聽專屬廣播；現場一對一巡桌除錯，邀請 2 位學員投影分享！
+          </p>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top: 20px; background: rgba(16, 185, 129, 0.08); border-color: rgba(16, 185, 129, 0.25);">
+        <p style="margin: 0; color: #a7f3d0; font-size: 1rem; font-weight: 600;">
+          👑 承諾：現場卡關隨時舉手！我們一對一幫你調 Prompt、排解文件格式問題，絕不讓你把困惑帶回家！
+        </p>
+      </div>
+    </div>
+
+    <!-- SLIDE 12: Conclusion & Next Week -->
+    <div class="slide">
+      <span class="badge badge-amber">Summary & Next Steps</span>
+      <h2>今日收穫回顧 ＆ 下週預告</h2>
+      <p>恭喜各位！你今天已經正式告別了「AI 幻覺與被動找資料」的時代。</p>
+
+      <div class="grid-2" style="margin-top: 20px;">
+        <div class="card card-accent">
+          <h3>✅ 今日你帶走的 3 大資產</h3>
+          <ul style="color: #cbd5e1; font-size: 1rem; line-height: 1.8; padding-left: 20px; margin-top: 10px;">
+            <li>一套專屬於你企業/業務的 <strong>NotebookLM 零幻覺私密智庫</strong></li>
+            <li>一套終生受用的 <strong>「漏斗式三層深挖提問法」</strong> 心法模型</li>
+            <li>一支可以直接通勤收聽的 <strong>專屬 Audio Overview 雙人廣播</strong></li>
+          </ul>
+        </div>
+
+        <div class="card card-blue" style="border-left: 4px solid var(--blue);">
+          <h3>🚀 下週三 (11/04) 第 2 講預告</h3>
+          <h4 style="color: #7dd3fc; margin-top: 8px; font-size: 1.2rem;">Antigravity 操作與 Meta 自動發文串接</h4>
+          <p style="color: #cbd5e1; font-size: 0.95rem; line-height: 1.7; margin-top: 6px;">
+            掌握 Google Antigravity 代理操作；串接 Facebook Graph API 與 Threads 官方自動發布流，打造 24/7 自動發布社群的「全自動數位印鈔機」！
+          </p>
+        </div>
+      </div>
+
+      <div style="margin-top: auto; text-align: center; padding-top: 20px;">
+        <p style="color: var(--amber); font-size: 1.2rem; font-weight: 700;">
+          感謝大家的投入！現在開始進入實機動手環節，請大家打開筆電！💻✨
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Bottom Navigation Bar -->
+  <div id="controls">
+    <button class="btn" id="prev-btn" title="上一頁 (← 或 PageUp)">◀</button>
+    <div id="counter">01 / 12</div>
+    <button class="btn" id="next-btn" title="下一頁 (→ 或 Space)">▶</button>
+    <div style="width: 1px; height: 16px; background: rgba(148, 163, 184, 0.3); margin: 0 4px;"></div>
+    <button class="btn" id="fullscreen-btn" title="全螢幕切換 (F)">⛶</button>
+  </div>
+
+  <script>
+    const slides = document.querySelectorAll('.slide');
+    const counter = document.getElementById('counter');
+    const progressBar = document.getElementById('progress-bar');
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+    const fullscreenBtn = document.getElementById('fullscreen-btn');
+    let currentIndex = 0;
+
+    function updateSlide(index) {
+      if (index < 0) index = 0;
+      if (index >= slides.length) index = slides.length - 1;
+      currentIndex = index;
+
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === currentIndex);
+      });
+
+      const currentNum = String(currentIndex + 1).padStart(2, '0');
+      const totalNum = String(slides.length).padStart(2, '0');
+      counter.textContent = `${currentNum} / ${totalNum}`;
+
+      const progress = ((currentIndex + 1) / slides.length) * 100;
+      progressBar.style.width = `${progress}%`;
+    }
+
+    function nextSlide() {
+      if (currentIndex < slides.length - 1) {
+        updateSlide(currentIndex + 1);
+      }
+    }
+
+    function prevSlide() {
+      if (currentIndex > 0) {
+        updateSlide(currentIndex - 1);
+      }
+    }
+
+    // Keyboard Navigation
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+        e.preventDefault();
+        nextSlide();
+      } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+        e.preventDefault();
+        prevSlide();
+      } else if (e.key.toLowerCase() === 'f') {
+        toggleFullscreen();
+      } else if (e.key === 'Home') {
+        updateSlide(0);
+      } else if (e.key === 'End') {
+        updateSlide(slides.length - 1);
+      }
+    });
+
+    prevBtn.addEventListener('click', prevSlide);
+    nextBtn.addEventListener('click', nextSlide);
+
+    function toggleFullscreen() {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(err => alert(`無法進入全螢幕: ${err.message}`));
+      } else {
+        if (document.exitFullscreen) {
+          document.exitFullscreen();
+        }
+      }
+    }
+
+    fullscreenBtn.addEventListener('click', toggleFullscreen);
+
+    // Initial setup
+    updateSlide(0);
+  </script>
+</body>
+</html>
