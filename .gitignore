@@ -40,3 +40,9 @@ desktop.ini
 00-07_TWQR_Promotion/
 00-11_Reverse_Engineering_Lab/
 
+# 創辦人（品碩）個人極機密私密金庫與私人帳務 (100% 本機隔離，嚴禁追蹤，嚴禁對外公開)
+99_Founder_Private_Vault/
+00-99_Founder_Private_Vault/
+*private_financials*
+*founder_private*
+
