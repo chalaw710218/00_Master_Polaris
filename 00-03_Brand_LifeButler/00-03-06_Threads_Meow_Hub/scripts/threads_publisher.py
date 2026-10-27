@@ -312,9 +312,10 @@ def publish_thread(text, image=None, video=None, reply_to_id=None, topic_tag=Non
 
 if __name__ == "__main__":
     if len(sys.argv) > 1:
+        if sys.argv[1] in ["-h", "--help", "help"]:
+            print("Usage: python threads_publisher.py \"貼文內容\" [--image 路徑] [--video 路徑]")
+            sys.exit(0)
         content = " ".join(sys.argv[1:])
         publish_thread(text=content)
     else:
-        test_text = "好，我宣佈這家店被一隻貓接管了喵！🐱（這是一則來自極星自動化系統的測試脆文）"
-        print("未帶參數，執行預設測試文字...")
-        publish_thread(text=test_text)
+        print("未帶參數。請提供欲發布的文字內容，例如：python threads_publisher.py \"今天天氣真好\"")

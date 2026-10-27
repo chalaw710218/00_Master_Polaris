@@ -59,7 +59,19 @@
       ├── 📁 analysis_notes (協議分析與通訊流程報告)
       └── 📁 prototypes (自研改裝與技術反哺驗證)
  │
- └── 📁 00-12_Quality_Assurance_and_Control (子目錄 L：全域全面品質管理與安燈總控中樞) 📐 [戴明博士主掌] 🔥 [全新啟動]
+ ├── 📁 00-12_Quality_Assurance_and_Control (子目錄 L：全域全面品質管理與安燈總控中樞) 📐 [戴明博士主掌] 🔥 [全新啟動]
+      ├── 📁 01_Master_SOP_Vault (全系統法定 SOP 總母庫)
+      ├── 📁 02_SPC_Control_Charts (統計變異管制界限與日誌)
+      ├── 📁 03_Andon_Intercept_Logs (安燈繩 90 分硬攔截實錄)
+      ├── 📁 04_Audit_Certificates (品質合格認證與憑證存檔)
+      └── 📁 05_Kaizen_Improvements (PDSA 持續改善專案庫)
+ │
+ └── 📁 00-13_Cyber_Forensics_and_Investigation (子目錄 M：網路穿透與商業徵信調查處) 🦅 [渡鴉主掌 · 直屬雪柔] ⚡ [全新入閣]
+      ├── 📁 01_Judicial_Credit_Forensics (司法裁判與信用天網穿透庫)
+      ├── 📁 02_Social_Orbit_Profiling (朋友圈與社交圖譜連坐分析庫)
+      ├── 📁 03_Cyber_Infrastructure_Mapping (網路基礎設施測繪與伺服器逆向)
+      ├── 📁 04_Digital_Breadcrumbs_OSINT (數位足跡開源情報與時光機快照)
+      └── 📁 05_Case_Dossiers (《極星黑色卷宗》正式歸檔庫)
       ├── 📁 01_Master_SOP_Vault (全系統法定 SOP 總母庫)
       ├── 📁 02_SPC_Control_Charts (統計變異管制界限與日誌)
       ├── 📁 03_Andon_Intercept_Logs (安燈繩 90 分硬攔截實錄)
