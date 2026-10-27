@@ -13,6 +13,8 @@
 ---
 
 ### 👑 創辦人主席辦公室 · 陳品碩 (位於 00-00_Gamification_Engine 下 · 最高主權領地)
+*   [📋 極星宇宙動態總待辦事項與戰略任務清單 (00-00_Master_Todo_Backlog.md)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/00-00_Master_Todo_Backlog.md)
+    *   **說明**：創辦人親自核定之動態即時待辦事項、包含實體拓荒與龍蝦 CEO (OpenClaw) / Paperclip 產品化長期工程總清單。
 *   [🏛️ 創辦人主席辦公室總綱 (README.md)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_Founder_Boss/README.md)
     *   **說明**：生活管家與極星生態最高主權中樞，存放品碩專屬之認知存摺三重奏。
 
