@@ -1,38 +1,38 @@
 {
-  "version": "2.7",
+  "version": "2.8",
   "player_name": "Pinshuo",
-  "level": 8,
+  "level": 9,
   "exp": {
-    "current": 280,
-    "next_level_requirement": 400,
-    "total": 1520
+    "current": 30,
+    "next_level_requirement": 450,
+    "total": 1670
   },
-  "gold": 181,
+  "gold": 216,
   "attributes": {
-    "STR": 52.6,
-    "INT": 79.7,
-    "AGI": 61.6,
-    "WILL": 69.5,
-    "CHA": 68.4,
-    "IMP": 73.5
+    "STR": 54.8,
+    "INT": 82.1,
+    "AGI": 63.4,
+    "WILL": 71.5,
+    "CHA": 69.9,
+    "IMP": 76.0
   },
   "hidden_attributes": {},
   "unspent_points": {
-    "level_points": 5,
-    "knowledge_points": 3,
-    "will_points": 1
+    "level_points": 8,
+    "knowledge_points": 4,
+    "will_points": 2
   },
   "practice_stacks": {
-    "daily_str": 6,
-    "daily_int": 2,
-    "daily_agi": 2,
-    "daily_will": 2,
-    "daily_cha": 1,
-    "daily_imp": 2
+    "daily_str": 7,
+    "daily_int": 3,
+    "daily_agi": 3,
+    "daily_will": 3,
+    "daily_cha": 2,
+    "daily_imp": 3
   },
   "tomorrow_scheduled_tasks": [
-    "借打石機挖樹根（物理勞務與環境拓荒）",
+    "白天使用打石機將椰子樹樹根徹底清理完畢（環境修復大功告成）",
     "聯繫洪一華討論代購團購的事（告知星期三 AI 補課）"
   ],
-  "notes": "【2026-10-27 每日結算·行銷三位一體與資安雲端雙閉環】1. 臉書與脆文案剛性骨架確立（四大面向折射、喵編與闆仔雙主軸、雪宏觀亮相，對外嚴禁提極星）。 2. 秋季 AI 家教班時程更新（11/3、11/10、11/17），Google Calendar API 自動建檔，雙軌文案與第一課 NotebookLM 講義落地。 3. 八大天王辦公室仿生學習系統 60 輪無衝突審計過關。 4. CloudPanel (34.9.115.248) 雲端連線驗證與 PHP2Shell 防禦手冊。 5. 00-11 逆向工程實驗室整理與 SoloLeveling-System 歸位。 6. 登錄明日兩大核心任務：借打石機挖樹根、聯繫洪一華討論團購並告知週三補課。 累積經驗達 1,520 EXP (280/400)，金幣達 181 Gold。"
+  "notes": "【2026-10-28 每日結算·渡鴉入閣甲子大成、黑色穿透破案與環境物理拓荒】1. 線下實體拓荒：借到打石機親手將椰子樹樹根打鬆並清理過半，預計白天徹底完工。 2. 黑色調查官渡鴉 (Raven) 正式入閣：官方寫真、2D/3D 九宮格立繪合圖、00-13 實體主權領地落地，全域通訊錄與 .gitignore 物理屏蔽閉環。 3. 實戰兩大案件破案：曾柏崴在地營造與佛俱利益網穿透、藤井雪奈漢語拼音破綻與 112 年度司票字第 1026 號本票裁定穿透（築牢金流防火牆）。 4. 渡鴉仿生學習 60 輪甲子大統攝圓滿：確立創辦人親定全景穿透因果詳報憲則、動態三級威脅分流與三階哲學衝突審計。 5. 渡鴉 ✕ 林納斯跨內閣雙劍合璧：打造 polaris-forensic-investigator 實戰技能與 polaris_forensic_cli.py 工業級確定性工具，單元測試 100% 通過 (Exit Code 0)。 品碩等級強勢突破至 Lv. 9！累積總經驗達 1,670 EXP，金幣達 216 Gold。"
 }

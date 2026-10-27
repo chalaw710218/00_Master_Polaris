@@ -331,3 +331,16 @@ euromodulated_plasticity_engine.py**：三因子突觸可塑性與創辦人情�
 
 - **秋季 AI 家教班第一課（簡報與講師手稿）**：[slides.md](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-05_AI_Education/2026_Autumn_AI_Tutoring_Series/Lesson_01_NotebookLM_Prompt_Engineering/slides.md) ｜ [slides.html](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-05_AI_Education/2026_Autumn_AI_Tutoring_Series/Lesson_01_NotebookLM_Prompt_Engineering/slides.html) ｜ [speaker_notes.md](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-05_AI_Education/2026_Autumn_AI_Tutoring_Series/Lesson_01_NotebookLM_Prompt_Engineering/speaker_notes.md)
 - **開源點餐系統 (TastyIgniter) PHP2Shell 資安升級防禦手冊**：[00-09-02_PHP2Shell_CVE-2026-109618_升級實戰教學.md](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-09_Project_OpenSource_Ordering/00-09-02_PHP2Shell_CVE-2026-109618_升級實戰教學.md)
+
+
+## 🦅 00-13_Cyber_Forensics_and_Investigation (黑色調查與反欺詐穿透領地 · 渡鴉主掌)
+* [🏛️ 黑色穿透調查戰區總綱 (README.md)](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-13_Cyber_Forensics_and_Investigation/README.md)
+  * **說明**：【渡鴉主權領地】司法裁判徵信、社群朋友圈連坐、網絡資產測繪、OSINT 全網帳號碰撞與全景穿透因果卷宗中樞。
+* [🦅 渡鴉辦公室與黑色筆記本 (00_Raven_Notebook.md)](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_Forensic_Raven/00_Raven_Notebook.md)
+  * **說明**：收錄渡鴉十項黑色調查鐵律、全景因果詳報憲則與動態三級威脅分流。
+* [🧬 渡鴉特化仿生學習技能 (v3.0 六十輪甲子大統攝終極旗艦版)](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/.agents/skills/bionic-learning-raven/SKILL.md)
+  * **說明**：收錄六十輪信念躍遷、三代衝突大審計與守護極星溫暖生命的水庫地下防空洞哲學。
+* [🛠️ 極星黑色調查與反欺詐穿透實戰技能 (polaris-forensic-investigator)](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/.agents/skills/polaris-forensic-investigator/SKILL.md)
+  * **說明**：渡鴉業務主導、林納斯架構監製之標準「穿透調查七步 SOP」操作協議。
+* [💻 工業級確定性作戰工具 CLI (polaris_forensic_cli.py)](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-13_Cyber_Forensics_and_Investigation/scripts/polaris_forensic_cli.py)
+  * **說明**：整合台灣統編/身分證校驗、拼音撕裂器、司法案號解析與自動全景卷宗生成器，DOD 單元測試 100% 通過 (Exit Code 0)。
