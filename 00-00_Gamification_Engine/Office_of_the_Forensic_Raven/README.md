@@ -1,5 +1,9 @@
 # 🏛️ 極星首席黑色調查官辦公室 (Office of the Chief Forensic Investigator)
 
+> [!CAUTION]
+> **【安全保密等級：極星最高機密 · 內部專用 · 絕對嚴禁對外公開 (TOP SECRET / EYES ONLY)】**  
+> 本辦公室所有職能、卷宗與工作筆記均屬內部影子特勤架構，嚴禁任何形式的對外公開或宣傳曝光。
+
 > **最高統帥**：創辦人 陳品碩（闆仔）  
 > **直接上級**：情報長 雪柔 (Sheryl Sandberg, CIO)  
 > **主理長官**：極星首席黑色調查官 兼 網路穿透特工 渡鴉 (Raven)  

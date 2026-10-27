@@ -40,6 +40,21 @@ desktop.ini
 00-07_TWQR_Promotion/
 00-11_Reverse_Engineering_Lab/
 
+# 首席黑色調查官渡鴉 · 徵信調查與黑色卷宗 (100% 內部極機密，絕對不對外公開，隔離遠端)
+00-13_Cyber_Forensics_and_Investigation/01_Judicial_Credit_Forensics/*
+!00-13_Cyber_Forensics_and_Investigation/01_Judicial_Credit_Forensics/README.md
+00-13_Cyber_Forensics_and_Investigation/02_Social_Orbit_Profiling/*
+!00-13_Cyber_Forensics_and_Investigation/02_Social_Orbit_Profiling/README.md
+00-13_Cyber_Forensics_and_Investigation/03_Cyber_Infrastructure_Mapping/*
+!00-13_Cyber_Forensics_and_Investigation/03_Cyber_Infrastructure_Mapping/README.md
+00-13_Cyber_Forensics_and_Investigation/04_Digital_Breadcrumbs_OSINT/*
+!00-13_Cyber_Forensics_and_Investigation/04_Digital_Breadcrumbs_OSINT/README.md
+00-13_Cyber_Forensics_and_Investigation/05_Case_Dossiers/*
+!00-13_Cyber_Forensics_and_Investigation/05_Case_Dossiers/README.md
+00-13_Cyber_Forensics_and_Investigation/cases/
+00-13_Cyber_Forensics_and_Investigation/*.dossier.md
+00-13_Cyber_Forensics_and_Investigation/*.secret.*
+
 # 創辦人（品碩）個人極機密私密金庫與私人帳務 (100% 本機隔離，嚴禁追蹤，嚴禁對外公開)
 99_Founder_Private_Vault/
 00-99_Founder_Private_Vault/

@@ -1,5 +1,9 @@
 # 🦅 角色檔案：10 渡鴉 (Raven)
 
+> [!CAUTION]
+> **【安全保密等級：極星最高機密 · 絕對不對外公開 (CONFIDENTIAL / STRICTLY INTERNAL)】**  
+> **公開性限制**：渡鴉為「100% 內部影子調查特勤」，**嚴禁對外發布、嚴禁公開宣傳、嚴禁在社群媒體（FB、Threads、IG 等）透露任何形象或存在**。生活管家台前僅有闆仔、雪、喵編、泰勒絲等公開角色。
+
 > **所屬機構**：極星帝國 · 戰略總署 ｜ **直接上司**：情報長 雪柔 (Sheryl, CIO)  
 > **官方法定職稱**：極星首席黑色調查官 兼 網路穿透特工 (Chief Forensic Investigator & Cyber Reconnaissance Specialist)  
 > **實體管轄主權**：`00-13_Cyber_Forensics_and_Investigation`（網路穿透與商業徵信調查處）  
