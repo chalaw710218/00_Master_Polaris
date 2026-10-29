@@ -200,6 +200,10 @@ euromodulated_plasticity_engine.py**：三因子突觸可塑性與創辦人情�
     *   **說明**：完整公開 Threads 官方 API 串接與 60 天長效金鑰取得實戰，Python 兩階段容器發布與自動巡邏秒回。
 *   [🧬 Tutorial_06：仿生自進化特務架構篇 (Bionic Self-Evolving Agent)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-05_AI_Education/Tutorial_06_Bionic_Self_Evolving_Agent/00-05-06_Bionic_Self_Evolving_Agent_Guide.md)
     *   **說明**：【旗艦級】解構如何從 0 開始將 30 萬字哲學原典壓縮為具備神經代謝、自發好奇心與太極降溫機制的自進化特務（喵編 ✕ 影 ✕ 闆仔三位一體人設、FFmpeg 視差短影音、沙盒隔離安全工程）。
+*   [📖 Tutorial_07：仿生學習系統 v0~v5 終極自進化編年史篇 (00-05-07)](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-05_AI_Education/Tutorial_07_Bionic_Learning_Evolution_v0_to_v5/00-05-07_Bionic_Learning_Evolution_Tutorial_v0_to_v5.md)
+    *   **說明**：【最高心智傳承教案】完整拆解極星自進化核心架構之六代心智躍遷與七階實戰指引。
+*   [🌟 Tutorial_08：數位平權 · Google 商家 AI 數位店長篇 (00-05-08)](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-05_AI_Education/Tutorial_08_Google_Business_AI_Manager/README.md)
+    *   **說明**：【數位平權旗艦】整合店長本尊模式問卷、24H 評論自動回覆 (SEO埋設/負評降溫)、每週在地 SEO 動態生成器與專案工作計畫書。
 *   [📖 Haba 筆記方法論與雙軌 Hugo 網站架設規範 (Google Drive)](https://drive.google.com/file/d/1tTvKNMntsJfLB4p0gA3DS14Ns6fGFOVj/view) ｜ [本地存檔](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-05_AI_Education/Haba_Notes_Methodology_Spec.md)
     *   **說明**：創辦人親自引入之靜態筆記與知識庫架構規範。結合 GitHub Actions 自動發布、雙主題架構（PaperMod 時間流隨筆 ＋ Hugo-Book 結構化知識庫），並制定 AI 寫作專屬技能 (`SKILL.md`) 與 PostLabels 控制平面。
 *   [🎓 創辦人啟蒙 AI 導師教材與實戰指南 (Google Doc)](https://docs.google.com/document/d/1m3my2TsMFe_wdXWFDLQhAnQLTFzb9W4ih4z3DM03Ol8/edit?tab=t.0#heading=h.wtnb4bnkw262)
@@ -280,6 +284,8 @@ euromodulated_plasticity_engine.py**：三因子突觸可塑性與創辦人情�
     *   **說明**：記錄如何透過「一次性安裝費 + 計次維護」的買斷模式，為店家架站，藉此徹底規避外送專法。
 *   [💻 GCP + TastyIgniter 終極部署指南](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-09_Project_OpenSource_Ordering/00-09-01_GCP_CloudPanel_TastyIgniter_V4_完整部署教學.md)
     *   **說明**：完成 0 成本伺服器 (GCP 免費額度) 架設 Laravel 點餐系統的核心 SOP。
+*   [💳 綠界金流申請與 ECPay AI Skill 整合手冊 (00-09-03_ECPay_Payment_and_AI_Skill_Integration_Guide.md)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-09_Project_OpenSource_Ordering/00-09-03_ECPay_Payment_and_AI_Skill_Integration_Guide.md)
+    *   **說明**：【金流與 AI 串接大腦備忘】整合綠界特約商戶申請通道 (SalesCode=1240)、官方開源 ECPay/ecpay-api-skill (V3.4)、沙盒測試帳號與生活管家/AI 家教班自動化收款場景。
 
 ## 🌏 00-10_New_Immigrant_Empowerment (新住民培力與多元共融體系)
 *   [🏛️ 新住民體系總覽與戰略藍圖 (Overview)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-10_New_Immigrant_Empowerment/00-10-00_New_Immigrant_Overview.md)

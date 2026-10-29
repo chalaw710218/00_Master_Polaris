@@ -1,0 +1,65 @@
+[
+  {
+    "id": "YIHUA-1029-01",
+    "title": "大成安心雞系列・土雞去皮清肉 500g",
+    "group": "🏠台東蔬果水產🏅美食1館🥗",
+    "specs": [
+      {"code": "A", "name": "安心土雞去皮清肉 500g", "price": 130},
+      {"code": "B", "name": "玉米土雞去皮清肉 500g", "price": 130}
+    ],
+    "vendor": "大成食品 (Dachan)",
+    "text": "大成安心雞系列~下班做飯的救星來了！\nA．安心土雞去皮清肉 500g\nB．玉米土雞去皮清肉 500g\n免去骨、免去皮，退冰直接下鍋煎炒燉煮！不弄髒雙手，輕鬆享受純粹肉香與扎實纖維。",
+    "curator_score": 95,
+    "curator_verdict": "PASS_RECOMMENDED",
+    "curator_reasons": "大成品牌產銷履歷、土雞與玉米雞高檔肉質、免去骨去皮繁瑣代勞、冷凍耐送。"
+  },
+  {
+    "id": "YIHUA-1029-02",
+    "title": "豪華大包原切肉片 600g（大容量一台斤裝）",
+    "group": "🏠台東蔬果水產🏅美食1館🥗",
+    "specs": [
+      {"code": "A", "name": "原切豬五花片 600g", "price": 200},
+      {"code": "B", "name": "原切豬梅花片 600g", "price": 200}
+    ],
+    "vendor": "國內合格分切肉品大廠",
+    "text": "600g大容量太划算！炒菜涮肉超百搭，媽媽備菜救星！【肉控必備！#豪華大包原切肉片】炒菜 煮湯 火鍋 煮麵，超方便！隨手加幾片，整道菜香氣四溢，小孩老公讚不絕口。A：豬五花 600g（200） B：豬梅花 600g（200）",
+    "curator_score": 92,
+    "curator_verdict": "PASS_RECOMMENDED",
+    "curator_reasons": "強調「原切拒絕組合肉」符合闆仔專業人設、600g一台斤家庭剛需、4小時狂吸65單爆款。"
+  },
+  {
+    "id": "YIHUA-1029-03",
+    "title": "熱銷雞肉鬆 220g",
+    "group": "✡️台東水產蔬果🎖美食2館🍱",
+    "specs": [
+      {"name": "雞肉鬆 220g", "price": 150}
+    ],
+    "vendor": "肉品加工廠",
+    "text": "各大團購銷售超好的商品～好吃。每天都有人問雞肉鬆勒~雞肉鬆勒。持續蟬聯熱銷榜首，回購率超高，CP值爆表。雞肉鬆220克 原價每瓶150",
+    "curator_score": 80,
+    "curator_verdict": "BACKUP",
+    "curator_reasons": "常溫保存期長，但同質性較高，可作次要加購搭配。"
+  },
+  {
+    "id": "YIHUA-1029-04",
+    "title": "草本 SPA 沐浴包",
+    "group": "🏠台東蔬果水產🏅美食1館🥗",
+    "specs": [{"name": "現貨20盒", "price": 100}],
+    "vendor": "生技日化廠",
+    "text": "運氣卡卡、精神悶悶？每天10分鐘草本SPA，幫你洗去疲憊換好心情！洗香香，迎好運！現貨20盒 特100",
+    "curator_score": 70,
+    "curator_verdict": "FILTERED_OUT",
+    "curator_reasons": "非核心餐桌美食提案，稀釋品牌生活品味。"
+  },
+  {
+    "id": "YIHUA-1029-05",
+    "title": "加厚全包式家具防水保護套",
+    "group": "✡️台東水產蔬果🎖美食2館🍱",
+    "specs": [{"name": "一組5個", "price": 70}],
+    "vendor": "日用五金批發",
+    "text": "加厚全包式家具防水保護套 賣場一包5個售價120元 團購一組+1=#5個70元",
+    "curator_score": 60,
+    "curator_verdict": "FILTERED_OUT",
+    "curator_reasons": "地攤五金雜貨，違反負面排除清單，堅決不上架。"
+  }
+]

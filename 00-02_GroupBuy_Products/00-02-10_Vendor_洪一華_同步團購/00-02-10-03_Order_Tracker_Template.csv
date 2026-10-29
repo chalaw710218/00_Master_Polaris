@@ -1,0 +1,2 @@
+OrderId,CustomerName,Phone,ProductCode,ProductName,Quantity,FulfillmentType,DeliveryFee,Subtotal,PaymentStatus,FulfillmentStatus,VendorSource,Notes
+HYH-20261028-001,範例顧客,0912345678,HYH-001,範例商品,3,外送(四五六19-21),99,450,未付款,待進貨,洪一華,併單就醬點生鮮

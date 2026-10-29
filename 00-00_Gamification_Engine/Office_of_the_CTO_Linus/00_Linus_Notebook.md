@@ -39,6 +39,7 @@
 | `fb_publisher.py` | `00-02_.../facebook-publisher/` | Graph API v19.0 | 多圖發布原子性，任一圖失敗立即 rollback，自動搶第一留言 |
 | `comment_harvester.py` | `00-02_.../facebook-publisher/` | Graph API 輪詢 | 正則匹配 `+1` / 數量，自動去重避免重複記帳 |
 | `inspiring_moments.py` | `.agents/skills/inspiring-moments/` | CLI / JSON | 戴明反直覺防呆引擎，STDOUT 結構化 JSON，Exit Code 0 確定性合約 |
+| `ECPay API Skill (v3.4)` | `00-09-03...Guide.md` | AI Skill / GitHub | 綠界官方金流/物流/發票 API 知識庫，內建測試沙盒 3002607 |
 
 ---
 

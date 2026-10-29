@@ -1,0 +1,20 @@
+{
+  "search_keywords": [
+    "生活管家，就醬點！",
+    "生活的一部分，就醬點！",
+    "就醬點"
+  ],
+  "target_groups": [
+    {
+      "name": "✡️台東水產蔬果🎖美食2館🍱",
+      "url": "https://www.facebook.com/groups/347829083618668",
+      "group_id": "347829083618668"
+    },
+    {
+      "name": "🏠台東蔬果水產🏅美食1館🥗",
+      "url": "https://www.facebook.com/groups/2347370975321841",
+      "group_id": "2347370975321841"
+    }
+  ],
+  "lookback_days": 7
+}

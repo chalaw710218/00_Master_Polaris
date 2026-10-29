@@ -53,6 +53,22 @@
 
 ---
 
+### 📁 [Tutorial_08] 數位平權 · Google 商家 AI 數位店長篇 (Digital Equity Google Business AI Manager) 🌟【商業籌資與實體賦能旗艦】
+* **資料夾路徑**：`Tutorial_08_Google_Business_AI_Manager`
+* **核心內容**：創辦人品碩親定「打破偏鄉弱勢、實踐數位平權、落地商業籌資」之旗艦教案與真實商業產品！整合「單店名全自主拓荒」網絡情報偵蒐、店長本尊模式心智逆向工程、24H 評論自動巡邏與太極降溫防禦、Google 地圖在地 SEO 每週動態生成器，並具備全套商業提案與收費合約標準。
+* **實體旗艦示範案場**：
+  * [`clients/01_Taitung_Shokunin_Diner/`](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-05_AI_Education/Tutorial_08_Google_Business_AI_Manager/clients/01_Taitung_Shokunin_Diner/)：**【台東 職人食堂 (安慶街 60 號)】**（創辦人親自任 Google 商家管理員，包含完整 Profile、心智模型、實機回覆測試與首月 4 週在地 SEO 動態貼文庫）。
+* **主要檔案**：
+  * `README.md` (專案總樞紐與啟動入口)
+  * `PROJECT_WORK_PLAN.md` (商業實戰計畫書)
+  * `01_Project_Charter_and_Digital_Equity.md` (數位平權憲章)
+  * `02_Store_Persona_Extraction_Template.md` (店家人格逆向工程提取問卷)
+  * `03_Review_Response_Engine_Demo.py` (評論回覆引擎實測)
+  * `04_Weekly_Local_SEO_Post_Generator.py` (在地 SEO 動態貼文生成器)
+  * `05_Operational_Roadmap_and_Next_Steps.md` (接管指南)
+
+---
+
 ## 🎓 系列實戰課與工作坊 (Masterclasses & Workshops)
 
 ### 📁 [2026 秋季實戰班] 2026 秋季極星 AI 家教實戰系列班 (Three-Week Masterclass)
