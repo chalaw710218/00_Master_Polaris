@@ -241,3 +241,29 @@
   * **FB 粉專主權正式移交行銷長 泰勒絲 (Taylor, CMO)**：面對在地家庭採購者、餐桌決策者與常住客群，不強制綁定「闆仔」，賦予泰勒絲 100% 敘事彈性，專注於家庭餐桌省心解方、產銷履歷溯源、及週四至週六 99 元雙點代取之踏實服務信任。
   * **Threads 主權由特務 影 (Kage) ✕ 喵編 (Meow) 雙軌深耕**：專攻年輕世代、租屋族、貓奴與美食審美，維持高奢寫實生活攝影與懂吃知心慢調，脆上徹底杜絕「闆仔」稱呼。
   * **雙軌全自動收割、發布、對賬閉環完全確立**！
+
+---
+
+## 🗺️ 十一、 Google 商家檔案 (GBP) API 資格釐清與專案配額解鎖閉環
+
+> **登錄時間**：2026-10-30 23:20  
+> **核心決策者**：創辦人 陳品碩 ✕ 執行長 雪 (Yuki) ✕ CTO 林納斯 (Linus)  
+> **重大進展**：**徹底排除「新北板橋診所」誤判烏龍，驗證本土真實專案 `polaris-lifebutler` 連線，API 成功啟用並正式遞交配額解鎖申訴！**
+
+### 1. 烏龍排查與物理硬事實建立
+* **烏龍破案**：Google Business Profile API 審核團隊因資料庫對碰或客服人工複製失誤，將申請誤判為新北市「陳敏玲內科診所」之專案 `211708066962`。經查證創辦人 GCP 專案庫，該專案根本不存在。
+* **真實專案與金鑰確認**：
+  * **專案 ID**：`polaris-lifebutler` ｜ **專案編號 (Project Number)**：`6237735105`
+  * **金鑰檔案**：`google_service_account.json`（已在根目錄就緒，實測讀寫《生活管家_系統化管理_V3》試算表 100% 暢通）。
+* **API 啟用與 Quota 0 鎖定狀態**：
+  * 創辦人已手動在 GCP 控制台啟用 `mybusinessaccountmanagement` 與 `mybusinessbusinessinformation`。
+  * 代碼實測回傳 `HttpError 429: Quota exceeded (quota_limit_value: 0)`，確認通道已打通，唯 Google 預設配額為 0。
+
+### 2. 官方申訴與解鎖遞交
+* **前期申訴案件 (Appeal Case ID)**：`1-8524000041258`（由 Google 專員 Sriram 於 2026-10-31 郵件指引改採標準「Application for Basic Access」申請表補件）。
+* **正式許可清單申請案件 (Official Basic Access Application Case ID)**：`8-2264000041757`
+  * **遞交時間**：2026-11-01 04:03
+  * **申請專案編號 (Project Number)**：`6237735105`
+  * **申請專案 ID (Project ID)**：`polaris-lifebutler`
+  * **官方回覆承諾**：Google 客服團隊已正式開立案件，因目前許可清單申請量龐大，預估審查週期約為 7 ~ 10 個工作天。
+  * **後續行動**：待審核小組人工將配額從 0 調整至正常標準後，系統即可秒級啟動 Google 地圖商家評論自動監聽、在地貼文發布與自動回覆。在此等待期間，極星內部已於 `00-05_AI_Education/Tutorial_08_Google_Business_AI_Manager/` 完整完成本機離線測試與模擬驗證。

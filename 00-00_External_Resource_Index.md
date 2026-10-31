@@ -9,6 +9,8 @@
     *   **說明**：您的專屬線上戰情室與入口網站。
 *   [📂 GitHub 雲端原始碼倉庫](https://github.com/chalaw710218/00_Master_Polaris)
     *   **說明**：存放您所有數位資產、系統設定與版本控制紀錄的總金庫。
+*   [🔵 Facebook 官方粉絲專頁 (生活管家，就醬點)](https://www.facebook.com/profile.php?id=100080967383392)
+    *   **說明**：生活管家品牌對外官方臉書粉專（Page ID: `110505444816362` ｜ Profile ID: `100080967383392`）。已打通 Graph API 自動發布通道。
 
 ---
 
@@ -88,6 +90,10 @@
 *   [📬 Gmail 智慧郵件情報中樞 (email_manager.py)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/email_manager.py)
     *   **說明**：透過 SSL IMAP 安全協定讀取郵件，具備高層郵件日報生成、附件追蹤，並自動將信件分派至算盤（財務審計）、獵鷹（法規公文）與泰勒絲（品牌行銷）。
 *   [⚡ Google Workspace 雙向讀寫中樞 (polaris_workspace_hub.py)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/polaris_workspace_hub.py)
+    *   **GCP 核心專案宣告**：`polaris-lifebutler`（專案編號：`6237735105` ｜ 服務帳號：`polaris-bot@polaris-lifebutler.iam.gserviceaccount.com`）。
+    *   **Google Business Profile (GBP) API 存取權限申請案**：
+        *   **正式審核案件 ID (Case ID)**：`8-2264000041757`（已於 2026-11-01 正式遞交 Basic Access 表單，官方審核週期約 7~10 工作天）。
+        *   **前置申訴案件 ID**：`1-8524000041258`（由專員 Sriram 指引完成新專案分流）。
     *   **說明**：透過 Google 官方服務帳號 (polaris-bot)，賦予全體內閣夥伴自由建立、讀取、修改與追加 Google 試算表與 Google 文件的完整自動化能力。
 *   [📊 生活管家·系統化管理 V3 原生 Google 試算表](https://docs.google.com/spreadsheets/d/1-UE-TGLP510NBnt1AEkkj2cQrDasWjKLVFyA5P4kD6A/edit)
     *   **說明**：【全線打通連線】涵蓋 13 張工作表、617 筆歷史訂單、BOM 物料換算、進貨分期沖銷、車手 80% 抽成與  公積金自動化核算之即時線上中樞。

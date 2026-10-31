@@ -6,6 +6,8 @@
 google_service_account*.json
 *.json.json
 threads_session.json
+client_secret*.json
+*token*.json
 
 # 客戶與訂單機密資料庫備份檔 (嚴禁上傳)
 *.xlsx
