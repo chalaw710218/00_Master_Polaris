@@ -1,0 +1,39 @@
+{
+  "timestamp": 1793416374.138917,
+  "friend_likes": 7,
+  "feed_likes": 2,
+  "results": [
+    {
+      "username": "makauy1081201",
+      "status": "liked"
+    },
+    {
+      "username": "box950455",
+      "status": "liked"
+    },
+    {
+      "username": "likericeball",
+      "status": "liked"
+    },
+    {
+      "username": "ju_fu_mochi",
+      "status": "liked"
+    },
+    {
+      "username": "claireshu0308",
+      "status": "liked"
+    },
+    {
+      "username": "chin_san2024",
+      "status": "liked"
+    },
+    {
+      "username": "nice_fried_day_tai",
+      "status": "no_button_or_already_liked"
+    },
+    {
+      "username": "threemonths_cat",
+      "status": "liked"
+    }
+  ]
+}

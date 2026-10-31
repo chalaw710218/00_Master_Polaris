@@ -250,6 +250,8 @@ euromodulated_plasticity_engine.py**：三因子突觸可塑性與創辦人情�
 
 ## 📢 00-03-05_Brand_Content_Hub (品牌文案與社群調度母庫)
 *   [🏛️ 文案母庫總綱 (Overview)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-03_Brand_LifeButler/00-03-05_Brand_Content_Hub/00-03-05-00_Content_Hub_Overview.md)
+*   [🗑️ 生活管家·代倒垃圾日常服務宣傳文案 (00-03-05-02)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-03_Brand_LifeButler/00-03-05_Brand_Content_Hub/00-03-05-02_Trash_Collection_Promotion_Copy.md)
+    *   **說明**：【在地剛需生活服務】涵蓋三大人群（上班族、透天家長、行動不便長輩）之痛點解方、定價試算（單次 50 起 / 包月 999）與高情商預約諮詢話術。
 *   [📰 全域社群發文中央總存檔庫 (Master Archive)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-03_Brand_LifeButler/00-03-05_Brand_Content_Hub/00_Social_Posts_Master_Archive.md)
     *   **說明**：【全域單一真理來源 (SSOT)】集中收錄生活管家全通路已發布貼文（00-02 選品 ＋ 00-10 新住民公益等 12 篇文案、圖片、Post ID 與留言劇本），並與發布 API 勾子實時綁定自動無感歸檔。
 *   [📜 喵編社群文案總綱與產出規範 (Codex)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-03_Brand_LifeButler/00-03-05_Brand_Content_Hub/00-03-05-01_Copywriting_Codex.md)
@@ -342,6 +344,8 @@ euromodulated_plasticity_engine.py**：三因子突觸可塑性與創辦人情�
 
 
 - **秋季 AI 家教班第一課（簡報與講師手稿）**：[slides.md](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-05_AI_Education/2026_Autumn_AI_Tutoring_Series/Lesson_01_NotebookLM_Prompt_Engineering/slides.md) ｜ [slides.html](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-05_AI_Education/2026_Autumn_AI_Tutoring_Series/Lesson_01_NotebookLM_Prompt_Engineering/slides.html) ｜ [speaker_notes.md](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-05_AI_Education/2026_Autumn_AI_Tutoring_Series/Lesson_01_NotebookLM_Prompt_Engineering/speaker_notes.md)
+- **秋季 AI 家教實戰班全域宣傳文案矩陣**：[00-05_AI_Tutoring_Promotion_Copy_Matrix.md](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-05_AI_Education/2026_Autumn_AI_Tutoring_Series/00-05_AI_Tutoring_Promotion_Copy_Matrix.md)
+- **極星高階商務推進與落地成果報告 (供列印匯報)**：[極星AI自主系統商業推進與落地成果報告.docx](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/極星AI自主系統商業推進與落地成果報告.docx) ｜ [Markdown 存檔](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/極星AI自主系統商業推進與落地成果報告.md)
 - **開源點餐系統 (TastyIgniter) PHP2Shell 資安升級防禦手冊**：[00-09-02_PHP2Shell_CVE-2026-109618_升級實戰教學.md](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-09_Project_OpenSource_Ordering/00-09-02_PHP2Shell_CVE-2026-109618_升級實戰教學.md)
 
 

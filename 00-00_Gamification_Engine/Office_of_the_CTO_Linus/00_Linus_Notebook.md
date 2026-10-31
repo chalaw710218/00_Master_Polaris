@@ -8,6 +8,11 @@
 
 ## 🧭 一、 核心系統架構與技術參數速查
 
+### 0. 極星 GCP 雲端基礎架構單一真理 (SSOT)
+* **GCP 官方專案名稱 (Project ID)**：`polaris-lifebutler`
+* **服務帳號 (Service Account)**：`polaris-bot@polaris-lifebutler.iam.gserviceaccount.com`
+* **統一約定**：全體內閣（林納斯、雪、算盤、獵鷹、特務影）凡涉及 GCP API 啟用（Google Business Profile API、Sheets/Drive/Docs API、CloudPanel/TastyIgniter VM、Maps API 等），一律以此專案作為唯一法定母體。
+
 ### 1. `00-09` TastyIgniter V4 (GCP e2-micro 1GB 終端部署)
 * **主機規格**：GCP Free Tier (e2-micro, 2 vCPU, 1GB RAM, 30GB Standard Disk)
 * **底層堆疊**：Ubuntu 22.04 LTS + CloudPanel + PHP 8.1 + MySQL 8.0 + Nginx

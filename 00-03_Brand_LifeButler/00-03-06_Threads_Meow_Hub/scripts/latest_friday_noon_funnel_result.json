@@ -1,0 +1,39 @@
+{
+  "timestamp": 1793338492.6535954,
+  "friend_likes": 8,
+  "feed_likes": 1,
+  "results": [
+    {
+      "username": "threedays_2019",
+      "status": "liked"
+    },
+    {
+      "username": "bagel.chasing",
+      "status": "liked"
+    },
+    {
+      "username": "shuramen.taitung",
+      "status": "liked"
+    },
+    {
+      "username": "taikkacp_hang_bah",
+      "status": "liked"
+    },
+    {
+      "username": "tsao_min",
+      "status": "liked"
+    },
+    {
+      "username": "wowspangcah",
+      "status": "liked"
+    },
+    {
+      "username": "ms.ricewine",
+      "status": "liked"
+    },
+    {
+      "username": "taitunghouse",
+      "status": "liked"
+    }
+  ]
+}

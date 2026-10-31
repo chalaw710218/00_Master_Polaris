@@ -87,6 +87,18 @@
 
 ---
 
+---
+
+## ⚙️ 核心工具整合與自動化規範 (Tool Integration & SOPs)
+
+### 👑 [Skill-Core] 極星開課與工作坊全生命週期萬用營運引擎 (Polaris Course Master)
+* **技能路徑**：c:\Users\lenovo\我的雲端硬碟\00_Master_Polaris\.agents\skills\polaris-course-master\SKILL.md
+* **核心規範**：將任何知識點一鍵轉譯為「五步履約閉環 ✕ 戴明三道防呆閘門」之標準化開課引擎。涵蓋 16:9 簡報講稿、Google Forms API 自動建表、以 Email 為核心的資格審查、Google Calendar API 行事曆自動寫入、LINE 雙軌通知、24hr RSVP 點名防爽約、以及現場 3 分鐘續報轉化閉環。
+
+### 📄 [SOP-01] Google Gemini Notebook (NotebookLM) 長效連線與免登入持久化 SOP
+* **檔案路徑**：NotebookLM_Persistent_Auth_SOP.md
+* **核心規範**：確立本機憑證持久化（storage_state.json 37 枚 Cookies 永久繼承）與背景無感自動續期（Headless Reauth），提供 CLI 筆記本管理、資料源匯入、零幻覺問答、原生 20 頁電影級 PPTX/PDF 簡報及心智圖生成全套指令速查手冊。
+
 ## 🌐 外部重要資產與學習檔案庫 (External Reference Assets)
 * [🎓 創辦人啟蒙 AI 導師教材與實戰指南 (Google Doc)](https://docs.google.com/document/d/1m3my2TsMFe_wdXWFDLQhAnQLTFzb9W4ih4z3DM03Ol8/edit?tab=t.0#heading=h.wtnb4bnkw262)
   * **說明**：創辦人早期向 AI 啟蒙老師學習時的實戰講義與指引，作為極星宇宙教育訓練與靈感參照的重要文獻庫。
