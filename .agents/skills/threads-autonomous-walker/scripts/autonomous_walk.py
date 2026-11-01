@@ -199,7 +199,7 @@ def main():
     run_feed = args.all or args.feed or (not args.friends)
 
     print("==================================================")
-    print("🐾 極星 Threads 全自動社交漫遊 (Social Walk) 啟動")
+    print("🐾 極星 Threads 全自動社交漫遊 v3.0 (完全心智自生版) 啟動")
     print("==================================================")
 
     # 友店預設常規拜訪標的 (可動態擴充或結合 RSS)

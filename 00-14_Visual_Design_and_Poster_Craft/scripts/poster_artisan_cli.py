@@ -177,7 +177,7 @@ def generate_poster(args):
     font_anchor = get_font(int(22 * scale), bold=False)
     
     price_x = margin
-    draw.text((price_x, bottom_start_y), "極星會員特惠價 / 專案價格", fill=palette["text_secondary"], font=font_price_label)
+    draw.text((price_x, bottom_start_y), "生活管家專屬特惠價 / 專案價格", fill=palette["text_secondary"], font=font_price_label)
     draw.text((price_x, bottom_start_y + int(30 * scale)), args.price, fill=palette["accent"], font=font_price)
     
     if args.anchor_price:
