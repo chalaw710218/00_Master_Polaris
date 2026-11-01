@@ -7,27 +7,30 @@
 
 ---
 
-## ⚡ 一、 今日立即行動 (Immediate Priority · 2026-10-27)
+## ⚡ 一、 今日立即行動 (Immediate Priority · 2026-11-02)
 
-- [ ] **1. ⛏️ 借打石機挖樹根（物理勞務與環境拓荒）**
-  - **負責人**：品碩親自出擊
-  - **目標**：借調工程機具，清除土地老樹根，完成場域物理拓荒。
-  - **戰鬥力反饋**：今日核心之 **💪 STR (體力)** 與 **🛡️ WILL (意志)** 大量經驗來源。
+- [ ] **1. 📢 正式發布 AI 家教課消息（AI 課後實戰班招生首發）**
+  - **負責幹部**：泰勒絲 (CMO) ✕ 約瑟夫 (CVO) ✕ 影 (Kage)
+  - **宣傳物資準備**：
+    - 視覺海報：[`00-14/.../01_AI_Tutoring_Series/poster_ai_tutoring_post_evolution_social_ig.jpg`](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-14_Visual_Design_and_Poster_Craft/02_Posters_Archive/01_AI_Tutoring_Series/poster_ai_tutoring_post_evolution_social_ig.jpg)（4:5 直式滿版，戴明安燈 100/100 滿分出廠）。
+    - 雙軌文案：
+      - FB 粉絲專頁：`00-03-05_Brand_Content_Hub/draft_fb_20261103_ai_tutoring_launch.md`
+      - Threads 社群：`00-03-06_Threads_Meow_Hub/data/draft_threads_20261103_ai_tutoring_launch.txt`
+    - 品牌合規檢核：嚴格恪守官方全稱「生活的一部分，就醬點！」、自稱「生活管家」，對外文字絕對零「極星」字樣。
+    - 執行工具：調用 `facebook-publisher` 與 `threads-publisher` 一鍵排程發布。
 
-- [ ] **2. 🤝 聯繫洪一華討論代購／團購合作（商務洽談）**
-  - **負責人**：品碩親自出擊 ｜ **幕僚支援**：雪柔 (CIO 獵鷹) ＆ 算盤 (CFO 蒙格)
-  - **核心議程**：
-    1. 洽談生鮮特產或利刃商品代購、團購分潤與定價策略（依 5D 價值精算與利刃模型）。
-    2. **告知排程**：正式通知「**星期三 AI 補課**」之時間與課程安排。
+- [ ] **2. 📦 生活管家系統全面庫存盤點 (Inventory Audit & Reconciliation)**
+  - **負責幹部**：算盤 (CFO 蒙格) ✕ 林納斯 (CTO) ✕ 創辦人品碩 (現場實體核驗)
+  - **盤點範圍與標的**：
+    1. **正氣北路家宅冷鏈生鮮庫存**：大明毛豆仁、茶豆仁、枋寮午仔魚等實際包數與實重抽驗（落實蒙格包冰實重律）。
+    2. **包材與耗材耗損統計**：真空袋、冷鏈保冷袋、出貨紙箱、標籤紙耗材安全庫存預警。
+    3. **在途集單與社團代取帳目**：核對洪一華雙社團週四至週六集單代取品項，確保零呆滯庫存。
+    4. **數位雲端對帳**：將實體盤點數據與 Google 試算表《生活管家_系統化管理_V3》全量校準對齊。
+  - **財務指標**：堅守「30天庫存死線與負營運資金律」，標記超過 20 天之慢動銷商品，研擬特惠出清方案。
 
-- [ ] **3. 📢 秋季 AI 家教班時程更新與首發文案確認**
-  - **負責人**：泰勒絲 (CMO) ＆ 特務影 (Kage)
-  - **目標**：
-    - 正式確認課程定錨日期：**11/03 (二)、11/10 (二)、11/17 (二)** 14:00~16:00。
-    - 審閱已備便之雙軌發文草稿：
-      - FB 闆仔視角：[`draft_fb_20261103_ai_tutoring_launch.md`](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-03_Brand_LifeButler/00-03-05_Brand_Content_Hub/draft_fb_20261103_ai_tutoring_launch.md)
-      - Threads 喵編視角：[`draft_threads_20261103_ai_tutoring_launch.txt`](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-03_Brand_LifeButler/00-03-06_Threads_Meow_Hub/data/draft_threads_20261103_ai_tutoring_launch.txt)
-    - 取得品碩同意後排程發布。
+- [ ] **3. 📬 Google 商家檔案 API (GBP) 審核進度持續追蹤**
+  - **負責幹部**：獵鷹 (CIO) ✕ 林納斯 (CTO)
+  - **追蹤案件**：Official Basic Access Application `Case ID: 8-2264000041757`，留意 Gmail 官方開立工單後續回覆。
 
 ---
 
