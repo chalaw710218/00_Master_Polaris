@@ -1,11 +1,12 @@
 # ⚡ 極星技能一秒速查小卡 (Polaris Skills Cheat Sheet)
 
 > **定位**：手機與終端機秒開秒抄的「一秒起手式速查表」。  
-> **編制**：工程長 林納斯 (Linus, CTO) ✕ 執行長 雪 (Yuki, CEO) ｜ **全域總量**：31 個核心實戰與仿生學習技能。
+> **編制**：工程長 林納斯 (Linus, CTO) ✕ 執行長 雪 (Yuki, CEO) ｜ **全域總量**：32 個核心實戰與仿生學習技能。
 
 ---
 
-## 🛡️ 1. 系統治理與首長入閣 (Governance)
+## 🛡️ 1. 系統治理與總控飛輪 (Governance & Flywheel)
+* ☸️ **`polaris-flywheel-orchestrator`** ➔ `「雪，啟動飛輪總控派工：[事件/需求]」` 或 `「雪，審查這篇文案是否觸犯品牌紅線！」`
 * 👑 **`polaris-cabinet-onboarding`** ➔ `「雪，我要招募 [名稱]，請執行入閣 SOP！」`
 * 🧠 **`bionic-learning-system`** ➔ `「全體內閣，啟動仿生學習自對弈。」`
 * 🧬 **`bionic-self-evolution`** ➔ `「啟動自進化代謝，修剪死知識。」`

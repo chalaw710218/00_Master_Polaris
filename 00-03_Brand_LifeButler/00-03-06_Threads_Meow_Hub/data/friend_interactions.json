@@ -1,10 +1,10 @@
 {
-  "last_updated": "2026-11-01T21:24:55.613582",
+  "last_updated": "2026-11-01T23:24:52.569912",
   "summary": {
-    "total_friends_contacted": 3,
-    "total_interactions": 24,
-    "total_likes": 20,
-    "total_comments": 12
+    "total_friends_contacted": 8,
+    "total_interactions": 28,
+    "total_likes": 23,
+    "total_comments": 13
   },
   "relationship_tiers_definition": {
     "🌱 初次問候": "互動 1 次",
@@ -55,12 +55,12 @@
       "username": "hattcoffee",
       "name": "Hatt Coffee 自家烘焙",
       "category": "cat_and_lifestyle_cafes",
-      "total_interactions": 7,
-      "likes_given": 5,
+      "total_interactions": 8,
+      "likes_given": 6,
       "comments_given": 6,
       "relationship_tier": "🤝 摯友同盟",
       "first_contact_at": "2026-10-21T17:27:00+08:00",
-      "last_interaction_at": "2026-11-01T13:25:25.084239",
+      "last_interaction_at": "2026-11-01T23:24:52.569912",
       "history": [
         {
           "timestamp": "2026-10-21T17:27:00+08:00",
@@ -108,6 +108,13 @@
           "post_url": "https://www.threads.net/@hattcoffee/post/DfJL5UNCaB5",
           "comment_text": "（喵編從森林公園草地上探出頭）海特喵喉嚨暖好準備開唱了嗎！今天台東藍配上原音節奏太過癮了，闆仔也吵著待會要順路去外帶一杯海特冰美式醒腦喵 ☕🎶🐾",
           "screenshot": "live_reply_to_hattcoffee.png"
+        },
+        {
+          "timestamp": "2026-11-01T23:24:52.569912",
+          "action": "like",
+          "post_url": "",
+          "comment_text": "",
+          "screenshot": ""
         }
       ]
     },
@@ -140,9 +147,9 @@
     },
     "956leissmoker": {
       "username": "956leissmoker",
-      "total_interactions": 3,
+      "total_interactions": 4,
       "likes_given": 2,
-      "comments_given": 1,
+      "comments_given": 2,
       "relationship_tier": "☕ 熟稔常客",
       "first_contact_at": "2026-11-01T12:15:51.438553",
       "history": [
@@ -162,14 +169,21 @@
           "timestamp": "2026-11-01T21:24:55.613582",
           "action": "like",
           "context": "sunday_night_patrol"
+        },
+        {
+          "timestamp": "2026-11-01T23:24:52.335260",
+          "action": "comment",
+          "post_url": "",
+          "comment_text": "看老闆這麼認真煙燻，生活管家默默在後排端出熱茶... 週日收工辛苦了，今晚別想工作，好好大口吃肉犒勞自己！🍵🍖",
+          "screenshot": "scripts/screenshots/walk_v3_clout_tea_956leissmoker.png"
         }
       ],
-      "last_interaction_at": "2026-11-01T21:24:55.613582"
+      "last_interaction_at": "2026-11-01T23:24:52.335260"
     },
     "chaiyuan_bakery": {
       "username": "chaiyuan_bakery",
-      "total_interactions": 2,
-      "likes_given": 2,
+      "total_interactions": 3,
+      "likes_given": 3,
       "comments_given": 0,
       "relationship_tier": "☕ 熟稔常客",
       "first_contact_at": "2026-11-01T12:15:51.438553",
@@ -183,14 +197,21 @@
           "timestamp": "2026-11-01T21:24:55.613582",
           "action": "like",
           "context": "sunday_night_patrol"
+        },
+        {
+          "timestamp": "2026-11-01T23:24:52.198003",
+          "action": "like",
+          "post_url": "",
+          "comment_text": "",
+          "screenshot": ""
         }
       ],
-      "last_interaction_at": "2026-11-01T21:24:55.613582"
+      "last_interaction_at": "2026-11-01T23:24:52.198003"
     },
     "howhow_sweets": {
       "username": "howhow_sweets",
-      "total_interactions": 2,
-      "likes_given": 2,
+      "total_interactions": 3,
+      "likes_given": 3,
       "comments_given": 0,
       "relationship_tier": "☕ 熟稔常客",
       "first_contact_at": "2026-11-01T12:15:51.438553",
@@ -204,9 +225,16 @@
           "timestamp": "2026-11-01T21:24:55.613582",
           "action": "like",
           "context": "sunday_night_patrol"
+        },
+        {
+          "timestamp": "2026-11-01T23:24:52.078553",
+          "action": "like",
+          "post_url": "",
+          "comment_text": "",
+          "screenshot": ""
         }
       ],
-      "last_interaction_at": "2026-11-01T21:24:55.613582"
+      "last_interaction_at": "2026-11-01T23:24:52.078553"
     },
     "yuanlung.667": {
       "username": "yuanlung.667",

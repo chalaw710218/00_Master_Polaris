@@ -3,10 +3,6 @@ send_post_via_webhook.py
 ========================
 極星 Google 商家敏捷發文引擎 (Make.com 官方白名單跳板)
 主理：情報長 雪柔 (Sheryl Sandberg / 獵鷹)
-
-功能：
-將「職人食堂」第 1 週動態文案與現場真實實拍照，
-透過 Make.com Webhook 直送 Google Maps 最新動態！
 """
 
 import sys
@@ -19,16 +15,9 @@ if sys.platform == "win32":
     except Exception:
         pass
 
-# 創辦人晚上取得 Webhook 網址後，貼入此處即可！
-# 例如: "https://hook.eu2.make.com/abcdef123456789"
-MAKE_WEBHOOK_URL = "YOUR_MAKE_WEBHOOK_URL_HERE"
+MAKE_WEBHOOK_URL = "https://hook.eu1.make.com/qgaec1o5a2fee1cjohfb67gwobfgrp7n"
 
 def publish():
-    if MAKE_WEBHOOK_URL == "YOUR_MAKE_WEBHOOK_URL_HERE":
-        print("⚠️ 尚未配置 MAKE_WEBHOOK_URL！")
-        print("👉 請創辦人參考 Make_Integration_Guide.md，將取得的 Webhook 網址貼入本腳本！")
-        return
-
     summary = (
         "【輕輕咬一小口，鮮甜肉汁直接爆開！為什麼我們堅持每一籠現點現蒸？🥟】\n\n"
         "在安慶街的日常裡，最療癒的聲音，就是蒸籠蓋掀開那一瞬間的「嘶——」聲，伴隨著熱氣與肉香撲鼻而來！✨\n\n"
@@ -54,10 +43,10 @@ def publish():
 
     print("🚀 正在透過 Make 敏捷通道發布動態至 Google Maps...")
     resp = requests.post(MAKE_WEBHOOK_URL, json=payload, timeout=15)
-    print(f"📡 回應狀態碼：{resp.status_code}")
-    print(f"📡 回應內容：{resp.text}")
+    print(f"📡 Webhook 回應狀態碼：{resp.status_code}")
+    print(f"📡 Webhook 回應內容：{resp.text}")
     if resp.status_code == 200:
-        print("🎉 恭喜！職人食堂 Google 地圖最新動態已成功發布上線！")
+        print("🎉 訊號已成功送達 Make！請檢查 Make 節點是否觸發發布！")
 
 if __name__ == "__main__":
     publish()

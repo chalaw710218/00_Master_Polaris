@@ -25,18 +25,23 @@ def evaluate_threads_draft(text):
     if not lines:
         return 0, ["❌ 內容為空"]
 
-    # 1. 鉤子審計 (前兩行)
+    # 1. 鉤子審計 (前兩行：生活微情境白描 > 制式化套路)
     first_two = " ".join(lines[:2])
     forbidden_greetings = ["大家好", "哈囉大家", "今天小編要", "推薦大家", "限時特惠"]
+    outdated_formulas = ["我就問到底", "我就問", "全台灣有多少人", "到底有沒有人"]
+    
     if any(g in first_two for g in forbidden_greetings):
         feedback.append("⚠️ 開頭有陳舊問候或推銷廢話，降低用戶滑動暫停率 (-10)")
         score += 10
-    elif any(k in first_two for k in ["全台灣", "到底", "剛剛", "大吵", "我就問", "報告", "宣佈", "最難"]):
-        feedback.append("✅ 開頭鉤子張力極強，精準創造認知失調 (+20)")
+    elif any(o in first_two for o in outdated_formulas):
+        feedback.append("⚠️ 開頭陷入制式化網紅套路（如『我就問到底』），已引起大眾審美疲勞，品碩親令禁止制式化開頭 (-6)")
+        score += 14
+    elif any(k in first_two for k in ["剛剛", "大掃除", "打翻", "煎蛋", "清冰箱", "台東", "熱湯", "散步", "不小心", "發現", "意外", "看著", "煮麵", "留心", "流心蛋"]):
+        feedback.append("✅ 開頭為生活微情境白描/真實意外挖寶，突破審美疲勞且 Dwell Time 停留率最高 (+20)")
         score += 20
     else:
-        feedback.append("🟡 開頭鉤子平鋪直敘，建議加入反問或驚訝語氣 (+14)")
-        score += 14
+        feedback.append("✅ 開頭自然平實，符合生活管家真實體溫 (+18)")
+        score += 18
 
     # 2. 排版呼吸感審計
     avg_line_len = sum(len(l) for l in lines) / len(lines)
@@ -62,27 +67,44 @@ def evaluate_threads_draft(text):
         feedback.append("⚠️ 內文帶有硬廣字眼，容易激發脆友心理防禦 (-10)")
         score -= 10
 
-    # 4. 雙簧人設與真實自嘲審計
+    # 4. 雙簧人設與真實自嘲審計 (喵編 ⇋ 影 / 闆仔)
+    has_kage = any(k in text for k in ["影", "管家", "熱茶", "細框眼鏡", "私房", "散步", "手沖", "日常"])
     has_boss = any(k in text for k in ["闆仔", "老闆", "品碩", "外送", "安全帽", "算帳"])
-    has_meow = any(k in text for k in ["喵", "貓", "本喵", "罐罐", "爪子"])
-    if has_boss and has_meow:
-        feedback.append("✅ 完美調用『貓咪前台 ＋ 闆仔男主角』雙簧人設，故事性與親民感極高 (+20)")
+    has_meow = any(k in text for k in ["喵", "貓", "本喵", "罐罐", "爪子", "折手手", "流心蛋"])
+    
+    if (has_kage or has_boss) and has_meow:
+        feedback.append("✅ 完美調用『店貓喵編 ＋ 生活管家影/闆仔』雙簧人設，故事性與親切感極高 (+20)")
         score += 20
-    elif has_boss or has_meow:
-        feedback.append("🟡 僅帶入單一人設，建議加入貓咪吐槽或老闆實幹細節 (+15)")
-        score += 15
+    elif has_kage:
+        feedback.append("✅ 生活管家影專場，沉靜質感與生活提案鮮明 (+20)")
+        score += 20
+    elif has_meow:
+        feedback.append("✅ 店貓喵編專場，傲嬌真貓生態與解壓治癒力強 (+20)")
+        score += 20
+    elif has_boss:
+        feedback.append("✅ 闆仔實幹人設鮮明 (+18)")
+        score += 18
     else:
-        feedback.append("⚠️ 缺乏生活管家專屬人設識別，易流於大眾文案 (+8)")
-        score += 8
+        feedback.append("⚠️ 缺乏生活管家專屬人設識別，易流於大眾文案 (+10)")
+        score += 10
 
     # 5. 結尾對話鉤子審計
     last_two = " ".join(lines[-2:])
-    if any(k in last_two for k in ["？", "?", "舉手", "留言", "告訴我", "抄作業", "哪一種", "還是"]):
+    if any(k in last_two for k in ["？", "?", "舉手", "留言", "告訴我", "抄作業", "哪一種", "還是", "你呢"]):
         feedback.append("✅ 結尾成功拋出開放式提問，強力誘發網友在留言區互動 (+20)")
         score += 20
     else:
         feedback.append("⚠️ 結尾缺乏對話鉤子，容易被已讀不回 (-10)")
         score += 10
+
+    # 6. Topic Tag 單一性防呆 (甲子軍規)
+    tags = re.findall(r"#\S+", text)
+    if len(tags) > 2:
+        feedback.append(f"⚠️ 標籤過多 (檢測到 {len(tags)} 個)，違反 2026 Threads 演算法單一標籤原則，會遭權重稀釋 (-5)")
+        score -= 5
+    elif len(tags) == 1:
+        feedback.append(f"✅ 符合單一 Topic Tag 原則 ({tags[0]})，精準吃滿專屬推薦池 (+2)")
+        score += 2
 
     return max(0, min(100, score)), feedback
 

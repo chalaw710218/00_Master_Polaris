@@ -51,3 +51,4 @@
 | **`facebook-publisher`** | 泰勒絲 | 官方 Facebook 粉專圖文排程自動發射台 | `00-02_GroupBuy_Products/.agents/skills/facebook-publisher/fb_publisher.py` |
 | **`polaris-motion-reels`** | 林納斯 | 9:16 Ken Burns 緩動短影音微動態合成管線 | Python + FFmpeg 自動化轉譯 |
 | **`daily-closing-sop`** | 雪 | 每日營運收工閉環標準作業程序 (資安脫敏/RPG結算/Git推送) | `.agents/skills/daily-closing-sop/SKILL.md` |
+| **`polaris-flywheel-orchestrator`** | 雪 | 全域飛輪總控調度引擎 (九天王路由/品牌防火牆/一鍵審批) | `00-00_Gamification_Engine/polaris_flywheel_orchestrator.py` |

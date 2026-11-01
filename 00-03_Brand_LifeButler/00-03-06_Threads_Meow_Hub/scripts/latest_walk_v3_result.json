@@ -1,0 +1,50 @@
+{
+  "step1_home_replies": 0,
+  "step2_friends_visited": [
+    {
+      "username": "sinapayan_youth",
+      "name": "喜拿巴漾青年工作站",
+      "action": "liked"
+    },
+    {
+      "username": "taitungstation",
+      "name": "台東站 TTSTN",
+      "action": "liked"
+    },
+    {
+      "username": "taiwanballoonfestival",
+      "name": "臺灣國際熱氣球嘉年華",
+      "action": "liked"
+    },
+    {
+      "username": "starrytaitung_",
+      "name": "台東最美星空",
+      "action": "liked"
+    },
+    {
+      "username": "slowfoodtaitung",
+      "name": "臺東慢食節",
+      "action": "liked"
+    },
+    {
+      "username": "travel_zztaitung",
+      "name": "台東製造",
+      "action": "liked"
+    },
+    {
+      "username": "makauy1081201",
+      "name": "馬告先生鹹豬肉",
+      "action": "visited"
+    }
+  ],
+  "step2_clout_tea": {
+    "target": "@starrytaitung_ (台東最美星空)",
+    "message": "夜深了，台東的星空依舊那麼靜謐乾淨。生活管家默默在後排端上一杯溫熱的鹿野紅烏龍... 各位還沒睡的朋友，放下手機看一眼窗外吧，今晚也是被整片星空守護的一晚。🍵✨",
+    "proof": "C:\\Users\\lenovo\\我的雲端硬碟\\00_Master_Polaris\\00-03_Brand_LifeButler\\00-03-06_Threads_Meow_Hub\\scripts\\screenshots\\walk_v3_clout_tea_starrytaitung.png"
+  },
+  "step3_feed_likes": 0,
+  "step4_post": null,
+  "step45_first_reply": null,
+  "step5_friend_ledger": null,
+  "step6_cognitive_sync": true
+}

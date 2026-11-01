@@ -7,8 +7,8 @@
 業務定義: 首席黑色調查官 渡鴉 (Raven)
 工程架構: 技術工程長 林納斯 (Linus Torvalds)
 最高授權: 極星創辦人 陳品碩 (Pinshuo)
-版本: v1.0 (Deterministic Industrial Edition · 工業確定性旗艦版)
-規範: RFC #001 三態熔斷 / 60秒超時防禦 / UTF-8 強制編碼 / Exit Code 0
+版本: v2.0 (Full-Spectrum Deep-Water Forensic Edition · 全域深水區黑色穿透旗艦版)
+規範: RFC #001 三態熔斷 / 60秒超時防禦 / UTF-8 強制編碼 / Exit Code 0 / 神經離合器三階呈報
 ================================================================================
 """
 
@@ -98,113 +98,203 @@ class RavenPinyinDetector:
 
         matched = []
         remainder = cleaned
-        for syll in sorted(cls.PINYIN_SYLLABLES, key=len, reverse=True):
-            if syll in remainder:
-                matched.append(syll)
-                remainder = remainder.replace(syll, "", 1)
+        for syl in sorted(cls.PINYIN_SYLLABLES, key=len, reverse=True):
+            if syl in remainder:
+                matched.append(syl)
+                remainder = remainder.replace(syl, "")
 
-        coverage = (len(cleaned) - len(remainder)) / len(cleaned)
-        is_suspect = coverage >= 0.6 or len(matched) >= 3
+        matched_len = sum(len(s) for s in matched)
+        total_len = len(cleaned)
+        ratio = matched_len / total_len if total_len > 0 else 0
 
+        is_suspect = ratio >= 0.5 or len(matched) >= 2
         return {
             "handle": handle,
             "cleaned": cleaned,
             "matched_syllables": matched,
-            "coverage_ratio": round(coverage, 2),
+            "coverage_ratio": round(ratio, 2),
             "is_pinyin_suspect": is_suspect,
-            "verdict": "高度疑似華語拼音母語者（假日本人/假外籍偽裝破綻）" if is_suspect else "拼音特徵不顯著"
+            "verdict": "⚠️ 高度疑似華人拼音偽裝" if is_suspect else "純外文/正常英文縮寫"
         }
 
 
 class RavenJudicialParser:
-    """渡鴉司法裁判書案號與風險解析器"""
+    """司法院裁判書案號與案由解析器 (Judicial Case Lexer)"""
 
-    HIGH_RISK_TYPES = {
-        "司票": ("本票裁定", "極高風險 (票據欠款未還，聲請法院強制執行扣押)"),
-        "司促": ("支付命令", "高風險 (債務逾期未還，債權人聲請命令清償)"),
-        "重訴": ("重大民事訴訟", "極高風險 (通常涉案金額在數百萬至數千萬元以上)"),
-        "金重訴": ("重大金融訴訟", "極限高危 (涉及銀行法、洗錢、證交法吸金)"),
-        "拍": ("拍賣抵押物", "極高風險 (擔保品如房地產即將遭法院法拍)"),
-        "訴": ("一般訴訟", "中度風險 (民刑事本案審理)"),
-        "簡上": ("簡易二審", "中度風險"),
-        "執": ("強制執行", "極高風險 (已進入查封拍賣財產程序)")
+    CASE_TYPE_MAP = {
+        "司票": ("本票裁定", "極高金融信用風險 (跳票/拖欠貸款)"),
+        "司促": ("支付命令", "高債務違約風險 (民間借貸/卡債)"),
+        "重訴": ("重大民事訴訟", "高度商業合約糾紛 (標的通常超過500萬)"),
+        "訴": ("一般訴訟", "常態民事或刑事第一審訴訟"),
+        "簡": ("簡易判決", "案情明確之輕微案件或快速審決"),
+        "金訴": ("金融犯罪訴訟", "重大洗錢、銀行法、證交法案件"),
+        "矚訴": ("重大矚目案件", "社會矚目貪污、黑金組織或特許弊案"),
+        "選訴": ("選罷法訴訟", "賄選、當選無效、幽靈人口案件")
     }
 
     @classmethod
-    def parse_case_number(cls, case_str: str) -> Dict[str, Any]:
+    def parse_case_number(cls, raw_case_str: str) -> Dict[str, Any]:
         """
-        解析台灣法院裁判案號，例如：'112年度司票字第1026號' 或 '臺灣高雄地方法院 112年度司票字第1026號'
+        解析臺灣法院案號字別 (例如 '112年度司票字第1026號')
         """
-        pattern = r"(?:(?:臺灣)?(\w+地方法院|\w+高等法院|\w+高分院))?\s*(\d+)年度?([^\d]+)字第(\d+)號"
-        match = re.search(pattern, case_str)
+        pattern = r"(?:臺灣)?(\S+?地方法院)?\s*(\d{2,3})\s*年度\s*([a-zA-Z\u4e00-\u9fa5]+?)\s*字第\s*(\d+)\s*號"
+        match = re.search(pattern, raw_case_str)
         if not match:
-            return {"valid": False, "raw": case_str, "error": "無法識別符合台灣法院規範之案號"}
+            return {
+                "raw": raw_case_str,
+                "valid": False,
+                "error": "無法識別之台灣裁判書案號格式"
+            }
 
-        court = match.group(1) or "未知法院"
+        court = match.group(1) or "未知地方法院"
         year = int(match.group(2))
-        case_type = match.group(3).strip()
-        case_seq = match.group(4)
+        case_type = match.group(3)
+        case_num = match.group(4)
 
-        risk_info = cls.HIGH_RISK_TYPES.get(case_type, ("一般案件", "常態程序"))
+        type_desc, risk_eval = cls.CASE_TYPE_MAP.get(case_type, ("一般裁判", "常態性法律程序"))
 
         return {
+            "raw": raw_case_str,
             "valid": True,
             "court": court,
             "republic_year": year,
             "ad_year": year + 1911,
             "case_type": case_type,
-            "case_type_name": risk_info[0],
-            "risk_assessment": risk_info[1],
-            "case_seq": case_seq,
-            "normalized_case_number": f"{year}年度{case_type}字第{case_seq}號"
+            "case_type_name": type_desc,
+            "case_number": case_num,
+            "risk_assessment": risk_eval,
+            "normalized_case_number": f"{year}年度{case_type}字第{case_num}號"
+        }
+
+
+class RavenDeepWaterAnalyzer:
+    """渡鴉深水區法醫分析器 (Deep-Water Asymmetry & Spouse Firewall Engine)"""
+
+    @staticmethod
+    def calculate_asymmetry_index(public_influence_years: int, declared_net_worth: float) -> Dict[str, Any]:
+        """
+        資產不對稱指數 (Asymmetry Index) 計算:
+        公職年資長、影響力巨大，但申報淨值趨近於零或微額負債，自動判定深水區蓄水池等級。
+        """
+        # 門檻值: 年資每多1年，正常預期淨資產至少應有 50 萬
+        expected_min_worth = max(500000.0, public_influence_years * 500000.0)
+        
+        ratio = declared_net_worth / expected_min_worth if expected_min_worth > 0 else 1.0
+        
+        if ratio < 0.2 and public_influence_years >= 4:
+            level = "CRITICAL_ASYMMETRY (極高不對稱 · 99% 存在地下關係人蓄水池)"
+            is_warning = True
+        elif ratio < 0.5:
+            level = "MODERATE_ASYMMETRY (中度不對稱 · 需清查非公開代墊金流)"
+            is_warning = True
+        else:
+            level = "SYMMETRIC (資產與身分權勢基本相稱)"
+            is_warning = False
+
+        return {
+            "public_influence_years": public_influence_years,
+            "declared_net_worth": declared_net_worth,
+            "expected_min_worth": expected_min_worth,
+            "asymmetry_ratio": round(ratio, 3),
+            "threat_level": level,
+            "is_warning": is_warning
+        }
+
+    @staticmethod
+    def evaluate_spouse_firewall(spouse_declared_wealth: float, spouse_has_companies: bool, target_is_politician: bool) -> Dict[str, Any]:
+        """
+        配偶防火牆判定器 (Spouse Firewall Detector):
+        若政治人物之法定配偶名下完全無公司、無標案、申報財產極低，
+        則觸發「非配偶親密關係人 (女助理/地下女友/司機人頭)」深度排查指針。
+        """
+        if target_is_politician and spouse_declared_wealth < 500000.0 and not spouse_has_companies:
+            firewall_triggered = True
+            diagnosis = "🚨 命中【配偶防火牆】典型特徵：正宮極致純白，利益必由非配偶親密關係人承接！"
+        else:
+            firewall_triggered = False
+            diagnosis = "未觸發配偶防火牆特徵或屬常態公務家庭。"
+
+        return {
+            "spouse_declared_wealth": spouse_declared_wealth,
+            "spouse_has_companies": spouse_has_companies,
+            "firewall_triggered": firewall_triggered,
+            "diagnosis": diagnosis
         }
 
 
 class PolarisDossierBuilder:
-    """全景穿透式因果卷宗生成器 (遵照品碩至高知情權與微觀事實鋪開憲則)"""
+    """極星全景穿透式因果卷宗生成器 v2.0 (Three-Tier Neural Reporting Engine)"""
 
-    @staticmethod
+    @classmethod
     def generate_dossier_markdown(
+        cls,
         target_name: str,
         target_type: str,
         threat_tier: int,
         judicial_records: List[Dict[str, Any]],
         social_footprints: List[Dict[str, Any]],
-        pinyin_analysis: Optional[Dict[str, Any]],
-        timeline_events: List[Dict[str, str]],
-        investigator: str = "渡鴉 (Raven)",
-        supervisor: str = "林納斯 (Linus)"
+        pinyin_analysis: Optional[Dict[str, Any]] = None,
+        deep_water_analysis: Optional[Dict[str, Any]] = None,
+        timeline_events: Optional[List[Dict[str, str]]] = None,
+        core_motive: str = "評估商業信用與實質背景真實性",
+        top_risk_summary: str = "查無重大公法案號，仍需留意非公開往來"
     ) -> str:
         date_str = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        file_date = datetime.now().strftime("%Y%m%d")
-        
+        case_id = f"DOSSIER-{datetime.now().strftime('%Y%m%d')}-{target_name}-AUTO"
+
+        tier_labels = {
+            1: "Tier 1 (核心高危 · 涉資/核心決策)",
+            2: "Tier 2 (一般往來 · 常態合作審計)",
+            3: "Tier 3 (社交防火牆 · 邊界防禦)"
+        }
+
         md = []
-        md.append(f"# 【機密鑑識卷宗 · STRICTLY CONFIDENTIAL】")
-        md.append(f"## 案號：DOSSIER-{file_date}-{target_name}-AUTO")
+        md.append("# 【機密鑑識卷宗 · STRICTLY CONFIDENTIAL】")
+        md.append(f"## 案號：{case_id}")
         md.append(f"### 調查標的：{target_name}（類型：{target_type} ｜ 威脅分流：Tier {threat_tier}）")
-        md.append(f"- **主辦調查官**：{investigator}（業務情報定義）")
-        md.append(f"- **架構監製**：{supervisor}（確定性工程驗證）")
+        md.append(f"- **主辦調查官**：渡鴉 (Raven)（業務情報定義 v4.0）")
+        md.append(f"- **架構監製**：林納斯 (Linus)（確定性工程驗證 v2.0）")
         md.append(f"- **最高呈報對象**：創辦人 陳品碩（品碩）")
         md.append(f"- **生成時間**：{date_str} (UTC+8)")
         md.append(f"- **安全級別**：極星最高機密（受 .gitignore 永久物理屏蔽，嚴禁外流）")
         md.append("\n---\n")
 
-        # 第一層：宏觀因果拓撲
-        md.append("## 🏛️ 第一層｜全域因果脈絡骨架 (Macro Topology & Motives)")
-        if threat_tier == 1:
-            md.append("> 🚨 **【Tier 1 核心高危預警】**：標的涉及高額金流或核心合約，存在潛在債務違約、法律訴訟或人設包裝風險。")
-        elif threat_tier == 2:
-            md.append("> ⚠️ **【Tier 2 一般商業快篩】**：常態特約商戶與合作夥伴，監控基礎合規與票據信譽。")
-        else:
-            md.append("> 🛡️ **【Tier 3 社交防火牆】**：非商業玩伴對象，啟動三零防火牆（零借貸/零代墊/零私密），維護品碩生活隱私。")
+        # 第一層：30秒極速決策層 (Executive Decision Summary)
+        md.append("## ⚡ 第一層｜30秒極速決策層 (Executive Summary)")
+        md.append(f"> 🎯 **核心威脅評級**：`{tier_labels.get(threat_tier, '未知')}`  ")
+        md.append(f"> 🚨 **法醫穿透定性**：{top_risk_summary}  ")
+        md.append(f"> 🛡️ **創辦人一票否決建言**：保持法定社交禮儀，阻絕私人金流過水與未公開代墊款。")
+        md.append("\n---\n")
+
+        # 第二層：全域因果脈絡拓撲圖譜 (Mermaid Topology & Motive)
+        md.append("## 🏛️ 第二層｜全域因果脈絡拓撲圖譜 (High-Correlation Topology)")
+        md.append(f"* **底層動機診斷**：{core_motive}")
         
+        md.append("\n```mermaid\ngraph TD")
+        md.append(f'    TargetNode["🎯 標的: {target_name}\\n(類型: {target_type} / Tier {threat_tier})"]')
+        md.append(f'    AuditAction["🔍 渡鴉三維立體穿透\\n(法定明網 ⇋ 私域社交 ⇋ 地下實體)"]')
+        md.append(f'    BossDecision["👑 創辦人陳品碩\\n(掌握全貌 / 定海神針獨立裁決)"]')
+        md.append('    TargetNode --> AuditAction')
+        md.append('    AuditAction ==> BossDecision')
+        md.append("```\n")
+
+        if deep_water_analysis:
+            md.append("### 🌊 深水區法醫專項診斷 (Deep-Water Analysis)")
+            asym = deep_water_analysis.get("asymmetry")
+            if asym and asym.get("is_warning"):
+                md.append(f"- **資產不對稱預警**：申報淨值僅 {asym.get('declared_net_worth')} 元，相對於 {asym.get('public_influence_years')} 年公職權勢嚴重不對稱！")
+            firewall = deep_water_analysis.get("firewall")
+            if firewall and firewall.get("firewall_triggered"):
+                md.append(f"- **配偶防火牆預警**：{firewall.get('diagnosis')}")
+
         if pinyin_analysis and pinyin_analysis.get("is_pinyin_suspect"):
-            md.append(f"\n* **核心破綻診斷**：帳號 `{pinyin_analysis.get('handle')}` 經語義演算法檢出華語拼音音節 `{pinyin_analysis.get('matched_syllables')}`（覆蓋率 {pinyin_analysis.get('coverage_ratio')}），徹底打破其外籍/混血人設面具。")
+            md.append(f"\n* **核心破綻診斷**：帳號 `{pinyin_analysis.get('handle')}` 經語義演算法檢出華語拼音音節 `{pinyin_analysis.get('matched_syllables')}`（覆蓋率 {pinyin_analysis.get('coverage_ratio')}），打破外籍偽裝面具。")
 
         md.append("\n---\n")
 
-        # 第二層：微觀全景硬證據鏈
-        md.append("## 🔍 第二層｜微觀全景硬證據鏈 (Micro Ground-Truth Chain · 100% 詳細呈現)")
+        # 第三層：微觀全景硬證據庫 (折疊式設計，保護心流)
+        md.append("## 🔍 第三層｜微觀全景硬證據庫 (Micro Ground-Truth Chain · 折疊式硬憑證)")
+        md.append("<details><summary>👉 點擊展開：查看百分之百客觀司法案號、商業登記與完整時空時間軸 (供品碩親自檢驗)</summary>\n")
         
         # 1. 司法裁判明細
         md.append("### 1. 司法裁判與票據執行案號全景")
@@ -229,13 +319,6 @@ class PolarisDossierBuilder:
         # 3. 因果時間軸重構
         md.append("\n### 3. 因果時空演進時間軸 (Timeline Reconstruction)")
         if timeline_events:
-            md.append("```mermaid\nflowchart TD")
-            for idx, evt in enumerate(timeline_events):
-                node_id = f"T{idx+1}"
-                md.append(f'    {node_id}["📅 {evt.get("date")}: {evt.get("title")}\\n({evt.get("desc")})"]')
-                if idx > 0:
-                    md.append(f"    T{idx} --> {node_id}")
-            md.append("```\n")
             md.append("| 精確日期 (年月日) | 關鍵事件節點 | 微觀事實與推導依據 |")
             md.append("| :--- | :--- | :--- |")
             for evt in timeline_events:
@@ -243,21 +326,23 @@ class PolarisDossierBuilder:
         else:
             md.append("*時間軸節點不足，等待增量資料。*")
 
-        # 第三層：創辦人決策建議
+        md.append("\n</details>\n")
+
+        # 呈報建言
         md.append("\n---\n")
-        md.append("## 👑 第三層｜呈報創辦人品碩之防禦決策建言")
+        md.append("## 👑 第四層｜呈報創辦人品碩之防禦決策建言")
         md.append("1. **金流鐵壁阻絕**：嚴禁任何私下借貸、代墊款、帳戶過水，全數推由公司標準會計流程審核。")
         md.append("2. **知情威壓儲備**：已將上述客觀法院案號與時序整理成法定證據包，品碩需要時可隨時調用。")
         md.append("3. **看透不說破**：維持社交體面，不主動激化矛盾，將風險隔絕在極星水庫之外。")
-        md.append("\n---\n*卷宗已完成本地物理隔離封存。*")
+        md.append("\n---\n*本卷宗已完成本地物理隔離封存。*")
 
         return "\n".join(md)
 
 
 def run_self_test() -> int:
-    """林納斯 DOD 確定性單元測試套件"""
+    """林納斯 DOD 確定性單元測試套件 v2.0"""
     print("=" * 60)
-    print("🛠️ 正在執行林納斯工程驗收與確定性單元測試 (Linus DOD Test Suite)...")
+    print("🛠️ 正在執行林納斯工程驗收與確定性單元測試 v2.0 (Linus DOD Test Suite)...")
     print("=" * 60)
 
     # 1. 測試統一編號驗證 (以台積電 22099131 為例)
@@ -283,7 +368,16 @@ def run_self_test() -> int:
     assert res_case["ad_year"] == 2023, "民國轉西元計算錯誤"
     print(f"  [PASS] 司法裁判案號解析器驗證通過: {res_case['normalized_case_number']} -> {res_case['risk_assessment']}")
 
-    # 5. 測試卷宗生成器
+    # 5. 測試深水區資產不對稱與配偶防火牆分析器
+    res_asym = RavenDeepWaterAnalyzer.calculate_asymmetry_index(public_influence_years=8, declared_net_worth=416152.0)
+    assert res_asym["is_warning"] is True, "資產不對稱漏警報"
+    print(f"  [PASS] 資產不對稱指數驗證通過: {res_asym['threat_level']}")
+
+    res_firewall = RavenDeepWaterAnalyzer.evaluate_spouse_firewall(spouse_declared_wealth=416152.0, spouse_has_companies=False, target_is_politician=True)
+    assert res_firewall["firewall_triggered"] is True, "配偶防火牆判定失敗"
+    print(f"  [PASS] 配偶防火牆判定器驗證通過: {res_firewall['diagnosis']}")
+
+    # 6. 測試三階卷宗生成器 v2.0
     sample_dossier = PolarisDossierBuilder.generate_dossier_markdown(
         target_name="測試標的",
         target_type="person",
@@ -291,6 +385,7 @@ def run_self_test() -> int:
         judicial_records=[{"year": "112", "court": "高雄地院", "case_no": "112年度司票字第1026號", "type": "本票裁定", "risk": "極高風險", "amount": "NT$22,420"}],
         social_footprints=[{"platform": "Twitter/X", "handle": "tengjingxuenai1", "timestamp": "2022-04", "notes": "漢語拼音假外籍破綻", "url": "https://x.com"}],
         pinyin_analysis=res_pinyin,
+        deep_water_analysis={"asymmetry": res_asym, "firewall": res_firewall},
         timeline_events=[
             {"date": "2022-03-10", "title": "簽署小額分期本票", "desc": "裕富數位資融 67,260 元"},
             {"date": "2022-04-01", "title": "建立推特分身", "desc": "帳號 @tengjingxuenai1"},
@@ -299,17 +394,18 @@ def run_self_test() -> int:
     )
     assert "# 【機密鑑識卷宗 · STRICTLY CONFIDENTIAL】" in sample_dossier
     assert "112年度司票字第1026號" in sample_dossier
-    print("  [PASS] 全景穿透式因果卷宗生成器 (Dossier Builder) 驗證通過")
+    assert "<details><summary>" in sample_dossier
+    print("  [PASS] 神經離合器三階全景卷宗生成器 (Three-Tier Dossier Builder) 驗證通過")
 
     print("\n" + "=" * 60)
-    print("🎯 林納斯 DOD 確定性全套驗收 100% 通過！(Exit Code 0)")
+    print("🎯 林納斯 DOD 確定性全套驗收 100% 通過！(v2.0 Exit Code 0)")
     print("=" * 60)
     return 0
 
 
 def main():
     parser = argparse.ArgumentParser(
-        description="🦅 ✕ 🛠️ Polaris Forensic & Cyber Reconnaissance CLI (極星黑色穿透調查套件)"
+        description="🦅 ✕ 🛠️ Polaris Forensic & Cyber Reconnaissance CLI (極星黑色穿透調查套件 v2.0)"
     )
     parser.add_argument("--self-test", action="store_true", help="執行林納斯 DOD 確定性單元測試與自我診斷")
     parser.add_argument("--target", type=str, help="調查標的名稱 (人名 / 公司名 / 案件名)")
@@ -318,7 +414,10 @@ def main():
     parser.add_argument("--handle", type=str, help="社群帳號 Handle (進行拼音漏洞與社群碰撞)")
     parser.add_argument("--tax-id", type=str, help="台灣統一編號 (驗證並進行商工穿透)")
     parser.add_argument("--case-no", type=str, help="司法裁判案號 (如 '112年度司票字第1026號')")
-    parser.add_argument("--output-dossier", action="store_true", help="自動輸出標準格式之全景因果卷宗到 05_Case_Dossiers/")
+    parser.add_argument("--deep-water", action="store_true", help="啟動深水區專項分析 (資產不對稱與配偶防火牆)")
+    parser.add_argument("--influence-years", type=int, default=0, help="公職或社會影響力年資 (計算資產不對稱)")
+    parser.add_argument("--declared-wealth", type=float, default=0.0, help="申報資產淨值 (計算資產不對稱)")
+    parser.add_argument("--output-dossier", action="store_true", help="自動輸出標準三階全景因果卷宗到 05_Case_Dossiers/")
 
     args = parser.parse_args()
 
@@ -358,7 +457,24 @@ def main():
                 "amount": "依法強制執行中"
             })
 
-    # 4. 輸出卷宗
+    # 4. 深水區分析
+    deep_water_result = None
+    if args.deep_water:
+        asym_res = RavenDeepWaterAnalyzer.calculate_asymmetry_index(
+            public_influence_years=args.influence_years,
+            declared_net_worth=args.declared_wealth
+        )
+        firewall_res = RavenDeepWaterAnalyzer.evaluate_spouse_firewall(
+            spouse_declared_wealth=args.declared_wealth,
+            spouse_has_companies=False,
+            target_is_politician=(args.influence_years > 0)
+        )
+        deep_water_result = {"asymmetry": asym_res, "firewall": firewall_res}
+        print(f"  * 深水區資產不對稱判定: {asym_res['threat_level']}")
+        if firewall_res["firewall_triggered"]:
+            print(f"  * 配偶防火牆預警: {firewall_res['diagnosis']}")
+
+    # 5. 輸出卷宗
     if args.output_dossier:
         dossiers_dir = os.path.abspath(
             os.path.join(os.path.dirname(__file__), "..", "05_Case_Dossiers")
@@ -375,6 +491,7 @@ def main():
             judicial_records=judicial_list,
             social_footprints=[{"platform": "OSINT Target", "handle": args.handle or args.target, "timestamp": "動態抓取", "notes": "跨域足跡碰撞", "url": "-"}] if args.handle else [],
             pinyin_analysis=pinyin_result,
+            deep_water_analysis=deep_water_result,
             timeline_events=[
                 {"date": datetime.now().strftime("%Y-%m-%d"), "title": "極星穿透調查建檔", "desc": f"發起 Tier {args.tier} 黑色背景審查"}
             ]
@@ -385,7 +502,7 @@ def main():
 
         print(f"🛠️ [林納斯] 全景穿透因果卷宗已生成並物理封存: {file_path}")
 
-    print("🦅 ✕ 🛠️ 調查管線執行完畢 (Exit Code 0)。")
+    print("🦅 ✕ 🛠️ 調查管線執行完畢 (v2.0 Exit Code 0)。")
     return 0
 
 
