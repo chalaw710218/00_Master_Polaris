@@ -1,10 +1,10 @@
 {
-  "last_updated": "2026-10-28T11:08:50.630137",
+  "last_updated": "2026-11-01T21:24:55.613582",
   "summary": {
     "total_friends_contacted": 3,
-    "total_interactions": 10,
-    "total_likes": 8,
-    "total_comments": 10
+    "total_interactions": 24,
+    "total_likes": 20,
+    "total_comments": 12
   },
   "relationship_tiers_definition": {
     "🌱 初次問候": "互動 1 次",
@@ -16,12 +16,12 @@
       "username": "slowfoodtaitung",
       "name": "臺東慢食節",
       "category": "taitung_flagship_slow_food_and_culture",
-      "total_interactions": 3,
-      "likes_given": 3,
+      "total_interactions": 4,
+      "likes_given": 4,
       "comments_given": 3,
       "relationship_tier": "☕ 熟稔常客",
       "first_contact_at": "2026-10-24T17:39:00+08:00",
-      "last_interaction_at": "2026-10-26T14:33:16.574223",
+      "last_interaction_at": "2026-11-01T21:24:55.613582",
       "history": [
         {
           "timestamp": "2026-10-24T17:39:00+08:00",
@@ -43,6 +43,11 @@
           "post_url": "https://www.threads.com/@slowfoodtaitung/post/De8fbFrGSYS",
           "comment_text": "昨天現場的歌聲和火邊香氣真的太迷人了！今天是夜食餐桌最後一天，喵編已經催著闆仔拿好環保餐具，準備下午再衝一波新生廣場喵 🍖🔥🐾",
           "screenshot": "scripts/screenshots/final_live_comment_proof.png"
+        },
+        {
+          "timestamp": "2026-11-01T21:24:55.613582",
+          "action": "like",
+          "context": "sunday_night_patrol"
         }
       ]
     },
@@ -50,12 +55,12 @@
       "username": "hattcoffee",
       "name": "Hatt Coffee 自家烘焙",
       "category": "cat_and_lifestyle_cafes",
-      "total_interactions": 5,
-      "likes_given": 4,
-      "comments_given": 5,
+      "total_interactions": 7,
+      "likes_given": 5,
+      "comments_given": 6,
       "relationship_tier": "🤝 摯友同盟",
       "first_contact_at": "2026-10-21T17:27:00+08:00",
-      "last_interaction_at": "2026-10-28T11:08:50.630137",
+      "last_interaction_at": "2026-11-01T13:25:25.084239",
       "history": [
         {
           "timestamp": "2026-10-21T17:27:00+08:00",
@@ -91,6 +96,18 @@
           "post_url": "https://www.threads.com/@hattcoffee/post/DfBYrxJiaZe",
           "comment_text": "看到第一波卡司本喵下巴直接掉下來！徐佳瑩跟韋禮安真的太扯了啦～2026 居然只剩 64 天，台東年底真的完全沒有要讓人冷靜的意思喵 🎤🎸🐾",
           "screenshot": "c:\\Users\\lenovo\\我的雲端硬碟\\00_Master_Polaris\\00-03_Brand_LifeButler\\00-03-06_Threads_Meow_Hub\\scripts\\screenshots\\verified_live_hattcoffee_5th_proof.png"
+        },
+        {
+          "timestamp": "2026-11-01T12:15:51.438553",
+          "action": "like",
+          "context": "sunday_noon_patrol"
+        },
+        {
+          "timestamp": "2026-11-01T13:25:25.084239",
+          "action": "like_and_comment",
+          "post_url": "https://www.threads.net/@hattcoffee/post/DfJL5UNCaB5",
+          "comment_text": "（喵編從森林公園草地上探出頭）海特喵喉嚨暖好準備開唱了嗎！今天台東藍配上原音節奏太過癮了，闆仔也吵著待會要順路去外帶一杯海特冰美式醒腦喵 ☕🎶🐾",
+          "screenshot": "live_reply_to_hattcoffee.png"
         }
       ]
     },
@@ -120,6 +137,118 @@
           "screenshot": "c:\\Users\\lenovo\\我的雲端硬碟\\00_Master_Polaris\\00-03_Brand_LifeButler\\00-03-06_Threads_Meow_Hub\\scripts\\screenshots\\walk_reply_travel_zztaitung.png"
         }
       ]
+    },
+    "956leissmoker": {
+      "username": "956leissmoker",
+      "total_interactions": 3,
+      "likes_given": 2,
+      "comments_given": 1,
+      "relationship_tier": "☕ 熟稔常客",
+      "first_contact_at": "2026-11-01T12:15:51.438553",
+      "history": [
+        {
+          "timestamp": "2026-11-01T12:15:51.438553",
+          "action": "like",
+          "context": "sunday_noon_patrol"
+        },
+        {
+          "timestamp": "2026-11-01T13:25:25.084239",
+          "action": "like_and_comment",
+          "post_url": "https://www.threads.net/@956leissmoker/post/DfEuzpXkiKt",
+          "comment_text": "（喵編默默舉起肉球）這題本喵懂！這種員工主要負責提供『精神支持與監督眼神』，薪水直接用煙燻肉肉結算就對了🐾🍖🤣",
+          "screenshot": "live_reply_to_956leissmoker.png"
+        },
+        {
+          "timestamp": "2026-11-01T21:24:55.613582",
+          "action": "like",
+          "context": "sunday_night_patrol"
+        }
+      ],
+      "last_interaction_at": "2026-11-01T21:24:55.613582"
+    },
+    "chaiyuan_bakery": {
+      "username": "chaiyuan_bakery",
+      "total_interactions": 2,
+      "likes_given": 2,
+      "comments_given": 0,
+      "relationship_tier": "☕ 熟稔常客",
+      "first_contact_at": "2026-11-01T12:15:51.438553",
+      "history": [
+        {
+          "timestamp": "2026-11-01T12:15:51.438553",
+          "action": "like",
+          "context": "sunday_noon_patrol"
+        },
+        {
+          "timestamp": "2026-11-01T21:24:55.613582",
+          "action": "like",
+          "context": "sunday_night_patrol"
+        }
+      ],
+      "last_interaction_at": "2026-11-01T21:24:55.613582"
+    },
+    "howhow_sweets": {
+      "username": "howhow_sweets",
+      "total_interactions": 2,
+      "likes_given": 2,
+      "comments_given": 0,
+      "relationship_tier": "☕ 熟稔常客",
+      "first_contact_at": "2026-11-01T12:15:51.438553",
+      "history": [
+        {
+          "timestamp": "2026-11-01T12:15:51.438553",
+          "action": "like",
+          "context": "sunday_noon_patrol"
+        },
+        {
+          "timestamp": "2026-11-01T21:24:55.613582",
+          "action": "like",
+          "context": "sunday_night_patrol"
+        }
+      ],
+      "last_interaction_at": "2026-11-01T21:24:55.613582"
+    },
+    "yuanlung.667": {
+      "username": "yuanlung.667",
+      "total_interactions": 2,
+      "likes_given": 2,
+      "comments_given": 0,
+      "relationship_tier": "☕ 熟稔常客",
+      "first_contact_at": "2026-11-01T12:15:51.438553",
+      "history": [
+        {
+          "timestamp": "2026-11-01T12:15:51.438553",
+          "action": "like",
+          "context": "sunday_noon_patrol"
+        },
+        {
+          "timestamp": "2026-11-01T21:24:55.613582",
+          "action": "like",
+          "context": "sunday_night_patrol"
+        }
+      ],
+      "last_interaction_at": "2026-11-01T21:24:55.613582"
+    },
+    "hello_cornerbook": {
+      "username": "hello_cornerbook",
+      "total_interactions": 2,
+      "likes_given": 2,
+      "comments_given": 0,
+      "relationship_tier": "☕ 熟稔常客",
+      "first_contact_at": "2026-11-01T12:15:51.438553",
+      "history": [
+        {
+          "timestamp": "2026-11-01T12:15:51.438553",
+          "action": "like",
+          "context": "sunday_noon_patrol"
+        },
+        {
+          "timestamp": "2026-11-01T21:24:55.613582",
+          "action": "like",
+          "context": "sunday_night_patrol"
+        }
+      ],
+      "last_interaction_at": "2026-11-01T21:24:55.613582"
     }
   }
 }

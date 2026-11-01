@@ -360,3 +360,12 @@ euromodulated_plasticity_engine.py**：三因子突觸可塑性與創辦人情�
   * **說明**：渡鴉業務主導、林納斯架構監製之標準「穿透調查七步 SOP」操作協議。
 * [💻 工業級確定性作戰工具 CLI (polaris_forensic_cli.py)](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-13_Cyber_Forensics_and_Investigation/scripts/polaris_forensic_cli.py)
   * **說明**：整合台灣統編/身分證校驗、拼音撕裂器、司法案號解析與自動全景卷宗生成器，DOD 單元測試 100% 通過 (Exit Code 0)。
+
+
+## 🎨 00-14_Visual_Design_and_Poster_Craft (視覺設計與海報工坊處 · 約瑟夫主掌)
+* [🏛️ 視覺設計與海報工坊總綱 (README.md)](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-14_Visual_Design_and_Poster_Craft/README.md)
+  * **說明**：【約瑟夫主權領地】瑞士包浩斯網格系統 (Grid Systems)、三公尺 1.5 秒穿透海報、300 DPI 印刷防呆與社群長圖卡美學。
+* [📐 約瑟夫辦公室與視覺筆記本 (00_Josef_Notebook.md)](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CVO_Josef/00_Josef_Notebook.md)
+  * **說明**：收錄極星三大宣傳海報黃金規格、極星標準色票庫 (Polaris Palette SSOT)、字體比例尺與四項一票否決紅線。
+* [🎭 角色人設檔案 (11_約瑟夫_Josef/persona.md)](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-03_Brand_LifeButler/00-03-04_Brand_Characters/11_約瑟夫_Josef/persona.md) ｜ [視覺資產庫](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-03_Brand_LifeButler/00-03-04_Brand_Characters/11_約瑟夫_Josef/images/README.md)
+  * **說明**：收錄約瑟夫真實歷史原照 DNA、3D 院線動畫九宮格立繪與 2D 歐美漫畫九宮格立繪。

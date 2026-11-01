@@ -1,0 +1,39 @@
+{
+  "timestamp": 1793539254.2209644,
+  "friend_likes": 6,
+  "feed_likes": 2,
+  "results": [
+    {
+      "username": "riceandbear",
+      "status": "no_button_or_already_liked"
+    },
+    {
+      "username": "howhow_sweets",
+      "status": "liked"
+    },
+    {
+      "username": "chaiyuan_bakery",
+      "status": "liked"
+    },
+    {
+      "username": "sankou_food_office",
+      "status": "no_button_or_already_liked"
+    },
+    {
+      "username": "yuanlung.667",
+      "status": "liked"
+    },
+    {
+      "username": "hello_cornerbook",
+      "status": "liked"
+    },
+    {
+      "username": "slowfoodtaitung",
+      "status": "liked"
+    },
+    {
+      "username": "956leissmoker",
+      "status": "liked"
+    }
+  ]
+}

@@ -18,7 +18,7 @@
 
 ## 📝 即時文案草稿槽 (Drafts)
 
-### 📌 [草稿待審] 2026 秋季極星 AI 家教實戰系列班 · 第 1 講 (10/28)
+### 📌 [草稿待審] 2026 秋季極星 AI 家教實戰系列班 · 第 1 講 (11/11)
 * **面向分類**：📐 **專業知識 ✕ 🌱 成長歷程（教育旗艦）**
 * **核心標題**：NotebookLM 零幻覺智庫 ✕「漏斗式三層深挖提問法」
 * **草稿存放路徑**：[`00-05_AI_Education/2026_Autumn_AI_Tutoring_Series/FB_Draft_20261028_Lesson01/行銷企劃與管家文案.md`](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-05_AI_Education/2026_Autumn_AI_Tutoring_Series/FB_Draft_20261028_Lesson01/行銷企劃與管家文案.md)

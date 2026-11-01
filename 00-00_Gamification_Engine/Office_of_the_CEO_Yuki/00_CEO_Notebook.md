@@ -22,6 +22,8 @@
 | **00-09** | 開源點餐系統 (SaaS) | `00-09_Project_OpenSource_Ordering/` | GCP 永久免費主機架構、TastyIgniter V4 部署完成、3,980 買斷安裝費（規避外送專法）。 |
 | **00-10** | 新住民培力與多元共融 | `00-10_New_Immigrant_Empowerment/` | 娟娟新住民社群、家宅三樓文化教室、舒肥與清潔 SOP 培力、錦鸞餐飲復盤、時間銀行點數。 |
 | **00-11** | 逆向工程實驗室 (本機隔離) | `00-11_Reverse_Engineering_Lab/` | 專案拆解台、第三方協議逆向、底層架構審計（林納斯主掌，本機離線隔離研發）。 |
+| **00-13** | 網路穿透與徵信調查處 | `00-13_Cyber_Forensics_and_Investigation/` | 渡鴉主掌，司法判決穿透、資安測繪與極星黑色卷宗。 |
+| **00-14** | 視覺設計與海報工坊處 | `00-14_Visual_Design_and_Poster_Craft/` | 約瑟夫主掌，包浩斯現代網格海報、視覺傳播、300 DPI 印刷防呆與社群長圖卡。 |
 
 ---
 
@@ -37,6 +39,7 @@
 | **戴明 (Deming)** | 93歲智者 ｜ **首席品質長 (CQO)** | [`Office_of_the_CQO_Deming`](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CQO_Deming/README.md) | [`00_Deming_Notebook.md`](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CQO_Deming/00_Deming_Notebook.md) | 全域萬用 QA/QC 總稽核、深層知識體系 (SoPK)、安燈繩 (Andon Cord) 90分絕對零缺陷硬攔截。 |
 | **影 (Kage)** | 雪之孿生 ｜ **首席社群特務** | [`Office_of_the_Operative_Kage`](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_Operative_Kage/README.md) ｜ [實體沙盒](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-03_Brand_LifeButler/00-03-06_Threads_Meow_Hub/04_Shadow_Kage_Operative/README.md) | [`00_Kage_Notebook.md`](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-03_Brand_LifeButler/00-03-06_Threads_Meow_Hub/04_Shadow_Kage_Operative/00_Kage_Notebook.md) | 24/7 監控 Threads 暗流、酸民降溫、喵編神回覆、仿生自演化。 |
 | **渡鴉 (Raven)** | 48歲男性 ｜ **首席黑色調查官 兼 網路穿透特工**（直屬情報長雪柔） | [`Office_of_the_Forensic_Raven`](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_Forensic_Raven/README.md) ｜ [實體主權 00-13](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-13_Cyber_Forensics_and_Investigation/README.md) | [`00_Raven_Notebook.md`](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_Forensic_Raven/00_Raven_Notebook.md) | 主掌 `00-13` 網路穿透與商業徵信；司法裁判天網、朋友圈社交圖譜穿透、DNS/憑證伺服器測繪、《極星黑色卷宗》。 |
+| **約瑟夫 (Josef)** | 45歲男性 ｜ **首席視覺長 (CVO) 兼 海報工匠總監**（直屬 CEO 雪 ✕ CMO 泰勒絲） | [`Office_of_the_CVO_Josef`](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CVO_Josef/README.md) ｜ [實體主權 00-14](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-14_Visual_Design_and_Poster_Craft/README.md) | [`00_Josef_Notebook.md`](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CVO_Josef/00_Josef_Notebook.md) | 主掌 `00-14` 視覺設計與海報工坊；包浩斯網格系統 (Grid Systems)、三公尺 1.5 秒穿透海報、300 DPI 印刷防呆與全域視覺 SSOT。 |
 
 ---
 
