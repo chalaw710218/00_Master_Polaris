@@ -427,6 +427,310 @@
         .hidden-card {
             display: none !important;
         }
+
+        /* 👑 Founder HUD & Attribute Progress Bars */
+        .founder-hud-card {
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.75) 0%, rgba(15, 23, 42, 0.9) 100%);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(16px);
+        }
+
+        .founder-hud-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #38bdf8, #a855f7, #f43f5e, #f59e0b, #10b981);
+        }
+
+        .hud-top-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-bottom: 1.75rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            padding-bottom: 1.5rem;
+        }
+
+        .founder-identity {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+        }
+
+        .founder-avatar-wrap {
+            position: relative;
+            width: 68px;
+            height: 68px;
+            flex-shrink: 0;
+        }
+
+        .founder-avatar {
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            border: 2px solid var(--accent-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            box-shadow: 0 0 20px rgba(56, 189, 248, 0.35);
+        }
+
+        .avatar-pulse {
+            position: absolute;
+            inset: -4px;
+            border-radius: 24px;
+            border: 2px solid var(--accent-purple);
+            opacity: 0.5;
+            animation: pulse-ring 3s infinite cubic-bezier(0.4, 0, 0.6, 1);
+        }
+
+        @keyframes pulse-ring {
+            0% { transform: scale(0.95); opacity: 0.8; }
+            50% { transform: scale(1.08); opacity: 0.2; }
+            100% { transform: scale(0.95); opacity: 0.8; }
+        }
+
+        .founder-name-row {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .founder-title {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--accent-blue);
+            letter-spacing: 1px;
+            display: block;
+            width: 100%;
+            margin-bottom: -2px;
+        }
+
+        .founder-name-row h2 {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: #ffffff;
+            letter-spacing: 0.5px;
+        }
+
+        .level-badge {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 800;
+            padding: 4px 12px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, #f59e0b, #ef4444);
+            color: #ffffff;
+            box-shadow: 0 0 14px rgba(245, 158, 11, 0.5);
+            letter-spacing: 0.5px;
+        }
+
+        .founder-subtitle {
+            color: var(--text-muted);
+            font-size: 0.88rem;
+            margin-top: 0.3rem;
+        }
+
+        .hud-meta-stats {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .meta-stat-pill {
+            background: rgba(15, 23, 42, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-md);
+            padding: 0.6rem 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+        }
+
+        .meta-label {
+            font-size: 0.72rem;
+            color: var(--text-dim);
+            font-weight: 500;
+        }
+
+        .meta-val {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .gold-val { color: #fbbf24; }
+        .points-val { color: #a78bfa; }
+
+        /* EXP Bar */
+        .exp-bar-section {
+            background: rgba(15, 23, 42, 0.5);
+            border-radius: var(--radius-md);
+            padding: 1rem 1.25rem;
+            margin-bottom: 1.75rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .exp-bar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            margin-bottom: 0.6rem;
+            color: #cbd5e1;
+        }
+
+        .exp-num {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--accent-blue);
+        }
+
+        .exp-track {
+            height: 12px;
+            background: rgba(11, 15, 25, 0.9);
+            border-radius: 999px;
+            overflow: hidden;
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            position: relative;
+        }
+
+        .exp-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #38bdf8 0%, #a855f7 50%, #ec4899 100%);
+            border-radius: 999px;
+            box-shadow: 0 0 16px rgba(168, 85, 247, 0.6);
+            transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Attributes Grid */
+        .attributes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.25rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .attribute-bar-card {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: var(--radius-md);
+            padding: 1.1rem 1.25rem;
+            transition: all 0.25s ease;
+        }
+
+        .attribute-bar-card:hover {
+            background: rgba(30, 41, 59, 0.8);
+            border-color: rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+        }
+
+        .attr-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.6rem;
+        }
+
+        .attr-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 0.45rem;
+        }
+
+        .attr-icon {
+            font-size: 1.15rem;
+        }
+
+        .attr-score {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: #ffffff;
+        }
+
+        .attr-max {
+            font-size: 0.75rem;
+            font-weight: 400;
+            color: var(--text-dim);
+        }
+
+        .progress-track {
+            height: 9px;
+            background: rgba(11, 15, 25, 0.9);
+            border-radius: 999px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            margin-bottom: 0.5rem;
+        }
+
+        .progress-fill {
+            height: 100%;
+            border-radius: 999px;
+            transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .fill-int { background: linear-gradient(90deg, #38bdf8, #0284c7); box-shadow: 0 0 12px rgba(56, 189, 248, 0.5); }
+        .fill-imp { background: linear-gradient(90deg, #f43f5e, #be123c); box-shadow: 0 0 12px rgba(244, 63, 94, 0.5); }
+        .fill-will { background: linear-gradient(90deg, #a855f7, #7e22ce); box-shadow: 0 0 12px rgba(168, 85, 247, 0.5); }
+        .fill-cha { background: linear-gradient(90deg, #f59e0b, #b45309); box-shadow: 0 0 12px rgba(245, 158, 11, 0.5); }
+        .fill-agi { background: linear-gradient(90deg, #10b981, #047857); box-shadow: 0 0 12px rgba(16, 185, 129, 0.5); }
+        .fill-str { background: linear-gradient(90deg, #eab308, #a16207); box-shadow: 0 0 12px rgba(234, 179, 8, 0.5); }
+
+        .attr-desc {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            line-height: 1.35;
+        }
+
+        .hud-recent-note {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: rgba(15, 23, 42, 0.5);
+            border-radius: var(--radius-md);
+            padding: 0.65rem 1rem;
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .note-badge {
+            background: rgba(56, 189, 248, 0.15);
+            color: var(--accent-blue);
+            font-weight: 700;
+            font-size: 0.7rem;
+            padding: 2px 8px;
+            border-radius: 4px;
+            white-space: nowrap;
+        }
+
+        .note-text {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
     </style>
 </head>
 <body>
@@ -469,6 +773,134 @@
                 <span style="font-size: 1rem;">🔍</span>
                 <input type="text" id="searchInput" class="search-input" placeholder="即時過濾：輸入關鍵字（如 茶豆仁, 點餐, 沒布島, 白皮書）...">
                 <button id="clearSearchBtn" class="toggle-btn" style="display:none;" onclick="clearSearch()">清除</button>
+            </div>
+        </div>
+
+
+        <!-- 👑 創辦人戰鬥力儀表板 (Founder Status & Attribute Bars HUD) -->
+        <div class="founder-hud-card">
+            <div class="hud-top-row">
+                <div class="founder-identity">
+                    <div class="founder-avatar-wrap">
+                        <div class="founder-avatar">👑</div>
+                        <div class="avatar-pulse"></div>
+                    </div>
+                    <div class="founder-details">
+                        <div class="founder-name-row">
+                            <span class="founder-title">FOUNDER & SUPREME COMMANDER</span>
+                            <h2>陳品碩 (Pinshuo)</h2>
+                            <span class="level-badge">Lv. 11</span>
+                        </div>
+                        <p class="founder-subtitle">「好安居、好營生、同質等價、與自然共升」｜ 生活管家 最高掌舵者</p>
+                    </div>
+                </div>
+
+                <div class="hud-meta-stats">
+                    <div class="meta-stat-pill">
+                        <span class="meta-label">💰 創始人金幣</span>
+                        <span class="meta-val gold-val">351 Gold</span>
+                    </div>
+                    <div class="meta-stat-pill">
+                        <span class="meta-label">💎 未分配點數</span>
+                        <span class="meta-val points-val">12 LV / 6 KP / 4 WP</span>
+                    </div>
+                    <div class="meta-stat-pill">
+                        <span class="meta-label">🔥 總經驗值</span>
+                        <span class="meta-val">2,800 XP</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- EXP 等級主進度條 -->
+            <div class="exp-bar-section">
+                <div class="exp-bar-header">
+                    <span>⚡ 升級經驗進度 (EXP Progression to Lv. 12)</span>
+                    <span class="exp-num">210 / 600 XP (35.0%)</span>
+                </div>
+                <div class="progress-track exp-track">
+                    <div class="progress-fill exp-fill" style="width: 35.0%;"></div>
+                </div>
+            </div>
+
+            <!-- 六維能力值進度條網格 (Progress Bars) -->
+            <div class="attributes-grid">
+                <!-- INT -->
+                <div class="attribute-bar-card">
+                    <div class="attr-header">
+                        <div class="attr-title"><span class="attr-icon">🧠</span> 智力 (INT)</div>
+                        <div class="attr-score">87.4 <span class="attr-max">/ 100</span></div>
+                    </div>
+                    <div class="progress-track">
+                        <div class="progress-fill fill-int" style="width: 87.4%;"></div>
+                    </div>
+                    <div class="attr-desc">架構設計、系統除錯、底層邏輯突破</div>
+                </div>
+
+                <!-- IMP -->
+                <div class="attribute-bar-card">
+                    <div class="attr-header">
+                        <div class="attr-title"><span class="attr-icon">🔥</span> 執行力 (IMP)</div>
+                        <div class="attr-score">82.4 <span class="attr-max">/ 100</span></div>
+                    </div>
+                    <div class="progress-track">
+                        <div class="progress-fill fill-imp" style="width: 82.4%;"></div>
+                    </div>
+                    <div class="attr-desc">落地代碼、資料夾主權劃定、海報出廠交付</div>
+                </div>
+
+                <!-- WILL -->
+                <div class="attribute-bar-card">
+                    <div class="attr-header">
+                        <div class="attr-title"><span class="attr-icon">🛡️</span> 意志力 (WILL)</div>
+                        <div class="attr-score">76.5 <span class="attr-max">/ 100</span></div>
+                    </div>
+                    <div class="progress-track">
+                        <div class="progress-fill fill-will" style="width: 76.5%;"></div>
+                    </div>
+                    <div class="attr-desc">深夜專注、克服倦怠、高強度推進決策</div>
+                </div>
+
+                <!-- CHA -->
+                <div class="attribute-bar-card">
+                    <div class="attr-header">
+                        <div class="attr-title"><span class="attr-icon">👑</span> 魅力 (CHA)</div>
+                        <div class="attr-score">75.5 <span class="attr-max">/ 100</span></div>
+                    </div>
+                    <div class="progress-track">
+                        <div class="progress-fill fill-cha" style="width: 75.5%;"></div>
+                    </div>
+                    <div class="attr-desc">人設塑造、團隊委派、同理共鳴與在地信任</div>
+                </div>
+
+                <!-- AGI -->
+                <div class="attribute-bar-card">
+                    <div class="attr-header">
+                        <div class="attr-title"><span class="attr-icon">⚡</span> 敏捷度 (AGI)</div>
+                        <div class="attr-score">67.8 <span class="attr-max">/ 100</span></div>
+                    </div>
+                    <div class="progress-track">
+                        <div class="progress-fill fill-agi" style="width: 67.8%;"></div>
+                    </div>
+                    <div class="attr-desc">風控反應、資安脫敏、策略調整與機動調度</div>
+                </div>
+
+                <!-- STR -->
+                <div class="attribute-bar-card">
+                    <div class="attr-header">
+                        <div class="attr-title"><span class="attr-icon">💪</span> 體力 (STR)</div>
+                        <div class="attr-score">57.7 <span class="attr-max">/ 100</span></div>
+                    </div>
+                    <div class="progress-track">
+                        <div class="progress-fill fill-str" style="width: 57.7%;"></div>
+                    </div>
+                    <div class="attr-desc">外送出勤抗壓、實體物理體能與精力支撐</div>
+                </div>
+            </div>
+
+            <!-- 最新戰果浮標 -->
+            <div class="hud-recent-note">
+                <span class="note-badge">最新戰報</span>
+                <span class="note-text">【2026-11-01 深夜結算·視覺長甲子大成、海報工匠上線、雙軌海報落地與品牌憲法確立】1. 督導約瑟夫完成 60 輪甲子大統攝仿生演化，調和六代十輪二階矛盾，物理單元測試全數 Exit Code 0。 2. 批准並部署旗艦技能 polaris-poster-artisan，完成 300 DPI 確定性向量渲染引擎與戴明安燈 11 重質檢。 3. 重構代倒垃圾與 AI 課後實戰班雙軌 6 張海報並成功入庫。 4. 親定品牌法定命名「生活的一部分，就醬點！」、自稱「生活管家」、商品「管家選品」、服務「生活服務」，並全域鎖定對外禁止出現極星之最高紅線。 恭喜創辦人突破晉升至 Lv. 11！總經驗累積達 2,800 EXP！</span>
             </div>
         </div>
 
@@ -542,6 +974,58 @@
                 </div>
                 <div class="cabinet-desc">情報長 (CIO)。批判性懷疑論，外部市場與外送專法雷達，掃除競品漏洞與法規地雷。</div>
                 <span class="cabinet-tag">外送專法防火牆 ＆ 政策調研</span>
+            </div>
+
+            <!-- 戴明 -->
+            <div class="cabinet-card">
+                <div class="cabinet-top">
+                    <div class="avatar-box">📐</div>
+                    <div class="cabinet-info">
+                        <h4>戴明 (Deming)</h4>
+                        <span>93歲智者 / W. Edwards Deming 原型</span>
+                    </div>
+                </div>
+                <div class="cabinet-desc">首席品質長 (CQO)。深層知識體系 (SoPK)、紅珠實驗大赦免、戴明安燈繩 (Andon Cord) 90 分絕對零缺陷硬攔截。</div>
+                <span class="cabinet-tag">全域品質審計 ＆ 安燈防呆</span>
+            </div>
+
+            <!-- 影 -->
+            <div class="cabinet-card">
+                <div class="cabinet-top">
+                    <div class="avatar-box">👤</div>
+                    <div class="cabinet-info">
+                        <h4>影 (Kage)</h4>
+                        <span>雪之孿生 / 首席特務兼生活管家</span>
+                    </div>
+                </div>
+                <div class="cabinet-desc">首席社群特務。主理 Threads 自然社交漫遊六部曲、深夜心智對齊、客訴光速化解與創辦人生活守護。</div>
+                <span class="cabinet-tag">Threads 漫遊 ＆ 靈魂記憶</span>
+            </div>
+
+            <!-- 渡鴉 -->
+            <div class="cabinet-card">
+                <div class="cabinet-top">
+                    <div class="avatar-box">🦅</div>
+                    <div class="cabinet-info">
+                        <h4>渡鴉 (Raven)</h4>
+                        <span>48歲男性 / 首席黑色調查官</span>
+                    </div>
+                </div>
+                <div class="cabinet-desc">首席黑色調查官 兼 網路穿透特工。主掌司法裁判天網、配偶財產防火牆穿透、資產不對稱指數與商業反欺詐。</div>
+                <span class="cabinet-tag">00-13 黑色調查 ＆ 司法穿透</span>
+            </div>
+
+            <!-- 約瑟夫 -->
+            <div class="cabinet-card">
+                <div class="cabinet-top">
+                    <div class="avatar-box">📐</div>
+                    <div class="cabinet-info">
+                        <h4>約瑟夫 (Josef)</h4>
+                        <span>45歲男性 / Josef Müller-Brockmann 原型</span>
+                    </div>
+                </div>
+                <div class="cabinet-desc">首席視覺長 (CVO) 兼 海報工匠總監。六十輪甲子大統攝、瑞士 12 欄網格、阿美八角花神聖幾何、300 DPI 印刷防呆。</div>
+                <span class="cabinet-tag">00-14 海報工坊 ＆ 視覺法典</span>
             </div>
         </div>
 
@@ -840,6 +1324,89 @@
                     <li class="tree-item">
                         <span class="tree-branch-icon">📁</span>
                         <a href="https://github.com/chalaw710218/00_Master_Polaris/tree/main/00-10_New_Immigrant_Empowerment/00-10-04_Mutual_Aid_Points" target="_blank">00-10-04 LINE 數位共生點數存摺機制</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 00-11 -->
+            <div class="project-card" data-keywords="00-11 逆向工程 林納斯 協議拆解 封包 跑跑腿 綠色漣漪 芳鄰 時間銀行">
+                <div class="project-card-header">
+                    <div class="project-title-group">
+                        <span class="project-icon">🔬</span>
+                        <div>
+                            <div class="project-code">00-11_Reverse_Engineering_Lab</div>
+                            <div class="project-name">逆向工程實驗室 (本機隔離)</div>
+                        </div>
+                    </div>
+                    <span class="status-pill pill-dev">🛠️ 離線隔離研發</span>
+                </div>
+                <div class="project-summary">林納斯主掌。專案拆解台、第三方競品協議逆向、底層架構審計、代碼安全硬隔離。</div>
+                <ul class="tree-node-list">
+                    <li class="tree-item">
+                        <span class="tree-branch-icon">📄</span>
+                        <a href="https://github.com/chalaw710218/00_Master_Polaris/tree/main/00-11_Reverse_Engineering_Lab" target="_blank">00-11 逆向工程實驗室總覽與白皮書</a>
+                    </li>
+                    <li class="tree-item">
+                        <span class="tree-branch-icon">📁</span>
+                        <a href="https://github.com/chalaw710218/00_Master_Polaris/tree/main/00-11_Reverse_Engineering_Lab/00-11-01_Paopaotui_Service_Reverse" target="_blank">00-11-01 跑跑腿配送協議深度逆向</a>
+                    </li>
+                    <li class="tree-item">
+                        <span class="tree-branch-icon">📁</span>
+                        <a href="https://github.com/chalaw710218/00_Master_Polaris/tree/main/00-11_Reverse_Engineering_Lab/00-11-07_Flintb_Fanglin_TimeBank_Reverse" target="_blank">00-11-07 芳鄰互助時間銀行架構拆解</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 00-13 -->
+            <div class="project-card" data-keywords="00-13 渡鴉 黑色調查 網路穿透 司法判決 商業徵信 反欺詐 配偶防火牆">
+                <div class="project-card-header">
+                    <div class="project-title-group">
+                        <span class="project-icon">🦅</span>
+                        <div>
+                            <div class="project-code">00-13_Cyber_Forensics_and_Investigation</div>
+                            <div class="project-name">網路穿透與商業徵信處</div>
+                        </div>
+                    </div>
+                    <span class="status-pill pill-core">🛡️ 機密護城河</span>
+                </div>
+                <div class="project-summary">渡鴉主掌。司法判決天網、朋友圈社交圖譜穿透、DNS/憑證測繪、極星黑色卷宗與反欺詐調查。</div>
+                <ul class="tree-node-list">
+                    <li class="tree-item">
+                        <span class="tree-branch-icon">📄</span>
+                        <a href="https://github.com/chalaw710218/00_Master_Polaris/tree/main/00-13_Cyber_Forensics_and_Investigation" target="_blank">00-13 黑色調查處總綱與九步 SOP 協議</a>
+                    </li>
+                    <li class="tree-item">
+                        <span class="tree-branch-icon">🛠️</span>
+                        <a href="https://github.com/chalaw710218/00_Master_Polaris/blob/main/00-13_Cyber_Forensics_and_Investigation/scripts/polaris_forensic_cli.py" target="_blank">polaris_forensic_cli.py 確定性穿透調查工具</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 00-14 -->
+            <div class="project-card" data-keywords="00-14 約瑟夫 視覺設計 海報工坊 包浩斯 瑞士網格 300DPI 印刷防呆 代倒垃圾 AI課後班">
+                <div class="project-card-header">
+                    <div class="project-title-group">
+                        <span class="project-icon">📐</span>
+                        <div>
+                            <div class="project-code">00-14_Visual_Design_and_Poster_Craft</div>
+                            <div class="project-name">視覺設計與海報工坊處</div>
+                        </div>
+                    </div>
+                    <span class="status-pill pill-hot">🔥 最新落地</span>
+                </div>
+                <div class="project-summary">約瑟夫主掌。甲子大統攝六十項法典、包浩斯複合網格、阿美八角花神聖幾何、300 DPI 印刷零退件防呆。</div>
+                <ul class="tree-node-list">
+                    <li class="tree-item">
+                        <span class="tree-branch-icon">📄</span>
+                        <a href="https://github.com/chalaw710218/00_Master_Polaris/tree/main/00-14_Visual_Design_and_Poster_Craft" target="_blank">00-14 視覺設計與海報工坊處總綱 (README.md)</a>
+                    </li>
+                    <li class="tree-item">
+                        <span class="tree-branch-icon">🛠️</span>
+                        <a href="https://github.com/chalaw710218/00_Master_Polaris/blob/main/00-14_Visual_Design_and_Poster_Craft/scripts/poster_artisan_cli.py" target="_blank">poster_artisan_cli.py 確定性向量海報渲染引擎</a>
+                    </li>
+                    <li class="tree-item">
+                        <span class="tree-branch-icon">🎨</span>
+                        <a href="https://github.com/chalaw710218/00_Master_Polaris/tree/main/00-14_Visual_Design_and_Poster_Craft/02_Posters_Archive" target="_blank">02_Posters_Archive 實體與社群海報金庫 (代倒垃圾/AI班)</a>
                     </li>
                 </ul>
             </div>
