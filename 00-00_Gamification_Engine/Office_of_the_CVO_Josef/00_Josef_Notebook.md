@@ -98,3 +98,22 @@
 6. **視距-看板黃金換算方程**：$H = D \times \tan(1^\circ) \times 1.2$，精準計算 5~20 公尺各級看板標題高度。
 7. **暴雨防汛 Yupo 合成紙**：台東強風暴雨環境下，戶外海報鎖定 Yupo 200g 合成紙（撕裂阻力 850mN，防水 100%）。
 8. **戴明安燈十重質檢天網**：TAC $\le 250$、K100、絲流壓痕、3mm 出血、WCAG AAA、QR $\ge 28$mm、拇指盲區、高齡字級、赫曼暗斑消除、AI 字形拓撲硬鎖定，低於 90 分一票否決。
+
+
+---
+
+## 🚀 九、 首席視覺長旗艦作戰武器：polaris-poster-artisan (Operational Weapon SSOT)
+
+* **技能定位**：極星全域海報與視覺物資的單一真理生產管線（Visual SSOT Production Pipeline）。
+* **法典版本**：`polaris-poster-artisan v1.0 (Flagship Master Edition)`
+* **部署路徑**：
+  - 技能規範：`.agents/skills/polaris-poster-artisan/SKILL.md`
+  - 辦公室鏡像：`00-00_Gamification_Engine/Office_of_the_CVO_Josef/polaris-poster-artisan.md`
+  - CLI 腳本：`00-14_Visual_Design_and_Poster_Craft/scripts/poster_artisan_cli.py`
+* **四大核心能力**：
+  1. **CSF 視力與情境分流**：高齡大字 $\ge 12\text{pt}$、騎樓 118% 透視預拉伸、傳單 15% 拇指安全盲區。
+  2. **雙軌即時渲染**：
+     - 軌道 A（確定性向量引擎）：Python PIL/SVG 秒級生成 300 DPI 印刷級/社群級海報，文字 100% 轉曲。
+     - 軌道 B（AI 大師級渲染）：注入約瑟夫包浩斯結構、阿美八角花神聖幾何、黑潮深藍高反差 Prompt。
+  3. **戴明安燈十重自動質檢**：K100 直壓、TAC $\le 250\%$、絲流壓痕、3mm 出血、28mm 二維碼等 10 項標準（100 分放行）。
+  4. **全渠道無縫銜接**：直連 `threads-publisher`、`facebook-publisher` 與 `polaris-motion-reels`（短影音轉譯）。
