@@ -65,7 +65,7 @@ def upload_local_image_to_meta_cdn(image_path):
             r = requests.post(url_upload, files={"source": f}, data={
                 "access_token": FB_PAGE_ACCESS_TOKEN,
                 "published": "false"
-            })
+            }, timeout=30)
         res = r.json()
         photo_id = res.get("id")
         if not photo_id:
@@ -74,7 +74,7 @@ def upload_local_image_to_meta_cdn(image_path):
 
         # 抓取最高畫質的 CDN 網址
         url_query = f"https://graph.facebook.com/v20.0/{photo_id}?fields=images&access_token={FB_PAGE_ACCESS_TOKEN}"
-        r2 = requests.get(url_query).json()
+        r2 = requests.get(url_query, timeout=20).json()
         images = r2.get("images", [])
         if images:
             cdn_url = images[0].get("source")
@@ -170,7 +170,7 @@ def create_media_container(text, image_url=None, video_url=None, reply_to_id=Non
     if topic_tag:
         payload["topic_tag"] = topic_tag
 
-    response = requests.post(url, data=payload)
+    response = requests.post(url, data=payload, timeout=30)
     res_data = response.json()
 
     if "id" in res_data:
@@ -191,7 +191,7 @@ def publish_container(creation_id):
         "creation_id": creation_id
     }
 
-    response = requests.post(url, data=payload)
+    response = requests.post(url, data=payload, timeout=30)
     res_data = response.json()
 
     if "id" in res_data:
