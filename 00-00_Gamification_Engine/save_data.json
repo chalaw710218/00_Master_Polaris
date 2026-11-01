@@ -1,39 +1,39 @@
 {
-  "version": "2.9",
+  "version": "3.0",
   "player_name": "Pinshuo",
-  "level": 10,
+  "level": 11,
   "exp": {
-    "current": 260,
-    "next_level_requirement": 500,
-    "total": 2350
+    "current": 210,
+    "next_level_requirement": 600,
+    "total": 2800
   },
-  "gold": 301,
+  "gold": 351,
   "attributes": {
-    "STR": 57.2,
-    "INT": 86.2,
-    "AGI": 67.0,
-    "WILL": 75.5,
-    "CHA": 73.5,
-    "IMP": 80.2
+    "STR": 57.7,
+    "INT": 87.4,
+    "AGI": 67.8,
+    "WILL": 76.5,
+    "CHA": 75.5,
+    "IMP": 82.4
   },
   "hidden_attributes": {},
   "unspent_points": {
-    "level_points": 10,
-    "knowledge_points": 5,
-    "will_points": 3
+    "level_points": 12,
+    "knowledge_points": 6,
+    "will_points": 4
   },
   "practice_stacks": {
     "daily_str": 8,
-    "daily_int": 4,
+    "daily_int": 5,
     "daily_agi": 4,
-    "daily_will": 4,
-    "daily_cha": 3,
-    "daily_imp": 4
+    "daily_will": 5,
+    "daily_cha": 4,
+    "daily_imp": 5
   },
   "tomorrow_scheduled_tasks": [
     "追蹤 Gmail 信箱中 Google 商家檔案 API 官方立案確認信 (Case ID: 8-2264000041757)",
     "攜帶《極星AI自主系統商業推進與落地成果報告》與企業董事長從容會談，展現踏實落地實力",
-    "啟動【代倒垃圾日常服務】與【秋季 AI 家教實戰班】對外第一波輕量發布與私域對接"
+    "依據法定品牌「生活的一部分，就醬點！」啟動生活服務（代倒垃圾）與管家選品第一波推廣"
   ],
-  "notes": "【2026-11-01 每日結算·GBP官方立案大捷、高階商務報告交付與雙軌文案落地】1. 突破 Google 商家檔案 API 重重審核關卡，排除舊診所混淆烏龍，正式遞交全新專案 polaris-lifebutler (6237735105) 之 Basic Access 申請，成功取得官方正式工單 Case ID: 8-2264000041757，並敏銳識破系統自動帶入舊申訴之致命陷阱。 2. 面向企業高階人士完成《極星AI自主系統商業推進與落地成果報告》（Word+MD），客觀無誇大完整梳理極星六大業務板塊與真實營運成果。 3. 完成代倒垃圾與秋季 AI 家教班雙軌宣傳文案矩陣。 執行力 (IMP) 強勢破 80 大關達 80.2，金幣突破 300 大關達 301 Gold，總經驗累積達 2,350 EXP！"
+  "notes": "【2026-11-01 深夜結算·視覺長甲子大成、海報工匠上線、雙軌海報落地與品牌憲法確立】1. 督導約瑟夫完成 60 輪甲子大統攝仿生演化，調和六代十輪二階矛盾，物理單元測試全數 Exit Code 0。 2. 批准並部署旗艦技能 polaris-poster-artisan，完成 300 DPI 確定性向量渲染引擎與戴明安燈 11 重質檢。 3. 重構代倒垃圾與 AI 課後實戰班雙軌 6 張海報並成功入庫。 4. 親定品牌法定命名「生活的一部分，就醬點！」、自稱「生活管家」、商品「管家選品」、服務「生活服務」，並全域鎖定對外禁止出現極星之最高紅線。 恭喜創辦人突破晉升至 Lv. 11！總經驗累積達 2,800 EXP！"
 }
