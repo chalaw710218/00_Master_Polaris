@@ -1,0 +1,20 @@
+{
+  "order_id": "CARE-202611022141",
+  "created_at": "2026-11-02 21:41:56",
+  "module_code": "escort",
+  "module_name": "孝親暖心·長輩就醫陪診與 3 分鐘安心聽診圖卡",
+  "client_name": "台北陳小姐",
+  "elder_name": "正氣北路陳阿公",
+  "address": "台東市正氣北路周邊",
+  "scheduled_time": "2026-11-02 14:00",
+  "estimated_hours": 2.0,
+  "total_price": 1200,
+  "statutory_ledger": "生活管家_系統化管理_V2",
+  "poka_yoke_checks": [
+    "工作人員穿戴乾淨鞋套與管家制服",
+    "現場照片記錄（未經授權絕不外流）",
+    "施作/陪診前確認長輩身體狀況無急性不適",
+    "服務完成後出示長輩確認並奉茶叮嚀",
+    "30 分鐘內生成安心聽診/施工圖卡發送外地兒女"
+  ]
+}

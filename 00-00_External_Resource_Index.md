@@ -102,6 +102,8 @@
 
 *   [📖 創辦人原創 · 5D 價值精算（估價）時間矩陣 (Google Doc)](https://docs.google.com/document/d/1_4XDfAnMBFbrG1Ln_oJ24ETo74Oba19rNR-3i5YxSSE/edit?usp=sharing)
     *   **說明**：創辦人（品碩）親自原創之全方位專案價值與勞務成本精算系統。涵蓋 D1 工時摩擦力、D2 風險勞力、D3 專業技術、D4 急迫影響力、D5 情緒安心度與防彈衣四大鐵律。
+*   [👵🏡 生活管家·孝親安居與高齡溫暖服務封裝技能 (lifebutler-care-artisan/SKILL.md)](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/.agents/skills/lifebutler-care-artisan/SKILL.md)
+    *   **說明**：【全域技能】專門解決外地兒女在雙北高雄、父母在台東之高齡照護痛點。將「居安防滑熱像電檢、陪診聽診圖卡、到府尊嚴修容、老農傳家回憶錄、風土常溫軟袋」全自動封裝為 5D 精算定價、戴明安燈防呆、V2 唯一帳務登記與寶桑 3PL 現場履約之高保真商業化服務模組。
 *   [🧮 北極星 5D 價值精算引擎技能 (polaris-5d-pricing-engine/SKILL.md)](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/.agents/skills/polaris-5d-pricing-engine/SKILL.md)
     *   **說明**：【全域技能】將 5D 矩陣、TP 時間點數、四大防彈原則、高價代墊風控紅線與防禦型客服話術模板全面入憲。
 *   [⚡ 5D 確定性演算法引擎 (polaris_5d_pricing_engine.py)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/polaris_5d_pricing_engine.py)

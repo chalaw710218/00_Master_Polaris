@@ -997,3 +997,28 @@
    - 完整收錄至十九代（Cycle 10 ~ Cycle 190）時空解耦歷史，包含非標生活服務商品化、風土食材現代食安、孝親安居與實體微生態大成。
 4. **母版憲法絕對死鎖**：
    - 第二章（PRM與物理驗證器）、第三章（SPIN自對弈）、第四章（十輪衝突審計）、第五章（突觸代謝方程）維持 100% 鋼印死鎖，零篡改、零漂移。
+
+---
+
+## 2026-11-02 21:42:00 - [全新技能入役] 生活管家·孝親安居與高齡溫暖服務封裝技能 (lifebutler-care-artisan) 正式上線
+
+> **主管首長**：❄️ 執行長 雪 (CEO Yuki) ✕ 🧮 財務長 算盤 (CFO Abacus) ✕ 📐 首席品質長 戴明 (CQO Deming) ✕ 🎨 視覺長 約瑟夫 (CVO Josef)  
+> **指令來源**：創辦人 陳品碩（「雪! 創造lifebutler-care-artisan技能」）  
+> **核心使命**：消滅外地兒女焦慮、守護在地長輩尊嚴。專門解決「外地兒女在雙北高雄，父母在台東獨居老宅」的痛點，將非標準化高齡服務在 10 分鐘內一鍵標準化商品化。
+
+### 1. 核心規格與架構
+* **技能目錄**：[`.agents/skills/lifebutler-care-artisan/`](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/.agents/skills/lifebutler-care-artisan/SKILL.md)
+* **確定性 CLI 工具**：`.agents/skills/lifebutler-care-artisan/scripts/care_artisan_cli.py`（支援 `list`, `create-order`, `generate-card`）
+* **白皮書模組鏡像**：`00-03_Brand_LifeButler/00-03-03_Core_Whitepaper/00-03-03-F_SOP_Senior_Care_Artisan.md`
+* **CEO 辦公室鏡像**：`00-00_Gamification_Engine/Office_of_the_CEO_Yuki/lifebutler-care-artisan.md`
+* **五大旗艦服務模組**：
+  1. 居安無憂·浴室防滑奈米塗層＋扶手＋配電熱像巡檢 (NT$ 2,999)
+  2. 孝親暖心·長輩就醫陪診與 3 分鐘安心聽診圖卡 (NT$ 1,200 / 2hr)
+  3. 體面長青·臥床與行動不便長輩到府尊嚴修容 (NT$ 600)
+  4. 傳家之寶·老農口述歷史與一生回憶錄印製 (NT$ 6,800)
+  5. 暖胃風土·常溫燉湯與長輩低 GI 軟質養生膳 (NT$ 750 / 週套裝)
+* **四大鋼鐵紅線**：
+  - 對外絕對零極星洩漏（一律自稱「生活管家」或「生活的一部分，就醬點！」）。
+  - 帳務唯一依據《生活管家_系統化管理_V2》。
+  - 嚴守非醫療生活陪伴界線，不擅自診斷。
+  - 到府服務穿戴鞋套與整潔制服，嚴守長輩尊嚴。

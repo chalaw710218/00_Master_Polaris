@@ -45,6 +45,7 @@
 
 | 技能代碼 | 幹部 | 功能與武器描述 | 實體執行代碼路徑 |
 | :--- | :--- | :--- | :--- |
+| **`lifebutler-care-artisan`** | 雪 / 算盤 / 戴明 / 約瑟夫 | 孝親安居與高齡溫暖服務封裝器 (防滑熱像/陪診圖卡/尊嚴修容/回憶錄) | `.agents/skills/lifebutler-care-artisan/scripts/care_artisan_cli.py` |
 | **`polaris-poster-artisan`** | 約瑟夫 | 萬用實體與社群海報即時造物機 (300 DPI / 戴明安燈 100分) | `00-14_Visual_Design_and_Poster_Craft/scripts/poster_artisan_cli.py` |
 | **`polaris-forensic-investigator`**| 渡鴉 | 黑色商業調查與反欺詐穿透 CLI (裁判書全文/身分證校驗) | `00-13_Cyber_Forensics_and_Investigation/scripts/polaris_forensic_cli.py` |
 | **`polaris-5d-pricing-engine`** | 算盤 | 5D 價值精算時間矩陣引擎 (D1~D5 轉化 TP 點數) | `00-00_Gamification_Engine/polaris_5d_pricing_engine.py` |
