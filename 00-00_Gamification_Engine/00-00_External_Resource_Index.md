@@ -45,6 +45,7 @@
 
 | 技能代碼 | 幹部 | 功能與武器描述 | 實體執行代碼路徑 |
 | :--- | :--- | :--- | :--- |
+| **`bionic-cognition-compiler`** | 雪 / 林納斯 / 戴明 | 認知存摺自動編譯器 (全息掃描/防呆SOP編譯/社群選題編譯) | `.agents/skills/bionic-cognition-compiler/scripts/cognition_compiler_cli.py` |
 | **`lifebutler-care-artisan`** | 雪 / 算盤 / 戴明 / 約瑟夫 | 孝親安居與高齡溫暖服務封裝器 (防滑熱像/陪診圖卡/尊嚴修容/回憶錄) | `.agents/skills/lifebutler-care-artisan/scripts/care_artisan_cli.py` |
 | **`polaris-poster-artisan`** | 約瑟夫 | 萬用實體與社群海報即時造物機 (300 DPI / 戴明安燈 100分) | `00-14_Visual_Design_and_Poster_Craft/scripts/poster_artisan_cli.py` |
 | **`polaris-forensic-investigator`**| 渡鴉 | 黑色商業調查與反欺詐穿透 CLI (裁判書全文/身分證校驗) | `00-13_Cyber_Forensics_and_Investigation/scripts/polaris_forensic_cli.py` |
