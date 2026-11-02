@@ -106,6 +106,11 @@ def evaluate_threads_draft(text):
         feedback.append(f"✅ 符合單一 Topic Tag 原則 ({tags[0]})，精準吃滿專屬推薦池 (+2)")
         score += 2
 
+    # 7. 喵編灰色虎斑 DNA 防呆 (創辦人親定鐵律)
+    if "三花" in text or "橘貓" in text:
+        feedback.append("❌【創辦人親定鐵律攔截】：喵編是灰色的虎斑貓！文案中嚴禁出現三花或橘貓！(-15)")
+        score -= 15
+
     return max(0, min(100, score)), feedback
 
 if __name__ == "__main__":
