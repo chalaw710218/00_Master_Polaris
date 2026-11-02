@@ -2,53 +2,48 @@
   "step1_home_replies": 0,
   "step2_friends_visited": [
     {
-      "username": "love_love_cat_cake",
-      "name": "小瑪莉貓的手作甜點",
-      "action": "comment_and_like"
+      "username": "yuanlung.667",
+      "name": "緣龍無骨鹽酥雞",
+      "action": "comment_and_visit"
     },
     {
-      "username": "yuan.b778",
-      "name": "石臼一二",
-      "action": "liked"
+      "username": "hello_cornerboo",
+      "name": "仨口食事處",
+      "action": "visited"
     },
     {
-      "username": "unccoffee",
-      "name": "瑰夏咖啡 GESHA COFFEE",
-      "action": "liked"
+      "username": "956leissmoker",
+      "name": "雨田燻手工煙燻",
+      "action": "visited"
     },
     {
       "username": "deepcoffee241",
       "name": "Deep coffee",
-      "action": "liked"
-    },
-    {
-      "username": "homu_cafe_",
-      "name": "和暮咖啡",
       "action": "visited"
     },
     {
-      "username": "riceandbear",
-      "name": "米熊共生",
+      "username": "hattcoffee",
+      "name": "Hatt Coffee",
       "action": "visited"
     }
   ],
   "step2_clout_tea": {
-    "target": "@love_love_cat_cake (小瑪莉貓的手作甜點)",
-    "message": "午後四點，空氣裡都是剛出爐的甜點香氣... 生活管家默默在後排端出剛泡好的鹿野紅烏龍，配小瑪莉家的甜點剛剛好。週一下午打工人辛苦了，喝口茶吃塊甜，充個電再出發！🍵🍰🐱",
-    "proof": "C:\\Users\\lenovo\\我的雲端硬碟\\00_Master_Polaris\\00-03_Brand_LifeButler\\00-03-06_Threads_Meow_Hub\\scripts\\screenshots\\walk_v3_clout_tea_love_cat_cake.png"
+    "target": "@yuanlung.667 (緣龍無骨鹽酥雞)",
+    "message": "深夜十一點半，剛炸起鍋的鹽酥雞九層塔香氣太犯規了... 生活管家默默在後排端出剛泡好的無糖冷泡鹿野紅烏龍解膩。週一深夜辛苦了，犒賞完肚皮早點休息，明天繼續加油！🍵🍗✨",
+    "proof": "C:\\Users\\lenovo\\我的雲端硬碟\\00_Master_Polaris\\00-03_Brand_LifeButler\\00-03-06_Threads_Meow_Hub\\scripts\\screenshots\\walk_v3_clout_tea_yuanlung.png"
   },
-  "step3_feed_likes": 4,
+  "step3_feed_likes": 0,
   "step4_post": {
-    "post_id": "18099807785390245",
-    "permalink": "https://www.threads.net/@hellotaitung/post/18099807785390245",
-    "title": "週一下午四點灰色虎斑貓充電",
+    "post_id": "18389247586225970",
+    "permalink": "https://www.threads.net/@hellotaitung/post/18389247586225970",
+    "title": "週一深夜十一點半灰色虎斑毛球卡位",
     "hero": "喵編 (店貓 - 灰色虎斑貓)",
     "topic_tag": "台東生活",
-    "screenshot": "C:\\Users\\lenovo\\我的雲端硬碟\\00_Master_Polaris\\00-03_Brand_LifeButler\\00-03-06_Threads_Meow_Hub\\scripts\\screenshots\\walk_v3_monday_afternoon_verified.png"
+    "screenshot": "C:\\Users\\lenovo\\我的雲端硬碟\\00_Master_Polaris\\00-03_Brand_LifeButler\\00-03-06_Threads_Meow_Hub\\scripts\\screenshots\\walk_v3_monday_night_verified.png"
   },
   "step45_first_reply": {
     "reply_id": "verified_post_first_reply",
-    "text": "（把毛茸茸的灰斑下巴靠在桌上打呼嚕）大家今天辛苦了喵～再撐一下下就下班了！今晚回家想好要吃什麼好料犒勞自己了嗎？快跟本喵說喵🐾 #台東生活"
+    "text": "（把毛茸茸的灰斑身體縮得更緊打呼嚕）最辛苦的週一撐過去了喵～今晚什麼都不要想，好好閉上眼睛深層睡眠充電！大家的被窩夠暖嗎？晚安喵🐾 #台東生活"
   },
   "step5_friend_ledger": "updated",
   "step6_cognitive_sync": true
