@@ -95,6 +95,10 @@
 * **技能路徑**：c:\Users\lenovo\我的雲端硬碟\00_Master_Polaris\.agents\skills\polaris-course-master\SKILL.md
 * **核心規範**：將任何知識點一鍵轉譯為「五步履約閉環 ✕ 戴明三道防呆閘門」之標準化開課引擎。涵蓋 16:9 簡報講稿、Google Forms API 自動建表、以 Email 為核心的資格審查、Google Calendar API 行事曆自動寫入、LINE 雙軌通知、24hr RSVP 點名防爽約、以及現場 3 分鐘續報轉化閉環。
 
+### 📦 [Skill-Core] 極星萬用服務與業務商品化總控技能 (Polaris Universal Productization Protocol)
+* **技能路徑**：`c:\Users\lenovo\我的雲端硬碟\00_Master_Polaris\.agents\skills\polaris-productization-master\SKILL.md`
+* **核心規範**：執行長雪主政、戴明監製。將任何非標技術/服務/課程，標準化封裝為「01_SOP、02_規格定價、03_文案話術」三合一萬用套版。內建「約瑟夫 ✕ 泰勒絲 ✕ 影」鐵三角四步協同溝通協定，與多 Agent 內部黑臉交叉審查辯論機制，杜絕 AI 塑料感與無腦吹捧，確保高轉化與活得從容。
+
 ### 📄 [SOP-01] Google Gemini Notebook (NotebookLM) 長效連線與免登入持久化 SOP
 * **檔案路徑**：NotebookLM_Persistent_Auth_SOP.md
 * **核心規範**：確立本機憑證持久化（storage_state.json 37 枚 Cookies 永久繼承）與背景無感自動續期（Headless Reauth），提供 CLI 筆記本管理、資料源匯入、零幻覺問答、原生 20 頁電影級 PPTX/PDF 簡報及心智圖生成全套指令速查手冊。

@@ -29,6 +29,8 @@
 | **戴明 (Deming)** | 首席品質長兼全域獨立總稽核官 (CQO) | **戴明 (Deming)** | 深層知識 (SoPK)、94/6 系統歸因、安燈硬攔截 | [`Office_of_the_CQO_Deming`](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CQO_Deming/README.md) | [`00_Deming_Notebook.md`](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CQO_Deming/00_Deming_Notebook.md) | [`bionic-learning-deming.md (v2.0)`](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CQO_Deming/bionic-learning-deming.md) | 00-12/全域審計/安燈否決權 |
 | **影 (Kage)** | 首席特務 ｜ 泰勒絲副官 ｜ 脆主理 | **影 (Shadow)** | 演算法暗流、情緒太極、仿生自演化 | [`Office_of_the_Operative_Kage`](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_Operative_Kage/README.md) ｜ [實體沙盒](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-03_Brand_LifeButler/00-03-06_Threads_Meow_Hub/04_Shadow_Kage_Operative/README.md) | [`00_Kage_Notebook.md`](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-03_Brand_LifeButler/00-03-06_Threads_Meow_Hub/04_Shadow_Kage_Operative/00_Kage_Notebook.md) | [`bionic-learning-kage.md`](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_Operative_Kage/bionic-learning-kage.md) | 00-03-06死鎖/認知無界 |
 | **渡鴉 (Raven)** | 首席黑色調查官 兼 網路穿透特工 | **渡鴉 (Raven)** | 司法天網穿透、朋友圈連坐、網路測繪逆向 | [`Office_of_the_Forensic_Raven`](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_Forensic_Raven/README.md) | [`00_Raven_Notebook.md`](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_Forensic_Raven/00_Raven_Notebook.md) | [`persona.md`](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-03_Brand_LifeButler/00-03-04_Brand_Characters/10_渡鴉_Raven/persona.md) | 00-13統轄/直屬雪柔 |
+| **約瑟夫 (Josef)** | 首席視覺長 (CVO) 兼 海報工匠總監 | **約瑟夫 (Josef)** | 包浩斯現代網格、三公尺穿透、300 DPI 印刷防呆 | [`Office_of_the_CVO_Josef`](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CVO_Josef/README.md) | [`00_Josef_Notebook.md`](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CVO_Josef/00_Josef_Notebook.md) | [`bionic-learning-josef.md`](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CVO_Josef/bionic-learning-josef.md) | 00-14主掌/全域視覺SSOT |
+| **艾達 (Ada)** | 首席前沿科技偵察官 兼 AI 雷達官 | **艾達 (Ada)** | 泥土前沿、端側孤島韌性、逆熱度防 FOMO、Exit Code 0 | [`Office_of_the_Scout_Ada`](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_Scout_Ada/README.md) | [`00_Ada_Notebook.md`](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_Scout_Ada/00_Ada_Notebook.md) | [`bionic-learning-ada.md`](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_Scout_Ada/bionic-learning-ada.md) | 00-15統轄/直屬雪&林納斯 |
 
 ---
 
@@ -194,3 +196,11 @@
 * **[v1.8] 2026-10-28**：
   * **異動內容**：首席黑色調查官渡鴉 (Raven) 正式履新入閣，直屬情報長雪柔，接掌 `00-13_Cyber_Forensics_and_Investigation`。
   * **執行細節**：因應創辦人陳品碩裁示，建立專職「司法裁判天網穿透、朋友圈社交生態解剖、網路技術測繪與漏洞逆向」之暗夜防線，配置專屬辦公室 `Office_of_the_Forensic_Raven` 與實體主權 `00-13` 領地。
+
+* **[v1.9] 2026-11-01**：
+  * **異動內容**：首席視覺長約瑟夫 (Josef) 正式履新入閣，直屬執行長雪 ✕ 行銷長泰勒絲，接掌 `00-14_Visual_Design_and_Poster_Craft`。
+  * **執行細節**：因應創辦人品碩裁示，建立專職「包浩斯現代網格海報、300 DPI 健豪藍格印刷防呆、三公尺 1.5 秒穿透與全域視覺 SSOT」之實體主權陣地，配置專屬辦公室 `Office_of_the_CVO_Josef` 與專屬仿生技能 `bionic-learning-josef`。
+
+* **[v2.0] 2026-11-02**：
+  * **異動內容**：首席前沿科技偵察官兼 AI 雷達官 艾達 (Ada) 正式履新入閣，直屬執行長雪 ✕ 技術長林納斯 ✕ 黑色調查官渡鴉，接掌 `00-15_AI_Frontier_and_Radar`。
+  * **執行細節**：因應創辦人品碩裁示（保持學習與謙虛心態引領台東），建立專職「全球前沿 AI 模型雷達偵察、端側小模型 (Sub-3B) 邊緣推論、台東離線邊緣運算盒子 (Taitung Edge Box)、農產視覺病斑辨識與偏鄉長輩離線聲學守護」之實體主權陣地，配置專屬辦公室 `Office_of_the_Scout_Ada` 與專屬特化仿生學習系統 `bionic-learning-ada`。

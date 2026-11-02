@@ -66,14 +66,23 @@
       ├── 📁 04_Audit_Certificates (品質合格認證與憑證存檔)
       └── 📁 05_Kaizen_Improvements (PDSA 持續改善專案庫)
  │
- └── 📁 00-13_Cyber_Forensics_and_Investigation (子目錄 M：網路穿透與商業徵信調查處) 🦅 [渡鴉主掌 · 直屬雪柔] ⚡ [全新入閣]
+ ├── 📁 00-13_Cyber_Forensics_and_Investigation (子目錄 M：網路穿透與商業徵信調查處) 🦅 [渡鴉主掌 · 直屬雪柔] ⚡ [全新入閣]
       ├── 📁 01_Judicial_Credit_Forensics (司法裁判與信用天網穿透庫)
       ├── 📁 02_Social_Orbit_Profiling (朋友圈與社交圖譜連坐分析庫)
       ├── 📁 03_Cyber_Infrastructure_Mapping (網路基礎設施測繪與伺服器逆向)
       ├── 📁 04_Digital_Breadcrumbs_OSINT (數位足跡開源情報與時光機快照)
       └── 📁 05_Case_Dossiers (《極星黑色卷宗》正式歸檔庫)
-      ├── 📁 01_Master_SOP_Vault (全系統法定 SOP 總母庫)
-      ├── 📁 02_SPC_Control_Charts (統計變異管制界限與日誌)
-      ├── 📁 03_Andon_Intercept_Logs (安燈繩 90 分硬攔截實錄)
-      ├── 📁 04_Audit_Certificates (品質合格認證與憑證存檔)
-      └── 📁 05_Kaizen_Improvements (PDSA 持續改善專案庫)
+ │
+ ├── 📁 00-14_Visual_Design_and_Poster_Craft (子目錄 N：視覺設計與海報工坊處) 📐 [約瑟夫主掌 · 直屬雪與泰勒絲] 🎨 [全新入閣]
+ │    ├── 📁 01_Grid_Templates_and_Scales (包浩斯現代幾何網格與字級階層標準母版庫)
+ │    ├── 📁 02_Physical_Print_Posters (300 DPI 實體印刷海報庫 · 健豪/藍格標準印刷規格)
+ │    ├── 📁 03_Social_Media_Cards (社群長圖卡與 IG 4:5 / Threads 宣傳視覺圖庫)
+ │    ├── 📁 04_Visual_Audit_Reports (約瑟夫視覺審計與光學校正報告庫)
+ │    └── 📁 05_Print_Shop_Profiles (在地印刷廠檔案與大豆油墨/紙張特徵母庫)
+ │
+ └── 📁 00-15_AI_Frontier_and_Radar (子目錄 O：前沿人工智慧與技術雷達處) 🛰️ [艾達主掌 · 直屬雪與林納斯] ⚡ [全新履新]
+      ├── 📁 01_Model_Evaluation_and_Benchmarks (前沿模型評測、長文本與量化基準庫)
+      ├── 📁 02_Edge_and_Offline_Inference (台東離線邊緣推論盒子、樹莓派/N100 部署、Q4 量化模型)
+      ├── 📁 03_Multimodal_and_Physical_Perception (端側多模態感知、釋迦病斑辨識、長輩聲紋呼吸防護)
+      ├── 📁 04_Agentic_Protocols_and_Tooling (Anthropic MCP 協議、Tool Calling 標準、A2A 多代理協同規範)
+      └── 📁 05_Cognitive_Distillation_and_FineTuning (大模型智慧蒸餾至 1.5B/3B、LoRA/DoRA 微調與風土對齊)

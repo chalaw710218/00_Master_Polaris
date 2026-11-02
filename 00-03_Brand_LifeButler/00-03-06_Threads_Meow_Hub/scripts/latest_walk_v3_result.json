@@ -1,54 +1,54 @@
 {
-  "step1_home_replies": 3,
+  "step1_home_replies": 0,
   "step2_friends_visited": [
     {
-      "username": "hattcoffee",
-      "name": "Hatt Coffee",
+      "username": "love_love_cat_cake",
+      "name": "小瑪莉貓的手作甜點",
+      "action": "comment_and_like"
+    },
+    {
+      "username": "yuan.b778",
+      "name": "石臼一二",
       "action": "liked"
     },
     {
-      "username": "chaiyuan_bakery",
-      "name": "柴源製菓",
+      "username": "unccoffee",
+      "name": "瑰夏咖啡 GESHA COFFEE",
       "action": "liked"
     },
     {
-      "username": "howhow_sweets",
-      "name": "好好·食甜",
+      "username": "deepcoffee241",
+      "name": "Deep coffee",
       "action": "liked"
     },
     {
-      "username": "travel_zztaitung",
-      "name": "台東製造",
-      "action": "liked"
+      "username": "homu_cafe_",
+      "name": "和暮咖啡",
+      "action": "visited"
     },
     {
-      "username": "sinapayan_youth",
-      "name": "喜拿巴漾青年工作站",
-      "action": "liked"
-    },
-    {
-      "username": "slowfoodtaitung",
-      "name": "臺東慢食節",
-      "action": "liked"
+      "username": "riceandbear",
+      "name": "米熊共生",
+      "action": "visited"
     }
   ],
   "step2_clout_tea": {
-    "target": "@hattcoffee (Hatt Coffee)",
-    "message": "早安！週一早晨開工，大家都辛苦了。生活管家默默在後排端出剛泡好的鹿野紅烏龍熱茶... 早餐記得要吃飽，配上一杯好咖啡，慢慢走，日子總會一口一口踏實過好的。🍵☕🍞",
-    "proof": "C:\\Users\\lenovo\\我的雲端硬碟\\00_Master_Polaris\\00-03_Brand_LifeButler\\00-03-06_Threads_Meow_Hub\\scripts\\screenshots\\walk_v3_clout_tea_hattcoffee.png"
+    "target": "@love_love_cat_cake (小瑪莉貓的手作甜點)",
+    "message": "午後四點，空氣裡都是剛出爐的甜點香氣... 生活管家默默在後排端出剛泡好的鹿野紅烏龍，配小瑪莉家的甜點剛剛好。週一下午打工人辛苦了，喝口茶吃塊甜，充個電再出發！🍵🍰🐱",
+    "proof": "C:\\Users\\lenovo\\我的雲端硬碟\\00_Master_Polaris\\00-03_Brand_LifeButler\\00-03-06_Threads_Meow_Hub\\scripts\\screenshots\\walk_v3_clout_tea_love_cat_cake.png"
   },
   "step3_feed_likes": 4,
   "step4_post": {
-    "post_id": "17998695192104021",
-    "permalink": "https://www.threads.net/@hellotaitung/post/17998695192104021",
-    "title": "週一早晨八點窗邊伸懶腰",
-    "hero": "喵編 (店貓)",
+    "post_id": "18099807785390245",
+    "permalink": "https://www.threads.net/@hellotaitung/post/18099807785390245",
+    "title": "週一下午四點灰色虎斑貓充電",
+    "hero": "喵編 (店貓 - 灰色虎斑貓)",
     "topic_tag": "台東生活",
-    "screenshot": "C:\\Users\\lenovo\\我的雲端硬碟\\00_Master_Polaris\\00-03_Brand_LifeButler\\00-03-06_Threads_Meow_Hub\\scripts\\screenshots\\walk_v3_monday_morning_verified.png"
+    "screenshot": "C:\\Users\\lenovo\\我的雲端硬碟\\00_Master_Polaris\\00-03_Brand_LifeButler\\00-03-06_Threads_Meow_Hub\\scripts\\screenshots\\walk_v3_monday_afternoon_verified.png"
   },
   "step45_first_reply": {
     "reply_id": "verified_post_first_reply",
-    "text": "（在陽光下翻肚肚打滾）大家今天出門上班辛苦了喵～如果遇到難搞的事，先深呼吸一口氣，想著本喵在幫你加油喵！大家今天早餐都吃了什麼好料？快跟本喵分享喵🐾 #台東生活"
+    "text": "（把毛茸茸的灰斑下巴靠在桌上打呼嚕）大家今天辛苦了喵～再撐一下下就下班了！今晚回家想好要吃什麼好料犒勞自己了嗎？快跟本喵說喵🐾 #台東生活"
   },
   "step5_friend_ledger": "updated",
   "step6_cognitive_sync": true

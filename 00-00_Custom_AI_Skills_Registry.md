@@ -85,6 +85,13 @@ Polaris Master Skills Arsenal (23 Skills)
 * **一秒起手式**：
   > 「泰勒絲，用 `bionic-learning-taylor` 為我們定錨這次的品牌核心敘事！」
 
+### 1.10 `bionic-learning-ada`
+* **功能定位**：首席前沿科技偵察官兼 AI 雷達官艾達特化版 (v1.0 創立初版)
+* **主管首長**：艾達 (Ada, Chief AI Scout)
+* **核心能力**：艾達前沿科技偵察二十項終極鐵律、泥土前沿與謙卑領航、端側 Sub-3B 邊緣推論、台東離線邊緣運算盒子 (Taitung Edge Box)、農產視覺病斑辨識、長輩離線聲學守護、Anthropic MCP 與前沿 Agentic 協定。
+* **一秒起手式**：
+  > 「艾達，請用 `bionic-learning-ada` 掃描全球最新開源模型與邊緣落地適配度！」
+
 ---
 
 ## 2. 💰 價值定價與毛利審計防區 (Pricing & Unit Economics)
