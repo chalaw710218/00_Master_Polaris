@@ -11,6 +11,7 @@
 | 系統名稱 | 外部系統 / 服務商 | 專案 ID / 標籤 | 設定檔 / 金鑰路徑 | 狀態與通訊健康度 |
 | :--- | :--- | :--- | :--- | :--- |
 | **Google Cloud Platform** | GCP 服務帳號 (Service Account) | `polaris-lifebutler` (`6237735105`) | `google_service_account.json` | ✅ 正常（讀寫日曆、試算表 100% 暢通） |
+| **寶桑物流生活商行帳務** | Google 試算表 (SSOT 真值底座) | `生活管家_系統化管理_V2` | `1srOVCLlOIgS1QIOudMB7AmIiRCLXVREz-08jGiv7udA` | ✅ 正常（10張工作表，現役唯一真實帳務中樞） |
 | **Google Business Profile** | GBP 商家檔案 API | `polaris-lifebutler` | 官方申訴立案 `Case ID: 8-2264000041757` | ⏳ 審核中（預估 7~10 個工作天解鎖配額） |
 | **Google Calendar** | 私人 Google 日曆雙向管理 | 個人日曆 iCal 密鑰 | `00-00_Gamification_Engine/calendar_manager.py` | ✅ 正常（雙向同步，零帳密外洩） |
 | **Meta Facebook API** | 「生活的一部分，就醬點！」粉專 | 粉專 ID `110505444816362` | `00-02_GroupBuy_Products/.agents/skills/facebook-publisher/` | ✅ 正常（支援自動圖文與排程發布） |

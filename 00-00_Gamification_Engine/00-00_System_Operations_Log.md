@@ -675,3 +675,42 @@ aven (調查官 渡鴉)：.agents/skills/bionic-learning-raven/SKILL.md
   - 第五章：突觸-代謝-驗證方程 🛑【創辦人親定鎖定·嚴禁修改】
 * **章節序號**：各夥伴特化鐵律與專業思考鏈一律由「第六章」開始順序延展，原特化資產零遺失。
 * **鎖定狀態**：全體幹部 YAML 標籤全面標定 lock_status: IMMUTABLE_CHAPTERS_2_TO_5。
+
+---
+
+## 2026-11-02 15:05:00 - [重大決策登錄] 寶桑物流生活商行法定帳務真值中樞校準 (切換至《生活管家_系統化管理_V2》)
+
+> **發布者**：執行長 雪 (Yuki, CEO) ✕ 財務長 算盤 (Abacus, CFO) ✕ CTO 林納斯 (Linus)  
+> **指令來源**：創辦人 陳品碩（「雪! 關於寶桑物流生活商行的帳務是使用這個(生活管家_系統化管理_V2)版本在做紀錄唷!請幫我更改!」）  
+> **核心影響**：全域對齊商業物理真值，確立寶桑物流生活商行帳務唯一合法依據為《生活管家_系統化管理_V2》，排除歷史版本混淆。
+
+### 1. 核心校準與連線實測驗收
+* **法定帳務 Google 試算表 ID**：`1srOVCLlOIgS1QIOudMB7AmIiRCLXVREz-08jGiv7udA`
+* **Google 試算表名稱**：`生活管家_系統化管理_V2`
+* **原生線上連結**：[點此直達 Google 試算表](https://docs.google.com/spreadsheets/d/1srOVCLlOIgS1QIOudMB7AmIiRCLXVREz-08jGiv7udA/edit)
+* **本地同步實體**：
+  - `生活管家_系統化管理_V2.gsheet`（已收錄於根目錄）
+  - `生活管家_系統化管理_V2.xlsx`（已收錄於根目錄）
+* **API 連線實測成果**：
+  - 調用 `polaris_workspace_hub.py` 透過服務帳號 `polaris-bot@polaris-lifebutler.iam.gserviceaccount.com` 直連驗證成功（`Is connected: True`）。
+  - 成功動態解析並鎖定 10 張核心工作表：
+    1. `0-營運總部儀表板`
+    2. `1-訂單紀錄`
+    3. `2-客戶資料庫`
+    4. `3-品項單價表`
+    5. `4-進貨紀錄`
+    6. `5-每日對帳與理貨面板`
+    7. `6-現金流分析`
+    8. `7-每日結算紀錄`
+    9. `8-設備內裝`
+    10. `9-BOM物料轉換表`
+
+### 2. 全域同步更新檔案範疇
+1. `00-00_External_Resource_Index.md`：校準外部資源索引，將 V2 定位為法定唯一真實帳務底座。
+2. `00-00_Gamification_Engine/00-00_External_Resource_Index.md`：登記於關鍵外部系統 API 與金鑰端點表。
+3. `00-00_Gamification_Engine/00-00_Master_Todo_Backlog.md`：庫存盤點與對帳任務校準至 V2。
+4. `00-00_Gamification_Engine/save_data.json`：任務描述校準至 V2。
+5. `00-00_Gamification_Engine/Office_of_the_CEO_Yuki/00_CEO_Notebook.md`：登錄直連 V2 實測成功。
+6. `00-00_Gamification_Engine/01_Cognitive_Log/01_Experiences_and_Evidence.md`：登錄客觀事實庫。
+7. `00-00_Gamification_Engine/Office_of_the_CFO_Abacus/00_Abacus_Notebook.md`：財務長蒙格正式頒布 V2 十大工作表審計軍規。
+8. `00-01_Logistics_System/00-01-00_Logistics_System_Overview.md`：寶桑物流交付系統總綱增列 V2 帳務中樞。

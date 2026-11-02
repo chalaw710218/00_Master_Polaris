@@ -263,7 +263,7 @@
 * **烏龍破案**：Google Business Profile API 審核團隊因資料庫對碰或客服人工複製失誤，將申請誤判為新北市「陳敏玲內科診所」之專案 `211708066962`。經查證創辦人 GCP 專案庫，該專案根本不存在。
 * **真實專案與金鑰確認**：
   * **專案 ID**：`polaris-lifebutler` ｜ **專案編號 (Project Number)**：`6237735105`
-  * **金鑰檔案**：`google_service_account.json`（已在根目錄就緒，實測讀寫《生活管家_系統化管理_V3》試算表 100% 暢通）。
+  * **金鑰檔案**：`google_service_account.json`（已在根目錄就緒，實測直連寶桑物流生活商行法定帳務中樞《生活管家_系統化管理_V2》（ID: 1srOVCLlOIgS1QIOudMB7AmIiRCLXVREz-08jGiv7udA）10張工作表 100% 暢通）。
 * **API 啟用與 Quota 0 鎖定狀態**：
   * 創辦人已手動在 GCP 控制台啟用 `mybusinessaccountmanagement` 與 `mybusinessbusinessinformation`。
   * 代碼實測回傳 `HttpError 429: Quota exceeded (quota_limit_value: 0)`，確認通道已打通，唯 Google 預設配額為 0。

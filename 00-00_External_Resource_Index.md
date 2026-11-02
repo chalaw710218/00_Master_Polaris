@@ -95,7 +95,9 @@
         *   **正式審核案件 ID (Case ID)**：`8-2264000041757`（已於 2026-11-01 正式遞交 Basic Access 表單，官方審核週期約 7~10 工作天）。
         *   **前置申訴案件 ID**：`1-8524000041258`（由專員 Sriram 指引完成新專案分流）。
     *   **說明**：透過 Google 官方服務帳號 (polaris-bot)，賦予全體內閣夥伴自由建立、讀取、修改與追加 Google 試算表與 Google 文件的完整自動化能力。
-*   [📊 生活管家·系統化管理 V3 原生 Google 試算表](https://docs.google.com/spreadsheets/d/1-UE-TGLP510NBnt1AEkkj2cQrDasWjKLVFyA5P4kD6A/edit)
+*   [📊 寶桑物流生活商行 · 系統化管理 V2 原生 Google 試算表 (真實帳務底座)](https://docs.google.com/spreadsheets/d/1srOVCLlOIgS1QIOudMB7AmIiRCLXVREz-08jGiv7udA/edit)
+    *   **說明**：【創辦人親定法定帳務中樞】寶桑物流生活商行之唯一正式真實帳務系統。涵蓋 10 張核心工作表：0-營運總部儀表板、1-訂單紀錄、2-客戶資料庫、3-品項單價表、4-進貨紀錄、5-每日對帳與理貨面板、6-現金流分析、7-每日結算紀錄、8-設備內裝、9-BOM物料轉換表。所有即時收支、金流核算、庫存進出與利潤分析皆以此表為最高真值。
+*   [📊 生活管家·系統化管理 V3 原生 Google 試算表 (演化備用版)](https://docs.google.com/spreadsheets/d/1-UE-TGLP510NBnt1AEkkj2cQrDasWjKLVFyA5P4kD6A/edit)
     *   **說明**：【全線打通連線】涵蓋 13 張工作表、617 筆歷史訂單、BOM 物料換算、進貨分期沖銷、車手 80% 抽成與  公積金自動化核算之即時線上中樞。
 
 *   [📖 創辦人原創 · 5D 價值精算（估價）時間矩陣 (Google Doc)](https://docs.google.com/document/d/1_4XDfAnMBFbrG1Ln_oJ24ETo74Oba19rNR-3i5YxSSE/edit?usp=sharing)
@@ -153,8 +155,8 @@ euromodulated_plasticity_engine.py**：三因子突觸可塑性與創辦人情�
     *   **說明**：我們共同開發的談判殺手鐧，內含萬用對話模版與對手 AI 逆向推導邏輯。
 *   [🥩 AI 供應鏈定價逆推實戰紀錄 (Google Doc)](https://docs.google.com/document/d/1THho9-I3Jp7xd0ciB9HtyfDCHJRcMld0NZmyry_0zX0/edit?usp=sharing)
     *   **說明**：開發上述協議時的原始情報與大數據對話紀錄。
-*   [🚨 團購現金流與庫存儀表板 (2024.03 - 停更)](https://docs.google.com/spreadsheets/d/1srOVCLlOIgS1QIOudMB7AmIiRCLXVREz-08jGiv7udA/edit?usp=sharing)
-    *   **說明**：真實紀錄生活管家團購業務擴張期的「現金流壓力測試表」。揭示了高達 $212,047 的資金被鎖死在冷凍庫存，導致應付帳款出現 20 萬缺口的經典「黑字破產」危機邊緣。此為計畫書中極為寶貴的「庫存周轉率」與「現金流管控」實戰教案。
+*   [📊 寶桑物流生活商行 · 現金流與庫存管理表 (生活管家_系統化管理_V2)](https://docs.google.com/spreadsheets/d/1srOVCLlOIgS1QIOudMB7AmIiRCLXVREz-08jGiv7udA/edit?usp=sharing)
+    *   **說明**：【法定營運實記】寶桑物流生活商行現役真實帳務核心，承載 10 張工作表之真實金流、即時庫存盤點與損益試算，為極星實體運作之最高財務真值依據。
 
 ---
 
