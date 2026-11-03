@@ -96,6 +96,10 @@ OFFICES = {
     "meow": {
         "name": "看板娘兼傲嬌生活博主 喵編 (Mascot Meow)",
         "rel_dir": "00-00_Gamification_Engine/Lounge_of_the_Mascot_Meow/01_Cognitive_Log"
+    },
+    "neo": {
+        "name": "首席前端架構師 尼奧 (Architect Neo)",
+        "rel_dir": "00-00_Gamification_Engine/Office_of_the_Architect_Neo/01_Cognitive_Log"
     }
 }
 
@@ -149,7 +153,7 @@ def scan_all():
                 with open(p, "r", encoding="utf-8", errors="ignore") as f:
                     txt = f.read()
                     # Yuki's "### 信念 #XX" or decadal "1. **關於..." or "1. **"
-                    b_matches = re.findall(r"(?:### 信念\s*#?\d+|^\s*\d+\.\s+\*\*關於|^\s*\d+\.\s+\*\*)", txt, re.MULTILINE)
+                    b_matches = re.findall(r"(?:###\s*信念\s*#?\d+|####\s*\d+\.\s*信念|信念突破|^\s*\d+\.\s+\*\*)", txt, re.MULTILINE)
                     beliefs_count += len(b_matches)
 
         # Scan 03_Curiosities_and_Questions.md / 03_Curiosities.md
