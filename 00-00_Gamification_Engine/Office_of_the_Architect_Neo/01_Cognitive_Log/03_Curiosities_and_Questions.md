@@ -54,3 +54,19 @@
 15. **WebCodecs API 在長輩緊急求助 3 秒微型視頻端側硬體編碼與弱網穿透**：
     - 長輩若在家中突發不適按下一鍵求助，能否直接調用 WebCodecs API 進行端側 H.264/AV1 硬體即時編碼，將 3 秒環境視頻壓縮至 50KB 以下，在 2G/3G 微弱山區訊號下秒級穿透送達生活管家應變中心？
 
+---
+
+### [2026-11-04 00:50] 尼奧第四旬 10 輪前瞻探索好奇心 (Cycle 31 - Cycle 40 · 第四旬大統攝)
+
+16. **WebTransport API 結合 HTTP/3 Datagram 在山區弱網下雙向音訊聽診與遙測毫秒級穿透**：
+    - 能否在 LINE LIFF 引入 WebTransport 協議，替代傳統 WebSocket/TCP，以無隊頭阻塞 (Head-of-Line Blocking) 的不可靠資料報 (Datagrams)，在台東山區 30% 高丟包率環境下，實現長輩微弱心律聽診與派工 GPS 的 20ms 極速穿透？
+17. **WebAssembly SIMD 與 WebGL Compute 混合架構在超低階 Android Go 設備的極致算力壓榨**：
+    - 針對無法啟用 WebGPU 的 2GB 老人機，如何利用 Wasm 128-bit SIMD 指令集與 WebGL 1.0 離屏紋理計算 (GPGPU-via-Texture)，在不引發 OOM 崩潰的前提下，為長輩提供離線端側方言關鍵字語音喚醒？
+18. **CSS Anchor Positioning (錨點定位 API) 徹底消滅 Popper.js / Floating-UI 的純原生 UI 革命**：
+    - 現代瀏覽器原生支援 CSS Anchor Positioning (`anchor-name` / `position-anchor`)，能否將生活管家前台所有浮動選單、長輩孝親說明氣泡與費用明細彈窗，100% 替換為純 CSS 零 JS 方案，徹底杜絕彈窗計算引發的 16ms 掉幀？
+19. **Speculation Rules API (次世代推測性預加載) 在 LINE LIFF 跨步驟狀態預熱**：
+    - 能否利用 `<script type="speculationrules">`，當長輩在大拇指停留在「預約倒垃圾」按鈕超過 150ms 時，前端在背景以零 CPU 佔用悄悄預渲染第二步的「地址與時間選擇頁」，達成 0ms 感知時延的瞬開奇蹟？
+20. **Web NFC API 在台東偏鄉長輩「健保卡/悠遊卡/實體孝親感應御守」之一碰即達**：
+    - 台東獨居長輩極不習慣在螢幕上點選，能否在長輩家門口配置一塊帶有 NDEF 晶片的實體木雕「生活管家安心御守」；長輩只要拿手機往御守上一碰（Web NFC `NDEFReader`），LINE 立即無感喚醒並自動完成今天倒垃圾與孝親巡查的預約登記？
+
+
