@@ -1,49 +1,54 @@
 {
-  "step1_home_replies": 0,
+  "step1_home_replies": 1,
   "step2_friends_visited": [
     {
-      "username": "yuanlung.667",
-      "name": "緣龍無骨鹽酥雞",
+      "username": "howhow_sweets",
+      "name": "好好·食甜",
       "action": "comment_and_visit"
     },
     {
-      "username": "hello_cornerboo",
-      "name": "仨口食事處",
+      "username": "chaiyuan_bakery",
+      "name": "柴源製菓",
       "action": "visited"
     },
     {
-      "username": "956leissmoker",
-      "name": "雨田燻手工煙燻",
+      "username": "slowfoodtaitung",
+      "name": "臺東慢食節",
       "action": "visited"
     },
     {
-      "username": "deepcoffee241",
-      "name": "Deep coffee",
+      "username": "travel_zztaitung",
+      "name": "台東製造",
       "action": "visited"
     },
     {
-      "username": "hattcoffee",
-      "name": "Hatt Coffee",
+      "username": "sinapayan_youth",
+      "name": "喜拿巴漾青年工作站",
+      "action": "visited"
+    },
+    {
+      "username": "love_love_cat_cake",
+      "name": "小瑪莉貓的手作甜點",
       "action": "visited"
     }
   ],
   "step2_clout_tea": {
-    "target": "@yuanlung.667 (緣龍無骨鹽酥雞)",
-    "message": "深夜十一點半，剛炸起鍋的鹽酥雞九層塔香氣太犯規了... 生活管家默默在後排端出剛泡好的無糖冷泡鹿野紅烏龍解膩。週一深夜辛苦了，犒賞完肚皮早點休息，明天繼續加油！🍵🍗✨",
-    "proof": "C:\\Users\\lenovo\\我的雲端硬碟\\00_Master_Polaris\\00-03_Brand_LifeButler\\00-03-06_Threads_Meow_Hub\\scripts\\screenshots\\walk_v3_clout_tea_yuanlung.png"
+    "target": "@howhow_sweets (好好·食甜)",
+    "message": "午後三點，整個辦公室都在打哈欠的時候，看到好好家的草莓生乳捲真的會一秒醒過來... 生活管家默默在後排端出剛泡好的鹿野紅烏龍，配這塊甜點剛剛好。週二打工人辛苦了，吃塊蛋糕喝杯茶，充飽電繼續往前走！🍵🍰✨",
+    "proof": "C:\\Users\\lenovo\\我的雲端硬碟\\00_Master_Polaris\\00-03_Brand_LifeButler\\00-03-06_Threads_Meow_Hub\\scripts\\screenshots\\walk_v3_clout_tea_howhow_sweets.png"
   },
-  "step3_feed_likes": 0,
+  "step3_feed_likes": 4,
   "step4_post": {
-    "post_id": "18389247586225970",
-    "permalink": "https://www.threads.net/@hellotaitung/post/18389247586225970",
-    "title": "週一深夜十一點半灰色虎斑毛球卡位",
+    "post_id": "18458764969127270",
+    "permalink": "https://www.threads.net/@hellotaitung/post/18458764969127270",
+    "title": "週二下午三點十五分木頭窗邊大懶腰",
     "hero": "喵編 (店貓 - 灰色虎斑貓)",
     "topic_tag": "台東生活",
-    "screenshot": "C:\\Users\\lenovo\\我的雲端硬碟\\00_Master_Polaris\\00-03_Brand_LifeButler\\00-03-06_Threads_Meow_Hub\\scripts\\screenshots\\walk_v3_monday_night_verified.png"
+    "screenshot": "C:\\Users\\lenovo\\我的雲端硬碟\\00_Master_Polaris\\00-03_Brand_LifeButler\\00-03-06_Threads_Meow_Hub\\scripts\\screenshots\\walk_v3_tuesday_afternoon_verified.png"
   },
   "step45_first_reply": {
     "reply_id": "verified_post_first_reply",
-    "text": "（把毛茸茸的灰斑身體縮得更緊打呼嚕）最辛苦的週一撐過去了喵～今晚什麼都不要想，好好閉上眼睛深層睡眠充電！大家的被窩夠暖嗎？晚安喵🐾 #台東生活"
+    "text": "（把毛茸茸的灰斑前腳縮進胸口打呼嚕）大家今天下午辛苦了喵～再撐兩小時就下班了！今天下午茶你們都吃了什麼好料？快跟本喵說喵🐾 #台東生活"
   },
   "step5_friend_ledger": "updated",
   "step6_cognitive_sync": true
