@@ -80,9 +80,16 @@
  │    ├── 📁 04_Visual_Audit_Reports (約瑟夫視覺審計與光學校正報告庫)
  │    └── 📁 05_Print_Shop_Profiles (在地印刷廠檔案與大豆油墨/紙張特徵母庫)
  │
- └── 📁 00-15_AI_Frontier_and_Radar (子目錄 O：前沿人工智慧與技術雷達處) 🛰️ [艾達主掌 · 直屬雪與林納斯] ⚡ [全新履新]
-      ├── 📁 01_Model_Evaluation_and_Benchmarks (前沿模型評測、長文本與量化基準庫)
-      ├── 📁 02_Edge_and_Offline_Inference (台東離線邊緣推論盒子、樹莓派/N100 部署、Q4 量化模型)
-      ├── 📁 03_Multimodal_and_Physical_Perception (端側多模態感知、釋迦病斑辨識、長輩聲紋呼吸防護)
-      ├── 📁 04_Agentic_Protocols_and_Tooling (Anthropic MCP 協議、Tool Calling 標準、A2A 多代理協同規範)
-      └── 📁 05_Cognitive_Distillation_and_FineTuning (大模型智慧蒸餾至 1.5B/3B、LoRA/DoRA 微調與風土對齊)
+  ├── 📁 00-15_AI_Frontier_and_Radar (子目錄 O：前沿人工智慧與技術雷達處) 🛰️ [艾達主掌 · 直屬雪與林納斯] ⚡ [全新履新]
+  │    ├── 📁 01_Model_Evaluation_and_Benchmarks (前沿模型評測、長文本與量化基準庫)
+  │    ├── 📁 02_Edge_and_Offline_Inference (台東離線邊緣推論盒子、樹莓派/N100 部署、Q4 量化模型)
+  │    ├── 📁 03_Multimodal_and_Physical_Perception (端側多模態感知、釋迦病斑辨識、長輩聲紋呼吸防護)
+  │    ├── 📁 04_Agentic_Protocols_and_Tooling (Anthropic MCP 協議、Tool Calling 標準、A2A 多代理協同規範)
+  │    └── 📁 05_Cognitive_Distillation_and_FineTuning (大模型智慧蒸餾至 1.5B/3B、LoRA/DoRA 微調與風土對齊)
+  │
+  └── 📁 00-16_Frontend_and_App_Architecture (子目錄 P：前端與客戶端體驗架構陣地) 🕶️ [尼奧主掌 · 直屬雪與約瑟夫與林納斯] 🚀 [全新入閣]
+       ├── 📁 01_Design_System_and_Tokens (約瑟夫視覺法典轉譯、Tailwind 色彩常數與字體階層)
+       ├── 📁 02_LINE_LIFF_and_MiniApps (生活管家 LINE LIFF 極速預約與就醬點團購商城前端)
+       ├── 📁 03_Cross_Platform_App_Flutter_PWA (跨平台高可用派工 APP、Flutter/PWA 與離線快取)
+       ├── 📁 04_Web_Portals_and_Dashboards (極星總部營運管理中台、5D 財務即時監控大屏)
+       └── 📁 05_Client_Side_Performance_and_A11y (高齡 WCAG AAA 無障礙防線、前台 Poka-Yoke 防呆機制)

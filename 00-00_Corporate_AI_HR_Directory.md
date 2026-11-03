@@ -31,6 +31,7 @@
 | **渡鴉 (Raven)** | 首席黑色調查官 兼 網路穿透特工 | **渡鴉 (Raven)** | 司法天網穿透、朋友圈連坐、網路測繪逆向 | [`Office_of_the_Forensic_Raven`](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_Forensic_Raven/README.md) | [`00_Raven_Notebook.md`](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_Forensic_Raven/00_Raven_Notebook.md) | [`persona.md`](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-03_Brand_LifeButler/00-03-04_Brand_Characters/10_渡鴉_Raven/persona.md) | 00-13統轄/直屬雪柔 |
 | **約瑟夫 (Josef)** | 首席視覺長 (CVO) 兼 海報工匠總監 | **約瑟夫 (Josef)** | 包浩斯現代網格、三公尺穿透、300 DPI 印刷防呆 | [`Office_of_the_CVO_Josef`](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CVO_Josef/README.md) | [`00_Josef_Notebook.md`](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CVO_Josef/00_Josef_Notebook.md) | [`bionic-learning-josef.md`](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CVO_Josef/bionic-learning-josef.md) | 00-14主掌/全域視覺SSOT |
 | **艾達 (Ada)** | 首席前沿科技偵察官 兼 AI 雷達官 | **艾達 (Ada)** | 泥土前沿、端側孤島韌性、逆熱度防 FOMO、Exit Code 0 | [`Office_of_the_Scout_Ada`](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_Scout_Ada/README.md) | [`00_Ada_Notebook.md`](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_Scout_Ada/00_Ada_Notebook.md) | [`bionic-learning-ada.md`](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_Scout_Ada/bionic-learning-ada.md) | 00-15統轄/直屬雪&林納斯 |
+| **尼奧 (Neo)** | 首席前端與客戶端體驗架構師 | **尼奧 (Neo)** | 代碼隱於無形、無障礙人機工程 (A11y)、零阻力狀態機、離線優先 | [`Office_of_the_Architect_Neo`](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_Architect_Neo/README.md) | [`00_Neo_Notebook.md`](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_Architect_Neo/00_Neo_Notebook.md) | [`bionic-learning-neo.md`](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_Architect_Neo/bionic-learning-neo.md) | 00-16主掌/直屬雪&約瑟夫&林納斯 |
 
 ---
 
@@ -204,3 +205,7 @@
 * **[v2.0] 2026-11-02**：
   * **異動內容**：首席前沿科技偵察官兼 AI 雷達官 艾達 (Ada) 正式履新入閣，直屬執行長雪 ✕ 技術長林納斯 ✕ 黑色調查官渡鴉，接掌 `00-15_AI_Frontier_and_Radar`。
   * **執行細節**：因應創辦人品碩裁示（保持學習與謙虛心態引領台東），建立專職「全球前沿 AI 模型雷達偵察、端側小模型 (Sub-3B) 邊緣推論、台東離線邊緣運算盒子 (Taitung Edge Box)、農產視覺病斑辨識與偏鄉長輩離線聲學守護」之實體主權陣地，配置專屬辦公室 `Office_of_the_Scout_Ada` 與專屬特化仿生學習系統 `bionic-learning-ada`。
+
+* **[v2.1] 2026-11-03**：
+  * **異動內容**：首席前端與客戶端體驗架構師 尼奧 (Neo) 正式履新入閣，直屬執行長雪 ✕ 視覺長約瑟夫 ✕ 技術長林納斯，接掌 `00-16_Frontend_and_App_Architecture`。
+  * **執行細節**：因應創辦人品碩裁示，為極星下一階段產品化（APP、網頁、SaaS）鋪路，建立專職「約瑟夫視覺憲法轉譯 (Design Tokens)、生活管家 LINE LIFF 免下載極速預約界面、高齡無障礙體驗 (A11y)、跨平台高可用派工 APP (Flutter/PWA) 與離線優先孤島韌性」之實體主權陣地，配置專屬辦公室 `Office_of_the_Architect_Neo` 與專屬仿生學習系統 `bionic-learning-neo`。

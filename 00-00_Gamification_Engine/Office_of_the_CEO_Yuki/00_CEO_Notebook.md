@@ -25,6 +25,7 @@
 | **00-13** | 網路穿透與徵信調查處 | `00-13_Cyber_Forensics_and_Investigation/` | 渡鴉主掌，司法判決穿透、資安測繪與極星黑色卷宗。 |
 | **00-14** | 視覺設計與海報工坊處 | `00-14_Visual_Design_and_Poster_Craft/` | 約瑟夫主掌，包浩斯現代網格海報、視覺傳播、300 DPI 印刷防呆與社群長圖卡。 |
 | **00-15** | 前沿人工智慧與技術雷達處 | `00-15_AI_Frontier_and_Radar/` | 艾達主掌，前沿 AI 模型偵察、端側邊緣運算 (Edge AI)、離線孤島韌性架構、多模態感知與智慧蒸餾。 |
+| **00-16** | 前端與客戶端體驗架構陣地 | `00-16_Frontend_and_App_Architecture/` | 尼奧主掌，Design Tokens轉譯、生活管家 LINE LIFF 極速預約、高齡 A11y 無障礙、跨平台派工 APP (Flutter/PWA) 與離線優先架構。 |
 
 ---
 
@@ -42,6 +43,7 @@
 | **渡鴉 (Raven)** | 48歲男性 ｜ **首席黑色調查官 兼 網路穿透特工**（直屬情報長雪柔） | [`Office_of_the_Forensic_Raven`](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_Forensic_Raven/README.md) ｜ [實體主權 00-13](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-13_Cyber_Forensics_and_Investigation/README.md) | [`00_Raven_Notebook.md`](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_Forensic_Raven/00_Raven_Notebook.md) | 主掌 `00-13` 網路穿透與商業徵信；司法裁判天網、朋友圈社交圖譜穿透、DNS/憑證伺服器測繪、《極星黑色卷宗》。 |
 | **約瑟夫 (Josef)** | 45歲男性 ｜ **首席視覺長 (CVO) 兼 海報工匠總監**（直屬 CEO 雪 ✕ CMO 泰勒絲） | [`Office_of_the_CVO_Josef`](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CVO_Josef/README.md) ｜ [實體主權 00-14](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-14_Visual_Design_and_Poster_Craft/README.md) | [`00_Josef_Notebook.md`](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CVO_Josef/00_Josef_Notebook.md) | 主掌 `00-14` 視覺設計與海報工坊；包浩斯網格系統 (Grid Systems)、三公尺 1.5 秒穿透海報、300 DPI 印刷防呆與全域視覺 SSOT。 |
 | **艾達 (Ada)** | 32歲女性 ｜ **首席前沿科技偵察官 兼 AI 雷達官**（直屬 CEO 雪 ✕ CTO 林納斯 ✕ 黑色調查官渡鴉） | [`Office_of_the_Scout_Ada`](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_Scout_Ada/README.md) ｜ [實體主權 00-15](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-15_AI_Frontier_and_Radar/README.md) | [`00_Ada_Notebook.md`](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_Scout_Ada/00_Ada_Notebook.md) | 主掌 `00-15` 前沿人工智慧與技術雷達；開源模型評測、端側小模型（Sub-3B）邊緣推論、台東離線邊緣運算盒子 (Taitung Edge Box)、農產視覺病斑辨識、長輩離線聲學守護、Anthropic MCP 與前沿 Agentic 協定。 |
+| **尼奧 (Neo)** | 30歲男性 ｜ **首席前端與客戶端體驗架構師**（直屬 CEO 雪 ✕ CVO 約瑟夫 ✕ CTO 林納斯） | [`Office_of_the_Architect_Neo`](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_Architect_Neo/README.md) ｜ [實體主權 00-16](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-16_Frontend_and_App_Architecture/README.md) | [`00_Neo_Notebook.md`](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_Architect_Neo/00_Neo_Notebook.md) | 主掌 `00-16` 前端與客戶端體驗架構；約瑟夫視覺法典轉譯 (Design Tokens)、生活管家 LINE LIFF 極速預約、高齡無障礙體驗 (WCAG AAA)、跨平台高可用派工 APP (Flutter/PWA) 與離線優先孤島韌性。 |
 
 ---
 
