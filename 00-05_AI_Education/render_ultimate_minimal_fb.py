@@ -65,7 +65,7 @@ def render_facebook_minimal():
     # 頂部簡約小字 (呼吸感)
     top_y = margin + 35
     font_top = get_font(18, bold=True)
-    draw.text((W // 2, top_y), "生活管家 · 家宅 ✕ 寶桑原點", fill=(120, 110, 100), font=font_top, anchor="mm")
+    draw.text((W // 2, top_y), "生活管家 · 家宅 ｜ 寶桑原點", fill=(120, 110, 100), font=font_top, anchor="mm")
     
     # 中央英雄圖騰：狂飆抱魚貓咪徽章 (直徑 480px)
     badge_size = 480
@@ -92,10 +92,10 @@ def render_facebook_minimal():
     draw.text((W // 2, foot_y), "11/11 (週三) 14:00 - 16:00 ｜ 台東市正氣北路166巷90號（家宅）", fill=(50, 45, 40), font=font_venue, anchor="mm")
     
     font_sub = get_font(18, bold=False)
-    draw.text((W // 2, foot_y + 38), "100% 純實體現場實戰 ✕ 限額 10 席 ✕ 沒做完專屬成果不准下課", fill=(100, 90, 80), font=font_sub, anchor="mm")
+    draw.text((W // 2, foot_y + 38), "100% 純實體現場實戰  ·  限額 10 席  ·  沒做完專屬成果不准下課", fill=(100, 90, 80), font=font_sub, anchor="mm")
     
     font_cta = get_font(18, bold=True)
-    draw.text((W // 2, foot_y + 75), "💬 老學員 0 元免單 ＆ 正取申請，請見【第一則留言】", fill=(193, 18, 31), font=font_cta, anchor="mm")
+    draw.text((W // 2, foot_y + 75), "老學員 0 元免單 · 正取申請請見【第一則留言】", fill=(193, 18, 31), font=font_cta, anchor="mm")
     
     out_fb = os.path.join(OUT_DIR_FB, "FB_01_Time_And_Family_Minimal.png")
     img.save(out_fb, quality=95)

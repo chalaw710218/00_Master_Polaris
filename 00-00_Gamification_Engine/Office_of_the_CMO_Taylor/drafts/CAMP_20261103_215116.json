@@ -1,0 +1,78 @@
+{
+  "campaign_id": "CAMP_20261103_215116",
+  "created_at": "2026-11-03T21:51:16.316553",
+  "theme": "正氣北路家宅孝親生活陪伴",
+  "pricing_audit": {
+    "cost": 800.0,
+    "price": 1500.0,
+    "gross_profit": 700.0,
+    "margin_percent": 46.67,
+    "is_margin_safe": true,
+    "5D_time_points": 33.0,
+    "pricing_verdict": "通過 (利潤充足且無暴利)"
+  },
+  "copy_matrix": {
+    "meow_threads": "闆仔今天又不知道在堅持什麼了…🙄\n\n一大早拉著大家去巡【正氣北路家宅孝親生活陪伴】，一直念說「新鮮度差一小時都不行」。拜託，本喵只想在窗邊曬太陽舔毛好嗎！🐾\n\n但老實說，這批真的有甜、香氣整個在廚房飄開，連挑嘴的我偷聞一下都原諒他了。\n今天算盤那邊給的分享價是 NT$ 1500。\n\n順路的鄰居下班散步來自提點自己拿喔，先說好，不要吵醒本喵睡午覺～\n\n#生活的一部分就醬點",
+    "taylor_narrative": "不知道你今晚下班的路上，有沒有聞到空氣裡那股轉涼的風？\n\n在台東，這個時節的土地總會給人特別安靜的踏實感。今天帶給大家的【正氣北路家宅孝親生活陪伴】，沒有工廠標準化的催熟，只有晨間露水和太陽曬過的泥土香。\n\n我們把繁瑣的中間抽成拿掉，算盤精算後給予產地夥伴最體面的報酬，分享價定在平實的 NT$ 1500。\n\n希望這份帶著溫度的滋味，能成為你家今晚餐桌上一抹放鬆的溫柔。\n老規矩，如果有任何一口不合心意，隨時跟我們說，我們無條件為你處理。",
+    "boss_grounded": "做生意幾十年，我始終相信一句話：欺瞞客人一次，招牌就砸了一輩子。\n\n關於這次的【正氣北路家宅孝親生活陪伴】，特點很簡單：到府量測血壓心率、陪伴長輩散步閒聊、祖傳老菜脯料理燉湯。\n我們不包裝花俏辭藻，產地出貨、冷鏈自提到你手上，明碼標價 NT$ 1500。\n每分錢花在哪裡，算盤的帳本清清楚楚。\n認同這份踏實的朋友，歡迎來門市坐坐、喝杯熱茶。"
+  },
+  "security_audit": {
+    "meow_threads": {
+      "is_safe": true,
+      "violations": []
+    },
+    "taylor_narrative": {
+      "is_safe": true,
+      "violations": []
+    },
+    "boss_grounded": {
+      "is_safe": true,
+      "violations": []
+    }
+  },
+  "josef_visual_specs": {
+    "social_poster_4_5": {
+      "dimensions": "1080x1350 px (4:5 縱向黃金比例)",
+      "dpi": 300,
+      "color_profile": "Display P3 / CMYK (TAC <= 250%)",
+      "typography": {
+        "title_font": "思源宋體 Heavy (光學灰度校正 1:1.18)",
+        "body_font": "思源黑體 Regular (避頭尾與標點懸掛)",
+        "contrast_ratio": ">= 4.5:1 (高齡 CSF 視力平權防線)"
+      },
+      "color_palette": {
+        "background": "#FBF8F3 (溫暖大地羊皮紙米白)",
+        "primary": "#2D3436 (深夜暖黑，K100 單色直壓)",
+        "accent": "#D35400 (台東暖陽落日澄)"
+      },
+      "qr_code_size": "28mm 實體掃描安全邊界",
+      "poka_yoke_checks": [
+        "TAC <= 250% 印刷防透背油墨過飽和",
+        "赫曼方格暗斑視覺消除",
+        "街角透視預拉伸補償"
+      ]
+    },
+    "reels_dynamic_9_16": {
+      "dimensions": "1080x1920 px (9:16 直式短影音)",
+      "dpi": 300,
+      "color_profile": "Display P3 / CMYK (TAC <= 250%)",
+      "typography": {
+        "title_font": "思源宋體 Heavy (光學灰度校正 1:1.18)",
+        "body_font": "思源黑體 Regular (避頭尾與標點懸掛)",
+        "contrast_ratio": ">= 4.5:1 (高齡 CSF 視力平權防線)"
+      },
+      "color_palette": {
+        "background": "#FBF8F3 (溫暖大地羊皮紙米白)",
+        "primary": "#2D3436 (深夜暖黑，K100 單色直壓)",
+        "accent": "#D35400 (台東暖陽落日澄)"
+      },
+      "qr_code_size": "28mm 實體掃描安全邊界",
+      "poka_yoke_checks": [
+        "TAC <= 250% 印刷防透背油墨過飽和",
+        "赫曼方格暗斑視覺消除",
+        "街角透視預拉伸補償"
+      ]
+    }
+  },
+  "status": "READY_FOR_DEPLOYMENT"
+}

@@ -1,10 +1,15 @@
 {
-  "step1_home_replies": 1,
+  "step1_home_replies": 0,
   "step2_friends_visited": [
+    {
+      "username": "love_love_cat_cake",
+      "name": "小瑪莉貓的手作甜點",
+      "action": "comment_and_visit"
+    },
     {
       "username": "howhow_sweets",
       "name": "好好·食甜",
-      "action": "comment_and_visit"
+      "action": "visited"
     },
     {
       "username": "chaiyuan_bakery",
@@ -12,43 +17,38 @@
       "action": "visited"
     },
     {
-      "username": "slowfoodtaitung",
-      "name": "臺東慢食節",
+      "username": "yuan.b778",
+      "name": "石臼一二",
       "action": "visited"
     },
     {
-      "username": "travel_zztaitung",
-      "name": "台東製造",
+      "username": "unccoffee",
+      "name": "瑰夏咖啡 GESHA COFFEE",
       "action": "visited"
     },
     {
-      "username": "sinapayan_youth",
-      "name": "喜拿巴漾青年工作站",
-      "action": "visited"
-    },
-    {
-      "username": "love_love_cat_cake",
-      "name": "小瑪莉貓的手作甜點",
+      "username": "homu_cafe_",
+      "name": "和暮咖啡",
       "action": "visited"
     }
   ],
   "step2_clout_tea": {
-    "target": "@howhow_sweets (好好·食甜)",
-    "message": "午後三點，整個辦公室都在打哈欠的時候，看到好好家的草莓生乳捲真的會一秒醒過來... 生活管家默默在後排端出剛泡好的鹿野紅烏龍，配這塊甜點剛剛好。週二打工人辛苦了，吃塊蛋糕喝杯茶，充飽電繼續往前走！🍵🍰✨",
-    "proof": "C:\\Users\\lenovo\\我的雲端硬碟\\00_Master_Polaris\\00-03_Brand_LifeButler\\00-03-06_Threads_Meow_Hub\\scripts\\screenshots\\walk_v3_clout_tea_howhow_sweets.png"
+    "target": "@love_love_cat_cake (小瑪莉貓的手作甜點)",
+    "message": "週三下午三點，空氣裡都是小瑪莉家現烤貓咪造型戚風蛋糕的香氣... 生活管家默默在後排端出剛泡好的無糖鹿野紅烏龍，配這塊甜點剛剛好。週三小週末辛苦了，吃塊小蛋糕喝口茶，剩下的半天笑著過！🍵🍰🐱",
+    "proof": "C:\\Users\\lenovo\\我的雲端硬碟\\00_Master_Polaris\\00-03_Brand_LifeButler\\00-03-06_Threads_Meow_Hub\\scripts\\screenshots\\walk_v3_clout_tea_love_cat_cake_wednesday.png"
   },
   "step3_feed_likes": 4,
   "step4_post": {
-    "post_id": "18458764969127270",
-    "permalink": "https://www.threads.net/@hellotaitung/post/18458764969127270",
-    "title": "週二下午三點十五分木頭窗邊大懶腰",
+    "post_id": "17995744173028992",
+    "permalink": "https://www.threads.net/@hellotaitung/post/17995744173028992",
+    "title": "週三下午三點十五分木桌深層充電",
     "hero": "喵編 (店貓 - 灰色虎斑貓)",
     "topic_tag": "台東生活",
-    "screenshot": "C:\\Users\\lenovo\\我的雲端硬碟\\00_Master_Polaris\\00-03_Brand_LifeButler\\00-03-06_Threads_Meow_Hub\\scripts\\screenshots\\walk_v3_tuesday_afternoon_verified.png"
+    "screenshot": "C:\\Users\\lenovo\\我的雲端硬碟\\00_Master_Polaris\\00-03_Brand_LifeButler\\00-03-06_Threads_Meow_Hub\\scripts\\screenshots\\walk_v3_wednesday_afternoon_verified.png"
   },
   "step45_first_reply": {
     "reply_id": "verified_post_first_reply",
-    "text": "（把毛茸茸的灰斑前腳縮進胸口打呼嚕）大家今天下午辛苦了喵～再撐兩小時就下班了！今天下午茶你們都吃了什麼好料？快跟本喵說喵🐾 #台東生活"
+    "text": "（把毛茸茸的灰斑下巴靠在爪子前打呼嚕）大家今天下午辛苦了喵～再撐一下下就下班了！今晚回家打算吃什麼好料犒勞自己？快跟本喵說喵🐾 #台東生活"
   },
   "step5_friend_ledger": "updated",
   "step6_cognitive_sync": true

@@ -16,7 +16,9 @@
     ]
   },
   "contact": {
-    "phone": "請電洽門市專線（建議提前10分鐘預訂）",
+    "phone": "0933512505",
+    "landline_phone": "089-342900",
+    "official_website": "https://www.facebook.com/profile.php?id=61561543646858&locale=zh_TW",
     "reservation_note": "小籠湯包與蒸餃現點現蒸需約8-10分鐘，趕時間客人歡迎提早電話預約"
   },
   "hosts": {
@@ -64,6 +66,6 @@
     "andon_triggers": [
       "中毒", "衛生局", "提告", "蟑螂", "不新鮮", "態度惡劣", "警察"
     ],
-    "deescalation_protocol": "先同理客人等候感受 -> 說明堅持現蒸的品質初衷 -> 提供私訊或致電管道重聚情誼 -> 展現真誠大度形象"
+    "deescalation_protocol": "遵照品碩兩大鐵律：負評不刻意解釋理由、絕不承諾客人任何事，誠懇致歉、虛心收下檢討、簡潔成熟大度形象"
   }
 }

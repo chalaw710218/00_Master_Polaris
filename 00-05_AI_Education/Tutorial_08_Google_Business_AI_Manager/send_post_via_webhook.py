@@ -30,14 +30,14 @@ def publish():
         "3. 沾點薑絲黑醋，整顆入口享受飽滿扎實！\n\n"
         "📍 趕時間的朋友小秘訣：出門前 10 分鐘先打通電話給我們，人剛好到，湯包剛好出爐熱騰騰上桌！\n\n"
         "🏠 地址：台東市安慶街 60 號（職人食堂）\n"
-        "📞 預約專線：089-342900 / 0920-081-326\n"
+        "📞 預約專線：0933-512-505 / 089-342900\n"
         "歡迎來安慶街坐坐，品嚐最踏實的職人手作溫度！✨"
     )
 
     payload = {
         "store_name": "台東 職人食堂",
         "summary": summary,
-        "phone": "089342900",
+        "phone": "0933512505",
         "action_type": "CALL"
     }
 
@@ -46,7 +46,7 @@ def publish():
     print(f"📡 Webhook 回應狀態碼：{resp.status_code}")
     print(f"📡 Webhook 回應內容：{resp.text}")
     if resp.status_code == 200:
-        print("🎉 訊號已成功送達 Make！請檢查 Make 節點是否觸發發布！")
+        print("🎉 訊號已成功送達 Make！")
 
 if __name__ == "__main__":
     publish()

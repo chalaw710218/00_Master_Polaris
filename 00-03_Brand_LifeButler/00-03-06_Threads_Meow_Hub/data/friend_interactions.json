@@ -1,10 +1,10 @@
 {
-  "last_updated": "2026-11-03T15:25:07.212988",
+  "last_updated": "2026-11-04T15:16:12.649083",
   "summary": {
     "total_friends_contacted": 19,
-    "total_interactions": 57,
+    "total_interactions": 69,
     "total_likes": 38,
-    "total_comments": 18
+    "total_comments": 20
   },
   "relationship_tiers_definition": {
     "🌱 初次問候": "互動 1 次",
@@ -16,12 +16,12 @@
       "username": "slowfoodtaitung",
       "name": "臺東慢食節",
       "category": "taitung_flagship_slow_food_and_culture",
-      "total_interactions": 7,
+      "total_interactions": 8,
       "likes_given": 6,
       "comments_given": 3,
       "relationship_tier": "🤝 摯友同盟",
       "first_contact_at": "2026-10-24T17:39:00+08:00",
-      "last_interaction_at": "2026-11-03T15:25:01.574604",
+      "last_interaction_at": "2026-11-04T09:32:09.440321",
       "history": [
         {
           "timestamp": "2026-10-24T17:39:00+08:00",
@@ -69,6 +69,13 @@
           "post_url": "",
           "comment_text": "",
           "screenshot": ""
+        },
+        {
+          "timestamp": "2026-11-04T09:32:09.440321",
+          "action": "visit",
+          "post_url": "",
+          "comment_text": "",
+          "screenshot": ""
         }
       ]
     },
@@ -76,12 +83,12 @@
       "username": "hattcoffee",
       "name": "Hatt Coffee 自家烘焙",
       "category": "cat_and_lifestyle_cafes",
-      "total_interactions": 10,
+      "total_interactions": 11,
       "likes_given": 6,
       "comments_given": 7,
       "relationship_tier": "🤝 摯友同盟",
       "first_contact_at": "2026-10-21T17:27:00+08:00",
-      "last_interaction_at": "2026-11-02T23:38:08.949340",
+      "last_interaction_at": "2026-11-04T09:32:09.172929",
       "history": [
         {
           "timestamp": "2026-10-21T17:27:00+08:00",
@@ -150,6 +157,13 @@
           "post_url": "",
           "comment_text": "",
           "screenshot": ""
+        },
+        {
+          "timestamp": "2026-11-04T09:32:09.172929",
+          "action": "visit",
+          "post_url": "",
+          "comment_text": "",
+          "screenshot": ""
         }
       ]
     },
@@ -157,12 +171,12 @@
       "username": "travel_zztaitung",
       "name": "台東製造",
       "category": "taitung_flagship_slow_food_and_culture",
-      "total_interactions": 5,
+      "total_interactions": 6,
       "likes_given": 3,
       "comments_given": 2,
       "relationship_tier": "🤝 摯友同盟",
       "first_contact_at": "2026-10-21T17:18:00+08:00",
-      "last_interaction_at": "2026-11-03T15:25:03.225532",
+      "last_interaction_at": "2026-11-04T09:32:09.601532",
       "history": [
         {
           "timestamp": "2026-10-21T17:18:00+08:00",
@@ -194,6 +208,13 @@
         },
         {
           "timestamp": "2026-11-03T15:25:03.225532",
+          "action": "visit",
+          "post_url": "",
+          "comment_text": "",
+          "screenshot": ""
+        },
+        {
+          "timestamp": "2026-11-04T09:32:09.601532",
           "action": "visit",
           "post_url": "",
           "comment_text": "",
@@ -245,7 +266,7 @@
     },
     "chaiyuan_bakery": {
       "username": "chaiyuan_bakery",
-      "total_interactions": 5,
+      "total_interactions": 7,
       "likes_given": 4,
       "comments_given": 0,
       "relationship_tier": "🤝 摯友同盟",
@@ -281,13 +302,27 @@
           "post_url": "",
           "comment_text": "",
           "screenshot": ""
+        },
+        {
+          "timestamp": "2026-11-04T09:32:09.751264",
+          "action": "visit",
+          "post_url": "",
+          "comment_text": "",
+          "screenshot": ""
+        },
+        {
+          "timestamp": "2026-11-04T15:16:12.442307",
+          "action": "visit",
+          "post_url": "",
+          "comment_text": "",
+          "screenshot": ""
         }
       ],
-      "last_interaction_at": "2026-11-03T15:25:00.594151"
+      "last_interaction_at": "2026-11-04T15:16:12.442307"
     },
     "howhow_sweets": {
       "username": "howhow_sweets",
-      "total_interactions": 5,
+      "total_interactions": 6,
       "likes_given": 4,
       "comments_given": 1,
       "relationship_tier": "🤝 摯友同盟",
@@ -323,9 +358,16 @@
           "post_url": "",
           "comment_text": "午後三點，整個辦公室都在打哈欠的時候，看到好好家的草莓生乳捲真的會一秒醒過來... 生活管家默默在後排端出剛泡好的鹿野紅烏龍，配這塊甜點剛剛好。週二打工人辛苦了，吃塊蛋糕喝杯茶，充飽電繼續往前走！🍵🍰✨",
           "screenshot": "C:\\Users\\lenovo\\我的雲端硬碟\\00_Master_Polaris\\00-03_Brand_LifeButler\\00-03-06_Threads_Meow_Hub\\scripts\\screenshots\\walk_v3_clout_tea_howhow_sweets.png"
+        },
+        {
+          "timestamp": "2026-11-04T15:16:12.385642",
+          "action": "visit",
+          "post_url": "",
+          "comment_text": "",
+          "screenshot": ""
         }
       ],
-      "last_interaction_at": "2026-11-03T15:24:59.231322"
+      "last_interaction_at": "2026-11-04T15:16:12.385642"
     },
     "yuanlung.667": {
       "username": "yuanlung.667",
@@ -380,12 +422,12 @@
       "username": "sinapayan_youth",
       "name": "喜拿巴漾青年工作站",
       "category": "local_community",
-      "total_interactions": 3,
+      "total_interactions": 4,
       "likes_given": 2,
       "comments_given": 0,
       "relationship_tier": "☕ 熟稔常客",
       "first_contact_at": "2026-11-02T01:46:44.151816",
-      "last_interaction_at": "2026-11-03T15:25:05.912151",
+      "last_interaction_at": "2026-11-04T09:32:09.299223",
       "history": [
         {
           "timestamp": "2026-11-02T01:46:44.151816",
@@ -403,6 +445,13 @@
         },
         {
           "timestamp": "2026-11-03T15:25:05.912151",
+          "action": "visit",
+          "post_url": "",
+          "comment_text": "",
+          "screenshot": ""
+        },
+        {
+          "timestamp": "2026-11-04T09:32:09.299223",
           "action": "visit",
           "post_url": "",
           "comment_text": "",
@@ -474,12 +523,12 @@
       "username": "love_love_cat_cake",
       "name": "小瑪莉貓的手作甜點",
       "category": "local_community",
-      "total_interactions": 2,
+      "total_interactions": 3,
       "likes_given": 0,
-      "comments_given": 1,
+      "comments_given": 2,
       "relationship_tier": "☕ 熟稔常客",
       "first_contact_at": "2026-11-02T16:08:39.183661",
-      "last_interaction_at": "2026-11-03T15:25:07.212988",
+      "last_interaction_at": "2026-11-04T15:16:12.326673",
       "history": [
         {
           "timestamp": "2026-11-02T16:08:39.183661",
@@ -494,6 +543,13 @@
           "post_url": "",
           "comment_text": "",
           "screenshot": ""
+        },
+        {
+          "timestamp": "2026-11-04T15:16:12.326673",
+          "action": "comment",
+          "post_url": "",
+          "comment_text": "週三下午三點，空氣裡都是小瑪莉家現烤貓咪造型戚風蛋糕的香氣... 生活管家默默在後排端出剛泡好的無糖鹿野紅烏龍，配這塊甜點剛剛好。週三小週末辛苦了，吃塊小蛋糕喝口茶，剩下的半天笑著過！🍵🍰🐱",
+          "screenshot": "C:\\Users\\lenovo\\我的雲端硬碟\\00_Master_Polaris\\00-03_Brand_LifeButler\\00-03-06_Threads_Meow_Hub\\scripts\\screenshots\\walk_v3_clout_tea_love_cat_cake_wednesday.png"
         }
       ]
     },
@@ -501,16 +557,23 @@
       "username": "yuan.b778",
       "name": "石臼一二",
       "category": "local_community",
-      "total_interactions": 1,
+      "total_interactions": 2,
       "likes_given": 1,
       "comments_given": 0,
-      "relationship_tier": "🌱 初次問候",
+      "relationship_tier": "☕ 熟稔常客",
       "first_contact_at": "2026-11-02T16:08:39.274661",
-      "last_interaction_at": "2026-11-02T16:08:39.274661",
+      "last_interaction_at": "2026-11-04T15:16:12.501406",
       "history": [
         {
           "timestamp": "2026-11-02T16:08:39.274661",
           "action": "like",
+          "post_url": "",
+          "comment_text": "",
+          "screenshot": ""
+        },
+        {
+          "timestamp": "2026-11-04T15:16:12.501406",
+          "action": "visit",
           "post_url": "",
           "comment_text": "",
           "screenshot": ""
@@ -521,16 +584,23 @@
       "username": "unccoffee",
       "name": "瑰夏咖啡 GESHA COFFEE",
       "category": "local_community",
-      "total_interactions": 1,
+      "total_interactions": 2,
       "likes_given": 1,
       "comments_given": 0,
-      "relationship_tier": "🌱 初次問候",
+      "relationship_tier": "☕ 熟稔常客",
       "first_contact_at": "2026-11-02T16:08:39.354683",
-      "last_interaction_at": "2026-11-02T16:08:39.354683",
+      "last_interaction_at": "2026-11-04T15:16:12.576731",
       "history": [
         {
           "timestamp": "2026-11-02T16:08:39.354683",
           "action": "like",
+          "post_url": "",
+          "comment_text": "",
+          "screenshot": ""
+        },
+        {
+          "timestamp": "2026-11-04T15:16:12.576731",
+          "action": "visit",
           "post_url": "",
           "comment_text": "",
           "screenshot": ""
@@ -541,12 +611,12 @@
       "username": "deepcoffee241",
       "name": "Deep coffee",
       "category": "local_community",
-      "total_interactions": 2,
+      "total_interactions": 3,
       "likes_given": 1,
-      "comments_given": 0,
+      "comments_given": 1,
       "relationship_tier": "☕ 熟稔常客",
       "first_contact_at": "2026-11-02T16:08:39.448117",
-      "last_interaction_at": "2026-11-02T23:38:08.438663",
+      "last_interaction_at": "2026-11-04T09:32:09.040181",
       "history": [
         {
           "timestamp": "2026-11-02T16:08:39.448117",
@@ -561,6 +631,13 @@
           "post_url": "",
           "comment_text": "",
           "screenshot": ""
+        },
+        {
+          "timestamp": "2026-11-04T09:32:09.040181",
+          "action": "comment",
+          "post_url": "",
+          "comment_text": "週三早上九點半，剛走進辦公室最需要一杯深烘焙的手沖黑咖啡醒腦... 生活管家默默在後排端出剛泡好的鹿野紅烏龍熱茶。今天已經是週三小週末了，深呼吸一口氣，喝口好咖啡，離放假只剩一半路程了！🍵☕🍞",
+          "screenshot": "C:\\Users\\lenovo\\我的雲端硬碟\\00_Master_Polaris\\00-03_Brand_LifeButler\\00-03-06_Threads_Meow_Hub\\scripts\\screenshots\\walk_v3_clout_tea_deepcoffee.png"
         }
       ]
     },
@@ -568,16 +645,23 @@
       "username": "homu_cafe_",
       "name": "和暮咖啡",
       "category": "local_community",
-      "total_interactions": 1,
+      "total_interactions": 2,
       "likes_given": 1,
       "comments_given": 0,
-      "relationship_tier": "🌱 初次問候",
+      "relationship_tier": "☕ 熟稔常客",
       "first_contact_at": "2026-11-02T16:08:39.536247",
-      "last_interaction_at": "2026-11-02T16:08:39.536247",
+      "last_interaction_at": "2026-11-04T15:16:12.649083",
       "history": [
         {
           "timestamp": "2026-11-02T16:08:39.536247",
           "action": "like",
+          "post_url": "",
+          "comment_text": "",
+          "screenshot": ""
+        },
+        {
+          "timestamp": "2026-11-04T15:16:12.649083",
+          "action": "visit",
           "post_url": "",
           "comment_text": "",
           "screenshot": ""
