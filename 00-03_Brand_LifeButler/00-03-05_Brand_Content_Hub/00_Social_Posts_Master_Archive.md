@@ -596,3 +596,10 @@ https://2003tasat.org/multilingual-support-caregiver/
    * 在 `.agents/skills/facebook-publisher/SKILL.md` 中規範：所有代理人在對話中執行社群發文後，必須自動將發布結果同步至本檔案。
 3. **每日收工閉環對帳 (`daily-closing-sop`)**：
    * 每日收工前，自動掃描各專案目錄與線上粉專，確保當日新增之所有文案 100% 歸入本總庫。
+
+### 【FB 發布】台東最垃圾之男・代倒垃圾服務上線 🗑️🏃💨
+- **發布時間**：2026-11-05 17:21:30
+- **FB Post ID**：`110505444816362_1153302304045338`
+- **Comment ID**：`1153302304045338_3048160675536322`
+- **圖片**：`boss_suit_chasing_trash_truck.jpg`
+- **粉專專頁**：生活的一部分，就醬點！

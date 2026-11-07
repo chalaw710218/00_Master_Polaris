@@ -1,24 +1,28 @@
 function createPolarisRegistrationForm() {
-  var form = FormApp.create('2026 秋季 AI 家教實戰系列班 · 第 1 講【實體入席申請表】');
+  var form = FormApp.create('2026 秋季 AI 家教實戰系列班【三堂實體入席申請表】');
   
   form.setDescription(
     '【限額 10 席 · 純實體現場教學 · 解決真實生意難題】\n\n' +
     '各位好朋友、老夥伴您好：\n' +
-    '歡迎申請由生活管家創辦人 陳品碩（闆仔）親自授權主講之「AI 家教實戰系列班 · 第 1 講」。\n\n' +
+    '歡迎申請由生活管家創辦人 陳品碩（闆仔）親自授權主講之「2026 秋季 AI 家教實戰系列班」。\n\n' +
+    '📅【秋季三週完整實戰課表】（每週三 14:00 - 16:00 ｜ 台東市正氣北路166巷90號家宅）：\n' +
+    '• 第 1 講 ｜ 11/11 (週三)：NotebookLM 數位大腦 ✕ 漏斗式深挖提問法（🔥 10 席已過半，僅剩最後 5 席！）\n' +
+    '• 第 2 講 ｜ 11/18 (週三)：Antigravity 操作 ✕ Meta 官方自動發文串接 (FB / Threads API 自動排程與秒回)\n' +
+    '• 第 3 講 ｜ 11/25 (週三)：資料架構管理 ✕ Antigravity 擬人化工程 (心智逆向工程 ＋ 24H 店長分身)\n\n' +
     '⚠️【入席重要須知】\n' +
     '1. 本課程堅持 100% 純實體現場教學，絕無線上同步！導師極度嚴厲，現場手把手巡桌排錯，保證做出專屬成果。\n' +
     '2. 為了確保「每人一台螢幕個別指導」的最高教學品質，現場嚴格限額 10 席，多一張椅子都不加。\n' +
     '3. 若申請人數超過 10 名，將依「硬體準備完整度」與「業務情境契合度」進行審查分流；未排入本梯次之夥伴，將優先為您保留至【第二梯次加開場】，敬請理解與體諒。\n\n' +
     '📍 上課地點：生活管家·家宅總部（台東市正氣北路166巷90號）\n' +
     '⏰ 上課時間：每週三下午 14:00 - 16:00\n' +
-    '💰 學費政策：老學員免收學費（0元免單回娘家特權）｜ 全新夥伴單堂實戰 NT$ 500 元（審查通過後通知付款）\n' +
+    '💰 學費政策：老學員免收學費（0元免單回娘家特權）｜ 全新夥伴單堂實戰 NT$ 500 元（可單選或三堂完整聯報，審查通過後通知付款）\n' +
     '💬 官方諮詢 LINE：https://lin.ee/z83YSq6 （加入後可直接私訊管家）'
   );
 
   form.setConfirmationMessage(
     '🎉 感謝您的填寫！我們已成功收到您的入席申請。\n\n' +
-    '闆仔與教學團隊將於 24 小時內完成硬體與情境審查，並透過官方 LINE / 簡訊向您發送【正取確認通知】或【加開場優先保留通知】。\n\n' +
-    '📍 上課地點：台東市正氣北路166巷90號（生活管家總部）\n' +
+    '闆仔與教學團隊將於 24 小時內完成硬體與情境審查，並透過 Email / 官方 LINE 發送【正取確認信】或【加開場優先保留通知】。\n\n' +
+    '📍 上課地點：台東市正氣北路166巷90號（家宅）\n' +
     '💬 官方 LINE 諮詢：https://lin.ee/z83YSq6\n\n' +
     '生活管家 敬上'
   );
@@ -27,7 +31,7 @@ function createPolarisRegistrationForm() {
   form.addSectionHeaderItem().setTitle('📋 第一部分：基本資料與身分確認');
   
   var nameItem = form.addTextItem().setTitle('1. 您的真實姓名').setRequired(true);
-  var phoneItem = form.addTextItem().setTitle('2. 您的聯絡電話 / 手機號碼').setHelpText('用於審查通過後發送正取報到通知簡訊').setRequired(true);
+  var phoneItem = form.addTextItem().setTitle('2. 您的聯絡電話 / 手機號碼').setHelpText('用於審查通過後發送正取報到通知簡訊與Email').setRequired(true);
   var lineItem = form.addTextItem().setTitle('3. 您的 LINE ID 或 稱呼').setHelpText('便於教學團隊個別聯繫與行前提醒（亦可直接加入官方 LINE：https://lin.ee/z83YSq6 私訊我們）').setRequired(true);
   
   var identityItem = form.addMultipleChoiceItem();
@@ -35,6 +39,16 @@ function createPolarisRegistrationForm() {
     .setChoiceValues([
       '👑 生活管家老學員（享有回娘家 0 元免收學費特權）',
       '🌟 全新夥伴（單堂實戰 NT$ 500 元，通過審查後提供付款資訊）'
+    ])
+    .setRequired(true);
+
+  var lectureChoiceItem = form.addCheckboxItem();
+  lectureChoiceItem.setTitle('5. 您預計報名參加的實戰講次（可複選，每堂 $500 / 老學員全免單）')
+    .setChoiceValues([
+      '【第 1 講】11/11 (週三) 14:00-16:00 ｜ NotebookLM 數位大腦 ✕ 漏斗深挖提問法（🔥 僅剩最後 5 席！）',
+      '【第 2 講】11/18 (週三) 14:00-16:00 ｜ Antigravity 操作 ✕ Meta 官方自動發文串接 (FB / Threads API)',
+      '【第 3 講】11/25 (週三) 14:00-16:00 ｜ 資料架構管理 ✕ 擬人化店長分身工程 (心智逆向工程 ＋ AI 分身)',
+      '👑 三堂完整聯報（優先鎖定三週實體固定席次）'
     ])
     .setRequired(true);
 

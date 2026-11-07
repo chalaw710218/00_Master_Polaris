@@ -1,10 +1,10 @@
 {
-  "last_updated": "2026-11-04T15:16:12.649083",
+  "last_updated": "2026-11-05T02:29:00.686283",
   "summary": {
     "total_friends_contacted": 19,
-    "total_interactions": 69,
+    "total_interactions": 75,
     "total_likes": 38,
-    "total_comments": 20
+    "total_comments": 21
   },
   "relationship_tiers_definition": {
     "🌱 初次問候": "互動 1 次",
@@ -83,12 +83,12 @@
       "username": "hattcoffee",
       "name": "Hatt Coffee 自家烘焙",
       "category": "cat_and_lifestyle_cafes",
-      "total_interactions": 11,
+      "total_interactions": 12,
       "likes_given": 6,
       "comments_given": 7,
       "relationship_tier": "🤝 摯友同盟",
       "first_contact_at": "2026-10-21T17:27:00+08:00",
-      "last_interaction_at": "2026-11-04T09:32:09.172929",
+      "last_interaction_at": "2026-11-05T02:29:00.610886",
       "history": [
         {
           "timestamp": "2026-10-21T17:27:00+08:00",
@@ -164,6 +164,13 @@
           "post_url": "",
           "comment_text": "",
           "screenshot": ""
+        },
+        {
+          "timestamp": "2026-11-05T02:29:00.610886",
+          "action": "visit",
+          "post_url": "",
+          "comment_text": "",
+          "screenshot": ""
         }
       ]
     },
@@ -224,7 +231,7 @@
     },
     "956leissmoker": {
       "username": "956leissmoker",
-      "total_interactions": 5,
+      "total_interactions": 6,
       "likes_given": 2,
       "comments_given": 2,
       "relationship_tier": "🤝 摯友同盟",
@@ -260,9 +267,16 @@
           "post_url": "",
           "comment_text": "",
           "screenshot": ""
+        },
+        {
+          "timestamp": "2026-11-05T02:29:00.411640",
+          "action": "visit",
+          "post_url": "",
+          "comment_text": "",
+          "screenshot": ""
         }
       ],
-      "last_interaction_at": "2026-11-02T23:38:07.833744"
+      "last_interaction_at": "2026-11-05T02:29:00.411640"
     },
     "chaiyuan_bakery": {
       "username": "chaiyuan_bakery",
@@ -483,16 +497,23 @@
       "username": "taiwanballoonfestival",
       "name": "臺灣國際熱氣球嘉年華",
       "category": "local_community",
-      "total_interactions": 1,
+      "total_interactions": 2,
       "likes_given": 1,
       "comments_given": 0,
-      "relationship_tier": "🌱 初次問候",
+      "relationship_tier": "☕ 熟稔常客",
       "first_contact_at": "2026-11-02T01:46:44.449471",
-      "last_interaction_at": "2026-11-02T01:46:44.449471",
+      "last_interaction_at": "2026-11-05T02:29:00.685286",
       "history": [
         {
           "timestamp": "2026-11-02T01:46:44.449471",
           "action": "like",
+          "post_url": "",
+          "comment_text": "",
+          "screenshot": ""
+        },
+        {
+          "timestamp": "2026-11-05T02:29:00.685286",
+          "action": "visit",
           "post_url": "",
           "comment_text": "",
           "screenshot": ""
@@ -503,12 +524,12 @@
       "username": "starrytaitung_",
       "name": "台東最美星空",
       "category": "local_community",
-      "total_interactions": 1,
+      "total_interactions": 2,
       "likes_given": 0,
-      "comments_given": 1,
-      "relationship_tier": "🌱 初次問候",
+      "comments_given": 2,
+      "relationship_tier": "☕ 熟稔常客",
       "first_contact_at": "2026-11-02T01:46:44.590896",
-      "last_interaction_at": "2026-11-02T01:46:44.590896",
+      "last_interaction_at": "2026-11-05T02:29:00.177590",
       "history": [
         {
           "timestamp": "2026-11-02T01:46:44.590896",
@@ -516,6 +537,13 @@
           "post_url": "",
           "comment_text": "夜深了，台東的星空依舊那麼靜謐乾淨。生活管家默默在後排端上一杯溫熱的鹿野紅烏龍... 各位還沒睡的朋友，放下手機看一眼窗外吧，今晚也是被整片星空守護的一晚。🍵✨",
           "screenshot": "C:\\Users\\lenovo\\我的雲端硬碟\\00_Master_Polaris\\00-03_Brand_LifeButler\\00-03-06_Threads_Meow_Hub\\scripts\\screenshots\\walk_v3_clout_tea_starrytaitung.png"
+        },
+        {
+          "timestamp": "2026-11-05T02:29:00.177590",
+          "action": "comment",
+          "post_url": "",
+          "comment_text": "凌晨兩點二十，整座台東市區都安靜下來了，窗外的星星特別清楚... 生活管家默默在後排端上一杯溫熱的鹿野紅烏龍熱茶。還沒睡的朋友，今晚別再焦慮了，喝口溫水早點休息，黑夜會替你把所有煩惱都接住的。🍵✨🌌",
+          "screenshot": "C:\\Users\\lenovo\\我的雲端硬碟\\00_Master_Polaris\\00-03_Brand_LifeButler\\00-03-06_Threads_Meow_Hub\\scripts\\screenshots\\walk_v3_clout_tea_starrytaitung_thursday.png"
         }
       ]
     },
@@ -611,12 +639,12 @@
       "username": "deepcoffee241",
       "name": "Deep coffee",
       "category": "local_community",
-      "total_interactions": 3,
+      "total_interactions": 4,
       "likes_given": 1,
       "comments_given": 1,
       "relationship_tier": "☕ 熟稔常客",
       "first_contact_at": "2026-11-02T16:08:39.448117",
-      "last_interaction_at": "2026-11-04T09:32:09.040181",
+      "last_interaction_at": "2026-11-05T02:29:00.520217",
       "history": [
         {
           "timestamp": "2026-11-02T16:08:39.448117",
@@ -638,6 +666,13 @@
           "post_url": "",
           "comment_text": "週三早上九點半，剛走進辦公室最需要一杯深烘焙的手沖黑咖啡醒腦... 生活管家默默在後排端出剛泡好的鹿野紅烏龍熱茶。今天已經是週三小週末了，深呼吸一口氣，喝口好咖啡，離放假只剩一半路程了！🍵☕🍞",
           "screenshot": "C:\\Users\\lenovo\\我的雲端硬碟\\00_Master_Polaris\\00-03_Brand_LifeButler\\00-03-06_Threads_Meow_Hub\\scripts\\screenshots\\walk_v3_clout_tea_deepcoffee.png"
+        },
+        {
+          "timestamp": "2026-11-05T02:29:00.520217",
+          "action": "visit",
+          "post_url": "",
+          "comment_text": "",
+          "screenshot": ""
         }
       ]
     },
@@ -692,15 +727,22 @@
       "username": "hello_cornerboo",
       "name": "仨口食事處",
       "category": "local_community",
-      "total_interactions": 1,
+      "total_interactions": 2,
       "likes_given": 0,
       "comments_given": 0,
-      "relationship_tier": "🌱 初次問候",
+      "relationship_tier": "☕ 熟稔常客",
       "first_contact_at": "2026-11-02T23:38:06.914780",
-      "last_interaction_at": "2026-11-02T23:38:06.914780",
+      "last_interaction_at": "2026-11-05T02:29:00.283298",
       "history": [
         {
           "timestamp": "2026-11-02T23:38:06.914780",
+          "action": "visit",
+          "post_url": "",
+          "comment_text": "",
+          "screenshot": ""
+        },
+        {
+          "timestamp": "2026-11-05T02:29:00.283298",
           "action": "visit",
           "post_url": "",
           "comment_text": "",

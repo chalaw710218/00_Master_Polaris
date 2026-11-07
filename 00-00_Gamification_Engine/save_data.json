@@ -3,38 +3,38 @@
   "player_name": "Pinshuo",
   "level": 13,
   "exp": {
-    "current": 40,
+    "current": 460,
     "next_level_requirement": 800,
-    "total": 3930
+    "total": 4350
   },
-  "gold": 549,
+  "gold": 614,
   "attributes": {
-    "STR": 62.3,
-    "INT": 95.3,
-    "AGI": 73.4,
-    "WILL": 83.7,
-    "CHA": 84.7,
-    "IMP": 90.4
+    "STR": 63.5,
+    "INT": 97.1,
+    "AGI": 74.9,
+    "WILL": 85.3,
+    "CHA": 86.1,
+    "IMP": 92.5
   },
   "hidden_attributes": {},
   "unspent_points": {
     "level_points": 16,
-    "knowledge_points": 11,
-    "will_points": 9
+    "knowledge_points": 13,
+    "will_points": 11
   },
   "practice_stacks": {
-    "daily_str": 11,
-    "daily_int": 9,
-    "daily_agi": 8,
-    "daily_will": 9,
-    "daily_cha": 9,
-    "daily_imp": 9
+    "daily_str": 12,
+    "daily_int": 10,
+    "daily_agi": 9,
+    "daily_will": 10,
+    "daily_cha": 10,
+    "daily_imp": 10
   },
   "tomorrow_scheduled_tasks": [
-    "【陳英里姐線下一對一實戰見面】14:00~15:00 於正氣北路 166 巷 90 號家宅客廳，依據《實戰指南》展開溫暖茶席破冰、原聲錄音採集、現場一鍵生成見證影片與桌面防呆練習",
-    "【生活管家系統庫存全面盤點】正氣北路家宅冷鏈生鮮、包材耗材、在途訂單盤點，並與《系統化管理_V3》試算表對帳 (CFO 算盤協同)",
-    "【商家資格持續追蹤】追蹤 Gmail 中 Google 商家檔案 API 官方審核確認信 (Case ID: 8-2264000041757)",
-    "【AI 課後實戰班消息發布】調用泰勒絲文案 ✕ 約瑟夫 4:5 社群海報，正式於 FB 與 Threads 雙軌發布招生消息"
+    "【安心休養與週日慢生活】暫停高強度高壓工作，給身心一個無條件的放鬆與深度好眠",
+    "【AI 家教班第 2 講備課準備】檢查 11/10 (週二) 14:00 家宅總部 Antigravity 與 Meta 自動發文實操教材",
+    "【社區經理人回娘家備忘】留意 11/14 (週六) 14:00 縣府社會處樂齡大樓出席行事曆",
+    "【Threads 去逛逛漫遊巡邏】擇機在手機端由影或喵編自動智慧帶圖漫遊友店"
   ],
-  "notes": "【2026-11-05 凌晨收工結算·創辦人榮升 Lv. 13 ＆ 尼奧專屬雙神兵出鞘 ＆ 生命數位孿生大閉環！】1. 尼奧跨越 220 輪自進化，晉升 bionic-learning-neo v4.2，鍛造 polaris-gentle-ui 與 polaris-client-architect 專屬雙神兵。 2. 開闢全新【數位孿生/陳英里/】主權資料庫，創辦人親授『信任與陪伴計價』5D 哲學，完成 POD 按需印刷與明日 1 小時實戰指南。 3. 恭喜創辦人品碩獲得 +380 EXP，總經驗達 3,930，正式晉升【Lv. 13】！執行 (IMP 90.4) 與體力 (STR 62.3) 雙雙破大關，金幣增長至 549 Gold！"
+  "notes": "【2026-11-08 凌晨收工結算·全域模型外骨骼框架實裝 ＆ 去逛逛自動配圖引擎出鞘大捷！】1. 創辦人親授『GPT 萬用框架』法旨，落地最高憲則 AGENTS.md 與 00-01 萬用快速導航表，打通 Windows 防呆、主動閉環與繁中重力錨。 2. 林納斯 ✕ 戴明打造獨立【自動智慧配圖引擎 (auto_image_engine.py)】，實測通過雙主角感知、語意加權與發文去重鐵律，原貼文即時照片補圖大圓滿。 3. 雪柔完成 120 輪雙甲子大統攝晉升，代倒垃圾 999/1999 產品化全套手冊閉環。 4. 恭喜創辦人品碩獲得 +420 EXP，總經驗達 4,350（距離 Lv.14 僅剩 340 EXP）！執行 (IMP 92.5) 與智力 (INT 97.1) 再次刷新歷史高峰，金幣突破 614 Gold！"
 }

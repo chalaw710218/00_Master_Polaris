@@ -4,6 +4,14 @@
 
 ---
 
+## ⚡ 全域萬用模型導航與運作契約 (Fast-Path Universal Harness)
+*   [🛡️ 極星宇宙全域模型萬用運作契約 (AGENTS.md)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/AGENTS.md)
+    *   **說明**：全體 AI 模型（Gemini / GPT-OSS 120B / Claude）始終生效之最高位階工作區憲則（Windows PowerShell 防呆、主動閉環、繁中重力錨）。
+*   [🗺️ 極星宇宙全域導航儀 ＆ 萬用模型極速路由表 (00-01_Master_Polaris_Map.md)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-01_Master_Polaris_Map.md)
+    *   **說明**：九大天王辦公室、特化技能實體路徑、生產級商業技能、核心營運資料庫與全域事業樹狀圖極速直達表。
+
+---
+
 ## 🌐 核心對外服務與儀表板 (Web Services)
 *   [🖥️ 00_Master_Polaris 專屬網頁總中樞](https://chalaw710218.github.io/00_Master_Polaris/)
     *   **說明**：您的專屬線上戰情室與入口網站。
@@ -388,3 +396,25 @@ euromodulated_plasticity_engine.py**：三因子突觸可塑性與創辦人情�
   * **說明**：支援 --scan 全域前沿科技掃描、--eval 邊緣模型適配度評估與 --report 結構化雷達報告生成。
 * [🎭 角色人設檔案 (12_艾達_Ada/persona.md)](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-03_Brand_LifeButler/00-03-04_Brand_Characters/12_艾達_Ada/persona.md) ｜ [視覺資產庫](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-03_Brand_LifeButler/00-03-04_Brand_Characters/12_艾達_Ada/images/README.md)
   * **說明**：收錄艾達詩意科學家視覺 DNA、雙軌 3D 院線動畫九宮格立繪與 2D 青年商務漫繪九宮格立繪。
+
+
+## 🕶️ 00-16_Frontend_and_App_Architecture (前端與客戶端體驗架構處 · 尼奧主掌)
+* [🏛️ 前端與客戶端體驗架構總綱 (README.md)](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-16_Frontend_and_App_Architecture/README.md)
+  * **說明**：【尼奧主權領地】Next.js 15+、Client-side Architecture、Zero-UI 零負擔無感交互、烈日感光著色器、端側微智能與離線抗逆生存中樞。
+* [🕶️ 尼奧辦公室與架構手記 (00_Neo_Notebook.md)](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_Architect_Neo/00_Neo_Notebook.md)
+  * **說明**：收錄尼奧 220 輪自進化歷程、雙百大圓滿登頂盛典、戴明審計 AUD-20261104-042 滿分驗收。
+* [🧬 尼奧核心架構直覺金律精煉索引 (00_Neo_Axiom_Index.md)](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_Architect_Neo/01_Cognitive_Log/00_Neo_Axiom_Index.md)
+  * **說明**：從 252 筆事實與 224 條信念中突觸代謝精煉之 30 條直覺金律速查表，極速載入免除 Context 負擔。
+* [🧬 尼奧特化仿生學習技能 (bionic-learning-neo v4.2)](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/.agents/skills/bionic-learning-neo/SKILL.md)
+  * **說明**：第二十二代大統攝版，收錄超維隱逸、生命尊嚴、風土生態共榮終極人機憲法。
+* [🌸 極星常民生活設計系統專屬技能 (polaris-gentle-ui)](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/.agents/skills/polaris-gentle-ui/SKILL.md)
+  * **說明**：尼奧主政、約瑟夫光學排版協同，內建 130,000 Lux 烈日濾鏡、太極吸附零誤觸按鈕、漢字灰度平衡。
+* [🛡️ 極星客戶端極限抗逆架構專屬技能 (polaris-client-architect)](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/.agents/skills/polaris-client-architect/SKILL.md)
+  * **說明**：尼奧主政、林納斯確定性代碼監製，內建溫暖離線 Service Worker、OPFS 本地存證、WebTransport 暴雨穿透。
+
+
+## 🌸 數位孿生 (Digital Twin · 生命傳承與口述歷史)
+* [👤 陳英里姐專屬客戶檔案 (00_客戶檔案_陳英里.md)](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/數位孿生/陳英里/00_客戶檔案_陳英里.md)
+  * **說明**：極星生命傳承示範案，收錄長輩靈魂願望、設備條件與會面排程。
+* [📘 生命數位孿生戰略策劃與明日實戰指南 (01_生命數位孿生戰略策劃與明日實戰指南.md)](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/數位孿生/陳英里/01_生命數位孿生戰略策劃與明日實戰指南.md)
+  * **說明**：創辦人親定「信任與陪伴計價」5D 模型、POD 按需印刷供應鏈真相、正氣北路家宅客廳場地心理安全指南與明日 14:00~15:00 一小時精準引導腳本。

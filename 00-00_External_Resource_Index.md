@@ -4,6 +4,14 @@
 
 ---
 
+## ⚡ 全域萬用模型導航與運作契約 (Fast-Path Universal Harness)
+*   [🛡️ 極星宇宙全域模型萬用運作契約 (AGENTS.md)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/AGENTS.md)
+    *   **說明**：全體 AI 模型（Gemini / GPT-OSS 120B / Claude）始終生效之最高位階工作區憲則（Windows PowerShell 防呆、主動閉環、繁中重力錨）。
+*   [🗺️ 極星宇宙全域導航儀 ＆ 萬用模型極速路由表 (00-01_Master_Polaris_Map.md)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-01_Master_Polaris_Map.md)
+    *   **說明**：九大天王辦公室、特化技能實體路徑、生產級商業技能、核心營運資料庫與全域事業樹狀圖極速直達表。
+
+---
+
 ## 🌐 核心對外服務與儀表板 (Web Services)
 *   [🖥️ 00_Master_Polaris 專屬網頁總中樞](https://chalaw710218.github.io/00_Master_Polaris/)
     *   **說明**：您的專屬線上戰情室與入口網站。
