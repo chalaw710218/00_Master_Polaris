@@ -81,8 +81,19 @@ def upload_local_image_to_meta_cdn(image_path):
             print("✅ 本地圖片已成功託管至 Meta CDN！")
             return cdn_url
     except Exception as e:
-        print(f"❌ 上傳 CDN 過程發生異常: {e}")
-        return None
+        print(f"❌ 上傳 Meta CDN 過程發生異常: {e}，準備啟動備援圖床...")
+
+    # 雙保險備援機制：若 Meta CDN 遭遇網路抖動或 SSL 異常，自動無縫切換至 Catbox 公開 CDN
+    print(f"🔄 正在啟動備援公開圖床 (Catbox) 託管: {path.name}...")
+    try:
+        with open(path, "rb") as f:
+            r_cb = requests.post("https://catbox.moe/user/api.php", data={"reqtype": "fileupload"}, files={"fileToUpload": f}, timeout=25)
+        if r_cb.status_code == 200 and r_cb.text.startswith("https://"):
+            cb_url = r_cb.text.strip()
+            print(f"✅ 本地圖片已成功託管至備援 CDN: {cb_url}！")
+            return cb_url
+    except Exception as e_cb:
+        print(f"❌ 備援 CDN 上傳亦失敗: {e_cb}")
 
     return None
 

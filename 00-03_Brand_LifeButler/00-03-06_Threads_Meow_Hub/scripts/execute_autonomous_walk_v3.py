@@ -23,7 +23,7 @@ from playwright.sync_api import sync_playwright
 
 if sys.platform == "win32":
     try:
-        sys.stdout.reconfigure(encoding='utf-8')
+        sys.stdout.reconfigure(encoding='utf-8', line_buffering=True)
     except Exception:
         pass
 
@@ -48,6 +48,11 @@ try:
 except ImportError:
     def auto_pick_image(*args, **kwargs):
         return None, "未載入 auto_image_engine"
+
+try:
+    from reciprocal_visitor import visit_and_reply_page
+except ImportError:
+    visit_and_reply_page = None
 
 def parse_args():
     parser = argparse.ArgumentParser(description="Threads Autonomous Walk Engine v3.0")
@@ -147,16 +152,18 @@ if not args.text:
 週末的夜晚不用趕路，給自己留一段安靜的呼吸時光。🍵✨ #台東生活"""
             first_reply = "（輕輕遞上一只溫熱的茶杯）辛苦了一整週，今晚就讓大腦徹底關機充電吧。晚安！🍵✨"
         else:
-            post_title = "深夜守候・生活管家陪伴篇"
-            post_text = """夜深了，整座台東市區都安靜了下來。
-窗外的星空特別清晰，夜風拂過樹葉發出沙沙的聲響。
+            post_title = "深夜守候・週日紅烏龍晚安篇"
+            post_text = """週日深夜十一點多，把整週奔波的行事曆合上。
+在台東的老木桌前熱了一小壺水，慢慢泡開鹿野紅烏龍。
 
-生活管家默默在後排端上一杯溫熱的無糖茶水。
-還沒睡的朋友，今晚別再焦慮未完成的瑣事了，
-黑夜會替你把所有的疲憊都溫柔接住的。
+看著茶葉在陶壺裡舒展，
+窗外的夜風帶著太平洋安靜的味道。
+生活的大多數焦慮，往往在肯給自己一段完全安靜的呼吸時光時，
+就慢慢沉澱落下了。
 
-祝你有個深沉安穩的睡眠，明天又是全新的一天。🍵✨ #台東生活"""
-            first_reply = "（把熱茶輕放在桌邊）深呼吸，把今天留在今天。晚安，願你好夢。🍵✨"
+大家今晚都準備睡了嗎？
+不管明天週一有什麼硬仗要打，今晚把心安頓在枕頭上，好好睡上一覺。晚安！🍵✨ #台東生活"""
+            first_reply = "（輕輕遞上一只溫熱的茶杯）如果腦袋還在轉、還睡不著也沒關係，把燈光調暗，喝口溫水。今晚的生活管家在後排替大家守夜，願你好夢。🍵✨"
 else:
     post_title = "自定義隨筆巡邏貼文"
     post_text = args.text
@@ -188,6 +195,7 @@ report_data = {
     "timestamp": datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
     "step1_home_replies": 0,
     "step2_friends_visited": [],
+    "step2_reciprocal_visit": None, # 創辦人親定：登門回訪協議
     "step2_clout_tea": None,
     "step3_feed_likes": 0,
     "step4_post": None,
@@ -206,6 +214,73 @@ LOCAL_TARGETS = [
     {"user": "956leissmoker", "name": "雨田燻", "category": "手工煙燻"},
     {"user": "hattcoffee", "name": "Hatt Coffee", "category": "獨立手沖咖啡"}
 ]
+
+# --- 步驟一：看家門 (自帳最新留言動態掃描 ＋ 100% 走心秒回門禁) ---
+print("\n>>> 步驟一：看家門 (自帳近期貼文動態掃描 ＋ 100% 秒回門禁) <<<")
+STATE_FILE = SCRIPT_DIR / "replied_ids.json"
+replied_ids = set()
+if STATE_FILE.exists():
+    try:
+        with open(STATE_FILE, "r", encoding="utf-8") as rf:
+            replied_ids = set(json.load(rf))
+    except Exception:
+        pass
+
+home_replied_count = 0
+active_commenters = []
+if THREADS_ACCESS_TOKEN and THREADS_USER_ID:
+    try:
+        t_url = f"{API_BASE}/{THREADS_USER_ID}/threads?fields=id,text,permalink,timestamp&limit=10&access_token={THREADS_ACCESS_TOKEN}"
+        t_res = requests.get(t_url, timeout=20).json()
+        my_recent_posts = t_res.get("data", [])
+        print(f"📡 成功動態拉取自帳最近 {len(my_recent_posts)} 篇貼文，準備逐篇掃描留言...")
+        
+        for mp in my_recent_posts:
+            pid = mp["id"]
+            c_url = f"{API_BASE}/{pid}/conversation?fields=id,text,timestamp,username,permalink&access_token={THREADS_ACCESS_TOKEN}"
+            c_res = requests.get(c_url, timeout=15).json()
+            comments = c_res.get("data", [])
+            for c in comments:
+                cid = c.get("id")
+                uname = c.get("username")
+                ctext = c.get("text", "")
+                if uname == "hellotaitung":
+                    continue
+                if uname and uname not in active_commenters:
+                    active_commenters.append(uname)
+                if cid not in replied_ids:
+                    print(f"🚨 [看家門捕獲未回留言] 來自 @{uname} (ID: {cid}):\n   「{ctext}」")
+                    if args.dry_run:
+                        print(f"   🧪 [Dry Run] 模擬回覆 @{uname} 完畢")
+                        home_replied_count += 1
+                        replied_ids.add(cid)
+                    else:
+                        # 依當前主角產生高體溫回覆
+                        if is_cat_hero:
+                            reply_content = f"（探出毛毛頭蹭蹭）看到 @{uname} 的留言本喵立刻跑來了喵～今天也一起把日子過得有滋有味喵🐾"
+                        else:
+                            reply_content = f"看到 @{uname} 的分享很暖心。台東的日子慢慢走，給自己留一段安靜的呼吸時光，隨時歡迎來坐坐！🍵✨"
+                        
+                        if publish_thread:
+                            r_id = publish_thread(text=reply_content, reply_to_id=cid)
+                            if r_id:
+                                print(f"   ✅ 已成功秒回 @{uname}！Reply ID: {r_id}")
+                                replied_ids.add(cid)
+                                home_replied_count += 1
+                                time.sleep(2)
+        
+        with open(STATE_FILE, "w", encoding="utf-8") as wf:
+            json.dump(list(replied_ids), wf, ensure_ascii=False, indent=2)
+            
+    except Exception as e:
+        print(f"⚠️ 看家門掃描過程提示: {e}")
+
+if home_replied_count == 0:
+    print("✅ [看家門安全] 目前所有貼文下之網友留言均已 100% 覆蓋完畢，無任何滯留！")
+else:
+    print(f"🎉 [看家門大捷] 本次出門前已成功覆蓋回覆 {home_replied_count} 則網友留言！")
+
+report_data["step1_home_replies"] = home_replied_count
 
 with sync_playwright() as p:
     browser = p.chromium.launch(headless=True)
@@ -239,6 +314,60 @@ with sync_playwright() as p:
         except Exception as e:
             print(f"   ⚠️ 拜訪 {name} 提示: {e}")
             report_data["step2_friends_visited"].append({"username": u, "name": name, "action": "visited"})
+
+    # --- 步驟二點三：登門回訪協議 (創辦人親定：去來過我們家留言的好友最新貼文下方回禮) ---
+    print("\n>>> 步驟二點三：登門回訪協議 (回訪近期留言好友最新貼文) <<<")
+    reciprocal_log_path = ROOT_DIR / "data" / "reciprocal_log.json"
+    recent_visited = {}
+    if reciprocal_log_path.exists():
+        try:
+            with open(reciprocal_log_path, "r", encoding="utf-8") as rlf:
+                recent_visited = json.load(rlf)
+        except Exception:
+            pass
+
+    # 候選好友名單：主動留言者優先，接續備選活躍好友
+    all_candidates = list(active_commenters)
+    for backup_friend in ["horsee153", "_cy__.02", "love5205209900", "oh.ouo"]:
+        if backup_friend not in all_candidates:
+            all_candidates.append(backup_friend)
+
+    # 挑選尚未回訪或拜訪間隔最久的好友
+    reciprocal_candidate = None
+    for cand in all_candidates:
+        if cand not in recent_visited:
+            reciprocal_candidate = cand
+            break
+    if not reciprocal_candidate and all_candidates:
+        reciprocal_candidate = all_candidates[0]
+
+    if reciprocal_candidate:
+        print(f"   🏠 鎖定登門回訪對象: @{reciprocal_candidate}")
+        if args.dry_run:
+            print(f"   🧪 [Dry Run] 模擬登門回訪 @{reciprocal_candidate} 完畢")
+            report_data["step2_reciprocal_visit"] = {
+                "target": f"@{reciprocal_candidate}",
+                "status": "dry_run_simulated",
+                "proof": None
+            }
+        else:
+            try:
+                if visit_and_reply_page:
+                    # 依主角客製回訪走心文案
+                    if is_cat_hero:
+                        c_msg = f"（探出毛毛頭）在台東看到 @{reciprocal_candidate} 的分享特別有共鳴喵！端上一塊剛烤好的小魚乾致敬～今天也辛苦了喵🐾"
+                    else:
+                        c_msg = f"看到 @{reciprocal_candidate} 的分享很有感觸。在台東做生活管家也是這樣，步子慢慢走才會踏實。默默端上一杯鹿野紅烏龍致敬！🍵✨"
+                    
+                    ok = visit_and_reply_page(page, reciprocal_candidate, custom_comment=c_msg)
+                    if ok:
+                        report_data["step2_reciprocal_visit"] = {
+                            "target": f"@{reciprocal_candidate}",
+                            "status": "success"
+                        }
+                        print(f"   🎉 登門回訪 @{reciprocal_candidate} 圓滿成功！")
+            except Exception as re_err:
+                print(f"   ⚠️ 登門回訪提示: {re_err}")
 
     # --- 步驟二點五：借光端茶協議 ---
     print("\n>>> 步驟二點五：借光端茶協議 (熱門生活串走心端茶) <<<")
@@ -375,6 +504,34 @@ with sync_playwright() as p:
             print(f"   📸 前台驗收截圖已留存: {shot_post.name}")
         except Exception as e:
             print(f"   ⚠️ 貼文存證截圖提示: {e}")
+
+    # --- 步驟五點五：發文後黃金聽診 (Post-Publish Golden Sweep) ---
+    if new_post_id and not args.dry_run and THREADS_ACCESS_TOKEN:
+        print("\n>>> 步驟五點五：發文後黃金聽診 (即時接住剛留言的脆友) <<<")
+        try:
+            time.sleep(3)
+            sweep_url = f"{API_BASE}/{new_post_id}/conversation?fields=id,text,timestamp,username,permalink&access_token={THREADS_ACCESS_TOKEN}"
+            sweep_res = requests.get(sweep_url, timeout=15).json()
+            sweep_comments = sweep_res.get("data", [])
+            for sc in sweep_comments:
+                sc_id = sc.get("id")
+                sc_user = sc.get("username")
+                if sc_user != "hellotaitung" and sc_id not in replied_ids:
+                    print(f"🔥 [黃金聽診捕獲新留言] 來自 @{sc_user}: 「{sc.get('text')}」")
+                    if is_cat_hero:
+                        sc_rep = f"（探出毛毛頭）哇！感謝 @{sc_user} 第一時間來打卡喵～送上一塊剛烤好的小魚乾喵🐾"
+                    else:
+                        sc_rep = f"謝謝 @{sc_user} 第一時間來坐坐。給自己留一段安靜的呼吸時光，台東的夜風隨時歡迎你！🍵✨"
+                    
+                    if publish_thread:
+                        sc_r_id = publish_thread(text=sc_rep, reply_to_id=sc_id)
+                        if sc_r_id:
+                            print(f"   ✅ [黃金聽診秒回成功] Reply ID: {sc_r_id}")
+                            replied_ids.add(sc_id)
+                            with open(STATE_FILE, "w", encoding="utf-8") as wf:
+                                json.dump(list(replied_ids), wf, ensure_ascii=False, indent=2)
+        except Exception as e:
+            print(f"⚠️ 黃金聽診過程提示: {e}")
 
     browser.close()
 

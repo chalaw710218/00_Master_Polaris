@@ -40,21 +40,18 @@ if STATE_FILE.exists():
     except Exception:
         pass
 
-print("🔍 [看家門・留言掃描] 正在檢查近期貼文之所有網友留言...")
+print("🔍 [看家門・留言掃描] 正在從 Meta API 動態拉取最新貼文清單...")
 
-recent_post_ids = [
-    "18120704300065152", # 週四凌晨兩點二十分生活管家鹿野紅烏龍陪伴文
-    "17995744173028992", # 週三下午三點十五分木桌深層充電文
-    "18127285654908161", # 週三早晨九點二十分晨光曬背小週末文
-    "18458764969127270", # 週二下午三點十五分木頭窗邊大懶腰文
-    "18389247586225970", # 週一深夜十一點半灰色虎斑毛球卡位文
-    "18099807785390245", # 週一下午四點灰色虎斑貓充電文
-    "17998695192104021", # 週一早晨伸懶腰開工文
-    "18116441684142644", # 週一凌晨紙箱應援文
-    "18097313198248717", # 週日夜晚貓咪吐司麵包
-    "18121653928917604", # 小編便服露臉文
-    "18637505857005596"  # 大太陽食氣昏睡文
-]
+# 徹底剷除寫死 ID：動態調用 API 取得最近 15 篇貼文
+recent_post_ids = []
+try:
+    threads_url = f"{API_BASE}/{USER_ID}/threads?fields=id,text,permalink,timestamp&limit=15&access_token={TOKEN}"
+    t_res = requests.get(threads_url, timeout=20).json()
+    post_items = t_res.get("data", [])
+    recent_post_ids = [item["id"] for item in post_items if "id" in item]
+    print(f"📡 成功動態獲取最近 {len(recent_post_ids)} 篇貼文，準備逐篇掃描留言...")
+except Exception as e:
+    print(f"⚠️ 動態拉取貼文失敗: {e}，將使用備份機制")
 
 unreplied_comments = []
 

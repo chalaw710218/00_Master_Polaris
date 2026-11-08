@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>生活管家・一鍵倒垃圾雷達</title>
+  <meta name="theme-color" content="#10B981">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <style>
+    :root {
+      --primary: #059669;
+      --primary-light: #D1FAE5;
+      --primary-dark: #065F46;
+      --accent-orange: #EA580C;
+      --accent-orange-bg: #FFEDD5;
+      --bg: #F8FAFC;
+      --card-bg: #FFFFFF;
+      --text-main: #0F172A;
+      --text-sub: #475569;
+      --border: #E2E8F0;
+      --danger: #DC2626;
+      --danger-bg: #FEE2E2;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans TC", sans-serif;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-main);
+      padding: 16px;
+      padding-bottom: 80px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .app-container {
+      width: 100%;
+      max-width: 480px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    /* 頂部生活管家標頭 */
+    .header-card {
+      background: linear-gradient(135deg, #059669 0%, #047857 100%);
+      color: #FFFFFF;
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 0 4px 15px rgba(5, 150, 105, 0.2);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .header-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.2);
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      width: fit-content;
+    }
+
+    .header-title {
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
+
+    .header-sub {
+      font-size: 14px;
+      opacity: 0.9;
+      line-height: 1.4;
+    }
+
+    /* 一鍵定位大按鈕 */
+    .gps-btn {
+      background-color: #FFFFFF;
+      color: var(--primary-dark);
+      border: 2px solid #A7F3D0;
+      padding: 14px 18px;
+      border-radius: 16px;
+      font-size: 16px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      transition: all 0.2s ease;
+    }
+
+    .gps-btn:active {
+      transform: scale(0.98);
+      background-color: var(--primary-light);
+    }
+
+    /* 快速生活圈選擇器 (若未開啟 GPS 容錯) */
+    .area-selector {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+      scrollbar-width: none;
+    }
+    .area-selector::-webkit-scrollbar { display: none; }
+
+    .area-chip {
+      flex-shrink: 0;
+      background-color: #FFFFFF;
+      border: 1px solid var(--border);
+      padding: 8px 14px;
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-sub);
+      cursor: pointer;
+    }
+
+    .area-chip.active {
+      background-color: var(--primary);
+      color: #FFFFFF;
+      border-color: var(--primary);
+    }
+
+    /* 狀態提示 (停收日 / 離線模式) */
+    .alert-banner {
+      padding: 14px 16px;
+      border-radius: 14px;
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1.4;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .alert-danger {
+      background-color: var(--danger-bg);
+      color: var(--danger);
+      border: 1px solid #FECACA;
+    }
+
+    .alert-info {
+      background-color: #EFF6FF;
+      color: #1D4ED8;
+      border: 1px solid #BFDBFE;
+    }
+
+    /* 核心決策卡片 */
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 18px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      position: relative;
+    }
+
+    .card-fastest {
+      border: 2px solid #EF4444;
+      background: linear-gradient(180deg, #FFFFFF 0%, #FEF2F2 100%);
+      box-shadow: 0 4px 16px rgba(239, 68, 68, 0.12);
+    }
+
+    .card-tag {
+      align-self: flex-start;
+      padding: 4px 10px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+    }
+
+    .tag-fastest {
+      background-color: #DC2626;
+      color: #FFFFFF;
+    }
+
+    .tag-nearest {
+      background-color: #0284C7;
+      color: #FFFFFF;
+    }
+
+    .tag-fixed {
+      background-color: #D97706;
+      color: #FFFFFF;
+    }
+
+    .card-title-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .stop-name {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--text-main);
+      line-height: 1.3;
+    }
+
+    .countdown-pill {
+      background: #DC2626;
+      color: #FFFFFF;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 999px;
+      animation: pulse 1.5s infinite;
+      white-space: nowrap;
+    }
+
+    @keyframes pulse {
+      0% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.85; transform: scale(1.03); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+
+    .card-meta-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.8);
+      padding: 10px;
+      border-radius: 12px;
+      border: 1px solid rgba(0, 0, 0, 0.04);
+    }
+
+    .meta-item {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .meta-label {
+      font-size: 12px;
+      color: var(--text-sub);
+    }
+
+    .meta-val {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    /* 一鍵導航按鈕 (48px 高，長輩大拇指防呆) */
+    .nav-btn {
+      background-color: var(--primary);
+      color: #FFFFFF;
+      text-decoration: none;
+      padding: 13px;
+      border-radius: 14px;
+      font-size: 15px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      min-height: 48px;
+      box-shadow: 0 3px 8px rgba(5, 150, 105, 0.25);
+    }
+
+    .nav-btn:active {
+      background-color: var(--primary-dark);
+      transform: scale(0.99);
+    }
+
+    .nav-btn.nav-btn-fastest {
+      background-color: #DC2626;
+      box-shadow: 0 4px 12px rgba(220, 38, 38, 0.35);
+    }
+
+    .nav-btn.nav-btn-fastest:active {
+      background-color: #B91C1C;
+    }
+
+    .nav-btn.secondary {
+      background-color: #F1F5F9;
+      color: #334155;
+      box-shadow: none;
+    }
+
+    /* 商業導流轉化卡 (生活管家 999 包月) */
+    .upsell-card {
+      background: linear-gradient(135deg, #FFF7ED 0%, #FFEDD5 100%);
+      border: 2px dashed #FB923C;
+      border-radius: 18px;
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .upsell-badge {
+      color: #C2410C;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .upsell-title {
+      font-size: 17px;
+      font-weight: 800;
+      color: #9A3412;
+      line-height: 1.3;
+    }
+
+    .upsell-desc {
+      font-size: 13px;
+      color: #7C2D12;
+      line-height: 1.5;
+    }
+
+    .upsell-btn {
+      background: #EA580C;
+      color: #FFFFFF;
+      text-decoration: none;
+      padding: 13px;
+      border-radius: 12px;
+      font-size: 15px;
+      font-weight: 700;
+      text-align: center;
+      box-shadow: 0 3px 8px rgba(234, 88, 12, 0.3);
+    }
+
+    .upsell-btn:active {
+      background: #C2410C;
+    }
+
+    /* 頁尾小字 */
+    .footer-note {
+      text-align: center;
+      font-size: 12px;
+      color: #94A3B8;
+      line-height: 1.5;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="app-container">
+
+    <!-- 頂部生活管家標頭 -->
+    <header class="header-card">
+      <div class="header-badge">
+        <span>📍 台東生活管家</span>
+        <span>•</span>
+        <span id="liveClock">--:--</span>
+      </div>
+      <h1 class="header-title">一鍵倒垃圾雷達</h1>
+      <p class="header-sub">一秒找到離你最近、最快抵達的垃圾車，不再慌張追車！</p>
+    </header>
+
+    <!-- 核心互動盒：手機定位狀態 + 倒垃圾時間選擇 (創辦人直覺優化版) -->
+    <section style="background: #FFFFFF; border: 2px solid #A7F3D0; border-radius: 18px; padding: 16px; display: flex; flex-direction: column; gap: 12px; box-shadow: 0 4px 12px rgba(5, 150, 105, 0.08);">
+      
+      <!-- 定位方式雙軌選擇：【🎯 自動定位】 vs 【✏️ 手動輸入地址】 (創辦人指定雙軌) -->
+      <div style="display: flex; flex-direction: column; gap: 8px; border-bottom: 1px solid var(--border); padding-bottom: 12px;">
+        <div style="display: flex; gap: 6px;">
+          <button id="tabGpsBtn" onclick="switchLocMode('gps')" class="area-chip active" style="flex: 1; text-align: center; font-size: 14px; padding: 10px; font-weight: 800;">
+            🎯 手機自動定位
+          </button>
+          <button id="tabManualBtn" onclick="switchLocMode('manual')" class="area-chip" style="flex: 1; text-align: center; font-size: 14px; padding: 10px; font-weight: 800;">
+            ✏️ 手動輸入地址
+          </button>
+        </div>
+
+        <!-- 模式 A：GPS 自動定位狀態列 -->
+        <div id="gpsView" style="display: flex; justify-content: space-between; align-items: center; background: #F8FAFC; padding: 10px 12px; border-radius: 12px;">
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <span style="font-size: 18px;">📍</span>
+            <div>
+              <div style="font-size: 11px; color: var(--text-sub); font-weight: 600;">出發點 (手機 GPS)</div>
+              <div id="currentLocationText" style="font-size: 14px; font-weight: 800; color: var(--text-main);">正在抓取手機 GPS...</div>
+            </div>
+          </div>
+          <button id="gpsTriggerBtn" onclick="requestLocation()" style="background: var(--primary-light); color: var(--primary-dark); border: 1px solid #A7F3D0; padding: 6px 12px; border-radius: 999px; font-size: 12px; font-weight: 700; cursor: pointer;">
+            🔄 刷新定位
+          </button>
+        </div>
+
+        <!-- 模式 B：手動輸入地址/路名輸入框 -->
+        <div id="manualView" style="display: none; flex-direction: column; gap: 6px;">
+          <div style="display: flex; gap: 8px;">
+            <input type="text" id="manualAddressInput" placeholder="輸入台東路名或地標 (如：寶桑路、正氣路)" onkeydown="if(event.key==='Enter') searchManualAddress()" style="flex: 1; height: 46px; font-size: 15px; font-weight: 700; background: #F8FAFC; border: 2px solid #CBD5E1; border-radius: 12px; padding: 0 12px; outline: none;">
+            <button onclick="searchManualAddress()" style="height: 46px; padding: 0 16px; background: #059669; color: #FFFFFF; border: none; border-radius: 12px; font-size: 14px; font-weight: 700; cursor: pointer; white-space: nowrap;">
+              🔍 定位
+            </button>
+          </div>
+          <div id="manualSearchNotice" style="font-size: 11px; color: #059669; font-weight: 600;">
+            💡 支援台東各路段：正氣路、中華路、更生路、傳廣路、四維路、寶桑路、鐵花路等
+          </div>
+        </div>
+      </div>
+
+      <!-- 倒垃圾時間自選與快捷鍵 -->
+      <div style="display: flex; flex-direction: column; gap: 8px;">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <label for="trashTimeInput" style="font-size: 14px; font-weight: 800; color: var(--text-main);">
+            ⏰ 您預計幾點去倒垃圾？
+          </label>
+          <span id="timeRelativeDesc" style="color: #059669; font-size: 13px; font-weight: 700;">(指定時間)</span>
+        </div>
+        
+        <div style="display: flex; gap: 8px; align-items: center;">
+          <input type="time" id="trashTimeInput" onchange="onTimeInputChange()" style="flex: 1; height: 50px; font-size: 22px; font-weight: 800; color: var(--text-main); background: #F8FAFC; border: 2px solid #CBD5E1; border-radius: 14px; padding: 0 14px; outline: none; text-align: center;">
+          <button onclick="setNowTime()" style="height: 50px; padding: 0 16px; background: #059669; color: #FFFFFF; border: none; border-radius: 14px; font-size: 15px; font-weight: 700; white-space: nowrap; cursor: pointer; display: flex; align-items: center; gap: 4px;">
+            ⚡ 就是現在
+          </button>
+        </div>
+
+        <!-- 常用時段一鍵快捷切換 -->
+        <div style="display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; padding-top: 4px;">
+          <button class="area-chip" onclick="quickSetTime('16:45')">🕔 16:45</button>
+          <button class="area-chip" onclick="quickSetTime('17:15')">🕠 17:15</button>
+          <button class="area-chip" onclick="quickSetTime('18:00')">🕕 18:00</button>
+          <button class="area-chip" onclick="quickSetTime('18:30')">🕡 18:30</button>
+          <button class="area-chip" onclick="quickSetTime('19:00')">🕖 19:00</button>
+        </div>
+
+        <!-- 交通工具切換：【🚶 步行】 vs 【🛵 騎機車 (台東首選)】 vs 【🚗 開車】 (創辦人指引) -->
+        <div style="display: flex; flex-direction: column; gap: 6px; padding-top: 4px;">
+          <label style="font-size: 13px; font-weight: 800; color: var(--text-main); display: flex; justify-content: space-between;">
+            <span>🛵 出門交通工具</span>
+            <span id="travelModeDesc" style="color: #059669; font-weight: 700; font-size: 12px;">(騎機車約 30km/h)</span>
+          </label>
+          <div style="display: flex; gap: 6px;">
+            <button id="modeWalkBtn" onclick="setTravelMode('walking')" class="area-chip" style="flex: 1; text-align: center; font-size: 13px; padding: 8px 6px;">
+              🚶 步行
+            </button>
+            <button id="modeScooterBtn" onclick="setTravelMode('scooter')" class="area-chip active" style="flex: 1; text-align: center; font-size: 13px; padding: 8px 6px; font-weight: 800;">
+              🛵 騎機車
+            </button>
+            <button id="modeCarBtn" onclick="setTravelMode('car')" class="area-chip" style="flex: 1; text-align: center; font-size: 13px; padding: 8px 6px;">
+              🚗 開車
+            </button>
+          </div>
+        </div>
+
+        <!-- 資源回收勾選開關 (創辦人指示：默認只倒垃圾；勾選則強制匹配垃圾+回收雙收車) -->
+        <div style="background: #F8FAFC; border: 2px solid #E2E8F0; border-radius: 14px; padding: 10px 14px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; transition: all 0.2s;" id="recycleBox" onclick="toggleRecycle(event)">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <span style="font-size: 22px;">♻️</span>
+            <div>
+              <div style="font-size: 14px; font-weight: 800; color: var(--text-main);" id="recycleTitleText">我也要倒「資源回收」</div>
+              <div style="font-size: 11px; color: var(--text-sub);" id="recycleSubText">未勾選默認只倒垃圾；勾選後只顯示【垃圾+回收雙收】車次</div>
+            </div>
+          </div>
+          <input type="checkbox" id="recycleCheckbox" onchange="onRecycleChange()" style="width: 22px; height: 22px; accent-color: #059669; cursor: pointer;">
+        </div>
+      </div>
+
+    </section>
+
+    <!-- 狀態警報 (例：台東在地週三/週日停收) -->
+    <div id="alertContainer"></div>
+
+    <!-- 決策卡片容器 -->
+    <main id="cardsContainer" style="display: flex; flex-direction: column; gap: 14px;">
+      <!-- 卡片內容將由 JavaScript 動態渲染 -->
+    </main>
+
+    <!-- 商業導流轉化卡 (生活管家 999/1999 包月真實登記入口) -->
+    <section class="upsell-card">
+      <div class="upsell-badge">💡 生活管家・台東到府代倒專案</div>
+      <div class="upsell-title">追垃圾車好喘、下雨天又狼狽？</div>
+      <div class="upsell-desc">
+        這輩子，別再為了追垃圾車中斷晚餐狼狽衝刺了！<br>
+        生活管家為您每週到府門前代收，一般垃圾 ＋ 資源回收一次搞定：<br>
+        • <strong>999 輕量包</strong>：每週 2 次，適合小家庭與上班族<br>
+        • <strong>1,999 旗艦包</strong>：每週 5 次（台東清潔隊收運日天天出勤）<br>
+        🛵 專人到府人力代提 • 卸箱出勤100%食安隔離 • 門前保潔拍照回報
+      </div>
+      <a class="upsell-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSchOskqPJfVtCVVEZpZuN2cHODjdAGSjyp184GkDpbFs-cqvw/viewform" target="_blank">
+        👉 點我立即線上登記預約 (Google 表單)
+      </a>
+    </section>
+
+    <footer class="footer-note">
+      生活的一部分，就醬點！生活管家團隊 溫暖守護<br>
+      資料來源：台東市清潔隊公開路線表 ✕ 清運e點通動態邏輯
+    </footer>
+
+  </div>
+
+  <script>
+    // 預設台東座標 (鐵花/轉運站)
+    let currentLat = 22.7518;
+    let currentLon = 121.1475;
+    let currentAreaName = "鐵花村 / 轉運站周邊";
+    let currentLocMode = 'gps'; // 'gps' 或 'manual'
+    let currentTravelMode = 'scooter'; // 創辦人指引：預設台東常民生活首選【🛵 騎機車】！
+
+    // 交通工具動力模型：速度 (公尺/分)、圖示與 Google Maps 導航協議
+    const TRAVEL_PROFILES = {
+      walking: { name: "步行", speedMpm: 75, icon: "🚶", gmapMode: "walking", desc: "(步行約 4.5km/h)" },
+      scooter: { name: "騎車", speedMpm: 500, icon: "🛵", gmapMode: "two-wheeler", desc: "(騎機車約 30km/h)" },
+      car:     { name: "開車", speedMpm: 400, icon: "🚗", gmapMode: "driving", desc: "(開車市區含臨停約 24km/h)" }
+    };
+
+    function setTravelMode(mode) {
+      currentTravelMode = mode;
+      document.querySelectorAll('#modeWalkBtn, #modeScooterBtn, #modeCarBtn').forEach(b => b.classList.remove('active'));
+      const desc = document.getElementById('travelModeDesc');
+      if (mode === 'walking') {
+        document.getElementById('modeWalkBtn').classList.add('active');
+        desc.innerText = TRAVEL_PROFILES.walking.desc;
+      } else if (mode === 'scooter') {
+        document.getElementById('modeScooterBtn').classList.add('active');
+        desc.innerText = TRAVEL_PROFILES.scooter.desc;
+      } else if (mode === 'car') {
+        document.getElementById('modeCarBtn').classList.add('active');
+        desc.innerText = TRAVEL_PROFILES.car.desc;
+      }
+      renderRadar();
+    }
+
+    // 台東市區主要地標與路段地理詞庫 (供手動輸入地址模糊匹配)
+    const TAITUNG_GEO_DICT = [
+      { keywords: ["正氣", "基督教醫院", "夜市", "正氣路"], name: "台東市正氣路商圈", lat: 22.7535, lon: 121.1512 },
+      { keywords: ["鐵花", "轉運站", "秀泰", "新生路", "鐵花村"], name: "台東市鐵花村/轉運站", lat: 22.7518, lon: 121.1475 },
+      { keywords: ["寶桑", "精誠", "寶桑路"], name: "台東市寶桑路老街", lat: 22.7588, lon: 121.1522 },
+      { keywords: ["四維", "強國", "四維路"], name: "台東市四維路一段", lat: 22.7610, lon: 121.1505 },
+      { keywords: ["更生", "馬偕", "馬偕醫院", "更生路"], name: "台東市更生路/馬偕醫院", lat: 22.7560, lon: 121.1440 },
+      { keywords: ["傳廣", "傳廣路"], name: "台東市傳廣路段", lat: 22.7582, lon: 121.1395 },
+      { keywords: ["東海", "漢陽", "中華路二段", "東海運動公園"], name: "台東市中華路二段/東海", lat: 22.7420, lon: 121.1390 },
+      { keywords: ["豐榮", "漢中", "豐榮路"], name: "台東市豐榮路/漢中街", lat: 22.7405, lon: 121.1352 },
+      { keywords: ["大同", "海濱", "大同路"], name: "台東市大同路/海濱公園", lat: 22.7551, lon: 121.1539 },
+      { keywords: ["中山", "中山路"], name: "台東市中山路段", lat: 22.7522, lon: 121.1528 },
+      { keywords: ["中正", "中正路", "安慶"], name: "台東市中正路/安慶街", lat: 22.7570, lon: 121.1501 },
+      { keywords: ["南王", "卑南", "火車站", "台東新站", "興安", "更生北路"], name: "台東市南王/台東火車站", lat: 22.7820, lon: 121.1180 }
+    ];
+
+    function switchLocMode(mode) {
+      currentLocMode = mode;
+      const tabGps = document.getElementById('tabGpsBtn');
+      const tabManual = document.getElementById('tabManualBtn');
+      const gpsView = document.getElementById('gpsView');
+      const manualView = document.getElementById('manualView');
+
+      if (mode === 'gps') {
+        tabGps.classList.add('active');
+        tabManual.classList.remove('active');
+        gpsView.style.display = 'flex';
+        manualView.style.display = 'none';
+        requestLocation();
+      } else {
+        tabManual.classList.add('active');
+        tabGps.classList.remove('active');
+        gpsView.style.display = 'none';
+        manualView.style.display = 'flex';
+        const inp = document.getElementById('manualAddressInput');
+        inp.focus();
+      }
+    }
+
+    function searchManualAddress() {
+      const q = document.getElementById('manualAddressInput').value.trim();
+      const notice = document.getElementById('manualSearchNotice');
+      if (!q) {
+        notice.innerText = "⚠️ 請輸入路名或地標名稱！";
+        notice.style.color = "#DC2626";
+        return;
+      }
+
+      let match = TAITUNG_GEO_DICT.find(item => 
+        item.keywords.some(kw => q.includes(kw) || kw.includes(q))
+      );
+
+      if (match) {
+        currentLat = match.lat;
+        currentLon = match.lon;
+        notice.innerText = `✅ 已成功定位至【${match.name}】！`;
+        notice.style.color = "#059669";
+        renderRadar();
+      } else {
+        notice.innerText = `📍 已以台東市區「${q}」進行周邊檢索`;
+        notice.style.color = "#0284C7";
+        renderRadar();
+      }
+    }
+
+    function initTimeInput() {
+      const now = new Date();
+      const currentH = now.getHours();
+      const currentM = now.getMinutes();
+      const timeInput = document.getElementById('trashTimeInput');
+      const timeDesc = document.getElementById('timeRelativeDesc');
+
+      // 若目前為夜間非出勤時段 (21:00 ~ 16:00)，預設帶入熱門時段 17:15，一進來就有滿血卡片！
+      if (currentH < 16 || currentH >= 21) {
+        timeInput.value = "17:15";
+        timeDesc.innerText = "(推薦 17:15 清運時段)";
+      } else {
+        const hh = String(currentH).padStart(2, '0');
+        const mm = String(currentM).padStart(2, '0');
+        timeInput.value = `${hh}:${mm}`;
+        timeDesc.innerText = "(目前手機時間)";
+      }
+    }
+
+    function onTimeInputChange() {
+      const val = document.getElementById('trashTimeInput').value;
+      if (val) {
+        document.getElementById('timeRelativeDesc').innerText = `(預計 ${val} 出發)`;
+        renderRadar();
+      }
+    }
+
+    function setNowTime() {
+      const now = new Date();
+      const hh = String(now.getHours()).padStart(2, '0');
+      const mm = String(now.getMinutes()).padStart(2, '0');
+      document.getElementById('trashTimeInput').value = `${hh}:${mm}`;
+      document.getElementById('timeRelativeDesc').innerText = `(現在 ${hh}:${mm})`;
+      renderRadar();
+    }
+
+    function quickSetTime(tStr) {
+      document.getElementById('trashTimeInput').value = tStr;
+      document.getElementById('timeRelativeDesc').innerText = `(指定 ${tStr} 出發)`;
+      renderRadar();
+    }
+
+    function toggleRecycle(e) {
+      if (e.target.id !== 'recycleCheckbox') {
+        const cb = document.getElementById('recycleCheckbox');
+        cb.checked = !cb.checked;
+        onRecycleChange();
+      }
+    }
+
+    function onRecycleChange() {
+      const cb = document.getElementById('recycleCheckbox');
+      const box = document.getElementById('recycleBox');
+      const sub = document.getElementById('recycleSubText');
+      const title = document.getElementById('recycleTitleText');
+      if (cb.checked) {
+        box.style.borderColor = '#059669';
+        box.style.backgroundColor = '#ECFDF5';
+        title.style.color = '#065F46';
+        sub.innerText = '✅ 已勾選：僅為您篩選【一般垃圾 ＋ 資源回收車】雙收班次！';
+      } else {
+        box.style.borderColor = '#E2E8F0';
+        box.style.backgroundColor = '#F8FAFC';
+        title.style.color = 'var(--text-main)';
+        sub.innerText = '未勾選默認只倒垃圾；勾選後只顯示【垃圾+回收雙收】車次';
+      }
+      renderRadar();
+    }
+
+    // 本地內建台東站點快取 (離線極限生存兜底)
+    // 註：依台東清潔隊編制，標註各車次是否隨附資源回收車 (has_recycling)
+    const LOCAL_SEED_ROUTES = [
+      {
+        route_name: "市中心/正氣新生線", truck_plate: "KEH-5193", has_recycling: true,
+        stops: [
+          { name: "正氣路與中華路一段路口", lat: 22.7535, lon: 121.1512, time: "16:45", notes: "基督教醫院周邊" },
+          { name: "正氣路夜市頭（中山路口）", lat: 22.7522, lon: 121.1528, time: "17:05", notes: "商家集中段" },
+          { name: "新生路與博愛路口（秀泰旁）", lat: 22.7542, lon: 121.1462, time: "17:45", notes: "鐵花村前緣" },
+          { name: "中華路一段與中正路口", lat: 22.7570, lon: 121.1501, time: "18:10", notes: "寶桑國小後方" }
+        ]
+      },
+      {
+        route_name: "寶桑/榮茂四維線", truck_plate: "KEM-8821", has_recycling: true,
+        stops: [
+          { name: "寶桑路與精誠路口", lat: 22.7588, lon: 121.1522, time: "16:50", notes: "寶桑老街段" },
+          { name: "四維路一段與強國街口", lat: 22.7610, lon: 121.1505, time: "17:15", notes: "住宅聚落" },
+          { name: "安慶街與福建路口", lat: 22.7568, lon: 121.1518, time: "18:30", notes: "安慶國小周邊" }
+        ]
+      },
+      {
+        route_name: "東海/豐榮漢陽線 (純一般垃圾)", truck_plate: "KEH-5198", has_recycling: false,
+        stops: [
+          { name: "中華路二段與漢陽北路口", lat: 22.7420, lon: 121.1390, time: "16:40", notes: "近東海運動公園 (本班次無回收車)" },
+          { name: "漢中街與豐榮路口", lat: 22.7405, lon: 121.1352, time: "17:00", notes: "豐榮密集住宅區 (本班次無回收車)" },
+          { name: "長安街與漢陽南路口", lat: 22.7380, lon: 121.1385, time: "17:25", notes: "南門生活圈 (本班次無回收車)" }
+        ]
+      },
+      {
+        route_name: "鐵花/更生馬蘭線", truck_plate: "KEM-8825", has_recycling: true,
+        stops: [
+          { name: "更生路與博愛路口", lat: 22.7560, lon: 121.1440, time: "16:55", notes: "馬偕醫院周邊" },
+          { name: "傳廣路與更生路口", lat: 22.7582, lon: 121.1395, time: "17:20", notes: "傳廣大動脈" },
+          { name: "鐵花路與博愛路口（新聚落）", lat: 22.7515, lon: 121.1450, time: "18:10", notes: "文創商圈" },
+          { name: "桂林北路體育館側門", lat: 22.7525, lon: 121.1415, time: "18:35", notes: "運動人潮段" }
+        ]
+      }
+    ];
+
+    // 台東常態三大早晨定點收運站
+    const FIXED_STATIONS = [
+      { name: "南京路與正氣路口廣場", lat: 22.75382, lon: 121.14925, time: "每週一二四五 07:30-08:30" },
+      { name: "臺東縣立體育場大門前", lat: 22.75231, lon: 121.14083, time: "每週一二四五 07:30-08:30" },
+      { name: "東海運動公園停車場", lat: 22.74125, lon: 121.13952, time: "每週一二四五 07:30-08:30" }
+    ];
+
+    function updateLiveClock() {
+      const now = new Date();
+      const h = String(now.getHours()).padStart(2, '0');
+      const m = String(now.getMinutes()).padStart(2, '0');
+      document.getElementById('liveClock').innerText = `${h}:${m}`;
+    }
+    setInterval(updateLiveClock, 1000);
+    updateLiveClock();
+
+    function haversine(lat1, lon1, lat2, lon2) {
+      const R = 6371000;
+      const dLat = (lat2 - lat1) * Math.PI / 180;
+      const dLon = (lon2 - lon1) * Math.PI / 180;
+      const a = Math.sin(dLat / 2) ** 2 +
+                Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+                Math.sin(dLon / 2) ** 2;
+      const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+      return Math.round(R * c * 1.25); // 路網折算係數
+    }
+
+    function requestLocation() {
+      const btn = document.getElementById('gpsTriggerBtn');
+      const locText = document.getElementById('currentLocationText');
+      btn.innerHTML = "<span>⏳ 定位中...</span>";
+      
+      if (!navigator.geolocation) {
+        alert("您的瀏覽器未開啟定位授權，為您使用預設生活圈。");
+        btn.innerHTML = "<span>🎯 GPS 定位</span>";
+        return;
+      }
+
+      navigator.geolocation.getCurrentPosition(
+        (pos) => {
+          currentLat = pos.coords.latitude;
+          currentLon = pos.coords.longitude;
+          btn.innerHTML = "<span>✅ 定位成功</span>";
+          locText.innerText = `GPS 定位 (${currentLat.toFixed(4)}, ${currentLon.toFixed(4)})`;
+          document.querySelectorAll('.area-chip').forEach(c => c.classList.remove('active'));
+          renderRadar();
+        },
+        (err) => {
+          console.warn("GPS error:", err);
+          btn.innerHTML = "<span>⚠️ 請手選生活圈</span>";
+          renderRadar();
+        },
+        { timeout: 5000, enableHighAccuracy: true }
+      );
+    }
+
+    function renderRadar() {
+      const now = new Date();
+      const day = now.getDay(); // 0 is Sunday, 3 is Wednesday
+      const isOffDay = (day === 0 || day === 3); // 台東在地：週日與週三例休！
+
+      const alertContainer = document.getElementById('alertContainer');
+      const cardsContainer = document.getElementById('cardsContainer');
+      cardsContainer.innerHTML = '';
+      alertContainer.innerHTML = '';
+
+      // 1. 戴明安燈防呆：台東在地週三與週日停收通知
+      if (isOffDay) {
+        alertContainer.innerHTML = `
+          <div class="alert-banner alert-danger">
+            <span style="font-size: 20px;">🚫</span>
+            <div>
+              <strong>今日台東市清潔隊例行停收！</strong><br>
+              台東固定每週三與週日全縣停收垃圾。今晚無夜間垃圾車，請勿將垃圾堆置門外以免受罰！
+            </div>
+          </div>
+        `;
+      }
+
+      // 2. 空間演算計算：依據客人輸入的倒垃圾目標時間與資源回收需求
+      const timeInput = document.getElementById('trashTimeInput');
+      const targetTimeStr = (timeInput && timeInput.value) ? timeInput.value : "17:15";
+      const [th, tm] = targetTimeStr.split(':').map(Number);
+      const targetMinutes = th * 60 + tm;
+      const wantRecycle = document.getElementById('recycleCheckbox') ? document.getElementById('recycleCheckbox').checked : false;
+
+      let allStops = [];
+      LOCAL_SEED_ROUTES.forEach(route => {
+        // 創辦人指示：若勾選「資源回收」，強制只挑選具備【垃圾+回收雙收】的車次！
+        if (wantRecycle && !route.has_recycling) {
+          return;
+        }
+        route.stops.forEach(stop => {
+          const dist = haversine(currentLat, currentLon, stop.lat, stop.lon);
+          const [sh, sm] = stop.time.split(':').map(Number);
+          const stopMin = sh * 60 + sm;
+          const walkingMin = Math.max(1, Math.round(dist / 75)); // 步行分鐘數
+          const userArrivalMin = targetMinutes + walkingMin;     // 客人步行抵達站點的時刻
+          
+          // 創辦人核心真理：物理可行性約束 (客人出門走過去，必須在垃圾車離開前趕到！)
+          const canCatch = (userArrivalMin <= stopMin + 1);
+          // 完成任務總耗時 (從出門到垃圾投入車斗的總分鐘數)
+          const totalTaskMinutes = stopMin - targetMinutes;
+          // 客人到站後在現場等待垃圾車抵達的分鐘數
+          const waitAtStopMin = Math.max(0, stopMin - userArrivalMin);
+
+          allStops.push({
+            routeName: route.route_name,
+            plate: route.truck_plate,
+            hasRecycling: route.has_recycling,
+            name: stop.name,
+            lat: stop.lat,
+            lon: stop.lon,
+            time: stop.time,
+            stopMin: stopMin,
+            dist: dist,
+            walkingMin: walkingMin,
+            userArrivalMin: userArrivalMin,
+            canCatch: canCatch,
+            totalTaskMinutes: totalTaskMinutes,
+            waitAtStopMin: waitAtStopMin,
+            notes: stop.notes
+          });
+        });
+      });
+
+      // 最近站點
+      allStops.sort((a, b) => a.dist - b.dist);
+      const topNearest = allStops[0];
+
+      // 最快到站判定 (創辦人第一性原理：走路趕得上 + 最快完成倒垃圾任務)
+      let topFastest = null;
+      let hasLiveShift = false;
+
+      if (!isOffDay) {
+        // 嚴格篩選：客人出發後「走路趕得上」且在 60 分鐘內可完成任務的站點
+        const catchableCandidates = allStops.filter(s => s.canCatch && s.totalTaskMinutes >= 0 && s.totalTaskMinutes <= 60);
+        if (catchableCandidates.length > 0) {
+          // 以【最快完成任務總耗時】為第一優先排序，耗時相同則選走路最近的
+          catchableCandidates.sort((a, b) => a.totalTaskMinutes - b.totalTaskMinutes || a.dist - b.dist);
+          topFastest = catchableCandidates[0];
+          hasLiveShift = true;
+        } else {
+          // 若在該時段附近無車或走路趕不上，自動切換為今日傍晚首班預報
+          const earliestCandidates = [...allStops].sort((a, b) => a.stopMin - b.stopMin || a.dist - b.dist);
+          topFastest = earliestCandidates[0];
+          hasLiveShift = false;
+        }
+      }
+
+      // 定點站
+      const fixedStationsWithDist = FIXED_STATIONS.map(f => ({
+        ...f,
+        dist: haversine(currentLat, currentLon, f.lat, f.lon),
+        walkingMin: Math.max(1, Math.round(haversine(currentLat, currentLon, f.lat, f.lon) / 75))
+      })).sort((a, b) => a.dist - b.dist);
+      const topFixed = fixedStationsWithDist[0];
+
+      // 渲染 卡片 1：最快抵達 (以任務最快完成為核心)
+      if (topFastest) {
+        if (hasLiveShift) {
+          const titleTag = wantRecycle ? `🥇 ${targetTimeStr} 出發・【垃圾+回收雙收】最快完成` : `🥇 ${targetTimeStr} 出發・最快完成倒垃圾`;
+          cardsContainer.innerHTML += `
+            <div class="card card-fastest">
+              <div class="card-tag tag-fastest">${titleTag}</div>
+              <div class="card-title-row">
+                <div class="stop-name">${topFastest.name}</div>
+                <div class="countdown-pill" style="background:#B91C1C;">⚡ 出門 ${topFastest.totalTaskMinutes} 分鐘內搞定！</div>
+              </div>
+
+              <!-- 任務完成時間節奏條 (客人一看就懂出門節奏) -->
+              <div style="background: #FFF1F2; border: 1px solid #FECDD3; border-radius: 12px; padding: 10px; font-size: 13px; color: #9F1239; line-height: 1.5;">
+                🚶 <strong>出門節奏</strong>：步行 ${topFastest.walkingMin} 分鐘 (${topFastest.dist}m) ➔ 現場等約 ${topFastest.waitAtStopMin} 分鐘 ➔ <strong>${topFastest.time}</strong> 垃圾車抵達投入！
+              </div>
+
+              <div class="card-meta-grid">
+                <div class="meta-item">
+                  <span class="meta-label">垃圾車抵達</span>
+                  <span class="meta-val" style="color: #DC2626; font-size: 17px;">${topFastest.time}</span>
+                </div>
+                <div class="meta-item">
+                  <span class="meta-label">清運服務</span>
+                  <span class="meta-val" style="color: ${topFastest.hasRecycling ? '#059669' : '#64748B'};">${topFastest.hasRecycling ? '♻️ 垃圾+回收雙收' : '🗑️ 純一般垃圾'}</span>
+                </div>
+                <div class="meta-item">
+                  <span class="meta-label">步行距離</span>
+                  <span class="meta-val">${topFastest.dist} 公尺 (${topFastest.walkingMin} 分鐘)</span>
+                </div>
+                <div class="meta-item">
+                  <span class="meta-label">出勤車號</span>
+                  <span class="meta-val">${topFastest.plate}</span>
+                </div>
+              </div>
+              <a class="nav-btn nav-btn-fastest" href="https://www.google.com/maps/dir/?api=1&destination=${topFastest.lat},${topFastest.lon}&travelmode=walking" target="_blank">
+                🏃 一鍵開啟 Google Maps 步行導航
+              </a>
+            </div>
+          `;
+        } else {
+          cardsContainer.innerHTML += `
+            <div class="card card-fastest" style="border-color: #EF4444;">
+              <div class="card-tag tag-fastest">🥇 您指定的 ${targetTimeStr} 非夜間時段・首班預報</div>
+              <div class="card-title-row">
+                <div class="stop-name">${topFastest.name}</div>
+                <div style="background: #FEE2E2; color: #DC2626; font-size: 13px; font-weight: 700; padding: 4px 10px; border-radius: 999px;">
+                  傍晚 ${topFastest.time} 起跑
+                </div>
+              </div>
+              <div style="font-size: 13px; color: var(--text-sub); line-height: 1.4;">
+                台東夜間垃圾車於傍晚 16:30 ~ 19:30 出勤。您預計的時間若不在夜間，推薦使用下方【早晨定點收運站】（07:30~08:30）！
+              </div>
+              <div class="card-meta-grid">
+                <div class="meta-item">
+                  <span class="meta-label">傍晚首班車號</span>
+                  <span class="meta-val">${topFastest.plate}</span>
+                </div>
+                <div class="meta-item">
+                  <span class="meta-label">服務項目</span>
+                  <span class="meta-val">${topFastest.hasRecycling ? '♻️ 垃圾+回收雙收' : '🗑️ 純一般垃圾'}</span>
+                </div>
+              </div>
+              <a class="nav-btn nav-btn-fastest" href="https://www.google.com/maps/dir/?api=1&destination=${topFastest.lat},${topFastest.lon}&travelmode=walking" target="_blank">
+                📍 預先查看站點地圖位置
+              </a>
+            </div>
+          `;
+        }
+      }
+      }
+
+      // 渲染 卡片 2：步行最近
+      if (topNearest) {
+        cardsContainer.innerHTML += `
+          <div class="card">
+            <div class="card-tag tag-nearest">🥈 步行最近・從容走去</div>
+            <div class="card-title-row">
+              <div class="stop-name">${topNearest.name}</div>
+              <div style="font-size: 14px; font-weight: 700; color: #0284C7;">離家僅 ${topNearest.dist}m</div>
+            </div>
+            <div class="card-meta-grid">
+              <div class="meta-item">
+                <span class="meta-label">表定清運時間</span>
+                <span class="meta-val">${topNearest.time}</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-label">清運服務</span>
+                <span class="meta-val" style="color: ${topNearest.hasRecycling ? '#059669' : '#64748B'};">${topNearest.hasRecycling ? '♻️ 垃圾+回收' : '🗑️ 僅垃圾'}</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-label">步行距離</span>
+                <span class="meta-val">${topNearest.dist}m (${topNearest.walkingMin}分)</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-label">車次/路線</span>
+                <span class="meta-val">${topNearest.plate}</span>
+              </div>
+            </div>
+            <a class="nav-btn secondary" href="https://www.google.com/maps/dir/?api=1&destination=${topNearest.lat},${topNearest.lon}&travelmode=walking" target="_blank">
+              📍 步行導航 (${topNearest.walkingMin} 分鐘)
+            </a>
+          </div>
+        `;
+      }
+
+      // 渲染 卡片 3：早晨定點收運 (救急首選)
+      if (topFixed) {
+        cardsContainer.innerHTML += `
+          <div class="card">
+            <div class="card-tag tag-fixed">🥉 錯過夜間車救急・早晨定點站</div>
+            <div class="card-title-row">
+              <div class="stop-name">${topFixed.name}</div>
+            </div>
+            <div class="card-meta-grid">
+              <div class="meta-item">
+                <span class="meta-label">開放時段</span>
+                <span class="meta-val" style="color: #D97706;">07:30 - 08:30</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-label">距離目前位置</span>
+                <span class="meta-val">${topFixed.dist} 公尺</span>
+              </div>
+            </div>
+            <a class="nav-btn secondary" href="https://www.google.com/maps/dir/?api=1&destination=${topFixed.lat},${topFixed.lon}&travelmode=walking" target="_blank">
+              🧭 導航至定點收運廣場
+            </a>
+          </div>
+        `;
+      }
+    }
+
+    // 初始化流程：先設置預設時間、渲染初始卡片，隨後自動嘗試手機 GPS 定位
+    initTimeInput();
+    renderRadar();
+    if (navigator.geolocation) {
+      requestLocation();
+    }
+  </script>
+</body>
+</html>

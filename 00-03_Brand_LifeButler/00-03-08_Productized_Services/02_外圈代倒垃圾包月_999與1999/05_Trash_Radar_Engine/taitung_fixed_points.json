@@ -1,0 +1,48 @@
+{
+  "city": "台東縣",
+  "township": "台東市",
+  "meta": {
+    "version": "1.0",
+    "updated_at": "2026-11-09",
+    "provider": "生活管家工程部",
+    "description": "台東市清潔隊常態性定時定點清運處（早晨定點收運，錯過夜間車之救急首選）"
+  },
+  "fixed_stations": [
+    {
+      "id": "FIXED_01",
+      "name": "南京路與正氣路口廣場",
+      "address": "台東市南京路與正氣路交叉口旁廣場",
+      "area": "市中心/寶桑圈",
+      "lat": 22.75382,
+      "lon": 121.14925,
+      "operating_days": ["Monday", "Tuesday", "Thursday", "Friday"],
+      "operating_time": "07:30 - 08:30",
+      "service_types": ["一般垃圾", "廚餘", "週一加收資源回收"],
+      "google_maps_url": "https://www.google.com/maps/dir/?api=1&destination=22.75382,121.14925&travelmode=walking"
+    },
+    {
+      "id": "FIXED_02",
+      "name": "臺東縣立體育場大門前",
+      "address": "台東市桂林北路52號大門口前",
+      "area": "鐵花/縣立體育場生活圈",
+      "lat": 22.75231,
+      "lon": 121.14083,
+      "operating_days": ["Monday", "Tuesday", "Thursday", "Friday"],
+      "operating_time": "07:30 - 08:30",
+      "service_types": ["一般垃圾", "廚餘", "週一加收資源回收"],
+      "google_maps_url": "https://www.google.com/maps/dir/?api=1&destination=22.75231,121.14083&travelmode=walking"
+    },
+    {
+      "id": "FIXED_03",
+      "name": "東海運動公園停車場",
+      "address": "台東市中華路二段東海運動公園停車場",
+      "area": "東海/豐榮/漢陽圈",
+      "lat": 22.74125,
+      "lon": 121.13952,
+      "operating_days": ["Monday", "Tuesday", "Thursday", "Friday"],
+      "operating_time": "07:30 - 08:30",
+      "service_types": ["一般垃圾", "廚餘", "週一加收資源回收"],
+      "google_maps_url": "https://www.google.com/maps/dir/?api=1&destination=22.74125,121.13952&travelmode=walking"
+    }
+  ]
+}
