@@ -2,7 +2,7 @@
   "city": "台東縣",
   "township": "台東市",
   "meta": {
-    "version": "1.0",
+    "version": "1.1",
     "updated_at": "2026-11-09",
     "provider": "生活管家工程部",
     "collection_days": ["Monday", "Tuesday", "Thursday", "Friday", "Saturday"],
@@ -14,6 +14,7 @@
       "route_name": "市中心/正氣新生線",
       "truck_plate": "KEH-5193",
       "area": "市中心/正氣商圈",
+      "has_recycling": true,
       "stops": [
         { "stop_id": "S01_01", "name": "正氣路與中華路一段路口", "lat": 22.7535, "lon": 121.1512, "scheduled_time": "16:45", "notes": "台東基督教醫院周邊" },
         { "stop_id": "S01_02", "name": "正氣路夜市頭（中山路口）", "lat": 22.7522, "lon": 121.1528, "scheduled_time": "17:05", "notes": "商家集中段" },
@@ -28,6 +29,7 @@
       "route_name": "寶桑/榮茂四維線",
       "truck_plate": "KEM-8821",
       "area": "寶桑/四維圈",
+      "has_recycling": true,
       "stops": [
         { "stop_id": "S02_01", "name": "寶桑路與精誠路口", "lat": 22.7588, "lon": 121.1522, "scheduled_time": "16:50", "notes": "寶桑老街段" },
         { "stop_id": "S02_02", "name": "四維路一段與強國街口", "lat": 22.7610, "lon": 121.1505, "scheduled_time": "17:15", "notes": "住宅聚落" },
@@ -38,11 +40,12 @@
     },
     {
       "route_id": "TT_ROUTE_03",
-      "route_name": "東海/豐榮漢陽線",
+      "route_name": "東海/豐榮漢陽線 (純垃圾班次)",
       "truck_plate": "KEH-5198",
       "area": "東海/豐榮圈",
+      "has_recycling": false,
       "stops": [
-        { "stop_id": "S03_01", "name": "中華路二段與漢陽北路口", "lat": 22.7420, "lon": 121.1390, "scheduled_time": "16:40", "notes": "近東海運動公園" },
+        { "stop_id": "S03_01", "name": "中華路二段與漢陽北路口", "lat": 22.7420, "lon": 121.1390, "scheduled_time": "16:40", "notes": "近東海運動公園 (本班次無回收)" },
         { "stop_id": "S03_02", "name": "漢中街與豐榮路口", "lat": 22.7405, "lon": 121.1352, "scheduled_time": "17:00", "notes": "豐榮密集住宅區" },
         { "stop_id": "S03_03", "name": "長安街與漢陽南路口", "lat": 22.7380, "lon": 121.1385, "scheduled_time": "17:25", "notes": "南門生活圈" },
         { "stop_id": "S03_04", "name": "豐谷南路與中華路二段巷口", "lat": 22.7350, "lon": 121.1410, "scheduled_time": "17:50", "notes": "外環社區" },
@@ -54,6 +57,7 @@
       "route_name": "鐵花/更生馬蘭線",
       "truck_plate": "KEM-8825",
       "area": "鐵花/馬蘭圈",
+      "has_recycling": true,
       "stops": [
         { "stop_id": "S04_01", "name": "更生路與博愛路口", "lat": 22.7560, "lon": 121.1440, "scheduled_time": "16:55", "notes": "馬偕醫院周邊" },
         { "stop_id": "S04_02", "name": "傳廣路與更生路口", "lat": 22.7582, "lon": 121.1395, "scheduled_time": "17:20", "notes": "傳廣大動脈" },
@@ -67,6 +71,7 @@
       "route_name": "南王/卑南綠色隧道線",
       "truck_plate": "KEH-5201",
       "area": "南王/卑南圈",
+      "has_recycling": true,
       "stops": [
         { "stop_id": "S05_01", "name": "更生北路與南王路口", "lat": 22.7820, "lon": 121.1180, "scheduled_time": "17:10", "notes": "南王部落入口" },
         { "stop_id": "S05_02", "name": "志航路一段與興安路口（台東新站）", "lat": 22.7930, "lon": 121.1225, "scheduled_time": "17:35", "notes": "火車站站前生活圈" },

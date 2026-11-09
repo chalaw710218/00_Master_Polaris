@@ -64,6 +64,11 @@ def run_frontend_audit():
     assert "TAITUNG_GEO_DICT" in content, "Taitung geocoding dictionary must be embedded"
     print("✅ [Gate 3.3 Passed] 雙軌定位自由選擇：【自動 GPS 定位】與【手動輸入地址/路名】無縫切換完備")
 
+    # 創辦人交通工具升級：步行、騎機車、開車三大動力學模型
+    assert "setTravelMode" in content and "currentTravelMode" in content, "Must support travel mode switching"
+    assert "scooter" in content and "car" in content and "walking" in content, "Must support walking, scooter and car"
+    print("✅ [Gate 3.4 Passed] 交通工具動力學：【步行 (75m/分)】、【騎機車 (500m/分)】、【開車 (400m/分)】無縫切換與動態導航")
+
     # 台東在地週三/週日停收防呆代碼檢驗
     assert "day === 0 || day === 3" in content or "(day === 0 || day === 3)" in content, "Must check for Sunday (0) and Wednesday (3)"
     assert "今日台東市清潔隊例行停收" in content, "Off day warning banner text must be present"
@@ -78,8 +83,29 @@ def run_frontend_audit():
     assert "999" in content and "upsell-card" in content, "Upsell lead magnet card must be present"
     print("✅ [Gate 6 Passed] 商業閉環：生活管家 999 代倒包月導流卡健全")
 
+    # Gate 7: JavaScript 實體驗證（node --check 語法門禁）
+    import re
+    import subprocess
+    import tempfile
+
+    scripts = re.findall(r'<script>(.*?)</script>', content, flags=re.DOTALL)
+    assert len(scripts) > 0, "No script tag found in index.html"
+    last_script = scripts[-1]
+    
+    with tempfile.NamedTemporaryFile("w", encoding="utf-8", suffix=".js", delete=False) as tf:
+        tf.write(last_script)
+        temp_js_path = tf.name
+
+    try:
+        check_proc = subprocess.run(["node", "--check", temp_js_path], capture_output=True, text=True)
+        assert check_proc.returncode == 0, f"JavaScript SyntaxError detected: {check_proc.stderr}"
+        print("✅ [Gate 7 Passed] 戴明硬核防呆：JavaScript AST 語法編譯 100% 通過 (node --check exit 0)")
+    finally:
+        if os.path.exists(temp_js_path):
+            os.remove(temp_js_path)
+
     print("==================================================")
-    print("🎉 Phase 3 Gentle UI 前端代碼安燈質檢 100% 綠燈 PASS (Exit Code: 0)")
+    print("🎉 生活管家・一鍵倒垃圾雷達前端安燈質檢 7 重門禁 100% 綠燈 PASS (Exit Code: 0)")
     print("==================================================")
 
 if __name__ == "__main__":

@@ -7,6 +7,8 @@
   <meta name="theme-color" content="#10B981">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <!-- LINE LIFF 官方 SDK (生活管家雙模引擎) -->
+  <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
   <style>
     :root {
       --primary: #059669;
@@ -17,7 +19,8 @@
       --bg: #F8FAFC;
       --card-bg: #FFFFFF;
       --text-main: #0F172A;
-      --text-sub: #475569;
+      --text-sub: #334155;
+      --text-muted: #64748B;
       --border: #E2E8F0;
       --danger: #DC2626;
       --danger-bg: #FEE2E2;
@@ -38,6 +41,7 @@
       padding-bottom: 80px;
       display: flex;
       justify-content: center;
+      -webkit-font-smoothing: antialiased;
     }
 
     .app-container {
@@ -48,16 +52,70 @@
       gap: 16px;
     }
 
-    /* 頂部生活管家標頭 */
+    /* 頂部生活管家標頭 - 包浩斯深邃漸層與雷達儀表板 */
     .header-card {
       background: linear-gradient(135deg, #059669 0%, #047857 100%);
       color: #FFFFFF;
-      padding: 20px;
-      border-radius: 20px;
-      box-shadow: 0 4px 15px rgba(5, 150, 105, 0.2);
+      padding: 22px 20px;
+      border-radius: 24px;
+      box-shadow: 0 12px 28px -6px rgba(5, 150, 105, 0.35);
       display: flex;
       flex-direction: column;
+      gap: 10px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .header-card::after {
+      content: '';
+      position: absolute;
+      top: -50px;
+      right: -50px;
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) 70%);
+      pointer-events: none;
+    }
+
+    .radar-status-bar {
+      display: inline-flex;
+      align-items: center;
       gap: 8px;
+      background: rgba(0, 0, 0, 0.16);
+      padding: 5px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #ECFDF5;
+      width: fit-content;
+      backdrop-filter: blur(4px);
+    }
+
+    .radar-pulse-dot {
+      width: 8px;
+      height: 8px;
+      background-color: #34D399;
+      border-radius: 50%;
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .radar-pulse-dot::after {
+      content: '';
+      position: absolute;
+      top: -4px;
+      left: -4px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background-color: rgba(52, 211, 153, 0.5);
+      animation: radarRing 1.8s infinite;
+    }
+
+    @keyframes radarRing {
+      0% { transform: scale(0.6); opacity: 1; }
+      100% { transform: scale(1.8); opacity: 0; }
     }
 
     .header-badge {
@@ -70,6 +128,7 @@
       font-size: 13px;
       font-weight: 600;
       width: fit-content;
+      backdrop-filter: blur(4px);
     }
 
     .header-title {
@@ -80,8 +139,20 @@
 
     .header-sub {
       font-size: 14px;
-      opacity: 0.9;
+      opacity: 0.95;
       line-height: 1.4;
+    }
+
+    /* 核心操作主盒：去粗邊框，改採光階漫射投影 (約瑟夫美學) */
+    .control-card {
+      background: #FFFFFF;
+      border: 1px solid rgba(226, 232, 240, 0.8);
+      border-radius: 20px;
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.04), 0 4px 6px -2px rgba(15, 23, 42, 0.02);
     }
 
     /* 一鍵定位大按鈕 */
@@ -127,12 +198,14 @@
       font-weight: 600;
       color: var(--text-sub);
       cursor: pointer;
+      transition: all 0.15s ease;
     }
 
     .area-chip.active {
       background-color: var(--primary);
       color: #FFFFFF;
       border-color: var(--primary);
+      box-shadow: 0 2px 6px rgba(5, 150, 105, 0.25);
     }
 
     /* 狀態提示 (停收日 / 離線模式) */
@@ -159,23 +232,77 @@
       border: 1px solid #BFDBFE;
     }
 
-    /* 核心決策卡片 */
+    /* 交通工具切換器 - 磁吸控制台 (約瑟夫升級款) */
+    .travel-track {
+      display: flex;
+      background: #F1F5F9;
+      border-radius: 16px;
+      padding: 5px;
+      gap: 6px;
+    }
+
+    .travel-chip {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 10px 8px;
+      border-radius: 12px;
+      background: transparent;
+      border: 1px solid transparent;
+      cursor: pointer;
+      color: var(--text-sub);
+      font-size: 14px;
+      font-weight: 700;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .travel-chip.active {
+      background: #FFFFFF;
+      color: #065F46;
+      border-color: rgba(5, 150, 105, 0.2);
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+      font-weight: 900;
+      transform: translateY(-1px);
+    }
+
+    /* 核心決策卡片 - 約瑟夫極致光學版 */
     .card {
       background: var(--card-bg);
       border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 18px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+      border-radius: 22px;
+      padding: 20px;
+      box-shadow: 0 8px 20px -4px rgba(15, 23, 42, 0.04), 0 4px 6px -2px rgba(15, 23, 42, 0.02);
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 14px;
       position: relative;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
     .card-fastest {
       border: 2px solid #EF4444;
-      background: linear-gradient(180deg, #FFFFFF 0%, #FEF2F2 100%);
-      box-shadow: 0 4px 16px rgba(239, 68, 68, 0.12);
+      background: #FFFFFF;
+      box-shadow: 0 16px 36px -8px rgba(220, 38, 38, 0.22), 0 4px 12px rgba(220, 38, 38, 0.08);
+      overflow: hidden;
+      padding: 0;
+    }
+
+    .card-fastest-banner {
+      background: linear-gradient(135deg, #DC2626 0%, #991B1B 100%);
+      color: #FFFFFF;
+      padding: 14px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .card-fastest-content {
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
     }
 
     .card-tag {
@@ -183,6 +310,115 @@
       padding: 4px 10px;
       border-radius: 8px;
       font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+    }
+
+    .tag-fastest {
+      background-color: #DC2626;
+      color: #FFFFFF;
+      box-shadow: 0 2px 6px rgba(220, 38, 38, 0.3);
+    }
+
+    .tag-nearest {
+      background-color: #0284C7;
+      color: #FFFFFF;
+      box-shadow: 0 2px 6px rgba(2, 132, 199, 0.3);
+    }
+
+    .tag-fixed {
+      background-color: #D97706;
+      color: #FFFFFF;
+      box-shadow: 0 2px 6px rgba(217, 119, 6, 0.3);
+    }
+
+    .card-title-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .stop-name {
+      font-size: 19px;
+      font-weight: 800;
+      color: var(--text-main);
+      line-height: 1.3;
+      letter-spacing: -0.3px;
+    }
+
+    .countdown-pill {
+      background: #DC2626;
+      color: #FFFFFF;
+      font-size: 13px;
+      font-weight: 800;
+      padding: 5px 12px;
+      border-radius: 999px;
+      animation: pulse 1.6s infinite;
+      white-space: nowrap;
+      box-shadow: 0 2px 8px rgba(220, 38, 38, 0.35);
+    }
+
+    @keyframes pulse {
+      0% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.88; transform: scale(1.03); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+
+    /* 光學時間軸步進器 (約瑟夫三點一線節奏軸) */
+    .stepper-container {
+      background: #FFF1F2;
+      border: 1px solid #FECDD3;
+      border-radius: 14px;
+      padding: 12px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
+    }
+
+    .stepper-node {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      flex: 1;
+    }
+
+    .stepper-time {
+      font-size: 14px;
+      font-weight: 800;
+      color: #9F1239;
+      letter-spacing: -0.3px;
+    }
+
+    .stepper-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: #BE123C;
+      opacity: 0.9;
+    }
+
+    .stepper-arrow {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: 11px;
+      font-weight: 800;
+      color: #E11D48;
+      flex-shrink: 0;
+      line-height: 1.2;
+    }
+
+    .card-meta-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
       font-weight: 800;
       letter-spacing: 0.5px;
     }
@@ -356,19 +592,28 @@
 
   <div class="app-container">
 
-    <!-- 頂部生活管家標頭 -->
+    <!-- 頂部生活管家標頭 - 包浩斯深邃漸層與雷達儀表板 -->
     <header class="header-card">
-      <div class="header-badge">
-        <span>📍 台東生活管家</span>
-        <span>•</span>
-        <span id="liveClock">--:--</span>
+      <div style="display: flex; justify-content: space-between; align-items: center;">
+        <div class="radar-status-bar">
+          <span class="radar-pulse-dot"></span>
+          <span id="userDisplayName" style="display:none; margin-right: 2px; font-weight:800; color: #FDE047;"></span>
+          <span>台東即時清運雷達已在線</span>
+        </div>
+        <div class="header-badge" style="background: rgba(0,0,0,0.18);">
+          <span>⏱️</span>
+          <span id="liveClock">--:--</span>
+        </div>
       </div>
-      <h1 class="header-title">一鍵倒垃圾雷達</h1>
-      <p class="header-sub">一秒找到離你最近、最快抵達的垃圾車，不再慌張追車！</p>
+      <h1 class="header-title" style="display: flex; align-items: center; gap: 8px;">
+        <span>一鍵倒垃圾雷達</span>
+        <span style="font-size: 12px; background: rgba(255,255,255,0.25); padding: 3px 8px; border-radius: 8px; font-weight: 800; letter-spacing: 0.5px;">PRO</span>
+      </h1>
+      <p class="header-sub">秒查離你最近、最快出門的垃圾車，不再慌張追車！</p>
     </header>
 
-    <!-- 核心互動盒：手機定位狀態 + 倒垃圾時間選擇 (創辦人直覺優化版) -->
-    <section style="background: #FFFFFF; border: 2px solid #A7F3D0; border-radius: 18px; padding: 16px; display: flex; flex-direction: column; gap: 12px; box-shadow: 0 4px 12px rgba(5, 150, 105, 0.08);">
+    <!-- 核心操作盒：去粗邊框，改採光階漫射投影 (約瑟夫美學) -->
+    <section class="control-card">
       
       <!-- 定位方式雙軌選擇：【🎯 自動定位】 vs 【✏️ 手動輸入地址】 (創辦人指定雙軌) -->
       <div style="display: flex; flex-direction: column; gap: 8px; border-bottom: 1px solid var(--border); padding-bottom: 12px;">
@@ -435,20 +680,23 @@
         </div>
 
         <!-- 交通工具切換：【🚶 步行】 vs 【🛵 騎機車 (台東首選)】 vs 【🚗 開車】 (創辦人指引) -->
-        <div style="display: flex; flex-direction: column; gap: 6px; padding-top: 4px;">
-          <label style="font-size: 13px; font-weight: 800; color: var(--text-main); display: flex; justify-content: space-between;">
-            <span>🛵 出門交通工具</span>
-            <span id="travelModeDesc" style="color: #059669; font-weight: 700; font-size: 12px;">(騎機車約 30km/h)</span>
+        <div style="display: flex; flex-direction: column; gap: 8px; padding-top: 4px;">
+          <label style="font-size: 13px; font-weight: 800; color: var(--text-main); display: flex; justify-content: space-between; align-items: center;">
+            <span>🛵 出門交通工具 (動態算路程)</span>
+            <span id="travelModeDesc" style="color: #059669; font-weight: 800; font-size: 12px; background: #ECFDF5; padding: 2px 8px; border-radius: 6px;">(騎機車約 30km/h)</span>
           </label>
-          <div style="display: flex; gap: 6px;">
-            <button id="modeWalkBtn" onclick="setTravelMode('walking')" class="area-chip" style="flex: 1; text-align: center; font-size: 13px; padding: 8px 6px;">
-              🚶 步行
+          <div class="travel-track">
+            <button id="modeWalkBtn" onclick="setTravelMode('walking')" class="travel-chip area-chip">
+              <span style="font-size: 16px;">🚶</span>
+              <span>步行</span>
             </button>
-            <button id="modeScooterBtn" onclick="setTravelMode('scooter')" class="area-chip active" style="flex: 1; text-align: center; font-size: 13px; padding: 8px 6px; font-weight: 800;">
-              🛵 騎機車
+            <button id="modeScooterBtn" onclick="setTravelMode('scooter')" class="travel-chip area-chip active">
+              <span style="font-size: 16px;">🛵</span>
+              <span>騎機車</span>
             </button>
-            <button id="modeCarBtn" onclick="setTravelMode('car')" class="area-chip" style="flex: 1; text-align: center; font-size: 13px; padding: 8px 6px;">
-              🚗 開車
+            <button id="modeCarBtn" onclick="setTravelMode('car')" class="travel-chip area-chip">
+              <span style="font-size: 16px;">🚗</span>
+              <span>開車</span>
             </button>
           </div>
         </div>
@@ -783,12 +1031,13 @@
         `;
       }
 
-      // 2. 空間演算計算：依據客人輸入的倒垃圾目標時間與資源回收需求
+      // 2. 空間演算計算：依據客人輸入的倒垃圾目標時間、資源回收需求與出門交通工具
       const timeInput = document.getElementById('trashTimeInput');
       const targetTimeStr = (timeInput && timeInput.value) ? timeInput.value : "17:15";
       const [th, tm] = targetTimeStr.split(':').map(Number);
       const targetMinutes = th * 60 + tm;
       const wantRecycle = document.getElementById('recycleCheckbox') ? document.getElementById('recycleCheckbox').checked : false;
+      const profile = TRAVEL_PROFILES[currentTravelMode] || TRAVEL_PROFILES.scooter;
 
       let allStops = [];
       LOCAL_SEED_ROUTES.forEach(route => {
@@ -800,13 +1049,14 @@
           const dist = haversine(currentLat, currentLon, stop.lat, stop.lon);
           const [sh, sm] = stop.time.split(':').map(Number);
           const stopMin = sh * 60 + sm;
-          const walkingMin = Math.max(1, Math.round(dist / 75)); // 步行分鐘數
-          const userArrivalMin = targetMinutes + walkingMin;     // 客人步行抵達站點的時刻
+          // 依交通工具動力學計算行車/步行所需時間 (機車 500m/分, 汽車 400m/分, 步行 75m/分)
+          const travelMin = Math.max(1, Math.round(dist / profile.speedMpm));
+          const userArrivalMin = targetMinutes + travelMin;     // 客人抵達站點的時刻
           
-          // 創辦人核心真理：物理可行性約束 (客人出門走過去，必須在垃圾車離開前趕到！)
+          // 創辦人核心真理：物理可行性約束 (客人出門抵達，必須在垃圾車離開前趕到！)
           const canCatch = (userArrivalMin <= stopMin + 1);
-          // 完成任務總耗時 (從出門到垃圾投入車斗的總分鐘數)
-          const totalTaskMinutes = stopMin - targetMinutes;
+          // 完成任務總耗時 (從出門到垃圾投入車斗的總分鐘數，不小於行進時間)
+          const totalTaskMinutes = Math.max(travelMin, stopMin - targetMinutes);
           // 客人到站後在現場等待垃圾車抵達的分鐘數
           const waitAtStopMin = Math.max(0, stopMin - userArrivalMin);
 
@@ -820,7 +1070,7 @@
             time: stop.time,
             stopMin: stopMin,
             dist: dist,
-            walkingMin: walkingMin,
+            travelMin: travelMin,
             userArrivalMin: userArrivalMin,
             canCatch: canCatch,
             totalTaskMinutes: totalTaskMinutes,
@@ -833,21 +1083,24 @@
       // 最近站點
       allStops.sort((a, b) => a.dist - b.dist);
       const topNearest = allStops[0];
+      if (topNearest) {
+        topNearest.walkingMin = Math.max(1, Math.round(topNearest.dist / TRAVEL_PROFILES.walking.speedMpm));
+      }
 
-      // 最快到站判定 (創辦人第一性原理：走路趕得上 + 最快完成倒垃圾任務)
+      // 最快到站判定 (創辦人第一性原理：走路/騎車趕得上 + 最快完成倒垃圾任務)
       let topFastest = null;
       let hasLiveShift = false;
 
       if (!isOffDay) {
-        // 嚴格篩選：客人出發後「走路趕得上」且在 60 分鐘內可完成任務的站點
+        // 嚴格篩選：客人出發後「交通工具趕得上」且在 60 分鐘內可完成任務的站點
         const catchableCandidates = allStops.filter(s => s.canCatch && s.totalTaskMinutes >= 0 && s.totalTaskMinutes <= 60);
         if (catchableCandidates.length > 0) {
-          // 以【最快完成任務總耗時】為第一優先排序，耗時相同則選走路最近的
+          // 以【最快完成任務總耗時】為第一優先排序，耗時相同則選距離最近的
           catchableCandidates.sort((a, b) => a.totalTaskMinutes - b.totalTaskMinutes || a.dist - b.dist);
           topFastest = catchableCandidates[0];
           hasLiveShift = true;
         } else {
-          // 若在該時段附近無車或走路趕不上，自動切換為今日傍晚首班預報
+          // 若在該時段附近無車或交通工具趕不上，自動切換為今日傍晚首班預報
           const earliestCandidates = [...allStops].sort((a, b) => a.stopMin - b.stopMin || a.dist - b.dist);
           topFastest = earliestCandidates[0];
           hasLiveShift = false;
@@ -858,7 +1111,7 @@
       const fixedStationsWithDist = FIXED_STATIONS.map(f => ({
         ...f,
         dist: haversine(currentLat, currentLon, f.lat, f.lon),
-        walkingMin: Math.max(1, Math.round(haversine(currentLat, currentLon, f.lat, f.lon) / 75))
+        travelMin: Math.max(1, Math.round(haversine(currentLat, currentLon, f.lat, f.lon) / profile.speedMpm))
       })).sort((a, b) => a.dist - b.dist);
       const topFixed = fixedStationsWithDist[0];
 
@@ -866,40 +1119,80 @@
       if (topFastest) {
         if (hasLiveShift) {
           const titleTag = wantRecycle ? `🥇 ${targetTimeStr} 出發・【垃圾+回收雙收】最快完成` : `🥇 ${targetTimeStr} 出發・最快完成倒垃圾`;
+          const arrH = Math.floor(topFastest.userArrivalMin / 60);
+          const arrM = topFastest.userArrivalMin % 60;
+          const userArrivalStr = `${String(arrH).padStart(2, '0')}:${String(arrM).padStart(2, '0')}`;
           cardsContainer.innerHTML += `
             <div class="card card-fastest">
-              <div class="card-tag tag-fastest">${titleTag}</div>
-              <div class="card-title-row">
-                <div class="stop-name">${topFastest.name}</div>
-                <div class="countdown-pill" style="background:#B91C1C;">⚡ 出門 ${topFastest.totalTaskMinutes} 分鐘內搞定！</div>
+              <div class="card-fastest-banner">
+                <div style="display: flex; align-items: center; gap: 8px;">
+                  <span style="font-size: 16px; animation: pulse 1s infinite;">🔥</span>
+                  <span class="card-tag tag-fastest" style="background: transparent; padding: 0; box-shadow: none; font-size: 13px; font-weight: 900;">${titleTag}</span>
+                </div>
+                <div class="countdown-pill" style="background: rgba(0,0,0,0.22); border: 1px solid rgba(255,255,255,0.35); box-shadow: none; font-size: 12px;">⚡ 出門 ${topFastest.totalTaskMinutes} 分鐘搞定！</div>
               </div>
 
-              <!-- 任務完成時間節奏條 (客人一看就懂出門節奏) -->
-              <div style="background: #FFF1F2; border: 1px solid #FECDD3; border-radius: 12px; padding: 10px; font-size: 13px; color: #9F1239; line-height: 1.5;">
-                🚶 <strong>出門節奏</strong>：步行 ${topFastest.walkingMin} 分鐘 (${topFastest.dist}m) ➔ 現場等約 ${topFastest.waitAtStopMin} 分鐘 ➔ <strong>${topFastest.time}</strong> 垃圾車抵達投入！
-              </div>
+              <div class="card-fastest-content">
+                <div class="card-title-row">
+                  <div>
+                    <div style="font-size: 11px; color: #DC2626; font-weight: 800; letter-spacing: 0.5px;">首選攔截點</div>
+                    <div class="stop-name" style="font-size: 21px;">${topFastest.name}</div>
+                  </div>
+                  <div style="text-align: right; background: #FFF5F5; padding: 6px 12px; border-radius: 12px; border: 1px solid #FECACA;">
+                    <div style="font-size: 11px; color: #991B1B; font-weight: 700;">車次表定</div>
+                    <div style="font-size: 20px; font-weight: 900; color: #DC2626; line-height: 1.1;">${topFastest.time}</div>
+                  </div>
+                </div>
 
-              <div class="card-meta-grid">
-                <div class="meta-item">
-                  <span class="meta-label">垃圾車抵達</span>
-                  <span class="meta-val" style="color: #DC2626; font-size: 17px;">${topFastest.time}</span>
+                <!-- 任務完成時間節奏條 (約瑟夫三點一線光學步進軸) -->
+                <div class="stepper-container">
+                  <div class="stepper-node">
+                    <span class="stepper-time">${targetTimeStr}</span>
+                    <span class="stepper-label">您出門出發</span>
+                  </div>
+                  <div class="stepper-arrow">
+                    <span style="background: #FEE2E2; padding: 1px 6px; border-radius: 6px;">${profile.icon} ${topFastest.travelMin}分</span>
+                    <span style="font-size: 13px;">➔</span>
+                  </div>
+                  <div class="stepper-node">
+                    <span class="stepper-time">${userArrivalStr}</span>
+                    <span class="stepper-label">到場 (等${topFastest.waitAtStopMin}分)</span>
+                  </div>
+                  <div class="stepper-arrow">
+                    <span style="color: #BE123C;">投遞</span>
+                    <span style="font-size: 13px;">➔</span>
+                  </div>
+                  <div class="stepper-node">
+                    <span class="stepper-time" style="color: #BE123C; font-size: 17px; font-weight: 900;">${topFastest.time}</span>
+                    <span class="stepper-label" style="color: #9F1239; font-weight: 900;">車到搞定</span>
+                  </div>
                 </div>
-                <div class="meta-item">
-                  <span class="meta-label">清運服務</span>
-                  <span class="meta-val" style="color: ${topFastest.hasRecycling ? '#059669' : '#64748B'};">${topFastest.hasRecycling ? '♻️ 垃圾+回收雙收' : '🗑️ 純一般垃圾'}</span>
+
+                <div class="card-meta-grid">
+                  <div class="meta-item">
+                    <span class="meta-label">服務項目</span>
+                    <span class="meta-val" style="color: ${topFastest.hasRecycling ? '#059669' : '#64748B'};">${topFastest.hasRecycling ? '♻️ 垃圾+回收雙收' : '🗑️ 純一般垃圾'}</span>
+                  </div>
+                  <div class="meta-item">
+                    <span class="meta-label">${profile.name}作戰距離</span>
+                    <span class="meta-val">${topFastest.dist} 公尺 (${topFastest.travelMin} 分鐘)</span>
+                  </div>
+                  <div class="meta-item">
+                    <span class="meta-label">出勤車號</span>
+                    <span class="meta-val">${topFastest.plate}</span>
+                  </div>
+                  <div class="meta-item">
+                    <span class="meta-label">站點說明</span>
+                    <span class="meta-val" style="font-size: 13px; color: #475569;">${topFastest.notes || '市區固定停靠'}</span>
+                  </div>
                 </div>
-                <div class="meta-item">
-                  <span class="meta-label">步行距離</span>
-                  <span class="meta-val">${topFastest.dist} 公尺 (${topFastest.walkingMin} 分鐘)</span>
-                </div>
-                <div class="meta-item">
-                  <span class="meta-label">出勤車號</span>
-                  <span class="meta-val">${topFastest.plate}</span>
-                </div>
+                <a class="nav-btn nav-btn-fastest" href="https://www.google.com/maps/dir/?api=1&destination=${topFastest.lat},${topFastest.lon}&travelmode=${profile.gmapMode}" target="_blank">
+                  ${profile.icon} 一鍵開啟 Google Maps ${profile.name}導航
+                </a>
+                <button onclick="shareToLine('${topFastest.name}', '${topFastest.time}', ${topFastest.waitAtStopMin}, ${topFastest.dist})" style="width: 100%; background: #F8FAFC; color: #1E293B; border: 1.5px solid #CBD5E1; padding: 12px; border-radius: 14px; font-size: 14px; font-weight: 800; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px; min-height: 46px;">
+                  📲 一鍵把這班車分享給家人 (LINE)
+                </button>
               </div>
-              <a class="nav-btn nav-btn-fastest" href="https://www.google.com/maps/dir/?api=1&destination=${topFastest.lat},${topFastest.lon}&travelmode=walking" target="_blank">
-                🏃 一鍵開啟 Google Maps 步行導航
-              </a>
             </div>
           `;
         } else {
@@ -925,13 +1218,12 @@
                   <span class="meta-val">${topFastest.hasRecycling ? '♻️ 垃圾+回收雙收' : '🗑️ 純一般垃圾'}</span>
                 </div>
               </div>
-              <a class="nav-btn nav-btn-fastest" href="https://www.google.com/maps/dir/?api=1&destination=${topFastest.lat},${topFastest.lon}&travelmode=walking" target="_blank">
+              <a class="nav-btn nav-btn-fastest" href="https://www.google.com/maps/dir/?api=1&destination=${topFastest.lat},${topFastest.lon}&travelmode=${profile.gmapMode}" target="_blank">
                 📍 預先查看站點地圖位置
               </a>
             </div>
           `;
         }
-      }
       }
 
       // 渲染 卡片 2：步行最近
@@ -994,12 +1286,54 @@
       }
     }
 
-    // 初始化流程：先設置預設時間、渲染初始卡片，隨後自動嘗試手機 GPS 定位
+    // LINE LIFF 雙模引擎 (生活管家專屬 LIFF ID: 2012513387-UT7yDt1M)
+    const LIFF_ID = "2012513387-UT7yDt1M";
+    let liffProfile = null;
+
+    async function initLiff() {
+      if (typeof liff === 'undefined') return;
+      try {
+        await liff.init({ liffId: LIFF_ID });
+        if (liff.isLoggedIn()) {
+          liffProfile = await liff.getProfile();
+          const nameEl = document.getElementById('userDisplayName');
+          if (nameEl && liffProfile.displayName) {
+            nameEl.innerText = `👋 您好，${liffProfile.displayName}！`;
+            nameEl.style.display = 'inline-block';
+          }
+        }
+      } catch (err) {
+        console.warn("LIFF init skipped or fallback to web:", err);
+      }
+    }
+
+    async function shareToLine(name, time, waitMin, dist) {
+      const shareUrl = `https://liff.line.me/${LIFF_ID}`;
+      const msg = `🚨【生活管家・台東倒垃圾快報】\n今晚最快班次：${name}\n⏰ 表定抵達：${time}\n📍 距離目前約 ${dist}m (現場等約 ${waitMin} 分鐘)\n\n👉 點此查看即時清運雷達：\n${shareUrl}`;
+      if (typeof liff !== 'undefined' && liff.isApiAvailable && liff.isApiAvailable('shareTargetPicker')) {
+        try {
+          await liff.shareTargetPicker([{ type: 'text', text: msg }]);
+        } catch (e) {
+          console.warn("share error:", e);
+        }
+      } else {
+        if (navigator.clipboard) {
+          navigator.clipboard.writeText(msg).then(() => {
+            alert("已為您複製這班垃圾車資訊！可直接貼在 LINE 傳給家人。");
+          });
+        } else {
+          alert(`請手動複製給家人：\n${msg}`);
+        }
+      }
+    }
+
+    // 初始化流程：先設置預設時間、渲染初始卡片，隨後自動嘗試手機 GPS 定位與 LIFF
     initTimeInput();
     renderRadar();
     if (navigator.geolocation) {
       requestLocation();
     }
+    initLiff();
   </script>
 </body>
 </html>
