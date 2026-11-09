@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <style>
+      .bg { fill: #FAF8F3; }
+      .grid-line { stroke: #E8E4DA; stroke-width: 1; stroke-dasharray: 4 4; }
+      .brand-primary { fill: #F5A623; }
+      .brand-secondary { fill: #8B572A; }
+      .brand-ink { fill: #1A1A1A; }
+      .brand-white { fill: #FFFFFF; }
+      .label { font-family: 'Source Han Sans TW', 'Noto Sans TC', sans-serif; font-size: 14px; fill: #8B572A; font-weight: bold; }
+      .title { font-family: 'Source Han Sans TW', 'Noto Sans TC', sans-serif; font-size: 42px; fill: #1A1A1A; font-weight: 900; letter-spacing: 2px; }
+      .subtitle { font-family: 'Source Han Sans TW', 'Noto Sans TC', sans-serif; font-size: 20px; fill: #8B572A; font-weight: 700; letter-spacing: 1px; }
+      .tag { font-family: 'DIN Next', 'Barlow Semi-Condensed', sans-serif; font-size: 13px; fill: #666666; }
+    </style>
+  </defs>
+
+  <!-- 背景：常民生活米白 -->
+  <rect width="1200" height="630" class="bg"/>
+
+  <!-- 幾何裝飾網格 -->
+  <line x1="80" y1="80" x2="1120" y2="80" class="grid-line" />
+  <line x1="80" y1="550" x2="1120" y2="550" class="grid-line" />
+  <line x1="80" y1="80" x2="80" y2="550" class="grid-line" />
+  <line x1="1120" y1="80" x2="1120" y2="550" class="grid-line" />
+
+  <!-- 頂部標記 -->
+  <text x="100" y="60" class="label">生活的一部分，就醬點！ ｜ 品牌視覺識別規範 SPECIMEN V1.0</text>
+  <text x="1020" y="60" class="label" text-anchor="end">JOSEF CVO SPEC</text>
+
+  <!-- 左側：軌道 A 品牌符號與字標展示 -->
+  <g transform="translate(100, 140)">
+    <!-- 符號外框幾何標章 (圓角生活徽印) -->
+    <rect x="0" y="0" width="110" height="110" rx="28" class="brand-primary"/>
+    <!-- 幾何地標與點擊微笑符號 -->
+    <circle cx="55" cy="46" r="18" fill="#FFFFFF"/>
+    <circle cx="55" cy="46" r="8" fill="#F5A623"/>
+    <path d="M 32 78 Q 55 96 78 78" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" fill="none"/>
+
+    <!-- 品牌主字標 -->
+    <text x="140" y="62" class="title">生活的一部分，就醬點！</text>
+    <text x="142" y="98" class="subtitle">日常便利 · 暖心到府 · 在地守護生活管家</text>
+
+    <!-- 安全留白邊界說明 -->
+    <rect x="-15" y="-15" width="860" height="140" fill="none" stroke="#F5A623" stroke-width="1.5" stroke-dasharray="6 4" opacity="0.6"/>
+    <text x="855" y="145" class="tag" text-anchor="end">CLEAR SPACE: 0.5X PROTECTED</text>
+  </g>
+
+  <!-- 中間分隔線 -->
+  <line x1="100" y1="310" x2="1100" y2="310" stroke="#E8E4DA" stroke-width="2"/>
+
+  <!-- 下方：標準色彩矩陣色塊展示 -->
+  <g transform="translate(100, 340)">
+    <text x="0" y="0" class="subtitle">品牌標準色譜矩陣 (Color Palette SSOT)</text>
+
+    <!-- 色塊 1: 寶桑暖陽黃 -->
+    <g transform="translate(0, 25)">
+      <rect x="0" y="0" width="150" height="100" rx="12" fill="#F5A623"/>
+      <text x="0" y="125" class="label" fill="#1A1A1A">寶桑暖陽黃</text>
+      <text x="0" y="145" class="tag">#F5A623</text>
+      <text x="0" y="162" class="tag">C0 M38 Y95 K0</text>
+    </g>
+
+    <!-- 色塊 2: 太平洋暖褐 -->
+    <g transform="translate(190, 25)">
+      <rect x="0" y="0" width="150" height="100" rx="12" fill="#8B572A"/>
+      <text x="0" y="125" class="label" fill="#1A1A1A">太平洋暖褐</text>
+      <text x="0" y="145" class="tag">#8B572A</text>
+      <text x="0" y="162" class="tag">C30 M65 Y90 K25</text>
+    </g>
+
+    <!-- 色塊 3: 墨黑直壓 -->
+    <g transform="translate(380, 25)">
+      <rect x="0" y="0" width="150" height="100" rx="12" fill="#1A1A1A"/>
+      <text x="0" y="125" class="label" fill="#1A1A1A">墨黑直壓</text>
+      <text x="0" y="145" class="tag">#1A1A1A</text>
+      <text x="0" y="162" class="tag">C0 M0 Y0 K100 (無重影)</text>
+    </g>
+
+    <!-- 色塊 4: 常民生活米白 -->
+    <g transform="translate(570, 25)">
+      <rect x="0" y="0" width="150" height="100" rx="12" fill="#FAF8F3" stroke="#E8E4DA" stroke-width="2"/>
+      <text x="0" y="125" class="label" fill="#1A1A1A">常民生活米白</text>
+      <text x="0" y="145" class="tag">#FAF8F3</text>
+      <text x="0" y="162" class="tag">C2 M2 Y4 K0 (護眼底色)</text>
+    </g>
+
+    <!-- 色塊 5: 蔬果翠綠 -->
+    <g transform="translate(760, 25)">
+      <rect x="0" y="0" width="110" height="100" rx="12" fill="#2E7D32"/>
+      <text x="0" y="125" class="label" fill="#1A1A1A">蔬果翠綠</text>
+      <text x="0" y="145" class="tag">#2E7D32</text>
+      <text x="0" y="162" class="tag">生鮮專用標籤</text>
+    </g>
+
+    <!-- 色塊 6: 炙熱熟成紅 -->
+    <g transform="translate(890, 25)">
+      <rect x="0" y="0" width="110" height="100" rx="12" fill="#D32F2F"/>
+      <text x="0" y="125" class="label" fill="#1A1A1A">炙熱熟成紅</text>
+      <text x="0" y="145" class="tag">#D32F2F</text>
+      <text x="0" y="162" class="tag">快閃限時活動</text>
+    </g>
+  </g>
+</svg>

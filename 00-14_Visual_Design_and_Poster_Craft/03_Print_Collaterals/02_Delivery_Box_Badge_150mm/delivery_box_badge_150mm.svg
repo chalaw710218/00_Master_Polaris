@@ -1,0 +1,124 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 154 154" width="154mm" height="154mm">
+  <defs>
+    <style>
+      .bg-outer { fill: #8B572A; }
+      .bg-white { fill: #FAF8F3; }
+      .bg-yellow { fill: #F5A623; }
+      .stroke-main { stroke: #8B572A; stroke-width: 1.2; fill: none; }
+      .mascot-fur { fill: #C88238; }
+      .mascot-stripe { fill: #5A3515; }
+      .fish-silver { fill: #8AC4D0; }
+      .scooter-body { fill: #1A1A1A; }
+      .scooter-metal { fill: #D8D8D8; }
+      .badge-text-top { font-family: 'Source Han Sans TW', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif; font-weight: 900; font-size: 9.2px; fill: #1A1A1A; letter-spacing: 0.8px; }
+      .badge-text-bot { font-family: 'Source Han Sans TW', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif; font-weight: 900; font-size: 6.8px; fill: #FFFFFF; letter-spacing: 0.4px; }
+      .tag-small { font-family: 'Source Han Sans TW', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif; font-weight: 700; font-size: 3.5px; fill: #8B572A; letter-spacing: 0.2px; }
+      .star-deco { fill: #F5A623; }
+    </style>
+    <!-- 弧形文字路徑 -->
+    <path id="textPathTop" d="M 23, 77 A 54, 54 0 0, 1 131, 77" fill="none"/>
+    <path id="textPathBottom" d="M 131, 77 A 54, 54 0 0, 1 23, 77" fill="none"/>
+  </defs>
+
+  <!-- 裁切出血提示 (直徑 154mm，內圈 150mm 裁切) -->
+  <circle cx="77" cy="77" r="77" fill="#8B572A"/>
+  <circle cx="77" cy="77" r="75" fill="#FAF8F3"/>
+
+  <!-- 雙線復古外圈邊框 -->
+  <circle cx="77" cy="77" r="72" fill="none" stroke="#8B572A" stroke-width="2.5"/>
+  <circle cx="77" cy="77" r="69" fill="none" stroke="#F5A623" stroke-width="1.2" stroke-dasharray="3 1.5"/>
+
+  <!-- 徽章上半部圓弧色塊 (寶桑暖陽黃) -->
+  <path d="M 11, 77 A 66, 66 0 0, 1 143, 77 Z" fill="#F5A623" opacity="0.95"/>
+
+  <!-- 徽章下半部圓弧色塊 (太平洋暖褐底座) -->
+  <path d="M 11, 77 A 66, 66 0 0, 0 143, 77 Z" fill="#8B572A"/>
+
+  <!-- 上方弧形品牌名稱 -->
+  <text font-family="'Source Han Sans TW', sans-serif" font-weight="900" font-size="8.8px" fill="#1A1A1A">
+    <textPath href="#textPathTop" startOffset="50%" text-anchor="middle">
+      生活的一部分，就醬點！
+    </textPath>
+  </text>
+
+  <!-- 下方弧形字樣 -->
+  <text font-family="'Source Han Sans TW', sans-serif" font-weight="900" font-size="6.4px" fill="#FFFFFF">
+    <textPath href="#textPathBottom" startOffset="50%" text-anchor="middle">
+      ★ 創始夥伴 ｜ 寶桑物流代送中 ★
+    </textPath>
+  </text>
+
+  <!-- 中央主舞台：圓形米白膠囊背板 -->
+  <circle cx="77" cy="77" r="44" fill="#FAF8F3" stroke="#8B572A" stroke-width="1.8"/>
+
+  <!-- 左右裝飾星星 -->
+  <polygon points="38,77 40,72 45,72 41,75 43,80 38,77" fill="#F5A623"/>
+  <polygon points="116,77 114,72 109,72 113,75 111,80 116,77" fill="#F5A623"/>
+
+  <!-- 中央吉祥物：喵編騎乘黑色小綿羊機車抱大魚向量圖 -->
+  <g id="mascot-meow-delivery" transform="translate(47, 50)">
+    <!-- 1. 機車後輪與前輪 -->
+    <circle cx="12" cy="42" r="7.5" fill="#1A1A1A"/>
+    <circle cx="12" cy="42" r="3.5" fill="#D8D8D8"/>
+    <circle cx="48" cy="42" r="7.5" fill="#1A1A1A"/>
+    <circle cx="48" cy="42" r="3.5" fill="#D8D8D8"/>
+
+    <!-- 2. 機車車身與擋泥板 (黑色復古小綿羊) -->
+    <path d="M 8,38 Q 20,32 30,34 L 46,36 Q 50,30 52,24" stroke="#1A1A1A" stroke-width="4.5" stroke-linecap="round" fill="none"/>
+    <path d="M 12,34 L 28,34 Q 30,38 32,42 L 8,42 Z" fill="#1A1A1A"/>
+    <!-- 前車燈 (暖黃光) -->
+    <circle cx="53" cy="23" r="3" fill="#F5A623"/>
+    <polygon points="53,23 60,18 60,28" fill="#F5A623" opacity="0.3"/>
+
+    <!-- 3. 機車後座保溫箱 (亮黃色迷你外送箱) -->
+    <rect x="4" y="22" width="14" height="12" rx="1.5" fill="#F5A623" stroke="#8B572A" stroke-width="0.8"/>
+    <text x="11" y="30" font-family="'Source Han Sans TW', sans-serif" font-weight="900" font-size="3px" fill="#FFFFFF" text-anchor="middle">就醬點</text>
+
+    <!-- 4. 喵編 (條紋虎斑貓主體) -->
+    <!-- 貓身體 -->
+    <ellipse cx="28" cy="27" rx="9" ry="11" fill="#C88238"/>
+    <path d="M 24,20 Q 28,24 24,28" stroke="#5A3515" stroke-width="1.2" fill="none"/>
+    <path d="M 28,18 Q 32,23 28,29" stroke="#5A3515" stroke-width="1.2" fill="none"/>
+
+    <!-- 貓頭部 -->
+    <circle cx="33" cy="14" r="8" fill="#C88238"/>
+    <!-- 貓耳 (左、右) -->
+    <polygon points="27,10 25,3 31,7" fill="#C88238" stroke="#5A3515" stroke-width="0.6"/>
+    <polygon points="27,9 26,5 30,7" fill="#FFAAA6"/>
+    <polygon points="35,7 39,3 39,10" fill="#C88238" stroke="#5A3515" stroke-width="0.6"/>
+    <polygon points="36,7 38,5 38,9" fill="#FFAAA6"/>
+    <!-- 虎斑額紋 -->
+    <path d="M 31,8 L 31,11" stroke="#5A3515" stroke-width="0.8"/>
+    <path d="M 33,7 L 33,11" stroke="#5A3515" stroke-width="0.8"/>
+    <path d="M 35,8 L 35,11" stroke="#5A3515" stroke-width="0.8"/>
+
+    <!-- 帥氣防風鏡 (護目鏡) -->
+    <rect x="27" y="11" width="13" height="4.5" rx="2" fill="#FAF8F3" stroke="#8B572A" stroke-width="0.8"/>
+    <circle cx="30" cy="13.2" r="1.8" fill="#8AC4D0"/>
+    <circle cx="37" cy="13.2" r="1.8" fill="#8AC4D0"/>
+    <!-- 貓鼻子與嘴巴微弧度笑臉 -->
+    <polygon points="33,16.5 32,15.5 34,15.5" fill="#FFAAA6"/>
+    <path d="M 31.5,17.5 Q 33,18.5 34.5,17.5" stroke="#5A3515" stroke-width="0.6" fill="none"/>
+    <!-- 兩側鬍鬚 -->
+    <line x1="28" y1="16" x2="23" y2="15" stroke="#5A3515" stroke-width="0.5"/>
+    <line x1="28" y1="17.5" x2="23" y2="18.5" stroke="#5A3515" stroke-width="0.5"/>
+    <line x1="38" y1="16" x2="43" y2="15" stroke="#5A3515" stroke-width="0.5"/>
+    <line x1="38" y1="17.5" x2="43" y2="18.5" stroke="#5A3515" stroke-width="0.5"/>
+
+    <!-- 5. 懷中抱著的大鮮魚 (象徵生鮮嚴選) -->
+    <g transform="translate(24, 21) rotate(-15)">
+      <ellipse cx="10" cy="0" rx="9" ry="4" fill="#8AC4D0" stroke="#4A7C85" stroke-width="0.6"/>
+      <polygon points="0,0 -4,-3 -4,3" fill="#8AC4D0" stroke="#4A7C85" stroke-width="0.6"/>
+      <circle cx="16" cy="-1" r="0.8" fill="#1A1A1A"/>
+      <path d="M 7,-2 Q 10,0 7,2" stroke="#FAF8F3" stroke-width="0.6" fill="none"/>
+      <path d="M 11,-2 Q 14,0 11,2" stroke="#FAF8F3" stroke-width="0.6" fill="none"/>
+    </g>
+
+    <!-- 6. 貓手抓住龍頭與抱魚 -->
+    <circle cx="34" cy="24" r="2.4" fill="#FFFFFF" stroke="#8B572A" stroke-width="0.6"/>
+    <circle cx="44" cy="25" r="2.2" fill="#FFFFFF" stroke="#8B572A" stroke-width="0.6"/>
+  </g>
+
+  <!-- 底部微標：台東寶桑 -->
+  <text x="77" y="129" font-family="'Source Han Sans TW', sans-serif" font-weight="900" font-size="3.2px" fill="#8B572A" text-anchor="middle">LIFEBUTLER · TAITUNG BAWSA</text>
+</svg>

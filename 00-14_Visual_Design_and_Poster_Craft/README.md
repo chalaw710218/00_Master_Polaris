@@ -29,14 +29,23 @@
 ```
 00-14_Visual_Design_and_Poster_Craft/
 ├── README.md                      # [本文件] 00-14 領地總綱與視覺憲章
-├── 01_Design_Systems/             # 幾何網格、品牌標準色與字體規範
-│   ├── 01_Grid_System_Specs.md    # 8欄與12欄幾何網格規範
-│   ├── 02_Typography_Scale.md     # 字體階層與比例尺
-│   └── 03_Color_Palette_SSOT.md   # 極星全域標準色票
+├── 01_Design_Systems/             # 幾何網格、品牌標準色與字體規範 (CIS SSOT)
+│   ├── 00_Brand_Identity_Manual_SSOT.md # [核心憲章] 品牌視覺識別與施工規範手冊 V1.0
+│   ├── 01_Grid_System_Specs.md    # 8欄與12欄幾何網格與印刷出血規範
+│   ├── 02_Typography_Scale.md     # 漢字光學灰度、長輩平權行距與比例尺
+│   ├── 03_Color_Palette_SSOT.md   # 品牌標準色票與 TAC<=250% 印刷防呆
+│   └── brand_logotype_specimen.svg# 核心品牌字標與色彩樣張向量原型
 ├── 02_Posters_Archive/            # 正式宣傳海報成品庫 (PDF / JPG / PNG)
 │   ├── 01_AI_Tutoring_Series/     # 秋季 AI 家教實戰班系列海報
 │   ├── 02_Trash_Collection/       # 生活管家代倒垃圾宣傳海報
 │   └── 03_Store_Banners/          # 實體店家合作與易拉寶展架
+├── 03_Print_Collaterals/          # [落地實體物料庫] 第一期名片、車貼徽章、封口貼條
+│   ├── 00_Print_Production_Order_Guide.md # 健豪/藍格線上送印與發包實戰指南
+│   ├── 01_Business_Card_90x54mm/  # 生活管家隨身名片 (正面+背面向量 SVG)
+│   ├── 02_Delivery_Box_Badge_150mm/ # 外送箱與車身吉祥物圓形徽章貼紙 (150mm)
+│   ├── 03_Package_Sealing_Strip_120x35mm/ # 生鮮包裝封口防拆易碎貼條 (120x35mm)
+│   └── preview_gallery.html       # 實體印刷物料一鍵高保真展示總覽
 └── scripts/
+    ├── generate_print_collaterals.py # 第一期印刷物料自動化向量渲染腳本
     └── poster_renderer.py         # 印刷級 300 DPI 與社群海報自動渲染腳本
 ```

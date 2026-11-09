@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 92 56" width="92mm" height="56mm">
+  <defs>
+    <style>
+      .bg { fill: #FAF8F3; }
+      .bleed-border { fill: none; stroke: #E8E4DA; stroke-width: 0.2; stroke-dasharray: 1 1; }
+      .brand-primary { fill: #F5A623; }
+      .brand-secondary { fill: #8B572A; }
+      .brand-ink { fill: #1A1A1A; }
+      .brand-fresh { fill: #2E7D32; }
+      .text-title { font-family: 'Source Han Sans TW', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif; font-weight: 900; font-size: 3.4px; fill: #1A1A1A; letter-spacing: 0.15px; }
+      .text-subtitle { font-family: 'Source Han Sans TW', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif; font-weight: 700; font-size: 1.8px; fill: #8B572A; letter-spacing: 0.08px; }
+      .text-name { font-family: 'Source Han Sans TW', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif; font-weight: 900; font-size: 5.2px; fill: #1A1A1A; letter-spacing: 0.4px; }
+      .text-role { font-family: 'Source Han Sans TW', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif; font-weight: 700; font-size: 2.2px; fill: #8B572A; }
+      .text-tag { font-family: 'Source Han Sans TW', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif; font-weight: 500; font-size: 1.6px; fill: #4A4A4A; }
+      .text-contact-label { font-family: 'DIN Next', 'Barlow', 'Microsoft JhengHei', sans-serif; font-weight: 700; font-size: 1.8px; fill: #8B572A; }
+      .text-contact-val { font-family: 'DIN Next', 'Barlow', 'Microsoft JhengHei', sans-serif; font-weight: 700; font-size: 2.3px; fill: #1A1A1A; letter-spacing: 0.2px; }
+      .accent-pill { fill: #F5A623; rx: 0.8px; }
+      .pill-text { font-family: 'Source Han Sans TW', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif; font-weight: 900; font-size: 1.5px; fill: #FFFFFF; }
+    </style>
+  </defs>
+
+  <!-- 出血背景 (含 1mm 出血) -->
+  <rect width="92" height="56" class="bg"/>
+
+  <!-- 出血安全裁切示意框 (Trim Line: 90 x 54 mm, 距邊緣 1mm) -->
+  <rect x="1" y="1" width="90" height="54" class="bleed-border"/>
+
+  <!-- 左上角：軌道 A 品牌符號與品牌字標 -->
+  <g transform="translate(6, 6)">
+    <!-- 圓角幾何生活圖標 (Pin + Smile) -->
+    <rect x="0" y="0" width="7.2" height="7.2" rx="1.8" class="brand-primary"/>
+    <circle cx="3.6" cy="3.0" r="1.2" fill="#FFFFFF"/>
+    <circle cx="3.6" cy="3.0" r="0.5" fill="#F5A623"/>
+    <path d="M 2.1 5.1 Q 3.6 6.3 5.1 5.1" stroke="#FFFFFF" stroke-width="0.45" stroke-linecap="round" fill="none"/>
+
+    <!-- 品牌全稱與標語 -->
+    <text x="9.2" y="4.0" class="text-title">生活的一部分，就醬點！</text>
+    <text x="9.3" y="6.6" class="text-subtitle">日常便利 · 暖心到府 · 在地生活管家</text>
+  </g>
+
+  <!-- 幾何分割與裝飾線 (極簡包浩斯) -->
+  <line x1="6" y1="17" x2="86" y2="17" stroke="#E8E4DA" stroke-width="0.3"/>
+  <rect x="6" y="16.8" width="8" height="0.4" fill="#F5A623"/>
+
+  <!-- 左下主體：人物與職稱 -->
+  <g transform="translate(6, 25)">
+    <text x="0" y="0" class="text-name">品 碩</text>
+    <text x="17" y="-0.4" class="text-role">創辦人 ｜ 生活總管家</text>
+
+    <!-- 理念金句膠囊標籤 -->
+    <rect x="0" y="3.2" width="48" height="3.2" rx="0.8" fill="#F4EFE6"/>
+    <text x="2.0" y="5.4" class="text-tag" fill="#8B572A">不添麻煩的貼心，如同生活呼吸般自然存在</text>
+  </g>
+
+  <!-- 右下服務項目與聯絡資訊 -->
+  <g transform="translate(6, 38)">
+    <!-- 三大服務項目標籤 -->
+    <g transform="translate(0, 0)">
+      <rect x="0" y="0" width="16" height="3.2" rx="0.6" class="brand-primary"/>
+      <text x="8" y="2.2" class="pill-text" text-anchor="middle">產地嚴選生鮮</text>
+
+      <rect x="18" y="0" width="16" height="3.2" rx="0.6" fill="#8B572A"/>
+      <text x="26" y="2.2" class="pill-text" text-anchor="middle">孝親居安代辦</text>
+
+      <rect x="36" y="0" width="16" height="3.2" rx="0.6" fill="#2E7D32"/>
+      <text x="44" y="2.2" class="pill-text" text-anchor="middle">社區生活支持</text>
+    </g>
+
+    <!-- 聯絡欄位 -->
+    <g transform="translate(0, 8)">
+      <text x="0" y="2.2" class="text-contact-label">TEL / LINE</text>
+      <text x="14" y="2.2" class="text-contact-val">0982-828-560</text>
+
+      <text x="45" y="2.2" class="text-contact-label">AREA</text>
+      <text x="54" y="2.2" class="text-contact-val">台東市區 · 寶桑生活圈</text>
+    </g>
+  </g>
+
+  <!-- 右下角裝飾小標 -->
+  <text x="86" y="51" font-family="'DIN Next', sans-serif" font-size="1.2px" fill="#A09C94" text-anchor="end">TAITUNG · LOCAL LIFE BUTLER SERVICE</text>
+</svg>

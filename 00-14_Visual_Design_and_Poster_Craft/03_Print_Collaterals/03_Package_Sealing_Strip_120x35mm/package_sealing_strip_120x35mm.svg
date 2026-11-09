@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 122 37" width="122mm" height="37mm">
+  <defs>
+    <style>
+      .bg { fill: #FAF8F3; }
+      .bleed-border { fill: none; stroke: #E8E4DA; stroke-width: 0.2; stroke-dasharray: 1 1; }
+      .brand-green { fill: #2E7D32; }
+      .brand-yellow { fill: #F5A623; }
+      .brand-brown { fill: #8B572A; }
+      .brand-ink { fill: #1A1A1A; }
+      .strip-title { font-family: 'Source Han Sans TW', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif; font-weight: 900; font-size: 3.2px; fill: #1A1A1A; letter-spacing: 0.2px; }
+      .strip-body { font-family: 'Source Han Sans TW', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif; font-weight: 700; font-size: 2.1px; fill: #4A4A4A; }
+      .strip-warn { font-family: 'Source Han Sans TW', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif; font-weight: 900; font-size: 2.2px; fill: #D32F2F; }
+      .dash-cut { stroke: #C0BBB0; stroke-width: 0.3; stroke-dasharray: 1 0.8; }
+    </style>
+  </defs>
+
+  <!-- 滿版背景含 1mm 出血 -->
+  <rect width="122" height="37" class="bg"/>
+  <rect x="1" y="1" width="120" height="35" class="bleed-border"/>
+
+  <!-- 左右兩端防撕齒孔裁切線提示 (象徵易碎安全防偽貼) -->
+  <line x1="7" y1="1" x2="7" y2="36" class="dash-cut"/>
+  <line x1="115" y1="1" x2="115" y2="36" class="dash-cut"/>
+
+  <!-- 左側色塊：安心保鮮直送 (翠綠代表生鮮品質) -->
+  <g transform="translate(11, 5)">
+    <!-- 圓角標籤背景 -->
+    <rect x="0" y="0" width="38" height="25" rx="2" fill="#E8F5E9" stroke="#2E7D32" stroke-width="0.6"/>
+
+    <g transform="translate(3, 3)">
+      <!-- 翠綠圓點認證徽記 -->
+      <circle cx="3" cy="3" r="2.4" class="brand-green"/>
+      <path d="M 1.8 3 L 2.6 3.8 L 4.2 2.2" stroke="#FFFFFF" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+
+      <text x="7" y="3.8" class="strip-title" fill="#2E7D32">安心直送 ｜ 嚴選保鮮</text>
+
+      <text x="0" y="9.5" class="strip-body">產地嚴選直送台東在地好食材</text>
+      <text x="0" y="13.5" class="strip-body">生活管家全程控溫守護到府</text>
+      <text x="0" y="17.5" font-family="'DIN Next', sans-serif" font-weight="700" font-size="1.8px" fill="#8B572A">FRESH &amp; LOCAL BUTLER CARE</text>
+    </g>
+  </g>
+
+  <!-- 中央核心：軌道 B 迷你官方徽章 (直徑 25mm 圓形印記) -->
+  <g transform="translate(61, 17.5)">
+    <!-- 圓形安全印章外圈 -->
+    <circle cx="0" cy="0" r="12" fill="#FAF8F3" stroke="#8B572A" stroke-width="1.2"/>
+    <circle cx="0" cy="0" r="10.8" fill="none" stroke="#F5A623" stroke-width="0.6" stroke-dasharray="1.5 0.8"/>
+
+    <!-- 迷你喵編剪影與品牌符號 -->
+    <circle cx="0" cy="-2.5" r="4.2" fill="#F5A623"/>
+    <!-- 貓耳 -->
+    <polygon points="-3,-5 -1.5,-7.5 0,-5" fill="#F5A623"/>
+    <polygon points="0,-5 1.5,-7.5 3,-5" fill="#F5A623"/>
+    <!-- 幾何微笑 -->
+    <path d="M -2 -1.5 Q 0 0 2 -1.5" stroke="#FFFFFF" stroke-width="0.6" stroke-linecap="round" fill="none"/>
+
+    <!-- 環形字樣 -->
+    <text x="0" y="5.8" font-family="'Source Han Sans TW', sans-serif" font-weight="900" font-size="1.8px" fill="#1A1A1A" text-anchor="middle">就醬點！</text>
+    <text x="0" y="8.2" font-family="'Source Han Sans TW', sans-serif" font-weight="700" font-size="1.4px" fill="#8B572A" text-anchor="middle">生活管家</text>
+  </g>
+
+  <!-- 右側色塊：拆箱提醒與服務專線 (暖陽黃底色) -->
+  <g transform="translate(73, 5)">
+    <rect x="0" y="0" width="38" height="25" rx="2" fill="#FFF9ED" stroke="#F5A623" stroke-width="0.6"/>
+
+    <g transform="translate(3, 3)">
+      <!-- 警示鈴鐺或錄影符號 -->
+      <circle cx="3" cy="3" r="2.4" fill="#D32F2F"/>
+      <polygon points="2,1.8 4.2,3 2,4.2" fill="#FFFFFF"/>
+
+      <text x="7" y="3.8" class="strip-warn">拆封前請先錄影存證</text>
+
+      <text x="0" y="9.5" class="strip-body">確保食材與商品完好無損</text>
+      <text x="0" y="13.5" class="strip-body">若有任何瑕疵管家無條件處理</text>
+      <text x="0" y="17.5" font-family="'DIN Next', sans-serif" font-weight="700" font-size="2.0px" fill="#1A1A1A">服務專線：0982-828-560</text>
+    </g>
+  </g>
+</svg>
