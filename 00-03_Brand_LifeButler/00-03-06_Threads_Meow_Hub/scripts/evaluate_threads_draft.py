@@ -114,14 +114,18 @@ def evaluate_threads_draft(text):
     return max(0, min(100, score)), feedback
 
 if __name__ == "__main__":
-    test_draft = """
+    if len(sys.argv) > 1 and Path(sys.argv[1]).exists():
+        with open(sys.argv[1], "r", encoding="utf-8") as f:
+            target_text = f.read()
+    else:
+        target_text = """
 我就問全台灣，
 到底有多少人跟我一樣，
 每次滿懷信心想煎一條金黃酥脆的午仔魚，
 起鍋時整條魚皮全部黏在鍋底，
 端上桌直接變成「乾煎骨肉分離魚」的？？？
 
-闆仔剛剛在廚房看不下去，
+小編剛剛在廚房看不下去，
 敲我腦袋傳授了四字口訣：
 
 「乾、熱、定、晃」
@@ -130,7 +134,7 @@ if __name__ == "__main__":
 真的金黃酥脆到像居酒屋大廚做的！
 有被魚皮背叛過的人，在留言區舉個手取暖一下喵...👇
 """
-    score, report = evaluate_threads_draft(test_draft)
+    score, report = evaluate_threads_draft(target_text)
     print(f"🏆 草稿評分: {score} / 100")
     for r in report:
         print("  ", r)

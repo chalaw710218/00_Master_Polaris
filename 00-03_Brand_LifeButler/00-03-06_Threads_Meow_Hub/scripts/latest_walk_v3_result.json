@@ -1,68 +1,7 @@
 {
-  "timestamp": "2026-11-08 23:54:15",
-  "step1_home_replies": 0,
-  "step2_friends_visited": [
-    {
-      "username": "sinapayan_youth",
-      "name": "喜拿巴漾青年工作站",
-      "action": "liked"
-    },
-    {
-      "username": "howhow_sweets",
-      "name": "好好·食甜",
-      "action": "already_liked"
-    },
-    {
-      "username": "chaiyuan_bakery",
-      "name": "柴源製菓",
-      "action": "already_liked"
-    },
-    {
-      "username": "sankou_food_office",
-      "name": "仨口食事處",
-      "action": "already_liked"
-    },
-    {
-      "username": "yuanlung.667",
-      "name": "緣龍無骨鹽酥雞",
-      "action": "already_liked"
-    },
-    {
-      "username": "956leissmoker",
-      "name": "雨田燻",
-      "action": "already_liked"
-    },
-    {
-      "username": "hattcoffee",
-      "name": "Hatt Coffee",
-      "action": "already_liked"
-    }
-  ],
-  "step2_reciprocal_visit": {
-    "target": "@ysm.s.1979",
-    "status": "visited_footprint",
-    "proof": null
-  },
-  "step2_clout_tea": {
-    "target": "@956leissmoker (雨田燻)",
-    "message": "看老闆認真專注煙燻，生活管家默默在後排端出剛泡好的熱茶... 辛苦了，今晚別想工作，好好犒勞自己！🍵🍖",
-    "proof": "scripts/screenshots/walk_v3_clout_tea_956leissmoker.png"
-  },
-  "step3_feed_likes": 3,
-  "step4_post": {
-    "post_id": "17959748709256812",
-    "permalink": "https://www.threads.com/@hellotaitung/post/DffH9GQicew",
-    "title": "深夜守候・週日紅烏龍晚安篇 (真正女性影定裝版)",
-    "hero": "生活管家 (影 - 知性女性)",
-    "topic_tag": "台東生活",
-    "image": "shadow_sunday_midnight_tea_desk_v2.jpg",
-    "image_verified": true,
-    "screenshot": "scripts/screenshots/true_shadow_midnight_17959748709256812_verified.png"
-  },
-  "step45_first_reply": {
-    "reply_id": "18099190118109866",
-    "text": "（輕輕遞上一只溫熱的茶杯）如果腦袋還在轉、還睡不著也沒關係，把燈光調暗，喝口溫水。今晚的生活管家在後排替大家守夜，願你好夢。🍵✨"
-  },
-  "step5_friend_ledger": "updated",
-  "step6_cognitive_sync": true
+  "post_id": "17936230917145580",
+  "permalink": "https://www.threads.com/@hellotaitung/post/DfhpWh1CQQR",
+  "reply_id": "18068637212617279",
+  "image": "meow_monday_midnight_sleeping_ball.jpg",
+  "proof_screenshot": "scripts\\screenshots\\walk_v3_17936230917145580_meow_midnight_verified.png"
 }
