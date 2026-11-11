@@ -12,7 +12,7 @@ session_path = Path("scripts/threads_session.json")
 screenshot_dir = Path("scripts/screenshots")
 screenshot_dir.mkdir(parents=True, exist_ok=True)
 
-target_handle = "starrytaitung_"
+target_handle = "momenteats"
 
 with sync_playwright() as p:
     browser = p.chromium.launch(headless=True)
@@ -22,7 +22,7 @@ with sync_playwright() as p:
     print(f"前往友店: {url}")
     try:
         page.goto(url, wait_until="domcontentloaded", timeout=25000)
-        page.wait_for_timeout(3500)
+        page.wait_for_timeout(4000)
         
         # 點讚最新一篇
         like_btn = page.locator('svg[aria-label="讚"], svg[aria-label="Like"]').first
@@ -31,7 +31,7 @@ with sync_playwright() as p:
             print("點亮微光愛心 ❤️")
             page.wait_for_timeout(1000)
             
-        proof = screenshot_dir / "walk_v3_clout_tea_starrytaitung_monday_night.png"
+        proof = screenshot_dir / "walk_v3_clout_tea_momenteats_wednesday_midnight.png"
         page.screenshot(path=str(proof))
         print(f"✅ 截圖存證: {proof}")
     except Exception as e:

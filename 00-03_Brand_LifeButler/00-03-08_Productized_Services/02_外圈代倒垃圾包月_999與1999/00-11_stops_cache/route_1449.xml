@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Items>
+  <ScheduleTime stop_id="44399" name="臨海路3段469號(週六回收車)" lon="121.1166" lat="22.72691" car_no="" status_id="0" stay_range="沿途清運" stime="16:00~16:00" estimate="16:00" push="True">1</ScheduleTime>
+  <ScheduleTime stop_id="44400" name="臨海路二段51號(東海岸加油站)" lon="121.1427" lat="22.7397" car_no="" status_id="0" stay_range="沿途清運" stime="16:05~16:05" estimate="16:05" push="True">2</ScheduleTime>
+  <ScheduleTime stop_id="44401" name="光復路與臨海路1段" lon="121.1561" lat="22.74983" car_no="" status_id="0" stay_range="沿途清運" stime="16:10~16:10" estimate="16:10" push="True">3</ScheduleTime>
+  <ScheduleTime stop_id="44402" name="勝利街與中山路" lon="121.157" lat="22.76168" car_no="" status_id="0" stay_range="沿途清運" stime="16:20~16:20" estimate="16:20" push="True">4</ScheduleTime>
+  <ScheduleTime stop_id="44403" name="勝利街235巷口" lon="121.1516" lat="22.76605" car_no="" status_id="0" stay_range="沿途清運" stime="16:30~16:30" estimate="16:30" push="True">5</ScheduleTime>
+  <ScheduleTime stop_id="44404" name="仁七街與勝利街" lon="121.1451" lat="22.77071" car_no="" status_id="0" stay_range="沿途清運" stime="16:35~16:35" estimate="16:35" push="True">6</ScheduleTime>
+  <ScheduleTime stop_id="44405" name="仁七街95號(東華大樓A棟)" lon="121.143" lat="22.7696" car_no="" status_id="0" stay_range="沿途清運" stime="16:43~16:43" estimate="16:43" push="True">7</ScheduleTime>
+  <ScheduleTime stop_id="44406" name="仁八街與泰安街" lon="121.1404" lat="22.77015" car_no="" status_id="0" stay_range="沿途清運" stime="16:45~16:45" estimate="16:45" push="True">8</ScheduleTime>
+  <ScheduleTime stop_id="44407" name="仁八街與仁七街160巷口" lon="121.1416" lat="22.77004" car_no="" status_id="0" stay_range="沿途清運" stime="16:48~16:48" estimate="16:48" push="True">9</ScheduleTime>
+  <ScheduleTime stop_id="44408" name="傳廣路與中興路口" lon="121.1439" lat="22.76796" car_no="" status_id="0" stay_range="沿途清運" stime="17:00~17:00" estimate="17:00" push="True">10</ScheduleTime>
+  <ScheduleTime stop_id="44409" name="傳廣路455號前(迴轉)" lon="121.1439" lat="22.76656" car_no="" status_id="0" stay_range="沿途清運" stime="17:03~17:03" estimate="17:03" push="True">11</ScheduleTime>
+  <ScheduleTime stop_id="44411" name="仁五街17號(東華大樓B棟)" lon="121.1436" lat="22.76858" car_no="" status_id="0" stay_range="沿途清運" stime="17:10~17:10" estimate="17:10" push="True">12</ScheduleTime>
+  <ScheduleTime stop_id="44412" name="仁五街200號" lon="121.1393" lat="22.76855" car_no="" status_id="0" stay_range="沿途清運" stime="17:17~17:17" estimate="17:17" push="True">13</ScheduleTime>
+  <ScheduleTime stop_id="44413" name="更生路886巷56號" lon="121.1354" lat="22.77059" car_no="" status_id="0" stay_range="沿途清運" stime="17:20~17:20" estimate="17:20" push="True">14</ScheduleTime>
+  <ScheduleTime stop_id="44414" name="濟南路(果菜市場)" lon="121.1377" lat="22.77146" car_no="" status_id="0" stay_range="沿途清運" stime="17:25~17:25" estimate="17:25" push="True">15</ScheduleTime>
+  <ScheduleTime stop_id="44415" name="泰安街26巷口" lon="121.1405" lat="22.76743" car_no="" status_id="0" stay_range="沿途清運" stime="17:35~17:35" estimate="17:35" push="True">16</ScheduleTime>
+  <ScheduleTime stop_id="44416" name="泰安街與仁一街口" lon="121.1404" lat="22.76638" car_no="" status_id="0" stay_range="沿途清運" stime="17:38~17:38" estimate="17:38" push="True">17</ScheduleTime>
+  <ScheduleTime stop_id="44417" name="四維路3段148巷" lon="121.1409" lat="22.76631" car_no="" status_id="0" stay_range="沿途清運" stime="17:39~17:39" estimate="17:39" push="True">18</ScheduleTime>
+  <ScheduleTime stop_id="44418" name="仁二街311巷" lon="121.1416" lat="22.76648" car_no="" status_id="0" stay_range="沿途清運" stime="17:43~17:43" estimate="17:43" push="True">19</ScheduleTime>
+  <ScheduleTime stop_id="44420" name="仁三街252號(愛心安養院)" lon="121.1427" lat="22.76747" car_no="" status_id="0" stay_range="沿途清運" stime="17:52~17:52" estimate="17:52" push="True">20</ScheduleTime>
+  <ScheduleTime stop_id="44421" name="仁一街255號" lon="121.1431" lat="22.76638" car_no="" status_id="0" stay_range="沿途清運" stime="17:55~17:55" estimate="17:55" push="True">21</ScheduleTime>
+  <ScheduleTime stop_id="44422" name="仁二街196號" lon="121.1442" lat="22.76694" car_no="" status_id="0" stay_range="沿途清運" stime="18:02~18:02" estimate="18:02" push="True">22</ScheduleTime>
+  <ScheduleTime stop_id="44423" name="仁三街150號" lon="121.1449" lat="22.76748" car_no="" status_id="0" stay_range="沿途清運" stime="18:10~18:10" estimate="18:10" push="True">23</ScheduleTime>
+  <ScheduleTime stop_id="44424" name="仁二街30號" lon="121.1482" lat="22.76698" car_no="" status_id="0" stay_range="沿途清運" stime="18:20~18:20" estimate="18:20" push="True">24</ScheduleTime>
+  <ScheduleTime stop_id="44425" name="仁一街40號" lon="121.148" lat="22.76641" car_no="" status_id="0" stay_range="沿途清運" stime="18:22~18:22" estimate="18:22" push="True">25</ScheduleTime>
+  <ScheduleTime stop_id="44426" name="仁三街5號" lon="121.148" lat="22.76732" car_no="" status_id="0" stay_range="沿途清運" stime="18:25~18:25" estimate="18:25" push="True">26</ScheduleTime>
+  <ScheduleTime stop_id="44428" name="馬亨亨大道與勝利街122巷口" lon="121.1547" lat="22.76461" car_no="" status_id="0" stay_range="沿途清運" stime="18:40~18:40" estimate="18:40" push="True">27</ScheduleTime>
+  <ScheduleTime stop_id="44430" name="強國街6號" lon="121.1601" lat="22.7576" car_no="" status_id="0" stay_range="沿途清運" stime="19:35~19:35" estimate="19:35" push="True">28</ScheduleTime>
+  <ScheduleTime stop_id="44432" name="強國街348巷口入" lon="121.1534" lat="22.76321" car_no="" status_id="0" stay_range="沿途清運" stime="19:45~19:45" estimate="19:45" push="True">29</ScheduleTime>
+  <ScheduleTime stop_id="44435" name="浙江路82號" lon="121.1493" lat="22.76037" car_no="" status_id="0" stay_range="沿途清運" stime="19:55~19:55" estimate="19:55" push="True">30</ScheduleTime>
+  <ScheduleTime stop_id="44436" name="傳廣路388巷與寧波街口" lon="121.1478" lat="22.76489" car_no="" status_id="0" stay_range="沿途清運" stime="20:05~20:05" estimate="20:05" push="True">31</ScheduleTime>
+  <ScheduleTime stop_id="44437" name="傳廣路360巷139號" lon="121.1471" lat="22.76429" car_no="" status_id="0" stay_range="沿途清運" stime="20:15~20:15" estimate="20:15" push="True">32</ScheduleTime>
+  <ScheduleTime stop_id="44438" name="寧波街134巷口" lon="121.1489" lat="22.76236" car_no="" status_id="0" stay_range="沿途清運" stime="20:20~20:20" estimate="20:20" push="True">33</ScheduleTime>
+  <ScheduleTime stop_id="44441" name="傳廣路234巷" lon="121.1451" lat="22.76234" car_no="" status_id="0" stay_range="沿途清運" stime="20:27~20:27" estimate="20:27" push="True">34</ScheduleTime>
+  <ScheduleTime stop_id="44442" name="徐州街415號" lon="121.1445" lat="22.76291" car_no="" status_id="0" stay_range="沿途清運" stime="20:30~20:30" estimate="20:30" push="True">35</ScheduleTime>
+  <ScheduleTime stop_id="44444" name="鄭州街156號" lon="121.1486" lat="22.76179" car_no="" status_id="0" stay_range="沿途清運" stime="20:43~20:43" estimate="20:43" push="True">36</ScheduleTime>
+  <ScheduleTime stop_id="44445" name="鄭州街與上海街" lon="121.1453" lat="22.76177" car_no="" status_id="0" stay_range="沿途清運" stime="20:48~20:48" estimate="20:48" push="True">37</ScheduleTime>
+  <ScheduleTime stop_id="44446" name="上海街14巷" lon="121.1453" lat="22.76122" car_no="" status_id="0" stay_range="沿途清運" stime="20:51~20:51" estimate="20:51" push="True">38</ScheduleTime>
+  <ScheduleTime stop_id="44448" name="寧波街84巷口" lon="121.1479" lat="22.76119" car_no="" status_id="0" stay_range="沿途清運" stime="20:58~20:58" estimate="20:58" push="True">39</ScheduleTime>
+  <ScheduleTime stop_id="44450" name="杭州街128巷" lon="121.1478" lat="22.76063" car_no="" status_id="0" stay_range="沿途清運" stime="21:02~21:02" estimate="21:02" push="True">40</ScheduleTime>
+  <ScheduleTime stop_id="44451" name="寧波街21巷30號" lon="121.1471" lat="22.76012" car_no="" status_id="0" stay_range="沿途清運" stime="21:05~21:05" estimate="21:05" push="True">41</ScheduleTime>
+  <ScheduleTime stop_id="44453" name="浙江路19號(拿手菜)" lon="121.1493" lat="22.75892" car_no="" status_id="0" stay_range="沿途清運" stime="21:10~21:10" estimate="21:10" push="True">42</ScheduleTime>
+  <ScheduleTime stop_id="44454" name="更生路148巷5號(小賴薑母鴉)" lon="121.1481" lat="22.75893" car_no="" status_id="0" stay_range="沿途清運" stime="21:15~21:15" estimate="21:15" push="True">43</ScheduleTime>
+</Items>

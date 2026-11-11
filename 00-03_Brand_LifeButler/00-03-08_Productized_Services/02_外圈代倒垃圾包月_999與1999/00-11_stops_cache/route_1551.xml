@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Items>
+  <ScheduleTime stop_id="50304" name="新生路851號" lon="121.1338" lat="22.76578" car_no="" status_id="0" stay_range="沿途清運" stime="16:10~16:10" estimate="16:10" push="True">1</ScheduleTime>
+  <ScheduleTime stop_id="50305" name="新生路655號" lon="121.1364" lat="22.76311" car_no="" status_id="0" stay_range="沿途清運" stime="16:15~16:15" estimate="16:15" push="True">2</ScheduleTime>
+  <ScheduleTime stop_id="50307" name="新生路421號" lon="121.1402" lat="22.75923" car_no="" status_id="0" stay_range="沿途清運" stime="16:25~16:25" estimate="16:25" push="True">3</ScheduleTime>
+  <ScheduleTime stop_id="50310" name="新生路287號" lon="121.1427" lat="22.75741" car_no="" status_id="0" stay_range="沿途清運" stime="16:27~16:27" estimate="16:27" push="True">4</ScheduleTime>
+  <ScheduleTime stop_id="50311" name="新生路53號" lon="121.1498" lat="22.7512" car_no="" status_id="0" stay_range="沿途清運" stime="16:36~16:36" estimate="16:36" push="True">5</ScheduleTime>
+  <ScheduleTime stop_id="50312" name="新生路1號迴轉" lon="121.1524" lat="22.74913" car_no="" status_id="0" stay_range="沿途清運" stime="16:41~16:41" estimate="16:41" push="True">6</ScheduleTime>
+  <ScheduleTime stop_id="50313" name="新生路288號" lon="121.1443" lat="22.75593" car_no="" status_id="0" stay_range="沿途清運" stime="16:48~16:48" estimate="16:48" push="True">7</ScheduleTime>
+  <ScheduleTime stop_id="50314" name="新生路460號" lon="121.14" lat="22.7594" car_no="" status_id="0" stay_range="沿途清運" stime="16:54~16:54" estimate="16:54" push="True">8</ScheduleTime>
+  <ScheduleTime stop_id="50316" name="新生路770號" lon="121.1342" lat="22.76534" car_no="" status_id="0" stay_range="沿途清運" stime="17:01~17:01" estimate="17:01" push="True">9</ScheduleTime>
+  <ScheduleTime stop_id="50317" name="中興路1段607號" lon="121.134" lat="22.76622" car_no="" status_id="0" stay_range="沿途清運" stime="17:02~17:02" estimate="17:02" push="True">10</ScheduleTime>
+  <ScheduleTime stop_id="50319" name="中興路1段503號" lon="121.1361" lat="22.76779" car_no="" status_id="0" stay_range="沿途清運" stime="17:04~17:04" estimate="17:04" push="True">11</ScheduleTime>
+  <ScheduleTime stop_id="50320" name="更生路731號" lon="121.1365" lat="22.76786" car_no="" status_id="0" stay_range="沿途清運" stime="17:09~17:09" estimate="17:09" push="True">12</ScheduleTime>
+  <ScheduleTime stop_id="50322" name="更生路503號" lon="121.1402" lat="22.76406" car_no="" status_id="0" stay_range="沿途清運" stime="17:11~17:11" estimate="17:11" push="True">13</ScheduleTime>
+  <ScheduleTime stop_id="50324" name="更生路107號" lon="121.1482" lat="22.75873" car_no="" status_id="0" stay_range="沿途清運" stime="17:23~17:23" estimate="17:23" push="True">14</ScheduleTime>
+  <ScheduleTime stop_id="50325" name="更生路11號交通隊" lon="121.1506" lat="22.75642" car_no="" status_id="0" stay_range="沿途清運" stime="17:25~17:25" estimate="17:25" push="True">15</ScheduleTime>
+  <ScheduleTime stop_id="50326" name="更生路1號(迴轉)" lon="121.1518" lat="22.75521" car_no="" status_id="0" stay_range="沿途清運" stime="17:26~17:26" estimate="17:26" push="True">16</ScheduleTime>
+  <ScheduleTime stop_id="53638" name="更生路2號" lon="121.1517" lat="22.75533" car_no="" status_id="0" stay_range="沿途清運" stime="18:00~18:00" estimate="18:00" push="True">17</ScheduleTime>
+  <ScheduleTime stop_id="50327" name="更生路74號" lon="121.1501" lat="22.75696" car_no="" status_id="0" stay_range="沿途清運" stime="18:01~18:01" estimate="18:01" push="True">18</ScheduleTime>
+  <ScheduleTime stop_id="50329" name="更生路318號" lon="121.145" lat="22.76062" car_no="" status_id="0" stay_range="沿途清運" stime="18:06~18:06" estimate="18:06" push="True">19</ScheduleTime>
+  <ScheduleTime stop_id="50332" name="更生路814號" lon="121.1352" lat="22.76908" car_no="" status_id="0" stay_range="沿途清運" stime="18:18~18:18" estimate="18:18" push="True">20</ScheduleTime>
+  <ScheduleTime stop_id="50333" name="更生路1112號" lon="121.1298" lat="22.77428" car_no="" status_id="0" stay_range="沿途清運" stime="18:21~18:21" estimate="18:21" push="True">21</ScheduleTime>
+  <ScheduleTime stop_id="50334" name="志航路1段12號" lon="121.1269" lat="22.77736" car_no="" status_id="0" stay_range="沿途清運" stime="18:24~18:24" estimate="18:24" push="True">22</ScheduleTime>
+  <ScheduleTime stop_id="50335" name="志航路1段310號" lon="121.1278" lat="22.78388" car_no="" status_id="0" stay_range="沿途清運" stime="18:28~18:28" estimate="18:28" push="True">23</ScheduleTime>
+  <ScheduleTime stop_id="50336" name="志航路1段11巷(卑南加油站旁不用進)" lon="121.127" lat="22.77781" car_no="" status_id="0" stay_range="沿途清運" stime="18:30~18:30" estimate="18:30" push="True">24</ScheduleTime>
+  <ScheduleTime stop_id="50337" name="更生路1159號" lon="121.1297" lat="22.77424" car_no="" status_id="0" stay_range="沿途清運" stime="18:33~18:33" estimate="18:33" push="True">25</ScheduleTime>
+  <ScheduleTime stop_id="50338" name="更生路907號" lon="121.1333" lat="22.77088" car_no="" status_id="0" stay_range="沿途清運" stime="18:37~18:37" estimate="18:37" push="True">26</ScheduleTime>
+  <ScheduleTime stop_id="50339" name="更生路741號" lon="121.136" lat="22.76835" car_no="" status_id="0" stay_range="沿途清運" stime="18:41~18:41" estimate="18:41" push="True">27</ScheduleTime>
+  <ScheduleTime stop_id="50340" name="中山路413號" lon="121.1482" lat="22.75286" car_no="" status_id="0" stay_range="沿途清運" stime="19:30~19:30" estimate="19:30" push="True">28</ScheduleTime>
+  <ScheduleTime stop_id="50342" name="中山路285號" lon="121.1512" lat="22.75578" car_no="" status_id="0" stay_range="沿途清運" stime="19:38~19:38" estimate="19:38" push="True">29</ScheduleTime>
+  <ScheduleTime stop_id="50343" name="中山路57號" lon="121.1566" lat="22.76127" car_no="" status_id="0" stay_range="沿途清運" stime="19:47~19:47" estimate="19:47" push="True">30</ScheduleTime>
+  <ScheduleTime stop_id="50344" name="四維路一段與中山路口" lon="121.1546" lat="22.75921" car_no="" status_id="0" stay_range="沿途清運" stime="19:48~19:48" estimate="19:48" push="True">31</ScheduleTime>
+  <ScheduleTime stop_id="50346" name="中山路390號" lon="121.1483" lat="22.75302" car_no="" status_id="0" stay_range="沿途清運" stime="19:54~19:54" estimate="19:54" push="True">32</ScheduleTime>
+  <ScheduleTime stop_id="50347" name="精誠路363號" lon="121.1532" lat="22.75016" car_no="" status_id="0" stay_range="沿途清運" stime="20:00~20:00" estimate="20:00" push="True">33</ScheduleTime>
+  <ScheduleTime stop_id="50349" name="精誠路153號" lon="121.1576" lat="22.7548" car_no="" status_id="0" stay_range="沿途清運" stime="20:09~20:09" estimate="20:09" push="True">34</ScheduleTime>
+  <ScheduleTime stop_id="50350" name="精誠路1號" lon="121.16" lat="22.75736" car_no="" status_id="0" stay_range="沿途清運" stime="20:15~20:15" estimate="20:15" push="True">35</ScheduleTime>
+  <ScheduleTime stop_id="50351" name="世紀國堡大樓" lon="121.1602" lat="22.75749" car_no="" status_id="0" stay_range="沿途清運" stime="20:25~20:25" estimate="20:25" push="True">36</ScheduleTime>
+  <ScheduleTime stop_id="50352" name="強國街21號" lon="121.1612" lat="22.75669" car_no="" status_id="0" stay_range="沿途清運" stime="20:30~20:30" estimate="20:30" push="True">37</ScheduleTime>
+  <ScheduleTime stop_id="50353" name="強國街3號" lon="121.1619" lat="22.75625" car_no="" status_id="0" stay_range="沿途清運" stime="20:32~20:32" estimate="20:32" push="True">38</ScheduleTime>
+  <ScheduleTime stop_id="50354" name="臨海路1段110號" lon="121.1601" lat="22.75396" car_no="" status_id="0" stay_range="沿途清運" stime="20:35~20:35" estimate="20:35" push="True">39</ScheduleTime>
+  <ScheduleTime stop_id="50356" name="臨海路1段276號" lon="121.1576" lat="22.7514" car_no="" status_id="0" stay_range="沿途清運" stime="20:40~20:40" estimate="20:40" push="True">40</ScheduleTime>
+  <ScheduleTime stop_id="50357" name="臨海路2段498之1號" lon="121.1322" lat="22.73443" car_no="" status_id="0" stay_range="沿途清運" stime="20:45~20:45" estimate="20:45" push="True">41</ScheduleTime>
+</Items>

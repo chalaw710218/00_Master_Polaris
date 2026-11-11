@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Items>
+  <ScheduleTime stop_id="45463" name="柏林養護中心" lon="121.1286" lat="22.72494" car_no="" status_id="0" stay_range="沿途清運" stime="15:30~15:30" estimate="本日不清運" push="True">1</ScheduleTime>
+  <ScheduleTime stop_id="45464" name="臨海路三段2號至1114號" lon="121.1302" lat="22.73348" car_no="" status_id="0" stay_range="沿途清運" stime="15:35~15:35" estimate="本日不清運" push="True">2</ScheduleTime>
+  <ScheduleTime stop_id="45465" name="正氣北路(豐樂工業區)(週二.五回收車)" lon="121.1329" lat="22.75443" car_no="" status_id="0" stay_range="沿途清運" stime="15:50~15:50" estimate="本日不清運" push="True">3</ScheduleTime>
+  <ScheduleTime stop_id="45466" name="漢陽北路(豐樂工業區)(週二.五回收車)" lon="121.1311" lat="22.7534" car_no="" status_id="0" stay_range="沿途清運" stime="15:52~15:52" estimate="本日不清運" push="True">4</ScheduleTime>
+  <ScheduleTime stop_id="45467" name="大業路132巷(豐樂工業區)(週二.五回收車)" lon="121.1316" lat="22.75254" car_no="" status_id="0" stay_range="沿途清運" stime="16:00~16:00" estimate="本日不清運" push="True">5</ScheduleTime>
+  <ScheduleTime stop_id="45468" name="大勇路26號(豐樂工業區)(週二.五回收車)" lon="121.1303" lat="22.75362" car_no="" status_id="0" stay_range="沿途清運" stime="16:05~16:05" estimate="本日不清運" push="True">6</ScheduleTime>
+  <ScheduleTime stop_id="45469" name="大正路20號(豐樂工業區)(週二.五回收車)" lon="121.1335" lat="22.75555" car_no="" status_id="0" stay_range="沿途清運" stime="16:10~16:10" estimate="本日不清運" push="True">7</ScheduleTime>
+  <ScheduleTime stop_id="45470" name="大孝路85號(豐樂工業區)(週二.五回收車)" lon="121.1312" lat="22.7561" car_no="" status_id="0" stay_range="沿途清運" stime="16:15~16:15" estimate="本日不清運" push="True">8</ScheduleTime>
+  <ScheduleTime stop_id="45471" name="大德路8號(豐樂工業區)(週二.五回收車)" lon="121.1327" lat="22.75824" car_no="" status_id="0" stay_range="沿途清運" stime="16:17~16:17" estimate="本日不清運" push="True">9</ScheduleTime>
+  <ScheduleTime stop_id="45472" name="大道路(豐樂工業區)(週二.五回收車)" lon="121.1328" lat="22.7579" car_no="" status_id="0" stay_range="沿途清運" stime="16:20~16:20" estimate="本日不清運" push="True">10</ScheduleTime>
+  <ScheduleTime stop_id="45473" name="大仁路(豐樂工業區)(週二.五回收車)" lon="121.1332" lat="22.75723" car_no="" status_id="0" stay_range="沿途清運" stime="16:22~16:22" estimate="本日不清運" push="True">11</ScheduleTime>
+  <ScheduleTime stop_id="45474" name="大忠路(豐樂工業區)(週二.五回收車)" lon="121.1318" lat="22.75723" car_no="" status_id="0" stay_range="沿途清運" stime="16:30~16:30" estimate="本日不清運" push="True">12</ScheduleTime>
+  <ScheduleTime stop_id="45475" name="中華路1段665號(農委會水保局）" lon="121.1481" lat="22.74937" car_no="" status_id="0" stay_range="沿途清運" stime="16:50~16:50" estimate="本日不清運" push="True">13</ScheduleTime>
+  <ScheduleTime stop_id="45476" name="台東市公所、台東市代表會、戶政事務所" lon="121.1464" lat="22.75485" car_no="" status_id="0" stay_range="沿途清運" stime="16:55~16:55" estimate="本日不清運" push="True">14</ScheduleTime>
+  <ScheduleTime stop_id="45477" name="新生路168巷20號" lon="121.1478" lat="22.75371" car_no="" status_id="0" stay_range="沿途清運" stime="16:55~16:55" estimate="本日不清運" push="True">15</ScheduleTime>
+  <ScheduleTime stop_id="45478" name="馬蘭市場" lon="121.1364" lat="22.76576" car_no="" status_id="0" stay_range="沿途清運" stime="17:05~17:05" estimate="本日不清運" push="True">16</ScheduleTime>
+  <ScheduleTime stop_id="45479" name="仁一街(慈濟台東聯絡處)" lon="121.1487" lat="22.7665" car_no="" status_id="0" stay_range="沿途清運" stime="17:08~17:08" estimate="本日不清運" push="True">17</ScheduleTime>
+  <ScheduleTime stop_id="45480" name="更生路50巷28號(福康大飯店)" lon="121.1509" lat="22.75678" car_no="" status_id="0" stay_range="沿途清運" stime="17:10~17:10" estimate="本日不清運" push="True">18</ScheduleTime>
+  <ScheduleTime stop_id="45484" name="中央市場" lon="121.1494" lat="22.75334" car_no="" status_id="0" stay_range="沿途清運" stime="17:15~17:15" estimate="本日不清運" push="True">19</ScheduleTime>
+  <ScheduleTime stop_id="45481" name="臨海路1段183巷(海濱公園)(週六回收車)" lon="121.1585" lat="22.75218" car_no="" status_id="0" stay_range="沿途清運" stime="17:30~17:30" estimate="本日不清運" push="True">20</ScheduleTime>
+  <ScheduleTime stop_id="45483" name="南海路191號(海巡署海洋驛站)" lon="121.1519" lat="22.744" car_no="" status_id="0" stay_range="沿途清運" stime="17:35~17:35" estimate="本日不清運" push="True">21</ScheduleTime>
+  <ScheduleTime stop_id="45486" name="開封街680巷7號(週六(15:00)回收車)" lon="121.1381" lat="22.75985" car_no="" status_id="0" stay_range="沿途清運" stime="18:30~18:30" estimate="本日不清運" push="True">22</ScheduleTime>
+  <ScheduleTime stop_id="45487" name="漢中街300巷(週六(15:00)回收車)" lon="121.1352" lat="22.76153" car_no="" status_id="0" stay_range="沿途清運" stime="18:50~18:50" estimate="本日不清運" push="True">23</ScheduleTime>
+  <ScheduleTime stop_id="45488" name="開封街橋旁漢中街185巷88號至80號至50號至65號(堤防旁)(週六(15:00)回收車)" lon="121.1346" lat="22.76044" car_no="" status_id="0" stay_range="沿途清運" stime="18:55~18:55" estimate="本日不清運" push="True">24</ScheduleTime>
+  <ScheduleTime stop_id="45489" name="開封街橋下迴轉至漢中街止(週六(15:00)回收車)" lon="121.136" lat="22.75809" car_no="" status_id="0" stay_range="沿途清運" stime="18:58~18:58" estimate="本日不清運" push="True">25</ScheduleTime>
+  <ScheduleTime stop_id="45490" name="仁愛街5號(週二、五回收車)" lon="121.1577" lat="22.75517" car_no="" status_id="0" stay_range="沿途清運" stime="19:05~19:05" estimate="本日不清運" push="True">26</ScheduleTime>
+  <ScheduleTime stop_id="45492" name="青島街497號馬亨亨大道旁" lon="121.1414" lat="22.77581" car_no="" status_id="0" stay_range="沿途清運" stime="19:10~19:10" estimate="本日不清運" push="True">27</ScheduleTime>
+  <ScheduleTime stop_id="45493" name="青島街501號馬亨亨大道旁" lon="121.1411" lat="22.77608" car_no="" status_id="0" stay_range="沿途清運" stime="19:15~19:15" estimate="本日不清運" push="True">28</ScheduleTime>
+  <ScheduleTime stop_id="45496" name="馬亨亨大道與青島街口迴轉" lon="121.1381" lat="22.77758" car_no="" status_id="0" stay_range="沿途清運" stime="19:20~19:20" estimate="本日不清運" push="True">29</ScheduleTime>
+  <ScheduleTime stop_id="45494" name="馬亨亨大道800號" lon="121.1404" lat="22.77614" car_no="" status_id="0" stay_range="沿途清運" stime="19:21~19:21" estimate="本日不清運" push="True">30</ScheduleTime>
+  <ScheduleTime stop_id="45498" name="馬亨亨大道625號民宿" lon="121.1424" lat="22.77507" car_no="" status_id="0" stay_range="沿途清運" stime="19:21~19:21" estimate="本日不清運" push="True">31</ScheduleTime>
+  <ScheduleTime stop_id="45499" name="馬亨亨大道555號前迴轉" lon="121.1438" lat="22.77312" car_no="" status_id="0" stay_range="沿途清運" stime="19:25~19:25" estimate="本日不清運" push="True">32</ScheduleTime>
+  <ScheduleTime stop_id="45500" name="志航路1段648巷23號(臺東大橋下)(週二回收車)" lon="121.1325" lat="22.78912" car_no="" status_id="0" stay_range="沿途清運" stime="19:30~19:30" estimate="本日不清運" push="True">33</ScheduleTime>
+  <ScheduleTime stop_id="45501" name="志航路1段639巷165號(週二回收車)" lon="121.1311" lat="22.79072" car_no="" status_id="0" stay_range="沿途清運" stime="19:32~19:32" estimate="本日不清運" push="True">34</ScheduleTime>
+  <ScheduleTime stop_id="45502" name="志航路1段593巷37弄41號(週二回收車)" lon="121.1312" lat="22.78922" car_no="" status_id="0" stay_range="沿途清運" stime="19:40~19:40" estimate="本日不清運" push="True">35</ScheduleTime>
+  <ScheduleTime stop_id="45503" name="岩灣路103巷23弄31號(岩灣山上)(週六回收車)" lon="121.1233" lat="22.80586" car_no="" status_id="0" stay_range="沿途清運" stime="19:45~19:45" estimate="本日不清運" push="True">36</ScheduleTime>
+  <ScheduleTime stop_id="45506" name="興安路2段640巷262弄5號(岩灣山上)(週六回收車)" lon="121.1271" lat="22.80902" car_no="" status_id="0" stay_range="沿途清運" stime="19:49~19:49" estimate="本日不清運" push="True">37</ScheduleTime>
+  <ScheduleTime stop_id="45507" name="興安路2段542巷13號(岩灣技能訓練所後)" lon="121.1265" lat="22.80434" car_no="" status_id="0" stay_range="沿途清運" stime="19:50~19:50" estimate="本日不清運" push="True">38</ScheduleTime>
+  <ScheduleTime stop_id="45508" name="錦州街107巷至10之1號止" lon="121.1325" lat="22.78058" car_no="" status_id="0" stay_range="沿途清運" stime="20:00~20:00" estimate="本日不清運" push="True">39</ScheduleTime>
+  <ScheduleTime stop_id="69686" name="幸福國宅(週五回收車)" lon="121.0938" lat="22.76103" car_no="" status_id="0" stay_range="沿途清運" stime="20:10~20:10" estimate="本日不清運" push="True">40</ScheduleTime>
+</Items>
