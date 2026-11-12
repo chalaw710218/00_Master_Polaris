@@ -42,6 +42,7 @@
 | **polaris-cabinet-onboarding** | 新夥伴入閣與主權拓荒七部曲總控 | `.agents/skills/polaris-cabinet-onboarding/SKILL.md` |
 | **polaris-forensic-investigator**| 渡鴉三維立體穿透調查與司法徵信卷宗 | `.agents/skills/polaris-forensic-investigator/SKILL.md` |
 | **polaris-frontier-radar** | 艾達前沿科技硬核物理審查與台東風土雷達 | `.agents/skills/polaris-frontier-radar/SKILL.md` |
+| **google-colab-commander** | 林納斯 ✕ 艾達 Google Colab Pro 雲端 GPU 算力接管與 MCP 協議 | `.agents/skills/google-colab-commander/SKILL.md` |
 
 ---
 
