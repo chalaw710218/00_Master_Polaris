@@ -43,3 +43,11 @@ flowchart TD
 # 計算單篇貼文學習回饋與突觸權重更新
 python scripts/synaptic_metabolic_learner.py --update-synapse '{"template_id": "T01_OLD_MEMO", "views": 778, "profile_visits": 42, "net_followers": 5, "replies": 12, "consecutive_low_count": 0, "founder_approval": true}'
 ```
+
+---
+
+## 真實數據學習入口 (v1.1)
+
+* 腳本：`scripts/kage_real_learning.py`：讀取 `threads-growth-auditor/data/insights_history.jsonl` 真實快照，同一貼文只取最新數據，依「標題前 3 字鉤子」與「發文時段」計算突觸權重；樣本 < 3 標示低信心；每次重算、不重複累加，狀態寫入 `vaults/kage_synaptic_state.json`。
+* 指令：`python scripts/kage_real_learning.py --learn`
+* 限制：目前無後台轉粉數據，轉化項暫不計入；快照僅 2 份，結論為假說。

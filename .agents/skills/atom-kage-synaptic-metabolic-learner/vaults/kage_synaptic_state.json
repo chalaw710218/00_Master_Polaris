@@ -1,0 +1,172 @@
+{
+  "learned_at": "2026-11-14T01:34:11.562700",
+  "source": "C:\\Users\\lenovo\\我的雲端硬碟\\00_Master_Polaris\\.agents\\skills\\threads-growth-auditor\\data\\insights_history.jsonl",
+  "snapshots_read": 2,
+  "unique_posts": 19,
+  "account_median_er": 2.0,
+  "hook_weights": {
+    "喵嗚～": {
+      "n": 1,
+      "avg_views": 274,
+      "avg_er": 3.6,
+      "weight": 0.621,
+      "confidence": "LOW(樣本<3)"
+    },
+    "剛剛中": {
+      "n": 1,
+      "avg_views": 140,
+      "avg_er": 2.9,
+      "weight": 0.4229,
+      "confidence": "LOW(樣本<3)"
+    },
+    "現在是": {
+      "n": 1,
+      "avg_views": 137,
+      "avg_er": 1.5,
+      "weight": 0.42,
+      "confidence": "LOW(樣本<3)"
+    },
+    "我就問": {
+      "n": 4,
+      "avg_views": 58.5,
+      "avg_er": 0.85,
+      "weight": 0.1436,
+      "confidence": "OK"
+    },
+    "日本氣": {
+      "n": 1,
+      "avg_views": 82,
+      "avg_er": 0.0,
+      "weight": 0.164,
+      "confidence": "LOW(樣本<3)"
+    },
+    "好啦，": {
+      "n": 1,
+      "avg_views": 74,
+      "avg_er": 8.1,
+      "weight": 0.6885,
+      "confidence": "LOW(樣本<3)"
+    },
+    "闆仔剛": {
+      "n": 1,
+      "avg_views": 51,
+      "avg_er": 11.8,
+      "weight": 1.0824,
+      "confidence": "LOW(樣本<3)"
+    },
+    "剛剛凌": {
+      "n": 1,
+      "avg_views": 30,
+      "avg_er": 3.3,
+      "weight": 0.06,
+      "confidence": "LOW(樣本<3)"
+    },
+    "【動態": {
+      "n": 1,
+      "avg_views": 19,
+      "avg_er": 5.3,
+      "weight": 0.038,
+      "confidence": "LOW(樣本<3)"
+    },
+    "誰說週": {
+      "n": 1,
+      "avg_views": 251,
+      "avg_er": 2.0,
+      "weight": 0.502,
+      "confidence": "LOW(樣本<3)"
+    },
+    "誰能想": {
+      "n": 3,
+      "avg_views": 99.7,
+      "avg_er": 3.5,
+      "weight": 0.266,
+      "confidence": "OK"
+    },
+    "凌晨一": {
+      "n": 1,
+      "avg_views": 96,
+      "avg_er": 0.0,
+      "weight": 0.192,
+      "confidence": "LOW(樣本<3)"
+    },
+    "誰能抗": {
+      "n": 1,
+      "avg_views": 52,
+      "avg_er": 5.8,
+      "weight": 0.104,
+      "confidence": "LOW(樣本<3)"
+    },
+    "誰能料": {
+      "n": 1,
+      "avg_views": 35,
+      "avg_er": 0.0,
+      "weight": 0.07,
+      "confidence": "LOW(樣本<3)"
+    }
+  },
+  "hour_weights": {
+    "11時": {
+      "n": 3,
+      "avg_views": 150.7,
+      "avg_er": 1.43,
+      "weight": 0.3257,
+      "confidence": "OK"
+    },
+    "14時": {
+      "n": 2,
+      "avg_views": 195.5,
+      "avg_er": 2.45,
+      "weight": 0.4624,
+      "confidence": "LOW(樣本<3)"
+    },
+    "02時": {
+      "n": 2,
+      "avg_views": 83.5,
+      "avg_er": 2.4,
+      "weight": 0.24,
+      "confidence": "LOW(樣本<3)"
+    },
+    "16時": {
+      "n": 1,
+      "avg_views": 94,
+      "avg_er": 1.1,
+      "weight": 0.2944,
+      "confidence": "LOW(樣本<3)"
+    },
+    "01時": {
+      "n": 4,
+      "avg_views": 62,
+      "avg_er": 4.28,
+      "weight": 0.3691,
+      "confidence": "OK"
+    },
+    "15時": {
+      "n": 1,
+      "avg_views": 74,
+      "avg_er": 8.1,
+      "weight": 0.6885,
+      "confidence": "LOW(樣本<3)"
+    },
+    "17時": {
+      "n": 3,
+      "avg_views": 46.7,
+      "avg_er": 0.77,
+      "weight": 0.0933,
+      "confidence": "OK"
+    },
+    "00時": {
+      "n": 2,
+      "avg_views": 78,
+      "avg_er": 4.9,
+      "weight": 0.256,
+      "confidence": "LOW(樣本<3)"
+    },
+    "12時": {
+      "n": 1,
+      "avg_views": 52,
+      "avg_er": 5.8,
+      "weight": 0.104,
+      "confidence": "LOW(樣本<3)"
+    }
+  }
+}
