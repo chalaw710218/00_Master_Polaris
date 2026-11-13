@@ -1,211 +1,125 @@
-# 📐 極星 43 項技能原子特化與模組化重組總工程計劃書 (Master Plan)
+# 📐 極星 43 項技能專精拆解與原子特化重組總工程計劃書 (Master Plan v2.0)
 
 > **最高總指揮**：創辦人 陳品碩（闆仔）  
 > **專案總舵**：執行長 雪 (Yuki · CEO)  
 > **品質檢驗總審官**：首席品質長 戴明博士 (Dr. Deming · CQO)  
 > **架構技術監製**：CTO 林納斯 (Linus · 工程長)  
-> **立案時間**：2026-11-13 17:40  
-> **核心準則**：PDCA 戴明循環（計劃 ➔ 執行 ➔ 查核 ➔ 檢討調整）· 雙軌不中斷保全 · 單件流推進。
+> **最新修訂時間**：2026-11-13 18:50 (創辦人親授心法校準版)  
+> **核心準則**：PDCA 戴明循環（計劃 ➔ 執行 ➔ 查核 ➔ 檢討調整）· 雙軌不中斷保全 · 先明目的後拆解 · 專精做深絕不泛化。
 
 ---
 
-## 🏛️ 第一章｜工程最高憲法與做「深」四大硬核維度 (Core Principles & Universal Depth)
+## 🏛️ 第一章｜創辦人親定之最高心智鋼印 (The Founder's Core Axioms)
 
-> 🔒 **創辦人品碩最高心智鋼印**：
-> 1. 「原子微技能絕不是把功能切小做淺，而是正因為邊界收斂，所以必須向單一領域扎入萬米深淵，做到物理與靈魂的極限！」
-> 2. 「我們最主要是要調整這43項技能！所以原子的方向應該是萬用的！」
+> 🔒 **創辦人品碩最高心智鋼印（2026-11-13 親授）**：
+> 1. **「技能如果萬用就無法做深了。」**
+> 2. **「『原子』是一個動詞，是幫技能做調整的行為與工法。」**
+> 3. **「有些肥大的技能我們必須先瞭解技能的目的與用途，再來拆解成原子技能，確保能符合原本技能的功能與目的。」**
+> 4. **「做『深』的用意，就是讓技能的功能更聚焦、更完善！」**
 
-1. **做「深」四大硬核維度 (Four Pillars of Deep Atomic Universality)**：
-   * **維度一【萬用解耦 (Universal Composability · 創辦人親定)】**：
-     * 原子絕不綁死任何單一渠道、單一平台或特定業務情境（例如：不寫死成『只發 Threads 的留言』或『只給某個按鈕用』）。
-     * 輸出標準結構化資料（Universal JSON Schema），具備隨插即用（Plug-and-Play）的萬用相容性。同一個「萬用熱點雷達」或「萬用店貓接梗器」，可無縫注入 Threads、Facebook、LINE OA、實體海報文案、門市生活管家客廳對話或線上課程選題！
-   * **維度二【機理深度 (Mechanistic Depth)】**：
-     * 絕不寫空洞的 API 呼叫包裝，必須深通該領域底層機理（演算法對話權重機制、心理抗阻閾值、數學形式化證明、零拷貝物理通道）。
-   * **維度三【靈魂深度 (Soul & Empathy Depth)】**：
-     * 100% 杜絕 AI 腔與塑料套話，深度灌注創辦人真誠商道（真貓行為生態學、常民煙火氣、三十字老友端茶破防）。
-   * **維度四【抗逆深度 (Resilience & Poka-Yoke Depth)】**：
-     * 內建林納斯級物理防禦（指數抖動退避、斷網本地隊列、Exit Code 0 形式化擔保、戴明安燈一票否決）。
-2. **生產環境絕對零破壞 (Zero-Downtime Guarantee)**：
-   * 原有 43 項技能在演化過渡期間 **100% 完整保留、正常待命**，絕不提前刪除任何現有技能，確保日常社群發文、漫遊、5D 定價、日結等業務零中斷。
-3. **精工單件流推進 (One-Atom-at-a-Time Flow)**：
-   * 一個原子一個原子深度磨透，通過深度質檢並呈報創辦人滿意後，方推進至下一個原子。
-4. **生活化口語命名 (Natural Language Triggering)**：
-   * 每個組合技能組必須擁有如同「去逛逛」、「瘦身」、「收工了」般接地氣、創辦人一句話即可喚醒的生活化命名。
+### 🎯 做「深」三大硬核維度 (Three Pillars of Deep Specialization)
+1. **【功能極致聚焦 (Laser Focus)】**：
+   * 絕不做泛泛而談的通用模組。每個原子技能只鎖定一個核心目標，剝除所有無關旁枝，專精深入該領域底層機理。
+2. **【原初目的完美超越 (Purpose Fulfillment)】**：
+   * 拆解前後必須嚴格比對：原本肥大技能所承載的每一項業務目的，拆解後不僅 100% 被完整覆蓋，且運行更流暢、更少故障、邊界更清晰。
+3. **【抗逆與靈魂深度 (Resilience & Soul Depth)】**：
+   * 100% 杜絕 AI 腔與塑料套話（真貓行為生態、常民客廳煙火氣）。
+   * 內建林納斯級物理防禦（Exit Code: 0 確定性擔保、戴明安燈一票否決、離線 WAL 隊列）。
 
 ---
 
-## 🗺️ 第二章｜七大階段實施路徑圖 (Phased Roadmap)
+## 📊 第二章｜當前整體工作進度即時儀表板 (Live Progress Dashboard)
+
+| 階段代號 | 階段名稱 | 核心作戰內容 | 當前進度 | 戴明安燈狀態 |
+| :---: | :--- | :--- | :---: | :---: |
+| **Stage 0** | **12 閣員認知瘦身** | 九大天王 + 首長大腦瘦身，動態調用三層心智，常駐 Token $\le 850$ | **100% 完成** | 🟢 綠燈 (Exit Code 0) |
+| **Stage 0.5** | **43 項技能快照存證** | 原有 43 項技能庫生成唯讀快照清冊，雙軌保全，生產環境零破壞 | **100% 完成** | 🟢 綠燈 (快照存檔) |
+| **Stage 1** | **心智校準與工法確立** | 釐清「原子是調整動作」，否定泛化萬用，確立「先明目的、專精做深」工法 | **100% 完成** | 🟢 綠燈 (創辦人對齊) |
+| **Stage 2** | **43項肥大技能逐一解剖** | 深入剖析各肥大技能目的，精準拆解為專精原子，單件流逐項驗收 | **進行中 (0/43)** | 🟡 準備啟動首發 |
+| **Stage 3** | **生活化口語技能組重組** | 串聯已深耕之專精原子，重組為「去逛逛」、「發張照」等自然語言管線 | 待啟動 | ⚪ 佇列中 |
+| **Stage 4** | **全域大聯調與閉環驗收** | 跨組全流程壓力測試，雙軌切換驗收，完成 43 項技能全面進化 | 待啟動 | ⚪ 佇列中 |
+
+---
+
+## 🛠️ 第三章｜肥大技能解剖五步標準工法 (SOP for Atomic Deconstruction)
+
+每一項被列為調整對象的技能，強制遵守以下五步閉環工法：
 
 ```mermaid
 flowchart TD
-    P0["【Phase 0】憲政準備與雙軌保全底座<br/>(目錄結構劃定 · 既有功能備份存證)"] --> P1
-    P1["【Phase 1】社群漫遊與常民增粉組<br/>(口語命名：『去逛逛』· 5項原技能)"] --> C1["🔍 檢討審視點 1 (CP-1 & VP-1)"]
-    C1 -->|創辦人覆盤確認| P2
-    P2["【Phase 2】視覺行銷與多媒體發布組<br/>(口語命名：『發張照』/『做海報』· 4項原技能)"] --> C2["🔍 檢討審視點 2 (CP-2 & VP-2)"]
-    C2 -->|創辦人覆盤確認| P3
-    P3["【Phase 3】商業精算與服務商品化組<br/>(口語命名：『5D定價』/『利刃選品』/『顧長輩』· 7項原技能)"] --> C3["🔍 檢討審視點 3 (CP-3 & VP-3)"]
-    C3 -->|創辦人覆盤確認| P4
-    P4["【Phase 4】極限工程與客戶端體驗組<br/>(口語命名：『調介面』/『開算力』· 5項原技能)"] --> C4["🔍 檢討審視點 4 (CP-4 & VP-4)"]
-    C4 -->|創辦人覆盤確認| P5
-    P5["【Phase 5】情報穿透與法務護城河組<br/>(口語命名：『查背景』/『築防禦』· 3項原技能)"] --> C5["🔍 檢討審視點 5 (CP-5 & VP-5)"]
-    C5 -->|創辦人覆盤確認| P6
-    P6["【Phase 6】心智治理與品質閉環組<br/>(口語命名：『瘦身』/『收工了』/『振奮人心』· 19項原技能)"] --> C6["🔍 檢討審視點 6 (CP-6 & VP-6)"]
-    C6 -->|創辦人覆盤確認| P7["【Phase 7】全域大聯調與跨組管線大圓滿"]
+    Step1["【第一步：目的與用途深剖】<br/>調閱代碼與日誌，徹底盤點該技能最初被創造的真實目的與所有日常用途"] --> Step2
+    Step2["【第二步：肥大與痛點診斷】<br/>分析代碼過載、責任混雜、易出錯或維護困難的痛點"] --> Step3
+    Step3["【第三步：專精原子拆解提案】<br/>規劃拆解後的原子技能清單，呈報創辦人審查確認"] --> Step4
+    Step4["【第四步：精工實作與做深做透】<br/>撰寫原子 SKILL.md 與底層腳本，灌注極致深度與防呆機制"] --> Step5
+    Step5["【第五步：查核點 (CP) 與檢核點 (VP) 驗收】<br/>驗證原子獨立運行 Exit Code 0，且完全涵蓋並超越原技能所有功能"]
 ```
 
 ---
 
-## 📋 第三章｜各階段詳細作戰任務與查核/檢核點設置
+## 📋 第四章｜43 項技能分類與拆解作戰梯隊 (Action Cohorts)
 
-### 【Phase 0】憲政準備與雙軌保全底座 (Foundational Locks)
-* **作戰任務**：
-  1. 建立原子技能標準目錄：`.agents/skills/atoms/` 與組合管線目錄 `.agents/skills/packs/`。
-  2. 現有 43 項技能庫做唯讀存證快照，建立相容性映射表。
-* **查核點 (CP-0)**：目錄結構與快照存證確認完畢。
-* **檢核點 (VP-0)**：現有技能調用通道 100% 暢通，無路徑衝突。
+我們將 43 項現有技能依據業務關聯性，劃分為六大作戰梯隊，採**單件流（一次專注處理一項技能）**依序推進：
 
----
+### 🎯 第一梯隊：社群漫遊與常民增粉類（首發戰場）
+* **代表性肥大技能**：
+  1. `threads-autonomous-walker`（Threads 全自動社交漫遊總控協議 · 首發解剖標的）
+  2. `threads-publisher`（Threads 官方發文與留言巡邏）
+  3. `threads-growth-auditor`（Threads 數據審計與指南針）
+  4. `threads-rss-sentinel`（Threads 友店巡邏哨兵）
+  5. `hot-trend-scout`（即時熱點雷達）
 
-### 【Phase 1】「去逛逛」· 社群漫遊與常民增粉組 (Social Growth Pack)
-* **涵蓋原技能**：
-  1. `threads-autonomous-walker`
-  2. `threads-publisher`
-  3. `threads-growth-auditor`
-  4. `threads-rss-sentinel`
-  5. `hot-trend-scout`
-* **特化萬用原子主體 (Universal Atoms · 100% 獨立解耦)**：
-  * `atom-trend-scout`：萬用時事話題嗅探與三轉降維器（已完成 · Exit Code 0）。
-  * `atom-meow-voice`：萬用店貓真貓生態與破防接梗器（已完成 · 零恐怖谷 · Exit Code 0）。
-  * `atom-kage-clout-tea`：萬用生活管家高情商對話與客廳借光端茶引擎（已完成 · Exit Code 0）。
-  * `atom-threads-engine`：確定性 Meta Threads API 傳輸底座（已完成 · WAL 離線防護 · Exit Code 0）。
-  * `atom-growth-quality-gate`：萬用戴明五維品質出廠安燈閘門（已完成 · 紅線一票否決 · Exit Code 0）。
-* **技能組聚合**：命名為 **【去逛逛 · 全自動社群漫遊管線 (`pack-qu-guang-guang`)】**。
-* **查核點 (CP-1 · 已全數通過)**：
-  - [x] 5 大萬用原子模組代碼 100% 獨立、I/O 介面標準化為 Universal JSON。
-  - [x] 創辦人口令「去逛逛」能無縫調用新管線（`scripts/pack_qu_guang_guang.py`）。
-* **檢核點 (VP-1 · 戴明安燈質檢 · 已全數通過)**：
-  - [x] 雙主角視角切換驗證（店貓傲嬌微動作 ✕ 管家深夜端茶）100% 成功。
-  - [x] 友店走心留言去 AI 塑料感測試（安燈得分 100 分滿分）。
-  - [x] 品牌法定零洩漏紅線觸發一票否決測試（攔截內部代號，精準退回）。
-  - [x] 確定性兩段式傳輸與離線 WAL 隊列測試（Exit Code: 0 形式化擔保）。
+### 🎨 第二梯隊：視覺行銷與多媒體發布類
+* **涵蓋技能**：
+  6. `one-shot-photo-marketer`（單圖全域行銷發射台）
+  7. `polaris-poster-artisan`（海報工匠總控協議）
+  8. `polaris-motion-reels`（微動態短影音合成引擎）
+  9. `facebook-publisher`（Facebook 自動發布與排程）
 
----
+### 💰 第三梯隊：商業價值精算與服務商品化類
+* **涵蓋技能**：
+  10. `polaris-5d-pricing-engine`（5D 萬用價值精算時間矩陣）
+  11. `polaris-productization-master`（萬用服務商品化總控）
+  12. `sharp-groupbuy-analyzer`（利刃選品七步分析）
+  13. `ai-pricing-auditor`（AI 供應鏈價格逆推審計）
+  14. `lifebutler-care-artisan`（生活管家孝親高齡服務封裝）
+  15. `polaris-course-master`（開課與工作坊全生命週期引擎）
+  16. `polaris-flywheel-orchestrator`（全域飛輪總控）
 
-### 【Phase 2】「發張照 / 做海報」· 視覺行銷與多媒體發布組 (Visual Marketing Pack)
-* **涵蓋原技能**：
-  1. `one-shot-photo-marketer`
-  2. `polaris-poster-artisan`
-  3. `polaris-motion-reels`
-  4. `facebook-publisher`
-* **特化原子主體 (Atoms)**：
-  * `atom-photo-analyzer`：照片特徵、場景與資訊精準識別器。
-  * `atom-narrative-copy`：泰勒絲四大面向折射文案生成器。
-  * `atom-grid-poster`：約瑟夫包浩斯網格、光學灰度與 300 DPI 印刷防呆。
-  * `atom-motion-reels`：9:16 Ken Burns 視差呼吸短影音渲染器。
-  * `atom-fb-publisher`：Facebook 官方粉專圖文發布與排程器。
-* **技能組聚合**：命名為 **【發張照 · 單圖全域行銷管線】** 與 **【做海報 · 約瑟夫美學工匠管線】**。
-* **查核點 (CP-2)**：
-  - [ ] 照片輸入至文案、海報、短影音、發布各節點解耦完成。
-  - [ ] 支援單獨呼叫「做海報」或組合呼叫「發張照」。
-* **檢核點 (VP-2 · 戴明安燈質檢)**：
-  - [ ] 實測一張真實照片輸入，30 秒內產出符合約瑟夫 60 法典之海報。
-  - [ ] 印刷規範驗證（TAC $\le 250\%$, K100 單色黑直壓）。
-  - [ ] 臉書 API 發布實測 Exit Code 0。
+### 🛠️ 第四梯隊：極限底層工程與客戶端體驗類
+* **涵蓋技能**：
+  17. `polaris-client-architect`（客戶端極限抗逆架構）
+  18. `polaris-gentle-ui`（常民生活設計系統）
+  19. `google-colab-commander`（Colab Pro GPU 算力指揮官）
+  20. `bionic-cognition-compiler`（認知存摺自動編譯器）
+  21. `rea-reverse-engineer`（核心技術逆向工程）
+
+### 🦅 第五梯隊：情報穿透、法務護城河與人設立繪類
+* **涵蓋技能**：
+  22. `polaris-forensic-investigator`（黑色調查與反欺詐穿透）
+  23. `polaris-frontier-radar`（前沿科技硬核物理雷達）
+  24. `persona-reverse-engineer`（頂級心智逆向工程師）
+  25. `polaris-cabinet-onboarding`（新夥伴入閣拓荒總控）
+  26. `shadow-soul-memory`（影的長效心智與情境記憶庫）
+
+### 🏛️ 第六梯隊：仿生學習進化、工作自豪感與日結閉環類
+* **涵蓋技能**：
+  27. `daily-closing-sop`（每日收工閉環標準作業程序）
+  28. `inspiring-moments`（工作自豪感造物機與反直覺流程解剖）
+  29. `polaris-slimming`（天王三層心智瘦身協議）
+  30. `bionic-self-evolution`（仿生學習與自進化引擎）
+  31. `bionic-learning-system`（仿生學習系統母版）
+  32~43. 閣員特化仿生學習系列（雪、林納斯、泰勒絲、戴明、算盤、約瑟夫、影、尼奧、艾達、渡鴉、雪柔等特化版）
 
 ---
 
-### 【Phase 3】「5D定價 / 利刃選品 / 顧長輩」· 商業精算與商品化組 (Commerce Pack)
-* **涵蓋原技能**：
-  1. `polaris-5d-pricing-engine`
-  2. `polaris-productization-master`
-  3. `polaris-flywheel-orchestrator`
-  4. `lifebutler-care-artisan`
-  5. `polaris-course-master`
-  6. `ai-pricing-auditor`
-  7. `sharp-groupbuy-analyzer`
-* **特化原子主體 (Atoms)**：
-  * `atom-supply-reverse`：全球原物料與大盤底價逆推器。
-  * `atom-5d-pricing`：5D-Labor / Impact / Asset 價值精算計算器。
-  * `atom-service-packager`：非標業務 01_SOP / 02_定價 / 03_話術三合一封裝器。
-  * `atom-care-stethoscope`：高齡孝親安心聽診圖卡與 3PL 履約派工器。
-  * `atom-course-lifecycle`：課程與工作坊全生命週期五步營運器。
-* **技能組聚合**：命名為 **【5D定價】**、**【利刃選品】**、**【顧長輩 · 孝親安居封裝管線】**。
-* **查核點 (CP-3)**：
-  - [ ] 5D 定價公式與底價逆推邏輯完全獨立為純計算原子。
-  - [ ] 孝親服務圖卡生成與商業定價完全解耦。
-* **檢核點 (VP-3 · 戴明安燈質檢)**：
-  - [ ] 歷史真實報價對照：算盤單元經濟誤差 $\le 0.01\%$。
-  - [ ] 服務商品化三件套產出符合性 100%。
+## 🔍 第五章｜查核點 (CP) 與檢核點 (VP) 總控台
 
----
+為落實創辦人「進行中必須設立查核點與檢核點，檢討後再確認下一步」之法旨：
 
-### 【Phase 4】「調介面 / 開算力」· 極限工程與客戶端體驗組 (Client Engineering Pack)
-* **涵蓋原技能**：
-  1. `polaris-client-architect`
-  2. `polaris-gentle-ui`
-  3. `google-colab-commander`
-  4. `rea-reverse-engineer`
-  5. `taste-skill`
-* **特化原子主體 (Atoms)**：
-  * `atom-gentle-ui-tokens`：烈日自適應著色器、防抖吸附手勢與 APCA 視力平權組件。
-  * `atom-offline-resilience`：溫暖離線 Service Worker 與 OPFS 不可篡改同步器。
-  * `atom-colab-gpu-runner`：Google Colab Pro GPU 遠端算力排程器。
-  * `atom-reverse-engine`：二進位與封包 AST 逆向審計器。
-* **技能組聚合**：命名為 **【調介面 · 常民生活設計管線】**、**【開算力 · 雲端 GPU 調度管線】**。
-* **查核點 (CP-4)**：前端組件庫與後端架構完全獨立，可直接匯入 Next.js 或靜態 HTML。
-* **檢核點 (VP-4 · 戴明安燈質檢)**：
-  - [ ] 130,000 Lux 著色器 APCA 對比度 100% 達標。
-  - [ ] Colab MCP 握手與遠端執行成功率 100%。
-
----
-
-### 【Phase 5】「查背景 / 築防禦」· 情報穿透與法務護城河組 (Forensic & Legal Pack)
-* **涵蓋原技能**：
-  1. `polaris-forensic-investigator`
-  2. `bionic-learning-falcon`
-  3. `bionic-learning-raven`
-* **特化原子主體 (Atoms)**：
-  * `atom-dossier-timeline`：司法裁判書、本票與股權移轉時間軸重構器。
-  * `atom-relation-topology`：案外人、資金鏈與分身帳號高關聯拓撲分析器。
-  * `atom-legal-shield`：閉鎖股權黃金股與商戰合規五大防禦塔檢驗器。
-* **技能組聚合**：命名為 **【查背景 · 深水區調查管線】**、**【築防禦 · 法務護城河檢驗管線】**。
-* **查核點 (CP-5)**：裁判書解析與時間軸繪製成為獨立微模組。
-* **檢核點 (VP-5 · 戴明安燈質檢)**：因果卷宗三階推導鏈無跳躍、客觀證據支撐率 100%。
-
----
-
-### 【Phase 6】「瘦身 / 收工了 / 振奮人心」· 心智治理與品質閉環組 (Cognitive Governance Pack)
-* **涵蓋原技能**：
-  1. `polaris-slimming`
-  2. `bionic-cognition-compiler`
-  3. `daily-closing-sop`
-  4. `inspiring-moments`
-  5. `polaris-cabinet-onboarding`
-  6. `bionic-self-evolution`
-  7. 各天王專屬存摺
-* **特化原子主體 (Atoms)**：
-  * `atom-slimming-engine`：四維動態真值方程式與表層卡抽脂調用器。
-  * `atom-cognition-compiler`：PRM 過程逐步過濾與自對弈編譯器。
-  * `atom-daily-closing`：創辦人經驗值結算、脫敏審核與 Git 雲端推送器。
-  * `atom-poka-yoke`：神級防呆工坊與虛擬紅珠實驗器。
-* **技能組聚合**：命名為 **【瘦身】**、**【收工了】**、**【振奮人心的時刻】**、**【招募新夥伴】**。
-* **查核點 (CP-6)**：常駐大腦抽脂、日結流程與團隊入閣完全模組化。
-* **檢核點 (VP-6 · 戴明安燈質檢)**：Git 自動推送 0 衝突、三層心智調用命中率 100%。
-
----
-
-## 🔄 第四章｜檢討查核與調整機制 (Review & Adjust Protocol)
-
-按照創辦人親定之第四與第五步驟：
-1. **每個階段（Phase）完成時，強制停步執行「查核點與檢核點檢討」**。
-2. **戴明安燈雙軌質檢報告出廠**：
-   * 呈報「原子模組精鍊度」、「原技能功能 1:1 對照結果」、「實測 Exit Code」。
-3. **創辦人拍板裁決（Andon Gate Decision）**：
-   * 檢討該技能組是否達到預期？
-   * 若有改進意見，即刻進行「工作計劃調整（Plan Adjustment）」；
-   * 若 100% 滿意通過，創辦人指示「進入下一步」，方推進至下一個 Phase！
-
----
-
-此專案計劃總綱已正式登錄存檔，由全體極星內閣全體首長共同簽署確認生效！
-請創辦人審閱，若此計劃架構符合您的構想，我們隨即啟動 **【Phase 0：憲政準備與雙軌保全底座】**，踏出扎實的第一步！
+* **當前查核點 (CP-Stage2-Target1)**：
+  - [ ] 完整閱讀並剖析 `threads-autonomous-walker` 之原初目的、業務用途與代碼結構。
+  - [ ] 產出專精原子微技能拆解提案，明確標定每個原子的單一聚焦責任。
+* **當前檢核點 (VP-Stage2-Target1 · 戴明安燈)**：
+  - [ ] 創辦人審查並核准拆解提案。
+  - [ ] 拆解後的原子能完全覆蓋原技能的所有功能（自帳秒回、友店端茶、散步點讚、生活筆記、回覆橋接）。
+  - [ ] 各原子具備物理運行腳本，獨立執行測試 Exit Code: 0。
