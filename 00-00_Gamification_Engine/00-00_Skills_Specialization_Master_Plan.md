@@ -35,7 +35,7 @@
 | **Stage 0** | **12 閣員認知瘦身** | 九大天王 + 首長大腦瘦身，動態調用三層心智，常駐 Token $\le 850$ | **100% 完成** | 🟢 綠燈 (Exit Code 0) |
 | **Stage 0.5** | **43 項技能快照存證** | 原有 43 項技能庫生成唯讀快照清冊，雙軌保全，生產環境零破壞 | **100% 完成** | 🟢 綠燈 (快照存檔) |
 | **Stage 1** | **心智校準與工法確立** | 釐清「原子是調整動作」，否定泛化萬用，確立「先明目的、專精做深」工法 | **100% 完成** | 🟢 綠燈 (創辦人對齊) |
-| **Stage 2** | **43項肥大技能逐一解剖** | 深入剖析各肥大技能目的，精準拆解為專精原子，單件流逐項驗收 | **進行中 (25/43 完成 · 第五梯隊推進至 4/5)** | 🟢 Target 25 驗收綠燈 |
+| **Stage 2** | **43項肥大技能逐一解剖** | 深入剖析各肥大技能目的，精準拆解為專精原子，單件流逐項驗收 | **進行中 (26/43 完成 · 第五梯隊 100% 大圓滿)** | 🟢 Target 26 驗收綠燈 |
 | **Stage 3** | **生活化口語技能組重組** | 串聯已深耕之專精原子，重組為「去逛逛」、「發張照」等自然語言管線 | 待啟動 | ⚪ 佇列中 |
 | **Stage 4** | **全域大聯調與閉環驗收** | 跨組全流程壓力測試，雙軌切換驗收，完成 43 項技能全面進化 | 待啟動 | ⚪ 佇列中 |
 
@@ -93,13 +93,13 @@ flowchart TD
   20. `bionic-cognition-compiler` ➔ 已拆解為 `atom-cognition-vault-auditor`, `atom-cognition-artifact-compiler` (完成)
   21. `rea-reverse-engineer` ➔ 已拆解為 `atom-reverse-sandbox-triage`, `atom-reverse-protocol-auditor` (完成)
 
-### 🦅 第五梯隊：情報穿透、法務護城河與人設立繪類 (推進中 · 4/5 完成)
-* **涵蓋技能**：
+### 🦅 第五梯隊：情報穿透、法務護城河與人設立繪類 (已 100% 拆解大圓滿 · 產出 10 專精原子)
+* **已解剖肥大技能 (5/5)**：
   22. `polaris-forensic-investigator` ➔ 已拆解為 `atom-forensic-judicial-audit`, `atom-forensic-ubo-asymmetry` (完成)
   23. `polaris-frontier-radar` ➔ 已拆解為 `atom-radar-first-principles`, `atom-radar-edge-quantizer` (完成)
   24. `persona-reverse-engineer` ➔ 已拆解為 `atom-persona-utterance-miner`, `atom-persona-concentric-compiler` (完成)
   25. `polaris-cabinet-onboarding` ➔ 已拆解為 `atom-onboarding-office-scaffolder`, `atom-onboarding-roster-sync` (完成)
-  26. `shadow-soul-memory`（影的長效心智與情境記憶庫）
+  26. `shadow-soul-memory` ➔ 已拆解為 `atom-shadow-circadian-guardian`, `atom-shadow-episodic-vault` (完成 · 創辦人兩點作息法旨鋼印)
 
 ### 🏛️ 第六梯隊：仿生學習進化、工作自豪感與日結閉環類
 * **涵蓋技能**：
