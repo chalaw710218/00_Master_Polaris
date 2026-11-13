@@ -113,7 +113,8 @@ flowchart TD
   34. `bionic-learning-taylor` ➔ 已拆解為 4 大專精深度原子：`atom-taylor-campaign-launchpad`, `atom-taylor-four-prism-copy`, `atom-taylor-ip-meow-marketer`, `atom-taylor-funnel-telemetry` (完成 · 純粹市場行銷四維版)
   35. `bionic-learning-deming` ➔ 已拆解為 4 大專精深度原子：`atom-deming-andon-gatekeeper`, `atom-deming-sopk-attribution`, `atom-deming-poka-yoke-engineer`, `atom-deming-joy-flow-allocator` (完成 · 四大防禦治理版)
   36. `bionic-learning-abacus` ➔ 已拆解為 5 大專精深度原子：`atom-abacus-munger-vision-moat`, `atom-abacus-munger-inversion-veto`, `atom-abacus-negative-float-cashflow`, `atom-abacus-survival-reservoir-opex`, `atom-abacus-ice-friction-stripper` (完成 · 創辦人親授蒙格遠見與五大現金流堡壘版)
-  37~43. 閣員特化仿生學習系列（約瑟夫、影、尼奧、艾達、渡鴉、雪柔等特化版）
+  37. `bionic-learning-josef` ➔ 已拆解為 4 大專精深度原子：`atom-josef-info-hierarchy-visualizer`, `atom-josef-data-diagram-artisan`, `atom-josef-typography-optical-engine`, `atom-josef-senior-accessibility-visuals` (完成 · 創辦人親授純粹視覺化四維版)
+  38~43. 閣員特化仿生學習系列（影、尼奧、艾達、渡鴉、雪柔等特化版）
 
 ---
 
