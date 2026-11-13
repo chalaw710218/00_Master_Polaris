@@ -35,7 +35,7 @@
 | **Stage 0** | **12 閣員認知瘦身** | 九大天王 + 首長大腦瘦身，動態調用三層心智，常駐 Token $\le 850$ | **100% 完成** | 🟢 綠燈 (Exit Code 0) |
 | **Stage 0.5** | **43 項技能快照存證** | 原有 43 項技能庫生成唯讀快照清冊，雙軌保全，生產環境零破壞 | **100% 完成** | 🟢 綠燈 (快照存檔) |
 | **Stage 1** | **心智校準與工法確立** | 釐清「原子是調整動作」，否定泛化萬用，確立「先明目的、專精做深」工法 | **100% 完成** | 🟢 綠燈 (創辦人對齊) |
-| **Stage 2** | **43項肥大技能逐一解剖** | 深入剖析各肥大技能目的，精準拆解為專精原子，單件流逐項驗收 | **進行中 (4/43 完成 · 勢如破竹)** | 🟢 Target 4 驗收綠燈 |
+| **Stage 2** | **43項肥大技能逐一解剖** | 深入剖析各肥大技能目的，精準拆解為專精原子，單件流逐項驗收 | **進行中 (5/43 完成 · 第一梯隊大圓滿)** | 🟢 第一梯隊驗收綠燈 |
 | **Stage 3** | **生活化口語技能組重組** | 串聯已深耕之專精原子，重組為「去逛逛」、「發張照」等自然語言管線 | 待啟動 | ⚪ 佇列中 |
 | **Stage 4** | **全域大聯調與閉環驗收** | 跨組全流程壓力測試，雙軌切換驗收，完成 43 項技能全面進化 | 待啟動 | ⚪ 佇列中 |
 
@@ -60,13 +60,13 @@ flowchart TD
 
 我們將 43 項現有技能依據業務關聯性，劃分為六大作戰梯隊，採**單件流（一次專注處理一項技能）**依序推進：
 
-### 🎯 第一梯隊：社群漫遊與常民增粉類（首發戰場）
-* **代表性肥大技能**：
-  1. `threads-autonomous-walker`（Threads 全自動社交漫遊總控協議 · 首發解剖標的）
-  2. `threads-publisher`（Threads 官方發文與留言巡邏）
-  3. `threads-growth-auditor`（Threads 數據審計與指南針）
-  4. `threads-rss-sentinel`（Threads 友店巡邏哨兵）
-  5. `hot-trend-scout`（即時熱點雷達）
+### 🎯 第一梯隊：社群漫遊與常民增粉類（已 100% 拆解大圓滿 · 產出 13 專精原子）
+* **已解剖肥大技能 (5/5)**：
+  1. `threads-autonomous-walker` ➔ 拆解為 `atom-threads-frontdoor`, `atom-threads-neighbor-crm`, `atom-threads-tea-funnel`, `atom-threads-bi-protagonist`, `atom-threads-reply-bridge`
+  2. `threads-publisher` ➔ 拆解為 `atom-threads-post-dispatcher`, `atom-threads-tree-watcher`
+  3. `threads-growth-auditor` ➔ 拆解為 `atom-threads-preflight-gate`, `atom-threads-telemetry-compass`
+  4. `threads-rss-sentinel` ➔ 拆解為 `atom-threads-rss-watcher`, `atom-threads-trio-crafter`
+  5. `hot-trend-scout` ➔ 拆解為 `atom-trend-radar-converter`, `atom-trend-visual-parody`
 
 ### 🎨 第二梯隊：視覺行銷與多媒體發布類
 * **涵蓋技能**：
