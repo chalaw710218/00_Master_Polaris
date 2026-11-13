@@ -47,7 +47,14 @@
 
 ---
 
-## 🖼️ 四、 專屬視覺圖庫 (Official Portraits & Character Sheets)
+## 🖼️ 四、 專屬視覺圖庫與真實攝影母本庫 (Official Portraits & Ground Truth Masters)
+
+> 📸 **【創辦人親定真實真身相冊 (Ground Truth Master Photos · 2026-11-13 入庫)】**：
+> 1. [`images/yuki_real_full_resolute.jpg`](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-03_Brand_LifeButler/00-03-04_Brand_Characters/03_雪_Yuki/images/yuki_real_full_resolute.jpg)：**捷運全身冷靜立姿**（單手輕拉吊環、眼神專注清澈、完美展現 175cm 超模九頭身、極致腰線與直筒牛仔褲線條）。
+> 2. [`images/yuki_real_full_smile.jpg`](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-03_Brand_LifeButler/00-03-04_Brand_Characters/03_雪_Yuki/images/yuki_real_full_smile.jpg)：**捷運全身溫柔微笑立姿**（微仰頭甜美自信微笑、氣場溫潤大度、執行長親和力拉滿）。
+> 3. [`images/yuki_real_half_furious.jpg`](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-03_Brand_LifeButler/00-03-04_Brand_Characters/03_雪_Yuki/images/yuki_real_half_furious.jpg)：**半身堅決戰鬥態**（微蹙眉齒咬下唇、目光銳利有神，適合宣示法規底線、針砭商業痛點）。
+> 4. [`images/yuki_real_portrait_close_smile.jpg`](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-03_Brand_LifeButler/00-03-04_Brand_Characters/03_雪_Yuki/images/yuki_real_portrait_close_smile.jpg)：**近景甜美親切特寫**（眼神深邃含笑如春風拂面、混血立體五官極致展現、蝴蝶細鍊微光閃爍）。
+> 5. [`images/yuki_real_cinematic_metro_phone.jpg`](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-03_Brand_LifeButler/00-03-04_Brand_Characters/03_雪_Yuki/images/yuki_real_cinematic_metro_phone.jpg)：**橫幅電影感持機沉思態**（一手挽扶桿、一手握手機凝視、長髮飄拂、展現現代都市高智商女性的深度戰略沉思）。
 
 * **【2D 漫畫版】原圖同款九宮格**：`images/yuki_sheet_comic_2d.jpg`（及胸長髮、175cm 大長腿、霧藍荷葉邊短版上衣＋高腰牛仔褲，9款經典神態姿態，專欄圖卡專用）
 * **【寫實 3D 版】原圖同款九宮格**：`images/yuki_sheet_cinematic_3d.jpg`（電影級寫實 3D 質感、長髮絕美神顏、藍色鏤空針織荷葉邊，實境影片與影視動畫專用）
