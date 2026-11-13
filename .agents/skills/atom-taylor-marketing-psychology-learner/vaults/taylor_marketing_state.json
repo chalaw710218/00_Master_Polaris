@@ -1,0 +1,104 @@
+{
+  "learned_at": "2026-11-14T01:36:53.052864",
+  "source": "C:\\Users\\lenovo\\我的雲端硬碟\\00_Master_Polaris\\.agents\\skills\\threads-growth-auditor\\data\\insights_history.jsonl",
+  "snapshots_read": 2,
+  "unique_posts": 19,
+  "feature_results": {
+    "好奇提問句": {
+      "有此特徵": {
+        "n": 11,
+        "avg_views": 91.6,
+        "avg_er": 2.11,
+        "spread_rate_pct": 0.0
+      },
+      "無此特徵": {
+        "n": 8,
+        "avg_views": 95.8,
+        "avg_er": 4.38,
+        "spread_rate_pct": 0.13
+      },
+      "互動率倍數(有/無)": 0.48,
+      "信心": "OK"
+    },
+    "闆仔互動梗": {
+      "有此特徵": {
+        "n": 2,
+        "avg_views": 62.5,
+        "avg_er": 9.95,
+        "spread_rate_pct": 0.0
+      },
+      "無此特徵": {
+        "n": 17,
+        "avg_views": 97,
+        "avg_er": 2.25,
+        "spread_rate_pct": 0.06
+      },
+      "互動率倍數(有/無)": null,
+      "信心": "LOW(任一組樣本<3)"
+    },
+    "喵編人設": {
+      "有此特徵": {
+        "n": 2,
+        "avg_views": 146.5,
+        "avg_er": 4.45,
+        "spread_rate_pct": 0.34
+      },
+      "無此特徵": {
+        "n": 17,
+        "avg_views": 87.1,
+        "avg_er": 2.9,
+        "spread_rate_pct": 0.0
+      },
+      "互動率倍數(有/無)": null,
+      "信心": "LOW(任一組樣本<3)"
+    },
+    "深夜時間詞": {
+      "有此特徵": {
+        "n": 5,
+        "avg_views": 79.6,
+        "avg_er": 2.56,
+        "spread_rate_pct": 0.0
+      },
+      "無此特徵": {
+        "n": 14,
+        "avg_views": 98.3,
+        "avg_er": 3.24,
+        "spread_rate_pct": 0.07
+      },
+      "互動率倍數(有/無)": 0.79,
+      "信心": "OK"
+    },
+    "天氣題材": {
+      "有此特徵": {
+        "n": 5,
+        "avg_views": 94.6,
+        "avg_er": 2.24,
+        "spread_rate_pct": 0.0
+      },
+      "無此特徵": {
+        "n": 14,
+        "avg_views": 92.9,
+        "avg_er": 3.36,
+        "spread_rate_pct": 0.08
+      },
+      "互動率倍數(有/無)": 0.67,
+      "信心": "OK"
+    },
+    "含Emoji": {
+      "有此特徵": {
+        "n": 4,
+        "avg_views": 128,
+        "avg_er": 2.6,
+        "spread_rate_pct": 0.2
+      },
+      "無此特徵": {
+        "n": 15,
+        "avg_views": 84.1,
+        "avg_er": 3.19,
+        "spread_rate_pct": 0.0
+      },
+      "互動率倍數(有/無)": 0.82,
+      "信心": "OK"
+    }
+  }
+}

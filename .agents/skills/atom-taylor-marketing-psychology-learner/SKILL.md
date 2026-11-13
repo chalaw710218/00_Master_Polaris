@@ -35,3 +35,11 @@ description: 行銷長泰勒絲·消費者心理學與爆款演算法自主學�
   python scripts/marketing_psychology_learner.py --study-trend --trend-topic "Attention Scarcity in Micro-Vlogs"
   python scripts/marketing_psychology_learner.py --decadal-audit --round 10
   ```
+
+---
+
+## 真實成效學習入口 (v1.1)
+
+* 腳本：`scripts/taylor_real_learning.py`：讀取 `threads-growth-auditor/data/insights_history.jsonl`，從標題抽取行銷特徵（好奇提問、闆仔梗、喵編人設、深夜時間詞、天氣題材、Emoji），比較有/無該特徵的真實互動率；任一組樣本 < 3 標示低信心。
+* 指令：`python scripts/taylor_real_learning.py --learn`
+* 注意：`marketing_psychology_learner.py` 內的預設洞察與審計數字為示範文字，非實測，請勿引用；以 `taylor_real_learning.py` 輸出為準。
