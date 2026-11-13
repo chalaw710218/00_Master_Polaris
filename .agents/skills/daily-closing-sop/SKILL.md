@@ -33,16 +33,21 @@ description: 極星每日收工閉環標準作業程序 (EOD Closing SOP)。當�
 2. **校對 `00-00_External_Resource_Index.md`**：
    * 確保今天產出的新檔案、新技能或手冊均已建立 Markdown 超連結跳轉。
 
-### 【Step 4：創始人經驗值與六維屬性結算 (Gamification Settlement)】
-1. 讀取 `00-00_Gamification_Engine/save_data.json`。
-2. 根據今日攻克之難題維度計算成長數值：
-   * **🧠 智力 (INT)**：架構設計、系統除錯、底層邏輯突破。
-   * **⚡ 敏捷 (AGI)**：風控反應、資安脫敏、策略調整速度。
-   * **🛡️ 意志 (WILL)**：深夜專注、克服倦怠、高強度推進。
-   * **🔥 執行 (IMP)**：產出文案、落地資料夾、寫入程式碼。
-   * **👑 魅力 (CHA)**：人設塑造、團隊委派、同理共鳴。
-   * **💪 體力 (STR)**：持續抗壓與精力消耗支撐。
-3. 計算今日獲得之經驗值 (EXP)；若滿足升級門檻則執行 Level Up，更新 `save_data.json`。
+### 【Step 4：創始人經驗值與六維屬性結算 (Gamification Settlement · 戴明確定性防呆)】
+> ⚠️ **【戴明防呆最高門禁】**：
+> **絕對禁止任何 AI 或 Agent 透過心算手動修改 `save_data.json`！**（防止大語言模型討好型數值膨脹病灶）。
+> 必須 100% 調用確定性 Python 結算腳本，自動套用階梯阻尼係數與單次 +0.25 熔斷線：
+
+```powershell
+# 語法範例：
+python .agents\skills\daily-closing-sop\scripts\gamification_settler.py `
+  --epic `
+  --int-effort high `
+  --imp-effort high `
+  --will-effort mid `
+  --note "今日主線突破摘要"
+```
+腳本將自動完成阻尼折算、EXP 發放、自動判定 Level Up、金幣錨定與安全寫檔，並輸出標準戰報。
 
 ### 【Step 5：每日一鍵打包推送到 GitHub (Daily Commit & Push)】
 1. 執行 `git add .`（受 `.gitignore` 保護，安全無虞）。
