@@ -35,7 +35,7 @@
 | **Stage 0** | **12 閣員認知瘦身** | 九大天王 + 首長大腦瘦身，動態調用三層心智，常駐 Token $\le 850$ | **100% 完成** | 🟢 綠燈 (Exit Code 0) |
 | **Stage 0.5** | **43 項技能快照存證** | 原有 43 項技能庫生成唯讀快照清冊，雙軌保全，生產環境零破壞 | **100% 完成** | 🟢 綠燈 (快照存檔) |
 | **Stage 1** | **心智校準與工法確立** | 釐清「原子是調整動作」，否定泛化萬用，確立「先明目的、專精做深」工法 | **100% 完成** | 🟢 綠燈 (創辦人對齊) |
-| **Stage 2** | **43項肥大技能逐一解剖** | 深入剖析各肥大技能目的，精準拆解為專精原子，單件流逐項驗收 | **進行中 (12/43 完成 · 第三梯隊推進至 3/7)** | 🟢 Target 12 驗收綠燈 |
+| **Stage 2** | **43項肥大技能逐一解剖** | 深入剖析各肥大技能目的，精準拆解為專精原子，單件流逐項驗收 | **進行中 (13/43 完成 · 第三梯隊推進至 4/7)** | 🟢 Target 13 驗收綠燈 |
 | **Stage 3** | **生活化口語技能組重組** | 串聯已深耕之專精原子，重組為「去逛逛」、「發張照」等自然語言管線 | 待啟動 | ⚪ 佇列中 |
 | **Stage 4** | **全域大聯調與閉環驗收** | 跨組全流程壓力測試，雙軌切換驗收，完成 43 項技能全面進化 | 待啟動 | ⚪ 佇列中 |
 
@@ -75,12 +75,12 @@ flowchart TD
   8. `polaris-motion-reels` ➔ 已拆解為 `atom-motion-camera-engine`, `atom-motion-overlay-safezone` (完成)
   9. `facebook-publisher` ➔ 已拆解為 `atom-fb-preflight-gate`, `atom-fb-feed-dispatcher` (完成)
 
-### 💰 第三梯隊：商業價值精算與服務商品化類 (推進中 · 3/7 完成)
+### 💰 第三梯隊：商業價值精算與服務商品化類 (推進中 · 4/7 完成)
 * **涵蓋技能**：
   10. `polaris-5d-pricing-engine` ➔ 已拆解為 `atom-pricing-5d-calculator`, `atom-pricing-bulletproof-clause` (完成)
   11. `polaris-productization-master` ➔ 已拆解為 `atom-product-trio-scaffolder`, `atom-product-redteam-audit` (完成)
   12. `sharp-groupbuy-analyzer` ➔ 已拆解為 `atom-groupbuy-cost-auditor`, `atom-groupbuy-four-prism-copy` (完成)
-  13. `ai-pricing-auditor`（AI 供應鏈價格逆推審計）
+  13. `ai-pricing-auditor` ➔ 已拆解為 `atom-supplychain-layer-deconstructor`, `atom-supplychain-tactical-negotiator` (完成)
   14. `lifebutler-care-artisan`（生活管家孝親高齡服務封裝）
   15. `polaris-course-master`（開課與工作坊全生命週期引擎）
   16. `polaris-flywheel-orchestrator`（全域飛輪總控）
