@@ -1,0 +1,6 @@
+arXiv 使用條款提醒 (literature_search_arxiv)
+通知時間：2026-11-14T01:40:00+08:00
+
+請使用者查閱 arXiv API 使用條款：https://info.arxiv.org/help/api/index.html
+並務必檢查每篇所取得論文之授權，是否有使用限制。
+本工作區使用規範：每 3 秒最多 1 次請求，一律透過官方腳本執行（內建限速）。

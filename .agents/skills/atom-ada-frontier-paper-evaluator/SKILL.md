@@ -38,3 +38,13 @@ description: 首席科技偵察官艾達·最前沿AI論文與新範式研究原
   python scripts/frontier_paper_evaluator.py --evaluate --title "Reasoning via Latent Diffusion in Transformers" --authors "DeepMind Research" --track "ICLR 2026" --arxiv "2603.12345"
   python scripts/frontier_paper_evaluator.py --batch-sample
   ```
+
+---
+
+## 真實論文攝取入口 (v1.1)
+
+* 流程：先用 `literature-search-arxiv` 技能的 `search_arxiv.py` 搜尋（使用 `uv`，需遵守 arXiv 每 3 秒 1 次請求），再以 `scripts/ada_real_learning.py --ingest <搜尋結果.json>` 攝取。
+* 行為：解析逐筆累積輸出的多個 JSON 物件並以 arXiv id 去重；摘要完全沒有主題關鍵詞者視為搜尋雜訊丟棄（`--keep-unmatched` 可保留）；存摺 `vaults/vault_ada_papers.jsonl` 只記 arXiv 實際回傳欄位與摘要字面關鍵詞比對，狀態標示 `ABSTRACT_ONLY_NOT_FULLTEXT_READ`，不下任何效能或品質評斷。
+* 查詢注意：PowerShell 傳入含雙引號的片語查詢會被忽略並回傳無關論文，請改用 `abs:A AND abs:B` 形式。
+* 警告：`frontier_paper_evaluator.py` 的範例論文標題、機構與評語為示範虛構，非真實論文，請勿引用。
+* 使用本流程須遵守 arXiv 條款（https://info.arxiv.org/help/api/index.html）並檢查各論文授權；提示紀錄見工作區 `.licenses/literature_search_arxiv_LICENSE.txt`。
