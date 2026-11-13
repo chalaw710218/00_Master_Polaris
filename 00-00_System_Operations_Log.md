@@ -1,3 +1,17 @@
+### [2026-11-13 20:18] 第八標的 polaris-motion-reels 拆解大捷 ＆ 第二梯隊推進至 3/4 (8/43)
+* **決策背景**：
+  - 創辦人（品碩）核准第八標的 `polaris-motion-reels` 之解剖拆解方案。
+  - 將「短影音電影級運鏡軌跡與逐幀渲染」與「社群 UI 安全區避讓字幕與品牌動態覆層」進行深度領域解耦。
+* **落地重大成果**：
+  1. **原技能 100% 拆解為 2 大專精原子（Exit Code 0）**：
+     - `atom-motion-camera-engine`：電影級運鏡軌跡與逐幀渲染底座（Ease-In-Out Sine 平滑正弦緩動 ✕ 4 種運鏡預設 zoom_in / zoom_out / pan_up / breathing ✕ 9:16 / 1:1 / 16:9 智能裁切 ✕ H.264 MP4 壓制）。
+     - `atom-motion-overlay-safezone`：短影音社群 UI 安全區幾何與動態覆層精算（IG Reels / Threads / TikTok 原生 UI 避讓 ✕ 底部 28% 防眩暗角 ✕ 字幕淡入淡出 Fade In/Out 時間軸 ✕ 品牌法定名稱零洩漏出廠閘門）。
+  2. **品質防呆與安燈拉繩實測驗證**：
+     - 實測正常樣品：全部通過，Exit Code 0。
+     - 實測違規樣品（出現「極星」內部代號）：秒級觸發安燈拉繩，Exit Code 1 阻斷出廠。
+  3. **存證與進度推進**：
+     - 完成 Git 存證，Stage 2 推進至 8/43，全域累計淬鍊 20 大專精深耕原子！
+
 ### [2026-11-13 20:12] 第七標的 polaris-poster-artisan 拆解大捷 ＆ 第二梯隊推進至 2/4 (7/43)
 * **決策背景**：
   - 創辦人（品碩）核准第七標的 `polaris-poster-artisan` 之解剖拆解方案。

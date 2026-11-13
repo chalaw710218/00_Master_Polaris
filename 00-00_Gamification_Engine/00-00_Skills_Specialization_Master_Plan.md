@@ -35,7 +35,7 @@
 | **Stage 0** | **12 閣員認知瘦身** | 九大天王 + 首長大腦瘦身，動態調用三層心智，常駐 Token $\le 850$ | **100% 完成** | 🟢 綠燈 (Exit Code 0) |
 | **Stage 0.5** | **43 項技能快照存證** | 原有 43 項技能庫生成唯讀快照清冊，雙軌保全，生產環境零破壞 | **100% 完成** | 🟢 綠燈 (快照存檔) |
 | **Stage 1** | **心智校準與工法確立** | 釐清「原子是調整動作」，否定泛化萬用，確立「先明目的、專精做深」工法 | **100% 完成** | 🟢 綠燈 (創辦人對齊) |
-| **Stage 2** | **43項肥大技能逐一解剖** | 深入剖析各肥大技能目的，精準拆解為專精原子，單件流逐項驗收 | **進行中 (7/43 完成 · 第二梯隊推進至 2/4)** | 🟢 Target 7 驗收綠燈 |
+| **Stage 2** | **43項肥大技能逐一解剖** | 深入剖析各肥大技能目的，精準拆解為專精原子，單件流逐項驗收 | **進行中 (8/43 完成 · 第二梯隊推進至 3/4)** | 🟢 Target 8 驗收綠燈 |
 | **Stage 3** | **生活化口語技能組重組** | 串聯已深耕之專精原子，重組為「去逛逛」、「發張照」等自然語言管線 | 待啟動 | ⚪ 佇列中 |
 | **Stage 4** | **全域大聯調與閉環驗收** | 跨組全流程壓力測試，雙軌切換驗收，完成 43 項技能全面進化 | 待啟動 | ⚪ 佇列中 |
 
@@ -68,11 +68,11 @@ flowchart TD
   4. `threads-rss-sentinel` ➔ 拆解為 `atom-threads-rss-watcher`, `atom-threads-trio-crafter`
   5. `hot-trend-scout` ➔ 拆解為 `atom-trend-radar-converter`, `atom-trend-visual-parody`
 
-### 🎨 第二梯隊：視覺行銷與多媒體發布類 (推進中 · 2/4 完成)
+### 🎨 第二梯隊：視覺行銷與多媒體發布類 (推進中 · 3/4 完成)
 * **涵蓋技能**：
   6. `one-shot-photo-marketer` ➔ 已拆解為 `atom-photo-classifier`, `atom-event-intel-copy`, `atom-boss-direct-copy` (完成)
   7. `polaris-poster-artisan` ➔ 已拆解為 `atom-poster-grid-architect`, `atom-poster-print-andon` (完成)
-  8. `polaris-motion-reels`（微動態短影音合成引擎）
+  8. `polaris-motion-reels` ➔ 已拆解為 `atom-motion-camera-engine`, `atom-motion-overlay-safezone` (完成)
   9. `facebook-publisher`（Facebook 自動發布與排程）
 
 ### 💰 第三梯隊：商業價值精算與服務商品化類
