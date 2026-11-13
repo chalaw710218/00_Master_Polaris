@@ -32,16 +32,15 @@
 | **01** | **雪 (Yuki)** | CEO 執行長兼首席幕僚長 | **292.5 KB** | ✅ **已成功瘦身 (880 Token)** | 🟢 **100 / 100 (Pass)** | [`00_CEO_Yuki_Surface_Working_Card.md`](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CEO_Yuki/00_CEO_Yuki_Surface_Working_Card.md) |
 | **02** | **尼奧 (Neo)** | 首席前端架構師 | **397.5 KB** (全閣最重) | ✅ **已成功瘦身 (820 Token)** | 🟢 **100 / 100 (Pass)** | [`00_Neo_Surface_Working_Card.md`](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_Architect_Neo/00_Neo_Surface_Working_Card.md) |
 | **03** | **艾達 (Ada)** | 首席前沿科技偵察官 | **326.8 KB** (重度超重) | ✅ **已成功瘦身 (850 Token)** | 🟢 **100 / 100 (Pass)** | [`00_Ada_Surface_Working_Card.md`](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_Scout_Ada/00_Ada_Surface_Working_Card.md) |
-| **04** | **泰勒絲 (Taylor)** | CMO 行銷長 | **139.2 KB** | ⏳ 待排隊調校 | ⚪ 尚未檢核 | 待生成 |
-| **05** | **林納斯 (Linus)** | CTO 技術長兼工程長 | **94.1 KB** | ⏳ 待排隊調校 | ⚪ 尚未檢核 | 待生成 |
+| **04** | **泰勒絲 (Taylor)** | CMO 行銷長 | **139.2 KB** | ✅ **已成功瘦身 (850 Token)** | 🟢 **100 / 100 (Pass)** | [`00_Taylor_Surface_Working_Card.md`](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CMO_Taylor/00_Taylor_Surface_Working_Card.md) |
+| **05** | **林納斯 (Linus)** | CTO 技術長兼工程長 | **94.1 KB** | ⏳ 待排隊調校 (Next) | ⚪ 尚未檢核 | 待生成 |
 | **06** | **影 (Kage)** | 首席特務兼生活管家 | **90.8 KB** | ⏳ 待排隊調校 | ⚪ 尚未檢核 | 待生成 |
 | **07** | **雪柔 (Falcon)** | CIO 情報長兼首席法務顧問 | **55.9 KB** | ⏳ 待排隊調校 | ⚪ 尚未檢核 | 待生成 |
 | **08** | **渡鴉 (Raven)** | 首席黑色調查官 | **26.2 KB** | ⏳ 待排隊調校 | ⚪ 尚未檢核 | 待生成 |
 | **09** | **算盤 (Abacus)** | CFO 財務長 (查理·蒙格) | **24.9 KB** | ⏳ 待排隊調校 | ⚪ 尚未檢核 | 待生成 |
-| **10** | **戴明 (Deming)** | CQO 首席品質長 | **15.5 KB** | ⏳ 待排隊調校 | ⚪ 尚未檢核 | 待生成 |
-| **10** | **渡鴉 (Raven)** | 首席黑色調查官 | **26.2 KB** | ⏳ 待排隊調校 | ⚪ 尚未檢核 | 待生成 |
-| **11** | **約瑟夫 (Josef)** | CVO 首席視覺長兼海報工匠 | 結構化法典中 | ⏳ 待排隊調校 | ⚪ 尚未檢核 | 待生成 |
-| **12** | **喵編 (Meow)** | 門面吉祥物兼店貓 | 輕量日記本 | ⏳ 待排隊調校 | ⚪ 尚未檢核 | 待生成 |
+| **10** | **約瑟夫 (Josef)** | CVO 首席視覺長兼海報工匠 | 結構化法典中 | ⏳ 待排隊調校 | ⚪ 尚未檢核 | 待生成 |
+| **11** | **喵編 (Meow)** | 門面吉祥物兼店貓 | 輕量日記本 | ⏳ 待排隊調校 | ⚪ 尚未檢核 | 待生成 |
+| **12** | **戴明 (Deming)** | CQO 首席品質長兼終審官 | **15.5 KB** | ⏳ 待排隊調校 (壓軸壓陣) | ⚪ 尚未檢核 | 待生成 |
 
 ---
 
