@@ -86,3 +86,31 @@
 - [ ] **2. 🛡️ 開源點餐系統 (TastyIgniter) PHP 8.4 資安防護演進**
   - **負責人**：林納斯 (CTO)
   - **現況**：GCP Compute Engine (`tt-startup-boost`) 伺服器健康在線；後續依 [`00-09-02_PHP2Shell_CVE-2026-109618_升級實戰教學.md`](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-09_Project_OpenSource_Ordering/00-09-02_PHP2Shell_CVE-2026-109618_升級實戰教學.md) 擇機完成防護配置。
+
+
+---
+
+## ⚡ 四、 雲端 GPU 算力接管與 Colab-MCP 待辦儲備 (Colab-MCP Pro GPU Backlog · 2026-11-13)
+
+> **戰略定位**：由 CTO 林納斯主政、科技偵察官艾達算力調度、視覺長約瑟夫圖形協同。將創辦人之 Google Colab Pro（T4 / A100 / L4 算力）透過 MCP 協定無縫接入極星指揮塔，實現「本地輕量 0 負擔、雲端免費頂級算力生圖」之閉環。
+
+### 📦 已完成技術基座 (Milestones Completed)
+- [x] **Astral uv 與獨立 Python 3.13 運行環境**：部署於 `C:\Users\lenovo\.local\bin\uv.exe`，擺脫 Windows 舊版環境限制。
+- [x] **googlecolab/colab-mcp 伺服器與依賴編譯**：104 項依賴套件編譯緩存完畢。
+- [x] **本機執行階段極速脫鉤**：直接調用本機原生編譯之 `colab-mcp.exe`，免除 GitHub 遠端網路延遲。
+- [x] **雙軌參數死鎖**：固定連接埠 `7148`、固定權杖 `VlbC0Wm7DzcfDOH4Aurnsg`，解決隨機連接埠漂移問題。
+- [x] **五分鐘彈性容錯期**：連線等待逾時由 60 秒放寬至 300 秒（5 分鐘）。
+- [x] **專屬作戰技能封裝**：建立並登記 [`.agents/skills/google-colab-commander/SKILL.md`](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/.agents/skills/google-colab-commander/SKILL.md)。
+
+### 📌 待推進任務清單 (Pending Action Items)
+- [ ] **1. Colab 雲端工作區實體握手 (One-Click Handshake)**
+  - **操作方式**：點擊 [👉 直達專屬連結](https://colab.research.google.com/notebooks/empty.ipynb#mcpProxyToken=VlbC0Wm7DzcfDOH4Aurnsg&mcpProxyPort=7148) 並在彈出的「Connect to a local Colab MCP server」對話框點擊右下角【Connect】。
+  - **預期結果**：完成 WebSocket 雙向通道綁定，釋放 `execute_code` 等雲端編輯與執行工具。
+- [ ] **2. 雲端 GPU 規格與性能基準測試 (GPU Benchmark)**
+  - **驗證代碼**：透過 MCP 執行 `!nvidia-smi`。
+  - **確認指標**：核對 Colab Pro 分配之 GPU 型號（T4 / A100 / L4 / V100）與顯存容量（15GB~40GB）。
+- [ ] **3. 喵編 (Meow) 高清生圖工作流架設 (ComfyUI / Flux Pipeline)**
+  - **架構內容**：於 Colab 雲端安裝 ComfyUI 或 Diffusers / Flux 輕量推論腳本。
+  - **落地標的**：為吉祥物「喵編」產生多角度、高保真生活寫真，回流至 `00-00_Gamification_Engine/Lounge_of_the_Mascot_Meow/`。
+- [ ] **4. 雲端資產雙向自動同步與資安防護 (Asset Sync & Security Vault)**
+  - **機制設計**：掛載 Google Drive 自動存檔，配合本機 `sync` 腳本拉取產出物；敏感 API Key 嚴格脫敏，落實極星資安防火牆。
