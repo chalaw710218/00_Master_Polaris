@@ -19,14 +19,30 @@ description: 萬用 Threads 官方自動發文與留言巡邏秒回技能。支�
 
 ## 執行流程
 
-### 模式 A：Threads 自動發文 (Publish Mode)
+### 模式 A：Threads 自動發文 (Publish Mode · 仿生閉環出廠管制)
+
+#### Step 0: 動態提示詞約束注入（可選）
+在生成文案時，建議先調用守門員獲取即時仿生動態約束，避免踩坑：
+```powershell
+python .agents\skills\threads-growth-auditor\scripts\bionic_closed_loop_gatekeeper.py --constraints
+```
 
 #### Step 1: 確認發布內容
 * 取得欲發布的文字內容（500 字以內，符合 Threads 呼吸感排版）。
 * **支援本地圖片上傳**：若有附帶圖片，無論是本機檔案路徑（如 `C:/photo.jpg`）或網路 URL，腳本都會自動上傳至 Meta 官方 CDN，無縫完成帶圖發布！
 
-#### Step 2: 執行發布腳本模板
-調用以下封裝腳本（自動由極星根目錄 `.secrets.env` 取得金鑰）：
+#### Step 2: 執行閉環安全發布（強制戴明安燈出廠質檢）
+發布前腳本會自動調用 `bionic_closed_loop_gatekeeper.py` 進行安燈質檢（檢查黑名單鉤子、泰勒絲負面特徵、字數與外鏈），**未達 90 分或踩雷者物理硬阻斷，絕對不發送**：
+
+```powershell
+# 演練模式（質檢但不實際送出）
+python .agents\skills\threads-publisher\scripts\publish_with_gatekeeper.py --text "貼文內容" --dry-run
+
+# 正式發布模式
+python .agents\skills\threads-publisher\scripts\publish_with_gatekeeper.py --text "貼文內容"
+```
+
+#### 底層原生發布腳本（僅供內部或維護調用）：
 
 ```python
 import os
