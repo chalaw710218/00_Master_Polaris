@@ -35,7 +35,7 @@
 | **Stage 0** | **12 閣員認知瘦身** | 九大天王 + 首長大腦瘦身，動態調用三層心智，常駐 Token $\le 850$ | **100% 完成** | 🟢 綠燈 (Exit Code 0) |
 | **Stage 0.5** | **43 項技能快照存證** | 原有 43 項技能庫生成唯讀快照清冊，雙軌保全，生產環境零破壞 | **100% 完成** | 🟢 綠燈 (快照存檔) |
 | **Stage 1** | **心智校準與工法確立** | 釐清「原子是調整動作」，否定泛化萬用，確立「先明目的、專精做深」工法 | **100% 完成** | 🟢 綠燈 (創辦人對齊) |
-| **Stage 2** | **43項肥大技能逐一解剖** | 深入剖析各肥大技能目的，精準拆解為專精原子，單件流逐項驗收 | **進行中 (28/43 完成 · 第六梯隊推進至 2/17)** | 🟢 Target 28 驗收綠燈 |
+| **Stage 2** | **43項肥大技能逐一解剖** | 深入剖析各肥大技能目的，精準拆解為專精原子，單件流逐項驗收 | **進行中 (29/43 完成 · 第六梯隊推進至 3/17)** | 🟢 Target 29 驗收綠燈 |
 | **Stage 3** | **生活化口語技能組重組** | 串聯已深耕之專精原子，重組為「去逛逛」、「發張照」等自然語言管線 | 待啟動 | ⚪ 佇列中 |
 | **Stage 4** | **全域大聯調與閉環驗收** | 跨組全流程壓力測試，雙軌切換驗收，完成 43 項技能全面進化 | 待啟動 | ⚪ 佇列中 |
 
@@ -101,11 +101,11 @@ flowchart TD
   25. `polaris-cabinet-onboarding` ➔ 已拆解為 `atom-onboarding-office-scaffolder`, `atom-onboarding-roster-sync` (完成)
   26. `shadow-soul-memory` ➔ 已拆解為 `atom-shadow-circadian-guardian`, `atom-shadow-episodic-vault` (完成 · 創辦人兩點作息法旨鋼印)
 
-### 🏛️ 第六梯隊：仿生學習進化、工作自豪感與日結閉環類 (推進中 · 2/17 完成)
+### 🏛️ 第六梯隊：仿生學習進化、工作自豪感與日結閉環類 (推進中 · 3/17 完成)
 * **涵蓋技能**：
   27. `daily-closing-sop` ➔ 已拆解為 `atom-closing-git-security-gate`, `atom-closing-gamification-xp` (完成)
   28. `inspiring-moments` ➔ 已拆解為 `atom-deming-redbead-funnel`, `atom-deming-pokayoke-joy` (完成)
-  29. `polaris-slimming`（天王三層心智瘦身協議）
+  29. `polaris-slimming` ➔ 已拆解為 `atom-slimming-working-card`, `atom-slimming-4d-dispatcher` (完成)
   30. `bionic-self-evolution`（仿生學習與自進化引擎）
   31. `bionic-learning-system`（仿生學習系統母版）
   32~43. 閣員特化仿生學習系列（雪、林納斯、泰勒絲、戴明、算盤、約瑟夫、影、尼奧、艾達、渡鴉、雪柔等特化版）
