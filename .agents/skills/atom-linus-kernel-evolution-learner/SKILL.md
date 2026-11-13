@@ -35,3 +35,11 @@ description: 工程長林納斯·底層內核架構與代碼自噬自主學習�
   python scripts/kernel_evolution_learner.py --study-kernel --feature "Devmem-TCP-Zero-Copy"
   python scripts/kernel_evolution_learner.py --decadal-audit --round 10
   ```
+
+---
+
+## 真實資料入口 (v1.1)
+
+* 指令：`linus_real_learning.py --scan [--out 檔案]`
+* 說明：以 AST 掃描全部原子腳本的未使用 import 與從未被引用的函式，只產出自噬候選清單、不自動刪除；首掃：136 腳本、16,121 行、130 個未使用 import（80 個腳本）、7 個未引用函式（4 個腳本，可能為函式庫誤報）。
+* 示範腳本（舊檔）中的數字與評語為示範文字，非實測，請勿引用。

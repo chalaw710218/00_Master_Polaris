@@ -31,3 +31,11 @@ description: 首席黑色調查官渡鴉·調查心智存摺與十輪自進化�
   python scripts/investigative_mind_evolver.py --record-case --category "weak_signals" --summary "Midnight timestamps revealed hidden proxy bridge."
   python scripts/investigative_mind_evolver.py --decadal-audit --round 10
   ```
+
+---
+
+## 真實資料入口 (v1.1)
+
+* 指令：`raven_real_learning.py --findings <論斷.jsonl>`
+* 說明：證據來源分級（A 多網域含官方、B 多網域無官方、C 單一來源、D 無來源），只評來源結構、不判真偽，不蒐集任何個人資料；僅 A 級可呈報為已查證事實。已用合成資料驗證四種分級，合成紀錄已刪除。
+* 示範腳本（舊檔）中的數字與評語為示範文字，非實測，請勿引用。

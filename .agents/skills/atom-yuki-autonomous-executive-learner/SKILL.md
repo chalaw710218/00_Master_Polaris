@@ -35,3 +35,11 @@ description: 執行長雪·戰略管理與商業博弈自主學習原子 (Yuki A
   python scripts/executive_learning_evolver.py --record-insight --topic "Asymmetric Competition in Local Logistics"
   python scripts/executive_learning_evolver.py --decadal-audit --round 10
   ```
+
+---
+
+## 真實資料入口 (v1.1)
+
+* 指令：`yuki_real_learning.py --survey`
+* 說明：彙整 11 位首長的真實資料引擎與證據檔現況（存在、筆數、最後更新、是否過期）；BLOCKERS 為人工維護之已知外部阻礙，須註明日期。
+* 示範腳本（舊檔）中的數字與評語為示範文字，非實測，請勿引用。

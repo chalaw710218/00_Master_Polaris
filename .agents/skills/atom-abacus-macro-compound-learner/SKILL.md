@@ -35,3 +35,11 @@ description: 財務長算盤·全球總體經濟與複利格柵自主學習原�
   python scripts/macro_compound_learner.py --study-macro --topic "Interest-Rate Cycle & Local Consumption"
   python scripts/macro_compound_learner.py --decadal-audit --round 10
   ```
+
+---
+
+## 真實資料入口 (v1.1)
+
+* 指令：`abacus_real_learning.py --ledger <帳本.csv> [--min-margin 15]`
+* 說明：讀取您提供的帳本（範本見 ledger_template.csv），計算包冰還原後真實純肉成本、物流攤提與毛利率並累積歷史；內建零價格，警戒毛利率為您指定的參數。已用合成資料手算驗證公式，合成紀錄已刪除，尚無真實帳本資料。
+* 示範腳本（舊檔）中的數字與評語為示範文字，非實測，請勿引用。

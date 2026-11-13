@@ -45,3 +45,11 @@ flowchart TD
 # 檢測當前輪次並執行前端工程十輪衝突審計
 python scripts/frontend_vault_evolver.py --audit-cycle '{"current_cycle": 220, "deming_andon_score": 96.5, "unhandled_errors_count": 0, "design_tokens_aligned": true, "learned_features": ["離線 Service Worker 狀態自癒", "常民去機器人冰冷報錯對話"]}'
 ```
+
+---
+
+## 真實資料入口 (v1.1)
+
+* 指令：`neo_real_learning.py --measure <目錄> [--budget-kb 50]`
+* 說明：量測前端目錄的靜態檔案重量（gzip 後首屏程式碼對照預算）與肥大套件；非瀏覽器實測的 FCP/LCP/INP。尚未對任何真實上線網站量測（taste-skill 為技能套件，結果僅驗證引擎可跑）。
+* 示範腳本（舊檔）中的數字與評語為示範文字，非實測，請勿引用。

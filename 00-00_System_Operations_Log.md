@@ -1644,3 +1644,5 @@ aven (調查官 渡鴉)：.agents/skills/bionic-learning-raven/SKILL.md
 ### [2026-11-14 01:50] 艾達真實論文攝取引擎上線 (ada_real_learning.py)：經 literature-search-arxiv 取得真實 arXiv 論文 14 篇（高效推論/量化 5、智能體 5、投機解碼 4 之主題字面比對）入庫，僅摘要層級、未讀全文。修正 PowerShell 引號片語查詢被忽略之問題；搜尋雜訊（無關天文/物理論文）已過濾。
 
 ### [2026-11-14 02:00] 戴明真實品質稽核引擎上線 (deming_real_learning.py)：實際掃描 134 個原子腳本（頂層 45 + atoms/ 89），首輪 132 通過、2 缺陷：atom-cognition-vault-auditor/vault_auditor.py 與 atom-radar-first-principles/first_principles.py 的 argparse help 含未跳脫 % 致 --help 崩潰，已修復並複驗 Exit Code 0。更正：先前所稱「119/125 個腳本全數實測」不實——當時只逐一實測各標的代表指令，並未全量執行。
+
+### [2026-11-14 02:10] 11 位首長真實資料學習引擎全數上線：影/泰勒絲/艾達/戴明（先前）+ 林納斯/雪/算盤/約瑟夫/尼奧/渡鴉/雪柔。雪的內閣彙整：8 位 REAL_DATA_ACTIVE、3 位 ENGINE_READY_NO_DATA（雪自身首輪、算盤待帳本、渡鴉待論斷檔）。已知阻礙：雪柔法規庫無法連線、裁判書需創辦人帳號。約瑟夫實測發現風土色票多組不達高齡對比標準。各舊示範腳本之數字非實測。

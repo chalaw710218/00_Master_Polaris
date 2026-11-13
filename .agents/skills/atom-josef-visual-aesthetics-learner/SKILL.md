@@ -35,3 +35,11 @@ description: 首席視覺長約瑟夫·前沿設計系統與人因光學自主�
   python scripts/visual_aesthetics_learner.py --study-visual --topic "Contrast Sensitivity in Rural Seniors"
   python scripts/visual_aesthetics_learner.py --decadal-audit --round 10
   ```
+
+---
+
+## 真實資料入口 (v1.1)
+
+* 指令：`josef_real_learning.py --audit-palette | --pair FG BG`
+* 說明：以 WCAG 2.x 公式實算風土色票對比。實測：池上金 #d4af37 在黑潮深藍 #0a1128 上 8.89:1（達 7:1）；太麻里紅在深藍上 4.48:1（連大字 4.5 都未達）；米白在池上金上 1.99:1、在太麻里紅上 3.95:1（皆不合格）。28 組中 10 組達 7:1、16 組全不合格。
+* 示範腳本（舊檔）中的數字與評語為示範文字，非實測，請勿引用。

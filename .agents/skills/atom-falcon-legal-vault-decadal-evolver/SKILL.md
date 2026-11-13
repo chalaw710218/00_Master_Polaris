@@ -34,3 +34,11 @@ description: 首席律師雪柔·法律心智存摺與十輪法理審計自進�
   python scripts/legal_vault_decadal_evolver.py --record-legal-case --category "statutes" --summary "電子簽章法新法推定同意要件研習"
   python scripts/legal_vault_decadal_evolver.py --decadal-audit --round 10
   ```
+
+---
+
+## 真實資料入口 (v1.1)
+
+* 指令：`falcon_real_learning.py --build-worklist`
+* 說明：掃描雪柔四個法律原子，抽出全部法條引用與案號列為 UNVERIFIED 查核清單；首輪：11 條法條引用、0 個案號、5 處待查證標記。法規資料庫無法連線，尚未對照官方條文。
+* 示範腳本（舊檔）中的數字與評語為示範文字，非實測，請勿引用。
