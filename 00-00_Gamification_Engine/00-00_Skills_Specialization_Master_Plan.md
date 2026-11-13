@@ -115,7 +115,8 @@ flowchart TD
   36. `bionic-learning-abacus` ➔ 已拆解為 5 大專精深度原子：`atom-abacus-munger-vision-moat`, `atom-abacus-munger-inversion-veto`, `atom-abacus-negative-float-cashflow`, `atom-abacus-survival-reservoir-opex`, `atom-abacus-ice-friction-stripper` (完成 · 創辦人親授蒙格遠見與五大現金流堡壘版)
   37. `bionic-learning-josef` ➔ 已拆解為 4 大專精深度原子：`atom-josef-info-hierarchy-visualizer`, `atom-josef-data-diagram-artisan`, `atom-josef-typography-optical-engine`, `atom-josef-senior-accessibility-visuals` (完成 · 創辦人親授純粹視覺化四維版)
   38. `bionic-learning-kage` ➔ 已拆解為 4 大專精深度原子：`atom-kage-learning-clutch-judge`, `atom-kage-synaptic-metabolic-learner`, `atom-kage-vault-hypothesis-reflector`, `atom-kage-decadal-audit-evolver` (完成 · 創辦人親授脆自主學習與自進化版)
-  39~43. 閣員特化仿生學習系列（尼奧、艾達、渡鴉、雪柔等特化版）
+  39. `bionic-learning-neo` ➔ 已拆解為 4 大專精深度原子：`atom-neo-frontend-tech-evaluator`, `atom-neo-ergonomic-spin-tester`, `atom-neo-web-vitals-autophagy`, `atom-neo-frontend-vault-evolver` (完成 · 創辦人親授前端工程自主學習版)
+  40~43. 閣員特化仿生學習系列（艾達、渡鴉、雪柔與核心技能）
 
 ---
 
