@@ -111,7 +111,8 @@ flowchart TD
   32. `bionic-learning-yuki` ➔ 已拆解為 5 大專精深度原子：`atom-yuki-cabinet-orchestrator`, `atom-yuki-strategic-arbitrator`, `atom-yuki-founder-shield`, `atom-yuki-hyperlocal-artisan`, `atom-yuki-brand-redline-gate` (完成 · 十一大天王首長協同版)
   33. `bionic-learning-linus` ➔ 已拆解為 4 大專精深度原子：`atom-linus-network-transport`, `atom-linus-db-cache-concurrency`, `atom-linus-security-sandbox`, `atom-linus-compute-architecture` (完成 · 四大象限二十項鐵律版)
   34. `bionic-learning-taylor` ➔ 已拆解為 4 大專精深度原子：`atom-taylor-campaign-launchpad`, `atom-taylor-four-prism-copy`, `atom-taylor-ip-meow-marketer`, `atom-taylor-funnel-telemetry` (完成 · 純粹市場行銷四維版)
-  35~43. 閣員特化仿生學習系列（戴明、算盤、約瑟夫、影、尼奧、艾達、渡鴉、雪柔等特化版）
+  35. `bionic-learning-deming` ➔ 已拆解為 4 大專精深度原子：`atom-deming-andon-gatekeeper`, `atom-deming-sopk-attribution`, `atom-deming-poka-yoke-engineer`, `atom-deming-joy-flow-allocator` (完成 · 四大防禦治理版)
+  36~43. 閣員特化仿生學習系列（算盤、約瑟夫、影、尼奧、艾達、渡鴉、雪柔等特化版）
 
 ---
 
