@@ -1,0 +1,254 @@
+{
+  "snapshot_epoch": "2026-11-13 17:42",
+  "total_skills_count": 41,
+  "guardrail_status": "Locked_ReadOnly_Production_Preserved",
+  "description": "極星43項技能雙軌保全快照清單 · 確保特化期間既有生產功能100%零中斷",
+  "skills": [
+    {
+      "skill_id": "bionic-cognition-compiler",
+      "rel_path": ".agents/skills/bionic-cognition-compiler",
+      "skill_md_size_bytes": 7117,
+      "status": "Production_Active_Guaranteed"
+    },
+    {
+      "skill_id": "bionic-learning-abacus",
+      "rel_path": ".agents/skills/bionic-learning-abacus",
+      "skill_md_size_bytes": 22083,
+      "status": "Production_Active_Guaranteed"
+    },
+    {
+      "skill_id": "bionic-learning-ada",
+      "rel_path": ".agents/skills/bionic-learning-ada",
+      "skill_md_size_bytes": 60446,
+      "status": "Production_Active_Guaranteed"
+    },
+    {
+      "skill_id": "bionic-learning-deming",
+      "rel_path": ".agents/skills/bionic-learning-deming",
+      "skill_md_size_bytes": 20086,
+      "status": "Production_Active_Guaranteed"
+    },
+    {
+      "skill_id": "bionic-learning-falcon",
+      "rel_path": ".agents/skills/bionic-learning-falcon",
+      "skill_md_size_bytes": 26509,
+      "status": "Production_Active_Guaranteed"
+    },
+    {
+      "skill_id": "bionic-learning-josef",
+      "rel_path": ".agents/skills/bionic-learning-josef",
+      "skill_md_size_bytes": 20162,
+      "status": "Production_Active_Guaranteed"
+    },
+    {
+      "skill_id": "bionic-learning-kage",
+      "rel_path": ".agents/skills/bionic-learning-kage",
+      "skill_md_size_bytes": 19776,
+      "status": "Production_Active_Guaranteed"
+    },
+    {
+      "skill_id": "bionic-learning-linus",
+      "rel_path": ".agents/skills/bionic-learning-linus",
+      "skill_md_size_bytes": 24245,
+      "status": "Production_Active_Guaranteed"
+    },
+    {
+      "skill_id": "bionic-learning-neo",
+      "rel_path": ".agents/skills/bionic-learning-neo",
+      "skill_md_size_bytes": 124933,
+      "status": "Production_Active_Guaranteed"
+    },
+    {
+      "skill_id": "bionic-learning-raven",
+      "rel_path": ".agents/skills/bionic-learning-raven",
+      "skill_md_size_bytes": 19859,
+      "status": "Production_Active_Guaranteed"
+    },
+    {
+      "skill_id": "bionic-learning-system",
+      "rel_path": ".agents/skills/bionic-learning-system",
+      "skill_md_size_bytes": 26297,
+      "status": "Production_Active_Guaranteed"
+    },
+    {
+      "skill_id": "bionic-learning-taylor",
+      "rel_path": ".agents/skills/bionic-learning-taylor",
+      "skill_md_size_bytes": 78467,
+      "status": "Production_Active_Guaranteed"
+    },
+    {
+      "skill_id": "bionic-learning-yuki",
+      "rel_path": ".agents/skills/bionic-learning-yuki",
+      "skill_md_size_bytes": 22925,
+      "status": "Production_Active_Guaranteed"
+    },
+    {
+      "skill_id": "bionic-self-evolution",
+      "rel_path": ".agents/skills/bionic-self-evolution",
+      "skill_md_size_bytes": 116602,
+      "status": "Production_Active_Guaranteed"
+    },
+    {
+      "skill_id": "daily-closing-sop",
+      "rel_path": ".agents/skills/daily-closing-sop",
+      "skill_md_size_bytes": 4606,
+      "status": "Production_Active_Guaranteed"
+    },
+    {
+      "skill_id": "facebook-publisher",
+      "rel_path": ".agents/skills/facebook-publisher",
+      "skill_md_size_bytes": 6292,
+      "status": "Production_Active_Guaranteed"
+    },
+    {
+      "skill_id": "google-colab-commander",
+      "rel_path": ".agents/skills/google-colab-commander",
+      "skill_md_size_bytes": 5817,
+      "status": "Production_Active_Guaranteed"
+    },
+    {
+      "skill_id": "hot-trend-scout",
+      "rel_path": ".agents/skills/hot-trend-scout",
+      "skill_md_size_bytes": 9623,
+      "status": "Production_Active_Guaranteed"
+    },
+    {
+      "skill_id": "inspiring-moments",
+      "rel_path": ".agents/skills/inspiring-moments",
+      "skill_md_size_bytes": 8221,
+      "status": "Production_Active_Guaranteed"
+    },
+    {
+      "skill_id": "lifebutler-care-artisan",
+      "rel_path": ".agents/skills/lifebutler-care-artisan",
+      "skill_md_size_bytes": 10235,
+      "status": "Production_Active_Guaranteed"
+    },
+    {
+      "skill_id": "one-shot-photo-marketer",
+      "rel_path": ".agents/skills/one-shot-photo-marketer",
+      "skill_md_size_bytes": 5984,
+      "status": "Production_Active_Guaranteed"
+    },
+    {
+      "skill_id": "persona-reverse-engineer",
+      "rel_path": ".agents/skills/persona-reverse-engineer",
+      "skill_md_size_bytes": 9575,
+      "status": "Production_Active_Guaranteed"
+    },
+    {
+      "skill_id": "polaris-5d-pricing-engine",
+      "rel_path": ".agents/skills/polaris-5d-pricing-engine",
+      "skill_md_size_bytes": 10575,
+      "status": "Production_Active_Guaranteed"
+    },
+    {
+      "skill_id": "polaris-cabinet-onboarding",
+      "rel_path": ".agents/skills/polaris-cabinet-onboarding",
+      "skill_md_size_bytes": 7333,
+      "status": "Production_Active_Guaranteed"
+    },
+    {
+      "skill_id": "polaris-client-architect",
+      "rel_path": ".agents/skills/polaris-client-architect",
+      "skill_md_size_bytes": 11137,
+      "status": "Production_Active_Guaranteed"
+    },
+    {
+      "skill_id": "polaris-course-master",
+      "rel_path": ".agents/skills/polaris-course-master",
+      "skill_md_size_bytes": 7763,
+      "status": "Production_Active_Guaranteed"
+    },
+    {
+      "skill_id": "polaris-flywheel-orchestrator",
+      "rel_path": ".agents/skills/polaris-flywheel-orchestrator",
+      "skill_md_size_bytes": 5625,
+      "status": "Production_Active_Guaranteed"
+    },
+    {
+      "skill_id": "polaris-forensic-investigator",
+      "rel_path": ".agents/skills/polaris-forensic-investigator",
+      "skill_md_size_bytes": 13454,
+      "status": "Production_Active_Guaranteed"
+    },
+    {
+      "skill_id": "polaris-frontier-radar",
+      "rel_path": ".agents/skills/polaris-frontier-radar",
+      "skill_md_size_bytes": 8235,
+      "status": "Production_Active_Guaranteed"
+    },
+    {
+      "skill_id": "polaris-gentle-ui",
+      "rel_path": ".agents/skills/polaris-gentle-ui",
+      "skill_md_size_bytes": 11066,
+      "status": "Production_Active_Guaranteed"
+    },
+    {
+      "skill_id": "polaris-motion-reels",
+      "rel_path": ".agents/skills/polaris-motion-reels",
+      "skill_md_size_bytes": 3017,
+      "status": "Production_Active_Guaranteed"
+    },
+    {
+      "skill_id": "polaris-poster-artisan",
+      "rel_path": ".agents/skills/polaris-poster-artisan",
+      "skill_md_size_bytes": 14448,
+      "status": "Production_Active_Guaranteed"
+    },
+    {
+      "skill_id": "polaris-productization-master",
+      "rel_path": ".agents/skills/polaris-productization-master",
+      "skill_md_size_bytes": 7677,
+      "status": "Production_Active_Guaranteed"
+    },
+    {
+      "skill_id": "polaris-slimming",
+      "rel_path": ".agents/skills/polaris-slimming",
+      "skill_md_size_bytes": 4136,
+      "status": "Production_Active_Guaranteed"
+    },
+    {
+      "skill_id": "rea-reverse-engineer",
+      "rel_path": ".agents/skills/rea-reverse-engineer",
+      "skill_md_size_bytes": 8735,
+      "status": "Production_Active_Guaranteed"
+    },
+    {
+      "skill_id": "shadow-soul-memory",
+      "rel_path": ".agents/skills/shadow-soul-memory",
+      "skill_md_size_bytes": 2768,
+      "status": "Production_Active_Guaranteed"
+    },
+    {
+      "skill_id": "taste-skill",
+      "rel_path": ".agents/skills/taste-skill",
+      "skill_md_size_bytes": 31351,
+      "status": "Production_Active_Guaranteed"
+    },
+    {
+      "skill_id": "threads-autonomous-walker",
+      "rel_path": ".agents/skills/threads-autonomous-walker",
+      "skill_md_size_bytes": 19670,
+      "status": "Production_Active_Guaranteed"
+    },
+    {
+      "skill_id": "threads-growth-auditor",
+      "rel_path": ".agents/skills/threads-growth-auditor",
+      "skill_md_size_bytes": 4319,
+      "status": "Production_Active_Guaranteed"
+    },
+    {
+      "skill_id": "threads-publisher",
+      "rel_path": ".agents/skills/threads-publisher",
+      "skill_md_size_bytes": 4992,
+      "status": "Production_Active_Guaranteed"
+    },
+    {
+      "skill_id": "threads-rss-sentinel",
+      "rel_path": ".agents/skills/threads-rss-sentinel",
+      "skill_md_size_bytes": 4318,
+      "status": "Production_Active_Guaranteed"
+    }
+  ]
+}
