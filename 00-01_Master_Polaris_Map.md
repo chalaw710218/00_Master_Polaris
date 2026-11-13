@@ -43,6 +43,7 @@
 | **polaris-forensic-investigator**| 渡鴉三維立體穿透調查與司法徵信卷宗 | `.agents/skills/polaris-forensic-investigator/SKILL.md` |
 | **polaris-frontier-radar** | 艾達前沿科技硬核物理審查與台東風土雷達 | `.agents/skills/polaris-frontier-radar/SKILL.md` |
 | **google-colab-commander** | 林納斯 ✕ 艾達 Google Colab Pro 雲端 GPU 算力接管與 MCP 協議 | `.agents/skills/google-colab-commander/SKILL.md` |
+| **polaris-slimming** | 創辦人親定「瘦身」技能：九大天王三層心智抽脂與四維動態調用方程式 | `.agents/skills/polaris-slimming/SKILL.md` |
 
 ---
 
