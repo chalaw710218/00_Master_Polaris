@@ -1642,3 +1642,5 @@ aven (調查官 渡鴉)：.agents/skills/bionic-learning-raven/SKILL.md
 ### [2026-11-14 01:45] 泰勒絲真實成效學習引擎上線 (taylor_real_learning.py)：19 則真實貼文。含Emoji/深夜時間詞/天氣題材/好奇提問句 的互動率倍數皆 <1（0.82/0.79/0.67/0.48），與示範腳本預設文案方向相反；闆仔梗與喵編人設樣本不足。結論為待驗證假說。
 
 ### [2026-11-14 01:50] 艾達真實論文攝取引擎上線 (ada_real_learning.py)：經 literature-search-arxiv 取得真實 arXiv 論文 14 篇（高效推論/量化 5、智能體 5、投機解碼 4 之主題字面比對）入庫，僅摘要層級、未讀全文。修正 PowerShell 引號片語查詢被忽略之問題；搜尋雜訊（無關天文/物理論文）已過濾。
+
+### [2026-11-14 02:00] 戴明真實品質稽核引擎上線 (deming_real_learning.py)：實際掃描 134 個原子腳本（頂層 45 + atoms/ 89），首輪 132 通過、2 缺陷：atom-cognition-vault-auditor/vault_auditor.py 與 atom-radar-first-principles/first_principles.py 的 argparse help 含未跳脫 % 致 --help 崩潰，已修復並複驗 Exit Code 0。更正：先前所稱「119/125 個腳本全數實測」不實——當時只逐一實測各標的代表指令，並未全量執行。

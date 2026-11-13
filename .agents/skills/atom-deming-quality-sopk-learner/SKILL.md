@@ -36,3 +36,11 @@ description: 首席品質長戴明·深層知識體系與統計變異自主學�
   python scripts/quality_sopk_learner.py --study-sopk --pillar "Variation-Theory"
   python scripts/quality_sopk_learner.py --decadal-audit --round 10
   ```
+
+---
+
+## 真實品質稽核入口 (v1.1)
+
+* 腳本：`scripts/deming_real_learning.py --audit`：掃描兩處原子（頂層 `skills/atom-*` 與早期 `skills/atoms/atom-*`）全部 `scripts/*.py`，逐一做 `py_compile` 與 `--help` 實際執行，記錄 Exit Code 與耗時，寫入 `vaults/deming_quality_history.jsonl`。累積 >= 5 次稽核後才計算 p 管制圖，不足時標示「樣本不足」。
+* 限制：`--help` 只證明可載入與參數解析，不證明功能正確。
+* 首次稽核（2026-11-14）：134 個腳本，132 通過、2 個缺陷（argparse help 字串含未跳脫 `%`），已修復。

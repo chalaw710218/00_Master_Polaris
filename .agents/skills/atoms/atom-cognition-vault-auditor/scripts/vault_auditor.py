@@ -70,7 +70,7 @@ def audit_entry_slop(text: str) -> tuple[bool, list[str]]:
 def main():
     parser = argparse.ArgumentParser(description="認知存摺全息健康掃描與去 AI 腔質檢原子 (atom-cognition-vault-auditor)")
     parser.add_argument("--vault-dir", type=str, default=".", help="存摺根目錄")
-    parser.add_argument("--min-confidence", type=int, default=90, help="PRM 置信度門檻百分比 (預設 90%)")
+    parser.add_argument("--min-confidence", type=int, default=90, help="PRM 置信度門檻百分比 (預設 90%%)")
     parser.add_argument("--dry-run", action="store_true", help="物理演練驗證模式")
 
     args = parser.parse_args()

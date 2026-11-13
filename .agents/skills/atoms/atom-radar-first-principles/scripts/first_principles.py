@@ -67,7 +67,7 @@ def main():
     parser.add_argument("--tech-name", type=str, default="縱谷風土常民邊緣感知盒", help="技術或硬體品名")
     parser.add_argument("--tech-claim", type=str, default="採用超低功耗微感測器，革命性突破長輩防跌，離線運算守護居家安全", help="廠商文宣或技術摘要")
     parser.add_argument("--claimed-power-watts", type=float, default=2.8, help="整機工作功耗 (W)")
-    parser.add_argument("--offline-capability", action="store_true", default=True, help="是否支援 100% 離線運行")
+    parser.add_argument("--offline-capability", action="store_true", default=True, help="是否支援 100%% 離線運行")
     parser.add_argument("--ip-rating", type=str, default="IP67", help="防水防腐防塵等級")
     parser.add_argument("--dry-run", action="store_true", help="物理演練驗證模式")
 
