@@ -35,7 +35,7 @@
 | **Stage 0** | **12 閣員認知瘦身** | 九大天王 + 首長大腦瘦身，動態調用三層心智，常駐 Token $\le 850$ | **100% 完成** | 🟢 綠燈 (Exit Code 0) |
 | **Stage 0.5** | **43 項技能快照存證** | 原有 43 項技能庫生成唯讀快照清冊，雙軌保全，生產環境零破壞 | **100% 完成** | 🟢 綠燈 (快照存檔) |
 | **Stage 1** | **心智校準與工法確立** | 釐清「原子是調整動作」，否定泛化萬用，確立「先明目的、專精做深」工法 | **100% 完成** | 🟢 綠燈 (創辦人對齊) |
-| **Stage 2** | **43項肥大技能逐一解剖** | 深入剖析各肥大技能目的，精準拆解為專精原子，單件流逐項驗收 | **進行中 (41/43 完成 · 產出 113 專精深度原子 · 進度 95.3%)** | 🟢 Target 41 (渡鴉) 驗收綠燈 |
+| **Stage 2** | **43項肥大技能逐一解剖** | 深入剖析各肥大技能目的，精準拆解為專精原子，單件流逐項驗收 | **進行中 (42/43 完成 · 產出 117 專精深度原子 · 進度 97.7%)** | 🟢 Target 42 (雪柔) 驗收綠燈 |
 | **Stage 3** | **生活化口語技能組重組** | 串聯已深耕之專精原子，重組為「去逛逛」、「發張照」等自然語言管線 | 待啟動 | ⚪ 佇列中 |
 | **Stage 4** | **全域大聯調與閉環驗收** | 跨組全流程壓力測試，雙軌切換驗收，完成 43 項技能全面進化 | 待啟動 | ⚪ 佇列中 |
 
@@ -118,7 +118,8 @@ flowchart TD
   39. `bionic-learning-neo` ➔ 已拆解為 4 大專精深度原子：`atom-neo-frontend-tech-evaluator`, `atom-neo-ergonomic-spin-tester`, `atom-neo-web-vitals-autophagy`, `atom-neo-frontend-vault-evolver` (完成 · 創辦人親授前端工程自主學習版)
   40. `bionic-learning-ada` ➔ 已拆解為 4 大專精深度原子：`atom-ada-frontier-paper-evaluator`, `atom-ada-agentic-paradigm-researcher`, `atom-ada-efficient-inference-scout`, `atom-ada-research-dossier-evolver` (完成 · 創辦人親授最前沿AI研究員版)
   41. `bionic-learning-raven` ➔ 已拆解為 4 大專精深度原子：`atom-raven-deep-barrier-breaker`, `atom-raven-causal-nexus-tracer`, `atom-raven-shadow-finance-forensics`, `atom-raven-investigative-mind-evolver` (完成 · 創辦人親授調查本領深研自進化版)
-  42~43. 閣員特化仿生學習系列（雪柔與核心技能）
+  42. `bionic-learning-falcon` ➔ 已拆解為 4 大專精深度原子：`atom-falcon-statute-legislative-learner`, `atom-falcon-precedent-caselaw-analyst`, `atom-falcon-regulatory-moat-architect`, `atom-falcon-legal-vault-decadal-evolver` (完成 · 創辦人親授雪柔律師法律自主學習版)
+  43. 核心最後標的（終極總收官審計）
 
 ---
 
