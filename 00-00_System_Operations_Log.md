@@ -1,3 +1,17 @@
+### [2026-11-13 21:37] 第十七標的 polaris-client-architect 拆解大捷 ＆ 第四梯隊首戰告捷 (17/43)
+* **決策背景**：
+  - 創辦人（品碩）核准第十七標的 `polaris-client-architect` 之解剖拆解方案。
+  - 將「客戶端本地優先存證與 Service Worker 離線心跳」與「極限弱網穿透傳輸與斷線重放隊列」進行深度領域解耦。
+* **落地重大成果**：
+  1. **原技能 100% 拆解為 2 大專精原子（Exit Code 0）**：
+     - `atom-client-offline-heartbeat`：本地優先存證與 Service Worker 離線心跳套件（本地優先 IndexedDB/OPFS 寫入即確認 $\le 16\text{ms}$ ✕ 雙層 SLRU 緩存 sw.js ✕ 斷網溫暖生還介面 offline.html 『別擔心，交代的事管家都妥妥記在手機裡了』 ✕ 品牌法定名稱零洩漏防火牆審查）。
+     - `atom-client-resilient-transport`：極限弱網穿透傳輸與斷線重放隊列引擎（離線 Outbox WAL 狀態機 ✕ 模擬暴雨斷網連續提交 3 筆委託 ✕ 網絡恢復自動監聽 online 事件觸發 FIFO 靜默重放 ✕ 唯一冪等鍵 idempotency_key 杜絕弱網重複下單扣款）。
+  2. **實測與抗逆驗證**：
+     - 實測離線套件生成：sw.js 與 offline.html 裝配完畢，品牌零洩漏審查 PASS，Exit Code: 0。
+     - 實測斷線重放狀態機：離線排隊 3 筆訂單，聯網瞬間 100% 成功同步至寶桑派工中心，丟單率 0.0%，重複扣款率 0.0%，Exit Code: 0。
+  3. **存證與進度推進**：
+     - 完成 Git 存證，Stage 2 推進至 17/43 完成，全域累計淬鍊 **38 大專精深耕原子**！
+
 ### [2026-11-13 21:32] 第十六標的 polaris-flywheel-orchestrator 拆解大捷 ＆ 第三梯隊 100% 解剖大圓滿 (16/43)
 * **決策背景**：
   - 創辦人（品碩）核准第十六標的 `polaris-flywheel-orchestrator` 之解剖拆解方案。

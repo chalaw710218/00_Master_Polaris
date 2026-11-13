@@ -35,7 +35,7 @@
 | **Stage 0** | **12 閣員認知瘦身** | 九大天王 + 首長大腦瘦身，動態調用三層心智，常駐 Token $\le 850$ | **100% 完成** | 🟢 綠燈 (Exit Code 0) |
 | **Stage 0.5** | **43 項技能快照存證** | 原有 43 項技能庫生成唯讀快照清冊，雙軌保全，生產環境零破壞 | **100% 完成** | 🟢 綠燈 (快照存檔) |
 | **Stage 1** | **心智校準與工法確立** | 釐清「原子是調整動作」，否定泛化萬用，確立「先明目的、專精做深」工法 | **100% 完成** | 🟢 綠燈 (創辦人對齊) |
-| **Stage 2** | **43項肥大技能逐一解剖** | 深入剖析各肥大技能目的，精準拆解為專精原子，單件流逐項驗收 | **進行中 (16/43 完成 · 第三梯隊 100% 大圓滿)** | 🟢 Target 16 驗收綠燈 |
+| **Stage 2** | **43項肥大技能逐一解剖** | 深入剖析各肥大技能目的，精準拆解為專精原子，單件流逐項驗收 | **進行中 (17/43 完成 · 第四梯隊推進至 1/5)** | 🟢 Target 17 驗收綠燈 |
 | **Stage 3** | **生活化口語技能組重組** | 串聯已深耕之專精原子，重組為「去逛逛」、「發張照」等自然語言管線 | 待啟動 | ⚪ 佇列中 |
 | **Stage 4** | **全域大聯調與閉環驗收** | 跨組全流程壓力測試，雙軌切換驗收，完成 43 項技能全面進化 | 待啟動 | ⚪ 佇列中 |
 
@@ -85,9 +85,9 @@ flowchart TD
   15. `polaris-course-master` ➔ 已拆解為 `atom-course-syllabus-scaffolder`, `atom-course-enrollment-pipeline` (完成 · 每堂嚴格限額6席)
   16. `polaris-flywheel-orchestrator` ➔ 已拆解為 `atom-flywheel-event-router`, `atom-flywheel-launch-cockpit` (完成)
 
-### 🛠️ 第四梯隊：極限底層工程與客戶端體驗類
+### 🛠️ 第四梯隊：極限底層工程與客戶端體驗類 (推進中 · 1/5 完成)
 * **涵蓋技能**：
-  17. `polaris-client-architect`（客戶端極限抗逆架構）
+  17. `polaris-client-architect` ➔ 已拆解為 `atom-client-offline-heartbeat`, `atom-client-resilient-transport` (完成)
   18. `polaris-gentle-ui`（常民生活設計系統）
   19. `google-colab-commander`（Colab Pro GPU 算力指揮官）
   20. `bionic-cognition-compiler`（認知存摺自動編譯器）
