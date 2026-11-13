@@ -50,6 +50,7 @@
 | 項目名稱 | 說明 | 實體路徑 (Path) |
 | :--- | :--- | :--- |
 | **系統營運總日誌** | 系統重大里程碑、演化與操作記錄 | `00-00_Gamification_Engine/00-00_System_Operations_Log.md` |
+| **認知架構大憲章** | 三層心智分流與動態方程式自進化永久死鎖大憲章 (創辦人鋼印) | `00-00_Gamification_Engine/00-00_Cognitive_Architecture_Charter.md` |
 | **遊戲化引擎存檔** | 創辦人等級、六維屬性點數、EXP 存檔 | `00-00_Gamification_Engine/save_data.json` |
 | **動態待辦清單** | 創辦人核定之即時與長期任務看板 | `00-00_Gamification_Engine/00-00_Master_Todo_Backlog.md` |
 | **數位孿生專區** | 陳英里姐一生回憶錄策劃與家訪庫 | `數位孿生/陳英里/` |
