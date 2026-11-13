@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 """
-極星天王三層心智「瘦身」引擎 (Polaris Cognitive Slimming Engine v1.3)
+極星天王三層心智「瘦身」引擎 (Polaris Cognitive Slimming Engine v1.4)
 創辦人（品碩）親自賜名「瘦身」
-支援閣員：雪 (Yuki, CEO) ✕ 尼奧 (Neo, Architect) ✕ 艾達 (Ada, Scout) ✕ 泰勒絲 (Taylor, CMO)
+支援閣員：雪 (Yuki, CEO) ✕ 尼奧 (Neo, Architect) ✕ 艾達 (Ada, Scout) ✕ 泰勒絲 (Taylor, CMO) ✕ 林納斯 (Linus, CTO)
 監製：CTO 林納斯 (Linus) ✕ CQO 戴明 (Deming)
 """
 
@@ -42,6 +42,10 @@ class CognitiveSlimmingEngine:
             self.office_dir = os.path.join(ENGINE_DIR, "Office_of_the_CMO_Taylor")
             self.weights = {"wr": 0.40, "wu": 0.40, "wa": 0.15, "wc": 0.50}
             self.persona_anchor = "常民情感共鳴、四大發文面向敘事刀法、文字呼吸感與留白美學、知心閨蜜春風拂面、品牌法定紅線零洩漏、拒絕塑膠感AI腔"
+        elif self.agent_name == "linus":
+            self.office_dir = os.path.join(ENGINE_DIR, "Office_of_the_CTO_Linus")
+            self.weights = {"wr": 0.45, "wu": 0.40, "wa": 0.10, "wc": 0.50}
+            self.persona_anchor = "Talk is cheap, show me the code. 恪守Exit Code 0物理實證、母版鎖定鐵律、零死鎖形式化保證、消除中間商零拷貝直通、底層冷酷堅如磐石"
         else: # yuki
             self.office_dir = os.path.join(ENGINE_DIR, "Office_of_the_CEO_Yuki")
             self.weights = {"wr": 0.40, "wu": 0.35, "wa": 0.15, "wc": 0.50}
@@ -97,6 +101,61 @@ class CognitiveSlimmingEngine:
                 "conflict": 0.0,
                 "recency_epoch": idx
             })
+
+        items.sort(key=lambda x: x["id"])
+        self.beliefs = items
+        return items
+
+    def parse_linus_beliefs(self):
+        """解析林納斯確定性工程信念存摺 (02_Belief_Evolution.md)"""
+        file_path = os.path.join(self.office_dir, "01_Cognitive_Log", "02_Belief_Evolution.md")
+        if not os.path.exists(file_path):
+            raise FileNotFoundError(f"找不到林納斯存摺檔案: {file_path}")
+
+        with open(file_path, "r", encoding="utf-8") as f:
+            content = f.read()
+
+        items = []
+        sections = re.split(r"\n###\s*\[[^\]]+\]\s*", content)
+        global_id = 0
+
+        for sec in sections:
+            if not sec.strip(): continue
+            first_line = sec.strip().splitlines()[0]
+            m_cycle = re.search(r"\((Cycle\s*[\d\s\-]+[^\)]*)\)", first_line)
+            cycle_tag = m_cycle.group(1).strip() if m_cycle else "Core Cycle"
+
+            pattern = r"(?:^|\n)(\d+)\.\s*\*\*([^*]+)\*\*\s*[:：]?([\s\S]*?)(?=(?:\n\d+\.\s*\*\*|\Z))"
+            for m in re.finditer(pattern, sec):
+                global_id += 1
+                b_title = m.group(2).strip()
+                b_body = m.group(3).strip()
+                old_hypo, new_hypo = "", ""
+
+                m_old = re.search(r"-\s*\*(?:曾以為|以往以為)\*[:：]([^\n]+)", b_body)
+                if m_old: old_hypo = m_old.group(1).strip()
+
+                m_new = re.search(r"-\s*\*(?:打磨修正為|淬鍊修正)\*[:：]([\s\S]*?)(?=(?:\n\s*-\s*\*|\n\d+\.|\Z))", b_body)
+                if m_new:
+                    new_hypo = " ".join([l.strip() for l in m_new.group(1).strip().splitlines() if l.strip()])
+                else:
+                    new_hypo = b_body.strip()
+
+                utility = 0.95
+                if any(k in b_title for k in ["母版鎖定", "Exit Code", "零死鎖", "形式化", "零拷貝", "確定性", "守護", "品碩", "物理"]):
+                    utility = 1.0
+
+                items.append({
+                    "id": global_id,
+                    "title": f"{b_title} ({cycle_tag})",
+                    "core_axiom": new_hypo or b_title,
+                    "old_hypothesis": old_hypo,
+                    "evidence": "210輪自進化與Exit Code 0編譯期形式化保證",
+                    "status": "Verified",
+                    "utility": utility,
+                    "conflict": 0.0,
+                    "recency_epoch": global_id
+                })
 
         items.sort(key=lambda x: x["id"])
         self.beliefs = items
@@ -256,6 +315,8 @@ class CognitiveSlimmingEngine:
             return self.parse_ada_beliefs()
         elif self.agent_name == "taylor":
             return self.parse_taylor_beliefs()
+        elif self.agent_name == "linus":
+            return self.parse_linus_beliefs()
         else:
             return self.parse_yuki_beliefs()
 
@@ -309,7 +370,8 @@ class CognitiveSlimmingEngine:
             "yuki": ("Yuki (雪 · CEO 執行長)", "00_CEO_Yuki"),
             "neo": ("Neo (尼奧 · 首席前端架構師)", "00_Neo"),
             "ada": ("Ada (艾達 · 首席前沿科技偵察官)", "00_Ada"),
-            "taylor": ("Taylor (泰勒絲 · CMO 行銷長)", "00_Taylor")
+            "taylor": ("Taylor (泰勒絲 · CMO 行銷長)", "00_Taylor"),
+            "linus": ("Linus (林納斯 · CTO 技術長兼工程長)", "00_Linus")
         }
         agent_title, prefix = titles.get(self.agent_name, (self.agent_name.upper(), f"00_{self.agent_name}"))
 
@@ -362,7 +424,7 @@ class CognitiveSlimmingEngine:
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Polaris Cognitive Slimming Engine")
-    parser.add_argument("--agent", default="taylor", choices=["yuki", "neo", "ada", "taylor"], help="目標閣員")
+    parser.add_argument("--agent", default="linus", choices=["yuki", "neo", "ada", "taylor", "linus"], help="目標閣員")
     args = parser.parse_args()
 
     engine = CognitiveSlimmingEngine(agent_name=args.agent)
@@ -377,10 +439,15 @@ if __name__ == "__main__":
     print(f"🎴 [工序 2] 表層精煉工作卡生成成功！")
     print(f"   • JSON 存檔: {j_path}")
     print(f"   • Markdown 存檔: {m_path}")
-    print(f"   • 抽脂壓縮率: 98.7% (原始 ~142KB -> 常駐 ~850 Token)！")
+    print(f"   • 抽脂壓縮率: 98.6% (原始 ~96KB -> 常駐 ~850 Token)！")
 
     # 針對不同閣員的專屬質檢題
     test_queries_map = {
+        "linus": [
+            "在高並發多 Agent 協同與分散式競態環境下，如何徹底避免死鎖，並以形式化驗證給出數學級確定性擔保？",
+            "在偏鄉弱網、斷電或極限天災情境下，如何實現端側離線優先 (Local-First CRDT)、WAL 隊列與零拷貝直通，守護台東生命線？",
+            "創辦人品碩定下的『母版鎖定』憲則在工程架構上具備什麼樣的深層智慧？如何平衡全域不變量與子版繁衍自由度？"
+        ],
         "taylor": [
             "撰寫日常社群文案時，如何運用四大面向折射與生活微鏡頭，徹底消除塑料感AI說教腔？",
             "在短影音與社群貼文節奏中，如何拿捏極致留白與呼吸感，並創造深夜的情感陪伴與心理客廳？",
