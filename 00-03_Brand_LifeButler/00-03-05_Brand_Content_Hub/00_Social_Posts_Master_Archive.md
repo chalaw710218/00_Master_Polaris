@@ -24,6 +24,7 @@
 | **#10** | 2026-10-22 | 🌸 新住民文化 | 《島上沒有布》Day 4 權威影音篇 | 📺 主流背書 (公視/聯合/風傳媒) | `1133791522663083` | [`00-10-05`](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-10_New_Immigrant_Empowerment/00-10-05_No_Cloth_Island_Campaign/04_Day4_1022_權威影音篇.md) |
 | **#11** | 2026-10-24 | 🌸 新住民文化 | 《島上沒有布》Day 5 極限轉換篇 | 🚨 倒數搶位 (席次告急張開手掌) | `1133791709329731` | [`00-10-05`](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-10_New_Immigrant_Empowerment/00-10-05_No_Cloth_Island_Campaign/05_Day5_1024_極限轉換篇.md) |
 | **#12** | 發布儲備 | 🥩 管家選品 | 屏東枋寮直送特級活凍午仔魚 250-330g | 🐟 頂級鮮味 (三去極淨/直球129) | *(儲備中)* | [`00-02-06`](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-02_GroupBuy_Products/00-02-06_Vendor_屏東枋寮午仔魚/行銷企劃與管家文案.md) |
+| **#13** | 2026-11-13 | 🏡 社區惜物 | 惜物快閃尋寶預售 (童趣10元起 ✕ 居家收納每樣10元) | 🧸 社區尋寶 (正氣北路家宅1樓) | `1161738593201709` | [`00-03-05`](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-03_Brand_LifeButler/00-03-05_Brand_Content_Hub/draft_fb_20261113_flea_market_presale.md) |
 
 ---
 
