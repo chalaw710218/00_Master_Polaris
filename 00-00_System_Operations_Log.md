@@ -1707,3 +1707,7 @@ aven (調查官 渡鴉)：.agents/skills/bionic-learning-raven/SKILL.md
     4. `enforce.py` (v6.1)：支援文字＋數值指標雙重閘門，雙向接線 `bionic_closed_loop_gatekeeper.py`。
     5. `run_evolution_cycle.py` (v6.1)：單一閉環總控調度器，實測跑通 `kage`, `taylor`, `josef`, `deming` 首輪入庫、真值驗算、自動轉正（共 5 條規則轉正 `active`、1 條未優於對照組維持 `candidate`）與 SHA-256 輪次入帳。
   - **物理驗證**：`selftest.py` 26 項零信任物理阻斷自檢全數通過（Exit Code 0）。
+
+- **[2026-11-14T22:35:00+08:00] [ROLE: Yuki (CEO)] [ACTION: FOUNDER_HONORIFIC_DIRECTIVE]**
+  - **法旨**：創辦人親定全域稱謂法旨：「可以叫我 陳先生 或是 品碩 或是董事長」。
+  - **立憲**：已刻印至全域最高憲則 [`AGENTS.md`](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/AGENTS.md) 規則 3 第 4 條，通令全體內閣首長與模型嚴格遵行。
