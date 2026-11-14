@@ -16,7 +16,8 @@
 | **v4.0** | 主動推論版 (Active Inference) | 2026-10-20 | 執行長 雪 (Yuki) 統籌 | 主動推論雙路徑（知覺更新 vs 行動塑造）、代碼溶酶體自噬、全域激素場共振 | [SKILL_v4_Active_Inference_Lysozyme.md](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/.agents/skills/bionic-learning-system/_master_history/SKILL_v4_Active_Inference_Lysozyme.md) |
 | **v5.0** | 雙審計旗艦版 (PRM & SPIN) | 2026-10-21 | 創辦人 品碩 裁決升級 | OpenAI PRM 過程級逐步驗證、UCLA SPIN 內部自對弈去 AI 腔、三相外部物理驗證器 (Exit Code 0) | [SKILL_v5.0_PRM_SPIN_Flagship.md](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/.agents/skills/bionic-learning-system/_master_history/SKILL_v5.0_PRM_SPIN_Flagship.md) |
 | **v5.1** | 十輪審計與母版鎖定版 (Decadal Lock) | 2026-10-22 17:35 | 創辦人 品碩 親定鐵律 | 每 10 輪強制執行衝突大審計、母版 Golden Master 金鑰鎖定、八大辦公室特化子版繁衍機制 | [SKILL_v5.1_Decadal_Audit_MasterLock.md](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/.agents/skills/bionic-learning-system/_master_history/SKILL_v5.1_Decadal_Audit_MasterLock.md) |
-| **v5.2** | 全域安全天網版 (Current Golden Master) | 2026-10-22 18:11 | 創辦人 品碩 簽署《Master RFC #001》 | 全域 API 三態自動熔斷器、60 秒線程級超時熔斷探針、多 Agent 無鎖 Append-Only 追加協議 | [SKILL_v5.2_CircuitBreaker_LockFree.md](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/.agents/skills/bionic-learning-system/_master_history/SKILL_v5.2_CircuitBreaker_LockFree.md) |
+| **v5.2** | 全域安全天網版 (歷史) | 2026-10-22 18:11 | 創辦人 品碩 簽署《Master RFC #001》 | 全域 API 三態自動熔斷器、60 秒線程級超時熔斷探針、多 Agent 無鎖 Append-Only 追加協議 | [SKILL_v5.2_CircuitBreaker_LockFree.md](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/.agents/skills/bionic-learning-system/_master_history/SKILL_v5.2_CircuitBreaker_LockFree.md) |
+| **v6.0** | 閉環自進化執行層版 (Current Golden Master) | 2026-11-14 | 創辦人 品碩 書面批准《Master RFC #002》 | 觸發/受控上網感知/驗證/蒸餾/先讀後寫強制/A-B量測/轉正淘汰七段迴圈；輪次由程式計數；驗證器登記簿；前十章完善 | [SKILL_v6.0_ClosedLoop_Execution.md](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/.agents/skills/bionic-learning-system/_master_history/SKILL_v6.0_ClosedLoop_Execution.md)（修改前完整副本：[SKILL_v5.2_FinalLiveCopy_PreV6.md](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/.agents/skills/bionic-learning-system/_master_history/SKILL_v5.2_FinalLiveCopy_PreV6.md)） |
 
 ---
 
@@ -61,3 +62,14 @@
   1. 全域 API 三態自動熔斷器（連續 3 次 5xx 自動熔斷 60 秒，保護全域絕不卡死）。
   2. 60 秒線程級超時熔斷探針（AST 預檢 While 循環，徹底消除 CPU 爆載）。
   3. 多 Agent 無鎖 Append-Only 日誌追加協議（原子寫入，0 死鎖 0 衝突）。
+
+### 🔁 v6.0 閉環自進化執行層版 (Master RFC #002: Closed-Loop Execution Layer)
+* **起因**：2026-11-14 全域實測，各子版僅有「引擎與些許大腦」：只寫日記不改行為、無排程、無上網感知、輪次可自行宣稱。
+* **修憲依據**：執行長雪起草《Master RFC #002》，創辦人品碩於 2026-11-14 書面批准修改母版並新增第十一章、完善前十章。
+* **核心增補**：
+  1. 憲法級總綱：宣稱必須有物理憑證；自進化判準＝下次行為是否被真實證據改變；對象是規則/技能/設定/程式，非模型權重。
+  2. 第十一章七段迴圈：觸發 ➔ 受控上網感知（A/B/C/D 分級、robots、熔斷、提示注入防線）➔ 驗證 ➔ 蒸餾為規則物件 ➔ 先讀後寫強制 ➔ A/B 量測 ➔ 轉正/淘汰（高風險須創辦人點頭）。
+  3. 前十章完善：驗證器登記簿、SPIN 程式化與數據優先於神韻、輪次由程式計數與滿十輪程式停機、方程式落地對照（誠實揭露未量化項）、存摺四重奏、Phase 0 先讀後寫、閉環憑證輸出。
+  4. 實體落地：ionic_core/（perceive_web / rule_store / enforce / cycle_ledger / verifier_registry / selftest），自檢 20 項全數通過。
+* **誠實揭露**：觸發層（排程）、A/B 自動比對、Π 激素場量化尚未實作；多數子版的 enforce 與排程尚未接線，以登記簿為準。
+* **保存**：修改前完整副本 SKILL_v5.2_FinalLiveCopy_PreV6.md（SHA256 前綴 296F96966）已永久保留。
