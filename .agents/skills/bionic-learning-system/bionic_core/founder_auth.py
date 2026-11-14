@@ -294,7 +294,7 @@ if __name__ == "__main__":
         if mp.exists():
             mp.unlink()
         meta = init_meta_file(p1, mp)
-        pin_founder_fingerprint(meta_path=mp)
+        pin_meta(meta_path=mp)
         print("-" * 65)
         print(f"🎉 創辦人專屬主權金鑰設定成功！")
         print(f"🔑 公鑰指紋 (Fingerprint): [{meta['fingerprint']}]")
