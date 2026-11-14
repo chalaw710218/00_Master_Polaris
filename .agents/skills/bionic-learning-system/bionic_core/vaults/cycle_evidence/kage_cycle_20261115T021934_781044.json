@@ -1,0 +1,25 @@
+{
+  "office": "kage",
+  "executed_at": "2026-11-15T02:19:34.781044",
+  "meta": {
+    "state_file": "C:\\Users\\lenovo\\我的雲端硬碟\\00_Master_Polaris\\.agents\\skills\\atom-kage-synaptic-metabolic-learner\\vaults\\kage_synaptic_state.json",
+    "standard_samples_file": "C:\\Users\\lenovo\\我的雲端硬碟\\00_Master_Polaris\\.agents\\skills\\atom-kage-synaptic-metabolic-learner\\vaults\\kage_standard_samples.jsonl",
+    "total_samples": 19,
+    "discovery_samples_used": 9,
+    "holdout_samples_reserved": 10,
+    "perceived_consumed": {
+      "count": 0,
+      "latest_titles": []
+    }
+  },
+  "discover": null,
+  "proposed_or_verified_rules": [],
+  "evaluations": [],
+  "newly_promoted": [],
+  "active_rules": [
+    "R-20261115-24b617",
+    "R-20261115-9e748e",
+    "R-20261115-57a4d6"
+  ],
+  "retired_by_sweep": []
+}

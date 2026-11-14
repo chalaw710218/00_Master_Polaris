@@ -22,7 +22,7 @@ with sync_playwright() as p:
     
     for target_handle in targets:
         url = f"https://www.threads.net/@{target_handle}"
-        print(f"🌌 [週六凌晨靜謐漫遊] 前往友店: {url}")
+        print(f"🌙 [週六深夜漫遊] 前往友店: {url}")
         try:
             page.goto(url, wait_until="domcontentloaded", timeout=25000)
             page.wait_for_timeout(3500)
@@ -31,7 +31,7 @@ with sync_playwright() as p:
             like_btn = page.locator('svg[aria-label="讚"], svg[aria-label="Like"]').first
             if like_btn.is_visible(timeout=3000):
                 like_btn.click(force=True)
-                print(f"  ❤️ 成功為 @{target_handle} 點亮凌晨靜謐微光！")
+                print(f"  ❤️ 成功為 @{target_handle} 點亮深夜溫柔愛心！")
                 page.wait_for_timeout(1000)
             else:
                 print(f"  ℹ️ @{target_handle} 目前無新貼文或已點選過")
@@ -45,4 +45,4 @@ with sync_playwright() as p:
             
     browser.close()
 
-print(f"🎉 週六凌晨友店巡邏拜訪完成，共存檔 {len(proof_paths)} 張實證截圖！")
+print(f"🎉 週六深夜友店巡邏拜訪完成，共存檔 {len(proof_paths)} 張實證截圖！")

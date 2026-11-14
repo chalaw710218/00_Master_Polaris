@@ -1,7 +1,64 @@
 {
-  "post_id": "18081138785742731",
-  "permalink": "https://www.threads.com/@hellotaitung/post/Dfqwg1OGSpV",
-  "reply_id": "18117547688144806",
-  "image": "shadow_friday_noon_bento.jpg",
-  "proof_screenshot": "scripts\\screenshots\\walk_v3_18081138785742731_shadow_friday_noon_verified.png"
+  "timestamp": "2026-11-15 01:04:11",
+  "step1_home_replies": 0,
+  "step2_friends_visited": [
+    {
+      "username": "sinapayan_youth",
+      "name": "喜拿巴漾青年工作站",
+      "action": "liked"
+    },
+    {
+      "username": "howhow_sweets",
+      "name": "好好·食甜",
+      "action": "already_liked"
+    },
+    {
+      "username": "chaiyuan_bakery",
+      "name": "柴源製菓",
+      "action": "already_liked"
+    },
+    {
+      "username": "sankou_food_office",
+      "name": "仨口食事處",
+      "action": "already_liked"
+    },
+    {
+      "username": "yuanlung.667",
+      "name": "緣龍無骨鹽酥雞",
+      "action": "already_liked"
+    },
+    {
+      "username": "956leissmoker",
+      "name": "雨田燻",
+      "action": "liked"
+    },
+    {
+      "username": "hattcoffee",
+      "name": "Hatt Coffee",
+      "action": "already_liked"
+    }
+  ],
+  "step2_reciprocal_visit": null,
+  "step2_clout_tea": {
+    "target": "@956leissmoker (雨田燻)",
+    "message": "看老闆認真專注煙燻，生活管家默默在後排端出剛泡好的熱茶... 辛苦了，今晚別想工作，好好犒勞自己！🍵🍖",
+    "proof": "C:\\Users\\lenovo\\我的雲端硬碟\\00_Master_Polaris\\00-03_Brand_LifeButler\\00-03-06_Threads_Meow_Hub\\scripts\\screenshots\\walk_v3_clout_tea_956leissmoker.png"
+  },
+  "step3_feed_likes": 3,
+  "step4_post": {
+    "post_id": "17890164318485986",
+    "permalink": "https://www.threads.com/@hellotaitung/post/DfutPsqGTRf",
+    "title": "深夜守候・週日紅烏龍晚安篇",
+    "hero": "生活管家 (影)",
+    "topic_tag": "台東生活",
+    "image": null,
+    "image_reason": "當前角色庫存照片已用罄或無合適匹配（觸發人設保護，不跨角色亂抓）",
+    "screenshot": "C:\\Users\\lenovo\\我的雲端硬碟\\00_Master_Polaris\\00-03_Brand_LifeButler\\00-03-06_Threads_Meow_Hub\\scripts\\screenshots\\walk_v3_17890164318485986_verified.png"
+  },
+  "step45_first_reply": {
+    "reply_id": "18041753378840022",
+    "text": "（輕輕遞上一只溫熱的茶杯）如果腦袋還在轉、還睡不著也沒關係，把燈光調暗，喝口溫水。今晚的生活管家在後排替大家守夜，願你好夢。🍵✨"
+  },
+  "step5_friend_ledger": null,
+  "step6_cognitive_sync": true
 }

@@ -1,3 +1,25 @@
+### [2026-11-15 02:30] 🏛️ 仿生自進化母版 v6.5 殿堂級零信任全覆蓋：43 項安燈阻斷全過 ✕ 創辦人 Schnorr 驗簽 ✕ 舊帳本無損遷移 ✕ Threads 排程全域放行大捷！
+* **決策背景**：
+  - 創辦人（品碩）親自督軍，於另一端透過 Claude 展開最高規格架構與密碼學白盒審查；執行長雪 (Yuki) 率全體首長即時閉環，推動北極星仿生學習母版自 v6.0 連續飛躍至 v6.5 殿堂級版本。
+  - 徹底封死各類「自簽章、假 trial、重貼舊簽章、篡改指紋欄位、刪除 lock 補寫 tick」等假進化與繞過路徑，確立「純數學驗算 ✕ 物理快照存證 ✕ 創辦人不可偽造 Schnorr 簽章」之神聖護城河。
+* **重大架構修復與密碼學防線**：
+  1. **創辦人身分錨定與指紋防偽 (`founder_auth.py`)**：
+     - 強制自公鑰實體推導指紋 `compute_fingerprint(pub_y)`，封殺假 meta 抄用真指紋文字欄位欺騙 PIN 錨定的漏洞。
+     - 測試環境密閉隔離（動態指向 `pin_unused.txt`），杜絕讀取本機實體 PIN。
+  2. **偽造 Trial 現場重算與快照存證 (`rule_store.py`)**：
+     - `evaluate_rule` 自動將資料集按 sha256 存證於 `vaults/snapshots/<sha>.jsonl`；`fold()` 強制現場二次驗算，雜湊不符或快照缺失即打入 `tampered_rejected`。
+     - 封殺舊簽章復活漏洞：已被淘汰或 retired 的規則，重貼舊已簽 promote 事件仍嚴格維持 retired。
+     - 新增 `build_promote_payload` 統一供 `promote()`、`fold()` 及反盲簽審批畫面使用，徹底消滅畫面 `None` 漏洞。
+  3. **十輪停機鎖狀態機硬核驗 (`cycle_ledger.py`)**：
+     - 手動刪除 `.lock` 檔、或中途補寫假 tick，狀態機依然嚴格判定為鎖定（Fail-Closed）。
+     - 新增 `cycle_ledger.migrate(office)`，能讀取舊版無雜湊鏈之 JSONL 並以 `ZERO_HASH` 重新縫合生成完整防篡改鏈。
+  4. **全套自檢 100% 通過**：
+     - `bionic_core/selftest.py` 43 項硬性防呆阻斷測試全數轉綠（43/43 PASS，Exit Code 0）。
+     - `dispatch.py selftest` 12 項派工防篡改測試全數通過（12/12 PASS）。
+  5. **實體業務發射台全面綠燈**：
+     - 影（Kage）與泰勒絲（Taylor）雙閣員帳本完成遷移升級，停機鎖解除。
+     - `00-05_AI_Education/schedule_lesson_02_threads.py --dry-run` 實測：圖片實體存在、Kage 閘門 PASS、Taylor 閘門 PASS，全線綠燈準備發射！
+
 ### [2026-11-14 11:30] 🔁 母版 v6.0 修憲大捷：創辦人書面批准《Master RFC #002》，仿生學習系統新增第十一章「閉環自進化執行層」並完善前十章！
 * **決策背景**：創辦人（品碩）批准修改母版、新增第十一章、並完善之前所有章節；起因為全域實測發現各子版「只有引擎與些許大腦」，缺少讓學習改變行為的執行機關。
 * **修憲程序（遵守母版自身鎖定協議）**：先保存修改前完整副本 `SKILL_v5.2_FinalLiveCopy_PreV6.md`，修改後存 `SKILL_v6.0_ClosedLoop_Execution.md`，並更新 `MASTER_VERSION_LEDGER.md`。

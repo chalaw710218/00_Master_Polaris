@@ -421,6 +421,28 @@ with sync_playwright() as p:
     new_post_id = None
     permalink = None
 
+    # 🔒 【仿生學習系統前向硬約束門禁】：調用 bionic_core.enforce 檢驗 active 規則
+    try:
+        bionic_core_dir = ROOT_DIR.parents[1] / ".agents" / "skills" / "bionic-learning-system" / "bionic_core"
+        if bionic_core_dir.exists() and str(bionic_core_dir) not in sys.path:
+            sys.path.insert(0, str(bionic_core_dir))
+        import enforce
+        active_rules = enforce.load_active_rules("kage")
+        if active_rules:
+            print(enforce.compile_constraints(active_rules))
+        is_passed, violations = enforce.gate("kage", post_text)
+        if not is_passed:
+            print(f"🛑 [仿生學習系統硬性攔截出廠] 違規清單:")
+            for v in violations:
+                print(f"   ❌ {v}")
+            raise RuntimeError(f"文案未通過仿生學習系統規則檢驗，物理阻斷發布！共 {len(violations)} 項違規")
+        else:
+            print("   🛡️ [仿生學習硬性閘門檢驗合格] 吻合 kage_rules.jsonl 全部 active 規則，准予放行！")
+    except Exception as e:
+        if "物理阻斷發布" in str(e):
+            raise e
+        print(f"   ℹ️ 仿生門禁檢驗提示: {e}")
+
     if args.dry_run:
         print("   🧪 [Dry Run 演練模式] 跳過真正發文與首回覆！")
         report_data["step4_post"] = {
@@ -541,3 +563,23 @@ with open(output_file, "w", encoding="utf-8") as f:
     json.dump(report_data, f, ensure_ascii=False, indent=2)
 
 print(f"\n🏁 漫遊成果已沉澱至 {output_file.name}")
+
+# --- 步驟六：啟動漫遊返航自省與認知存摺實時自生 (atom-kage-walk-reflector) ---
+try:
+    import subprocess
+    reflector_script = SCRIPT_DIR / "post_walk_reflector.py"
+    if reflector_script.exists():
+        print("\n>>> 步驟六：啟動漫遊返航自省與認知存摺實時自生 (atom-kage-walk-reflector) <<<")
+        sub_args = [sys.executable, str(reflector_script), "--auto"]
+        if args.dry_run:
+            sub_args.append("--dry-run")
+        sub_res = subprocess.run(sub_args, capture_output=True, text=True, encoding="utf-8")
+        if sub_res.stdout:
+            print(sub_res.stdout)
+        if sub_res.returncode == 0:
+            print("✅ [返航自省閉環完成] 存摺回寫與輪次入帳已成功閉環！")
+        else:
+            print(f"⚠️ 返航自省執行提示 (Exit Code: {sub_res.returncode}): {sub_res.stderr}")
+except Exception as e:
+    print(f"⚠️ 自省閉環喚醒提示: {e}")
+
