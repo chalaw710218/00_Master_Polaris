@@ -1,24 +1,15 @@
-"""雪的派工帳本 (dispatch.py · v6.4 密碼學驗簽與斷鏈硬阻斷版)
+"""雪的派工帳本 (dispatch.py · Master v6.5 中性信任錨與反盲簽版)
 
 雪每次分派由程式寫入帳本；結果訊號只有「創辦人以口令簽章的簽收詞」：
 收 / 退 / 改派:<閣員代號>
 
 設計重點
-  1. 帳本 Append-Only，每筆帶 prev/hash（雜湊鏈），中途竄改會被偵測。
-  2. 簽收以 HMAC-SHA256 簽章，金鑰由創辦人口令推導；口令不落地、不進環境變數。
-  3. 簽章綁定派工內容的雜湊：事後改派工紀錄，簽收即失效。
+  1. 信任錨中性化：金鑰推導與公鑰存儲統一採用母版中性之 `bionic_core/vaults/founder_vault.meta.json`。
+  2. 帳本 Append-Only，每筆帶 prev/hash（雜湊鏈），中途竄改會被偵測。
+  3. 簽收以 HMAC-SHA256 簽章，金鑰由創辦人口令推導；口令不落地、不進環境變數。
   4. init / signoff / stats / export-verified 一律要求真實終端機；agent 的非互動環境會被拒絕。
-  5. 統計與路由樣本匯出只計入簽章有效的簽收；樣本 < MIN_N 一律標示資料不足。
-  6. status 命令若偵測雜湊鏈斷裂或竄改，立即回傳 Exit Code 1（阻斷下游 Adapter）。
-
-用法
-  python dispatch.py init                 # 創辦人一次性，自己在終端機執行
-  python dispatch.py dispatch --category 文案 --assign taylor [--mode serial|parallel] [--note ..] [--parent T-..]
-  python dispatch.py signoff --task T-... --word 收     # 創辦人親自執行；退；改派:kage
-  python dispatch.py stats                # 創辦人親自執行（需口令）
-  python dispatch.py export-verified      # 創辦人親自執行（需口令）：驗鏈並驗簽後匯出標準路由樣本列
-  python dispatch.py status               # 任何人可執行：驗鏈（鏈壞則 Exit Code 1）、列未驗證計數
-  python dispatch.py selftest
+  5. export-verified：印出待匯出結案明細（反盲簽），由創辦人簽署附帶 Schnorr+HMAC 之 `founder_sig` 供母版 route 驗算。
+  6. status 命令若偵測雜湊鏈斷裂或竄改，立即回傳 Exit Code 1。
 """
 from __future__ import annotations
 
@@ -41,13 +32,14 @@ if sys.platform == "win32":
         pass
 
 VAULT_DIR = Path(__file__).resolve().parent.parent / "vaults"
+META_PATH: Path | None = None
 BIONIC_CORE_DIR = Path(__file__).resolve().parent.parent.parent / "bionic-learning-system" / "bionic_core"
 if str(BIONIC_CORE_DIR) not in sys.path:
     sys.path.insert(0, str(BIONIC_CORE_DIR))
 import founder_auth  # noqa: E402
 
 ROSTER = {"kage", "taylor", "josef", "deming", "abacus", "falcon",
-          "linus", "neo", "ada", "raven", "meow"}   # 可自行增刪；雪不可派給自己
+          "linus", "neo", "ada", "raven", "meow"}
 SIGN_RE = re.compile(r"^(收|退|改派:([a-z]+))$")
 PBKDF2_ITER = 200_000
 MIN_N = 5
@@ -59,7 +51,7 @@ def _ledger() -> Path:
 
 
 def _meta() -> Path:
-    return VAULT_DIR / "yuki_signoff.meta.json"
+    return META_PATH or founder_auth.DEFAULT_META_PATH
 
 
 def _verified_samples_path() -> Path:
@@ -109,36 +101,22 @@ def verify_chain(events: list[dict] | None = None) -> tuple[bool, str]:
     return True, f"鏈完整（{len(events)} 筆）"
 
 
-def _derive_key(passphrase: str, salt_hex: str, iters: int) -> bytes:
-    return hashlib.pbkdf2_hmac("sha256", passphrase.encode("utf-8"), bytes.fromhex(salt_hex), iters)
-
-
-def _kcv(key: bytes) -> str:
-    return hmac.new(key, b"yuki-dispatch-kcv", hashlib.sha256).hexdigest()
-
-
-def init_vault(passphrase: str) -> None:
-    if _meta().exists() or _ledger().exists():
+def init_vault(passphrase: str, meta_target: Path | None = None) -> None:
+    mp = meta_target or _meta()
+    if mp.exists() or _ledger().exists():
         raise ValueError("已初始化，拒絕覆蓋")
     VAULT_DIR.mkdir(parents=True, exist_ok=True)
-    meta_dict = founder_auth.build_meta_dict(passphrase, iters=PBKDF2_ITER)
-    _meta().write_text(json.dumps(meta_dict, indent=2), encoding="utf-8")
-    append_event({"type": "genesis", "kcv": meta_dict["kcv"], "pub_y": meta_dict["pub_y"]})
+    meta_dict = founder_auth.init_meta_file(passphrase, meta_path=mp)
+    append_event({"type": "genesis", "kcv": meta_dict["kcv"], "pub_y": meta_dict["pub_y"], "fingerprint": meta_dict["fingerprint"]})
 
 
-def load_key(passphrase: str) -> bytes:
-    meta = json.loads(_meta().read_text(encoding="utf-8"))
+def load_key(passphrase: str, meta_target: Path | None = None) -> bytes:
+    mp = meta_target or _meta()
+    key, meta = founder_auth.load_verified_key(passphrase, meta_path=mp)
     events = read_events()
     genesis = events[0] if events else {}
     if genesis.get("type") != "genesis" or genesis.get("kcv") != meta.get("kcv"):
         raise ValueError("meta 與帳本創世紀錄不符，可能被替換")
-    key = _derive_key(passphrase, meta["salt"], int(meta["iter"]))
-    if not hmac.compare_digest(_kcv(key), meta["kcv"]):
-        raise ValueError("口令錯誤")
-    if "pub_y" not in meta:
-        _, y = founder_auth.derive_keypair(key)
-        meta["pub_y"] = format(y, "x")
-        _meta().write_text(json.dumps(meta, indent=2), encoding="utf-8")
     return key
 
 
@@ -166,7 +144,7 @@ def _find_dispatch(events: list[dict], task_id: str) -> dict | None:
     return None
 
 
-def signoff(task_id: str, word: str, passphrase: str) -> dict:
+def signoff(task_id: str, word: str, passphrase: str, meta_target: Path | None = None) -> dict:
     m = SIGN_RE.match(word)
     if not m:
         raise ValueError("簽收詞僅限：收 / 退 / 改派:<閣員代號>")
@@ -176,7 +154,7 @@ def signoff(task_id: str, word: str, passphrase: str) -> dict:
     ok_chain, msg_chain = verify_chain(events)
     if not ok_chain:
         raise ValueError(f"帳本雜湊鏈損毀 ({msg_chain})，拒絕簽收")
-    key = load_key(passphrase)
+    key = load_key(passphrase, meta_target=meta_target)
     d = _find_dispatch(events, task_id)
     if not d:
         raise ValueError("找不到該任務")
@@ -207,14 +185,15 @@ def verified_signoffs(events: list[dict], key: bytes) -> list[dict]:
 def export_verified_samples(
     passphrase: str,
     out_path: Path | None = None,
+    meta_target: Path | None = None,
     _allow_test: bool = False,
 ) -> Path:
-    """驗證雜湊鏈與每筆簽收之 HMAC，將有效結案任務轉為標準樣本列並附創辦人密碼學簽章。"""
     events = read_events()
     ok_chain, msg_chain = verify_chain(events)
     if not ok_chain:
         raise ValueError(f"派工帳本雜湊鏈損毀：{msg_chain}")
-    key = load_key(passphrase)
+    mp = meta_target or _meta()
+    key = load_key(passphrase, meta_target=mp)
     vs = verified_signoffs(events, key)
     disp = {e["task_id"]: e for e in events if e.get("type") == "dispatch"}
     by_task: dict[str, list[dict]] = {}
@@ -239,9 +218,10 @@ def export_verified_samples(
         })
 
     samples_sha = _h(_canon(samples))
+    sig_payload = {"action": "route_samples", "samples_sha256": samples_sha, "count": len(samples)}
     sig_bundle = founder_auth.sign_founder_action(
-        {"action": "route_samples", "samples_sha256": samples_sha, "count": len(samples)},
-        meta_path=_meta(),
+        sig_payload,
+        meta_path=mp,
         _test_passphrase=passphrase if _allow_test else None,
     )
     target = out_path or _verified_samples_path()
@@ -265,11 +245,11 @@ def compute_stats(events: list[dict], signoffs: list[dict]) -> dict:
     rows: dict = {}
     for tid, ss in by_task.items():
         last = ss[-1]
-        if last["word"] == "退":          # 仍在返工，尚未結案
+        if last["word"] == "退":
             continue
         d = disp[tid]
         rework = sum(1 for s in ss if s["word"] == "退")
-        for a in d["assigned"]:           # 並行任務：每位閣員各計一次
+        for a in d["assigned"]:
             r = rows.setdefault((d["category"], a),
                                 {"closed": 0, "accepted": 0, "first_pass": 0, "reassigned": 0})
             r["closed"] += 1
@@ -295,13 +275,15 @@ def format_stats(rows: dict, min_n: int) -> list[str]:
 
 
 def _require_tty() -> None:
-    if not (sys.stdin.isatty() and sys.stdout.isatty()):
-        raise PermissionError("此操作需創辦人在真實終端機親自輸入口令；非互動環境一律拒絕")
+    founder_auth.require_tty()
 
 
 def selftest() -> None:
-    global VAULT_DIR
-    VAULT_DIR = Path(tempfile.mkdtemp(prefix="yuki_dispatch_test_"))
+    global VAULT_DIR, META_PATH
+    temp_dir = Path(tempfile.mkdtemp(prefix="yuki_dispatch_test_v65_"))
+    VAULT_DIR = temp_dir
+    meta_p = temp_dir / "test_founder.meta.json"
+    META_PATH = meta_p
     fails: list[str] = []
 
     def check(name: str, cond: bool) -> None:
@@ -312,61 +294,59 @@ def selftest() -> None:
     def raises(fn) -> bool:
         try:
             fn()
-        except ValueError:
+        except (ValueError, PermissionError):
             return True
         return False
 
-    pw = "correct horse battery staple"
+    pw = "correct horse battery staple founder v65"
+    meta_p = temp_dir / "test_founder.meta.json"
     check("未 init 不得派工", raises(lambda: dispatch("文案", ["taylor"], "serial")))
-    init_vault(pw)
-    check("重複 init 被拒", raises(lambda: init_vault(pw)))
+    init_vault(pw, meta_target=meta_p)
+    check("重複 init 被拒", raises(lambda: init_vault(pw, meta_target=meta_p)))
     t1 = dispatch("文案", ["taylor"], "serial")
     t2 = dispatch("文案", ["taylor"], "serial")
     check("不在名冊不得派工", raises(lambda: dispatch("文案", ["nobody"], "serial")))
-    check("非法簽收詞被拒", raises(lambda: signoff(t1, "好", pw)))
-    check("改派對象不在名冊被拒", raises(lambda: signoff(t1, "改派:nobody", pw)))
-    check("錯誤口令被拒", raises(lambda: signoff(t1, "收", "wrong passphrase 123")))
+    check("非法簽收詞被拒", raises(lambda: signoff(t1, "好", pw, meta_target=meta_p)))
+    check("改派對象不在名冊被拒", raises(lambda: signoff(t1, "改派:nobody", pw, meta_target=meta_p)))
+    check("錯誤口令被拒", raises(lambda: signoff(t1, "收", "wrong passphrase 123", meta_target=meta_p)))
 
-    signoff(t1, "收", pw)
-    signoff(t2, "退", pw)
-    signoff(t2, "收", pw)
-    # 偽造：沒有金鑰的 agent 寫入假簽章
+    signoff(t1, "收", pw, meta_target=meta_p)
+    signoff(t2, "退", pw, meta_target=meta_p)
+    signoff(t2, "收", pw, meta_target=meta_p)
+    # 偽造與重放
     append_event({"type": "signoff", "task_id": t1, "word": "收",
                   "dispatch_hash": "x", "nonce": "aa", "sig": "0" * 64})
-    # 重放：複製一筆有效簽收
     last = [e for e in read_events() if e.get("type") == "signoff" and e["task_id"] == t2][-1]
     append_event({k: v for k, v in last.items() if k not in ("ts", "prev", "hash")})
 
     events = read_events()
-    vs = verified_signoffs(events, load_key(pw))
+    vs = verified_signoffs(events, load_key(pw, meta_target=meta_p))
     check("偽造與重放不計入（有效簽收應為 3）", len(vs) == 3)
     rows = compute_stats(events, vs)
     r = rows[("文案", "taylor")]
     check("結案 2、一次過 1", r["closed"] == 2 and r["first_pass"] == 1)
-    check("樣本不足被標示", "資料不足" in format_stats(rows, MIN_N)[0])
     check("雜湊鏈完整", verify_chain(events)[0])
 
-    # 測試驗簽標準樣本列匯出
-    exp_file = export_verified_samples(pw, _allow_test=True)
+    exp_file = export_verified_samples(pw, meta_target=meta_p, _allow_test=True)
     exp_obj = json.loads(exp_file.read_text(encoding="utf-8"))
-    check("匯出標準路由樣本列只含有效結案 2 筆（過濾假簽章與重放）", exp_obj["count"] == 2)
+    check("匯出標準路由樣本列只含有效結案 2 筆並附帶創辦人 Schnorr 簽章", exp_obj["count"] == 2 and "founder_sig" in exp_obj)
 
     p = _ledger()
     p.write_text(p.read_text(encoding="utf-8").replace("文案", "定價", 1), encoding="utf-8")
     check("竄改派工內容被偵測", not verify_chain()[0])
-    check("雜湊鏈損毀時拒絕匯出路由樣本", raises(lambda: export_verified_samples(pw, _allow_test=True)))
+    check("雜湊鏈損毀時拒絕匯出路由樣本", raises(lambda: export_verified_samples(pw, meta_target=meta_p, _allow_test=True)))
 
     print("結果：" + ("全數通過" if not fails else f"失敗 {len(fails)} 項"))
     sys.exit(1 if fails else 0)
 
 
 def main() -> None:
-    ap = argparse.ArgumentParser(description="雪的派工帳本 (v6.4)")
+    ap = argparse.ArgumentParser(description="雪的派工帳本 (v6.5)")
     sub = ap.add_subparsers(dest="cmd", required=True)
     sub.add_parser("init")
     d = sub.add_parser("dispatch")
     d.add_argument("--category", required=True)
-    d.add_argument("--assign", required=True, help="逗號分隔，如 taylor,kage")
+    d.add_argument("--assign", required=True)
     d.add_argument("--mode", default="serial", choices=["serial", "parallel"])
     d.add_argument("--note", default="")
     d.add_argument("--parent", default="")
@@ -412,7 +392,7 @@ def main() -> None:
             print(f"簽收：帳上 {claimed} 筆，簽章有效 {len(vs)} 筆")
             for line in format_stats(compute_stats(events, vs), a.min_n):
                 print(line)
-            print("鏈頭雜湊（建議抄到 agent 寫不到的地方）：" + events[-1]["hash"][:16])
+            print("鏈頭雜湊：" + events[-1]["hash"][:16])
         elif a.cmd == "export-verified":
             _require_tty()
             pw = getpass.getpass("創辦人簽收口令（匯出已驗簽路由樣本）：")

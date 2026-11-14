@@ -1,13 +1,13 @@
-"""輪次帳本與十輪強制停機 (Cycle Ledger · Master v6.4 密碼學審計解鎖與純規則雜湊版)
+"""輪次帳本與十輪強制停機 (Cycle Ledger · Master v6.5 雜湊鏈與全關卡狀態機版)
 
-v6.4 重大硬化：
-  1. 純規則與驗算結果雜湊 (`canonical_obj_sha256` / `_canonical_evidence_sha256`)：
-     - 除剝離時間戳外，同步剝離 `"discover"`（上網探索原始快照）、`"meta"`、`"evidence_file"`、`"ledger_state"` 等非規則欄位！
-     - 即使 `perceive_web` 抓到新論文，只要規則庫與驗算結果無實質變化，雜湊即完全相同，當場拒絕入帳刷輪次！
-     - 支援在寫入檔案前先於記憶體比對雜湊 (`check_duplicate_obj`)，消除「重複拒絕前已寫入證據檔」之副作用。
-  2. 高風險辦公室 `audit-done` 強制創辦人口令簽章 (`founder_auth`)：
-     - 凡 `verifier_registry.json` 中 `risk_class == "high"` 之辦公室（如幕僚長 `yuki`），十輪停機解鎖強制於真實終端機 (TTY) 輸入創辦人口令簽章，防止雪自行解鎖。
-     - `is_locked(office)` 雙重檢核 `.AUDIT_REQUIRED.lock` 與帳本最後一筆 `audit_done` 簽章；即使手動刪除 `.lock` 檔或手寫未簽章 `audit_done`，仍維持鎖定！
+v6.5 核心升級（消滅十輪鎖漏洞）：
+  1. 輪次帳本強制雜湊鏈 (`_cycles.jsonl` Append-Only with `prev`/`hash`)：
+     - 每筆 tick 與 audit_done 均帶有前一筆之 SHA-256 雜湊與自身雜湊；中途插行、刪改事件會被 `verify_chain()` 立即偵測並判定損毀鎖定。
+  2. 簽章強綁定關卡與前置 Tick 雜湊：
+     - `audit_done` 簽章 payload 強制綁定 `(office, cycle, last_tick_hash, scan_digest, report_sha256)`，舊簽章貼到新輪次直接驗簽失敗。
+  3. 全關卡逐段狀態機 (`is_locked`)：
+     - 逐一掃描所有滿 10 的倍數關卡 ($K = 10, 20, 30, \dots$)：在第 $K$ 筆 tick 之後、第 $K+1$ 筆 tick 之前，必須存在對應之合法 `audit_done`（高風險辦公室強制要求創辦人 Schnorr 驗簽合格）。
+     - 任一歷史關卡缺失即維持鎖定！**手動補寫第 11 筆假 tick 或刪除 `.lock` 檔絕對無法解鎖**！
 """
 from __future__ import annotations
 
@@ -35,6 +35,8 @@ REGISTRY_FILE = CORE_DIR / "verifier_registry.json"
 AUDIT_EVERY = 10
 REQUIRED_AUDIT_SECTIONS = ("矛盾比對", "互斥掃描", "淘汰清單")
 MIN_AUDIT_CHARS = 100
+ZERO_HASH = "0" * 64
+
 VOLATILE_KEYS = {
     "executed_at",
     "ts",
@@ -88,7 +90,6 @@ def canonical_obj_sha256(obj) -> str:
 
 
 def _canonical_evidence_sha256(ev_path: Path) -> str:
-    """計算排除時間戳與探索雜訊後的規則/驗算實質內容 SHA-256。"""
     raw = ev_path.read_bytes()
     try:
         text = raw.decode("utf-8")
@@ -109,12 +110,27 @@ def read(office: str) -> list[dict]:
     return [json.loads(x) for x in p.read_text(encoding="utf-8").splitlines() if x.strip()]
 
 
+def verify_chain(office: str, events: list[dict] | None = None) -> tuple[bool, str]:
+    evs = read(office) if events is None else events
+    prev = ZERO_HASH
+    for i, e in enumerate(evs):
+        body = {k: v for k, v in e.items() if k != "hash"}
+        if body.get("prev") != prev:
+            return False, f"第 {i + 1} 筆 prev 不連續（預期 {prev[:10]}...）"
+        exp_hash = hashlib.sha256(
+            json.dumps(body, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode("utf-8")
+        ).hexdigest()
+        if exp_hash != e.get("hash"):
+            return False, f"第 {i + 1} 筆內容與雜湊不符"
+        prev = e["hash"]
+    return True, f"鏈完整（{len(evs)} 筆）"
+
+
 def used_evidence_shas(office: str) -> set[str]:
     return {str(e.get("evidence_sha256")) for e in read(office) if e.get("type") == "tick" and e.get("evidence_sha256")}
 
 
 def check_duplicate_obj(office: str, obj: dict) -> tuple[bool, str]:
-    """在寫入檔案前先於記憶體檢查規範化雜湊是否與歷史重複。"""
     sha = canonical_obj_sha256(obj)
     return (sha in used_evidence_shas(office)), sha
 
@@ -124,38 +140,81 @@ def cycle_count(office: str) -> int:
 
 
 def is_locked(office: str) -> bool:
-    if _lock(office).exists():
-        return True
+    """全關卡逐段狀態機：掃描每一個 10 的倍數關卡，確認具備合法且簽章匹配之 audit_done。"""
     events = read(office)
-    ticks = [i for i, e in enumerate(events) if e.get("type") == "tick"]
-    if not ticks or (len(ticks) % AUDIT_EVERY != 0):
-        return False
-    # 滿 10 輪整數倍時，最後一筆 tick 之後必須存在合法的 audit_done（高風險辦公室須驗簽通過）
-    last_tick_idx = ticks[-1]
-    subsequent_audits = [e for e in events[last_tick_idx + 1 :] if e.get("type") == "audit_done"]
-    if not subsequent_audits:
+    if not events:
+        return _lock(office).exists()
+
+    # 1. 雜湊鏈完整性驗證
+    ok_chain, _ = verify_chain(office, events)
+    if not ok_chain:
         return True
-    latest_audit = subsequent_audits[-1]
-    if is_high_risk_office(office):
-        payload = {
-            "action": "audit_done",
-            "office": office,
-            "scan_digest": latest_audit.get("scan_digest", ""),
-            "report_sha256": latest_audit.get("report_sha256", ""),
-        }
-        ok_sig, _ = founder_auth.verify_founder_action(
-            payload,
-            latest_audit.get("founder_sig"),
-            meta_path=rule_store.META_PATH,
-        )
-        if not ok_sig:
+
+    # 2. 逐段審計狀態機
+    tick_indices = [i for i, e in enumerate(events) if e.get("type") == "tick"]
+    total_ticks = len(tick_indices)
+
+    # 檢查歷史上所有已達到的 10 倍數關卡 (10, 20, 30, ...)
+    for milestone in range(AUDIT_EVERY, total_ticks + 1, AUDIT_EVERY):
+        milestone_tick_idx = tick_indices[milestone - 1]
+        milestone_tick = events[milestone_tick_idx]
+        next_tick_idx = tick_indices[milestone] if milestone < total_ticks else len(events)
+
+        # 搜尋在該關卡 tick 之後、下一筆 tick 之前的合格 audit_done
+        segment = events[milestone_tick_idx + 1 : next_tick_idx]
+        audits = [e for e in segment if e.get("type") == "audit_done"]
+        if not audits:
             return True
-    return False
+
+        valid_audit_found = False
+        for a in audits:
+            if is_high_risk_office(office):
+                payload = {
+                    "action": "audit_done",
+                    "office": office,
+                    "cycle": milestone,
+                    "last_tick_hash": milestone_tick["hash"],
+                    "scan_digest": a.get("scan_digest", ""),
+                    "report_sha256": a.get("report_sha256", ""),
+                }
+                ok_sig, _ = founder_auth.verify_founder_action(
+                    payload,
+                    a.get("founder_sig"),
+                    meta_path=rule_store.META_PATH,
+                )
+                if ok_sig:
+                    valid_audit_found = True
+                    break
+            else:
+                if a.get("scan_digest") and a.get("report_sha256"):
+                    valid_audit_found = True
+                    break
+
+        if not valid_audit_found:
+            return True
+
+    return _lock(office).exists()
+
+
+def append_cycle_event(office: str, event_data: dict) -> dict:
+    events = read(office)
+    prev = events[-1]["hash"] if events else ZERO_HASH
+    body = {
+        "ts": datetime.now().isoformat(timespec="seconds"),
+        **event_data,
+        "prev": prev,
+    }
+    body["hash"] = hashlib.sha256(
+        json.dumps(body, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode("utf-8")
+    ).hexdigest()
+    with open(_ledger(office), "a", encoding="utf-8") as f:
+        f.write(json.dumps(body, ensure_ascii=False) + "\n")
+    return body
 
 
 def tick(office: str, summary: str, evidence: str) -> int:
     if is_locked(office):
-        raise RuntimeError("已停機：滿 10 輪須先提交合規衝突審計報告（audit-done）")
+        raise RuntimeError("已停機：滿 10 輪須先提交合規衝突審計報告並通過程式化掃描與創辦人簽章解鎖（audit-done）")
     if not evidence or not evidence.strip():
         raise ValueError("每一輪必須附物理憑證檔案路徑，不得為空")
 
@@ -168,23 +227,20 @@ def tick(office: str, summary: str, evidence: str) -> int:
         raise ValueError(f"防刷輪次阻斷：規則與驗算實質內容 SHA-256 ({sha[:12]}...) 與歷史輪次重複，無實質新變更！")
 
     n = cycle_count(office) + 1
-    ev = {
-        "ts": datetime.now().isoformat(timespec="seconds"),
+    ev_data = {
         "type": "tick",
         "cycle": n,
         "summary": summary,
         "evidence": str(ev_path),
         "evidence_sha256": sha,
     }
-    with open(_ledger(office), "a", encoding="utf-8") as f:
-        f.write(json.dumps(ev, ensure_ascii=False) + "\n")
+    ev = append_cycle_event(office, ev_data)
     if n % AUDIT_EVERY == 0:
-        _lock(office).write_text(f"cycle {n} reached at {ev['ts']} (sha256={sha[:12]})\n", encoding="utf-8")
+        _lock(office).write_text(f"cycle {n} reached at {ev['ts']} (hash={ev['hash'][:12]})\n", encoding="utf-8")
     return n
 
 
 def audit_scan(office: str) -> dict:
-    """程式化掃描指定辦公室規則庫之直接矛盾、正則/數值互斥與待淘汰項目。"""
     old_vault = rule_store.VAULT_DIR
     rule_store.VAULT_DIR = VAULT_DIR
     try:
@@ -294,10 +350,21 @@ def audit_done(
         issues = scan["contradictions"] + scan["mutual_exclusions"]
         raise ValueError(f"程式化衝突掃描未通過，拒絕解鎖！請先解決以下規則衝突：{issues}")
 
+    events = read(office)
+    ticks = [e for e in events if e.get("type") == "tick"]
+    if not ticks:
+        raise ValueError("帳本尚無任何輪次紀錄，無法執行 audit-done")
+    last_tick = ticks[-1]
+    last_tick_cycle = int(last_tick["cycle"])
+    target_milestone = (last_tick_cycle // AUDIT_EVERY) * AUDIT_EVERY
+    if target_milestone == 0:
+        target_milestone = AUDIT_EVERY
+
     sha = hashlib.sha256(rp.read_bytes()).hexdigest()
-    ev: dict = {
-        "ts": datetime.now().isoformat(timespec="seconds"),
+    ev_data: dict = {
         "type": "audit_done",
+        "cycle": target_milestone,
+        "last_tick_hash": last_tick["hash"],
         "report": str(rp),
         "report_sha256": sha,
         "scan_digest": scan["scan_digest"],
@@ -307,6 +374,8 @@ def audit_done(
         sig_payload = {
             "action": "audit_done",
             "office": office,
+            "cycle": target_milestone,
+            "last_tick_hash": last_tick["hash"],
             "scan_digest": scan["scan_digest"],
             "report_sha256": sha,
         }
@@ -314,18 +383,17 @@ def audit_done(
             sig_payload,
             meta_path=rule_store.META_PATH,
             _test_passphrase=_test_passphrase,
-            prompt_label=f"創辦人簽收口令（高風險辦公室 {office} 十輪審計解鎖）：",
+            prompt_label=f"創辦人授權口令（高風險辦公室 {office} 第 {target_milestone} 輪審計解鎖）：",
         )
-        ev["founder_sig"] = sig_bundle
+        ev_data["founder_sig"] = sig_bundle
 
-    with open(_ledger(office), "a", encoding="utf-8") as f:
-        f.write(json.dumps(ev, ensure_ascii=False) + "\n")
+    append_cycle_event(office, ev_data)
     if _lock(office).exists():
         _lock(office).unlink()
 
 
 def main() -> None:
-    ap = argparse.ArgumentParser(description="輪次帳本 (v6.4 密碼學審計解鎖與純規則雜湊版)")
+    ap = argparse.ArgumentParser(description="輪次帳本 (v6.5 雜湊鏈與全關卡狀態機版)")
     sub = ap.add_subparsers(dest="cmd", required=True)
     t = sub.add_parser("tick")
     t.add_argument("--office", required=True)
@@ -344,11 +412,12 @@ def main() -> None:
         if a.cmd == "tick":
             n = tick(a.office, a.summary, a.evidence)
             print(
-                f"✅ {a.office} 第 {n} 輪已入帳（純規則與驗算 SHA-256 已簽章）"
-                + ("｜🛑 已達十輪，強制停機，須提交衝突審計報告" if n % AUDIT_EVERY == 0 else "")
+                f"✅ {a.office} 第 {n} 輪已入帳（雜湊鏈已延伸）"
+                + ("｜🛑 已達十輪關卡，強制停機，須提交衝突審計報告" if n % AUDIT_EVERY == 0 else "")
             )
         elif a.cmd == "status":
-            print(f"{a.office}: 已完成 {cycle_count(a.office)} 輪｜停機鎖={'是' if is_locked(a.office) else '否'}")
+            ok_c, msg_c = verify_chain(a.office)
+            print(f"{a.office}: 已完成 {cycle_count(a.office)} 輪｜雜湊鏈={msg_c}｜停機鎖={'是' if is_locked(a.office) else '否'}")
         elif a.cmd == "audit-scan":
             scan = audit_scan(a.office)
             md = render_audit_markdown(scan)

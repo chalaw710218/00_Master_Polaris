@@ -1,13 +1,18 @@
-"""創辦人主權密碼學驗簽核心 (Founder Cryptographic Sovereignty · Master v6.4)
+"""創辦人主權密碼學驗簽核心 (Founder Cryptographic Sovereignty · Master v6.5 中性路徑與反盲簽版)
 
 解決「最大權限 Agent (如幕僚長雪) 自簽、自轉正、刪鎖或手寫 JSONL 偽造事件」之零信任密碼學模組：
-  1. 沿用 `dispatch.py` 之 `PBKDF2-HMAC-SHA256` (200,000 次迭代) 口令推導金鑰與 `kcv` 校驗。
-  2. 結合 RFC 3526 Group 14 (2048-bit 安全質數 $p = 2q + 1$) 之確定性 Schnorr 公鑰驗簽：
-     - 私鑰純量 $x$ 由創辦人口令金鑰唯一推導（不落地、不進環境變數）。
+  1. 信任錨中性化（遵守紅線 3）：
+     - 廢除雪的專屬路徑與專屬標籤，統一儲存於 `bionic_core/vaults/founder_vault.meta.json`。
+     - KCV 標籤改為中性之 `polaris-founder-kcv-v65`。
+  2. 創辦人公鑰指紋 (Public Key Fingerprint)：
+     - 提供 `get_fingerprint()`：計算 `sha256(pub_y)[:16]`。
+     - 每次終端機互動簽章或公鑰驗簽時明確顯示指紋，供創辦人手機備查防替換。
+  3. 反盲簽明細展示 (Anti-Blind-Signing)：
+     - 在終端機要求輸入口令前，強制完整列印待簽操作之全量審批明細（規則型態、Pattern、N、With/Without 指標、資料集雜湊、審計掃描結果），拒絕盲簽。
+  4. 確定性 Schnorr 公鑰驗簽 (RFC 3526 Group 14 2048-bit)：
+     - 私鑰純量 $x$ 由創辦人口令唯一推導（不落地、不進環境變數）。
      - 公鑰 $y = g^x \bmod p$ 存入 `meta.json`。
-     - 簽章時：強制檢查真實終端機 (`_require_tty()`)，輸入創辦人口令後同時產出 `hmac_sig` 與 Schnorr 簽章 `(schnorr_e, schnorr_s)`。
-     - 驗簽時 (`fold()` / `is_locked()` / `enforce.py`)：**無須創辦人再次輸入口令**，直接以公鑰 $y$ 驗算 $g^s \cdot y^{q-e} \bmod p$！
-     - 任何 Agent 若無創辦人口令，即使直接修改 JSONL 並重算雜湊鏈，亦無法偽造有效簽章，`fold()` 當場識破並打入 `tampered_rejected`。
+     - `fold()` / `is_locked()` 免口令直接驗算 $g^s \cdot y^{q-e} \bmod p$！
 """
 from __future__ import annotations
 
@@ -20,17 +25,10 @@ import sys
 from pathlib import Path
 
 CORE_DIR = Path(__file__).resolve().parent
-ROOT_DIR = CORE_DIR.parent.parent.parent.parent
-DEFAULT_META_PATH = (
-    ROOT_DIR
-    / ".agents"
-    / "skills"
-    / "atom-yuki-autonomous-executive-learner"
-    / "vaults"
-    / "yuki_signoff.meta.json"
-)
-
+VAULT_DIR = CORE_DIR / "vaults"
+DEFAULT_META_PATH = VAULT_DIR / "founder_vault.meta.json"
 PBKDF2_ITER = 200_000
+KCV_LABEL = b"polaris-founder-kcv-v65"
 
 # RFC 3526 Group 14 (2048-bit MODP Safe Prime p = 2q + 1)
 _RFC3526_P_HEX = (
@@ -65,15 +63,19 @@ def derive_key(passphrase: str, salt_hex: str, iters: int = PBKDF2_ITER) -> byte
 
 
 def compute_kcv(key: bytes) -> str:
-    return hmac.new(key, b"yuki-dispatch-kcv", hashlib.sha256).hexdigest()
+    return hmac.new(key, KCV_LABEL, hashlib.sha256).hexdigest()
 
 
 def derive_keypair(key: bytes) -> tuple[int, int]:
     """由 PBKDF2 金鑰推導 Schnorr 私鑰純量 x 與公鑰 y = G^x mod P。"""
-    x_raw = hmac.new(key, b"polaris-founder-schnorr-priv-v64", hashlib.sha256).digest()
+    x_raw = hmac.new(key, b"polaris-founder-schnorr-priv-v65", hashlib.sha256).digest()
     x = (int.from_bytes(x_raw, "big") % (Q - 1)) + 1
     y = pow(G, x, P)
     return x, y
+
+
+def compute_fingerprint(pub_y_hex: str) -> str:
+    return hashlib.sha256(pub_y_hex.strip().lower().encode("utf-8")).hexdigest()[:16]
 
 
 def build_meta_dict(passphrase: str, salt_hex: str | None = None, iters: int = PBKDF2_ITER) -> dict:
@@ -81,11 +83,13 @@ def build_meta_dict(passphrase: str, salt_hex: str | None = None, iters: int = P
     key = derive_key(passphrase, salt, iters)
     kcv = compute_kcv(key)
     _, y = derive_keypair(key)
+    pub_y_hex = format(y, "x")
     return {
         "salt": salt,
         "iter": iters,
         "kcv": kcv,
-        "pub_y": format(y, "x"),
+        "pub_y": pub_y_hex,
+        "fingerprint": compute_fingerprint(pub_y_hex),
     }
 
 
@@ -107,34 +111,67 @@ def load_verified_key(passphrase: str, meta_path: Path | None = None) -> tuple[b
     key = derive_key(passphrase, meta["salt"], int(meta["iter"]))
     if not hmac.compare_digest(compute_kcv(key), meta["kcv"]):
         raise ValueError("創辦人口令錯誤")
-    # 若舊版 meta 尚無 pub_y，驗證口令通過後自動補齊公鑰欄位
     if "pub_y" not in meta:
         _, y = derive_keypair(key)
-        meta["pub_y"] = format(y, "x")
+        pub_y_hex = format(y, "x")
+        meta["pub_y"] = pub_y_hex
+        meta["fingerprint"] = compute_fingerprint(pub_y_hex)
         mp.write_text(json.dumps(meta, indent=2), encoding="utf-8")
     return key, meta
+
+
+def print_anti_blind_signing_dossier(payload: dict, fingerprint: str) -> None:
+    """在終端機列印待審批之完整明細，防創辦人被騙盲簽。"""
+    act = payload.get("action", "unknown")
+    print("\n" + "=" * 65)
+    print(f"🛡️  創辦人主權密碼學審批台 (Anti-Blind-Signing) · 指紋: [{fingerprint}]")
+    print("=" * 65)
+    if act == "promote":
+        print(f"📌 操作類型：高風險規則轉正 (Promote Rule)")
+        print(f"🏛️  辦公室代號：{payload.get('office')}  ｜  規則單號：{payload.get('rule_id')}")
+        print(f"📐 規則型態：{payload.get('kind')} (scope={payload.get('scope')})")
+        print(f"🎯 語義模式：{payload.get('pattern')}")
+        print(f"📊 真值指標：遵守組={payload.get('with_metric')} vs 對照組={payload.get('without_metric')} (N={payload.get('n')})")
+        print(f"🧪 留出集檢驗 (Holdout Split)：{'PASS (優於對照)' if payload.get('holdout_passed') else 'FAIL'}")
+        print(f"📦 資料集快照簽章：{str(payload.get('trial_sha256', ''))[:16]}...")
+        print(f"📜 物理論述證據：{payload.get('evidence')}")
+    elif act == "audit_done":
+        print(f"📌 操作類型：十輪強制衝突審計解鎖 (Audit-Done Release)")
+        print(f"🏛️  辦公室代號：{payload.get('office')}  ｜  解鎖關卡：第 {payload.get('cycle')} 輪")
+        print(f"🔗 前置 Tick 雜湊：{str(payload.get('last_tick_hash', ''))[:16]}...")
+        print(f"🔍 程式化掃描簽章：{payload.get('scan_digest')}")
+        print(f"📝 審計報告雜湊：{str(payload.get('report_sha256', ''))[:16]}...")
+    elif act == "route_samples":
+        print(f"📌 操作類型：匯出已驗簽幕僚長路由樣本 (Export Verified Route Samples)")
+        print(f"📊 結案任務筆數：{payload.get('count')} 筆")
+        print(f"📦 樣本列標準雜湊：{str(payload.get('samples_sha256', ''))[:16]}...")
+    else:
+        print(f"📌 操作類型：{act}")
+        print(json.dumps(payload, ensure_ascii=False, indent=2))
+    print("-" * 65)
+    print("⚠️  請親自核對上述數值無誤後，於下方輸入口令簽署授權（口令不落地、不進環境變數）：")
 
 
 def sign_founder_action(
     payload: dict,
     meta_path: Path | None = None,
     _test_passphrase: str | None = None,
-    prompt_label: str = "創辦人簽收口令：",
+    prompt_label: str = "創辦人授權口令：",
 ) -> dict:
-    """簽署高風險操作（promote / route 驗算 / 高風險 audit-done）。
-    正式環境強制檢查 TTY 並由 getpass 讀取口令；_test_passphrase 僅允許於非正式環境之暫存目錄自檢使用。
-    """
     mp = meta_path or DEFAULT_META_PATH
     if _test_passphrase is not None:
-        # 安全防呆：_test_passphrase 嚴禁用於正式 ROOT_DIR 下的 vaults
         try:
-            mp.resolve().relative_to(ROOT_DIR.resolve())
-            raise PermissionError("安全阻斷：正式工作區帳本嚴禁傳入 _test_passphrase，必須於真實終端機輸入口令")
+            mp.resolve().relative_to(VAULT_DIR.resolve())
+            raise PermissionError("安全阻斷：正式 vaults 嚴禁傳入 _test_passphrase，必須於真實終端機輸入口令")
         except ValueError:
             pass
         passphrase = _test_passphrase
     else:
         require_tty()
+        # 讀取 meta 中的公鑰指紋供創辦人核對
+        meta_init = json.loads(mp.read_text(encoding="utf-8")) if mp.exists() else {}
+        fg = meta_init.get("fingerprint", "UNINITIALIZED")
+        print_anti_blind_signing_dossier(payload, fg)
         passphrase = getpass.getpass(prompt_label)
 
     key, meta = load_verified_key(passphrase, mp)
@@ -143,10 +180,8 @@ def sign_founder_action(
     bound_payload = {**payload, "nonce": nonce, "kcv": meta["kcv"]}
     msg_bytes = _canon(bound_payload).encode("utf-8")
 
-    # 1. 對稱 HMAC-SHA256 簽章
     hmac_sig = hmac.new(key, msg_bytes, hashlib.sha256).hexdigest()
 
-    # 2. 確定性 Schnorr 簽章 (供 fold() / is_locked() 免口令公鑰驗證)
     k_raw = hmac.new(key, b"schnorr-k:" + msg_bytes, hashlib.sha256).digest()
     k = (int.from_bytes(k_raw, "big") % (Q - 1)) + 1
     r = pow(G, k, P)
@@ -157,6 +192,7 @@ def sign_founder_action(
     return {
         "nonce": nonce,
         "kcv": meta["kcv"],
+        "fingerprint": meta.get("fingerprint", compute_fingerprint(meta["pub_y"])),
         "hmac_sig": hmac_sig,
         "schnorr_e": format(e, "x"),
         "schnorr_s": format(s, "x"),
@@ -167,9 +203,9 @@ def verify_founder_action(
     payload: dict,
     sig_bundle: dict | None,
     meta_path: Path | None = None,
-    key: bytes | None = None,
+    expected_fingerprint: str | None = None,
 ) -> tuple[bool, str]:
-    """驗證高風險操作簽章。無須口令即可透過 meta.json 中的公鑰 pub_y 攔截任何偽造簽章。"""
+    """驗證高風險操作簽章。以公鑰 pub_y 驗證 Schnorr 簽章；若提供 expected_fingerprint 則額外核對指紋。"""
     if not isinstance(sig_bundle, dict):
         return False, "缺少創辦人密碼學簽章 (founder_sig)"
     mp = meta_path or DEFAULT_META_PATH
@@ -182,6 +218,10 @@ def verify_founder_action(
         if "pub_y" not in meta:
             return False, "設定檔缺少公鑰 pub_y"
 
+        meta_fg = meta.get("fingerprint", compute_fingerprint(meta["pub_y"]))
+        if expected_fingerprint and meta_fg != expected_fingerprint:
+            return False, f"公鑰指紋不相符（預期 {expected_fingerprint} vs 檔案 {meta_fg}）"
+
         pub_y = int(meta["pub_y"], 16)
         e = int(str(sig_bundle.get("schnorr_e", "")), 16)
         s = int(str(sig_bundle.get("schnorr_s", "")), 16)
@@ -191,18 +231,12 @@ def verify_founder_action(
         bound_payload = {**payload, "nonce": sig_bundle["nonce"], "kcv": sig_bundle["kcv"]}
         msg_bytes = _canon(bound_payload).encode("utf-8")
 
-        # 公鑰驗證：r_calc = (G^s * y^(Q - e)) mod P
         r_calc = (pow(G, s, P) * pow(pub_y, Q - e, P)) % P
         r_bytes = r_calc.to_bytes(256, "big")
         e_calc = int.from_bytes(hashlib.sha256(r_bytes + msg_bytes).digest(), "big") % Q
         if e_calc != e:
             return False, "Schnorr 公鑰驗簽失敗（偽造簽章或內容遭竄改）"
 
-        if key is not None:
-            exp_hmac = hmac.new(key, msg_bytes, hashlib.sha256).hexdigest()
-            if not hmac.compare_digest(exp_hmac, str(sig_bundle.get("hmac_sig", ""))):
-                return False, "HMAC 驗簽失敗"
-
-        return True, "創辦人密碼學簽章驗證通過"
+        return True, f"創辦人密碼學簽章驗證通過 (指紋: {meta_fg})"
     except Exception as ex:
         return False, f"驗簽異常：{ex}"

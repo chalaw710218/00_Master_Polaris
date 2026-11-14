@@ -276,16 +276,9 @@ def audit_draft(
         score += 5
         items.append(("⚠️", "開頭為陳舊推銷/問候語，大幅降低停留率 (+5)"))
     elif low_hit_objs:
-        hard_lows = [h["hook"] for h in low_hit_objs if h["n"] >= 5]
-        soft_lows = [h["hook"] for h in low_hit_objs if h["n"] < 5]
-        if hard_lows:
-            score += 2
-            items.append(("❌", f"命中高樣本數低成效鉤子：{hard_lows} (N>=5, +2)"))
-            fatal.append(f"使用已確認之低效鉤子 {hard_lows}，請改用強化鉤子或情境白描")
-        else:
-            # 3 <= N < 5：軟懲罰，不永久封死探索機會
-            score += 8
-            items.append(("⚠️", f"命中探索期低效鉤子：{soft_lows}（3<=N<5 採軟性降權，僅給 +8）"))
+        # 【v6.5 修正】：未轉正之學習狀態檔僅採軟性降權提示，硬阻斷 100% 委託 bionic_enforce.gate() 留出驗證規則
+        score += 8
+        items.append(("⚠️", f"命中學習觀察期鉤子：{[h['hook'] for h in low_hit_objs]}（採軟性降權提示，硬阻斷依據母版留出集轉正規則）"))
     elif boost_hit:
         score += 20
         items.append(("✅", f"開頭採用仿生學習強化高成效鉤子：{boost_hit} (+20)"))

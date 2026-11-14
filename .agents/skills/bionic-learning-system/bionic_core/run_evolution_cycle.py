@@ -1,12 +1,12 @@
-"""萬用單一閉環總控調度器 (Universal Evolution Cycle Runner · Master v6.4 零廢檔副作用與批次容錯版)
+"""萬用單一閉環總控調度器 (Universal Evolution Cycle Runner · Master v6.5 零污染與真值解耦版)
 
-v6.4 重大升級：
-  1. 100% 角色無關（Role-Agnostic）：動態讀取 `verifier_registry.json` 中各子版登記的 `adapter_script` 與標準樣本集。
-  2. 先驗重、後寫檔（消除重複拒絕前之檔案寫入副作用）：
-     - 先在記憶體組裝 `cycle_snapshot` 並呼叫 `cycle_ledger.check_duplicate_obj(office, cycle_snapshot)` 檢查規則與驗算 SHA-256。
-     - 若規則與驗算結果無實質變化，當場拒絕入帳且**不寫入多餘的 `cycle_evidence/*.json` 檔案**！
-  3. `--all-ready` 批次容錯隔離：
-     - 單一子版若因無新進展（防刷攔截）或停機鎖被拒，記錄該子版狀態並繼續執行其餘子版，不因單一角色無新變更而中斷整批調度。
+v6.5 核心升級：
+  1. 試算預覽與寫入解耦（消除廢 trial 污染）：
+     - 先呼叫 `rule_store.preview_evaluation()` 試算指標，於記憶體組裝擬定快照並檢查 `cycle_ledger.check_duplicate_obj()`。
+     - **確認無重複且無停機鎖後，才正式執行 `rule_store.evaluate_rule()` 寫入 trial 與資料集快照**！
+     - 若無實質變更被阻斷，規則帳本維持 0 污染，絕不產生多餘 trial 行或廢棄 JSON 檔案！
+  2. `--all-ready` 單點容錯隔離與異常透傳：
+     - 明確區分「缺 feed 警告」、「無實質變更拒絕」與「執行崩潰」，不將依賴或連線問題偽裝成無變更。
 """
 from __future__ import annotations
 
@@ -41,7 +41,6 @@ def load_registered_adapters() -> dict[str, dict]:
 
 
 def invoke_child_adapter(office: str, adapter_rel_path: str) -> tuple[list[str], dict]:
-    """呼叫子版專屬的特化轉接器，將其輸出的候選規則送入母版 rule_store.propose。"""
     script = ROOT_DIR / adapter_rel_path
     if not script.is_file():
         raise FileNotFoundError(f"找不到子版 '{office}' 登記之特化轉接器：{script}")
@@ -91,9 +90,44 @@ def run_cycle(office: str, with_discover: bool = False) -> dict:
         discover_res = perceive_web.discover(office)
 
     proposed_ids, meta = invoke_child_adapter(office, adapters[office]["adapter_script"])
+
+    # 1. 先使用 preview_evaluation 試算指標，不寫入規則帳本與快照
+    preview_evals = []
+    can_promote_preview = []
+    for rid in proposed_ids:
+        ok_p, msg_p, calc_ev = rule_store.preview_evaluation(office, rid)
+        preview_evals.append({"rule_id": rid, "ok": ok_p, "message": msg_p})
+        if ok_p:
+            r_state = rule_store.fold(office).get(rid, {})
+            # 模擬評估後是否具備轉正條件
+            w = calc_ev.get("with_metric", 0)
+            wo = calc_ev.get("without_metric", 0)
+            hp = calc_ev.get("holdout_passed", False)
+            cr = calc_ev.get("collateral_rejected", True)
+            if r_state.get("risk") == "low" and (w > wo) and hp and (not cr):
+                can_promote_preview.append(rid)
+
+    active_existing = [r["rule_id"] for r in rule_store.fold(office).values() if r["status"] == "active"]
+
+    # 2. 在記憶體組裝擬定的周期快照
+    cycle_preview = {
+        "office": office,
+        "proposed_or_verified_rules": proposed_ids,
+        "evaluations": preview_evals,
+        "newly_promoted": can_promote_preview,
+        "active_rules": sorted(list(set(active_existing + can_promote_preview))),
+    }
+
+    # 3. 預先檢查規則與驗算 SHA-256 是否重複
+    is_dup, sha_preview = cycle_ledger.check_duplicate_obj(office, cycle_preview)
+    if is_dup:
+        raise ValueError(
+            f"防刷輪次阻斷：規則與驗算實質內容 SHA-256 ({sha_preview[:12]}...) 與歷史輪次重複，無實質新變更（未產生廢 trial 與廢檔案）！"
+        )
+
+    # 4. 確認無重複，正式執行 evaluate_rule 寫入 trial 與快照
     eval_results = []
     promoted_ids = []
-
     for rid in proposed_ids:
         ok_eval, msg_eval, _ = rule_store.evaluate_rule(office, rid)
         eval_results.append({"rule_id": rid, "ok": ok_eval, "message": msg_eval})
@@ -107,6 +141,11 @@ def run_cycle(office: str, with_discover: bool = False) -> dict:
     retired_ids = rule_store.sweep()
     active_now = [r["rule_id"] for r in rule_store.fold(office).values() if r["status"] == "active"]
 
+    evidence_dir = BASE_DIR / "vaults" / "cycle_evidence"
+    evidence_dir.mkdir(parents=True, exist_ok=True)
+    ts_slug = datetime.now().strftime("%Y%m%dT%H%M%S_%f")
+    evidence_path = evidence_dir / f"{office}_cycle_{ts_slug}.json"
+
     cycle_snapshot = {
         "office": office,
         "executed_at": datetime.now().isoformat(timespec="microseconds"),
@@ -118,23 +157,11 @@ def run_cycle(office: str, with_discover: bool = False) -> dict:
         "active_rules": active_now,
         "retired_by_sweep": retired_ids,
     }
-
-    # 【v6.4 關鍵修復】：先於記憶體比對規則與驗算結果雜湊，若重複則直接阻斷，不寫入廢檔！
-    is_dup, sha_preview = cycle_ledger.check_duplicate_obj(office, cycle_snapshot)
-    if is_dup:
-        raise ValueError(
-            f"防刷輪次阻斷：規則與驗算實質內容 SHA-256 ({sha_preview[:12]}...) 與歷史輪次重複，無實質新變更（未產生廢檔）！"
-        )
-
-    evidence_dir = BASE_DIR / "vaults" / "cycle_evidence"
-    evidence_dir.mkdir(parents=True, exist_ok=True)
-    ts_slug = datetime.now().strftime("%Y%m%dT%H%M%S_%f")
-    evidence_path = evidence_dir / f"{office}_cycle_{ts_slug}.json"
     evidence_path.write_text(json.dumps(cycle_snapshot, ensure_ascii=False, indent=2), encoding="utf-8")
 
     cycle_num = cycle_ledger.tick(
         office,
-        f"run_evolution_cycle v6.4: proposed={len(proposed_ids)}, promoted={len(promoted_ids)}, active={len(active_now)}",
+        f"run_evolution_cycle v6.5: proposed={len(proposed_ids)}, promoted={len(promoted_ids)}, active={len(active_now)}",
         str(evidence_path),
     )
     history = cycle_ledger.read(office)
@@ -149,9 +176,9 @@ def run_cycle(office: str, with_discover: bool = False) -> dict:
 
 def main() -> None:
     adapters = load_registered_adapters()
-    ap = argparse.ArgumentParser(description="萬用單一閉環總控調度器 (v6.4 零廢檔副作用與批次容錯版)")
+    ap = argparse.ArgumentParser(description="萬用單一閉環總控調度器 (v6.5 零污染與真值解耦版)")
     ap.add_argument("--office", choices=list(adapters.keys()), help="執行單一子版閉環")
-    ap.add_argument("--all-ready", action="store_true", help="依序執行所有已註冊 adapter_script 且低風險就緒之子版（單一無新變更不中斷整批）")
+    ap.add_argument("--all-ready", action="store_true", help="依序執行所有已註冊 adapter_script 且低風險就緒之子版")
     ap.add_argument("--with-discover", action="store_true", help="同時啟動 perceive_web 主動探索")
     a = ap.parse_args()
 
@@ -165,7 +192,6 @@ def main() -> None:
         try:
             all_out[off] = run_cycle(off, with_discover=a.with_discover)
         except ValueError as e:
-            # 防刷輪次阻斷（無實質新變更）：在 --all-ready 模式下如實記錄並繼續下一位，單一 --office 則回傳非 0
             all_out[off] = {"office": off, "status": "rejected_no_substantive_change", "reason": str(e)}
             if not a.all_ready:
                 print(f"🛑 [{off}] {e}")

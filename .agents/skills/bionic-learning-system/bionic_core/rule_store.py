@@ -1,18 +1,17 @@
-"""萬用規則庫與生命週期狀態機 (Universal Rule Store · Master v6.4 密碼學零信任與純數學核心版)
+"""萬用規則庫與生命週期狀態機 (Universal Rule Store · Master v6.5 嚴格快照與反盲簽版)
 
-v6.4 核心升級（100% 消除角色私貨與自簽偽造漏洞）：
-  1. 100% 純數學核心（零角色私貨）：
-     - 徹底移除任何閣員專屬鍵名，僅接受各子版 Adapter 正規化後之「通用標準樣本列 (Standard Sample Rows)」。
-  2. 密碼學創辦人主權簽章 (`founder_auth.py`)：
-     - 廢除無密碼布林旗標 `--founder-approved`！高風險 (`risk="high"`) 規則轉正強制於真實終端機 (TTY) 輸入創辦人口令，產生綁定 `(office, rule_id, trial_sha256)` 之 HMAC + Schnorr 雙重簽章。
-     - `fold()` 免口令即可透過公鑰 `pub_y` 驗證每筆高風險轉正與 `route` 驗算簽章；Agent 手寫 JSONL 或自呼叫 CLI 一律打入 `tampered_rejected`。
-  3. 折疊時全鏈驗算與 Trial 防偽重算 (`fold()`)：
-     - 逐筆檢驗 `{office}_rules.jsonl` 之 `prev` / `hash` 雜湊鏈。
-     - 折疊 `trial` 事件時，當場重算資料集 SHA-256 與指標（`with_metric`, `without_metric`, `n`, `holdout_passed`, `collateral_rejected`），手填假 `trial` 當場識破拒認。
-  4. 留出驗證 (`holdout_passed`) 預設 `False`：
-     - 樣本過小或後半段留出集缺組無法計算時，維持 `False` 拒絕轉正。
-  5. 通用數值上下限 (`metric_min` / `metric_max` / `baseline_standard`)：
-     - 支援 `>=`、`<=`、`:` 算子，統一以「達標率 (%) vs 未達標率 (%)」比較，確保 `metric_max`（如 `fcp_ms:500`）達標時 `with_metric > without_metric` 正常轉正。
+v6.5 核心升級（外部紅隊審計全面硬化）：
+  1. 快照存證與 Trial 強制重算（消除偽造繞過）：
+     - `evaluate_rule()` 驗算時，強制將標準資料集複製至不可篡改之快照目錄 `vaults/snapshots/{dataset_sha256}.jsonl`。
+     - `fold()` 處理 `trial` 時，**強制要求對應之快照檔存在且 SHA-256 完全吻合**；快照缺失或雜湊不符一律打入 `tampered_rejected`，並逐筆現場重算核驗指標，徹底杜絕手寫假 `trial` 繞過！
+  2. 規則狀態機防重放 (Anti-Replay)：
+     - `fold()` 處理 `promote` 事件時，**嚴格檢查 `r["status"] == "candidate"`**！若規則已被 `retire` 或 `tampered_rejected`，複製貼上舊已簽事件直接打入 `tampered_rejected`。
+  3. 反盲簽與公鑰指紋校驗 (Anti-Blind-Signing)：
+     - 高風險規則轉正時，於真實終端機完整展示該規則之全量數值、證據與留出驗證結果，並於簽章 payload 強綁定 `(office, rule_id, kind, pattern, trial_sha256)`。
+  4. 留出驗證 (Holdout Split) 雙組門檻提升：
+     - 文字規則與路由規則之後半段留出集，**強制要求遵守組與對照組每組皆須 `>= 3` 筆**（`len(h_with) >= 3 and len(h_without) >= 3`），否則 `holdout_passed` 維持 `False` 拒絕轉正！
+  5. 預覽與寫入解耦 (`preview_evaluation`)：
+     - 提供無副作用之指標試算，供調度器在確認輪次無重複後才正式寫入帳本與快照。
 """
 from __future__ import annotations
 
@@ -38,10 +37,12 @@ if sys.platform == "win32":
 CORE_DIR = Path(__file__).resolve().parent
 ROOT_DIR = CORE_DIR.parent.parent.parent.parent
 VAULT_DIR = CORE_DIR / "vaults"
+SNAPSHOTS_DIR = VAULT_DIR / "snapshots"
 REGISTRY_FILE = CORE_DIR / "verifier_registry.json"
-META_PATH: Path | None = None  # None 時使用 founder_auth.DEFAULT_META_PATH；selftest 時指派暫存 meta
+META_PATH: Path | None = None  # None 時使用 founder_auth.DEFAULT_META_PATH
 HIGH_RISK = "high"
 MIN_TRIAL_N = 3
+MIN_HOLDOUT_GROUP_N = 3
 MAX_COLLATERAL_RATE = 0.35
 ZERO_HASH = "0" * 64
 
@@ -58,7 +59,6 @@ VALID_KINDS = (
 
 
 def resolve_default_dataset(office: str) -> Path | None:
-    """從 verifier_registry.json 動態解析該子版註冊之標準資料集路徑。"""
     if not REGISTRY_FILE.exists():
         return None
     try:
@@ -93,7 +93,6 @@ def _hash_body(body: dict) -> str:
 
 
 def parse_metric_pattern(pat: str, kind: str) -> tuple[str, str, float]:
-    """純數學算子解析器：支援 `key>=val`, `key<=val`, `key:val`，不含任何寫死角色指標名。"""
     if ">=" in pat:
         k, v = pat.split(">=", 1)
         return k.strip(), ">=", float(v)
@@ -123,7 +122,6 @@ def append_event(office: str, event: dict) -> dict:
 
 
 def _load_standard_text_samples(dataset: Path) -> list[dict]:
-    """純通用文字樣本列載入器：讀取標準 `{"id": str, "text": str, "metric": float, "ts": str}` 或 `{"samples": [...]}`。"""
     records: dict[str, dict] = {}
     for idx, line in enumerate(dataset.read_text(encoding="utf-8").splitlines()):
         if not line.strip():
@@ -179,9 +177,8 @@ def _classify_post_compliance(title: str, kind: str, pat: str, scope: str = "any
 
 
 def _compute_metrics_from_dataset(r: dict, ds: Path) -> tuple[bool, str, dict]:
-    """純數學重算引擎：從標準資料集計算規則驗算指標（供 evaluate_rule 與 fold() 防偽重算共用）。"""
     if not ds or not ds.is_file():
-        return False, f"找不到真實資料集：{ds}", {}
+        return False, f"找不到真實資料集檔案：{ds}", {}
 
     ds_sha = _sha256(ds)
     kind = r["kind"]
@@ -190,7 +187,6 @@ def _compute_metrics_from_dataset(r: dict, ds: Path) -> tuple[bool, str, dict]:
 
     with_vals: list[float] = []
     without_vals: list[float] = []
-    # 【v6.4 鐵律】：留出集初值預設 False！僅在具備真實留出集且留出驗證通過時才設為 True（非文字型態由各自驗算器判定）
     holdout_passed = False
     collateral_rate = 0.0
     collateral_rejected = False
@@ -198,7 +194,7 @@ def _compute_metrics_from_dataset(r: dict, ds: Path) -> tuple[bool, str, dict]:
     if kind in ("forbid_phrase", "prefer_phrase", "max_count", "regex_forbid"):
         samples = _load_standard_text_samples(ds)
         if not samples:
-            return False, "標準文字成效樣本集為空（須由 Adapter 轉為 {id, text, metric, ts} 標準樣本列）", {}
+            return False, "標準文字成效樣本集為空", {}
 
         all_metrics = [float(p["metric"]) for p in samples]
         med_val = statistics.median(all_metrics) if all_metrics else 0.0
@@ -221,13 +217,14 @@ def _compute_metrics_from_dataset(r: dict, ds: Path) -> tuple[bool, str, dict]:
             if collateral_rate > MAX_COLLATERAL_RATE:
                 collateral_rejected = True
 
-        # 時序留出集驗證 (Holdout Split)：前半段為 Discovery，後半段為 Holdout
-        if len(samples) >= 6:
+        # 時序留出集驗證 (Holdout Split)：前半段 Discovery，後半段 Holdout
+        # 【v6.5 鐵律】：後半段留出集雙組皆須 >= 3 筆，不再 1 筆就算數
+        if len(samples) >= 8:
             mid = len(samples) // 2
             holdout_samples = samples[mid:]
             h_with = [float(p["metric"]) for p in holdout_samples if _classify_post_compliance(p["text"], kind, pat, scope)]
             h_without = [float(p["metric"]) for p in holdout_samples if not _classify_post_compliance(p["text"], kind, pat, scope)]
-            if len(h_with) >= 1 and len(h_without) >= 1:
+            if len(h_with) >= MIN_HOLDOUT_GROUP_N and len(h_without) >= MIN_HOLDOUT_GROUP_N:
                 holdout_passed = statistics.mean(h_with) > statistics.mean(h_without)
 
         n_target = min(len(with_vals), len(without_vals))
@@ -243,7 +240,6 @@ def _compute_metrics_from_dataset(r: dict, ds: Path) -> tuple[bool, str, dict]:
             return False, "數值樣本集為空", {}
         last = records[-1]
 
-        # 格式 A：標準樣本陣列 `{"samples": [{metric_name: val}, ...]}`
         if isinstance(last.get("samples"), list) and last["samples"]:
             for s in last["samples"]:
                 if metric_name not in s:
@@ -257,8 +253,6 @@ def _compute_metrics_from_dataset(r: dict, ds: Path) -> tuple[bool, str, dict]:
             w_mean = round(len(with_vals) / n_target * 100.0, 2)
             wo_mean = round(len(without_vals) / n_target * 100.0, 2)
             holdout_passed = True
-
-        # 格式 B：標準摘要列 `{"n": total, "compliant": count, "metrics": {metric_name: val}}`
         elif "n" in last and "compliant" in last:
             n_target = int(last["n"])
             comp_cnt = float(last["compliant"])
@@ -267,7 +261,6 @@ def _compute_metrics_from_dataset(r: dict, ds: Path) -> tuple[bool, str, dict]:
                 val = float(metrics_map[metric_name])
                 is_ok = (val >= bound) if op == ">=" else (val <= bound)
                 if not is_ok and kind != "baseline_standard":
-                    # 關鍵指標本身未達標（例如最大容許值超標）時，強制記為未達標
                     w_mean = 0.0
                     wo_mean = 100.0
                 else:
@@ -277,8 +270,6 @@ def _compute_metrics_from_dataset(r: dict, ds: Path) -> tuple[bool, str, dict]:
                 w_mean = round(comp_cnt / max(1, n_target) * 100.0, 2)
                 wo_mean = round((n_target - comp_cnt) / max(1, n_target) * 100.0, 2)
             holdout_passed = True
-
-        # 格式 C：單一或多筆標準指標列 `{"metrics": {metric_name: val}, "n": N}` 或 `{metric_name: val, "n": N}`
         else:
             metrics_map = last.get("metrics", last)
             if metric_name not in metrics_map:
@@ -286,7 +277,6 @@ def _compute_metrics_from_dataset(r: dict, ds: Path) -> tuple[bool, str, dict]:
             val = float(metrics_map[metric_name])
             n_target = int(last.get("n", len(records) if len(records) >= MIN_TRIAL_N else MIN_TRIAL_N))
             is_ok = (val >= bound) if op == ">=" else (val <= bound)
-            # 達標率 100% vs 0%（同時完美支援 metric_min 與 metric_max 如 fcp_ms:500）
             w_mean = 100.0 if is_ok else 0.0
             wo_mean = 0.0 if is_ok else 100.0
             holdout_passed = True
@@ -300,9 +290,8 @@ def _compute_metrics_from_dataset(r: dict, ds: Path) -> tuple[bool, str, dict]:
             return False, "路由樣本檔為空", {}
         envelope = raw_lines[-1]
         if envelope.get("kind") != "verified_route_samples":
-            return False, "route 驗算拒絕讀取未驗簽之原始派工帳本！必須先由創辦人執行 dispatch.py export-verified 驗證 HMAC 並簽章匯出標準路由樣本", {}
+            return False, "route 驗算拒絕讀取未驗簽之原始帳本！須由創辦人執行 dispatch.py export-verified 匯出", {}
 
-        # 驗證創辦人對標準路由樣本列之密碼學簽章
         samples = envelope.get("samples", [])
         expected_sha = hashlib.sha256(_canon(samples).encode("utf-8")).hexdigest()
         if expected_sha != envelope.get("samples_sha256"):
@@ -324,16 +313,15 @@ def _compute_metrics_from_dataset(r: dict, ds: Path) -> tuple[bool, str, dict]:
                 without_vals.append(val)
         n_target = min(len(with_vals), len(without_vals))
         if not with_vals or not without_vals:
-            return False, f"已驗簽派工路由樣本不足（{cat}->{target_agent}: 主組={len(with_vals)}, 對照組={len(without_vals)}，每組須 >= {MIN_TRIAL_N}）", {}
+            return False, f"已驗簽派工路由樣本不足（{cat}->{target_agent}: 主組={len(with_vals)}, 對照組={len(without_vals)}）", {}
         w_mean = round(statistics.mean(with_vals), 2)
         wo_mean = round(statistics.mean(without_vals), 2)
-        # 路由規則需至少 6 筆做前後留出，或主組/對照組各 >= MIN_TRIAL_N 且後半段同樣優於對照
-        if len(cat_samples) >= 6:
+        if len(cat_samples) >= 8:
             mid = len(cat_samples) // 2
             h_samples = cat_samples[mid:]
             hw = [float(s["metric"]) for s in h_samples if target_agent in s.get("assigned", [])]
             hwo = [float(s["metric"]) for s in h_samples if target_agent not in s.get("assigned", [])]
-            holdout_passed = bool(hw and hwo and statistics.mean(hw) > statistics.mean(hwo))
+            holdout_passed = bool(len(hw) >= MIN_HOLDOUT_GROUP_N and len(hwo) >= MIN_HOLDOUT_GROUP_N and statistics.mean(hw) > statistics.mean(hwo))
         else:
             holdout_passed = False
     else:
@@ -345,13 +333,66 @@ def _compute_metrics_from_dataset(r: dict, ds: Path) -> tuple[bool, str, dict]:
         "with_metric": w_mean,
         "without_metric": wo_mean,
         "n": n_target,
-        "dataset": str(ds),
         "dataset_sha256": ds_sha,
         "holdout_passed": holdout_passed,
         "collateral_rate": collateral_rate,
         "collateral_rejected": collateral_rejected,
     }
     return True, "OK", ev
+
+
+def _ensure_snapshot(ds_path: Path, ds_sha: str) -> Path:
+    SNAPSHOTS_DIR.mkdir(parents=True, exist_ok=True)
+    snap_file = SNAPSHOTS_DIR / f"{ds_sha}.jsonl"
+    if not snap_file.exists():
+        snap_file.write_bytes(ds_path.read_bytes())
+    return snap_file
+
+
+def preview_evaluation(office: str, rule_id: str, dataset_path: Path | None = None) -> tuple[bool, str, dict]:
+    """無副作用純指標試算（不寫入規則帳本、不存快照）。"""
+    rules = fold(office)
+    r = rules.get(rule_id)
+    if not r:
+        return False, "找不到規則", {}
+    ds = Path(dataset_path) if dataset_path else resolve_default_dataset(office)
+    return _compute_metrics_from_dataset(r, ds)  # type: ignore[arg-type]
+
+
+def evaluate_rule(office: str, rule_id: str, dataset_path: Path | None = None) -> tuple[bool, str, dict]:
+    """萬用真值驗算器：計算指標、複製不可篡改快照、寫入雜湊鏈帳本。"""
+    rules = fold(office)
+    r = rules.get(rule_id)
+    if not r:
+        return False, "找不到規則", {}
+
+    ds = Path(dataset_path) if dataset_path else resolve_default_dataset(office)
+    ok_calc, why_calc, ev = _compute_metrics_from_dataset(r, ds)  # type: ignore[arg-type]
+    if not ok_calc:
+        return False, why_calc, {}
+
+    # 【v6.5 核心】：將真實資料集寫入快照存證目錄，供 fold() 重算鎖定
+    _ensure_snapshot(ds, ev["dataset_sha256"])  # type: ignore[arg-type]
+
+    append_event(office, ev)
+    w_mean = ev["with_metric"]
+    wo_mean = ev["without_metric"]
+    n_target = ev["n"]
+    holdout_passed = ev["holdout_passed"]
+    collateral_rejected = ev["collateral_rejected"]
+    collateral_rate = ev["collateral_rate"]
+    ds_sha = ev["dataset_sha256"]
+
+    status_note = (
+        "攔截(誤傷過高)"
+        if collateral_rejected
+        else ("PASS" if (w_mean > wo_mean and holdout_passed and n_target >= MIN_TRIAL_N) else "FAIL(未達轉正門檻)")
+    )
+    return (
+        True,
+        f"真值驗算完成 [{status_note}]：with={w_mean} vs without={wo_mean} (N={n_target}, holdout={'PASS' if holdout_passed else 'FAIL'}, 誤傷率={collateral_rate:.0%}, sha256={ds_sha[:10]}...)",
+        ev,
+    )
 
 
 def trial_ok(rule: dict) -> tuple[bool, str]:
@@ -362,7 +403,7 @@ def trial_ok(rule: dict) -> tuple[bool, str]:
         return True, f"合規基準標準已盤點綁定（基線達標率={latest['with_metric']}%，N={latest['n']}，簽章={latest['dataset_sha256'][:10]}）"
 
     if not rule["trials"]:
-        return False, "尚無通過真值簽章與重算核驗的 evaluate 紀錄"
+        return False, "尚無通過真值簽章與快照重算核驗的 evaluate 紀錄"
     latest = rule["trials"][-1]
     n = int(latest["n"])
     w = float(latest["with_metric"])
@@ -370,7 +411,7 @@ def trial_ok(rule: dict) -> tuple[bool, str]:
     if latest.get("collateral_rejected"):
         return False, f"高成效樣本誤傷率過高 ({latest.get('collateral_rate', 0):.0%} > {MAX_COLLATERAL_RATE:.0%})，拒絕轉正"
     if not latest.get("holdout_passed", False):
-        return False, "留出驗證集 (Holdout Split) 樣本不足或未優於對照組，拒絕轉正"
+        return False, f"留出驗證集 (Holdout Split) 雙組未達各 {MIN_HOLDOUT_GROUP_N} 筆或未優於對照組，拒絕轉正"
     if n < MIN_TRIAL_N:
         return False, f"真實樣本數 {n} < 最低門檻 {MIN_TRIAL_N}"
     if w <= wo:
@@ -379,7 +420,7 @@ def trial_ok(rule: dict) -> tuple[bool, str]:
 
 
 def fold(office: str) -> dict[str, dict]:
-    """將事件折疊為各規則最新狀態（內建雜湊鏈驗證 + Trial 防偽重算 + 創辦人公鑰驗簽）。"""
+    """將事件折疊為各規則最新狀態（雜湊鏈驗證 + 快照強制重算 + 狀態機防舊簽重放 + 公鑰驗簽）。"""
     rules: dict[str, dict] = {}
     p = _path(office)
     if not p.exists():
@@ -393,7 +434,7 @@ def fold(office: str) -> dict[str, dict]:
         rid = ev.get("rule_id")
         t = ev.get("type")
 
-        # 1. 驗證 JSONL 雜湊鏈完整性（手動插行或未重算 hash 立即攔截）
+        # 1. 驗證 JSONL 雜湊鏈完整性
         body = {k: v for k, v in ev.items() if k != "hash"}
         expected_hash = _hash_body(body)
         chain_valid = (body.get("prev") == prev_hash) and (ev.get("hash") == expected_hash)
@@ -417,34 +458,39 @@ def fold(office: str) -> dict[str, dict]:
             if r["status"] == "tampered_rejected":
                 continue
             if t == "trial":
-                ds_str = ev.get("dataset", "")
                 ds_sha = ev.get("dataset_sha256", "")
-                if not ds_str or len(str(ds_sha)) != 64:
+                if not ds_sha or len(str(ds_sha)) != 64:
                     r["status"] = "tampered_rejected"
-                    r["tampered_reason"] = "Trial 缺少合法資料集路徑或 SHA-256"
+                    r["tampered_reason"] = "Trial 缺少合法 64 碼 dataset_sha256"
                     continue
-                ds_path = Path(ds_str)
-                # 2. 若本機資料集檔案存在且雜湊一致，當場重算核對指標，防止手寫偽造 trial 數字
-                if not ds_path.is_file():
+
+                # 【v6.5 核心】：強制重算！必須從 snapshots/ 讀取對應快照，若快照不存在或雜湊不符直接判 tampered
+                snap_file = SNAPSHOTS_DIR / f"{ds_sha}.jsonl"
+                if not snap_file.is_file():
                     r["status"] = "tampered_rejected"
-                    r["tampered_reason"] = f"Trial 指向不存在之虛構資料集：{ds_str}"
+                    r["tampered_reason"] = f"找不到不可篡改之資料集快照 (snapshots/{ds_sha[:16]}.jsonl)，疑似偽造 trial"
                     continue
-                if _sha256(ds_path) == ds_sha:
-                    ok_re, why_re, calc_ev = _compute_metrics_from_dataset(r, ds_path)
-                    if not ok_re:
-                        r["status"] = "tampered_rejected"
-                        r["tampered_reason"] = f"Trial 重算未通過：{why_re}"
-                        continue
-                    if (
-                        float(calc_ev["with_metric"]) != float(ev.get("with_metric", -999))
-                        or float(calc_ev["without_metric"]) != float(ev.get("without_metric", -999))
-                        or int(calc_ev["n"]) != int(ev.get("n", -1))
-                        or bool(calc_ev["holdout_passed"]) != bool(ev.get("holdout_passed", False))
-                        or bool(calc_ev["collateral_rejected"]) != bool(ev.get("collateral_rejected", True))
-                    ):
-                        r["status"] = "tampered_rejected"
-                        r["tampered_reason"] = "Trial 指標數值與真實資料集重算結果不符（偵測手填偽造）"
-                        continue
+                if _sha256(snap_file) != ds_sha:
+                    r["status"] = "tampered_rejected"
+                    r["tampered_reason"] = f"資料集快照檔案雜湊遭篡改 (預期 {ds_sha})"
+                    continue
+
+                # 現場重新執行純數學驗算
+                ok_re, why_re, calc_ev = _compute_metrics_from_dataset(r, snap_file)
+                if not ok_re:
+                    r["status"] = "tampered_rejected"
+                    r["tampered_reason"] = f"Trial 重算未通過：{why_re}"
+                    continue
+                if (
+                    float(calc_ev["with_metric"]) != float(ev.get("with_metric", -999))
+                    or float(calc_ev["without_metric"]) != float(ev.get("without_metric", -999))
+                    or int(calc_ev["n"]) != int(ev.get("n", -1))
+                    or bool(calc_ev["holdout_passed"]) != bool(ev.get("holdout_passed", False))
+                    or bool(calc_ev["collateral_rejected"]) != bool(ev.get("collateral_rejected", True))
+                ):
+                    r["status"] = "tampered_rejected"
+                    r["tampered_reason"] = "Trial 指標數值與真實資料集重算結果不符（手填偽造被抓）"
+                    continue
 
                 r["trials"].append({
                     k: ev[k]
@@ -452,7 +498,6 @@ def fold(office: str) -> dict[str, dict]:
                         "with_metric",
                         "without_metric",
                         "n",
-                        "dataset",
                         "dataset_sha256",
                         "holdout_passed",
                         "collateral_rate",
@@ -461,7 +506,14 @@ def fold(office: str) -> dict[str, dict]:
                     )
                     if k in ev
                 })
+
             elif t == "promote":
+                # 【v6.5 核心】：狀態機防重放！只有當前狀態為 candidate 時才准 promote；已被淘汰者貼舊簽章直接打入 tampered
+                if r["status"] != "candidate":
+                    r["status"] = "tampered_rejected"
+                    r["tampered_reason"] = f"規則當前狀態為 {r['status']}（非 candidate），禁止重放已轉正事件"
+                    continue
+
                 ok_t, why_t = trial_ok(r)
                 if not ok_t:
                     r["status"] = "tampered_rejected"
@@ -474,6 +526,9 @@ def fold(office: str) -> dict[str, dict]:
                         "action": "promote",
                         "office": office,
                         "rule_id": rid,
+                        "kind": r["kind"],
+                        "pattern": r["pattern"],
+                        "scope": r.get("scope", "any"),
                         "trial_sha256": latest_sha,
                     }
                     ok_sig, why_sig = founder_auth.verify_founder_action(
@@ -542,39 +597,6 @@ def propose(
     return rid
 
 
-def evaluate_rule(office: str, rule_id: str, dataset_path: Path | None = None) -> tuple[bool, str, dict]:
-    """萬用真值驗算器：讀取標準樣本列計算指標並寫入雜湊鏈。"""
-    rules = fold(office)
-    r = rules.get(rule_id)
-    if not r:
-        return False, "找不到規則", {}
-
-    ds = Path(dataset_path) if dataset_path else resolve_default_dataset(office)
-    ok_calc, why_calc, ev = _compute_metrics_from_dataset(r, ds)  # type: ignore[arg-type]
-    if not ok_calc:
-        return False, why_calc, {}
-
-    append_event(office, ev)
-    w_mean = ev["with_metric"]
-    wo_mean = ev["without_metric"]
-    n_target = ev["n"]
-    holdout_passed = ev["holdout_passed"]
-    collateral_rejected = ev["collateral_rejected"]
-    collateral_rate = ev["collateral_rate"]
-    ds_sha = ev["dataset_sha256"]
-
-    status_note = (
-        "攔截(誤傷過高)"
-        if collateral_rejected
-        else ("PASS" if (w_mean > wo_mean and holdout_passed and n_target >= MIN_TRIAL_N) else "FAIL(未達轉正門檻)")
-    )
-    return (
-        True,
-        f"真值驗算完成 [{status_note}]：with={w_mean} vs without={wo_mean} (N={n_target}, holdout={'PASS' if holdout_passed else 'FAIL'}, 誤傷率={collateral_rate:.0%}, sha256={ds_sha[:10]}...)",
-        ev,
-    )
-
-
 def promote(
     office: str,
     rule_id: str,
@@ -592,11 +614,15 @@ def promote(
 
     ev_body: dict = {"type": "promote", "rule_id": rule_id}
     if r["risk"] == HIGH_RISK:
-        latest_sha = r["trials"][-1]["dataset_sha256"]
+        latest_t = r["trials"][-1]
+        latest_sha = latest_t["dataset_sha256"]
         sig_payload = {
             "action": "promote",
             "office": office,
             "rule_id": rule_id,
+            "kind": r["kind"],
+            "pattern": r["pattern"],
+            "scope": r.get("scope", "any"),
             "trial_sha256": latest_sha,
         }
         try:
@@ -604,7 +630,7 @@ def promote(
                 sig_payload,
                 meta_path=META_PATH,
                 _test_passphrase=_test_passphrase,
-                prompt_label=f"創辦人簽收口令（核准高風險規則 {office}/{rule_id} 轉正）：",
+                prompt_label=f"創辦人授權口令（核准高風險規則 {office}/{rule_id} 轉正）：",
             )
         except (PermissionError, ValueError) as e:
             return False, f"高風險規則轉正遭拒：{e}"
@@ -615,7 +641,6 @@ def promote(
 
 
 def sweep() -> list[str]:
-    """TTL 到期或連驗轉負者標記 retired（溶酶體衰減）。"""
     retired = []
     for p in VAULT_DIR.glob("*_rules.jsonl") if VAULT_DIR.exists() else []:
         office = p.name.replace("_rules.jsonl", "")
@@ -634,7 +659,7 @@ def sweep() -> list[str]:
 
 
 def main() -> None:
-    ap = argparse.ArgumentParser(description="萬用規則庫與生命週期 (v6.4 密碼學零信任與純數學核心版)")
+    ap = argparse.ArgumentParser(description="萬用規則庫與生命週期 (v6.5 嚴格快照與反盲簽版)")
     sub = ap.add_subparsers(dest="cmd", required=True)
     p = sub.add_parser("propose")
     p.add_argument("--office", required=True)
@@ -648,12 +673,12 @@ def main() -> None:
     p.add_argument("--confidence", type=float, default=0.3)
     p.add_argument("--ttl-days", type=int, default=90)
 
-    ev_p = sub.add_parser("evaluate", help="由標準資料集自動驗算指標（禁止手動填數字）")
+    ev_p = sub.add_parser("evaluate", help="由標準資料集自動驗算指標並建立快照（禁止手動填數字）")
     ev_p.add_argument("--office", required=True)
     ev_p.add_argument("--rule-id", required=True)
     ev_p.add_argument("--dataset", help="選填：指定標準資料集檔案路徑")
 
-    pr = sub.add_parser("promote", help="將候選規則轉正（高風險規則將於真實終端機要求輸入創辦人口令簽章）")
+    pr = sub.add_parser("promote", help="將候選規則轉正（高風險規則將展示反盲簽明細並要求創辦人口令簽章）")
     pr.add_argument("--office", required=True)
     pr.add_argument("--rule-id", required=True)
 
