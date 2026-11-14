@@ -1,16 +1,12 @@
-"""萬用單一閉環總控調度器 (Universal Evolution Cycle Runner · Master v6.3 萬用解耦版)
+"""萬用單一閉環總控調度器 (Universal Evolution Cycle Runner · Master v6.4 零廢檔副作用與批次容錯版)
 
-v6.3 萬用解耦憲則（董事長親定）：
-  • 本調度器屬於母版 `bionic_core`，100% 角色無關（Role-Agnostic）！
-  • 內部不寫死任何單一閣員（無 `_sync_kage`, `_sync_taylor` 等硬編碼函數）。
-  • 執行時動態讀取 `verifier_registry.json` 中各子版登記的 `adapter_script`：
-    1. 呼叫子版專屬轉接器 (`adapter_script`) 取得該子版依其專業特性提名的候選規則 (`proposals`)。
-    2. 交由母版萬用狀態機 `rule_store.propose()` -> `rule_store.evaluate_rule()` -> `rule_store.promote()` -> `rule_store.sweep()` 執行零信任驗算。
-    3. 寫入周期證據快照並由 `cycle_ledger.tick()` 驗算去時間戳實質 SHA-256 入帳。
-
-用法：
-  python run_evolution_cycle.py --office <子版代號> [--with-discover]
-  python run_evolution_cycle.py --all-ready
+v6.4 重大升級：
+  1. 100% 角色無關（Role-Agnostic）：動態讀取 `verifier_registry.json` 中各子版登記的 `adapter_script` 與標準樣本集。
+  2. 先驗重、後寫檔（消除重複拒絕前之檔案寫入副作用）：
+     - 先在記憶體組裝 `cycle_snapshot` 並呼叫 `cycle_ledger.check_duplicate_obj(office, cycle_snapshot)` 檢查規則與驗算 SHA-256。
+     - 若規則與驗算結果無實質變化，當場拒絕入帳且**不寫入多餘的 `cycle_evidence/*.json` 檔案**！
+  3. `--all-ready` 批次容錯隔離：
+     - 單一子版若因無新進展（防刷攔截）或停機鎖被拒，記錄該子版狀態並繼續執行其餘子版，不因單一角色無新變更而中斷整批調度。
 """
 from __future__ import annotations
 
@@ -104,17 +100,13 @@ def run_cycle(office: str, with_discover: bool = False) -> dict:
         if ok_eval:
             r_state = rule_store.fold(office).get(rid, {})
             if r_state.get("status") == "candidate" and r_state.get("risk") == "low":
-                ok_prom, _ = rule_store.promote(office, rid, founder_approved=False)
+                ok_prom, _ = rule_store.promote(office, rid)
                 if ok_prom:
                     promoted_ids.append(rid)
 
     retired_ids = rule_store.sweep()
-
-    evidence_dir = BASE_DIR / "vaults" / "cycle_evidence"
-    evidence_dir.mkdir(parents=True, exist_ok=True)
-    ts_slug = datetime.now().strftime("%Y%m%dT%H%M%S_%f")
-    evidence_path = evidence_dir / f"{office}_cycle_{ts_slug}.json"
     active_now = [r["rule_id"] for r in rule_store.fold(office).values() if r["status"] == "active"]
+
     cycle_snapshot = {
         "office": office,
         "executed_at": datetime.now().isoformat(timespec="microseconds"),
@@ -126,11 +118,23 @@ def run_cycle(office: str, with_discover: bool = False) -> dict:
         "active_rules": active_now,
         "retired_by_sweep": retired_ids,
     }
+
+    # 【v6.4 關鍵修復】：先於記憶體比對規則與驗算結果雜湊，若重複則直接阻斷，不寫入廢檔！
+    is_dup, sha_preview = cycle_ledger.check_duplicate_obj(office, cycle_snapshot)
+    if is_dup:
+        raise ValueError(
+            f"防刷輪次阻斷：規則與驗算實質內容 SHA-256 ({sha_preview[:12]}...) 與歷史輪次重複，無實質新變更（未產生廢檔）！"
+        )
+
+    evidence_dir = BASE_DIR / "vaults" / "cycle_evidence"
+    evidence_dir.mkdir(parents=True, exist_ok=True)
+    ts_slug = datetime.now().strftime("%Y%m%dT%H%M%S_%f")
+    evidence_path = evidence_dir / f"{office}_cycle_{ts_slug}.json"
     evidence_path.write_text(json.dumps(cycle_snapshot, ensure_ascii=False, indent=2), encoding="utf-8")
 
     cycle_num = cycle_ledger.tick(
         office,
-        f"run_evolution_cycle v6.3: proposed={len(proposed_ids)}, promoted={len(promoted_ids)}, active={len(active_now)}",
+        f"run_evolution_cycle v6.4: proposed={len(proposed_ids)}, promoted={len(promoted_ids)}, active={len(active_now)}",
         str(evidence_path),
     )
     history = cycle_ledger.read(office)
@@ -145,9 +149,9 @@ def run_cycle(office: str, with_discover: bool = False) -> dict:
 
 def main() -> None:
     adapters = load_registered_adapters()
-    ap = argparse.ArgumentParser(description="萬用單一閉環總控調度器 (v6.3 萬用解耦版)")
+    ap = argparse.ArgumentParser(description="萬用單一閉環總控調度器 (v6.4 零廢檔副作用與批次容錯版)")
     ap.add_argument("--office", choices=list(adapters.keys()), help="執行單一子版閉環")
-    ap.add_argument("--all-ready", action="store_true", help="依序執行所有已註冊 adapter_script 且低風險就緒之子版")
+    ap.add_argument("--all-ready", action="store_true", help="依序執行所有已註冊 adapter_script 且低風險就緒之子版（單一無新變更不中斷整批）")
     ap.add_argument("--with-discover", action="store_true", help="同時啟動 perceive_web 主動探索")
     a = ap.parse_args()
 
@@ -156,14 +160,26 @@ def main() -> None:
         ap.error("請指定 --office <子版代號> 或 --all-ready")
 
     all_out = {}
+    any_hard_error = False
     for off in targets:
         try:
             all_out[off] = run_cycle(off, with_discover=a.with_discover)
+        except ValueError as e:
+            # 防刷輪次阻斷（無實質新變更）：在 --all-ready 模式下如實記錄並繼續下一位，單一 --office 則回傳非 0
+            all_out[off] = {"office": off, "status": "rejected_no_substantive_change", "reason": str(e)}
+            if not a.all_ready:
+                print(f"🛑 [{off}] {e}")
+                sys.exit(1)
         except Exception as e:
-            print(f"🛑 [{off}] 閉環執行失敗：{e}")
-            sys.exit(1)
+            all_out[off] = {"office": off, "status": "error", "reason": str(e)}
+            any_hard_error = True
+            if not a.all_ready:
+                print(f"🛑 [{off}] 閉環執行失敗：{e}")
+                sys.exit(1)
 
     print(json.dumps(all_out if len(targets) > 1 else all_out[targets[0]], ensure_ascii=False, indent=2))
+    if any_hard_error:
+        sys.exit(1)
 
 
 if __name__ == "__main__":

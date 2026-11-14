@@ -1,57 +1,57 @@
 {
-  "version": "6.3.0",
-  "_說明": "萬用驗證器與子版轉接註冊表 (Master v6.3 萬用解耦版)。母版 bionic_core 不寫死任何單一閣員代號或業務邏輯，統一由本註冊表動態讀取各子版之 dataset_path（真值資料集）與 adapter_script（特化提名轉接器）。",
+  "version": "6.4.0",
+  "_說明": "萬用驗證器與子版轉接註冊表 (Master v6.4 密碼學零信任與純數學核心版)。母版 bionic_core 不寫死任何單一閣員代號或業務欄位，統一由各子版 Adapter 將角色資料正規化為標準樣本列 (Standard Sample Rows)，再由母版執行純數學驗算與創辦人公鑰驗簽。",
   "registry": {
     "kage": {
-      "dataset_path": ".agents/skills/threads-growth-auditor/data/insights_history.jsonl",
+      "dataset_path": ".agents/skills/atom-kage-synaptic-metabolic-learner/vaults/kage_standard_samples.jsonl",
       "adapter_script": ".agents/skills/atom-kage-synaptic-metabolic-learner/scripts/kage_bionic_adapter.py",
-      "truth_source": "Threads 官方成效快照 (insights_history.jsonl)",
-      "pass_condition": "萬用文字成效驗算器：時序留出驗證 N>=3、遵守組 ER > 對照組、且好文誤傷率 <= 35%",
-      "web_perceive": "已接 feeds_registry.json (arXiv CS.CL)",
+      "truth_source": "Threads 官方成效快照正規化標準樣本列 (kage_standard_samples.jsonl)",
+      "pass_condition": "萬用文字成效驗算器：僅前半段提名，後半段 Holdout 預設 False（須雙組具備且優於對照）、N>=3、好文誤傷率 <= 35%",
+      "web_perceive": "已接 feeds_registry.json (arXiv CS.CL) 並由 Adapter 消費 perceived_kage.jsonl",
       "enforce_hook": "已接（Fail-Closed）：bionic_closed_loop_gatekeeper.py 強制檢核 enforce.py active 規則與停機鎖",
       "risk_class": "low"
     },
     "taylor": {
-      "dataset_path": ".agents/skills/threads-growth-auditor/data/insights_history.jsonl",
+      "dataset_path": ".agents/skills/atom-taylor-marketing-psychology-learner/vaults/taylor_standard_samples.jsonl",
       "adapter_script": ".agents/skills/atom-taylor-marketing-psychology-learner/scripts/taylor_bionic_adapter.py",
-      "truth_source": "Threads 官方成效快照 (insights_history.jsonl)",
-      "pass_condition": "萬用文字成效驗算器：時序留出驗證 N>=3、遵守組 ER > 對照組、且好文誤傷率 <= 35%",
-      "web_perceive": "已接 feeds_registry.json (arXiv CS.SI)",
+      "truth_source": "Threads 官方成效快照正規化標準樣本列 (taylor_standard_samples.jsonl)",
+      "pass_condition": "萬用文字成效驗算器：僅前半段提名，後半段 Holdout 預設 False（須雙組具備且優於對照）、N>=3、好文誤傷率 <= 35%",
+      "web_perceive": "已接 feeds_registry.json (arXiv CS.SI) 並由 Adapter 消費 perceived_taylor.jsonl",
       "enforce_hook": "已接（Fail-Closed）：bionic_closed_loop_gatekeeper.py 強制檢核 enforce.py active 規則與停機鎖",
       "risk_class": "low"
     },
     "josef": {
-      "dataset_path": ".agents/skills/atom-josef-visual-aesthetics-learner/vaults/josef_contrast_history.jsonl",
+      "dataset_path": ".agents/skills/atom-josef-visual-aesthetics-learner/vaults/josef_standard_samples.jsonl",
       "adapter_script": ".agents/skills/atom-josef-visual-aesthetics-learner/scripts/josef_bionic_adapter.py",
-      "truth_source": "WCAG 2.1 相對亮度公式實測 (josef_contrast_history.jsonl)",
-      "pass_condition": "萬用合規基準驗算器：baseline_standard (contrast_ratio:7.0)",
-      "web_perceive": "已接 feeds_registry.json (arXiv CS.GR)",
-      "enforce_hook": "已接：enforce.py gate --office josef --metrics '{\"contrast_ratio\": ...}'",
+      "truth_source": "WCAG 2.1 相對亮度公式實測正規化標準樣本列 (josef_standard_samples.jsonl)",
+      "pass_condition": "萬用合規基準驗算器：baseline_standard (contrast_ratio>=7.0)",
+      "web_perceive": "已接 feeds_registry.json (arXiv CS.GR) 並由 Adapter 消費 perceived_josef.jsonl",
+      "enforce_hook": "已接（Fail-Closed 拒絕指標缺席）：enforce.py gate --office josef --metrics '{\"contrast_ratio\": ...}'",
       "risk_class": "low"
     },
     "deming": {
-      "dataset_path": ".agents/skills/atom-deming-quality-sopk-learner/vaults/deming_quality_history.jsonl",
+      "dataset_path": ".agents/skills/atom-deming-quality-sopk-learner/vaults/deming_standard_samples.jsonl",
       "adapter_script": ".agents/skills/atom-deming-quality-sopk-learner/scripts/deming_bionic_adapter.py",
-      "truth_source": "全域原子腳本語法編譯與 --help 實測 Exit Code (deming_quality_history.jsonl)",
-      "pass_condition": "萬用合規基準驗算器：baseline_standard (defects:0)",
-      "web_perceive": "已接 feeds_registry.json (arXiv Stat.AP)",
-      "enforce_hook": "已接：enforce.py gate --office deming --metrics '{\"defects\": ...}'",
+      "truth_source": "全域原子腳本語法編譯與 --help 實測正規化標準樣本列 (deming_standard_samples.jsonl)",
+      "pass_condition": "萬用合規基準驗算器：baseline_standard (defects<=0)",
+      "web_perceive": "已接 feeds_registry.json (arXiv Stat.AP) 並由 Adapter 消費 perceived_deming.jsonl",
+      "enforce_hook": "已接（Fail-Closed 拒絕指標缺席）：enforce.py gate --office deming --metrics '{\"defects\": ...}'",
       "risk_class": "low"
     },
     "yuki": {
-      "dataset_path": ".agents/skills/atom-yuki-autonomous-executive-learner/vaults/yuki_dispatch.jsonl",
+      "dataset_path": ".agents/skills/atom-yuki-autonomous-executive-learner/vaults/yuki_verified_route_samples.jsonl",
       "adapter_script": ".agents/skills/atom-yuki-autonomous-executive-learner/scripts/yuki_bionic_adapter.py",
-      "truth_source": "幕僚長派工帳本 (yuki_dispatch.jsonl · 董事長 PBKDF2+HMAC 簽收詞)",
-      "pass_condition": "萬用派工路由驗算器：route 規則須經董事長有效簽收樣本 N>=3 且一次通過率優於對照，並經 --founder-approved 轉正",
-      "web_perceive": "已接 feeds_registry.json (arXiv CS.GT)",
-      "enforce_hook": "高風險：route 派工建議與 --task-id 守門員核驗；轉正須 --founder-approved",
+      "truth_source": "幕僚長派工帳本經董事長口令 HMAC 驗簽匯出之標準路由樣本 (yuki_verified_route_samples.jsonl)",
+      "pass_condition": "萬用派工路由驗算器：主組與對照組已簽收結案皆 N>=3 且留出集優於對照，轉正與十輪解鎖皆強制要求真實終端機創辦人口令簽章",
+      "web_perceive": "已接 feeds_registry.json (arXiv CS.GT) 並由 Adapter 消費 perceived_yuki.jsonl",
+      "enforce_hook": "高風險：route 派工建議與守門員 --task-id 雜湊鏈/角色/未結案核驗；轉正與審計解鎖強制驗證 founder_sig",
       "risk_class": "high"
     },
     "ada":    {"truth_source": "arXiv API 論文原文；本機重現 Exit Code 0", "pass_condition": "狀態升級至 REPRODUCED_LOCALLY 才可蒸餾規則", "web_perceive": "已接 feeds_registry.json (arXiv CS.AI)", "enforce_hook": "研究型（產出為卷宗）", "risk_class": "low"},
-    "linus":  {"truth_source": "Python AST 靜態掃描結果", "pass_condition": "移除後全量腳本仍 Exit Code 0", "web_perceive": "已接 feeds_registry.json (arXiv CS.OS)", "enforce_hook": "高風險：須 --founder-approved", "risk_class": "high"},
+    "linus":  {"truth_source": "Python AST 靜態掃描結果", "pass_condition": "移除後全量腳本仍 Exit Code 0", "web_perceive": "已接 feeds_registry.json (arXiv CS.OS)", "enforce_hook": "高風險：轉正與審計解鎖須創辦人口令簽章", "risk_class": "high"},
     "neo":    {"truth_source": "前端專案實測體積與 gzip", "pass_condition": "首屏資源 < 50KB 目標", "web_perceive": "已接 feeds_registry.json (arXiv CS.HC)", "enforce_hook": "支援 enforce.py metric_max fcp_ms:500", "risk_class": "low"},
     "abacus": {"truth_source": "創辦人提供的真實進貨/帳本 CSV", "pass_condition": "CSV 單據可逐筆對應", "web_perceive": "已接 feeds_registry.json (arXiv Econ.GN)", "enforce_hook": "高風險；【阻塞】尚缺真實帳本", "risk_class": "high"},
-    "falcon": {"truth_source": "全國法規資料庫、司法院裁判書（官方）", "pass_condition": "逐條查證後才可入規則；案號零虛構", "web_perceive": "已接 feeds_registry.json (arXiv CS.CY)；【阻塞】law.moj.gov.tw 本機連線被拒", "enforce_hook": "高風險：須 --founder-approved", "risk_class": "high"},
-    "raven":  {"truth_source": "來源網域分級 A/B/C/D（與 perceive_web 同規格）", "pass_condition": "論斷須有 A/B 級來源", "web_perceive": "已接 feeds_registry.json (arXiv CS.CR)", "enforce_hook": "高風險：須 --founder-approved", "risk_class": "high"}
+    "falcon": {"truth_source": "全國法規資料庫、司法院裁判書（官方）", "pass_condition": "逐條查證後才可入規則；案號零虛構", "web_perceive": "已接 feeds_registry.json (arXiv CS.CY)；【阻塞】law.moj.gov.tw 本機連線被拒", "enforce_hook": "高風險：轉正與審計解鎖須創辦人口令簽章", "risk_class": "high"},
+    "raven":  {"truth_source": "來源網域分級 A/B/C/D（與 perceive_web 同規格）", "pass_condition": "論斷須有 A/B 級來源", "web_perceive": "已接 feeds_registry.json (arXiv CS.CR)", "enforce_hook": "高風險：轉正與審計解鎖須創辦人口令簽章", "risk_class": "high"}
   }
 }

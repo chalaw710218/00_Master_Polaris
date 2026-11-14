@@ -1,15 +1,8 @@
-"""強制層：先讀後寫閘門 (Enforce · Master v6.2 第十一章 ⑤)
+"""強制層：先讀後寫閘門 (Enforce · Master v6.4 純數學核心與指標缺席阻斷版)
 
-v6.2 零信任硬化升級（100% 對齊 evaluate_rule 驗算與 enforce 執行邏輯）：
-  • 支援 8 種結構化規則型態：
-    1. `forbid_phrase`：禁止出現指定字串（支援 `scope="prefix"` 僅檢核開頭鉤子或 `scope="any"` 全文）
-    2. `prefer_phrase`：提示詞約束優先採用指定結構/詞彙
-    3. `max_count`：指定字元/詞彙出現上限（支援 `emoji:N` Unicode 範圍計數、`?:N`/`？:N` 雙半全形合併計數）
-    4. `regex_forbid`：正則表達式命中即阻斷
-    5. `metric_min`：數值指標下限檢查（格式 `指標名:下限`）
-    6. `metric_max`：數值指標上限檢查（格式 `指標名:上限`）
-    7. `baseline_standard`：固定合規基準標準（如 WCAG `contrast_ratio:7.0`、戴明 `defects:0`）
-    8. `route`：雪（幕僚長）任務派工路由建議（格式 `類別->閣員代號`）
+v6.4 核心升級（100% 消除角色私貨與缺席放行漏洞）：
+  • 100% 純數學規則解析：移除任何寫死之角色指標名稱，統一呼叫 `rule_store.parse_metric_pattern(pat, kind)` 解析 `>=`、`<=`、`:` 算子。
+  • 數值指標缺席硬阻斷 (Fail-Closed)：若某子版存在 active 之數值規則 (`metric_min` / `metric_max` / `baseline_standard`)，呼叫 `gate()` 時若未傳入 `metrics` 或缺少該指標鍵名，直接判定違規阻斷，絕不缺席放行！
   • 十輪停機鎖未解除 ➔ 拒絕放行。
   • 對草稿文字與數值指標逐條檢查 ➔ 違規即 Exit Code 1。
 """
@@ -103,7 +96,7 @@ def check_text(text: str, rules: list[dict]) -> list[str]:
     return violations
 
 
-def check_metrics(metrics: dict[str, float], rules: list[dict]) -> list[str]:
+def check_metrics(metrics: dict[str, float] | None, rules: list[dict]) -> list[str]:
     violations = []
     for r in rules:
         kind = r["kind"]
@@ -111,34 +104,32 @@ def check_metrics(metrics: dict[str, float], rules: list[dict]) -> list[str]:
         rid = r["rule_id"]
         if kind in ("metric_min", "metric_max", "baseline_standard"):
             try:
-                key, threshold_s = pat.rsplit(":", 1)
-                threshold = float(threshold_s)
+                key, op, threshold = rule_store.parse_metric_pattern(pat, kind)
             except ValueError:
-                violations.append(f"規則 {rid} 格式錯誤（須為 指標名:數值）")
+                violations.append(f"規則 {rid} 格式錯誤（須為 key>=val, key<=val 或 key:val）")
                 continue
-            if key not in metrics:
+            if metrics is None or key not in metrics or metrics[key] is None:
+                violations.append(f"違反 {rid}：缺少必檢數值指標 `{key}`（Fail-Closed 拒絕缺席放行）")
                 continue
             val = float(metrics[key])
-            is_max_bound = (kind == "metric_max") or (kind == "baseline_standard" and key in ("defects", "fcp_ms", "cls"))
-            if not is_max_bound and val < threshold:
+            if op == ">=" and val < threshold:
                 violations.append(f"違反 {rid}：指標 `{key}` = {val} 低於下限 {threshold}")
-            elif is_max_bound and val > threshold:
+            elif op == "<=" and val > threshold:
                 violations.append(f"違反 {rid}：指標 `{key}` = {val} 高於上限 {threshold}")
     return violations
 
 
 def gate(office: str, text: str = "", metrics: dict[str, float] | None = None) -> tuple[bool, list[str]]:
     if cycle_ledger.is_locked(office):
-        return False, [f"停機鎖未解除（{office}）：滿 10 輪須先提交包含『矛盾比對/互斥掃描/淘汰清單』並通過程式化掃描之審計報告"]
+        return False, [f"停機鎖未解除（{office}）：滿 10 輪須先提交包含『矛盾比對/互斥掃描/淘汰清單』並通過程式化掃描與簽章之審計報告"]
     rules = load_active_rules(office)
     v = check_text(text, rules)
-    if metrics:
-        v.extend(check_metrics(metrics, rules))
+    v.extend(check_metrics(metrics, rules))
     return (not v), v
 
 
 def main() -> None:
-    ap = argparse.ArgumentParser(description="先讀後寫閘門 (v6.2)")
+    ap = argparse.ArgumentParser(description="先讀後寫閘門 (v6.4 純數學核心與指標缺席阻斷版)")
     sub = ap.add_subparsers(dest="cmd", required=True)
     c = sub.add_parser("constraints")
     c.add_argument("--office", required=True)

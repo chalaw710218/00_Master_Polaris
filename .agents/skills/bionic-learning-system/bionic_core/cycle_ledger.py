@@ -1,22 +1,13 @@
-"""輪次帳本與十輪強制停機 (Cycle Ledger · Master v6.2 零信任硬化版)
+"""輪次帳本與十輪強制停機 (Cycle Ledger · Master v6.4 密碼學審計解鎖與純規則雜湊版)
 
-v6.2 重大硬化（修補漏洞 4 與漏洞 5）：
-  1. 去時間戳規範化雜湊 (`_canonical_evidence_sha256`)：
-     對 JSON 憑證檔遞迴剝離 `executed_at`、`ts`、`discovered_at`、`fetched_at`、`updated_at`、`learned_at` 等時間戳欄位後再算 SHA-256。
-     若資料與規則實質內容未變，重跑幾次雜湊皆相同，當場阻斷空轉刷輪次！
-  2. 程式化十輪衝突與互斥掃描器 (`audit_scan`)：
-     廢除純文字樣板空殼審計！`audit_done` 解鎖時強制執行 `audit_scan(office)`，實質掃描規則庫是否存在：
-       - 同詞同時被 `forbid_phrase` 與 `prefer_phrase`（直接矛盾）
-       - `prefer_phrase` 被 `regex_forbid` 命中，或同指標 `metric_min > metric_max`（互斥死鎖）
-       - 竄改攔截 (`tampered_rejected`) 或驗算失敗待淘汰規則
-     若規則庫仍存在未排除之矛盾或互斥，`audit_done` 拒絕解鎖！
-  3. 統一 `MIN_AUDIT_CHARS = 100`（與規格文件完全一致）。
-
-用法：
-  python cycle_ledger.py tick --office kage --summary "本輪做了什麼" --evidence path\\to\\real_file.json
-  python cycle_ledger.py status --office kage
-  python cycle_ledger.py audit-scan --office kage [--out path\\to\\audit_report.md]
-  python cycle_ledger.py audit-done --office kage --report path\\to\\audit_report.md
+v6.4 重大硬化：
+  1. 純規則與驗算結果雜湊 (`canonical_obj_sha256` / `_canonical_evidence_sha256`)：
+     - 除剝離時間戳外，同步剝離 `"discover"`（上網探索原始快照）、`"meta"`、`"evidence_file"`、`"ledger_state"` 等非規則欄位！
+     - 即使 `perceive_web` 抓到新論文，只要規則庫與驗算結果無實質變化，雜湊即完全相同，當場拒絕入帳刷輪次！
+     - 支援在寫入檔案前先於記憶體比對雜湊 (`check_duplicate_obj`)，消除「重複拒絕前已寫入證據檔」之副作用。
+  2. 高風險辦公室 `audit-done` 強制創辦人口令簽章 (`founder_auth`)：
+     - 凡 `verifier_registry.json` 中 `risk_class == "high"` 之辦公室（如幕僚長 `yuki`），十輪停機解鎖強制於真實終端機 (TTY) 輸入創辦人口令簽章，防止雪自行解鎖。
+     - `is_locked(office)` 雙重檢核 `.AUDIT_REQUIRED.lock` 與帳本最後一筆 `audit_done` 簽章；即使手動刪除 `.lock` 檔或手寫未簽章 `audit_done`，仍維持鎖定！
 """
 from __future__ import annotations
 
@@ -29,6 +20,7 @@ from datetime import datetime
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+import founder_auth  # noqa: E402
 import rule_store  # noqa: E402
 
 if sys.platform == "win32":
@@ -37,11 +29,26 @@ if sys.platform == "win32":
     except Exception:
         pass
 
-VAULT_DIR = Path(__file__).resolve().parent / "vaults"
+CORE_DIR = Path(__file__).resolve().parent
+VAULT_DIR = CORE_DIR / "vaults"
+REGISTRY_FILE = CORE_DIR / "verifier_registry.json"
 AUDIT_EVERY = 10
 REQUIRED_AUDIT_SECTIONS = ("矛盾比對", "互斥掃描", "淘汰清單")
 MIN_AUDIT_CHARS = 100
-VOLATILE_TIME_KEYS = {"executed_at", "ts", "discovered_at", "fetched_at", "updated_at", "learned_at", "promoted_at"}
+VOLATILE_KEYS = {
+    "executed_at",
+    "ts",
+    "discovered_at",
+    "fetched_at",
+    "updated_at",
+    "learned_at",
+    "promoted_at",
+    "discover",
+    "meta",
+    "evidence_file",
+    "ledger_state",
+    "dataset",
+}
 
 
 def _ledger(office: str) -> Path:
@@ -54,28 +61,42 @@ def _lock(office: str) -> Path:
     return VAULT_DIR / f"{office}.AUDIT_REQUIRED.lock"
 
 
+def is_high_risk_office(office: str) -> bool:
+    if not REGISTRY_FILE.exists():
+        return False
+    try:
+        reg = json.loads(REGISTRY_FILE.read_text(encoding="utf-8")).get("registry", {})
+        if office in reg:
+            return reg[office].get("risk_class") == "high"
+    except Exception:
+        pass
+    return False
+
+
 def _strip_volatile(obj):
     if isinstance(obj, dict):
-        return {k: _strip_volatile(v) for k, v in sorted(obj.items()) if k not in VOLATILE_TIME_KEYS}
+        return {k: _strip_volatile(v) for k, v in sorted(obj.items()) if k not in VOLATILE_KEYS}
     if isinstance(obj, list):
         return [_strip_volatile(x) for x in obj]
     return obj
 
 
+def canonical_obj_sha256(obj) -> str:
+    clean = _strip_volatile(obj)
+    canon = json.dumps(clean, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
+    return hashlib.sha256(canon.encode("utf-8")).hexdigest()
+
+
 def _canonical_evidence_sha256(ev_path: Path) -> str:
-    """計算排除微秒/時間戳後的實質內容 SHA-256，防止靠時間戳刷輪次。"""
+    """計算排除時間戳與探索雜訊後的規則/驗算實質內容 SHA-256。"""
     raw = ev_path.read_bytes()
     try:
         text = raw.decode("utf-8")
         if ev_path.suffix.lower() == ".json":
-            obj = json.loads(text)
-            clean = _strip_volatile(obj)
-            canon = json.dumps(clean, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
-            return hashlib.sha256(canon.encode("utf-8")).hexdigest()
+            return canonical_obj_sha256(json.loads(text))
         if ev_path.suffix.lower() == ".jsonl":
-            lines = [ _strip_volatile(json.loads(line)) for line in text.splitlines() if line.strip() ]
-            canon = json.dumps(lines, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
-            return hashlib.sha256(canon.encode("utf-8")).hexdigest()
+            lines = [_strip_volatile(json.loads(line)) for line in text.splitlines() if line.strip()]
+            return canonical_obj_sha256(lines)
     except Exception:
         pass
     return hashlib.sha256(raw).hexdigest()
@@ -88,12 +109,48 @@ def read(office: str) -> list[dict]:
     return [json.loads(x) for x in p.read_text(encoding="utf-8").splitlines() if x.strip()]
 
 
+def used_evidence_shas(office: str) -> set[str]:
+    return {str(e.get("evidence_sha256")) for e in read(office) if e.get("type") == "tick" and e.get("evidence_sha256")}
+
+
+def check_duplicate_obj(office: str, obj: dict) -> tuple[bool, str]:
+    """在寫入檔案前先於記憶體檢查規範化雜湊是否與歷史重複。"""
+    sha = canonical_obj_sha256(obj)
+    return (sha in used_evidence_shas(office)), sha
+
+
 def cycle_count(office: str) -> int:
     return sum(1 for e in read(office) if e.get("type") == "tick")
 
 
 def is_locked(office: str) -> bool:
-    return _lock(office).exists()
+    if _lock(office).exists():
+        return True
+    events = read(office)
+    ticks = [i for i, e in enumerate(events) if e.get("type") == "tick"]
+    if not ticks or (len(ticks) % AUDIT_EVERY != 0):
+        return False
+    # 滿 10 輪整數倍時，最後一筆 tick 之後必須存在合法的 audit_done（高風險辦公室須驗簽通過）
+    last_tick_idx = ticks[-1]
+    subsequent_audits = [e for e in events[last_tick_idx + 1 :] if e.get("type") == "audit_done"]
+    if not subsequent_audits:
+        return True
+    latest_audit = subsequent_audits[-1]
+    if is_high_risk_office(office):
+        payload = {
+            "action": "audit_done",
+            "office": office,
+            "scan_digest": latest_audit.get("scan_digest", ""),
+            "report_sha256": latest_audit.get("report_sha256", ""),
+        }
+        ok_sig, _ = founder_auth.verify_founder_action(
+            payload,
+            latest_audit.get("founder_sig"),
+            meta_path=rule_store.META_PATH,
+        )
+        if not ok_sig:
+            return True
+    return False
 
 
 def tick(office: str, summary: str, evidence: str) -> int:
@@ -107,10 +164,8 @@ def tick(office: str, summary: str, evidence: str) -> int:
         raise ValueError(f"物理憑證檔案不存在或為空檔：{evidence}")
 
     sha = _canonical_evidence_sha256(ev_path)
-    history = read(office)
-    used_shas = {e.get("evidence_sha256") for e in history if e.get("type") == "tick"}
-    if sha in used_shas:
-        raise ValueError(f"防刷輪次阻斷：去時間戳實質內容 SHA-256 ({sha[:12]}...) 與歷史輪次重複，無實質新變更！")
+    if sha in used_evidence_shas(office):
+        raise ValueError(f"防刷輪次阻斷：規則與驗算實質內容 SHA-256 ({sha[:12]}...) 與歷史輪次重複，無實質新變更！")
 
     n = cycle_count(office) + 1
     ev = {
@@ -159,11 +214,10 @@ def audit_scan(office: str) -> dict:
     metric_mins: dict[str, tuple[float, str]] = {}
     metric_maxs: dict[str, tuple[float, str]] = {}
     for r in live:
-        if r.get("kind") in ("metric_min", "metric_max") and ":" in r.get("pattern", ""):
-            k, v_s = r["pattern"].rsplit(":", 1)
+        if r.get("kind") in ("metric_min", "metric_max"):
             try:
-                val = float(v_s)
-                if r["kind"] == "metric_min":
+                k, op, val = rule_store.parse_metric_pattern(r["pattern"], r["kind"])
+                if op == ">=":
                     metric_mins[k] = (val, r["rule_id"])
                 else:
                     metric_maxs[k] = (val, r["rule_id"])
@@ -216,7 +270,11 @@ def render_audit_markdown(scan: dict) -> str:
     )
 
 
-def audit_done(office: str, report: str) -> None:
+def audit_done(
+    office: str,
+    report: str,
+    _test_passphrase: str | None = None,
+) -> None:
     rp = Path(report)
     if not rp.is_file():
         raise FileNotFoundError(f"審計報告不存在：{report}")
@@ -231,20 +289,35 @@ def audit_done(office: str, report: str) -> None:
     if missing:
         raise ValueError(f"審計報告缺少必要實質審查段落：{missing}")
 
-    # 【v6.2 強制執行真實程式化矛盾與互斥掃描】
     scan = audit_scan(office)
     if not scan["clean"]:
         issues = scan["contradictions"] + scan["mutual_exclusions"]
         raise ValueError(f"程式化衝突掃描未通過，拒絕解鎖！請先解決以下規則衝突：{issues}")
 
     sha = hashlib.sha256(rp.read_bytes()).hexdigest()
-    ev = {
+    ev: dict = {
         "ts": datetime.now().isoformat(timespec="seconds"),
         "type": "audit_done",
         "report": str(rp),
         "report_sha256": sha,
         "scan_digest": scan["scan_digest"],
     }
+
+    if is_high_risk_office(office):
+        sig_payload = {
+            "action": "audit_done",
+            "office": office,
+            "scan_digest": scan["scan_digest"],
+            "report_sha256": sha,
+        }
+        sig_bundle = founder_auth.sign_founder_action(
+            sig_payload,
+            meta_path=rule_store.META_PATH,
+            _test_passphrase=_test_passphrase,
+            prompt_label=f"創辦人簽收口令（高風險辦公室 {office} 十輪審計解鎖）：",
+        )
+        ev["founder_sig"] = sig_bundle
+
     with open(_ledger(office), "a", encoding="utf-8") as f:
         f.write(json.dumps(ev, ensure_ascii=False) + "\n")
     if _lock(office).exists():
@@ -252,7 +325,7 @@ def audit_done(office: str, report: str) -> None:
 
 
 def main() -> None:
-    ap = argparse.ArgumentParser(description="輪次帳本 (v6.2 零信任硬化版)")
+    ap = argparse.ArgumentParser(description="輪次帳本 (v6.4 密碼學審計解鎖與純規則雜湊版)")
     sub = ap.add_subparsers(dest="cmd", required=True)
     t = sub.add_parser("tick")
     t.add_argument("--office", required=True)
@@ -271,7 +344,7 @@ def main() -> None:
         if a.cmd == "tick":
             n = tick(a.office, a.summary, a.evidence)
             print(
-                f"✅ {a.office} 第 {n} 輪已入帳（去時間戳實質 SHA-256 已簽章）"
+                f"✅ {a.office} 第 {n} 輪已入帳（純規則與驗算 SHA-256 已簽章）"
                 + ("｜🛑 已達十輪，強制停機，須提交衝突審計報告" if n % AUDIT_EVERY == 0 else "")
             )
         elif a.cmd == "status":
@@ -287,7 +360,7 @@ def main() -> None:
         elif a.cmd == "audit-done":
             audit_done(a.office, a.report)
             print("✅ 審計報告與程式化衝突掃描通過，停機鎖已解除")
-    except (RuntimeError, ValueError, FileNotFoundError) as e:
+    except (RuntimeError, ValueError, FileNotFoundError, PermissionError) as e:
         print(f"🛑 {e}")
         sys.exit(1)
 

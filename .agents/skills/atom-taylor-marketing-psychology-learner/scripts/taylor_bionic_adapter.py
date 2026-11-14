@@ -1,9 +1,13 @@
-"""泰勒絲 (Taylor) 專屬仿生特化轉接器 (Role-Specific Adapter)
-職責：執行泰勒絲的行銷特徵學習腳本，依消費者心理學與敘事特徵提名候選規則，輸出標準 JSON 供萬用母版 bionic_core 驗算。
+"""泰勒絲 (Taylor) 專屬仿生特化轉接器 (Role-Specific Adapter · v6.4)
+職責：
+  1. 將 Threads 原始快照 (`insights_history.jsonl`) 正規化為母版通用標準樣本列 (`taylor_standard_samples.jsonl`: `{id, text, metric, ts}`)。
+  2. 嚴格執行前後半切分（Discovery Split）：**僅使用前半段（前 50%）樣本**計算行銷特徵倍數並提名候選規則，嚴禁偷看後半段留出集（Holdout Split）！
+  3. 讀取並消費 `perceived_taylor.jsonl` 外部感知文獻摘要。
 """
 from __future__ import annotations
 
 import json
+import statistics
 import subprocess
 import sys
 from pathlib import Path
@@ -16,6 +20,65 @@ if sys.platform == "win32":
 
 SCRIPT_DIR = Path(__file__).resolve().parent
 SKILL_DIR = SCRIPT_DIR.parent
+ROOT_DIR = SKILL_DIR.parent.parent.parent
+PERCEIVED_FILE = ROOT_DIR / ".agents" / "skills" / "bionic-learning-system" / "bionic_core" / "vaults" / "perceived_taylor.jsonl"
+RAW_HISTORY = ROOT_DIR / ".agents" / "skills" / "threads-growth-auditor" / "data" / "insights_history.jsonl"
+STANDARD_SAMPLES = SKILL_DIR / "vaults" / "taylor_standard_samples.jsonl"
+MIN_N = 3
+
+
+def consume_perceived() -> dict:
+    if not PERCEIVED_FILE.exists():
+        return {"count": 0, "latest_titles": []}
+    rows = [json.loads(x) for x in PERCEIVED_FILE.read_text(encoding="utf-8").splitlines() if x.strip()]
+    ab_rows = [r for r in rows if r.get("tier") in ("A", "B")]
+    return {
+        "count": len(rows),
+        "ab_tier_count": len(ab_rows),
+        "latest_titles": [r.get("title", "")[:60] for r in ab_rows[-3:]],
+    }
+
+
+def normalize_and_split() -> tuple[list[dict], list[dict]]:
+    if not RAW_HISTORY.exists():
+        return [], []
+    posts_map: dict[str, dict] = {}
+    for line in RAW_HISTORY.read_text(encoding="utf-8").splitlines():
+        if not line.strip():
+            continue
+        snap = json.loads(line)
+        cap_ts = str(snap.get("captured_at", ""))
+        for p in snap.get("posts", []):
+            pid = str(p.get("id", ""))
+            if not pid:
+                continue
+            prev = posts_map.get(pid)
+            if prev is None or cap_ts >= prev["ts"]:
+                posts_map[pid] = {
+                    "id": pid,
+                    "text": str(p.get("title", p.get("text", ""))),
+                    "metric": float(p.get("er", 0.0)),
+                    "ts": cap_ts,
+                }
+    all_samples = sorted(posts_map.values(), key=lambda x: (x["ts"], x["id"]))
+    STANDARD_SAMPLES.parent.mkdir(parents=True, exist_ok=True)
+    with open(STANDARD_SAMPLES, "w", encoding="utf-8") as f:
+        for s in all_samples:
+            f.write(json.dumps(s, ensure_ascii=False) + "\n")
+
+    mid = len(all_samples) // 2 if len(all_samples) >= 6 else len(all_samples)
+    return all_samples, all_samples[:mid]
+
+
+def eval_feature_lift(samples: list[dict], pred) -> tuple[bool, float, int]:
+    w = [s["metric"] for s in samples if pred(s["text"])]
+    wo = [s["metric"] for s in samples if not pred(s["text"])]
+    if len(w) < MIN_N or len(wo) < MIN_N:
+        return False, 1.0, len(w)
+    m_wo = statistics.mean(wo)
+    if m_wo <= 0:
+        return False, 1.0, len(w)
+    return True, round(statistics.mean(w) / m_wo, 2), len(w)
 
 
 def main() -> None:
@@ -26,47 +89,53 @@ def main() -> None:
         if res.returncode != 0:
             sys.stderr.write(res.stderr or res.stdout)
             sys.exit(1)
-    if not state_file.exists():
-        sys.stderr.write(f"找不到狀態檔：{state_file}\n")
-        sys.exit(1)
 
-    data = json.loads(state_file.read_text(encoding="utf-8"))
-    feats = data.get("feature_results", {})
+    all_samples, discovery_samples = normalize_and_split()
     proposals = []
 
-    q_stat = feats.get("好奇提問句", {})
-    if q_stat.get("信心") == "OK" and q_stat.get("互動率倍數(有/無)", 1.0) < 0.75:
-        ratio = q_stat["互動率倍數(有/無)"]
-        n_q = int(q_stat.get("有此特徵", {}).get("n", 3))
+    # 僅在前半段 (Discovery Split) 檢驗特徵並提名候選規則，嚴禁偷看後半段留出集
+    ok_q, q_ratio, n_q = eval_feature_lift(
+        discovery_samples,
+        lambda t: ("?" in t or "？" in t or t.startswith(("誰", "我就問", "你怎麼"))),
+    )
+    if ok_q and q_ratio < 0.75:
         proposals.append({
             "kind": "regex_forbid",
             "pattern": r"^[^\n]{0,45}[？?]",
             "scope": "any",
             "risk": "low",
-            "source_url": str(data.get("source", "insights_history.jsonl")),
+            "source_url": str(STANDARD_SAMPLES),
             "tier": "A",
-            "evidence": f"泰勒絲真實特徵矩陣：開頭首行反問句互動率倍數僅 {ratio}，禁止首行 45 字內使用反問句",
+            "evidence": f"Discovery 前半集實測：開頭首行反問句互動率倍數僅 {q_ratio} (N={n_q})，禁止首行 45 字內使用反問句",
             "confidence": min(0.95, round(0.50 + n_q * 0.04, 2)),
         })
 
-    w_stat = feats.get("天氣題材", {})
-    if w_stat.get("信心") == "OK" and w_stat.get("互動率倍數(有/無)", 1.0) < 0.75:
-        w_ratio = w_stat["互動率倍數(有/無)"]
-        n_w = int(w_stat.get("有此特徵", {}).get("n", 3))
+    ok_w, w_ratio, n_w = eval_feature_lift(
+        discovery_samples,
+        lambda t: any(w in t for w in ("氣象", "陸警", "風", "雨", "太陽", "颱")),
+    )
+    if ok_w and w_ratio < 0.75:
         proposals.append({
             "kind": "regex_forbid",
             "pattern": r"氣象預報|陸警|海警|颱風動態|豪雨特報|降雨機率",
             "scope": "any",
             "risk": "low",
-            "source_url": str(data.get("source", "insights_history.jsonl")),
+            "source_url": str(STANDARD_SAMPLES),
             "tier": "A",
-            "evidence": f"泰勒絲真實特徵矩陣：純天氣播報題材互動率倍數僅 {w_ratio}（已收斂正則避免誤傷常民詞彙）",
+            "evidence": f"Discovery 前半集實測：純天氣播報題材互動率倍數僅 {w_ratio} (N={n_w})",
             "confidence": min(0.95, round(0.50 + n_w * 0.04, 2)),
         })
 
     out = {
         "office": "taylor",
-        "meta": {"state_file": str(state_file), "learned_at": data.get("learned_at")},
+        "meta": {
+            "state_file": str(state_file),
+            "standard_samples_file": str(STANDARD_SAMPLES),
+            "total_samples": len(all_samples),
+            "discovery_samples_used": len(discovery_samples),
+            "holdout_samples_reserved": len(all_samples) - len(discovery_samples),
+            "perceived_consumed": consume_perceived(),
+        },
         "proposals": proposals,
     }
     print(json.dumps(out, ensure_ascii=False))

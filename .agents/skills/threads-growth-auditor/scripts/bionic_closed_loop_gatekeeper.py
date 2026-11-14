@@ -66,6 +66,17 @@ TAYLOR_VAULT = (
     / "vaults"
     / "taylor_marketing_state.json"
 )
+YUKI_DISPATCH_SCRIPT_DIR = (
+    ROOT
+    / ".agents"
+    / "skills"
+    / "atom-yuki-autonomous-executive-learner"
+    / "scripts"
+)
+if str(YUKI_DISPATCH_SCRIPT_DIR) not in sys.path:
+    sys.path.insert(0, str(YUKI_DISPATCH_SCRIPT_DIR))
+import dispatch as yuki_dispatch  # type: ignore
+
 YUKI_DISPATCH_LEDGER = (
     ROOT
     / ".agents"
@@ -81,19 +92,43 @@ HARD_SELL = ["特價", "滿千免運", "點擊購買", "下單連結", "優惠�
 STALE_GREETINGS = ["大家好", "哈囉大家", "今天小編要", "推薦大家"]
 BOSS_WORDS = ["闆仔", "老闆", "品碩"]
 CAT_WORDS = ["喵", "貓", "本喵", "罐罐", "爪"]
+PERSONA_AGENT_MAP = {
+    "meow": {"kage", "taylor", "meow"},
+    "shadow": {"kage", "taylor"},
+}
 
 
-def verify_task_id(task_id: str) -> tuple[bool, str]:
-    """核驗幕僚長雪的派工單號是否存在於雜湊鏈帳本中。"""
+def verify_task_id(task_id: str, persona: str = "meow") -> tuple[bool, str]:
+    """核驗幕僚長雪的派工單號：驗雜湊鏈、驗存在性、驗指派對象匹配、防已結案單號重用。"""
     if not YUKI_DISPATCH_LEDGER.exists():
         return False, f"找不到雪的派工帳本：{YUKI_DISPATCH_LEDGER}"
-    for line in YUKI_DISPATCH_LEDGER.read_text(encoding="utf-8").splitlines():
-        if not line.strip():
-            continue
-        ev = json.loads(line)
+    events = yuki_dispatch.read_events()
+    ok_chain, msg_chain = yuki_dispatch.verify_chain(events)
+    if not ok_chain:
+        return False, f"派工帳本雜湊鏈損毀（{msg_chain}），拒絕放行"
+
+    target_disp = None
+    signoffs_for_tid = []
+    for ev in events:
         if ev.get("type") == "dispatch" and ev.get("task_id") == task_id:
-            return True, f"已核驗派工單 {task_id} ({ev.get('category')} -> {ev.get('assigned')})"
-    return False, f"派工帳本查無單號：{task_id}（無 task_id 之黑工分派視為未發生）"
+            target_disp = ev
+        elif ev.get("type") == "signoff" and ev.get("task_id") == task_id:
+            signoffs_for_tid.append(ev)
+
+    if not target_disp:
+        return False, f"派工帳本查無單號：{task_id}（無 task_id 之黑工分派視為未發生）"
+
+    assigned_set = set(target_disp.get("assigned", []))
+    allowed_agents = PERSONA_AGENT_MAP.get(persona, {persona})
+    if not (assigned_set & allowed_agents):
+        return False, f"派工單 {task_id} 指派對象為 {sorted(assigned_set)}，與當前角色 ({persona}) 不符"
+
+    if signoffs_for_tid:
+        last_word = str(signoffs_for_tid[-1].get("word", ""))
+        if last_word == "收" or last_word.startswith("改派:"):
+            return False, f"派工單 {task_id} 已結案（最新狀態：{last_word}），禁止重複盜用舊單號"
+
+    return True, f"已核驗派工單 {task_id} ({target_disp.get('category')} -> {target_disp.get('assigned')}，雜湊鏈完整且未結案)"
 
 
 def load_bionic_vaults() -> dict:
@@ -204,6 +239,7 @@ def audit_draft(
     persona: str = "meow",
     profile: dict | None = None,
     task_id: str | None = None,
+    allow_unassigned: bool = False,
 ) -> tuple[int, list[str], list[tuple[str, str]]]:
     """執行結合仿生學習動態真值的出廠品質審計。"""
     if profile is None:
@@ -214,12 +250,16 @@ def audit_draft(
     items: list[tuple[str, str]] = []
 
     if task_id:
-        ok_tid, msg_tid = verify_task_id(task_id)
+        ok_tid, msg_tid = verify_task_id(task_id, persona=persona)
         if not ok_tid:
             fatal.append(msg_tid)
             items.append(("❌", f"派工單核驗失敗：{msg_tid}"))
         else:
             items.append(("✅", msg_tid))
+    elif not allow_unassigned:
+        msg_no_tid = "無單號不派工：未提供幕僚長派工單號 (--task-id T-YYYYMMDD-xxxxxx)"
+        fatal.append(msg_no_tid)
+        items.append(("❌", f"致命：{msg_no_tid}（若為無派工本機草稿自檢請加 --standalone-draft）"))
 
     clean_text = text.strip()
     if not clean_text:
@@ -345,12 +385,13 @@ def audit_draft(
 
 
 def main():
-    ap = argparse.ArgumentParser(description="仿生學習閉環守門員 (v6.2 Fail-Closed)")
+    ap = argparse.ArgumentParser(description="仿生學習閉環守門員 (v6.4 Fail-Closed & Mandatory Task-ID)")
     ap.add_argument("--file", help="草稿檔案路徑")
     ap.add_argument("--text", help="直接輸入草稿文字")
     ap.add_argument("--persona", default="meow", choices=["meow", "shadow"])
     ap.add_argument("--threshold", type=int, default=90)
-    ap.add_argument("--task-id", help="選填：核驗幕僚長雪之派工單號 (T-YYYYMMDD-xxxxxx)")
+    ap.add_argument("--task-id", help="必填（除 --standalone-draft 外）：核驗幕僚長雪之派工單號 (T-YYYYMMDD-xxxxxx)")
+    ap.add_argument("--standalone-draft", action="store_true", help="本機無派工草稿預檢模式")
     ap.add_argument("--constraints", action="store_true", help="輸出提示詞動態負面約束")
     ap.add_argument("--json", action="store_true", help="以 JSON 格式輸出")
     a = ap.parse_args()
@@ -369,7 +410,13 @@ def main():
     else:
         text = sys.stdin.read()
 
-    score, fatal, items = audit_draft(text, a.persona, profile, task_id=a.task_id)
+    score, fatal, items = audit_draft(
+        text,
+        a.persona,
+        profile,
+        task_id=a.task_id,
+        allow_unassigned=a.standalone_draft,
+    )
 
     if a.json:
         res = {
