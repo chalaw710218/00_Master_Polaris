@@ -246,7 +246,10 @@ def verify_founder_action(
         if "pub_y" not in meta:
             return False, "設定檔缺少公鑰 pub_y"
 
-        meta_fg = meta.get("fingerprint", compute_fingerprint(meta["pub_y"]))
+        calc_fg = compute_fingerprint(meta["pub_y"])
+        if "fingerprint" in meta and meta["fingerprint"] != calc_fg:
+            return False, f"設定檔內記載之指紋遭竄改 (meta={meta['fingerprint']} vs 實算={calc_fg})"
+        meta_fg = calc_fg
         pinned_fg = read_pinned_fingerprint()
         if pinned_fg and meta_fg != pinned_fg:
             return False, f"公鑰已被更換（指紋與 PIN 錨定檔案不符：meta={meta_fg} vs pin={pinned_fg}）"

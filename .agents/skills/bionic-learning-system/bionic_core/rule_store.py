@@ -419,6 +419,25 @@ def trial_ok(rule: dict) -> tuple[bool, str]:
     return True, f"遵守規則({w:.2f}) > 對照組({wo:.2f})，真實樣本 N={n}，簽章={latest['dataset_sha256'][:10]}"
 
 
+def build_promote_payload(office: str, r: dict) -> dict:
+    """構造高風險轉正簽章與反盲簽審批畫面共用之完整 Payload（防盲簽、防欄位缺失為 None）。"""
+    latest_t = r["trials"][-1] if r.get("trials") else {}
+    return {
+        "action": "promote",
+        "office": office,
+        "rule_id": r.get("rule_id", ""),
+        "kind": r.get("kind", ""),
+        "pattern": r.get("pattern", ""),
+        "scope": r.get("scope", "any"),
+        "with_metric": float(latest_t.get("with_metric", 0.0)),
+        "without_metric": float(latest_t.get("without_metric", 0.0)),
+        "n": int(latest_t.get("n", 0)),
+        "holdout_passed": bool(latest_t.get("holdout_passed", False)),
+        "trial_sha256": str(latest_t.get("dataset_sha256", "")),
+        "evidence": str(r.get("evidence", "")),
+    }
+
+
 def fold(office: str) -> dict[str, dict]:
     """將事件折疊為各規則最新狀態（雜湊鏈驗證 + 快照強制重算 + 狀態機防舊簽重放 + 公鑰驗簽）。"""
     rules: dict[str, dict] = {}
@@ -524,16 +543,7 @@ def fold(office: str) -> dict[str, dict]:
                     continue
 
                 if r.get("risk") == HIGH_RISK:
-                    latest_sha = r["trials"][-1]["dataset_sha256"]
-                    sig_payload = {
-                        "action": "promote",
-                        "office": office,
-                        "rule_id": rid,
-                        "kind": r["kind"],
-                        "pattern": r["pattern"],
-                        "scope": r.get("scope", "any"),
-                        "trial_sha256": latest_sha,
-                    }
+                    sig_payload = build_promote_payload(office, r)
                     ok_sig, why_sig = founder_auth.verify_founder_action(
                         sig_payload,
                         ev.get("founder_sig"),
@@ -617,17 +627,7 @@ def promote(
 
     ev_body: dict = {"type": "promote", "rule_id": rule_id}
     if r["risk"] == HIGH_RISK:
-        latest_t = r["trials"][-1]
-        latest_sha = latest_t["dataset_sha256"]
-        sig_payload = {
-            "action": "promote",
-            "office": office,
-            "rule_id": rule_id,
-            "kind": r["kind"],
-            "pattern": r["pattern"],
-            "scope": r.get("scope", "any"),
-            "trial_sha256": latest_sha,
-        }
+        sig_payload = build_promote_payload(office, r)
         try:
             sig_bundle = founder_auth.sign_founder_action(
                 sig_payload,

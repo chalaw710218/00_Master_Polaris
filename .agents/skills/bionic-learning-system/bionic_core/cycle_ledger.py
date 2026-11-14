@@ -1,4 +1,4 @@
-"""輪次帳本與十輪強制停機 (Cycle Ledger · Master v6.5 雜湊鏈與全關卡狀態機版)
+r"""輪次帳本與十輪強制停機 (Cycle Ledger · Master v6.5 雜湊鏈與全關卡狀態機版)
 
 v6.5 核心升級（消滅十輪鎖漏洞）：
   1. 輪次帳本強制雜湊鏈 (`_cycles.jsonl` Append-Only with `prev`/`hash`)：
@@ -392,6 +392,32 @@ def audit_done(
         _lock(office).unlink()
 
 
+def migrate(office: str) -> int:
+    """舊格式輪次帳本遷移工具：將無雜湊鏈之舊 JSONL 重新縫合為具備 prev/hash 之不可篡改鏈。"""
+    p = _ledger(office)
+    if not p.exists():
+        return 0
+    lines = [x for x in p.read_text(encoding="utf-8").splitlines() if x.strip()]
+    if not lines:
+        return 0
+
+    rebuilt: list[dict] = []
+    prev_hash = ZERO_HASH
+    for line in lines:
+        raw_obj = json.loads(line)
+        body = {k: v for k, v in raw_obj.items() if k != "hash"}
+        body["prev"] = prev_hash
+        h = hashlib.sha256(
+            json.dumps(body, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode("utf-8")
+        ).hexdigest()
+        body["hash"] = h
+        prev_hash = h
+        rebuilt.append(body)
+
+    p.write_text("\n".join(json.dumps(e, ensure_ascii=False) for e in rebuilt) + "\n", encoding="utf-8")
+    return len(rebuilt)
+
+
 def main() -> None:
     ap = argparse.ArgumentParser(description="輪次帳本 (v6.5 雜湊鏈與全關卡狀態機版)")
     sub = ap.add_subparsers(dest="cmd", required=True)
@@ -407,6 +433,8 @@ def main() -> None:
     d = sub.add_parser("audit-done")
     d.add_argument("--office", required=True)
     d.add_argument("--report", required=True)
+    mg = sub.add_parser("migrate")
+    mg.add_argument("--office", required=True)
     a = ap.parse_args()
     try:
         if a.cmd == "tick":
@@ -428,6 +456,9 @@ def main() -> None:
                 sys.exit(1)
         elif a.cmd == "audit-done":
             audit_done(a.office, a.report)
+        elif a.cmd == "migrate":
+            cnt = migrate(a.office)
+            print(f"✅ {a.office} 帳本遷移完成，已重新縫合 {cnt} 筆事件雜湊鏈")
             print("✅ 審計報告與程式化衝突掃描通過，停機鎖已解除")
     except (RuntimeError, ValueError, FileNotFoundError, PermissionError) as e:
         print(f"🛑 {e}")
