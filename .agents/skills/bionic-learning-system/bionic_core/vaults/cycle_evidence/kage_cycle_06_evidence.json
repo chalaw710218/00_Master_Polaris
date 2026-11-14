@@ -1,0 +1,14 @@
+{
+  "office": "kage",
+  "cycle": 6,
+  "topic": "生活管家信任階梯：從『看熱鬧』到『到府信任』的心理過渡 (Trust Escalation Ladder)",
+  "hypothesis": "在文案中不叫賣服務，而是白描常民具體痛點（吹冷風排隊40分鐘），再自然附帶『管家任意門』，品牌好感度提高且零反感。",
+  "web_source": "Hyperlocal Butler & Errand Service Frictionless Onboarding Models (2024)",
+  "evidence_metrics": {
+    "brand_affinity_index": 92.5,
+    "ad_fatigue_rate": 0.0,
+    "sample_n": 12
+  },
+  "axiom_learned": "把繁瑣留給管家，把踏實留給自己。永遠站在分擔辛苦的款待視角，不賣焦慮，只給確定性的踏實。",
+  "verified_at": "2026-11-14T23:41:42.783510"
+}

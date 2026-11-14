@@ -1,13 +1,13 @@
 ---
 name: bionic-learning-system
-description: 北極星全體內閣合力提煉之「仿生學習系統 (Bionic Learning System v6.1 零信任硬化閉環旗艦母版)」。融合全球前沿自進化理論、OpenAI PRM 過程級逐步驗證、UCLA SPIN 內部自對弈判別、創辦人親定「十輪衝突審計里程碑機制」、三相外部物理驗證器、RFC #001 全域三態熔斷器、線程超時防禦、多 Agent 無鎖 Append-Only 日誌追加協議，以及 RFC #002 / v6.1 零信任硬化閉環自進化執行層（真值驗算器防造假、SHA-256 防刷輪次、磁碟持久化熔斷器、主動探索管線、6 型態結構化閘門、單一閉環總控調度器）。
+description: 北極星全體內閣合力提煉之「仿生學習系統 (Bionic Learning System v6.2 紅隊零信任防篡改與幕僚長派工閉環旗艦母版)」。融合全球前沿自進化理論、過程級逐步自檢、內部自對弈判別、創辦人親定「十輪衝突審計里程碑機制」、三相外部物理驗證器、RFC #001 全域三態熔斷器、線程超時防禦、多 Agent 無鎖 Append-Only 日誌追加協議，以及 v6.2 紅隊零信任硬化閉環（fold 折疊二次驗算防篡改、時序留出集 Holdout 驗證、誤傷率掃描、去時間戳規範化雜湊防刷、程式化十輪衝突掃描器 audit_scan、嚴格網域邊界分級、守門員 Fail-Closed 與執行長雪 PBKDF2+HMAC 幕僚長派工帳本 dispatch.py）。
 is_master: true
-lock_status: IMMUTABLE_GOLDEN_MASTER (創辦人親定不可覆寫母版；2026-11-14 創辦人下令升級至 v6.1 零信任硬化版並保留舊版)
+lock_status: IMMUTABLE_GOLDEN_MASTER (創辦人親定不可覆寫母版；2026-11-14 創辦人下令結合外部紅隊代碼審計升級至 v6.2 並保留舊版)
 authorized_by: 陳品碩 (Pinshuo)
-version: v6.1-MASTER
+version: v6.2-MASTER
 ---
 
-# 🧬 北極星仿生學習系統 (Bionic Learning System v6.1 · 零信任硬化閉環旗艦母版)
+# 🧬 北極星仿生學習系統 (Bionic Learning System v6.2 · 紅隊零信任防篡改與幕僚長派工閉環旗艦母版)
 
 > ⚡ **【v6.0 憲法級總綱 · 文字不等於進化】**（2026-11-14 創辦人批准 Master RFC #002）  
 > 1. **一切「宣稱」必須有「物理憑證」**：本母版任何一章所說的「驗證／審計／學習／反思」，若沒有對應的**可執行程式與 Exit Code、或可查驗的帳本紀錄**，一律視為**未發生**。  
@@ -21,7 +21,7 @@ version: v6.1-MASTER
 > 2. **去中心化特化繼承機制 (Master-Child Inheritance)**：所有內閣辦公室與夥伴若需因應自身業務進行演化，必須自本母版衍生至各自辦公室之「特化子版 (Daughter Variant)」進行獨立演化！  
 > 3. **日心向心反哺機制 (RFC Upstream Pull Request)**：若各辦公室子版在演化中誕生全域突破性公理，嚴禁擅改母版，必須向創辦人（品碩）提交《母版升級提案 (Master RFC)》，由品碩親自裁決並由執行長（雪）統籌合併升級。
 
-> **當前版本**：`v6.1 (Zero-Trust Hardened Closed-Loop Edition + v6.0 Execution Layer + v5.2 Circuit Breaker, Thread Timeout, Lock-Free Append-Only & Decadal Conflict Checkpoint)`  
+> **當前版本**：`v6.2 (Red-Team Zero-Trust Hardened & Chief-of-Staff Dispatch Edition + v6.1 + v6.0 + v5.2)`  
 > **精神座標**：汲取自北極星實戰打磨與 2024-2025 全球前沿 AI 自進化學術突破，由創辦人（陳品碩 · 闆仔）親自裁決升級——**「注入 PRM 過程級逐步驗證杜絕中間邏輯漏洞、注入 SPIN 內部自對弈判別徹底根除 AI 說教腔；立下創辦人親定鐵律：每 10 輪演化必須強制執行衝突大審計；實施母版金鑰鎖定；並於 2026-10-22 由品碩簽署批准《Master RFC #001》，正式收錄全域 API 三態熔斷器、60秒線程超時探針與多 Agent 無鎖 Append-Only 日誌協議！」**  
 > **核心公理**：**學習不是無節制囤積死代碼，自進化不是自說自話的幻覺自嗨；自進化是一場「以創辦人意圖為北極星、母版定公理子版定專長、以外部物理驗證器為錨點、以 PRM 逐步驗證中間邏輯、以 SPIN 自對弈對齊闆仔神韻、每 10 輪強制執行衝突審計、全域熔斷防卡死、無鎖追加防死鎖、以全域激素場對齊創辦人同舟主權」的動態生命歷程。**
 
@@ -491,6 +491,7 @@ candidate ──(N≥3 且優於對照；高風險另需創辦人點頭)──�
   7. ⚖️ **v5.1 十輪審計與鎖定版**：[SKILL_v5.1_Decadal_Audit_MasterLock.md](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/.agents/skills/bionic-learning-system/_master_history/SKILL_v5.1_Decadal_Audit_MasterLock.md)（品碩親定十輪審計鐵律、母版金鑰鎖定與 8 大子版）
   8. 🛡️ **v5.2 全域安全天網版 (歷史)**：[SKILL_v5.2_CircuitBreaker_LockFree.md](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/.agents/skills/bionic-learning-system/_master_history/SKILL_v5.2_CircuitBreaker_LockFree.md)（RFC #001 三態熔斷、60s 超時探針與無鎖日誌）
   9. 🔁 **v6.0 閉環自進化執行層初版 (歷史)**：[SKILL_v6.0_ClosedLoop_Execution.md](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/.agents/skills/bionic-learning-system/_master_history/SKILL_v6.0_ClosedLoop_Execution.md)（RFC #002 初版規範與 `bionic_core_v6.0_backup/` 原始腳本保留；修改前 v5.2 完整副本見 [SKILL_v5.2_FinalLiveCopy_PreV6.md](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/.agents/skills/bionic-learning-system/_master_history/SKILL_v5.2_FinalLiveCopy_PreV6.md)）
-  10. 🛡️ **v6.1 零信任硬化閉環版 (現行母版)**：[SKILL_v6.1_ZeroTrust_Hardened.md](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/.agents/skills/bionic-learning-system/_master_history/SKILL_v6.1_ZeroTrust_Hardened.md)（消除 v6.0 六大物理漏洞：真值驗算器防造假、SHA-256 防刷輪次、審計報告三段落檢查、磁碟持久化熔斷器、主動探索管線、6 型態強制閘門與 `run_evolution_cycle.py` 單一閉環總控）
+  10. 🛡️ **v6.1 零信任硬化閉環版 (歷史)**：[SKILL_v6.1_ZeroTrust_Hardened.md](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/.agents/skills/bionic-learning-system/_master_history/SKILL_v6.1_ZeroTrust_Hardened.md)（v6.1 規格與 `bionic_core_v6.1_backup/` 完整封存）
+  11. ⚔️ **v6.2 紅隊零信任防篡改與幕僚長派工閉環版 (現行母版)**：[SKILL_v6.2_RedTeam_Hardened.md](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/.agents/skills/bionic-learning-system/_master_history/SKILL_v6.2_RedTeam_Hardened.md)（修補外部紅隊審計五大漏洞：折疊二次驗算防篡改、時序留出驗證與誤傷率掃描、合規基準分離、去時間戳防刷、程式化十輪衝突掃描器、守門員 Fail-Closed、以及執行長雪 PBKDF2+HMAC 幕僚長派工帳本 `dispatch.py`）
 
 

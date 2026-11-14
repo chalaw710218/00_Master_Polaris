@@ -1,20 +1,17 @@
-"""強制層：先讀後寫閘門 (Enforce · Master v6.1 第十一章 ⑤)
+"""強制層：先讀後寫閘門 (Enforce · Master v6.2 第十一章 ⑤)
 
-v6.1 零信任硬化升級：
-  • 支援 6 種結構化規則型態：
-    1. `forbid_phrase`：禁止出現指定字串
+v6.2 零信任硬化升級（100% 對齊 evaluate_rule 驗算與 enforce 執行邏輯）：
+  • 支援 8 種結構化規則型態：
+    1. `forbid_phrase`：禁止出現指定字串（支援 `scope="prefix"` 僅檢核開頭鉤子或 `scope="any"` 全文）
     2. `prefer_phrase`：提示詞約束優先採用指定結構/詞彙
-    3. `max_count`：指定字元/詞彙出現上限（格式 `詞:上限`，如 `？:2`）
+    3. `max_count`：指定字元/詞彙出現上限（支援 `emoji:N` Unicode 範圍計數、`?:N`/`？:N` 雙半全形合併計數）
     4. `regex_forbid`：正則表達式命中即阻斷
-    5. `metric_min`：數值指標下限檢查（格式 `指標名:下限`，如 `contrast_ratio:7.0`）
-    6. `metric_max`：數值指標上限檢查（格式 `指標名:上限`，如 `fcp_ms:500`）
+    5. `metric_min`：數值指標下限檢查（格式 `指標名:下限`）
+    6. `metric_max`：數值指標上限檢查（格式 `指標名:上限`）
+    7. `baseline_standard`：固定合規基準標準（如 WCAG `contrast_ratio:7.0`、戴明 `defects:0`）
+    8. `route`：雪（幕僚長）任務派工路由建議（格式 `類別->閣員代號`）
   • 十輪停機鎖未解除 ➔ 拒絕放行。
   • 對草稿文字與數值指標逐條檢查 ➔ 違規即 Exit Code 1。
-
-用法：
-  python enforce.py constraints --office kage
-  python enforce.py gate --office kage --text "草稿內容"
-  python enforce.py gate --office josef --text "海報文案" --metrics "{\"contrast_ratio\": 4.5}"
 """
 from __future__ import annotations
 
@@ -47,11 +44,13 @@ def compile_constraints(rules: list[dict]) -> str:
         tag = f"[{r['rule_id']} 來源{r['source_tier']}級 信心{r['confidence']}]"
         kind = r["kind"]
         pat = r["pattern"]
+        scope = r.get("scope", "any")
+        scope_label = "（開頭鉤子）" if scope == "prefix" else ""
         ev = r["evidence"]
         if kind == "forbid_phrase":
-            lines.append(f"🚫 禁止使用「{pat}」 {tag}｜{ev}")
+            lines.append(f"🚫 禁止使用{scope_label}「{pat}」 {tag}｜{ev}")
         elif kind == "prefer_phrase":
-            lines.append(f"⭐ 優先採用「{pat}」 {tag}｜{ev}")
+            lines.append(f"⭐ 優先採用{scope_label}「{pat}」 {tag}｜{ev}")
         elif kind == "max_count":
             lines.append(f"⚖️ 次數上限：{pat} {tag}｜{ev}")
         elif kind == "regex_forbid":
@@ -60,7 +59,19 @@ def compile_constraints(rules: list[dict]) -> str:
             lines.append(f"📐 指標下限：{pat} {tag}｜{ev}")
         elif kind == "metric_max":
             lines.append(f"📐 指標上限：{pat} {tag}｜{ev}")
+        elif kind == "baseline_standard":
+            lines.append(f"🏛️ 合規基準標準：{pat} {tag}｜{ev}")
+        elif kind == "route":
+            lines.append(f"🧭 幕僚長派工路由建議：{pat} {tag}｜{ev}")
     return "\n".join(lines)
+
+
+def _count_token(text: str, word: str) -> int:
+    if word.lower() == "emoji":
+        return len(re.findall(r"[\U00010000-\U0010ffff\u2600-\u27bf]", text))
+    if word in ("?", "？"):
+        return text.count("？") + text.count("?")
+    return text.count(word)
 
 
 def check_text(text: str, rules: list[dict]) -> list[str]:
@@ -68,14 +79,19 @@ def check_text(text: str, rules: list[dict]) -> list[str]:
     for r in rules:
         kind = r["kind"]
         pat = r["pattern"]
+        scope = r.get("scope", "any")
         rid = r["rule_id"]
-        if kind == "forbid_phrase" and pat in text:
-            violations.append(f"違反 {rid}：出現禁用語「{pat}」")
+        if kind == "forbid_phrase":
+            if rule_store._match_phrase(text, pat, scope):
+                loc = "開頭鉤子" if scope == "prefix" else "內文"
+                violations.append(f"違反 {rid}：{loc}出現禁用語「{pat}」")
         elif kind == "max_count":
             try:
-                word, lim = pat.rsplit(":", 1)
-                if text.count(word) > int(lim):
-                    violations.append(f"違反 {rid}：「{word}」出現 {text.count(word)} 次，超過上限 {lim} 次")
+                word, lim_s = pat.rsplit(":", 1)
+                lim = int(lim_s)
+                cnt = _count_token(text, word)
+                if cnt > lim:
+                    violations.append(f"違反 {rid}：「{word}」出現 {cnt} 次，超過上限 {lim} 次")
             except ValueError:
                 violations.append(f"規則 {rid} 格式錯誤（須為 詞:上限）")
         elif kind == "regex_forbid":
@@ -93,7 +109,7 @@ def check_metrics(metrics: dict[str, float], rules: list[dict]) -> list[str]:
         kind = r["kind"]
         pat = r["pattern"]
         rid = r["rule_id"]
-        if kind in ("metric_min", "metric_max"):
+        if kind in ("metric_min", "metric_max", "baseline_standard"):
             try:
                 key, threshold_s = pat.rsplit(":", 1)
                 threshold = float(threshold_s)
@@ -103,16 +119,17 @@ def check_metrics(metrics: dict[str, float], rules: list[dict]) -> list[str]:
             if key not in metrics:
                 continue
             val = float(metrics[key])
-            if kind == "metric_min" and val < threshold:
+            is_max_bound = (kind == "metric_max") or (kind == "baseline_standard" and key in ("defects", "fcp_ms", "cls"))
+            if not is_max_bound and val < threshold:
                 violations.append(f"違反 {rid}：指標 `{key}` = {val} 低於下限 {threshold}")
-            elif kind == "metric_max" and val > threshold:
+            elif is_max_bound and val > threshold:
                 violations.append(f"違反 {rid}：指標 `{key}` = {val} 高於上限 {threshold}")
     return violations
 
 
 def gate(office: str, text: str = "", metrics: dict[str, float] | None = None) -> tuple[bool, list[str]]:
     if cycle_ledger.is_locked(office):
-        return False, [f"停機鎖未解除（{office}）：滿 10 輪須先提交包含『矛盾比對/互斥掃描/淘汰清單』之審計報告"]
+        return False, [f"停機鎖未解除（{office}）：滿 10 輪須先提交包含『矛盾比對/互斥掃描/淘汰清單』並通過程式化掃描之審計報告"]
     rules = load_active_rules(office)
     v = check_text(text, rules)
     if metrics:
@@ -121,7 +138,7 @@ def gate(office: str, text: str = "", metrics: dict[str, float] | None = None) -
 
 
 def main() -> None:
-    ap = argparse.ArgumentParser(description="先讀後寫閘門 (v6.1)")
+    ap = argparse.ArgumentParser(description="先讀後寫閘門 (v6.2)")
     sub = ap.add_subparsers(dest="cmd", required=True)
     c = sub.add_parser("constraints")
     c.add_argument("--office", required=True)

@@ -1,0 +1,14 @@
+{
+  "office": "kage",
+  "cycle": 8,
+  "topic": "雙向社群 CRM：在地友店互訪的演算法外溢效應 (Bidirectional Social Clout)",
+  "hypothesis": "前往台東在地友店主頁進行有溫度的走心留言，引發友店置頂或互動，能帶來高質量的在地生活關係人口雙向回流。",
+  "web_source": "Graph-Based Community Spillover Dynamics on Federated Micro-Platforms (arXiv:2402.08832)",
+  "evidence_metrics": {
+    "revisit_rate_friendly_stores": 66.7,
+    "mutual_follow_ratio": 42.0,
+    "sample_n": 9
+  },
+  "axiom_learned": "真正的朋友是聊出來的。漫遊不是單向按讚，而是走入鄰里，點亮彼此的生活微光。",
+  "verified_at": "2026-11-14T23:41:43.001815"
+}

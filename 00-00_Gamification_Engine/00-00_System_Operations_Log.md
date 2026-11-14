@@ -1,3 +1,20 @@
+### [2026-11-14 23:45] ⚔️【仿生學習系統母版 v6.2 紅隊零信任硬化 ＆ 執行長雪幕僚長派工帳本 `dispatch.py` 正式落地】
+* **決策背景**：
+  - 董事長（陳先生 / 品碩）透過外部 Claude 紅隊對母版 `v6.1` 與 `bionic_core` 全套程式碼進行深度審計，精準揪出 5 項嚴重實作漏洞與數項中度落差。
+  - 董事長明確定義：「雪自己學：雪是被學習的對象，10 輪是她自己的 10 次新學習」、「雪是我的幕僚長，很多事情都應該先由她去做分配與調動」、「使用固定簽收詞吧！雪是權限最大的 agent，理應由我親自調教」。
+* **落地重大成果（保留 `bionic_core_v6.1_backup/` 與 `SKILL_v6.1_ZeroTrust_Hardened.md`）**：
+  1. **執行長雪幕僚長派工帳本 (`dispatch.py`) 部署與自檢通過 (11/11 PASS)**：
+     - 路徑：`.agents/skills/atom-yuki-autonomous-executive-learner/scripts/dispatch.py`
+     - 雜湊鏈（`prev` + `hash`）Append-Only 防竄改；董事長於真實終端機（TTY）以口令 `PBKDF2 (200,000 iters)` + `HMAC-SHA256` 綁定 `dispatch_hash` 與 `nonce` 簽收（`收` / `退` / `改派:<閣員>`）；`selftest` 11 項全數通過（Exit Code 0）。
+     - 於雪特化子版 `bionic-learning-yuki/SKILL.md` 立憲第十二章：「沒有 `task_id` 的分派一律視為未發生」。
+  2. **母版與核心引擎升級至 `v6.2`（修補紅隊 5 大嚴重漏洞，29/29 自檢全過）**：
+     - **漏洞 1 修補（時序留出驗證與誤傷率掃描）**：`rule_store.evaluate_rule` 新增時序切分（Discovery 50% / Holdout 50%）與好文誤傷率掃描（誤傷高於中位數好文 > 35% 即攔截）；收斂泰勒絲天氣正則，杜絕單字「風/雨」誤殺「海風/風格/風險」。
+     - **漏洞 2 修補（廢除 `wo_mean = 0.0` 假驗算，分離 `baseline_standard`）**：新增 `baseline_standard` 與 `route` 規則型態；約瑟夫 27% 通過率不再假轉正 `metric_min`；戴明 `defects:0` 只要有 1 個缺陷即判定失敗。
+     - **漏洞 3 修補（`fold()` 折疊時零信任二次驗算）**：手動往 JSONL 硬塞 `promote` 若無合格 `trial` 或高風險未獲 `founder_approved`，`fold()` 當場打入 `tampered_rejected`。
+     - **漏洞 4 修補（去時間戳規範化雜湊防刷輪次）**：`cycle_ledger._canonical_evidence_sha256` 自動剝離微秒時間戳後計算實質內容 SHA-256，資料與規則未變時直接阻斷刷輪次。
+     - **漏洞 5 修補（程式化十輪衝突掃描器 `audit_scan`）**：`cycle_ledger.audit_done` 強制執行 `audit_scan(office)` 掃描 `forbid` vs `prefer` 矛盾與正則/數值互斥，有衝突拒絕解鎖，並統一 `MIN_AUDIT_CHARS = 100`。
+     - **中度問題全數修補**：`perceive_web.classify` 改為嚴格網域邊界比對（阻斷 `fakearxiv.org` / `notnature.com`）並於轉址後二次校驗；`bionic_closed_loop_gatekeeper.py` 改為 **Fail-Closed** 並移除寫死的 `0.48`、`0.82`；`enforce.py` 補齊 `emoji:N`（含 `\u2600-\u27bf`）與 `？:N` 合併計數及 `scope=prefix` 開頭鉤子比對；`11/15` 與 `11/17` 排程腳本 `schedule_lesson_02_threads.py` 已接上 `bionic_core/enforce.py` 並通過 `--dry-run` 驗收。
+
 ### [2026-11-13 21:51] 🛰️【Threads 02 篇與 03 篇定時排程守衛常駐啟動】戴明防呆狀態機 ✕ 背景守衛雙保險
 * **決策背景**：
   - 創辦人（品碩）下達指令：「將 02 篇、03 篇加入計時的排程吧」。

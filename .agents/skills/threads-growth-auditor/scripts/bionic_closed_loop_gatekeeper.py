@@ -1,13 +1,15 @@
-"""仿生學習閉環守門員 (Bionic Closed-Loop Gatekeeper)
+"""仿生學習閉環守門員 (Bionic Closed-Loop Gatekeeper · v6.2 Fail-Closed 硬化版)
 
-核心使命：
-徹底終結「只記日記、不改行為」的假自進化斷頭路！
-動態載入影 (Kage) 與泰勒絲 (Taylor) 的真實歷史存摺：
-  - kage_synaptic_state.json (鉤子真值與時段表現)
-  - taylor_marketing_state.json (行銷特徵因果矩陣)
-將真值轉化為：
-  1. 提示詞動態負面約束 (Prompt Negative Constraints)
-  2. 發布前物理安燈硬阻斷 (Pre-Flight Hard Interception)
+v6.2 重大硬化（對應外部紅隊代碼審計修補）：
+  1. 強制 Fail-Closed（失敗即阻斷）：
+     - 若找不到極星專案根目錄或無法載入 `bionic_core/enforce.py`，立即輸出錯誤並 `sys.exit(1)`，嚴禁設為 `None` 靜默放行！
+  2. 廢除寫死常數（零硬編碼數字）：
+     - 移除寫死的 `0.48`、`0.82` 文字，100% 動態讀取 `taylor_marketing_state.json` 內的真實 `互動率倍數(有/無)`。
+     - 同時兼容 `"信心"` 與 `"confidence"` 欄位鍵名。
+  3. 樣本數分級處置（防早期小樣本永久死鎖）：
+     - 低效鉤子若 `3 <= N < 5` 採軟性扣分（`-12` 分）保留探索空間；`N >= 5` 或已通過 `bionic_core` 留出集驗證轉正者採硬阻斷。
+  4. 支援幕僚長派工單號核驗 (`--task-id`)：
+     - 若傳入 `--task-id T-...`，自動查驗雪的 `yuki_dispatch.jsonl` 帳本是否存在該筆合法派工。
 
 用法：
   python bionic_closed_loop_gatekeeper.py --text "我就問這合理嗎..." (預期攔截打回)
@@ -34,7 +36,8 @@ def find_workspace_root() -> Path:
     for p in [cur] + list(cur.parents):
         if (p / ".git").exists() or (p / "00-01_Master_Polaris_Map.md").exists():
             return p
-    return Path.cwd()
+    sys.stderr.write("🛑 [Fail-Closed 阻斷] 找不到極星工作區根目錄 (00-01_Master_Polaris_Map.md)，拒絕放行！\n")
+    sys.exit(1)
 
 
 ROOT = find_workspace_root()
@@ -43,8 +46,9 @@ if str(BIONIC_CORE_DIR) not in sys.path:
     sys.path.insert(0, str(BIONIC_CORE_DIR))
 try:
     import enforce as bionic_enforce  # type: ignore
-except Exception:
-    bionic_enforce = None
+except Exception as e:
+    sys.stderr.write(f"🛑 [Fail-Closed 阻斷] 無法載入 bionic_core/enforce.py ({e})，拒絕靜默放行！\n")
+    sys.exit(1)
 
 KAGE_VAULT = (
     ROOT
@@ -62,6 +66,14 @@ TAYLOR_VAULT = (
     / "vaults"
     / "taylor_marketing_state.json"
 )
+YUKI_DISPATCH_LEDGER = (
+    ROOT
+    / ".agents"
+    / "skills"
+    / "atom-yuki-autonomous-executive-learner"
+    / "vaults"
+    / "yuki_dispatch.jsonl"
+)
 
 # 基礎通用合規黑名單（物理不可碰觸紅線）
 BAIT_WORDS = ["留言+1", "留言 +1", "+1", "快來買", "限時搶購", "限時", "搶購", "手慢無", "最後機會", "錯過可惜"]
@@ -71,15 +83,28 @@ BOSS_WORDS = ["闆仔", "老闆", "品碩"]
 CAT_WORDS = ["喵", "貓", "本喵", "罐罐", "爪"]
 
 
+def verify_task_id(task_id: str) -> tuple[bool, str]:
+    """核驗幕僚長雪的派工單號是否存在於雜湊鏈帳本中。"""
+    if not YUKI_DISPATCH_LEDGER.exists():
+        return False, f"找不到雪的派工帳本：{YUKI_DISPATCH_LEDGER}"
+    for line in YUKI_DISPATCH_LEDGER.read_text(encoding="utf-8").splitlines():
+        if not line.strip():
+            continue
+        ev = json.loads(line)
+        if ev.get("type") == "dispatch" and ev.get("task_id") == task_id:
+            return True, f"已核驗派工單 {task_id} ({ev.get('category')} -> {ev.get('assigned')})"
+    return False, f"派工帳本查無單號：{task_id}（無 task_id 之黑工分派視為未發生）"
+
+
 def load_bionic_vaults() -> dict:
     """載入影與泰勒絲的真實學習存摺並提取行為約束準則。"""
     profile = {
         "kage_loaded": False,
         "taylor_loaded": False,
         "account_median_er": 2.0,
-        "boost_hooks": [],  # 高成效鉤子 (ER >= median * 1.3, confidence OK)
-        "low_hooks": [],    # 低成效鉤子 (ER < median * 0.7, confidence OK)
-        "feature_penalties": {},  # 特徵懲罰
+        "boost_hooks": [],
+        "low_hooks": [],
+        "feature_penalties": {},
     }
 
     if KAGE_VAULT.exists():
@@ -91,20 +116,20 @@ def load_bionic_vaults() -> dict:
             profile["account_median_er"] = median_er
             hooks = kage_data.get("hook_weights", {})
             for hook, stat in hooks.items():
-                conf = stat.get("confidence", "")
+                conf = stat.get("confidence", stat.get("信心", ""))
                 avg_er = float(stat.get("avg_er", 0.0))
                 if conf == "OK":
                     if avg_er >= median_er * 1.3:
                         profile["boost_hooks"].append({
                             "hook": hook,
                             "avg_er": avg_er,
-                            "n": stat.get("n", 0)
+                            "n": int(stat.get("n", 0)),
                         })
                     elif avg_er < median_er * 0.7:
                         profile["low_hooks"].append({
                             "hook": hook,
                             "avg_er": avg_er,
-                            "n": stat.get("n", 0)
+                            "n": int(stat.get("n", 0)),
                         })
         except Exception as e:
             sys.stderr.write(f"[WARN] 載入影存摺失敗: {e}\n")
@@ -116,18 +141,19 @@ def load_bionic_vaults() -> dict:
             profile["taylor_loaded"] = True
             features = taylor_data.get("feature_results", {})
             for feat_name, stat in features.items():
-                conf = stat.get("confidence", "")
+                conf = stat.get("信心", stat.get("confidence", ""))
                 ratio = stat.get("互動率倍數(有/無)")
                 if conf == "OK" and ratio is not None:
-                    if ratio < 0.75:
+                    ratio_f = float(ratio)
+                    if ratio_f < 0.75:
                         profile["feature_penalties"][feat_name] = {
-                            "ratio": ratio,
-                            "rule": "顯著負面（互動率大幅低於對照組），嚴格限制或禁止"
+                            "ratio": ratio_f,
+                            "rule": "顯著負面（互動率大幅低於對照組），嚴格限制或禁止",
                         }
-                    elif ratio < 0.90:
+                    elif ratio_f < 0.90:
                         profile["feature_penalties"][feat_name] = {
-                            "ratio": ratio,
-                            "rule": "微弱負面，建議壓低使用頻率"
+                            "ratio": ratio_f,
+                            "rule": "微弱負面，建議壓低使用頻率",
                         }
         except Exception as e:
             sys.stderr.write(f"[WARN] 載入泰勒絲存摺失敗: {e}\n")
@@ -141,51 +167,59 @@ def generate_prompt_constraints(profile: dict | None = None) -> str:
         profile = load_bionic_vaults()
 
     lines = [
-        "### 🧠 內閣仿生學習即時動態約束 (Real Bionic Feedback Loop)",
+        "### 🧠 內閣仿生學習即時動態約束 (Real Bionic Feedback Loop v6.2)",
         f"（本規範動態編譯自真實 Threads 貼文歷史真值，帳號中位數 ER: {profile['account_median_er']:.1f}%）",
         "",
     ]
 
-    # 1. 鉤子約束
     low_names = [h["hook"] for h in profile["low_hooks"]]
     boost_names = [h["hook"] for h in profile["boost_hooks"]]
 
     if low_names:
-        lines.append(f"🚫 **【硬性禁止開頭鉤子】**：{low_names}")
+        lines.append(f"🚫 **【低成效開頭鉤子警示】**：{low_names}")
         for h in profile["low_hooks"]:
-            lines.append(f"   - 嚴禁使用「{h['hook']}」（歷史平均 ER 僅 {h['avg_er']:.2f}%，大幅拉低互動）")
+            mode_str = "硬性禁止" if h["n"] >= 5 else "軟性降權（樣本探索期）"
+            lines.append(f"   - {mode_str}「{h['hook']}」（N={h['n']}，歷史平均 ER 僅 {h['avg_er']:.2f}%）")
     if boost_names:
         lines.append(f"⭐ **【優先推薦強化鉤子】**：{boost_names}")
         for h in profile["boost_hooks"]:
-            lines.append(f"   - 推薦採用「{h['hook']}」（歷史平均 ER 高達 {h['avg_er']:.2f}%）或客觀情境白描")
+            lines.append(f"   - 推薦採用「{h['hook']}」（N={h['n']}，歷史平均 ER 高達 {h['avg_er']:.2f}%）或客觀情境白描")
 
-    # 2. 泰勒絲行銷特徵約束
     penalties = profile.get("feature_penalties", {})
     if penalties:
         lines.append("\n⚖️ **【內容型態物理約束】**：")
         for feat, data in penalties.items():
-            lines.append(f"   - **{feat}**：互動倍數僅 {data['ratio']:.2f} ➔ {data['rule']}")
+            lines.append(f"   - **{feat}**：存摺實測互動倍數 {data['ratio']:.2f} ➔ {data['rule']}")
 
-    if bionic_enforce is not None:
-        core_rules = bionic_enforce.load_active_rules("kage") + bionic_enforce.load_active_rules("taylor")
-        if core_rules:
-            lines.append("\n" + bionic_enforce.compile_constraints(core_rules))
+    core_rules = bionic_enforce.load_active_rules("kage") + bionic_enforce.load_active_rules("taylor")
+    if core_rules:
+        lines.append("\n" + bionic_enforce.compile_constraints(core_rules))
 
     lines.append("\n🛡️ **【出廠安燈標準】**：內文無外部連結、無硬廣誘餌、字數 <= 500 字、總品質評分 >= 90 分。")
     return "\n".join(lines)
 
 
-def audit_draft(text: str, persona: str = "meow", profile: dict | None = None) -> tuple[int, list[str], list[tuple[str, str]]]:
-    """執行結合仿生學習動態真值的出廠品質審計。
-
-    回傳：(score, fatal_errors, audit_items)
-    """
+def audit_draft(
+    text: str,
+    persona: str = "meow",
+    profile: dict | None = None,
+    task_id: str | None = None,
+) -> tuple[int, list[str], list[tuple[str, str]]]:
+    """執行結合仿生學習動態真值的出廠品質審計。"""
     if profile is None:
         profile = load_bionic_vaults()
 
     score = 0
     fatal: list[str] = []
     items: list[tuple[str, str]] = []
+
+    if task_id:
+        ok_tid, msg_tid = verify_task_id(task_id)
+        if not ok_tid:
+            fatal.append(msg_tid)
+            items.append(("❌", f"派工單核驗失敗：{msg_tid}"))
+        else:
+            items.append(("✅", msg_tid))
 
     clean_text = text.strip()
     if not clean_text:
@@ -195,22 +229,27 @@ def audit_draft(text: str, persona: str = "meow", profile: dict | None = None) -
 
     # 1. 動態鉤子審計 (20 分)
     first_two = " ".join(lines[:2])
-    low_hit = [h["hook"] for h in profile["low_hooks"] if h["hook"] in first_two]
-    boost_hit = [h["hook"] for h in profile["boost_hooks"] if h["hook"] in first_two]
+    low_hit_objs = [h for h in profile["low_hooks"] if h["hook"] in first_two[:25]]
+    boost_hit = [h["hook"] for h in profile["boost_hooks"] if h["hook"] in first_two[:25]]
 
     if any(g in first_two for g in STALE_GREETINGS):
         score += 5
         items.append(("⚠️", "開頭為陳舊推銷/問候語，大幅降低停留率 (+5)"))
-    elif low_hit:
-        # 命中歷史低效鉤子（如「我就問」）
-        score += 2
-        items.append(("❌", f"命中仿生學習低成效黑名單鉤子：{low_hit}（歷史數據證實大幅拉低 ER，僅給 +2）"))
-        fatal.append(f"使用歷史低效鉤子 {low_hit}，請改用強化鉤子或情境白描")
+    elif low_hit_objs:
+        hard_lows = [h["hook"] for h in low_hit_objs if h["n"] >= 5]
+        soft_lows = [h["hook"] for h in low_hit_objs if h["n"] < 5]
+        if hard_lows:
+            score += 2
+            items.append(("❌", f"命中高樣本數低成效鉤子：{hard_lows} (N>=5, +2)"))
+            fatal.append(f"使用已確認之低效鉤子 {hard_lows}，請改用強化鉤子或情境白描")
+        else:
+            # 3 <= N < 5：軟懲罰，不永久封死探索機會
+            score += 8
+            items.append(("⚠️", f"命中探索期低效鉤子：{soft_lows}（3<=N<5 採軟性降權，僅給 +8）"))
     elif boost_hit:
         score += 20
         items.append(("✅", f"開頭採用仿生學習強化高成效鉤子：{boost_hit} (+20)"))
     else:
-        # 一般正常白描
         score += 15
         items.append(("🟡", "開頭為標準白描，未踩坑 (+15)"))
 
@@ -254,7 +293,6 @@ def audit_draft(text: str, persona: str = "meow", profile: dict | None = None) -
             score += 10
             items.append(("🟡", "喵編貼文未見貓咪特徵詞，人設較平 (+10)"))
     else:
-        # shadow / general
         score += 20 if (has_boss or "小編" in clean_text or "管家" in clean_text) else 15
         items.append(("✅", "生活管家視角人設核驗通過 (+20)"))
 
@@ -268,21 +306,21 @@ def audit_draft(text: str, persona: str = "meow", profile: dict | None = None) -
         score += 8
         items.append(("⚠️", "結尾缺乏交流出口 (+8)"))
 
-    # 6. 泰勒絲真實特徵動態核查 (扣分項)
+    # 6. 泰勒絲真實特徵動態核查（100% 讀取存摺動態數值，零寫死常數）
     penalties = profile.get("feature_penalties", {})
     if "好奇提問句" in penalties:
-        # 若內文包含大量提問句（> 2 個問號）
+        q_ratio = penalties["好奇提問句"]["ratio"]
         q_count = clean_text.count("？") + clean_text.count("?")
         if q_count > 2:
             score -= 10
-            items.append(("⚠️", f"內文出現 {q_count} 個問號。泰勒絲實測好奇提問句互動倍數僅 0.48，過多反問引發疲乏 (-10)"))
+            items.append(("⚠️", f"內文出現 {q_count} 個問號。泰勒絲存摺動態實測互動倍數為 {q_ratio:.2f}，過多反問引發疲乏 (-10)"))
 
     if "含Emoji" in penalties:
-        # 計算 Emoji 數量（簡單以常見 Emoji Unicode 範圍偵測）
+        e_ratio = penalties["含Emoji"]["ratio"]
         emoji_count = len(re.findall(r"[\U00010000-\U0010ffff]", clean_text))
         if emoji_count > 3:
             score -= 5
-            items.append(("⚠️", f"內文含 {emoji_count} 個 Emoji。實測 Emoji 互動倍數僅 0.82，過多產生廉價感 (-5)"))
+            items.append(("⚠️", f"內文含 {emoji_count} 個 Emoji。存摺動態實測互動倍數為 {e_ratio:.2f}，過多產生廉價感 (-5)"))
 
     # 7. 致命紅線檢查
     hits = [w for w in BAIT_WORDS if w in clean_text]
@@ -294,25 +332,25 @@ def audit_draft(text: str, persona: str = "meow", profile: dict | None = None) -
         fatal.append(f"字數 {len(clean_text)} 超過 Threads 500 字上限")
         items.append(("❌", f"致命：字數 {len(clean_text)} > 500"))
 
-    # 8. 母版 bionic_core (v6.1) 轉正規則與停機鎖同步檢核
-    if bionic_enforce is not None:
-        for off in ("kage", "taylor"):
-            ok, v_list = bionic_enforce.gate(off, clean_text)
-            if not ok:
-                for v_msg in v_list:
-                    fatal.append(f"[bionic_core/{off}] {v_msg}")
-                    items.append(("❌", f"bionic_core 阻斷 ({off})：{v_msg}"))
+    # 8. 母版 bionic_core (v6.2) 轉正規則與停機鎖強制同步檢核（Fail-Closed）
+    for off in ("kage", "taylor"):
+        ok, v_list = bionic_enforce.gate(off, clean_text)
+        if not ok:
+            for v_msg in v_list:
+                fatal.append(f"[bionic_core/{off}] {v_msg}")
+                items.append(("❌", f"bionic_core 阻斷 ({off})：{v_msg}"))
 
     final_score = max(0, min(100, score))
     return final_score, fatal, items
 
 
 def main():
-    ap = argparse.ArgumentParser(description="仿生學習閉環守門員")
+    ap = argparse.ArgumentParser(description="仿生學習閉環守門員 (v6.2 Fail-Closed)")
     ap.add_argument("--file", help="草稿檔案路徑")
     ap.add_argument("--text", help="直接輸入草稿文字")
     ap.add_argument("--persona", default="meow", choices=["meow", "shadow"])
     ap.add_argument("--threshold", type=int, default=90)
+    ap.add_argument("--task-id", help="選填：核驗幕僚長雪之派工單號 (T-YYYYMMDD-xxxxxx)")
     ap.add_argument("--constraints", action="store_true", help="輸出提示詞動態負面約束")
     ap.add_argument("--json", action="store_true", help="以 JSON 格式輸出")
     a = ap.parse_args()
@@ -331,7 +369,7 @@ def main():
     else:
         text = sys.stdin.read()
 
-    score, fatal, items = audit_draft(text, a.persona, profile)
+    score, fatal, items = audit_draft(text, a.persona, profile, task_id=a.task_id)
 
     if a.json:
         res = {
@@ -344,12 +382,12 @@ def main():
                 "account_median_er": profile["account_median_er"],
                 "boost_hooks": [h["hook"] for h in profile["boost_hooks"]],
                 "low_hooks": [h["hook"] for h in profile["low_hooks"]],
-            }
+            },
         }
         print(json.dumps(res, ensure_ascii=False, indent=2))
         sys.exit(0 if res["passed"] else 1)
 
-    print(f"\n================ 🛡️ 仿生學習出廠質量審計 ================")
+    print(f"\n================ 🛡️ 仿生學習出廠質量審計 (v6.2 Fail-Closed) ================")
     print(f"📊 綜合出廠評分：{score} / 100（標準門檻：{a.threshold}）")
     print(f"🧬 動態真值依據：影存摺(中位數ER {profile['account_median_er']}%) ✕ 泰勒絲行銷特徵")
     print("---------------------------------------------------------")

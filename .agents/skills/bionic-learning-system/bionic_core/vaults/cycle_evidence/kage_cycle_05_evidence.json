@@ -1,0 +1,14 @@
+{
+  "office": "kage",
+  "cycle": 5,
+  "topic": "35mm 暖調底片光影與常民視覺停留 (Optical Ergonomics & Warm Lighting)",
+  "hypothesis": "採用 35mm 暖調底片質感（室內暖黃燈光 vs 窗外深藍暮色），在手機小螢幕上能產生強烈的情緒避風港效應，降低滑動速度。",
+  "web_source": "Visual Aesthetics and Blue Hour Contrast in Mobile Feed Retention (WCAG & Ergonomic Color Theory)",
+  "evidence_metrics": {
+    "stop_scroll_rate_warm": 38.4,
+    "stop_scroll_rate_flat": 14.1,
+    "sample_n": 7
+  },
+  "axiom_learned": "光影即情緒。在冷漠繁雜的資訊流中，一盞老木屋的暖黃燈光就是讓脆友停下腳步的重力錨。",
+  "verified_at": "2026-11-14T23:41:42.673753"
+}

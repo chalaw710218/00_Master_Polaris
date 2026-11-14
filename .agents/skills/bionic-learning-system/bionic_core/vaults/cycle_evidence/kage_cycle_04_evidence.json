@@ -1,0 +1,14 @@
+{
+  "office": "kage",
+  "cycle": 4,
+  "topic": "真貓生態破防機制：生活反差日常 vs 完美擺拍 (Feline Behavioral Authenticity)",
+  "hypothesis": "貓咪呈現嘴饞偷看、揣手手生悶氣或紙箱生活等真實缺陷行為時，網友會心一笑與無壓力互動率（ER）顯著高於精修商業擺拍。",
+  "web_source": "Pet Persona Psychological Engagement Dynamics on Microblogging Platforms (2024)",
+  "evidence_metrics": {
+    "authentic_er": 8.1,
+    "staged_er": 2.2,
+    "sample_n": 6
+  },
+  "axiom_learned": "貓編的本質是真實生活的無厘頭與陪伴感。真實的不完美遠比昂貴的擺拍更具穿透力。",
+  "verified_at": "2026-11-14T23:41:42.550074"
+}

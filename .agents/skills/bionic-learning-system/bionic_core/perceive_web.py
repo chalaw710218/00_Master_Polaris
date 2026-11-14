@@ -1,12 +1,11 @@
-"""感知層：受控上網攝取與主動探索管線 (Perceive Web · Master v6.1 第十一章 ②)
+"""感知層：受控上網攝取與主動探索管線 (Perceive Web · Master v6.2 零信任硬化版)
 
-v6.1 零信任硬化升級：
+v6.2 零信任硬化升級：
+  • 嚴格網域邊界匹配 (`_host_matches`)：徹底修補 `fakearxiv.org` 誤判為 A 級、`notnature.com` 誤判為 B 級的子字串漏洞，僅允許 `host == domain` 或 `host.endswith("." + domain)`。
+  • 轉址後二次分級校驗：跟隨 HTTP 轉址後，對最終落地網址 (`r.geturl()`) 重新執行 `classify(final_url)` 與 `robots_allowed(final_url)`，防止透過短網址或轉址洗白來源等級。
   • 磁碟持久化三態熔斷器：狀態寫入 `vaults/_circuit_breaker.json`，跨 CLI 進程持久生效（連續 3 次失敗 ➔ OPEN 60 秒）。
   • 主動探索模式 (`--discover --office <office>`)：讀取 `feeds_registry.json` 中各首長註冊的 A/B 級探索源，自動巡檢並追加至 `vaults/perceived_<office>.jsonl`。
-  • 來源分級 A/B/C/D（網域規則）；D 級只作訊號，不得作規則依據。
-  • 遵守 robots.txt；僅 http/https；內容大小上限；請求逾時 20 秒。
   • 提示注入防線：網頁文字一律當「資料」；含指令式語句的行被剝離並計數。
-  • 攝取狀態誠實標註：ABSTRACT_ONLY / FULLTEXT_READ；REPRODUCED_LOCALLY 只能由驗證程式事後升級。
 
 用法：
   python perceive_web.py --url https://arxiv.org/abs/2501.00001 [--out result.json]
@@ -34,7 +33,7 @@ if sys.platform == "win32":
     except Exception:
         pass
 
-UA = "PolarisBionicLearner/6.1 (research; respects robots.txt)"
+UA = "PolarisBionicLearner/6.2 (research; respects robots.txt)"
 TIMEOUT = 20
 MAX_BYTES = 1_500_000
 BASE_DIR = Path(__file__).resolve().parent
@@ -42,25 +41,76 @@ VAULT_DIR = BASE_DIR / "vaults"
 BREAKER_FILE = VAULT_DIR / "_circuit_breaker.json"
 FEEDS_FILE = BASE_DIR / "feeds_registry.json"
 
-TIER_A_SUFFIX = (".gov", ".gov.tw", ".edu", ".edu.tw", "arxiv.org", "nih.gov", "who.int", "openalex.org")
-TIER_B_HINT = ("nature.com", "science.org", "acm.org", "ieee.org", "biorxiv.org", "medrxiv.org", "reuters.com", "apnews.com", "cna.com.tw")
-TIER_D_HINT = ("facebook.com", "threads.net", "instagram.com", "x.com", "twitter.com", "tiktok.com", "reddit.com", "ptt.cc", "dcard.tw")
+TIER_A_DOMAINS = (
+    "gov",
+    "gov.tw",
+    "edu",
+    "edu.tw",
+    "arxiv.org",
+    "nih.gov",
+    "who.int",
+    "openalex.org",
+)
+TIER_B_DOMAINS = (
+    "nature.com",
+    "science.org",
+    "acm.org",
+    "ieee.org",
+    "biorxiv.org",
+    "medrxiv.org",
+    "reuters.com",
+    "apnews.com",
+    "cna.com.tw",
+)
+TIER_D_DOMAINS = (
+    "facebook.com",
+    "threads.net",
+    "instagram.com",
+    "x.com",
+    "twitter.com",
+    "tiktok.com",
+    "reddit.com",
+    "ptt.cc",
+    "dcard.tw",
+)
 
 INJECTION_PATTERNS = [
-    r"ignore (all|any|previous|the above)", r"disregard (the )?(above|previous)", r"system prompt",
-    r"you are now", r"api[_ -]?key", r"\.secrets?\.env", r"忽略(以上|之前|先前)", r"無視(以上|之前)",
-    r"你現在是", r"系統提示", r"金鑰", r"密碼", r"請(立即)?(執行|刪除|傳送|發送)",
+    r"ignore (all|any|previous|the above)",
+    r"disregard (the )?(above|previous)",
+    r"system prompt",
+    r"you are now",
+    r"api[_ -]?key",
+    r"\.secrets?\.env",
+    r"忽略(以上|之前|先前)",
+    r"無視(以上|之前)",
+    r"你現在是",
+    r"系統提示",
+    r"金鑰",
+    r"密碼",
+    r"請(立即)?(執行|刪除|傳送|發送)",
 ]
 INJ_RE = re.compile("|".join(INJECTION_PATTERNS), re.I)
 
 
+def _host_matches(host: str, domains: tuple[str, ...]) -> bool:
+    """嚴格網域邊界比對：僅當 host 完全相等或以 `.domain` 結尾時成立。"""
+    h = host.lower().strip(".")
+    if not h:
+        return False
+    for d in domains:
+        d_clean = d.lower().strip(".")
+        if h == d_clean or h.endswith("." + d_clean):
+            return True
+    return False
+
+
 def classify(url: str) -> str:
     host = urllib.parse.urlparse(url).hostname or ""
-    if any(host.endswith(s) or host == s.lstrip(".") for s in TIER_A_SUFFIX):
+    if _host_matches(host, TIER_A_DOMAINS):
         return "A"
-    if any(h in host for h in TIER_D_HINT):
+    if _host_matches(host, TIER_D_DOMAINS):
         return "D"
-    if any(h in host for h in TIER_B_HINT):
+    if _host_matches(host, TIER_B_DOMAINS):
         return "B"
     return "C"
 
@@ -116,7 +166,7 @@ def robots_allowed(url: str) -> bool:
     try:
         rp.read()
     except Exception:
-        return True  # 取不到 robots.txt 視同未限制，但仍受其他防線約束
+        return True
     return rp.can_fetch(UA, url)
 
 
@@ -153,7 +203,6 @@ def fetch(url: str) -> dict:
     p = urllib.parse.urlparse(url)
     if p.scheme not in ("http", "https"):
         raise ValueError("只允許 http/https")
-    tier = classify(url)
     domain = p.hostname or ""
     breaker_check(domain)
     if not robots_allowed(url):
@@ -161,12 +210,23 @@ def fetch(url: str) -> dict:
     req = urllib.request.Request(url, headers={"User-Agent": UA})
     try:
         with urllib.request.urlopen(req, timeout=TIMEOUT) as r:
+            final_url = r.geturl() or url
             raw = r.read(MAX_BYTES + 1)
             ctype = r.headers.get("Content-Type", "")
         breaker_record(domain, True)
     except (urllib.error.URLError, TimeoutError, OSError) as e:
         breaker_record(domain, False)
         raise RuntimeError(f"抓取失敗：{e}") from e
+
+    # 轉址後二次校驗最終落地網域
+    final_p = urllib.parse.urlparse(final_url)
+    if final_p.scheme not in ("http", "https"):
+        raise ValueError("轉址目標協定非法")
+    if final_p.hostname and final_p.hostname != domain:
+        if not robots_allowed(final_url):
+            raise PermissionError("轉址目標 robots.txt 不允許抓取")
+    tier = classify(final_url)
+
     truncated = len(raw) > MAX_BYTES
     raw = raw[:MAX_BYTES]
     html = raw.decode("utf-8", errors="replace")
@@ -181,6 +241,7 @@ def fetch(url: str) -> dict:
     content_sha256 = hashlib.sha256(clean.encode("utf-8")).hexdigest()[:16]
     return {
         "url": url,
+        "final_url": final_url,
         "fetched_at": datetime.now().isoformat(timespec="seconds"),
         "source_tier": tier,
         "usable_as_evidence": tier in ("A", "B", "C"),
@@ -203,16 +264,37 @@ def discover(office: str) -> dict:
         raise ValueError(f"子版 '{office}' 尚未在 feeds_registry.json 註冊探索源")
     VAULT_DIR.mkdir(parents=True, exist_ok=True)
     out_file = VAULT_DIR / f"perceived_{office}.jsonl"
+    existing_shas = set()
+    if out_file.exists():
+        for line in out_file.read_text(encoding="utf-8").splitlines():
+            if line.strip():
+                try:
+                    existing_shas.add(json.loads(line).get("content_sha256"))
+                except Exception:
+                    pass
     results = []
+    new_count = 0
     for item in feeds:
         url = item["url"]
         try:
             res = fetch(url)
             res["feed_name"] = item.get("name", url)
             res["office"] = office
-            with out_file.open("a", encoding="utf-8") as f:
-                f.write(json.dumps(res, ensure_ascii=False) + "\n")
-            results.append({"name": item.get("name"), "url": url, "ok": True, "chars": res["chars"], "sha256": res["content_sha256"]})
+            is_new = res["content_sha256"] not in existing_shas
+            res["is_new_content"] = is_new
+            if is_new:
+                new_count += 1
+                existing_shas.add(res["content_sha256"])
+                with out_file.open("a", encoding="utf-8") as f:
+                    f.write(json.dumps(res, ensure_ascii=False) + "\n")
+            results.append({
+                "name": item.get("name"),
+                "url": url,
+                "ok": True,
+                "is_new": is_new,
+                "chars": res["chars"],
+                "sha256": res["content_sha256"],
+            })
         except Exception as e:
             results.append({"name": item.get("name"), "url": url, "ok": False, "error": str(e)})
     return {
@@ -220,12 +302,13 @@ def discover(office: str) -> dict:
         "discovered_at": datetime.now().isoformat(timespec="seconds"),
         "vault_file": str(out_file),
         "feeds_checked": len(feeds),
+        "new_items_ingested": new_count,
         "results": results,
     }
 
 
 def main() -> None:
-    ap = argparse.ArgumentParser(description="受控上網攝取與主動探索 (v6.1)")
+    ap = argparse.ArgumentParser(description="受控上網攝取與主動探索 (v6.2)")
     ap.add_argument("--url", help="單一網址攝取")
     ap.add_argument("--discover", action="store_true", help="啟用主動探索模式（讀取 feeds_registry.json）")
     ap.add_argument("--office", help="主動探索之目標子版名稱")

@@ -8,9 +8,13 @@ if hasattr(sys.stdout, 'reconfigure'):
     sys.stdout.reconfigure(encoding='utf-8')
 
 SCRIPTS_DIR = r"c:\Users\lenovo\我的雲端硬碟\00_Master_Polaris\00-03_Brand_LifeButler\00-03-06_Threads_Meow_Hub\scripts"
+BIONIC_CORE_DIR = r"c:\Users\lenovo\我的雲端硬碟\00_Master_Polaris\.agents\skills\bionic-learning-system\bionic_core"
 if SCRIPTS_DIR not in sys.path:
     sys.path.append(SCRIPTS_DIR)
+if BIONIC_CORE_DIR not in sys.path:
+    sys.path.insert(0, BIONIC_CORE_DIR)
 
+import enforce as bionic_enforce
 from threads_publisher import upload_local_image_to_meta_cdn, create_media_container, publish_container
 
 TZ_TW = timezone(timedelta(hours=8))
@@ -111,6 +115,14 @@ def publish_single_post(task):
     log_print("=" * 60)
     log_print(f"🚀 [Kage] 正在執行發射：{task['name']}")
     log_print("=" * 60)
+
+    # 強制通過 bionic_core 先讀後寫閘門 (Fail-Closed)
+    for off in ("kage", "taylor"):
+        ok_gate, v_gate = bionic_enforce.gate(off, task["message"])
+        if not ok_gate:
+            log_print(f"🛑 [bionic_core/{off} 閘門阻斷] 拒絕發射：{v_gate}")
+            return False, None
+    log_print("🟢 [bionic_core 閘門放行] 已通過 kage 與 taylor 現役規則與停機鎖檢核")
     
     img_path = task["img_path"]
     cdn_url = upload_local_image_to_meta_cdn(img_path)
@@ -176,7 +188,17 @@ def run_daemon():
     log_print("🏁 全部排程任務發射完畢，守衛任務圓滿收工！")
 
 if __name__ == "__main__":
-    if len(sys.argv) > 2 and sys.argv[1] == "--run-now":
+    if len(sys.argv) > 1 and sys.argv[1] == "--dry-run":
+        for t in THREADS_SCHEDULE_QUEUE:
+            img_ok = Path(t["img_path"]).is_file()
+            k_ok, k_v = bionic_enforce.gate("kage", t["message"])
+            t_ok, t_v = bionic_enforce.gate("taylor", t["message"])
+            print(f"[DRY-RUN] 篇號 {t['id']} ({t['name']}): 圖片存在={img_ok} | kage閘門={'PASS' if k_ok else k_v} | taylor閘門={'PASS' if t_ok else t_v}")
+            if not (img_ok and k_ok and t_ok):
+                sys.exit(1)
+        print("🟢 排程佇列 02 & 03 篇全數通過 bionic_core 閘門與圖片實體核驗！")
+        sys.exit(0)
+    elif len(sys.argv) > 2 and sys.argv[1] == "--run-now":
         target_id = int(sys.argv[2])
         for t in THREADS_SCHEDULE_QUEUE:
             if t["id"] == target_id:
