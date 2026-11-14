@@ -1,0 +1,35 @@
+{
+  "office": "kage",
+  "executed_at": "2026-11-14T21:44:45.668664",
+  "meta": {
+    "state_file": "C:\\Users\\lenovo\\我的雲端硬碟\\00_Master_Polaris\\.agents\\skills\\atom-kage-synaptic-metabolic-learner\\vaults\\kage_synaptic_state.json",
+    "learned_at": "2026-11-14T21:44:43.784194",
+    "median_er": 2.0
+  },
+  "discover": null,
+  "proposed_or_verified_rules": [
+    "R-20261114-1dede1",
+    "R-20261114-cd53c8"
+  ],
+  "evaluations": [
+    {
+      "rule_id": "R-20261114-1dede1",
+      "ok": true,
+      "message": "真值驗算完成：with=3.6533 vs without=0.85 (N=4, sha256=468aad7120...)"
+    },
+    {
+      "rule_id": "R-20261114-cd53c8",
+      "ok": true,
+      "message": "真值驗算完成：with=3.5 vs without=2.9813 (N=3, sha256=468aad7120...)"
+    }
+  ],
+  "newly_promoted": [
+    "R-20261114-1dede1",
+    "R-20261114-cd53c8"
+  ],
+  "active_rules": [
+    "R-20261114-1dede1",
+    "R-20261114-cd53c8"
+  ],
+  "retired_by_sweep": []
+}

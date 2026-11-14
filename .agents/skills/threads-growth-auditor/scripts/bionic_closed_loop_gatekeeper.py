@@ -38,6 +38,14 @@ def find_workspace_root() -> Path:
 
 
 ROOT = find_workspace_root()
+BIONIC_CORE_DIR = ROOT / ".agents" / "skills" / "bionic-learning-system" / "bionic_core"
+if str(BIONIC_CORE_DIR) not in sys.path:
+    sys.path.insert(0, str(BIONIC_CORE_DIR))
+try:
+    import enforce as bionic_enforce  # type: ignore
+except Exception:
+    bionic_enforce = None
+
 KAGE_VAULT = (
     ROOT
     / ".agents"
@@ -157,6 +165,11 @@ def generate_prompt_constraints(profile: dict | None = None) -> str:
         lines.append("\n⚖️ **【內容型態物理約束】**：")
         for feat, data in penalties.items():
             lines.append(f"   - **{feat}**：互動倍數僅 {data['ratio']:.2f} ➔ {data['rule']}")
+
+    if bionic_enforce is not None:
+        core_rules = bionic_enforce.load_active_rules("kage") + bionic_enforce.load_active_rules("taylor")
+        if core_rules:
+            lines.append("\n" + bionic_enforce.compile_constraints(core_rules))
 
     lines.append("\n🛡️ **【出廠安燈標準】**：內文無外部連結、無硬廣誘餌、字數 <= 500 字、總品質評分 >= 90 分。")
     return "\n".join(lines)
@@ -280,6 +293,15 @@ def audit_draft(text: str, persona: str = "meow", profile: dict | None = None) -
     if len(clean_text) > 500:
         fatal.append(f"字數 {len(clean_text)} 超過 Threads 500 字上限")
         items.append(("❌", f"致命：字數 {len(clean_text)} > 500"))
+
+    # 8. 母版 bionic_core (v6.1) 轉正規則與停機鎖同步檢核
+    if bionic_enforce is not None:
+        for off in ("kage", "taylor"):
+            ok, v_list = bionic_enforce.gate(off, clean_text)
+            if not ok:
+                for v_msg in v_list:
+                    fatal.append(f"[bionic_core/{off}] {v_msg}")
+                    items.append(("❌", f"bionic_core 阻斷 ({off})：{v_msg}"))
 
     final_score = max(0, min(100, score))
     return final_score, fatal, items

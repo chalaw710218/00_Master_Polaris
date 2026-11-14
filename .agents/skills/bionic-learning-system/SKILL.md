@@ -1,13 +1,13 @@
 ---
 name: bionic-learning-system
-description: 北極星全體內閣合力提煉之「仿生學習系統 (Bionic Learning System v6.0 旗艦母版)」。融合全球前沿自進化理論、OpenAI PRM 過程級逐步驗證、UCLA SPIN 內部自對弈判別、創辦人親定「十輪衝突審計里程碑機制」、三相外部物理驗證器、RFC #001 全域三態熔斷器、線程超時防禦、多 Agent 無鎖 Append-Only 日誌追加協議，以及 RFC #002 閉環自進化執行層（觸發 ➔ 上網感知 ➔ 驗證 ➔ 蒸餾 ➔ 強制 ➔ 量測 ➔ 轉正/淘汰）。
+description: 北極星全體內閣合力提煉之「仿生學習系統 (Bionic Learning System v6.1 零信任硬化閉環旗艦母版)」。融合全球前沿自進化理論、OpenAI PRM 過程級逐步驗證、UCLA SPIN 內部自對弈判別、創辦人親定「十輪衝突審計里程碑機制」、三相外部物理驗證器、RFC #001 全域三態熔斷器、線程超時防禦、多 Agent 無鎖 Append-Only 日誌追加協議，以及 RFC #002 / v6.1 零信任硬化閉環自進化執行層（真值驗算器防造假、SHA-256 防刷輪次、磁碟持久化熔斷器、主動探索管線、6 型態結構化閘門、單一閉環總控調度器）。
 is_master: true
-lock_status: IMMUTABLE_GOLDEN_MASTER (創辦人親定不可覆寫母版；2026-11-14 創辦人書面批准 RFC #002 升級至 v6.0)
+lock_status: IMMUTABLE_GOLDEN_MASTER (創辦人親定不可覆寫母版；2026-11-14 創辦人下令升級至 v6.1 零信任硬化版並保留舊版)
 authorized_by: 陳品碩 (Pinshuo)
-version: v6.0-MASTER
+version: v6.1-MASTER
 ---
 
-# 🧬 北極星仿生學習系統 (Bionic Learning System v6.0 · 旗艦母版)
+# 🧬 北極星仿生學習系統 (Bionic Learning System v6.1 · 零信任硬化閉環旗艦母版)
 
 > ⚡ **【v6.0 憲法級總綱 · 文字不等於進化】**（2026-11-14 創辦人批准 Master RFC #002）  
 > 1. **一切「宣稱」必須有「物理憑證」**：本母版任何一章所說的「驗證／審計／學習／反思」，若沒有對應的**可執行程式與 Exit Code、或可查驗的帳本紀錄**，一律視為**未發生**。  
@@ -21,7 +21,7 @@ version: v6.0-MASTER
 > 2. **去中心化特化繼承機制 (Master-Child Inheritance)**：所有內閣辦公室與夥伴若需因應自身業務進行演化，必須自本母版衍生至各自辦公室之「特化子版 (Daughter Variant)」進行獨立演化！  
 > 3. **日心向心反哺機制 (RFC Upstream Pull Request)**：若各辦公室子版在演化中誕生全域突破性公理，嚴禁擅改母版，必須向創辦人（品碩）提交《母版升級提案 (Master RFC)》，由品碩親自裁決並由執行長（雪）統籌合併升級。
 
-> **當前版本**：`v6.0 (Closed-Loop Execution Layer + v5.2 Circuit Breaker, Thread Timeout, Lock-Free Append-Only & Decadal Conflict Checkpoint)`  
+> **當前版本**：`v6.1 (Zero-Trust Hardened Closed-Loop Edition + v6.0 Execution Layer + v5.2 Circuit Breaker, Thread Timeout, Lock-Free Append-Only & Decadal Conflict Checkpoint)`  
 > **精神座標**：汲取自北極星實戰打磨與 2024-2025 全球前沿 AI 自進化學術突破，由創辦人（陳品碩 · 闆仔）親自裁決升級——**「注入 PRM 過程級逐步驗證杜絕中間邏輯漏洞、注入 SPIN 內部自對弈判別徹底根除 AI 說教腔；立下創辦人親定鐵律：每 10 輪演化必須強制執行衝突大審計；實施母版金鑰鎖定；並於 2026-10-22 由品碩簽署批准《Master RFC #001》，正式收錄全域 API 三態熔斷器、60秒線程超時探針與多 Agent 無鎖 Append-Only 日誌協議！」**  
 > **核心公理**：**學習不是無節制囤積死代碼，自進化不是自說自話的幻覺自嗨；自進化是一場「以創辦人意圖為北極星、母版定公理子版定專長、以外部物理驗證器為錨點、以 PRM 逐步驗證中間邏輯、以 SPIN 自對弈對齊闆仔神韻、每 10 輪強制執行衝突審計、全域熔斷防卡死、無鎖追加防死鎖、以全域激素場對齊創辦人同舟主權」的動態生命歷程。**
 
@@ -457,18 +457,18 @@ candidate ──(N≥3 且優於對照；高風險另需創辦人點頭)──�
 4. 禁止憑空捏造案號、數據、引用（法務尤然，一律標「待查證」）。
 5. 禁止把「自進化」誇大為模型權重改變。自進化的對象是**規則、技能、設定、程式**。
 
-### 🧪 實作狀態（誠實揭露 · 2026-11-14）
+### 🧪 實作狀態（誠實揭露 · 2026-11-14 v6.1 零信任硬化驗收）
 
 | 項目 | 檔案 | 狀態 |
 | :--- | :--- | :--- |
-| ② 受控上網攝取 | `bionic_core/perceive_web.py` | ✅ 已實作；真實抓取 arXiv 頁面 Exit Code 0；離線防線已自檢 |
-| ④⑥⑦ 規則庫/生命週期 | `bionic_core/rule_store.py` | ✅ 已實作並自檢 |
-| ⑤ 強制閘門 | `bionic_core/enforce.py` | ✅ 函式庫已實作；**已接上的產出技能僅「影／泰勒絲 Threads 發文閘門」**，且該閘門仍讀舊檔 `kage_synaptic_state.json`，**尚未遷移至規則庫** |
-| ⑦ 十輪停機 | `bionic_core/cycle_ledger.py` | ✅ 已實作並自檢 |
-| ③ 驗證器登記簿 | `bionic_core/verifier_registry.json` | ✅ 已建立，11 位首長已登記；**多數子版的 enforce 與排程仍為「未接」** |
-| 全機制自檢 | `bionic_core/selftest.py` | ✅ 20 項物理阻斷測試全數通過（Exit Code 0） |
+| ② 受控上網攝取＋主動探索 | `bionic_core/perceive_web.py` + `feeds_registry.json` | ✅ **v6.1 升級完成**：熔斷器持久化至 `vaults/_circuit_breaker.json`（跨進程生效）；新增 `--discover --office` 主動探索管線 |
+| ④⑥⑦ 規則庫＋零信任真值驗算器 | `bionic_core/rule_store.py` | ✅ **v6.1 升級完成**：廢除 CLI 手填 `--with-metric` 造假後門；改由 `evaluate_rule` 直接讀取真實資料集計算指標與 `dataset_sha256` 簽章；支援 6 種規則型態 |
+| ⑤ 強制閘門（文字＋數值指標） | `bionic_core/enforce.py` | ✅ **v6.1 升級完成**：支援 `forbid_phrase`, `prefer_phrase`, `max_count`, `regex_forbid`, `metric_min`, `metric_max`；已與 `bionic_closed_loop_gatekeeper.py` 雙向接線 |
+| ⑦ 十輪停機＋防刷輪次驗證 | `bionic_core/cycle_ledger.py` | ✅ **v6.1 升級完成**：`tick` 強制驗證真實非空檔案與唯一 `SHA-256`（防拿舊檔重複刷輪次）；`audit-done` 強制檢核報告字數與三大實質段落（`矛盾比對`、`互斥掃描`、`淘汰清單`） |
+| ③ 驗證器登記簿＋閉環總控 | `bionic_core/verifier_registry.json` + `run_evolution_cycle.py` | ✅ **v6.1 升級完成**：單一閉環指令串聯 `kage`, `taylor`, `josef`, `deming` 真實資料集驗算、自動轉正與 SHA-256 輪次入帳 |
+| 全機制零信任自檢 | `bionic_core/selftest.py` | ✅ **v6.1 升級完成**：26 項零信任物理阻斷與真值驗算測試全數通過（Exit Code 0） |
 | ① 觸發層 | 排程 | ❌ **尚未實作**（需創辦人核准排程） |
-| ⑥ A/B 自動比對 | — | ⚠️ 僅有回填機制，**尚無自動比對真實發文成效的程式** |
+| ⑥ A/B 真實資料集自動驗算 | `bionic_core/rule_store.py evaluate` | ✅ **v6.1 升級完成**：自動切分 `insights_history.jsonl` / `josef_contrast_history.jsonl` / `deming_quality_history.jsonl` 計算 `with_metric` vs `without_metric` |
 | Π_global 量化 | — | ⚠️ 待實作 |
 | 外部阻塞 | 法規庫/司法院 | ⛔ `law.moj.gov.tw` 本機連線被拒；司法院 API 需創辦人本人帳號且限 0:00~6:00 |
 
@@ -490,6 +490,7 @@ candidate ──(N≥3 且優於對照；高風險另需創辦人點頭)──�
   6. 🔒 **v5.0 雙審計旗艦版**：[SKILL_v5.0_PRM_SPIN_Flagship.md](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/.agents/skills/bionic-learning-system/_master_history/SKILL_v5.0_PRM_SPIN_Flagship.md)（OpenAI PRM 步步打分與 UCLA SPIN 去 AI 腔）
   7. ⚖️ **v5.1 十輪審計與鎖定版**：[SKILL_v5.1_Decadal_Audit_MasterLock.md](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/.agents/skills/bionic-learning-system/_master_history/SKILL_v5.1_Decadal_Audit_MasterLock.md)（品碩親定十輪審計鐵律、母版金鑰鎖定與 8 大子版）
   8. 🛡️ **v5.2 全域安全天網版 (歷史)**：[SKILL_v5.2_CircuitBreaker_LockFree.md](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/.agents/skills/bionic-learning-system/_master_history/SKILL_v5.2_CircuitBreaker_LockFree.md)（RFC #001 三態熔斷、60s 超時探針與無鎖日誌）
-  9. 🔁 **v6.0 閉環自進化執行層版 (現行母版)**：[MASTER_VERSION_LEDGER.md](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/.agents/skills/bionic-learning-system/_master_history/MASTER_VERSION_LEDGER.md)（RFC #002：觸發/上網感知/驗證/蒸餾/強制/量測/轉正淘汰；修改前完整副本見 [SKILL_v5.2_FinalLiveCopy_PreV6.md](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/.agents/skills/bionic-learning-system/_master_history/SKILL_v5.2_FinalLiveCopy_PreV6.md)）
+  9. 🔁 **v6.0 閉環自進化執行層初版 (歷史)**：[SKILL_v6.0_ClosedLoop_Execution.md](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/.agents/skills/bionic-learning-system/_master_history/SKILL_v6.0_ClosedLoop_Execution.md)（RFC #002 初版規範與 `bionic_core_v6.0_backup/` 原始腳本保留；修改前 v5.2 完整副本見 [SKILL_v5.2_FinalLiveCopy_PreV6.md](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/.agents/skills/bionic-learning-system/_master_history/SKILL_v5.2_FinalLiveCopy_PreV6.md)）
+  10. 🛡️ **v6.1 零信任硬化閉環版 (現行母版)**：[SKILL_v6.1_ZeroTrust_Hardened.md](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/.agents/skills/bionic-learning-system/_master_history/SKILL_v6.1_ZeroTrust_Hardened.md)（消除 v6.0 六大物理漏洞：真值驗算器防造假、SHA-256 防刷輪次、審計報告三段落檢查、磁碟持久化熔斷器、主動探索管線、6 型態強制閘門與 `run_evolution_cycle.py` 單一閉環總控）
 
 

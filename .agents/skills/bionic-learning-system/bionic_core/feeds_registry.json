@@ -1,0 +1,83 @@
+{
+  "version": "6.1.0",
+  "description": "各子版主動探索源註冊表（Master v6.1 第十一章 ② 主動探索管線）",
+  "feeds": {
+    "ada": [
+      {
+        "name": "arXiv CS.AI Latest",
+        "url": "http://export.arxiv.org/api/query?search_query=cat:cs.AI&sortBy=submittedDate&sortOrder=descending&max_results=3",
+        "expected_tier": "A"
+      }
+    ],
+    "linus": [
+      {
+        "name": "arXiv CS.OS Latest",
+        "url": "http://export.arxiv.org/api/query?search_query=cat:cs.OS&sortBy=submittedDate&sortOrder=descending&max_results=3",
+        "expected_tier": "A"
+      }
+    ],
+    "neo": [
+      {
+        "name": "arXiv CS.HC Human-Computer Interaction",
+        "url": "http://export.arxiv.org/api/query?search_query=cat:cs.HC&sortBy=submittedDate&sortOrder=descending&max_results=3",
+        "expected_tier": "A"
+      }
+    ],
+    "deming": [
+      {
+        "name": "arXiv Stat.AP Applications",
+        "url": "http://export.arxiv.org/api/query?search_query=cat:stat.AP&sortBy=submittedDate&sortOrder=descending&max_results=3",
+        "expected_tier": "A"
+      }
+    ],
+    "abacus": [
+      {
+        "name": "arXiv Econ.GN General Economics",
+        "url": "http://export.arxiv.org/api/query?search_query=cat:econ.GN&sortBy=submittedDate&sortOrder=descending&max_results=3",
+        "expected_tier": "A"
+      }
+    ],
+    "taylor": [
+      {
+        "name": "arXiv CS.SI Social and Information Networks",
+        "url": "http://export.arxiv.org/api/query?search_query=cat:cs.SI&sortBy=submittedDate&sortOrder=descending&max_results=3",
+        "expected_tier": "A"
+      }
+    ],
+    "kage": [
+      {
+        "name": "arXiv CS.CL Computation and Language",
+        "url": "http://export.arxiv.org/api/query?search_query=cat:cs.CL&sortBy=submittedDate&sortOrder=descending&max_results=3",
+        "expected_tier": "A"
+      }
+    ],
+    "josef": [
+      {
+        "name": "arXiv CS.GR Graphics & Visual Perception",
+        "url": "http://export.arxiv.org/api/query?search_query=cat:cs.GR&sortBy=submittedDate&sortOrder=descending&max_results=3",
+        "expected_tier": "A"
+      }
+    ],
+    "yuki": [
+      {
+        "name": "arXiv CS.GT Computer Science and Game Theory",
+        "url": "http://export.arxiv.org/api/query?search_query=cat:cs.GT&sortBy=submittedDate&sortOrder=descending&max_results=3",
+        "expected_tier": "A"
+      }
+    ],
+    "falcon": [
+      {
+        "name": "arXiv CS.CY Computers and Society (Law & Policy)",
+        "url": "http://export.arxiv.org/api/query?search_query=cat:cs.CY&sortBy=submittedDate&sortOrder=descending&max_results=3",
+        "expected_tier": "A"
+      }
+    ],
+    "raven": [
+      {
+        "name": "arXiv CS.CR Cryptography and Security",
+        "url": "http://export.arxiv.org/api/query?search_query=cat:cs.CR&sortBy=submittedDate&sortOrder=descending&max_results=3",
+        "expected_tier": "A"
+      }
+    ]
+  }
+}

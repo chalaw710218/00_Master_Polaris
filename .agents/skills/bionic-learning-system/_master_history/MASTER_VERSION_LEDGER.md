@@ -17,7 +17,8 @@
 | **v5.0** | 雙審計旗艦版 (PRM & SPIN) | 2026-10-21 | 創辦人 品碩 裁決升級 | OpenAI PRM 過程級逐步驗證、UCLA SPIN 內部自對弈去 AI 腔、三相外部物理驗證器 (Exit Code 0) | [SKILL_v5.0_PRM_SPIN_Flagship.md](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/.agents/skills/bionic-learning-system/_master_history/SKILL_v5.0_PRM_SPIN_Flagship.md) |
 | **v5.1** | 十輪審計與母版鎖定版 (Decadal Lock) | 2026-10-22 17:35 | 創辦人 品碩 親定鐵律 | 每 10 輪強制執行衝突大審計、母版 Golden Master 金鑰鎖定、八大辦公室特化子版繁衍機制 | [SKILL_v5.1_Decadal_Audit_MasterLock.md](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/.agents/skills/bionic-learning-system/_master_history/SKILL_v5.1_Decadal_Audit_MasterLock.md) |
 | **v5.2** | 全域安全天網版 (歷史) | 2026-10-22 18:11 | 創辦人 品碩 簽署《Master RFC #001》 | 全域 API 三態自動熔斷器、60 秒線程級超時熔斷探針、多 Agent 無鎖 Append-Only 追加協議 | [SKILL_v5.2_CircuitBreaker_LockFree.md](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/.agents/skills/bionic-learning-system/_master_history/SKILL_v5.2_CircuitBreaker_LockFree.md) |
-| **v6.0** | 閉環自進化執行層版 (Current Golden Master) | 2026-11-14 | 創辦人 品碩 書面批准《Master RFC #002》 | 觸發/受控上網感知/驗證/蒸餾/先讀後寫強制/A-B量測/轉正淘汰七段迴圈；輪次由程式計數；驗證器登記簿；前十章完善 | [SKILL_v6.0_ClosedLoop_Execution.md](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/.agents/skills/bionic-learning-system/_master_history/SKILL_v6.0_ClosedLoop_Execution.md)（修改前完整副本：[SKILL_v5.2_FinalLiveCopy_PreV6.md](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/.agents/skills/bionic-learning-system/_master_history/SKILL_v5.2_FinalLiveCopy_PreV6.md)） |
+| **v6.0** | 閉環自進化執行層初版 (歷史) | 2026-11-14 | 創辦人 品碩 書面批准《Master RFC #002》 | 觸發/受控上網感知/驗證/蒸餾/先讀後寫強制/A-B量測/轉正淘汰七段迴圈；輪次由程式計數；驗證器登記簿；前十章完善 | [SKILL_v6.0_ClosedLoop_Execution.md](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/.agents/skills/bionic-learning-system/_master_history/SKILL_v6.0_ClosedLoop_Execution.md)（腳本備份：`bionic_core_v6.0_backup/`） |
+| **v6.1** | 零信任硬化閉環版 (Current Golden Master) | 2026-11-14 | 創辦人 品碩 親令升級並保留舊版 | 消除 v6.0 六大物理漏洞：真值驗算器 `evaluate_rule` 防填假分、`cycle_ledger` SHA-256 防刷輪次與審計三段落檢查、`perceive_web` 磁碟持久化熔斷器與 `--discover` 主動探索、`enforce` 6 型態閘門、`run_evolution_cycle.py` 單一閉環總控調度器 | [SKILL_v6.1_ZeroTrust_Hardened.md](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/.agents/skills/bionic-learning-system/_master_history/SKILL_v6.1_ZeroTrust_Hardened.md) |
 
 ---
 
@@ -73,3 +74,14 @@
   4. 實體落地：ionic_core/（perceive_web / rule_store / enforce / cycle_ledger / verifier_registry / selftest），自檢 20 項全數通過。
 * **誠實揭露**：觸發層（排程）、A/B 自動比對、Π 激素場量化尚未實作；多數子版的 enforce 與排程尚未接線，以登記簿為準。
 * **保存**：修改前完整副本 SKILL_v5.2_FinalLiveCopy_PreV6.md（SHA256 前綴 296F96966）已永久保留。
+
+
+### 🛡️ v6.1 零信任硬化閉環版 (Zero-Trust Hardened Closed-Loop Edition)
+* **起因**：2026-11-14 創辦人（品碩）切換模型後，要求執行長雪嚴格檢視母版 v6.0 是否真能讓 AI 自進化。雪經代碼級審計發現 v6.0 存在 6 大物理漏洞（`bionic_core` 孤島未與 11 首長接線、`rule_store` 允許 CLI 手動傳入 `--with-metric` 假試用分數、`cycle_ledger` 未檢查憑證真實存在與重複 SHA-256、審計報告未檢查實質內容、`perceive_web` 熔斷器僅存 RAM 跨進程失憶且無主動探索源、`enforce` 僅支援 3 種純文字規則）。
+* **修憲依據**：創辦人品碩於 2026-11-14 下令：「請! 開始! 並使用新的版本號存檔! 保留舊有的版本」。
+* **五大硬核代碼手術與升級**：
+  1. **舊版完整封存**：完整保留 `_master_history/SKILL_v6.0_ClosedLoop_Execution.md` 與 `_master_history/bionic_core_v6.0_backup/` 全套 v6.0 腳本。
+  2. **手術 1（`rule_store.py` v6.1）**：廢除手動輸入分數之 CLI 參數，新增 `evaluate_rule` 直接讀取真實資料集（`insights_history.jsonl`, `josef_contrast_history.jsonl`, `deming_quality_history.jsonl`）自動切分樣本計算 `with_metric`, `without_metric`, `n` 並附 `dataset_sha256` 簽章；擴充支援 6 種規則型態（含 `regex_forbid`, `metric_min`, `metric_max`）與幂等 `propose`。
+  3. **手術 2（`cycle_ledger.py` v6.1）**：`tick` 強制驗證真實非空檔案並計算 `SHA-256`，阻斷與歷史輪次重複之 `SHA-256`；`audit-done` 強制檢核報告字數 `>= 80` 且必含 `矛盾比對`、`互斥掃描`、`淘汰清單` 三大段落。
+  4. **手術 3（`perceive_web.py` v6.1 + `feeds_registry.json`）**：將三態熔斷器持久化至 `vaults/_circuit_breaker.json`（跨進程生效），並新增 `--discover --office` 主動探索管線。
+  5. **手術 4 & 5（`enforce.py` v6.1 + `run_evolution_cycle.py` v6.1）**：升級 `enforce.py` 支援文字與數值指標雙重閘門，雙向接線 `bionic_closed_loop_gatekeeper.py`；新增單一閉環總控調度器 `run_evolution_cycle.py`，實測跑通 `kage`, `taylor`, `josef`, `deming` 首輪真實數據入庫、真值驗算、自動轉正與 SHA-256 入帳；`selftest.py` 26 項零信任物理阻斷自檢全數通過（Exit Code 0）。

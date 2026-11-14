@@ -1696,3 +1696,14 @@ aven (調查官 渡鴉)：.agents/skills/bionic-learning-raven/SKILL.md
 ### [2026-11-14 02:00] 戴明真實品質稽核引擎上線 (deming_real_learning.py)：實際掃描 134 個原子腳本（頂層 45 + atoms/ 89），首輪 132 通過、2 缺陷：atom-cognition-vault-auditor/vault_auditor.py 與 atom-radar-first-principles/first_principles.py 的 argparse help 含未跳脫 % 致 --help 崩潰，已修復並複驗 Exit Code 0。更正：先前所稱「119/125 個腳本全數實測」不實——當時只逐一實測各標的代表指令，並未全量執行。
 
 ### [2026-11-14 02:10] 11 位首長真實資料學習引擎全數上線：影/泰勒絲/艾達/戴明（先前）+ 林納斯/雪/算盤/約瑟夫/尼奧/渡鴉/雪柔。雪的內閣彙整：8 位 REAL_DATA_ACTIVE、3 位 ENGINE_READY_NO_DATA（雪自身首輪、算盤待帳本、渡鴉待論斷檔）。已知阻礙：雪柔法規庫無法連線、裁判書需創辦人帳號。約瑟夫實測發現風土色票多組不達高齡對比標準。各舊示範腳本之數字非實測。
+
+- **[2026-11-14T21:55:00+08:00] [ROLE: Yuki (CEO)] [ACTION: BIONIC_MASTER_V6.1_ZEROTRUST_HARDENED]**
+  - **背景**：創辦人（品碩）下令對母版 v6.0 執行嚴格代碼級檢視，針對雪所揭露之 6 大物理漏洞啟動 5 大硬核代碼手術，升級至 `v6.1-MASTER (Zero-Trust Hardened Closed-Loop Edition)` 並完整保留舊有版本。
+  - **舊版封存**：完整保留 `_master_history/SKILL_v6.0_ClosedLoop_Execution.md` 與 `_master_history/bionic_core_v6.0_backup/` 原始 v6.0 腳本。
+  - **五大手術落地**：
+    1. `rule_store.py` (v6.1)：移除 CLI 手填 `--with-metric` 造假參數，實作 `evaluate_rule` 直接讀取真實資料集自動切分樣本計算 `with_metric`, `without_metric`, `n` 並附 `dataset_sha256` 簽章；支援 6 種規則型態與幂等 `propose`。
+    2. `cycle_ledger.py` (v6.1)：`tick` 強制檢核真實非空檔案與唯一 `SHA-256`（防拿舊檔重複刷輪次）；`audit-done` 強制檢核報告字數 `>= 80` 與三大實質段落（`矛盾比對`、`互斥掃描`、`淘汰清單`）。
+    3. `perceive_web.py` (v6.1) + `feeds_registry.json`：三態熔斷器持久化至 `vaults/_circuit_breaker.json`（跨進程生效）；新增 `--discover --office` 主動探索管線。
+    4. `enforce.py` (v6.1)：支援文字＋數值指標雙重閘門，雙向接線 `bionic_closed_loop_gatekeeper.py`。
+    5. `run_evolution_cycle.py` (v6.1)：單一閉環總控調度器，實測跑通 `kage`, `taylor`, `josef`, `deming` 首輪入庫、真值驗算、自動轉正（共 5 條規則轉正 `active`、1 條未優於對照組維持 `candidate`）與 SHA-256 輪次入帳。
+  - **物理驗證**：`selftest.py` 26 項零信任物理阻斷自檢全數通過（Exit Code 0）。

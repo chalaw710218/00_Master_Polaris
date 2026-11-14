@@ -1,0 +1,32 @@
+{
+  "office": "taylor",
+  "executed_at": "2026-11-14T21:48:33.403363",
+  "meta": {
+    "state_file": "C:\\Users\\lenovo\\我的雲端硬碟\\00_Master_Polaris\\.agents\\skills\\atom-taylor-marketing-psychology-learner\\vaults\\taylor_marketing_state.json",
+    "learned_at": "2026-11-14T21:48:32.864265"
+  },
+  "discover": null,
+  "proposed_or_verified_rules": [
+    "R-20261114-8f5f5b",
+    "R-20261114-5e368c"
+  ],
+  "evaluations": [
+    {
+      "rule_id": "R-20261114-8f5f5b",
+      "ok": true,
+      "message": "真值驗算完成：with=3.0562 vs without=3.1 (N=3, sha256=468aad7120...)"
+    },
+    {
+      "rule_id": "R-20261114-5e368c",
+      "ok": true,
+      "message": "真值驗算完成：with=3.3571 vs without=2.24 (N=5, sha256=468aad7120...)"
+    }
+  ],
+  "newly_promoted": [
+    "R-20261114-5e368c"
+  ],
+  "active_rules": [
+    "R-20261114-5e368c"
+  ],
+  "retired_by_sweep": []
+}
