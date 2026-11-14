@@ -508,10 +508,13 @@ def fold(office: str) -> dict[str, dict]:
                 })
 
             elif t == "promote":
-                # 【v6.5 核心】：狀態機防重放！只有當前狀態為 candidate 時才准 promote；已被淘汰者貼舊簽章直接打入 tampered
+                # 【v6.5 核心】：狀態機防重放！只有當前狀態為 candidate 時才准 promote；已淘汰規則遭重貼舊簽章維持 retired
                 if r["status"] != "candidate":
+                    if r["status"] == "retired":
+                        r["tampered_attempt"] = "已淘汰規則遭重貼 promote 簽章攻擊，維持 retired"
+                        continue
                     r["status"] = "tampered_rejected"
-                    r["tampered_reason"] = f"規則當前狀態為 {r['status']}（非 candidate），禁止重放已轉正事件"
+                    r["tampered_reason"] = f"規則當前狀態為 {r['status']}（非 candidate），禁止重放轉正事件"
                     continue
 
                 ok_t, why_t = trial_ok(r)

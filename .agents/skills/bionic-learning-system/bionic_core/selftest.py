@@ -156,13 +156,23 @@ def main() -> None:
     })
     check("手填假 trial 指標數值（即使快照存在）被 fold() 現場重算識破並打入 tampered_rejected", rule_store.fold(o)[fake_rid_2]["status"] == "tampered_rejected")
 
+    # ── A. 錯誤雜湊的偽造 trial（放在「手寫偽造 trial」案例之後）
+    ds_bad = tmp / "ds_bad.jsonl"
+    ds_bad.write_text('{"text": "bad", "metric": 0.1}\n', encoding="utf-8")
+    fake2 = rule_store.propose(o, "forbid_phrase", "湊數詞", "low", "file://x", "A", "ev", 0.5)
+    rule_store.append_event(o, {"type": "trial", "rule_id": fake2, "with_metric": 99.9, "without_metric": 0.1,
+        "n": 50, "dataset": str(ds_bad), "dataset_sha256": "a" * 64, "holdout_passed": True,
+        "collateral_rate": 0.0, "collateral_rejected": False})
+    check("錯誤雜湊的偽造 trial 被 fold() 打入 tampered_rejected",
+          rule_store.fold(o)[fake2]["status"] == "tampered_rejected")
+
     # --- 2. 狀態機防舊簽重放與反盲簽（修復 Claude 審計 #2） ---
     # 測試對已被 retire 之規則重貼舊 promote 事件 -> 狀態機判定 tampered_rejected
     rule_store.append_event(o, {"type": "retire", "rule_id": rid, "reason": "主動退場測試"})
     check("規則被 retire 後狀態為 retired", rule_store.fold(o)[rid]["status"] == "retired")
 
     rule_store.append_event(o, {"type": "promote", "rule_id": rid, "founder_approved": True})
-    check("對已 retired 規則重貼 promote 事件被 fold() 當場攔截並打入 tampered_rejected", rule_store.fold(o)[rid]["status"] == "tampered_rejected")
+    check("對已 retired 規則重貼 promote 事件後狀態仍維持 retired", rule_store.fold(o)[rid]["status"] == "retired")
 
     # 測試反盲簽高風險規則簽章
     hid = rule_store.propose(o, "forbid_phrase", "高風險詞", "high", "file://y", "B", "高風險證據", 0.8)
@@ -247,6 +257,34 @@ def main() -> None:
     len_after = len(p_rules.read_text(encoding="utf-8").splitlines())
     check("preview_evaluation 指標試算具備純函數特性，零污染規則帳本（行數不變）", len_before == len_after)
 
+    # ── B. 重貼舊簽章 promote（放在第 6 節之前，META_PATH 仍是 test_meta）
+    o_b = "tb"
+    hid_b = rule_store.propose(o_b, "forbid_phrase", "高風險詞", "high", "file://y", "B", "ev", 0.5)
+    rule_store.evaluate_rule(o_b, hid_b, ds_good)
+    rule_store.promote(o_b, hid_b, _test_passphrase=test_pw)
+    old = [json.loads(x) for x in rule_store._path(o_b).read_text(encoding="utf-8").splitlines()
+           if x.strip() and json.loads(x).get("type") == "promote"][-1]
+    rule_store.append_event(o_b, {"type": "retire", "rule_id": hid_b, "reason": "selftest 模擬 TTL 到期"})
+    rule_store.append_event(o_b, {k: v for k, v in old.items() if k not in ("ts", "office", "prev", "hash")})
+    check("已淘汰的高風險規則被重貼舊簽章 promote 後仍為 retired",
+          rule_store.fold(o_b)[hid_b]["status"] == "retired")
+
+    # ── E. 換 meta 公鑰後自簽（需先新增 founder_auth.PIN_PATH 與 pin_meta()）
+    founder_auth.PIN_PATH = tmp / "founder_pin.txt"
+    founder_auth.pin_meta(rule_store.META_PATH)
+    real_meta = rule_store.META_PATH.read_text(encoding="utf-8")
+    evil = tmp / "evil.meta.json"
+    founder_auth.init_meta_file("attacker passphrase 123456", evil)
+    rule_store.META_PATH.write_text(evil.read_text(encoding="utf-8"), encoding="utf-8")
+    o_e = "te"
+    hid_e = rule_store.propose(o_e, "forbid_phrase", "高風險詞", "high", "file://y", "B", "ev", 0.5)
+    rule_store.evaluate_rule(o_e, hid_e, ds_good)
+    rule_store.promote(o_e, hid_e, _test_passphrase="attacker passphrase 123456")
+    check("換 meta 後以攻擊者自簽章之高風險 promote 被拒（指紋不符）",
+          rule_store.fold(o_e)[hid_e]["status"] != "active")
+    rule_store.META_PATH.write_text(real_meta, encoding="utf-8")
+    founder_auth.PIN_PATH = None
+
     # --- 6. Neo metric_max (fcp_ms:500) 雙向驗算與 enforce.gate 指標缺席硬阻斷 ---
     o_neo = "neo"
     ds_fcp_slow = tmp / "ds_fcp_slow.jsonl"
@@ -265,6 +303,32 @@ def main() -> None:
 
     ok_enforce_no_metric, v_enforce_no = enforce.gate(o_neo, "代碼")
     check("存在 active 數值規則時，呼叫 enforce.gate 缺少 metrics 被 Fail-Closed 硬阻斷", (not ok_enforce_no_metric) and any("缺少必檢數值指標" in x for x in v_enforce_no))
+
+    # ── C、D. 十輪鎖（放在檔案最後；linus、raven 在 registry 中是 high）
+    def _tick_n(office, a, b):
+        for i in range(a, b + 1):
+            ep = tmp / f"ev_{office}_{i}.json"
+            ep.write_text(json.dumps({"round": i, "office": office}), encoding="utf-8")
+            cycle_ledger.tick(office, f"round {i}", str(ep))
+
+    _tick_n("linus", 1, 10)
+    cycle_ledger._lock("linus").unlink(missing_ok=True)
+    with open(cycle_ledger._ledger("linus"), "a", encoding="utf-8") as f:
+        f.write(json.dumps({"type": "tick", "cycle": 11, "summary": "forged", "evidence": "x",
+                            "evidence_sha256": "f" * 64}) + "\n")
+    check("刪 .lock 並補一筆假 tick 後仍維持鎖定", cycle_ledger.is_locked("linus"))
+
+    _tick_n("raven", 1, 10)
+    rp = tmp / "raven_audit.md"
+    rp.write_text(cycle_ledger.render_audit_markdown(cycle_ledger.audit_scan("raven")), encoding="utf-8")
+    cycle_ledger.audit_done("raven", str(rp), _test_passphrase=test_pw)
+    old_audit = [json.loads(x) for x in cycle_ledger._ledger("raven").read_text(encoding="utf-8").splitlines()
+                 if x.strip() and json.loads(x).get("type") == "audit_done"][-1]
+    _tick_n("raven", 11, 20)
+    cycle_ledger._lock("raven").unlink(missing_ok=True)
+    with open(cycle_ledger._ledger("raven"), "a", encoding="utf-8") as f:
+        f.write(json.dumps(old_audit, ensure_ascii=False) + "\n")
+    check("重貼第 10 輪已簽 audit_done 後，第 20 輪仍維持鎖定", cycle_ledger.is_locked("raven"))
 
     passed = TOTAL - len(FAILS)
     print(f"\n結果：{'全數通過' if not FAILS else '失敗 ' + str(len(FAILS)) + ' 項'} ({passed}/{TOTAL})")

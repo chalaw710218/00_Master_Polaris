@@ -1,4 +1,4 @@
-"""創辦人主權密碼學驗簽核心 (Founder Cryptographic Sovereignty · Master v6.5 中性路徑與反盲簽版)
+r"""創辦人主權密碼學驗簽核心 (Founder Cryptographic Sovereignty · Master v6.5 中性路徑與反盲簽版)
 
 解決「最大權限 Agent (如幕僚長雪) 自簽、自轉正、刪鎖或手寫 JSONL 偽造事件」之零信任密碼學模組：
   1. 信任錨中性化（遵守紅線 3）：
@@ -27,6 +27,8 @@ from pathlib import Path
 CORE_DIR = Path(__file__).resolve().parent
 VAULT_DIR = CORE_DIR / "vaults"
 DEFAULT_META_PATH = VAULT_DIR / "founder_vault.meta.json"
+PIN_PATH: Path | None = None
+DEFAULT_PIN_PATH = VAULT_DIR / "founder_pin.txt"
 PBKDF2_ITER = 200_000
 KCV_LABEL = b"polaris-founder-kcv-v65"
 
@@ -76,6 +78,32 @@ def derive_keypair(key: bytes) -> tuple[int, int]:
 
 def compute_fingerprint(pub_y_hex: str) -> str:
     return hashlib.sha256(pub_y_hex.strip().lower().encode("utf-8")).hexdigest()[:16]
+
+
+def get_pin_path() -> Path:
+    return PIN_PATH or DEFAULT_PIN_PATH
+
+
+def pin_meta(meta_path: Path | None = None) -> str:
+    """將指定 meta 檔案的公鑰指紋釘死到 PIN 檔案中，作為硬性信任錨。"""
+    mp = meta_path or DEFAULT_META_PATH
+    if not mp.exists():
+        raise ValueError(f"找不到 meta 檔案，無法鎖定 PIN：{mp}")
+    meta = json.loads(mp.read_text(encoding="utf-8"))
+    fg = meta.get("fingerprint", compute_fingerprint(meta["pub_y"]))
+    pp = get_pin_path()
+    pp.parent.mkdir(parents=True, exist_ok=True)
+    pp.write_text(fg.strip() + "\n", encoding="utf-8")
+    return fg
+
+
+def read_pinned_fingerprint() -> str | None:
+    pp = get_pin_path()
+    if pp.exists():
+        content = pp.read_text(encoding="utf-8").strip()
+        if content:
+            return content
+    return None
 
 
 def build_meta_dict(passphrase: str, salt_hex: str | None = None, iters: int = PBKDF2_ITER) -> dict:
@@ -219,6 +247,9 @@ def verify_founder_action(
             return False, "設定檔缺少公鑰 pub_y"
 
         meta_fg = meta.get("fingerprint", compute_fingerprint(meta["pub_y"]))
+        pinned_fg = read_pinned_fingerprint()
+        if pinned_fg and meta_fg != pinned_fg:
+            return False, f"公鑰已被更換（指紋與 PIN 錨定檔案不符：meta={meta_fg} vs pin={pinned_fg}）"
         if expected_fingerprint and meta_fg != expected_fingerprint:
             return False, f"公鑰指紋不相符（預期 {expected_fingerprint} vs 檔案 {meta_fg}）"
 
