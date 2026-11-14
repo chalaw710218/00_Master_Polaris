@@ -1,15 +1,14 @@
-"""規則庫與生命週期狀態機 (Rule Store · Master v6.2 零信任硬化版)
+"""萬用規則庫與生命週期狀態機 (Universal Rule Store · Master v6.3 萬用解耦版)
 
-v6.2 重大硬化（對應外部紅隊代碼審計五大漏洞修補）：
-  1. 折疊時零信任二次驗算 (`fold()`)：絕不無條件相信 JSONL 內的 `promote` 事件！折疊時強制重驗 `trial_ok(r)` 與高風險 `founder_approved`；若手動塞入假 `promote`，狀態直接打入 `tampered_rejected`。
-  2. 時序留出驗證與誤傷率掃描 (`evaluate_rule`)：
-     - 針對貼文資料集（N >= 8）自動執行「時序切分（前 50% 探索、後 50% 留出驗證 Holdout）」，要求留出集亦須滿足 `holdout_with > holdout_without`。
-     - 新增「高成效貼文誤傷率（Collateral Damage Rate）」掃描：若禁用詞或正則誤殺超過 35% 的高於中位數好文（如過寬的單字『風/雨』），當場拒絕通過！
-  3. 廢除 `wo_mean = 0.0` 假驗算，區分「經驗比較規則」與「合規基準標準 (`baseline_standard`)」：
-     - `josef` 摘要改為真實比較 `pass_rate` vs `fail_rate`（27% 通過率不再假轉正）。
-     - `deming` 的 `defects:0` 嚴格檢驗 `actual_defects <= bound`（只要有 1 個缺陷即不通過）。
-     - 固定憲法標準（如 WCAG 7:1、零缺陷）改走 `baseline_standard`，誠實標示為合規基準，不偽裝成 A/B 實驗。
-  4. 新增 `route`（雪的幕僚長派工路由規則，格式 `類別->閣員`）與 `scope`（`prefix` 開頭鉤子 vs `any` 全文），確保評估與執行 100% 對齊。
+v6.3 萬用解耦憲則（董事長親定）：
+  • 母版引擎 100% 角色無關（Role-Agnostic）：本檔案不寫死任何單一閣員代號或特定業務邏輯！
+  • 資料集路徑統一由 `verifier_registry.json` 動態解析（或由 `--dataset` 傳入）。
+  • 內建四大萬用數學驗算器：
+    1. 文字成效驗算（時序留出驗證 Holdout Split + 高成效樣本誤傷率掃描）
+    2. 數值門檻驗算（`metric_min` / `metric_max` 真實達標率比對，廢除 `wo_mean=0.0`）
+    3. 合規基準標準（`baseline_standard` 憲法級基準綁定）
+    4. 派工路由驗算（`route` 一次通過率統計）
+  • 折疊時零信任二次驗算 (`fold()`)：手動竄改追加未授權/未驗算 `promote` 直接打入 `tampered_rejected`。
 """
 from __future__ import annotations
 
@@ -32,6 +31,7 @@ if sys.platform == "win32":
 CORE_DIR = Path(__file__).resolve().parent
 ROOT_DIR = CORE_DIR.parent.parent.parent.parent
 VAULT_DIR = CORE_DIR / "vaults"
+REGISTRY_FILE = CORE_DIR / "verifier_registry.json"
 HIGH_RISK = "high"
 MIN_TRIAL_N = 3
 MAX_COLLATERAL_RATE = 0.35
@@ -47,13 +47,19 @@ VALID_KINDS = (
     "route",
 )
 
-DEFAULT_DATASETS = {
-    "kage": ROOT_DIR / ".agents" / "skills" / "threads-growth-auditor" / "data" / "insights_history.jsonl",
-    "taylor": ROOT_DIR / ".agents" / "skills" / "threads-growth-auditor" / "data" / "insights_history.jsonl",
-    "josef": ROOT_DIR / ".agents" / "skills" / "atom-josef-visual-aesthetics-learner" / "vaults" / "josef_contrast_history.jsonl",
-    "deming": ROOT_DIR / ".agents" / "skills" / "atom-deming-quality-sopk-learner" / "vaults" / "deming_quality_history.jsonl",
-    "yuki": ROOT_DIR / ".agents" / "skills" / "atom-yuki-autonomous-executive-learner" / "vaults" / "yuki_dispatch.jsonl",
-}
+
+def resolve_default_dataset(office: str) -> Path | None:
+    """從 verifier_registry.json 動態解析該子版註冊之資料集路徑（母版不寫死角色清單）。"""
+    if not REGISTRY_FILE.exists():
+        return None
+    try:
+        reg = json.loads(REGISTRY_FILE.read_text(encoding="utf-8")).get("registry", {})
+        rel = reg.get(office, {}).get("dataset_path")
+        if rel:
+            return ROOT_DIR / rel
+    except Exception:
+        pass
+    return None
 
 
 def _path(office: str) -> Path:
@@ -93,7 +99,7 @@ def trial_ok(rule: dict) -> tuple[bool, str]:
         if not rule["trials"]:
             return False, "合規基準標準尚無基線盤點紀錄"
         latest = rule["trials"][-1]
-        return True, f"合規基準標準已盤點綁定（基線達標率={latest['with_metric']}%，N={latest['n']}，簽章={latest['dataset_sha256'][:10]}）"
+        return True, f"合規基準標準已盤點綁定（基線數值={latest['with_metric']}%，N={latest['n']}，簽章={latest['dataset_sha256'][:10]}）"
 
     if not rule["trials"]:
         return False, "尚無通過真值簽章的 evaluate 紀錄"
@@ -102,7 +108,7 @@ def trial_ok(rule: dict) -> tuple[bool, str]:
     w = float(latest["with_metric"])
     wo = float(latest["without_metric"])
     if latest.get("collateral_rejected"):
-        return False, f"歷史好文誤傷率過高 ({latest.get('collateral_rate', 0):.0%} > {MAX_COLLATERAL_RATE:.0%})，拒絕轉正"
+        return False, f"高成效樣本誤傷率過高 ({latest.get('collateral_rate', 0):.0%} > {MAX_COLLATERAL_RATE:.0%})，拒絕轉正"
     if latest.get("holdout_passed") is False:
         return False, "留出驗證集 (Holdout Split) 未優於對照組，疑似樣本內過擬合"
     if n < MIN_TRIAL_N:
@@ -113,7 +119,7 @@ def trial_ok(rule: dict) -> tuple[bool, str]:
 
 
 def fold(office: str) -> dict[str, dict]:
-    """將事件折疊為各規則最新狀態（v6.2 內建零信任折疊時二次驗算）。"""
+    """將事件折疊為各規則最新狀態（內建零信任折疊時二次驗算）。"""
     rules: dict[str, dict] = {}
     p = _path(office)
     if not p.exists():
@@ -136,8 +142,6 @@ def fold(office: str) -> dict[str, dict]:
             if t == "trial":
                 ds_sha = ev.get("dataset_sha256", "")
                 if ds_sha and len(str(ds_sha)) == 64:
-                    # 若資料集仍在原路徑，校驗 SHA-256 是否真實存在（防止手填假雜湊）
-                    ds_path_str = ev.get("dataset", "")
                     r["trials"].append({
                         k: ev[k]
                         for k in (
@@ -153,9 +157,7 @@ def fold(office: str) -> dict[str, dict]:
                         )
                         if k in ev
                     })
-                    r["last_dataset"] = ds_path_str
             elif t == "promote":
-                # 【v6.2 零信任防篡改核心】：折疊 promote 時強制重驗 trial_ok 與高風險授權！
                 ok_t, why_t = trial_ok(r)
                 high_unapproved = (r.get("risk") == HIGH_RISK) and (not ev.get("founder_approved", False))
                 if not ok_t or high_unapproved:
@@ -218,21 +220,31 @@ def propose(
     return rid
 
 
-def _load_threads_posts(dataset: Path) -> list[dict]:
-    posts = {}
-    for line in dataset.read_text(encoding="utf-8").splitlines():
+def _load_text_metric_records(dataset: Path) -> list[dict]:
+    """通用文字＋成效指標載入器：支援快照結構 (`posts` 陣列) 或平面結構 (`text`/`title` + `metric`/`er`)。"""
+    records = {}
+    for idx, line in enumerate(dataset.read_text(encoding="utf-8").splitlines()):
         if not line.strip():
             continue
-        snap = json.loads(line)
-        for idx, p in enumerate(snap.get("posts", [])):
-            p = dict(p)
-            p["captured_at"] = snap.get("captured_at", "")
-            p["_order"] = idx
-            prev = posts.get(p["id"])
-            if prev is None or p["captured_at"] >= prev["captured_at"]:
-                posts[p["id"]] = p
-    out = list(posts.values())
-    out.sort(key=lambda x: (str(x.get("captured_at", "")), str(x.get("id", ""))))
+        obj = json.loads(line)
+        if "posts" in obj and isinstance(obj["posts"], list):
+            for p in obj["posts"]:
+                p = dict(p)
+                p["ts"] = obj.get("captured_at", p.get("ts", ""))
+                pid = str(p.get("id", f"{idx}"))
+                prev = records.get(pid)
+                if prev is None or str(p["ts"]) >= str(prev["ts"]):
+                    records[pid] = {"id": pid, "text": p.get("title", p.get("text", "")), "metric": float(p.get("er", p.get("metric", 0.0))), "ts": str(p["ts"])}
+        elif "text" in obj or "title" in obj:
+            pid = str(obj.get("id", f"row-{idx}"))
+            records[pid] = {
+                "id": pid,
+                "text": obj.get("text", obj.get("title", "")),
+                "metric": float(obj.get("metric", obj.get("er", 0.0))),
+                "ts": str(obj.get("ts", obj.get("captured_at", f"{idx:06d}"))),
+            }
+    out = list(records.values())
+    out.sort(key=lambda x: (x["ts"], x["id"]))
     return out
 
 
@@ -245,7 +257,6 @@ def _match_phrase(title: str, pat: str, scope: str) -> bool:
 
 
 def _classify_post_compliance(title: str, kind: str, pat: str, scope: str = "any") -> bool:
-    """回傳該貼文是否『遵守』此規則 (True = 遵守組 with, False = 違反/對照組 without)。"""
     if kind == "forbid_phrase":
         return not _match_phrase(title, pat, scope)
     if kind == "prefer_phrase":
@@ -267,13 +278,13 @@ def _classify_post_compliance(title: str, kind: str, pat: str, scope: str = "any
 
 
 def evaluate_rule(office: str, rule_id: str, dataset_path: Path | None = None) -> tuple[bool, str, dict]:
-    """由真實資料集自動計算 with_metric 與 without_metric，內建時序留出驗證與誤傷率檢查。"""
+    """萬用真值驗算器：依規則型態 (kind) 與資料結構自動執行留出驗證、誤傷率掃描或合規檢驗。"""
     rules = fold(office)
     r = rules.get(rule_id)
     if not r:
         return False, "找不到規則", {}
 
-    ds = Path(dataset_path) if dataset_path else DEFAULT_DATASETS.get(office)
+    ds = Path(dataset_path) if dataset_path else resolve_default_dataset(office)
     if not ds or not ds.is_file():
         return False, f"找不到真實資料集：{ds}", {}
 
@@ -288,28 +299,25 @@ def evaluate_rule(office: str, rule_id: str, dataset_path: Path | None = None) -
     collateral_rate = 0.0
     collateral_rejected = False
 
-    first_line = next((x for x in ds.read_text(encoding="utf-8").splitlines() if x.strip()), "{}")
-    first_obj = json.loads(first_line)
-
-    if office in ("kage", "taylor") or ds.name == "insights_history.jsonl" or "posts" in first_obj:
-        posts = _load_threads_posts(ds)
+    if kind in ("forbid_phrase", "prefer_phrase", "max_count", "regex_forbid"):
+        posts = _load_text_metric_records(ds)
         if not posts:
-            return False, "貼文資料集為空", {}
+            return False, "文字成效資料集為空", {}
 
-        all_ers = [float(p.get("er", 0.0)) for p in posts]
-        med_er = statistics.median(all_ers) if all_ers else 0.0
-        good_posts = [p for p in posts if float(p.get("er", 0.0)) > med_er]
+        all_metrics = [float(p["metric"]) for p in posts]
+        med_val = statistics.median(all_metrics) if all_metrics else 0.0
+        good_posts = [p for p in posts if float(p["metric"]) > med_val]
         killed_good = 0
 
         for p in posts:
-            title = p.get("title", "")
-            er = float(p.get("er", 0.0))
+            title = p["text"]
+            val = float(p["metric"])
             compliant = _classify_post_compliance(title, kind, pat, scope)
             if compliant:
-                with_vals.append(er)
+                with_vals.append(val)
             else:
-                without_vals.append(er)
-                if er > med_er:
+                without_vals.append(val)
+                if val > med_val:
                     killed_good += 1
 
         if kind in ("forbid_phrase", "regex_forbid") and len(good_posts) >= 3:
@@ -317,12 +325,11 @@ def evaluate_rule(office: str, rule_id: str, dataset_path: Path | None = None) -
             if collateral_rate > MAX_COLLATERAL_RATE:
                 collateral_rejected = True
 
-        # 時序留出集驗證 (Chronological Holdout Split)：當總貼文數 >= 10 時，切分後半段為留出集
         if len(posts) >= 10:
             mid = len(posts) // 2
             holdout_posts = posts[mid:]
-            h_with = [float(p.get("er", 0.0)) for p in holdout_posts if _classify_post_compliance(p.get("title", ""), kind, pat, scope)]
-            h_without = [float(p.get("er", 0.0)) for p in holdout_posts if not _classify_post_compliance(p.get("title", ""), kind, pat, scope)]
+            h_with = [float(p["metric"]) for p in holdout_posts if _classify_post_compliance(p["text"], kind, pat, scope)]
+            h_without = [float(p["metric"]) for p in holdout_posts if not _classify_post_compliance(p["text"], kind, pat, scope)]
             if h_with and h_without:
                 holdout_passed = statistics.mean(h_with) > statistics.mean(h_without)
 
@@ -345,18 +352,14 @@ def evaluate_rule(office: str, rule_id: str, dataset_path: Path | None = None) -
                 ok_cond = (val >= bound) if kind != "metric_max" else (val <= bound)
                 (with_vals if ok_cond else without_vals).append(val)
             n_target = len(with_vals) + len(without_vals)
-            pass_rate = round(len(with_vals) / max(1, n_target) * 100.0, 2)
-            fail_rate = round(len(without_vals) / max(1, n_target) * 100.0, 2)
-            w_mean = pass_rate
-            wo_mean = fail_rate
+            w_mean = round(len(with_vals) / max(1, n_target) * 100.0, 2)
+            wo_mean = round(len(without_vals) / max(1, n_target) * 100.0, 2)
         elif "pass_body_text_7" in last and "pairs" in last:
-            # josef_contrast_history.jsonl 摘要結構：真實比較達標率 vs 未達標率（廢除 wo_mean = 0.0）
             n_target = int(last["pairs"])
             passed_cnt = float(last["pass_body_text_7"])
             w_mean = round(passed_cnt / max(1, n_target) * 100.0, 2)
             wo_mean = round((n_target - passed_cnt) / max(1, n_target) * 100.0, 2)
         elif "passed" in last and "total" in last:
-            # deming_quality_history.jsonl 摘要結構：針對 defects:0 嚴格檢查 actual_defects <= bound
             n_target = int(last["total"])
             actual_defects = float(last.get("defects", 0))
             if metric_name == "defects":
@@ -373,7 +376,6 @@ def evaluate_rule(office: str, rule_id: str, dataset_path: Path | None = None) -
             wo_mean = bound if ok_cond else val + 1.0
 
     elif kind == "route":
-        # 雪的派工路由規則，格式：category->assignee (例如 文案->taylor)
         if "->" not in pat:
             return False, "route 規則格式須為 類別->閣員代號", {}
         cat, target_agent = [x.strip() for x in pat.split("->", 1)]
@@ -400,7 +402,7 @@ def evaluate_rule(office: str, rule_id: str, dataset_path: Path | None = None) -
         w_mean = round(statistics.mean(with_vals), 2)
         wo_mean = round(statistics.mean(without_vals), 2)
     else:
-        return False, f"尚未定義 {office}/{kind} 的自動真值驗算邏輯", {}
+        return False, f"不支援的規則型態：{kind}", {}
 
     ev = {
         "type": "trial",
@@ -415,7 +417,11 @@ def evaluate_rule(office: str, rule_id: str, dataset_path: Path | None = None) -
         "collateral_rejected": collateral_rejected,
     }
     append_event(office, ev)
-    status_note = "攔截(誤傷過高)" if collateral_rejected else ("PASS" if (w_mean > wo_mean and holdout_passed and n_target >= MIN_TRIAL_N) else "FAIL(未優於對照)")
+    status_note = (
+        "攔截(誤傷過高)"
+        if collateral_rejected
+        else ("PASS" if (w_mean > wo_mean and holdout_passed and n_target >= MIN_TRIAL_N) else "FAIL(未優於對照)")
+    )
     return (
         True,
         f"真值驗算完成 [{status_note}]：with={w_mean} vs without={wo_mean} (N={n_target}, holdout={'PASS' if holdout_passed else 'FAIL'}, 誤傷率={collateral_rate:.0%}, sha256={ds_sha[:10]}...)",
@@ -459,7 +465,7 @@ def sweep() -> list[str]:
 
 
 def main() -> None:
-    ap = argparse.ArgumentParser(description="規則庫與生命週期 (v6.2 零信任硬化版)")
+    ap = argparse.ArgumentParser(description="萬用規則庫與生命週期 (v6.3 萬用解耦版)")
     sub = ap.add_subparsers(dest="cmd", required=True)
     p = sub.add_parser("propose")
     p.add_argument("--office", required=True)
