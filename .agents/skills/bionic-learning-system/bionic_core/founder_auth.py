@@ -274,3 +274,29 @@ def verify_founder_action(
         return True, f"創辦人密碼學簽章驗證通過 (指紋: {meta_fg})"
     except Exception as ex:
         return False, f"驗簽異常：{ex}"
+
+
+if __name__ == "__main__":
+    if len(sys.argv) > 1 and sys.argv[1] == "init":
+        require_tty()
+        print("=" * 65)
+        print("👑  極星創辦人主權金鑰初始化設定 (Founder Key Initialization)")
+        print("=" * 65)
+        p1 = getpass.getpass("請設定創辦人專屬授權口令：")
+        if not p1.strip():
+            print("🛑 口令不可為空！")
+            sys.exit(1)
+        p2 = getpass.getpass("請再次輸入確認口令：")
+        if p1 != p2:
+            print("🛑 兩次輸入口令不一致！")
+            sys.exit(1)
+        mp = DEFAULT_META_PATH
+        if mp.exists():
+            mp.unlink()
+        meta = init_meta_file(p1, mp)
+        pin_founder_fingerprint(meta_path=mp)
+        print("-" * 65)
+        print(f"🎉 創辦人專屬主權金鑰設定成功！")
+        print(f"🔑 公鑰指紋 (Fingerprint): [{meta['fingerprint']}]")
+        print("💡 請牢記此口令！未來所有十輪大審計解鎖與高風險轉正皆以此口令簽章。")
+
