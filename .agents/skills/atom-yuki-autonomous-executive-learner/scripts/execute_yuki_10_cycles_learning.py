@@ -31,6 +31,10 @@ AUDIT_REPORT_DIR = YUKI_OFFICE_DIR / "02_Audit_Report"
 AUDIT_REPORT_DIR.mkdir(parents=True, exist_ok=True)
 YUKI_VAULTS_DIR = YUKI_SKILL_DIR / "vaults"
 YUKI_VAULTS_DIR.mkdir(parents=True, exist_ok=True)
+OFFICE_VAULT_DIR = YUKI_OFFICE_DIR / "01_Cognitive_Vault"
+OFFICE_VAULT_DIR.mkdir(parents=True, exist_ok=True)
+OFFICE_EVIDENCE_DIR = OFFICE_VAULT_DIR / "cycle_evidence"
+OFFICE_EVIDENCE_DIR.mkdir(parents=True, exist_ok=True)
 
 # 定義 Cycle 2 到 Cycle 10 的高維度戰略管理研習成果
 CYCLES_DATA = [
@@ -110,13 +114,15 @@ CYCLES_DATA = [
 
 # 逐輪執行自進化閉環
 vault_strategy_file = YUKI_VAULTS_DIR / "vault_yuki_executive_strategy.jsonl"
+office_strategy_file = OFFICE_VAULT_DIR / "vault_yuki_executive_strategy.jsonl"
 
 for item in CYCLES_DATA:
     c_num = item["cycle"]
     ev_filename = f"yuki_cycle_{c_num:02d}_evidence.json"
     ev_path = EVIDENCE_DIR / ev_filename
+    office_ev_path = OFFICE_EVIDENCE_DIR / ev_filename
     
-    # 1. 寫入證據檔案
+    # 1. 寫入證據檔案（雙向鏡像保存）
     ev_payload = {
         "cycle": c_num,
         "office": "yuki",
@@ -127,9 +133,11 @@ for item in CYCLES_DATA:
         "evidence_metrics": item["evidence_metrics"],
         "axiom_learned": item["axiom_learned"]
     }
-    ev_path.write_text(json.dumps(ev_payload, ensure_ascii=False, indent=2), encoding="utf-8")
+    json_text = json.dumps(ev_payload, ensure_ascii=False, indent=2)
+    ev_path.write_text(json_text, encoding="utf-8")
+    office_ev_path.write_text(json_text, encoding="utf-8")
     
-    # 2. 刻印至 CEO 戰略存摺
+    # 2. 刻印至 CEO 戰略存摺（同步寫入辦公室與技能庫）
     strat_entry = {
         "timestamp": datetime.now().isoformat(),
         "cycle": c_num,
@@ -137,11 +145,14 @@ for item in CYCLES_DATA:
         "topic": item["topic"],
         "source": item["web_source"],
         "executive_insight": item["axiom_learned"],
-        "evidence_file": str(ev_path),
+        "evidence_file": str(office_ev_path),
         "status": "INGESTED_INTO_EXECUTIVE_MIND"
     }
+    entry_line = json.dumps(strat_entry, ensure_ascii=False) + "\n"
     with open(vault_strategy_file, "a", encoding="utf-8") as f:
-        f.write(json.dumps(strat_entry, ensure_ascii=False) + "\n")
+        f.write(entry_line)
+    with open(office_strategy_file, "a", encoding="utf-8") as f:
+        f.write(entry_line)
         
     # 3. 呼叫 cycle_ledger.tick 寫入輪次帳本不可篡改鏈
     summary_text = f"Cycle {c_num:02d}: 攻堅『{item['topic'].split(' (')[0]}』，提煉『{item['axiom_learned'][:40]}...』"
