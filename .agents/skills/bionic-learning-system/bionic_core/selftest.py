@@ -352,7 +352,8 @@ def main() -> None:
     yuki_dispatch.init_vault(test_pw)
     orig_meta = rule_store.META_PATH
     rule_store.META_PATH = yuki_dispatch._meta()
-    for _ in range(6):
+    founder_auth.pin_meta(rule_store.META_PATH)
+    for _ in range(8):
         tid_t = yuki_dispatch.dispatch("文案", ["taylor"], "serial")
         yuki_dispatch.signoff(tid_t, "收", test_pw)
         tid_k = yuki_dispatch.dispatch("文案", ["kage"], "serial")
@@ -370,6 +371,7 @@ def main() -> None:
     ok_route_prom_pw, _ = rule_store.promote(o_yuki, route_rid, _test_passphrase=test_pw)
     check("route 規則經創辦人驗簽匯出標準樣本（主組與對照組各>=3筆）並以口令簽章後成功轉正", ok_ver_route and (not ok_route_prom_no_pw) and ok_route_prom_pw)
     rule_store.META_PATH = orig_meta
+    founder_auth.pin_meta(orig_meta)
     yuki_dispatch.META_PATH = None
 
     # --- 8. Baseline Standard、文字約束閘門與感知防刷 ---
