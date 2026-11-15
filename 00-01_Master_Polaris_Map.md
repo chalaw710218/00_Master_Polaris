@@ -7,19 +7,20 @@
 
 ## ⚡ 極星萬用模型快速導航直達表 (Fast-Path Universal Dispatch Table)
 
-### 🏛️ 九大天王主權辦公室與特化自進化技能直達
+### 🏛️ 十一大天王主權辦公室與特化自進化技能直達
 | 天王首長 | 職銜 | 辦公室路徑 (Office Path) | 專屬仿生學習技能 (Bionic Skill) | 專屬認知存摺目錄 (Cognitive Vault) |
 | :--- | :--- | :--- | :--- | :--- |
-| **雪 (Yuki)** | CEO 執行長 | `00-00_Gamification_Engine/Office_of_the_CEO_Yuki/` | `.agents/skills/bionic-learning-yuki/SKILL.md` | `00-00_Gamification_Engine/Office_of_the_CEO_Yuki/01_Cognitive_Log/` |
+| **雪 (Yuki)** | CEO 執行長兼幕僚長 | `00-00_Gamification_Engine/Office_of_the_CEO_Yuki/` | `.agents/skills/atom-yuki-autonomous-executive-learner/SKILL.md` | `00-00_Gamification_Engine/Office_of_the_CEO_Yuki/01_Cognitive_Vault/` |
 | **林納斯 (Linus)** | CTO 技術長 | `00-00_Gamification_Engine/Office_of_the_CTO_Linus/` | `.agents/skills/bionic-learning-linus/SKILL.md` | `00-00_Gamification_Engine/Office_of_the_CTO_Linus/01_Cognitive_Log/` |
 | **泰勒絲 (Taylor)** | CMO 行銷長 | `00-00_Gamification_Engine/Office_of_the_CMO_Taylor/` | `.agents/skills/bionic-learning-taylor/SKILL.md` | `00-00_Gamification_Engine/Office_of_the_CMO_Taylor/01_Cognitive_Log/` |
 | **戴明 (Deming)** | CQO 品質長 | `00-00_Gamification_Engine/Office_of_the_CQO_Deming/` | `.agents/skills/bionic-learning-deming/SKILL.md` | `00-00_Gamification_Engine/Office_of_the_CQO_Deming/01_Cognitive_Log/` |
-| **算盤 (Abacus/Munger)** | CFO 財務長 | `00-00_Gamification_Engine/Office_of_the_CFO_Munger/` | `.agents/skills/bionic-learning-abacus/SKILL.md` | `00-00_Gamification_Engine/Office_of_the_CFO_Munger/01_Cognitive_Log/` |
-| **雪柔 (Falcon)** | CIO 情報長兼法務 | `00-00_Gamification_Engine/Office_of_the_CIO_Falcon/` | `.agents/skills/bionic-learning-falcon/SKILL.md` | `00-00_Gamification_Engine/Office_of_the_CIO_Falcon/01_Cognitive_Log/` |
-| **影 (Kage)** | 首席特務兼管家 | `00-00_Gamification_Engine/Office_of_the_Operative_Kage/` | `.agents/skills/bionic-learning-kage/SKILL.md` | `00-00_Gamification_Engine/Office_of_the_Operative_Kage/01_Cognitive_Log/` |
+| **算盤 (Abacus)** | CFO 財務長 | `00-00_Gamification_Engine/Office_of_the_CFO_Abacus/` | `.agents/skills/bionic-learning-abacus/SKILL.md` | `00-00_Gamification_Engine/Office_of_the_CFO_Abacus/01_Cognitive_Log/` |
+| **雪柔 (Falcon)** | 首席法務顧問兼情報長 | `00-00_Gamification_Engine/Office_of_the_CIO_Falcon/` | `.agents/skills/bionic-learning-falcon/SKILL.md` | `00-00_Gamification_Engine/Office_of_the_CIO_Falcon/01_Cognitive_Log/` |
+| **影 (Kage)** | 首席特務兼生活管家 | `00-00_Gamification_Engine/Office_of_the_Operative_Kage/` | `.agents/skills/bionic-learning-kage/SKILL.md` | `00-00_Gamification_Engine/Office_of_the_Operative_Kage/01_Cognitive_Log/` |
+| **約瑟夫 (Josef)** | CVO 首席視覺長 | `00-00_Gamification_Engine/Office_of_the_CVO_Josef/` | `.agents/skills/bionic-learning-josef/SKILL.md` | `00-00_Gamification_Engine/Office_of_the_CVO_Josef/01_Cognitive_Log/` |
 | **艾達 (Ada)** | 首席科技偵察官 | `00-00_Gamification_Engine/Office_of_the_Scout_Ada/` | `.agents/skills/bionic-learning-ada/SKILL.md` | `00-00_Gamification_Engine/Office_of_the_Scout_Ada/01_Cognitive_Log/` |
 | **尼奧 (Neo)** | 首席前端架構師 | `00-00_Gamification_Engine/Office_of_the_Architect_Neo/` | `.agents/skills/bionic-learning-neo/SKILL.md` | `00-00_Gamification_Engine/Office_of_the_Architect_Neo/01_Cognitive_Log/` |
-| **渡鴉 (Raven)** | 首席調查官 | `00-00_Gamification_Engine/Office_of_the_Forensic_Raven/` | `.agents/skills/bionic-learning-raven/SKILL.md` | `00-00_Gamification_Engine/Office_of_the_Forensic_Raven/01_Cognitive_Log/` |
+| **渡鴉 (Raven)** | 首席黑色調查官 | `00-00_Gamification_Engine/Office_of_the_Forensic_Raven/` | `.agents/skills/bionic-learning-raven/SKILL.md` | `00-00_Gamification_Engine/Office_of_the_Forensic_Raven/01_Cognitive_Log/` |
 | **喵編 (Meow)** | 門面吉祥物 | `00-00_Gamification_Engine/Lounge_of_the_Mascot_Meow/` | `00-00_Gamification_Engine/Lounge_of_the_Mascot_Meow/bionic-learning-meow.md` | `00-00_Gamification_Engine/Lounge_of_the_Mascot_Meow/01_Cognitive_Log/` |
 
 ---
@@ -50,7 +51,7 @@
 ### 📂 核心營運檔案與資料庫直達 (Core Ops & Databases)
 | 項目名稱 | 說明 | 實體路徑 (Path) |
 | :--- | :--- | :--- |
-| **系統營運總日誌** | 系統重大里程碑、演化與操作記錄 | `00-00_Gamification_Engine/00-00_System_Operations_Log.md` |
+| **系統營運總日誌** | 系統重大里程碑、演化與操作記錄 | `00-00_System_Operations_Log.md` |
 | **認知架構大憲章** | 三層心智分流與動態方程式自進化永久死鎖大憲章 (創辦人鋼印) | `00-00_Gamification_Engine/00-00_Cognitive_Architecture_Charter.md` |
 | **閣員瘦身檢核看板** | 全體內閣三層心智「瘦身」狀態與戴明安燈檢核看板 (單件流追蹤) | `00-00_Gamification_Engine/00-00_Cabinet_Slimming_Audit_Checklist.md` |
 | **遊戲化引擎存檔** | 創辦人等級、六維屬性點數、EXP 存檔 | `00-00_Gamification_Engine/save_data.json` |
@@ -71,12 +72,14 @@
  │    ├── 📁 Office_of_the_CTO_Linus (林納斯技術主權：架構筆記/底層代碼/自動化工具)
  │    ├── 📁 Office_of_the_CMO_Taylor (泰勒絲行銷戰略辦公室：敘事心法/商品利刃/自動化發布機)
  │    ├── 📁 Office_of_the_CQO_Deming (戴明博士品質中樞：TQM/安燈攔截/SOP標準化)
- │    ├── 📁 Office_of_the_CFO_Munger (算盤財務長：單元經濟/會計三表/現金流堡壘)
+ │    ├── 📁 Office_of_the_CFO_Abacus (算盤財務長：單元經濟/會計三表/現金流堡壘)
  │    ├── 📁 Office_of_the_CIO_Falcon (雪柔法務與情報：商戰法規/特許合規/護城河)
  │    ├── 📁 Office_of_the_Operative_Kage (影特務生活管家：Threads漫遊/私域社交/生活照顧)
+ │    ├── 📁 Office_of_the_CVO_Josef (約瑟夫視覺長：資訊階層/人因光學/風土美學)
  │    ├── 📁 Office_of_the_Scout_Ada (艾達科技偵察：端側AI/物聯網雷達/離線盒子)
  │    ├── 📁 Office_of_the_Architect_Neo (尼奧前端體驗：Gentle UI/極限抗逆/常民交互)
- │    └── 📁 Office_of_the_Forensic_Raven (渡鴉黑色調查：司法穿透/反詐徵信/深水卷宗)
+ │    ├── 📁 Office_of_the_Forensic_Raven (渡鴉黑色調查：司法穿透/反詐徵信/深水卷宗)
+ │    └── 📁 Lounge_of_the_Mascot_Meow (喵編吉祥物：對外形象/常民客廳/溫暖陪伴)
  │
  ├── 📁 00-01_Logistics_System (子目錄 A：物流與配送網路)
  │    ├── 📁 00-01-01_Branch_Tariff_Update (分支：4/1起外送收費標準調整專案)
@@ -104,9 +107,9 @@
  │    ├── 📁 00-05-01_Branch_Teaching_Materials (分支：教學課程模組與教材知識庫)
  │    └── 📁 00-05-02_Branch_Student_Support (分支：學員常見問題與助教隨堂紀錄)
  │
- ├── 📁 00-06_Circular_Economy (子目錄 F：社區循環經濟)
- │    ├── 📁 00-06-01_Branch_Resource_Recycling (分支：在地二手資材與循環包材流轉)
- │    └── 📁 00-06-02_Branch_Community_Sharing (分支：社區共享資源與減廢推廣)
+ ├── 📁 00-06_Circular_Economy (子目錄 F：社區循環經濟 · 籌備中儲備項目)
+ │    ├── 📁 00-06-01_Branch_Resource_Recycling (分支：在地二手資材與循環包材流轉 · 待實體拓荒)
+ │    └── 📁 00-06-02_Branch_Community_Sharing (分支：社區共享資源與減廢推廣 · 待實體拓荒)
  │
  ├── 📁 00-07_TWQR_Promotion (子目錄 G：TWQR 電子支付推廣)
  │    ├── 📁 00-07-01_Branch_Merchant_Onboarding (分支：在地合作店家開發與導人流程)

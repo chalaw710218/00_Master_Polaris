@@ -98,13 +98,13 @@
 - [x] **Astral uv 與獨立 Python 3.13 運行環境**：部署於 `C:\Users\lenovo\.local\bin\uv.exe`，擺脫 Windows 舊版環境限制。
 - [x] **googlecolab/colab-mcp 伺服器與依賴編譯**：104 項依賴套件編譯緩存完畢。
 - [x] **本機執行階段極速脫鉤**：直接調用本機原生編譯之 `colab-mcp.exe`，免除 GitHub 遠端網路延遲。
-- [x] **雙軌參數死鎖**：固定連接埠 `7148`、固定權杖 `VlbC0Wm7DzcfDOH4Aurnsg`，解決隨機連接埠漂移問題。
+- [x] **雙軌參數死鎖**：固定連接埠 `7148`、由 `google-colab-commander` 本機自動注入權杖，解決隨機連接埠漂移問題。
 - [x] **五分鐘彈性容錯期**：連線等待逾時由 60 秒放寬至 300 秒（5 分鐘）。
 - [x] **專屬作戰技能封裝**：建立並登記 [`.agents/skills/google-colab-commander/SKILL.md`](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/.agents/skills/google-colab-commander/SKILL.md)。
 
 ### 📌 待推進任務清單 (Pending Action Items)
 - [ ] **1. Colab 雲端工作區實體握手 (One-Click Handshake)**
-  - **操作方式**：點擊 [👉 直達專屬連結](https://colab.research.google.com/notebooks/empty.ipynb#mcpProxyToken=VlbC0Wm7DzcfDOH4Aurnsg&mcpProxyPort=7148) 並在彈出的「Connect to a local Colab MCP server」對話框點擊右下角【Connect】。
+  - **操作方式**：由 `google-colab-commander` 自動產出動態安全連結，在彈出的「Connect to a local Colab MCP server」對話框點擊右下角【Connect】。
   - **預期結果**：完成 WebSocket 雙向通道綁定，釋放 `execute_code` 等雲端編輯與執行工具。
 - [ ] **2. 雲端 GPU 規格與性能基準測試 (GPU Benchmark)**
   - **驗證代碼**：透過 MCP 執行 `!nvidia-smi`。
