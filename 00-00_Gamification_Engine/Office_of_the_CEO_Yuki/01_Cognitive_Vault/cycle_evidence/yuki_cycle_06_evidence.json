@@ -10,5 +10,7 @@
     "mutual_clout_spillover": 2.8,
     "defection_loss": 0.0
   },
-  "axiom_learned": "商道即善意博弈。先給予友店真誠讚美與流量曝光，以確定性的利他互惠構築在地商業同盟。"
+  "axiom_learned": "商道即善意博弈。先給予友店真誠讚美與流量曝光，以確定性的利他互惠構築在地商業同盟。",
+  "validation_status": "未經來源驗證的假說",
+  "note": "數據為假說推演，非真實物理測量"
 }

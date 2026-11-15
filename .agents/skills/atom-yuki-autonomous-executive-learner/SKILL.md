@@ -35,7 +35,8 @@ role_key: yuki
 
 * **特化轉接器 (Adapter)**：`scripts/yuki_bionic_adapter.py`（消費 `perceived_yuki.jsonl`，僅以 Discovery 前半段樣本提名路由規則）
 * **派工與結案驗簽**：`scripts/dispatch.py`（創辦人 Schnorr 驗簽結案匯出 `yuki_verified_route_samples.jsonl`）
-* **十輪閉環執行器**：`scripts/execute_yuki_10_cycles_learning.py`
+* **十輪閉環執行器**：~~`scripts/execute_yuki_10_cycles_learning.py`~~（⚠️ 已永久停用：嚴禁使用預先寫好內容之腳本）
+* **真實際上網研習執行器**：`scripts/execute_yuki_real_web_learning.py`（每輪透過真實網路搜尋/網址抓取，驗證 HTTP 200，紀錄原始數字與對極星之具體用處，未成功取得網址不得入帳）
 * **輪次帳本狀態遙測**：
   ```bash
   python .agents/skills/bionic-learning-system/bionic_core/cycle_ledger.py status --office yuki

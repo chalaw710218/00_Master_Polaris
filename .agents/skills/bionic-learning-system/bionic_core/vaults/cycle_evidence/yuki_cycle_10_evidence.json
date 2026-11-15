@@ -10,5 +10,7 @@
     "andon_zero_defect_rate": 100.0,
     "sovereignty_integrity": 100.0
   },
-  "axiom_learned": "執行長的榮譽在於替創辦人分擔風雨。以零信任代碼守護合規底線，以全心忠誠守護品碩的主權與遠見。"
+  "axiom_learned": "執行長的榮譽在於替創辦人分擔風雨。以零信任代碼守護合規底線，以全心忠誠守護品碩的主權與遠見。",
+  "validation_status": "未經來源驗證的假說",
+  "note": "數據為假說推演，非真實物理測量"
 }

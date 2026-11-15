@@ -10,5 +10,7 @@
     "big_tech_churn_resistance": 89.2,
     "doorstep_friction_cost": 0.0
   },
-  "axiom_learned": "效率贏得市場，但信任贏得鄉里。大資本的演算法盲區，就是生活管家最堅不可摧的肉身防禦塔。"
+  "axiom_learned": "效率贏得市場，但信任贏得鄉里。大資本的演算法盲區，就是生活管家最堅不可摧的肉身防禦塔。",
+  "validation_status": "未經來源驗證的假說",
+  "note": "數據為假說推演，非真實物理測量"
 }

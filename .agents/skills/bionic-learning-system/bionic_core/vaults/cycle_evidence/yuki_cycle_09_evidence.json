@@ -10,5 +10,7 @@
     "debt_leverage_ratio": 0.0,
     "black_swan_durability": 100.0
   },
-  "axiom_learned": "生存是繁榮的唯一前提。手握充足的無債浮存金與生存水庫，才能在別人恐慌時從容佈局。"
+  "axiom_learned": "生存是繁榮的唯一前提。手握充足的無債浮存金與生存水庫，才能在別人恐慌時從容佈局。",
+  "validation_status": "未經來源驗證的假說",
+  "note": "數據為假說推演，非真實物理測量"
 }

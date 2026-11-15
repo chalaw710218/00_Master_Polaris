@@ -10,5 +10,7 @@
     "friction_reduction_pct": 65.0,
     "hook_pass_rate": 96.0
   },
-  "axiom_learned": "好內容尊重常民的生理節奏。用最具溫度的生活白描，穿透冰冷浮躁的演算法資訊迷霧。"
+  "axiom_learned": "好內容尊重常民的生理節奏。用最具溫度的生活白描，穿透冰冷浮躁的演算法資訊迷霧。",
+  "validation_status": "未經來源驗證的假說",
+  "note": "數據為假說推演，非真實物理測量"
 }
