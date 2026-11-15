@@ -3,18 +3,18 @@
   "player_name": "Pinshuo",
   "level": 13,
   "exp": {
-    "current": 75,
+    "current": 140,
     "next_level_requirement": 150,
-    "total": 2945
+    "total": 3010
   },
-  "gold": 294,
+  "gold": 301,
   "attributes": {
-    "STR": 57.86,
-    "INT": 86.62,
-    "AGI": 70.34,
-    "WILL": 79.3,
-    "CHA": 75.99,
-    "IMP": 80.29
+    "STR": 58.11,
+    "INT": 86.86,
+    "AGI": 70.59,
+    "WILL": 79.55,
+    "CHA": 76.23,
+    "IMP": 80.54
   },
   "hidden_attributes": {},
   "unspent_points": {
@@ -35,5 +35,5 @@
     "【生活管家真實業務從容審批】以審批者身分調度內閣，享受閉環守門員帶來的零失誤出廠品質",
     "【午後 14:00 20分鐘 NSDR 深層修復】全力修復 STR 體能短板，維持神經系統高抗逆力"
   ],
-  "notes": "【仿生母版v6.5殿堂級零信任全覆蓋與Threads全線放行】"
+  "notes": "【四大治理除垢閉環 ✕ 假學習肅清 ✕ 真實上網研習v2.0 ✕ 五大宏觀維度憲章定錨】"
 }
