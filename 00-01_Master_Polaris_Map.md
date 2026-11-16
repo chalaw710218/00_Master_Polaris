@@ -56,7 +56,7 @@
 | **閣員瘦身檢核看板** | 全體內閣三層心智「瘦身」狀態與戴明安燈檢核看板 (單件流追蹤) | `00-00_Gamification_Engine/00-00_Cabinet_Slimming_Audit_Checklist.md` |
 | **遊戲化引擎存檔** | 創辦人等級、六維屬性點數、EXP 存檔 | `00-00_Gamification_Engine/save_data.json` |
 | **動態待辦清單** | 創辦人核定之即時與長期任務看板 | `00-00_Gamification_Engine/00-00_Master_Todo_Backlog.md` |
-| **數位孿生專區** | 陳英里姐一生回憶錄策劃與家訪庫 | `數位孿生/陳英里/` |
+| **數位孿生專區** | 陳英里姐一生回憶錄策劃與家訪庫 | `00-03_Brand_LifeButler/00-03-09_Digital_Twin/陳英里/` |
 | **產品化服務專案** | 代倒垃圾包月 (999/1999) 等實體產品化 | `00-03_Brand_LifeButler/00-03-08_Productized_Services/` |
 | **社群發布調度庫** | AI 家教班招生、品牌貼文排程發射總庫 | `00-03_Brand_LifeButler/00-03-05_Brand_Content_Hub/` |
 | **全域資產網址百科** | 外部 Google Docs、試算表、外部連結總索引 | `00-00_External_Resource_Index.md` |
@@ -98,7 +98,9 @@
  │    ├── 📁 00-03-05_Brand_Content_Hub (分支：品牌內容調度母庫與發文矩陣)
  │    ├── 📁 00-03-06_Threads_Meow_Hub (分支：Threads 喵編戰報與純文字互動主機)
  │    ├── 📁 00-03-07_AI_5D_Hub (分支：5D 價值精算時間矩陣中樞)
- │    └── 📁 00-03-08_Productized_Services (分支：非標勞務標準化產品庫 · 代倒垃圾/回憶錄)
+ │    ├── 📁 00-03-08_Productized_Services (分支：非標勞務標準化產品庫 · 代倒垃圾/外送)
+ │    └── 📁 00-03-09_Digital_Twin (分支：生命回憶錄與文化資產數位孿生專區 · 陳英里姐傳家寶典) 🎙️ [雪 ✕ 影 ✕ 尼奧 協同]
+ │         └── 📁 陳英里 (陳英里姐一生口述歷史、客廳家訪動線、音檔逐字稿與傳家回憶錄)
  │
  ├── 📁 00-04_Personal_Growth (子目錄 D：個人成長與地方資源)
  │    └── 📁 00-04-01_Branch_Community_Manager (分支：社區經理人培訓與資源對接)
@@ -161,13 +163,10 @@
  │    ├── 📁 04_Agentic_Protocols_and_Tooling (Anthropic MCP 協議、Tool Calling 標準、A2A 多代理協同規範)
  │    └── 📁 05_Cognitive_Distillation_and_FineTuning (大模型智慧蒸餾至 1.5B/3B、LoRA/DoRA 微調與風土對齊)
  │
- ├── 📁 00-16_Frontend_and_App_Architecture (子目錄 P：前端與客戶端體驗架構陣地) 🕶️ [尼奧主掌]
+ └── 📁 00-16_Frontend_and_App_Architecture (子目錄 P：前端與客戶端體驗架構陣地) 🕶️ [尼奧主掌]
  │    ├── 📁 01_Design_System_and_Tokens (約瑟夫視覺法典轉譯、Tailwind 色彩常數與字體階層)
  │    ├── 📁 02_LINE_LIFF_and_MiniApps (生活管家 LINE LIFF 極速預約與就醬點團購商城前端)
  │    ├── 📁 03_Cross_Platform_App_Flutter_PWA (跨平台高可用派工 APP、Flutter/PWA 與離線快取)
  │    ├── 📁 04_Web_Portals_and_Dashboards (極星總部營運管理中台、5D 財務即時監控大屏)
  │    └── 📁 05_Client_Side_Performance_and_A11y (高齡 WCAG AAA 無障礙防線、前台 Poka-Yoke 防呆機制)
- │
- └── 📁 數位孿生 (生命回憶錄與文化資產數位孿生專區) 🎙️ [雪 ✕ 影 ✕ 尼奧 協同]
-      └── 📁 陳英里 (陳英里姐一生口述歷史、客廳家訪動線、音檔逐字稿與傳家回憶錄)
 ```

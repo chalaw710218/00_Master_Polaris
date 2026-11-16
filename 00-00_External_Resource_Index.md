@@ -413,8 +413,8 @@ euromodulated_plasticity_engine.py**：三因子突觸可塑性與創辦人情�
   * **說明**：尼奧主政、林納斯確定性代碼監製，內建溫暖離線 Service Worker、OPFS 本地存證、WebTransport 暴雨穿透。
 
 
-## 🌸 數位孿生 (Digital Twin · 生命傳承與口述歷史)
-* [👤 陳英里姐專屬客戶檔案 (00_客戶檔案_陳英里.md)](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/數位孿生/陳英里/00_客戶檔案_陳英里.md)
+## 🌸 00-03-09 數位孿生專區 (Digital Twin · 生命傳承與口述歷史)
+* [👤 陳英里姐專屬客戶檔案 (00_客戶檔案_陳英里.md)](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-03_Brand_LifeButler/00-03-09_Digital_Twin/陳英里/00_客戶檔案_陳英里.md)
   * **說明**：極星生命傳承示範案，收錄長輩靈魂願望、設備條件與會面排程。
-* [📘 生命數位孿生戰略策劃與明日實戰指南 (01_生命數位孿生戰略策劃與明日實戰指南.md)](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/數位孿生/陳英里/01_生命數位孿生戰略策劃與明日實戰指南.md)
+* [📘 生命數位孿生戰略策劃與明日實戰指南 (01_生命數位孿生戰略策劃與明日實戰指南.md)](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-03_Brand_LifeButler/00-03-09_Digital_Twin/陳英里/01_生命數位孿生戰略策劃與明日實戰指南.md)
   * **說明**：創辦人親定「信任與陪伴計價」5D 模型、POD 按需印刷供應鏈真相、正氣北路家宅客廳場地心理安全指南與明日 14:00~15:00 一小時精準引導腳本。
