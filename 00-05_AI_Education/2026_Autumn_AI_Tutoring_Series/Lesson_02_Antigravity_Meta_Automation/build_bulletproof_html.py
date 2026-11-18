@@ -1,0 +1,451 @@
+# -*- coding: utf-8 -*-
+"""
+生成極簡高清晰教學簡報 (HTML) - 創辦人精煉極簡版
+特點：
+- 字數大幅精簡 70%，只留關鍵名詞、點擊步驟與核心口訣
+- 字級加大、對比增強，適合現場大螢幕投影
+"""
+import os
+import shutil
+
+html_content = """<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <title>2026 秋季 AI 家教實戰系列班 · 第 2 講教學簡報</title>
+  <style>
+    body {
+      background-color: #0a0f1d;
+      color: #f8fafc;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+      margin: 0;
+      padding: 40px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .slide-card {
+      background: #121a2f;
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      border-radius: 16px;
+      width: 100%;
+      max-width: 1080px;
+      margin-bottom: 40px;
+      padding: 36px 40px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      position: relative;
+    }
+    .slide-tag {
+      display: inline-block;
+      font-size: 13px;
+      font-weight: bold;
+      color: #38bdf8;
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      padding: 4px 14px;
+      border-radius: 20px;
+      margin-bottom: 12px;
+    }
+    .slide-tag.amber { color: #f59e0b; background: rgba(245, 158, 11, 0.12); border-color: rgba(245, 158, 11, 0.3); }
+    .slide-tag.purple { color: #c084fc; background: rgba(192, 132, 252, 0.12); border-color: rgba(192, 132, 252, 0.3); }
+    .slide-tag.emerald { color: #10b981; background: rgba(16, 185, 129, 0.12); border-color: rgba(16, 185, 129, 0.3); }
+    .slide-num {
+      position: absolute;
+      top: 36px;
+      right: 40px;
+      font-size: 14px;
+      color: #64748b;
+      font-weight: bold;
+    }
+    .slide-title {
+      font-size: 28px;
+      font-weight: 800;
+      color: #ffffff;
+      margin: 0 0 8px 0;
+      line-height: 1.3;
+    }
+    .slide-subtitle {
+      font-size: 16px;
+      color: #38bdf8;
+      margin: 0 0 24px 0;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 20px;
+    }
+    .box {
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 24px 26px;
+      line-height: 1.8;
+      font-size: 16px;
+    }
+    .box.emerald { border-color: rgba(16, 185, 129, 0.4); }
+    .box.rose { border-color: rgba(244, 63, 94, 0.4); }
+    .box.amber { border-color: rgba(245, 158, 11, 0.4); }
+    .box.purple { border-color: rgba(168, 85, 247, 0.4); }
+    .box.cyan { border-color: rgba(56, 189, 248, 0.4); }
+    .box-title {
+      font-size: 19px;
+      font-weight: bold;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .step-item {
+      margin-bottom: 10px;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .step-badge {
+      background: #38bdf8;
+      color: #0a0f1d;
+      font-weight: bold;
+      border-radius: 6px;
+      padding: 2px 8px;
+      font-size: 13px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .step-badge.amber { background: #f59e0b; }
+    .step-badge.emerald { background: #10b981; }
+    .step-badge.purple { background: #a855f7; }
+    code {
+      background: rgba(56, 189, 248, 0.15);
+      color: #38bdf8;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: Consolas, Monaco, monospace;
+      font-size: 15px;
+    }
+    .highlight {
+      color: #f59e0b;
+      font-weight: bold;
+    }
+    .highlight-green {
+      color: #10b981;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Slide 1: 封面 -->
+  <div class="slide-card">
+    <span class="slide-tag amber">生活管家 · 2026 秋季實戰家教班</span>
+    <span class="slide-num">01 / 11</span>
+    <h2 class="slide-title">告別手動複製貼上！把社群發射台交給 AI</h2>
+    <p class="slide-subtitle">第 2 講：Antigravity 操作 ✕ Meta 官方自動發文串接 (FB / Threads)</p>
+    <div class="box amber" style="margin-top: 20px;">
+      <p style="margin: 0; font-size: 17px; line-height: 2;">
+        📍 <strong>地點</strong>：台東市正氣北路166巷90號（家宅總部）<br>
+        ⏰ <strong>時間</strong>：2026-11-18 (週三) 14:00 - 16:00<br>
+        🎯 <strong>目標</strong>：現場實機走通，帶走專屬於你的自動發射台！
+      </p>
+    </div>
+  </div>
+
+  <!-- Slide 2: 溫故知新 -->
+  <div class="slide-card">
+    <span class="slide-tag">溫故知新 · 邏輯承接</span>
+    <span class="slide-num">02 / 11</span>
+    <h2 class="slide-title">上週做好了海報文案，然後呢？</h2>
+    <p class="slide-subtitle">好內容已經誕生，為什麼我們依然感覺被社群折磨？</p>
+    <div class="grid-2">
+      <div class="box emerald">
+        <div class="box-title" style="color:#10b981;">🎉【上週的驕傲戰果】</div>
+        <p style="margin:0;">
+          • NotebookLM 深度消化真實資料<br>
+          • 親手產出：專屬故事海報 ＋ 文案<br>
+          • <strong>智囊大腦已經就位！</strong><br><br>
+          ✨ 我們已經擁有產出高品質內容的能力！
+        </p>
+      </div>
+      <div class="box rose">
+        <div class="box-title" style="color:#f43f5e;">⚠️【今天面臨的現實卡點】</div>
+        <p style="margin:0;">
+          • 海報躺在電腦裡，不會自己飛出去<br>
+          • 開店忙備料招呼客人，沒空天天手動發<br>
+          • 一旦漏發，社群觸及直接斷線！<br><br>
+          🚀 <strong>今天的使命：裝上「全自動發射引擎」！</strong>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 3: 創辦人心法 -->
+  <div class="slide-card">
+    <span class="slide-tag purple">創辦人心法 · 認知定錨</span>
+    <span class="slide-num">03 / 11</span>
+    <h2 class="slide-title">AI 的應用取決於認知，學好 AI 取決於熟練度</h2>
+    <p class="slide-subtitle">工具不會自動改變生意，唯有你的認知與熟練，才是真正護城河！</p>
+    <div class="grid-2">
+      <div class="box purple">
+        <div class="box-title" style="color:#c084fc;">🧠【認知決定高度：AI 不是神話，是數位分身】</div>
+        <p style="margin:0;">
+          • 你怎麼看待 AI，AI 就怎麼回報你<br>
+          • ❌ <strong>當聊天玩具</strong> ➔ 只會講笑話<br>
+          • ⭕ <strong>當發射總機</strong> ➔ 替你扛起全天候運營<br><br>
+          💡 <strong>思維躍升</strong>：從手動搬運工 ➔ 數位指揮官！
+        </p>
+      </div>
+      <div class="box emerald">
+        <div class="box-title" style="color:#10b981;">⚡【熟練成就護城河：天天交代，勝過狂讀】</div>
+        <p style="margin:0;">
+          • 熟練不是背代碼，而是養成「交代 AI」的習慣<br>
+          • 每天對話 10 分鐘，勝過狂讀 10 小時<br>
+          • 越常使用，你的數位神經反射就越快！<br><br>
+          🎯 <strong>今天的實戰：把認知化為身體的肌肉記憶！</strong>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 4: 什麼是 Antigravity？ -->
+  <div class="slide-card">
+    <span class="slide-tag">核心概念 · 定位解密</span>
+    <span class="slide-num">04 / 11</span>
+    <h2 class="slide-title">Antigravity 究竟是什麼？</h2>
+    <p class="slide-subtitle">它不是一般的聊天網頁，它是住在你筆電裡的「24 小時數位發射員」</p>
+    <div class="grid-3">
+      <div class="box rose">
+        <div class="box-title" style="color:#f43f5e;">❌ 傳統網頁 AI</div>
+        <p style="margin:0;">
+          • 關在瀏覽器框框裡<br>
+          • 看不到你電腦的檔案<br>
+          • 無法替你執行發布指令<br>
+          • 每次都要手動複製貼上
+        </p>
+      </div>
+      <div class="box cyan">
+        <div class="box-title" style="color:#38bdf8;">⚡ Antigravity 核心能力</div>
+        <p style="margin:0;">
+          • 長住在你的本機電腦中<br>
+          • 直接讀取桌面的圖片文案<br>
+          • 自帶手腳：能跑發射腳本<br>
+          • 直連 Meta 官方發布貼文
+        </p>
+      </div>
+      <div class="box amber">
+        <div class="box-title" style="color:#f59e0b;">🎯 你的數位發射台</div>
+        <p style="margin:0;">
+          • 如店裡請了全職發射員<br>
+          • 丟進資料夾<br>
+          • 自動打包 ➔ 定時<br>
+          • 一鍵推上社群時間軸！
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 5: 現場演示 -->
+  <div class="slide-card">
+    <span class="slide-tag amber">現場表演 · 震撼見證</span>
+    <span class="slide-num">05 / 11</span>
+    <h2 class="slide-title">現場實機演示：倒數 3 秒，全自動發射！</h2>
+    <p class="slide-subtitle">請大家拿出手機，打開我們的 Facebook 粉絲專頁與 Threads……</p>
+    <div class="grid-2">
+      <div class="box amber">
+        <div class="box-title" style="color:#f59e0b;">🎬【現場實機演示流程】</div>
+        <p style="margin:0;">
+          1. 電腦資料夾：一張照片 ＋ 一段文字<br>
+          2. 完全不開 FB / Threads 網頁<br>
+          3. 終端機按一行：<code>python launch_my_post.py</code><br>
+          4. ⚡ <strong>3 秒完成：上傳圖片 ➔ 發布 ➔ 掛留言！</strong>
+        </p>
+      </div>
+      <div class="box emerald">
+        <div class="box-title" style="color:#10b981;">📱【請大家看手機驗收】</div>
+        <p style="margin:0;">
+          • Facebook 粉專：新貼文秒級上線！<br>
+          • Threads：同步推播，演算法曝光！<br>
+          • 第一則留言：自動附帶購買連結（防降權）！<br><br>
+          ✨ <em>「每天半小時的折磨，電腦 3 秒做完！」</em>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 6: 為什麼堅持官方 API -->
+  <div class="slide-card">
+    <span class="slide-tag">安全第一 · 法規護城河</span>
+    <span class="slide-num">06 / 11</span>
+    <h2 class="slide-title">為什麼絕對不用外掛？Meta 官方 API 是唯一合法保險</h2>
+    <p class="slide-subtitle">做生意粉專是命根子！絕不拿辛苦累積的資產冒險</p>
+    <div class="grid-2">
+      <div class="box rose">
+        <div class="box-title" style="color:#f43f5e;">❌ 坊間黑心爬蟲 / 外掛</div>
+        <p style="margin:0;">
+          • 模擬真人點擊，Meta 系統天天抓異常<br>
+          • 隨時面臨永久封號、辛苦資產歸零！<br>
+          • 帳密外洩風險，恐遭盜刷或綁架
+        </p>
+      </div>
+      <div class="box emerald">
+        <div class="box-title" style="color:#10b981;">⭕ Meta 官方 Graph API 直連</div>
+        <p style="margin:0;">
+          • 官方正式核發的合法通行證<br>
+          • 永不封號，受 Meta 官方正式保障<br>
+          • 金鑰鎖在本地 <code>.secrets.env</code>，主權在握！
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 7: 10 步黃金發射台 SOP -->
+  <div class="slide-card">
+    <span class="slide-tag amber">品碩親授 · 避坑指南</span>
+    <span class="slide-num">07 / 11</span>
+    <h2 class="slide-title">Meta 官方自動發文 · 10 步黃金發射台 SOP</h2>
+    <p class="slide-subtitle">口訣：「5 步選對案例，8 步給對權限，9 步切換門牌，10 步鎖定長效！」</p>
+    <div class="grid-2">
+      <div class="box amber">
+        <div class="box-title" style="color:#f59e0b;">🚀【前半段：建立總機發射台】</div>
+        <div class="step-item"><span class="step-badge amber">01</span><span>打開：<code>developers.facebook.com</code></span></div>
+        <div class="step-item"><span class="step-badge amber">02</span><span>點擊：右上角<strong>【我的應用程式】</strong></span></div>
+        <div class="step-item"><span class="step-badge amber">03</span><span>點擊：<strong>【建立應用程式】</strong>選【企業商家】</span></div>
+        <div class="step-item"><span class="step-badge amber">04</span><span>命名：輸入<strong>【我的AI小編助理】</strong></span></div>
+        <div class="step-item"><span class="step-badge amber">05</span><span>案例：<span class="highlight">⭐ 必勾【管理粉絲專頁的所有內容】(⚑)</span></span></div>
+      </div>
+      <div class="box emerald">
+        <div class="box-title" style="color:#10b981;">🔑【後半段：調用金鑰與延期】</div>
+        <div class="step-item"><span class="step-badge emerald">06</span><span>點擊：頂部導航列<strong>【工具】</strong></span></div>
+        <div class="step-item"><span class="step-badge emerald">07</span><span>進入：<strong>【圖形 API 測試工具】</strong></span></div>
+        <div class="step-item"><span class="step-badge emerald">08</span><span>拉權限：勾選 <code>pages_manage_posts</code></span></div>
+        <div class="step-item"><span class="step-badge emerald">09</span><span>切換粉專：點產生權杖 ➔ 選單切換至<strong>【你的粉專】</strong></span></div>
+        <div class="step-item"><span class="step-badge emerald">10</span><span>延期：進入【偵錯工具】點延長 ➔ <span class="highlight-green">升級 60 天金鑰！</span></span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 8: 1 個 App 管多個粉專 -->
+  <div class="slide-card">
+    <span class="slide-tag purple">架構解密 · 商業賦能</span>
+    <span class="slide-num">08 / 11</span>
+    <h2 class="slide-title">一個應用程式，能不能同時管理多個粉專？</h2>
+    <p class="slide-subtitle">答案是：絕對可以！單一中央發射台，掌控無數品牌門牌！</p>
+    <div class="grid-2">
+      <div class="box cyan">
+        <div class="box-title" style="color:#38bdf8;">🏢【1 對多發射台架構】</div>
+        <p style="margin:0;">
+          • <strong>應用程式 (App)</strong> = 中央通訊發射台<br>
+          • <strong>用戶權杖 (User Token)</strong> = 管理員主通行證<br>
+          • <strong>粉專權杖 (Page Token)</strong> = 各粉專獨立鑰匙<br><br>
+          👉 <strong>一個 App 可同時取得 5 個、10 個粉專金鑰！</strong>
+        </p>
+      </div>
+      <div class="box purple">
+        <div class="box-title" style="color:#c084fc;">💼【生活管家代操商業價值】</div>
+        <p style="margin:0;">
+          • 免為每個小農或分店重複申請 App<br>
+          • 只要將帳號設為協同管理員，即可代發<br><br>
+          🚀 <strong>實測驗證</strong>：已成功打通生活管家、阿美族學學會、獨賣早餐、雙饗丼等 5 大粉專！
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 9: 發射原理 -->
+  <div class="slide-card">
+    <span class="slide-tag amber">發射原理 · 核心機制</span>
+    <span class="slide-num">09 / 11</span>
+    <h2 class="slide-title">為什麼發文要分兩段？社群 API 行李托運定律</h2>
+    <p class="slide-subtitle">出國托運行李，不能把行李箱直接塞進登機證！</p>
+    <div class="grid-2">
+      <div class="box amber">
+        <div class="box-title" style="color:#f59e0b;">🧳【第一階段：上傳圖片拿吊牌】</div>
+        <p style="margin:0;">
+          • 呼叫 <code>POST /PAGE_ID/photos (published=false)</code><br>
+          • 先把照片送上 Meta 傳送帶<br>
+          • 取得官方號碼牌：<strong>Media ID</strong><br>
+          • （照片暫存雲端，尚未公開）
+        </p>
+      </div>
+      <div class="box emerald">
+        <div class="box-title" style="color:#10b981;">🚀【第二階段：合體推播 ＋ 暗樁】</div>
+        <p style="margin:0;">
+          • 呼叫 <code>POST /PAGE_ID/feed</code><br>
+          • 文案 ＋ Media ID 合體發射 ➔ <strong>貼文秒級上線！</strong><br>
+          • 💬 <strong>自動暗樁</strong>：1 秒後自動留第一則留言<br>
+          • 外部連結放留言，主文觸及率 100% 不降權！
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 10: 讓 AI 助教帶你做 -->
+  <div class="slide-card">
+    <span class="slide-tag purple">高維進化 · 人機協同</span>
+    <span class="slide-num">10 / 11</span>
+    <h2 class="slide-title">步驟太多記不住？讓 AI 助教坐在電腦裡帶你做！</h2>
+    <p class="slide-subtitle">今天不用背代碼！打開對話框，Agent 手把手帶你完成</p>
+    <div class="grid-2">
+      <div class="box purple">
+        <div class="box-title" style="color:#c084fc;">🤖【專屬助教的 4 大主動能力】</div>
+        <p style="margin:0;">
+          1. <strong>主動指引</strong>：手把手問「建好 App 了嗎？」<br>
+          2. <strong>保管金鑰</strong>：貼上 Token，自動存入保險箱<br>
+          3. <strong>素材排版</strong>：自動看桌面照片與文案<br>
+          4. <strong>一鍵發射</strong>：你說「確認發射」，立刻推送！
+        </p>
+      </div>
+      <div class="box emerald">
+        <div class="box-title" style="color:#10b981;">💬【現場實機開練 3 步】</div>
+        <p style="margin:0;">
+          01 <strong>輸入通關密語</strong>：<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;「請一步一步帶我打造社群發射台」<br>
+          02 <strong>依序貼上 Token 交代照片與文案</strong><br>
+          03 <strong>說一聲：「確認發射！」</strong><br><br>
+          ⚠️ <em>講師與助教全場巡桌，排錯到底！</em>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 11: 總結 -->
+  <div class="slide-card">
+    <span class="slide-tag amber">總結與帶走資產 · 下週預告</span>
+    <span class="slide-num">11 / 11</span>
+    <h2 class="slide-title">今天帶走的不是一張證書，而是一套自轉系統！</h2>
+    <p class="slide-subtitle">恭喜大家跨過數位轉型最高的一道門檻！</p>
+    <div class="grid-2">
+      <div class="box emerald">
+        <div class="box-title" style="color:#10b981;">🎁【今天帶回家的 3 大數位資產】</div>
+        <p style="margin:0;">
+          1. <strong>實體自動發射台</strong>：丟圖丟字一鍵發布<br>
+          2. <strong>Meta 官方 60 天合規通行證</strong>：永不封號<br>
+          3. <strong>買回時間的主權</strong>：省下時間顧店與生活！
+        </p>
+      </div>
+      <div class="box amber">
+        <div class="box-title" style="color:#f59e0b;">🔮【下週預告 · 第 3 講】</div>
+        <p style="margin:0;">
+          <strong>《數據架構 ✕ 品牌人設工程：打造專屬語氣的 AI 管家》</strong><br><br>
+          • 自動發文搞定了，文案怎麼越寫越像你？<br>
+          • 讓 AI 像「闆娘親自說話」一樣接地氣！<br>
+          • 下週三下午 14:00，正氣北路家宅總部見！
+        </p>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
+"""
+
+workspace_html = r"c:\Users\lenovo\我的雲端硬碟\00_Master_Polaris\00-05_AI_Education\2026_Autumn_AI_Tutoring_Series\Lesson_02_Antigravity_Meta_Automation\slides.html"
+with open(workspace_html, 'w', encoding='utf-8-sig') as f:
+    f.write(html_content)
+
+desktop_html = r"C:\Users\lenovo\Desktop\第2講教學簡報.html"
+shutil.copy2(workspace_html, desktop_html)
+print("Lean HTML Presentation updated successfully!")

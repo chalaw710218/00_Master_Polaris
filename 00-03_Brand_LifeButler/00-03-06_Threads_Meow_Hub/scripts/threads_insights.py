@@ -73,7 +73,7 @@ def get_account_insights():
 
         return {
             "username": r_user.get("username", "hellotaitung"),
-            "name": r_user.get("name", "生活的一部分，就醬點！"),
+            "name": r_user.get("name", "生活管家，就醬點！"),
             "followers": followers,
             "profile_views": profile_views
         }

@@ -68,22 +68,21 @@ def upload_local_image_to_meta_cdn(image_path):
             }, timeout=30)
         res = r.json()
         photo_id = res.get("id")
-        if not photo_id:
-            print(f"❌ 上傳 Meta CDN 失敗: {res}")
-            return None
-
-        # 抓取最高畫質的 CDN 網址
-        url_query = f"https://graph.facebook.com/v20.0/{photo_id}?fields=images&access_token={FB_PAGE_ACCESS_TOKEN}"
-        r2 = requests.get(url_query, timeout=20).json()
-        images = r2.get("images", [])
-        if images:
-            cdn_url = images[0].get("source")
-            print("✅ 本地圖片已成功託管至 Meta CDN！")
-            return cdn_url
+        if photo_id:
+            # 抓取最高畫質的 CDN 網址
+            url_query = f"https://graph.facebook.com/v20.0/{photo_id}?fields=images&access_token={FB_PAGE_ACCESS_TOKEN}"
+            r2 = requests.get(url_query, timeout=20).json()
+            images = r2.get("images", [])
+            if images:
+                cdn_url = images[0].get("source")
+                print("✅ 本地圖片已成功託管至 Meta CDN！")
+                return cdn_url
+        else:
+            print(f"❌ 上傳 Meta CDN 未取得 photo_id: {res}，準備切換至備援圖床...")
     except Exception as e:
         print(f"❌ 上傳 Meta CDN 過程發生異常: {e}，準備啟動備援圖床...")
 
-    # 雙保險備援機制：若 Meta CDN 遭遇網路抖動或 SSL 異常，自動無縫切換至 Catbox 公開 CDN
+    # 雙保險備援機制：若 Meta CDN 遭遇權限或網路抖動，自動無縫切換至 Catbox 公開 CDN
     print(f"🔄 正在啟動備援公開圖床 (Catbox) 託管: {path.name}...")
     try:
         with open(path, "rb") as f:
@@ -92,6 +91,8 @@ def upload_local_image_to_meta_cdn(image_path):
             cb_url = r_cb.text.strip()
             print(f"✅ 本地圖片已成功託管至備援 CDN: {cb_url}！")
             return cb_url
+        else:
+            print(f"❌ 備援 CDN 回傳異常: {r_cb.status_code} - {r_cb.text}")
     except Exception as e_cb:
         print(f"❌ 備援 CDN 上傳亦失敗: {e_cb}")
 
@@ -160,6 +161,9 @@ def create_media_container(text, image_url=None, video_url=None, reply_to_id=Non
         print("❌ 錯誤：尚未在 .secrets.env 中設定 THREADS_USER_ID 或 THREADS_ACCESS_TOKEN！")
         return None
 
+    if "誰能想" in text:
+        raise ValueError("出廠硬攔截：『誰能想』已被創辦人全面停用，禁止發布！")
+
     url = f"{API_BASE}/{THREADS_USER_ID}/threads"
     payload = {
         "access_token": THREADS_ACCESS_TOKEN,
@@ -225,22 +229,16 @@ def publish_thread(text, image=None, video=None, reply_to_id=None, topic_tag=Non
     """
     print("🚀 [喵編發射台] 準備推送貼文至 Threads...")
     
-    # 創辦人親定鐵律：發文圖片絕對不可重複使用檢查
-    used_registry_file = ROOT_DIR / "00-03_Brand_LifeButler" / "00-03-06_Threads_Meow_Hub" / "data" / "published_image_registry.json"
+    # 創辦人親定鐵律：發文圖片絕對不可重複使用物理安燈門禁（檔名 ＋ SHA-256 雙重校驗）
     if image and not str(image).startswith("http"):
-        img_name = Path(image).name
-        if used_registry_file.exists():
-            try:
-                import json
-                with open(used_registry_file, "r", encoding="utf-8") as rf:
-                    reg = json.load(rf)
-                used_names = [item.get("filename") for item in reg.get("published_images", [])]
-                if img_name in used_names:
-                    print(f"\n🛑【創辦人親定鐵律攔截】：圖片 '{img_name}' 已經在先前的貼文中使用過！發文圖片嚴禁重複！")
-                    print("👉 請生成或選用全新未上線過的照片，保障每篇貼文的獨特性與新鮮感。")
-                    return None
-            except Exception as e:
-                print(f"⚠️ 圖片去重檢查警告: {e}")
+        try:
+            from image_hash_gate import check_image_poka_yoke
+            is_valid_img, img_err = check_image_poka_yoke(image)
+            if not is_valid_img:
+                print(f"\n🛑【創辦人親定鐵律物理硬攔截】：{img_err}")
+                raise ValueError(f"出廠物理硬攔截：{img_err}")
+        except ImportError:
+            pass
 
     # 若未指定 topic_tag 且非回覆留言，啟動智慧主題判定
     if not topic_tag and not reply_to_id:
@@ -270,7 +268,8 @@ def publish_thread(text, image=None, video=None, reply_to_id=None, topic_tag=Non
     if not video_url and image:
         image_url = upload_local_image_to_meta_cdn(image)
         if not image_url:
-            print("⚠️ 圖片轉載失敗，將改為純文字發布！")
+            print("🛑【出廠硬阻斷】：指定了發文圖片但圖片託管失敗，依品碩法旨嚴禁降級為純文字發布！")
+            raise ValueError("出廠硬阻斷：指定了發文圖片但圖片託管失敗，依品碩法旨嚴禁降級為純文字發布！")
 
     creation_id = create_media_container(text=text, image_url=image_url, video_url=video_url, reply_to_id=reply_to_id, topic_tag=topic_tag)
     if not creation_id:
@@ -301,8 +300,15 @@ def publish_thread(text, image=None, video=None, reply_to_id=None, topic_tag=Non
     result_post_id = publish_container(creation_id)
     if result_post_id and image and not str(image).startswith("http"):
         try:
+            from image_hash_gate import register_published_image_hash
+            register_published_image_hash(image, result_post_id, topic=topic_tag or "生活動態")
+        except Exception as e:
+            print(f"⚠️ 物理雜湊登記提示: {e}")
+
+        try:
             import json
             from datetime import datetime
+            used_registry_file = ROOT_DIR / "00-03_Brand_LifeButler" / "00-03-06_Threads_Meow_Hub" / "data" / "published_image_registry.json"
             img_name = Path(image).name
             if used_registry_file.exists():
                 with open(used_registry_file, "r", encoding="utf-8") as rf:

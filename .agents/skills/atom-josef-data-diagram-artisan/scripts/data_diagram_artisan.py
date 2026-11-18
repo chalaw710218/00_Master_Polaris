@@ -55,7 +55,7 @@ def generate_flow_svg(title: str, steps: list) -> str:
         # 步驟文字
         svg_lines.append(f'  <text x="{center_x}" y="{center_y + 70}" font-family="system-ui, sans-serif" font-size="16" font-weight="600" fill="{COLOR_CARBON_BLACK}" text-anchor="middle">{step}</text>')
         
-    svg_lines.append(f'  <text x="50" y="410" font-family="system-ui, sans-serif" font-size="13" fill="#888888">生活的一部分，就醬點！· 生活管家服務體系</text>')
+    svg_lines.append(f'  <text x="50" y="410" font-family="system-ui, sans-serif" font-size="13" fill="#888888">生活管家，就醬點！· 生活管家服務體系</text>')
     svg_lines.append('</svg>')
     
     return "\n".join(svg_lines)

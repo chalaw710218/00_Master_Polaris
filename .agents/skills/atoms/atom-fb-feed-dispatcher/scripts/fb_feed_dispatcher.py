@@ -30,7 +30,7 @@ def append_to_social_archive(post_id: str, message: str, is_scheduled: bool, sch
     entry = f"""
 ### [{now_str}] Facebook 貼文 {mode_str}
 - **Post ID**: `{post_id}`
-- **發布粉專**: 生活的一部分，就醬點！ (`{PAGE_ID}`)
+- **發布粉專**: 生活管家，就醬點！ (`{PAGE_ID}`)
 - **貼文摘要**: {message[:120]}...
 - **狀態**: {"已建立 Meta 伺服器定時任務" if is_scheduled else "已公開上線並完成第一留言導流"}
 ---
@@ -152,7 +152,7 @@ def dispatch_facebook_post(
 
 def main():
     parser = argparse.ArgumentParser(description="Facebook 粉絲專頁多圖暫存與 Feed 貼文派發底座")
-    parser.add_argument("--message", type=str, default="生活管家到府陪伴，生活的一部分，就醬點！\n\n👉 預約訂購與門市資訊，管家已整理在【第一則留言】中，點擊即可直達！", help="貼文內文")
+    parser.add_argument("--message", type=str, default="生活管家到府陪伴，生活管家，就醬點！\n\n👉 預約訂購與門市資訊，管家已整理在【第一則留言】中，點擊即可直達！", help="貼文內文")
     parser.add_argument("--images", nargs="*", default=["sample1.jpg", "sample2.jpg"], help="上傳照片路徑清單")
     parser.add_argument("--first-comment", type=str, default="👉 點擊加入管家專屬 LINE 官方帳號：https://lin.ee/z83YSq6\n📍 取貨地址：台東市正氣北路166巷90號", help="第一則留言內容")
     parser.add_argument("--schedule-timestamp", type=int, default=None, help="UNIX 排程時間戳")
@@ -170,7 +170,7 @@ def main():
     print("==================================================")
     print("🚀 Facebook 粉絲專頁貼文派發底座執行完成 (Exit Code: 0)")
     print(f"執行狀態: {result['status']} | 模式: {result['mode']}")
-    print(f"目標粉專: 生活的一部分，就醬點！ (Page ID: {result['page_id']})")
+    print(f"目標粉專: 生活管家，就醬點！ (Page ID: {result['page_id']})")
     print(f"生成 Post ID: {result['post_id']}")
     print(f"多圖暫存上傳: 成功裝載 {result['uploaded_media_count']} 張相片 (published=false 媒體池)")
     print("--------------------------------------------------")

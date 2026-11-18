@@ -26,7 +26,7 @@ LEAKED_REDLINE_PATTERNS = [
     r"北極星",
 ]
 
-STATUTORY_BRAND_FULL = "生活的一部分，就醬點！"
+STATUTORY_BRAND_FULL = "生活管家，就醬點！"
 STATUTORY_ROLE_NAME = "生活管家"
 
 def scan_brand_firewall(text: str) -> dict:
@@ -84,14 +84,14 @@ def main():
     else:
         # 內建模擬合規對外文案樣品
         content = (
-            "【生活的一部分，就醬點！】在台東，柴米油鹽是真實的修行。"
+            "【生活管家，就醬點！】在台東，柴米油鹽是真實的修行。"
             "我是您的生活管家，今天為大家準備了成功港直送的現流高脂午仔魚！"
         )
 
     print("=== [atom-yuki-brand-redline-gate] 啟動品牌法定名稱防火牆掃描 ===")
     res = scan_brand_firewall(content)
 
-    print(f"\n官方品牌全稱確證 (生活的一部分，就醬點！): {'[已包含]' if res['contains_statutory_brand'] else '[未包含完整全稱]'}")
+    print(f"\n官方品牌全稱確證 (生活管家，就醬點！): {'[已包含]' if res['contains_statutory_brand'] else '[未包含完整全稱]'}")
     print(f"日常業務自稱確證 (生活管家): {'[已包含]' if res['contains_statutory_role'] else '[未包含]'}")
     print(f"內部代號洩漏違規數: {res['violations_count']}")
 

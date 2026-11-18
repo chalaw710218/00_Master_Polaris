@@ -1,0 +1,30 @@
+{
+  "url": "https://chalaw710218.github.io/taitung-trash-radar/",
+  "captured_schedules": [
+    "https://taitung-trash-proxy.chalaw710218.workers.dev/schedule?run_id=1399",
+    "https://taitung-trash-proxy.chalaw710218.workers.dev/schedule?run_id=1519",
+    "https://taitung-trash-proxy.chalaw710218.workers.dev/schedule?run_id=1503",
+    "https://taitung-trash-proxy.chalaw710218.workers.dev/schedule?run_id=1509",
+    "https://taitung-trash-proxy.chalaw710218.workers.dev/schedule?run_id=1560",
+    "https://taitung-trash-proxy.chalaw710218.workers.dev/schedule?run_id=1468",
+    "https://taitung-trash-proxy.chalaw710218.workers.dev/schedule?run_id=1449",
+    "https://taitung-trash-proxy.chalaw710218.workers.dev/schedule?run_id=1593",
+    "https://taitung-trash-proxy.chalaw710218.workers.dev/schedule?run_id=1447",
+    "https://taitung-trash-proxy.chalaw710218.workers.dev/schedule?run_id=1551",
+    "https://taitung-trash-proxy.chalaw710218.workers.dev/schedule?run_id=1520",
+    "https://taitung-trash-proxy.chalaw710218.workers.dev/schedule?run_id=1454",
+    "https://taitung-trash-proxy.chalaw710218.workers.dev/schedule?run_id=1451",
+    "https://taitung-trash-proxy.chalaw710218.workers.dev/schedule?run_id=1470",
+    "https://taitung-trash-proxy.chalaw710218.workers.dev/schedule?run_id=2558",
+    "https://taitung-trash-proxy.chalaw710218.workers.dev/schedule?run_id=1595",
+    "https://taitung-trash-proxy.chalaw710218.workers.dev/schedule?run_id=1601",
+    "https://taitung-trash-proxy.chalaw710218.workers.dev/schedule?run_id=1612",
+    "https://taitung-trash-proxy.chalaw710218.workers.dev/schedule?run_id=1594",
+    "https://taitung-trash-proxy.chalaw710218.workers.dev/schedule?run_id=1490",
+    "https://taitung-trash-proxy.chalaw710218.workers.dev/schedule?run_id=1618"
+  ],
+  "has_1618": true,
+  "console_logs": [
+    "[warning] GPS error: GeolocationPositionError"
+  ]
+}

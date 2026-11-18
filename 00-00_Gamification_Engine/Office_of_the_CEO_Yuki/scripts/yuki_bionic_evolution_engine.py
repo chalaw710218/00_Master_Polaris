@@ -40,7 +40,7 @@ def run_yuki_evolution_engine():
 
     # Cycle 62: 最高品牌憲章法定命名與對外禁令硬約束
     def test_cycle_62():
-        brand_name = "生活的一部分，就醬點！"
+        brand_name = "生活管家，就醬點！"
         self_id = "生活管家"
         merch_cat = "管家選品"
         service_cat = "生活服務"

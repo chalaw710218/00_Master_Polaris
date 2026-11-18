@@ -16,7 +16,7 @@
     - 雙軌文案：
       - FB 粉絲專頁：`00-03-05_Brand_Content_Hub/draft_fb_20261103_ai_tutoring_launch.md`
       - Threads 社群：`00-03-06_Threads_Meow_Hub/data/draft_threads_20261103_ai_tutoring_launch.txt`
-    - 品牌合規檢核：嚴格恪守官方全稱「生活的一部分，就醬點！」、自稱「生活管家」，對外文字絕對零「極星」字樣。
+    - 品牌合規檢核：嚴格恪守官方全稱「生活管家，就醬點！」、自稱「生活管家」，對外文字絕對零「極星」字樣。
     - 執行工具：調用 `facebook-publisher` 與 `threads-publisher` 一鍵排程發布。
 
 - [ ] **2. 📦 生活管家系統全面庫存盤點 (Inventory Audit & Reconciliation)**

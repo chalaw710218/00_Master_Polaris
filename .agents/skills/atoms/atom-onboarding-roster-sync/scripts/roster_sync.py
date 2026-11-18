@@ -19,7 +19,7 @@ if sys.stdout.encoding.lower() != 'utf-8':
 def generate_persona_card(zh: str, en: str, title: str) -> str:
     return f"""# 👤 {zh} ({en}) · 角色人設檔案 (Visual & Persona SSOT)
 
-> **法定身分**：生活的一部分，就醬點！ · {title}  
+> **法定身分**：生活管家，就醬點！ · {title}  
 > **台前稱呼**：生活管家特聘顧問  
 
 ## 一、 角色靈魂與外顯氣場

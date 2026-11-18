@@ -1,6 +1,6 @@
 ---
 name: facebook-publisher
-description: 將指定商品資料夾內的文案與圖片，全自動發布或預約排程發布至「生活的一部分，就醬點！」Facebook 粉絲專頁。
+description: 將指定商品資料夾內的文案與圖片，全自動發布或預約排程發布至「生活管家，就醬點！」Facebook 粉絲專頁。
 ---
 # 臉書自動發文機 (Facebook Auto Publisher)
 
@@ -45,7 +45,7 @@ import sys
 import datetime
 
 PAGE_ID = '110505444816362'
-TOKEN = 'EAATKJBLZArMgBSompnyrNvMzTPUHB3eXZAyAeZASWPEGGdNtZAHrznrabA3lPcunk6XnVukoalmLyUubLxLdpJY0E0ZBE69QhcY0SSIFTnBb0EMOw0JRVYN60ZC1qBtm25ZAZAEYPYolyZBJG2ExPYh1XKD8F2CgZCNxLq5AELgY79G0dmvlFxz42Ap0pOeNZBjTNREuuKPgb2N56svPDlgn4oohngZD'
+TOKEN = 'EAAP5P2YUe04BTCNcfv7QZCnIT86YhES87A9TdbPOl7MGLweZCTsQi8Q6DMmZBzG9AqIZCnWHnIpYt8fY7kpGRgClJepx4vHOi8bKZAQoKLMjNvFD22KgFA4s1rw1X7S5YGTA9EU2iY5CDmNuHyjCCImugJFjpR6uZC3TvjmvVGMUm7IdtzWFHamQWUKlY0RZClamdo2gIwIsQulBAYNXOoQMdcZD'
 
 # 1. 圖片路徑清單
 image_paths = [

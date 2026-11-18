@@ -70,7 +70,7 @@ def inspect_brand_redline(text: str, brand_tag: str) -> Tuple_Result:
     combined = f"{text} {brand_tag}"
     for forbidden in FORBIDDEN_BRAND_TERMS:
         if forbidden in combined:
-            return False, f"海報/短影音文案出現內部代號「{forbidden}」，觸發品牌紅線安燈！對外僅能使用「生活管家」或「生活的一部分，就醬點！」"
+            return False, f"海報/短影音文案出現內部代號「{forbidden}」，觸發品牌紅線安燈！對外僅能使用「生活管家」或「生活管家，就醬點！」"
     return True, "品牌審查通過：100% 符合對外法定名稱規範"
 
 def main():

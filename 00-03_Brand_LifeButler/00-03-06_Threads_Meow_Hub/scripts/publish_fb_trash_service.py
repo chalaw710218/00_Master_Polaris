@@ -145,7 +145,7 @@ try:
 - **FB Post ID**：`{post_id}`
 - **Comment ID**：`{comment_id}`
 - **圖片**：`boss_suit_chasing_trash_truck.jpg`
-- **粉專專頁**：生活的一部分，就醬點！
+- **粉專專頁**：生活管家，就醬點！
 """
     if archive_path.exists():
         with open(archive_path, "a", encoding="utf-8") as af:

@@ -43,7 +43,7 @@ def audit_quality(text: str) -> Dict[str, Any]:
                 "status": "FAIL",
                 "total_score": 0.0,
                 "andon_light": "RED",
-                "fatal_violation": f"觸犯品牌法定零洩漏紅線：偵測到內部代號【{leak}】！對外僅能稱『生活的一部分，就醬點！』或『生活管家』。",
+                "fatal_violation": f"觸犯品牌法定零洩漏紅線：偵測到內部代號【{leak}】！對外僅能稱『生活管家，就醬點！』或『生活管家』。",
                 "feedback": "一票否決，立刻退回重修。",
                 "exit_code": 0
             }

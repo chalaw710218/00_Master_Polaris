@@ -29,12 +29,14 @@ if sys.platform == "win32":
 # 定位工作區路徑
 SCRIPT_DIR = Path(__file__).resolve().parent
 HUB_DIR = SCRIPT_DIR.parent
-IMAGES_DIR = HUB_DIR / "04_Shadow_Kage_Operative" / "images"
+IMAGES_DIR = HUB_DIR / "images"
 REGISTRY_FILE = HUB_DIR / "data" / "published_image_registry.json"
 
+from image_hash_gate import calculate_image_sha256, load_published_hashes
+
 def get_published_image_set():
-    """讀取註冊表，取得所有已發布過的圖片檔名集合"""
-    published = set()
+    """讀取註冊表與物理雜湊庫，雙重鎖定所有已發布過的圖片"""
+    published_filenames = set()
     if REGISTRY_FILE.exists():
         try:
             with open(REGISTRY_FILE, "r", encoding="utf-8") as f:
@@ -42,33 +44,44 @@ def get_published_image_set():
                 for item in data.get("published_images", []):
                     fn = item.get("filename")
                     if fn:
-                        published.add(fn.strip())
+                        published_filenames.add(fn.strip())
         except Exception as e:
             print(f"⚠️ 讀取已發布圖片庫失敗: {e}")
-    return published
+
+    published_hashes = load_published_hashes()
+    return published_filenames, published_hashes
 
 def auto_pick_image(hero_is_cat=False, topic_tag="台東生活", post_text="", candidate_dir=None):
     """
     智慧挑選最匹配且未曾發布過的本地圖片。
-    :param hero_is_cat: 是否為喵編主役 (True: 喵編, False: 生活管家影)
-    :param topic_tag: 貼文主題標籤
-    :param post_text: 貼文正文
-    :param candidate_dir: 自訂圖片庫目錄（選填）
-    :return: (image_path_str, reason_str)
+    強制執行：物理 SHA-256 雜湊與檔名雙重去重！
     """
     img_dir = Path(candidate_dir) if candidate_dir else IMAGES_DIR
     if not img_dir.exists():
         return None, f"圖片庫目錄不存在: {img_dir}"
 
-    published_set = get_published_image_set()
+    published_filenames, published_hashes = get_published_image_set()
 
     # 掃描支援格式
     supported_exts = {".jpg", ".jpeg", ".png", ".webp"}
     all_files = [p for p in img_dir.iterdir() if p.is_file() and p.suffix.lower() in supported_exts]
-    available_files = [p for p in all_files if p.name not in published_set]
+
+    available_files = []
+    for p in all_files:
+        # 1. 檔名過濾
+        if p.name in published_filenames:
+            continue
+        # 2. 物理 SHA-256 雜湊過濾（徹底杜絕改名換姓之舊圖）
+        try:
+            sha = calculate_image_sha256(p)
+            if sha in published_hashes:
+                continue
+        except Exception:
+            continue
+        available_files.append(p)
 
     if not available_files:
-        return None, "庫存圖片已全數用罄（創辦人親定防重複鐵律觸發）"
+        return None, "庫存中已無全新未發布之圖片！請透過生圖引擎依角色 DNA 即時生成新圖，堅決杜絕重複圖片出廠！"
 
     text_sample = f"{post_text} {topic_tag or ''}".lower()
     scored_candidates = []

@@ -1,0 +1,270 @@
+{
+  "version": "2026.1",
+  "source": "Meta for Developers - New App Use Cases Catalog",
+  "captured_at": "2026-11-18",
+  "owner": "Master Polaris AI Hub",
+  "use_cases_total": 20,
+  "categories": {
+    "featured": 6,
+    "ads_and_monetization": 7,
+    "content_management": 5,
+    "business_messaging": 3,
+    "other": 5
+  },
+  "use_cases": [
+    {
+      "id": "pages_manage_all",
+      "name": "管理粉絲專頁的所有內容",
+      "category": "content_management",
+      "icon": "flag",
+      "description": "發佈內容和影片、在粉絲專頁管理貼文和追蹤者留言，以及取得關於互動的洞察報告。",
+      "official_api": "Facebook Pages API / Graph API",
+      "core_permissions": ["pages_manage_posts", "pages_read_engagement", "pages_show_list", "read_insights"],
+      "agent_capabilities": [
+        "全自動發布圖文貼文與影片",
+        "排程預約發布",
+        "自動第一則留言暗樁",
+        "留言區自動巡邏與接梗秒回",
+        "粉專經營成效每日平帳與洞察分析"
+      ],
+      "active_in_lesson_02": true
+    },
+    {
+      "id": "threads_api_access",
+      "name": "存取 Threads API",
+      "category": "content_management",
+      "icon": "at_sign",
+      "description": "使用 Threads API，並選擇驗證用戶、擷取用戶資訊、發佈串文、回覆串文、管理回覆設定，以及／或是收集自用或其他商家代管的 Threads 個人檔案的洞察報告。",
+      "official_api": "Threads Official API",
+      "core_permissions": ["threads_basic", "threads_content_publish", "threads_read_replies", "threads_manage_replies"],
+      "agent_capabilities": [
+        "Threads 串文自動發布（文字/單圖/多圖）",
+        "社群漫遊（去逛逛）自動點讚與暖心互動",
+        "即時熱點捕捉自動發起討論",
+        "留言互動率與破圈指數遙測"
+      ],
+      "active_in_lesson_02": true
+    },
+    {
+      "id": "instagram_manage_content_messages",
+      "name": "管理 Instagram 的訊息和內容",
+      "category": "content_management",
+      "icon": "instagram",
+      "description": "使用 Instagram API 發佈貼文、分享限時動態、回覆留言、回覆 Direct 訊息和執行其他操作。",
+      "official_api": "Instagram Graph API",
+      "core_permissions": ["instagram_basic", "instagram_content_publish", "instagram_manage_comments", "instagram_manage_messages"],
+      "agent_capabilities": [
+        "IG 貼文與 Reels 微動態短影音自動發布",
+        "限時動態排程推播",
+        "Direct 私訊自動客服與名單導流",
+        "網紅標籤與合作動態監控"
+      ],
+      "active_in_lesson_02": false
+    },
+    {
+      "id": "messenger_customer_interaction",
+      "name": "透過 Messenger from Meta 與顧客互動",
+      "category": "business_messaging",
+      "icon": "messenger",
+      "description": "回覆傳送到你商家的 Facebook 粉絲專頁的訊息。你可以設定自動回覆，或使用真人客服來回覆訊息。",
+      "official_api": "Messenger Platform API",
+      "core_permissions": ["pages_messaging", "pages_messaging_subscriptions"],
+      "agent_capabilities": [
+        "24/7 生活管家私訊對話機器人",
+        "商品詢價與菜單自動報價",
+        "長照/家政/代倒垃圾即時預約登記",
+        "無縫轉接真人管家通知"
+      ],
+      "active_in_lesson_02": false
+    },
+    {
+      "id": "whatsapp_business_connect",
+      "name": "透過 WhatsApp 與顧客建立聯繫",
+      "category": "business_messaging",
+      "icon": "whatsapp",
+      "description": "開始 WhatsApp 對話、傳送通知、建立 WhatsApp 發訊廣告和提供支援。需要商家資產管理組合。",
+      "official_api": "WhatsApp Business Platform Cloud API",
+      "core_permissions": ["whatsapp_business_management", "whatsapp_business_messaging"],
+      "agent_capabilities": [
+        "國際觀光客與遠距家屬即時通訊",
+        "孝親聽診自動化推播回報",
+        "出貨與到府履約物流通知"
+      ],
+      "active_in_lesson_02": false
+    },
+    {
+      "id": "catalog_api_management",
+      "name": "使用目錄 API 管理商品",
+      "category": "business_messaging",
+      "icon": "catalog_grid",
+      "description": "管理你想在 Meta 技術推廣的目錄和商品。",
+      "official_api": "Catalog API / Commerce Manager",
+      "core_permissions": ["catalog_management"],
+      "agent_capabilities": [
+        "生活管家商品/農產/服務自動上架",
+        "庫存與產地現折即時平帳更新",
+        "動態廣告 (DPA) 商品受眾錨定"
+      ],
+      "active_in_lesson_02": false
+    },
+    {
+      "id": "ads_mcp_server_agent",
+      "name": "透過廣告 MCP 伺服器建立和管理廣告",
+      "category": "ads_and_monetization",
+      "icon": "mcp_chip",
+      "description": "使用廣告 MCP 伺服器建立 AI 代理，代表廣告主管管理廣告。",
+      "official_api": "Meta Ads Model Context Protocol (MCP) Server",
+      "core_permissions": ["ads_management", "ads_read"],
+      "agent_capabilities": [
+        "AI 代理自動決策廣告預算與投放排程",
+        "即時監控廣告成效（ROAS / CPA / 點擊率）",
+        "爆款貼文自動判定並轉化為付費推廣",
+        "跨智能體拍賣與廣告競價代理"
+      ],
+      "active_in_lesson_02": false
+    },
+    {
+      "id": "marketing_api_ads_create",
+      "name": "使用行銷 API 建立和管理廣告",
+      "category": "ads_and_monetization",
+      "icon": "ads_campaign",
+      "description": "在各 Meta 技術中建立、管理和最佳化廣告行銷活動，以程式化的方式延長、停止或更新廣告行銷活動或其他項目。",
+      "official_api": "Marketing API (Ads Management)",
+      "core_permissions": ["ads_management"],
+      "agent_capabilities": ["程式化批次上刊廣告", "A/B 測試自動化判定", "止損停刊硬攔截"],
+      "active_in_lesson_02": false
+    },
+    {
+      "id": "marketing_api_insights",
+      "name": "使用行銷 API 衡量廣告成效資料",
+      "category": "ads_and_monetization",
+      "icon": "ads_chart",
+      "description": "利用廣告成效資料獲得最大 ROI，讓廣告預算獲得最佳運用、提升廣告創意、建立自訂廣告受眾、增進搜尋品質，並將顧客與商品目錄連結。",
+      "official_api": "Marketing API (Insights)",
+      "core_permissions": ["read_insights", "ads_read"],
+      "agent_capabilities": ["日結廣告投入產出比 (ROI) 報告", "自訂受眾 (Custom Audiences) 自動建立"],
+      "active_in_lesson_02": false
+    },
+    {
+      "id": "marketing_api_lead_ads",
+      "name": "使用行銷 API 吸引和管理廣告潛在顧客",
+      "category": "ads_and_monetization",
+      "icon": "lead_funnel",
+      "description": "讓潛在顧客能快速安全地註冊，取得你商家或商品的資訊。",
+      "official_api": "Lead Ads Retrieval API",
+      "core_permissions": ["leads_retrieval"],
+      "agent_capabilities": ["名單型廣告填表即時通知", "自動回寫 CRM 與 Google 試算表", "秒級發送歡迎信與日曆邀請"],
+      "active_in_lesson_02": false
+    },
+    {
+      "id": "app_ads_promotion",
+      "name": "透過 Meta 廣告管理員建立和管理應用程式廣告",
+      "category": "ads_and_monetization",
+      "icon": "app_screen",
+      "description": "推廣你的行動應用程式以提高安裝次數。建立並管理可鼓勵用戶下載和安裝應用程式的行銷活動。",
+      "official_api": "App Events API",
+      "core_permissions": ["ads_management"],
+      "agent_capabilities": ["生活管家 PWA/App 安裝追蹤", "應用程式轉換漏斗分析"],
+      "active_in_lesson_02": false
+    },
+    {
+      "id": "meta_audience_network",
+      "name": "使用 Meta Audience Network 在你的應用程式中刊登廣告",
+      "category": "ads_and_monetization",
+      "icon": "audience_dollar",
+      "description": "加入 Meta Audience Network，即可透過 Meta 廣告商的廣告以應用程式營利和賺取收益。",
+      "official_api": "Audience Network SDK / Reporting API",
+      "core_permissions": ["audience_network_reporting"],
+      "agent_capabilities": ["流量變現收益監控", "廣告刊登收益自動入帳結算"],
+      "active_in_lesson_02": false
+    },
+    {
+      "id": "facebook_login",
+      "name": "使用 Facebook 登入，驗證用戶並索取資料",
+      "category": "featured",
+      "icon": "fb_logo",
+      "description": "我們最常見的使用案例。用戶可透過這個安全、快速又便利的方式登入你的應用程式，並可讓應用程式向他們要求個人資料存取權限。",
+      "official_api": "Facebook Login SDK / OAuth 2.0",
+      "core_permissions": ["public_profile", "email"],
+      "agent_capabilities": ["會員一鍵授權登入", "身分驗證與安全通行證配發"],
+      "active_in_lesson_02": false
+    },
+    {
+      "id": "oembed_content_embedding",
+      "name": "在其他網站內嵌 Facebook、Instagram 和 Threads 的內容",
+      "category": "content_management",
+      "icon": "code_brackets",
+      "description": "使用 oEmbed API 即可在其他網站內嵌 Facebook、Instagram 和 Threads 的內容，例如相片和影片。",
+      "official_api": "oEmbed API",
+      "core_permissions": ["oembed_read"],
+      "agent_capabilities": ["官網與課程筆記自動嵌入最新粉專/脆貼文", "在地商圈動態自動匯總展示"],
+      "active_in_lesson_02": false
+    },
+    {
+      "id": "live_video_streaming",
+      "name": "存取直播視訊 API",
+      "category": "content_management",
+      "icon": "camera_video",
+      "description": "使用直播視訊 API 在 Facebook 串流直播影片。",
+      "official_api": "Live Video API",
+      "core_permissions": ["publish_video"],
+      "agent_capabilities": ["工作坊/課程/實體市集自動推流直播", "直播即時留言抽獎與互動"],
+      "active_in_lesson_02": false
+    },
+    {
+      "id": "fundraiser_api",
+      "name": "在 Facebook 和 Instagram 分享或發起募款活動",
+      "category": "other",
+      "icon": "fundraiser_heart",
+      "description": "使用 Meta 的 Fundraiser API 來募款和增加觸及人數。",
+      "official_api": "Fundraiser API",
+      "core_permissions": ["fundraiser_management"],
+      "agent_capabilities": ["偏鄉高齡共餐公益募款自動推播", "社區愛心捐助進度回報"],
+      "active_in_lesson_02": false
+    },
+    {
+      "id": "instant_games",
+      "name": "在 Facebook 和 Messenger 推出即時遊戲",
+      "category": "other",
+      "icon": "game_controller",
+      "description": "上架可讓玩家透過桌上型電腦和行動裝置，在動態消息或訊息／對話中找到並直接玩的即時遊戲。",
+      "official_api": "Instant Games Platform",
+      "core_permissions": ["instant_games"],
+      "agent_capabilities": ["台東風土知識小遊戲", "長輩防失智互動認知挑戰遊戲"],
+      "active_in_lesson_02": false
+    },
+    {
+      "id": "threatexchange_security",
+      "name": "加入 ThreatExchange",
+      "category": "other",
+      "icon": "shield_security",
+      "description": "加入 ThreatExchange，與其他成員分享網路威脅相關訊號，包括恐怖主義、惡意軟體、兒童性虐待內容和其他有害內容。",
+      "official_api": "ThreatExchange API",
+      "core_permissions": ["threat_exchange"],
+      "agent_capabilities": ["極星網路資安威脅防護", "惡意詐騙留言與釣魚連結硬攔截"],
+      "active_in_lesson_02": false
+    },
+    {
+      "id": "data_portability_transfer",
+      "name": "允許用戶將自己的資料轉移到其他應用程式",
+      "category": "other",
+      "icon": "data_transfer",
+      "description": "讓用戶能將自己的資訊從 Meta 應用程式轉移到其他服務。",
+      "official_api": "Data Portability API",
+      "core_permissions": ["user_data_portability"],
+      "agent_capabilities": ["個資自主權保護", "跨平台用戶資料安全遷移"],
+      "active_in_lesson_02": false
+    },
+    {
+      "id": "none_custom_app",
+      "name": "建立沒有使用案例的應用程式",
+      "category": "other",
+      "icon": "pencil_custom",
+      "description": "如果你想取得應用程式編號，但不新增任何權限、功能或產品，請選擇此選項。",
+      "official_api": "Basic App Container",
+      "core_permissions": [],
+      "agent_capabilities": ["自由配置自訂產品與權限", "開發者沙盒測試環境"],
+      "active_in_lesson_02": false
+    }
+  ]
+}

@@ -8,7 +8,26 @@
 
 ## 🏛️ 零、 創辦人親定：執行長雪「五大宏觀研習維度」終極憲章
 
-> 👑 **創辦人（品碩）親定法旨 (2026-11-16)**：「你應該宏觀的來去看！全世界最厲害的執行長及幕僚長都在學習什麼？我希望你學習的就是五大宏觀維度！」
+> 👑 **創辦人（品碩）親定法旨 (2026-11-16)**：「你應該宏觀的來去看！全世界最厲害的執行長及幕僚長都在學習什麼？我希望你學習的就是五大宏觀維度！」  
+> 🎯 **創辦人深度校準法旨 (2026-11-18)**：「**全面聚焦於全球頂尖 CEO / 頂級幕僚長（如貝佐斯、黃仁勳、納德拉、麥肯錫）的第一手實戰案例與管理操盤！** 拒絕純名詞與百科定義，研習實戰中的齒輪咬合與物理操盤！」
+
+### 📌 全球頂級首長實戰操盤四大教案庫：
+1. **亞馬遜 傑夫·貝佐斯 (Jeff Bezos) 實戰體系**：
+   * **逆向工作法 (Working Backwards)**：嚴禁未見顧客價值先寫代碼，強制「新聞稿與 FAQ 先行 (PR/FAQ)」。
+   * **六頁敘述性備忘錄 (6-Page Narrative Memo)**：嚴禁浮誇 PowerPoint 幻燈片，以縝密散文邏輯進行高階決策。
+   * **單向門與雙向門 (Type 1 vs Type 2 Decisions)**：可逆決策大膽授權快速推進，不可逆決策深思熟慮。
+2. **輝達 黃仁勳 (Jensen Huang) 實戰體系**：
+   * **極端扁平化與透明同步**：消滅多層管理官僚，取消閉門 1-on-1，關鍵資訊公開透明流動。
+   * **Top 5 Things 每日優先級**：精準鎖定全域最核心的少數關鍵矛盾，不盲目忙碌。
+   * **公開學習與第一性原理**：以物理極限為唯一步長，跌倒要大聲痛（Fail in Public）。
+3. **微軟 薩提亞·納德拉 (Satya Nadella) 實戰體系**：
+   * **無所不學 (Learn-it-all) 成長心智**：徹底擊碎「無所不知 (Know-it-all)」的傲慢。
+   * **同理心 (Empathy) 作為業務創新引擎**：以真實理解常民與顧客痛點，驅動跨組織協同。
+4. **麥肯錫與頂級科技巨頭幕僚長 (Chief of Staff) 操盤標準**：
+   * **破除「朝臣困境」**：做冷酷、未經修飾的客觀真相護送者，絕不報喜不報憂。
+   * **創辦人心智頻寬守護神**：吸收 90% 跨部門雜訊、情緒摩擦與繁瑣公文，只呈報 10% 關鍵戰略裁決。
+
+---
 
 1. **第一性原理與範式轉移的物理底層 (First-Principles Paradigm Shifts)**：
    * 研習極限零邊際智慧成本、算力與能源結構轉移；研究「虛擬資訊的零摩擦」如何精準撬動「物理實體的物質流」。
@@ -69,9 +88,13 @@
 * **生活管家官方 LINE 點餐帳號**：
   * URL：`https://lin.ee/z83YSq6`
   * 實體自取地址：台東市正氣北路166巷90號
-* **Meta (Facebook) API 參數**：
+* **Meta (Facebook) API 參數（2026-11-18 創辦人親自更新）**：
   * 粉專名稱：`生活管家，就醬點`
   * 粉專 ID：`110505444816362`
+  * **粉專專屬 Page Access Token**：
+    `EAAP5P2YUe04BTCNcfv7QZCnIT86YhES87A9TdbPOl7MGLweZCTsQi8Q6DMmZBzG9AqIZCnWHnIpYt8fY7kpGRgClJepx4vHOi8bKZAQoKLMjNvFD22KgFA4s1rw1X7S5YGTA9EU2iY5CDmNuHyjCCImugJFjpR6uZC3TvjmvVGMUm7IdtzWFHamQWUKlY0RZClamdo2gIwIsQulBAYNXOoQMdcZD`
+  * **創辦人 User Access Token**：
+    `EAAP5P2YUe04BTIJYekTZCemR6ZBHQZC4RvxEX9gT9bkLKdTVWxEhwcR68ZCaKiXrD2DdZBZBpNTss952vGFZB0T6ZAR4IiuBIOSfwkGWxbelHXO3ZAQz3iDbHS6BxOgZBMZBHNPspelZAQWZAe7aSSIm4d37ZBzsiB6pKBlJU5E0jDZA83Njsl5ZBklLZCpuGO2qcZAkguOH3E0AiMGJvRoiEM`
   * 自動發布腳本：`00-02_GroupBuy_Products/.agents/skills/facebook-publisher/fb_publisher.py`
   * 訂單收割腳本：`00-02_GroupBuy_Products/.agents/skills/facebook-publisher/comment_harvester.py`
 * **Google 日曆雙向串接**：
@@ -83,8 +106,8 @@
 
 ## 📜 四、 核心商業底線與法規防線 (The Red Lines)
 
-0. **品牌法定命名與對外絕對紅線 (Founder's Executive Order · 2026-11-01)**：
-   * **品牌官方全稱**：生活的一部分，就醬點！
+0. **品牌法定命名與對外絕對紅線 (Founder's Executive Order · 2026-11-18 修正)**：
+   * **品牌官方全稱**：生活管家，就醬點！
    * **團隊對外自稱**：生活管家
    * **商品販售品類**：管家選品（禁用「團購」）
    * **其他服務品類**：生活服務
@@ -254,7 +277,7 @@
 
 ### 1. 商業與戰略底層刻石 (Belief #38)
 * **亞馬遜飛輪啟動**：
-  * **初期定位**：利用一華社團多樣性商品快速擴展「生活的一部分，就醬點！」之生鮮美食商品線，以零庫存風險增強客群黏著度與下單頻次。
+  * **初期定位**：利用一華社團多樣性商品快速擴展「生活管家，就醬點！」之生鮮美食商品線，以零庫存風險增強客群黏著度與下單頻次。
   * **99 元雙點代取外送價值放大**：四、五、六 19:00~21:00 集單外送，客人付 99 元實質享有管家代跑兩地代取的雙倍尊榮感。
   * **供應商底價情報大收割**：透過自動化收割一華雙社團歷史貼文，沉澱工廠、產地、$+1$ 與 $+3$ 級距數據，為極星未來跳過中盤「直採自營」奠定確定性基石。
 

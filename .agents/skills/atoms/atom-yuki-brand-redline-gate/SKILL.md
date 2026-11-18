@@ -1,6 +1,6 @@
 ---
 name: atom-yuki-brand-redline-gate
-description: 品牌法定名稱零洩漏與出廠安全閘門原子 (Brand Red-Line Firewall & Outbound Gate Atom)。專門為執行長雪 (Yuki) 嚴格執行《全域工作區憲則·規則 5》品牌法定名稱防火牆，在任何對外文案（社群、LINE、表單、海報）中一票否決「極星/Polaris」代號洩漏，強制校準品牌全稱「生活的一部分，就醬點！」與「生活管家」。
+description: 品牌法定名稱零洩漏與出廠安全閘門原子 (Brand Red-Line Firewall & Outbound Gate Atom)。專門為執行長雪 (Yuki) 嚴格執行《全域工作區憲則·規則 5》品牌法定名稱防火牆，在任何對外文案（社群、LINE、表單、海報）中一票否決「極星/Polaris」代號洩漏，強制校準品牌全稱「生活管家，就醬點！」與「生活管家」。
 ---
 
 # 🛡️ atom-yuki-brand-redline-gate (品牌法定名稱零洩漏與出廠安全閘門原子)
@@ -15,7 +15,7 @@ description: 品牌法定名稱零洩漏與出廠安全閘門原子 (Brand Red-L
 
 1. **對外防護罩**：
    * 在任何對外公開或面對常民客戶的文本中：
-   * **官方品牌全稱**：強制為**「生活的一部分，就醬點！」**。
+   * **官方品牌全稱**：強制為**「生活管家，就醬點！」**。
    * **日常業務自稱**：強制為**「生活管家」**。
 2. **絕對紅線（一票否決）**：
    * **絕對嚴禁出現「極星」、「Polaris」、「北極星」等內部研發代號**！
@@ -31,7 +31,7 @@ description: 品牌法定名稱零洩漏與出廠安全閘門原子 (Brand Red-L
 ### 命令行介面 (CLI)
 
 ```bash
-python scripts/yuki_brand_redline_gate.py --text "歡迎來到生活的一部分，就醬點！我是您的生活管家..."
+python scripts/yuki_brand_redline_gate.py --text "歡迎來到生活管家，就醬點！我是您的生活管家..."
 python scripts/yuki_brand_redline_gate.py --file-path "outbound_post.txt"
 ```
 

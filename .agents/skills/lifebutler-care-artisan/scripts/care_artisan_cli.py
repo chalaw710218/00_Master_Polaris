@@ -159,7 +159,7 @@ def generate_card(args):
 ### 🛡️ 守護承諾
 您在遠方打拚，故鄉父母由生活管家替您溫柔守候。若有任何生活採買、冷氣清洗或水電檢測需求，隨時於官方 LINE 吩咐我們！
 
-**生活的一部分，就醬點！**
+**生活管家，就醬點！**
 """
 
     output_dir = "00-03_Brand_LifeButler/00-03-05_Brand_Content_Hub/Care_Orders"

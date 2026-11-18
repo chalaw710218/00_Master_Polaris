@@ -3,7 +3,7 @@
 > **發布日期**：2026-11-03 08:30:00 (預約排程)  
 > **作者**：創辦人 品碩 (Pinshuo) 親筆  
 > **協同主管**：泰勒絲 (CMO · 品牌敘事) ✕ 影 (特務管家 · 社群操盤)  
-> **發布平台**：Facebook 粉絲專頁（生活的一部分，就醬點！） ✕ Threads (@hellotaitung)  
+> **發布平台**：Facebook 粉絲專頁（生活管家，就醬點！） ✕ Threads (@hellotaitung)  
 > **搭配視覺**：`vespa_suit_trash_truck.jpg`（西裝偉士牌追垃圾車幽默迷因照）
 
 ---

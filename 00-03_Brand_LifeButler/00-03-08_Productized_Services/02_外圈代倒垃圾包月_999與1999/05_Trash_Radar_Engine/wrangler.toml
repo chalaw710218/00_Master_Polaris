@@ -1,0 +1,4 @@
+name = "taitung-trash-proxy"
+main = "cf_worker_trash_proxy.js"
+compatibility_date = "2024-11-01"
+workers_dev = true

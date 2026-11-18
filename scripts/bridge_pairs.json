@@ -1,0 +1,23 @@
+[
+  {
+    "ag_id": "44896662-b7c0-4aaa-9282-f12cda292979",
+    "ag_name": "最高指揮",
+    "claude_href": "/chat/cba3f4b0-1937-412d-a225-b15573ee0f34",
+    "claude_name": "[已開分頁] Claude與Chrome橋接",
+    "enabled": false
+  },
+  {
+    "ag_id": "62615c83-54cd-4585-ac6a-95745b9ac34a",
+    "ag_name": "Threads(影)",
+    "claude_href": "/chat/a213ac7e-5a26-4418-bfa3-3f20876d0792",
+    "claude_name": "[已開分頁] 影的仿生學習系統回報",
+    "enabled": false
+  },
+  {
+    "ag_id": "",
+    "ag_name": "",
+    "claude_href": "",
+    "claude_name": "",
+    "enabled": false
+  }
+]

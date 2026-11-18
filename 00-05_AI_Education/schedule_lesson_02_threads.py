@@ -20,23 +20,25 @@ from threads_publisher import upload_local_image_to_meta_cdn, create_media_conta
 TZ_TW = timezone(timedelta(hours=8))
 
 # ==========================================
-# 貼文庫設定 (Threads 02 & 03)
+# 貼文庫設定 (Threads 11/16 11:30 & 11/17 11:30)
 # ==========================================
 THREADS_SCHEDULE_QUEUE = [
     {
-        "id": 2,
-        "name": "第 2 講連載 · 篇號 02【每年省下三萬塊月租費】",
-        "target_dt": datetime(2026, 11, 15, 20, 30, 0, tzinfo=TZ_TW),
-        "img_path": r"c:\Users\lenovo\我的雲端硬碟\00_Master_Polaris\00-05_AI_Education\2026_Autumn_AI_Tutoring_Series\Lesson_02_Antigravity_Meta_Automation\FB_L02_02_Official_API_Security.png",
-        "message": """外面幫你排程發文、自動回留言的行銷軟體，一個月收 2,000 塊，一年就是兩萬多。找來路不明的黑心外掛，又隨時會被官方封號。
+        "id": "2_blueprint",
+        "name": "第 2 講連載 · 今天中午 11:30【全新自動化藍圖篇】",
+        "target_dt": datetime(2026, 11, 16, 11, 30, 0, tzinfo=TZ_TW),
+        "img_path": r"c:\Users\lenovo\我的雲端硬碟\00_Master_Polaris\00-05_AI_Education\2026_Autumn_AI_Tutoring_Series\Lesson_02_Antigravity_Meta_Automation\FB_Lesson_02_Automation_Blueprint.png",
+        "message": """很多人花一兩萬去上 AI 課，回到店裡還是天天手動複製貼上、半夜盯著手機回留言。
+坦白說，那不是學會 AI，那是變成了 AI 文案的廉價打工仔。
 
-11/18 週三第 2 講，我們教你走正道。
-直接串接 Facebook 和 Threads 的官方合法 API，把文案照片丟進資料夾，Python 3 秒自動發射，金鑰安全隔離永不外洩。
+週三下午第 2 講，我們要帶大家把最煩的雜事直接物理消滅：
+串接 Meta 官方合法 API，資料夾丟入圖文，Python 3 秒自動排程發 FB 與 Threads，24 小時留言自動秒回。
 
-這是外面顧問收三萬塊的系統，週三下午我坐在你身邊，親手盯著你在自己筆電跑通。
+外面顧問收三萬塊的系統，週三下午我坐在你身邊，親手盯著你在自己筆電跑通。
+老朋友 0 元免單，新朋友單堂 $500。
+依然是 6 席極致小班，自備筆電，做完專屬發射台才准走。
 
-老朋友 0 元免單，新夥伴單堂 $500。
-極限 6 席純實體，留言區申請。""",
+表單放第一則留言，週三見。""",
         "comment": """🐾 2026 秋季《AI 家教實戰系列班 · 第 2 講極致小班須知》
 ⚠️ 堅持【100% 純實體現場教學】，絕無線上同步！導師手把手巡桌排錯到底！
 全班極限 6 席深度陪伴，API 沒跑通不准走。
@@ -49,20 +51,21 @@ THREADS_SCHEDULE_QUEUE = [
 💬 官方 LINE 諮詢：https://lin.ee/z83YSq6"""
     },
     {
-        "id": 3,
-        "name": "第 2 講連載 · 篇號 03【明天下午家宅見】",
-        "target_dt": datetime(2026, 11, 17, 20, 30, 0, tzinfo=TZ_TW),
+        "id": "3_final_call",
+        "name": "第 2 講連載 · 明天中午 11:30【最後 24H 登機倒數篇】",
+        "target_dt": datetime(2026, 11, 17, 11, 30, 0, tzinfo=TZ_TW),
+        "fb_post_id": "110505444816362_1164717582903810",
         "img_path": r"c:\Users\lenovo\我的雲端硬碟\00_Master_Polaris\00-05_AI_Education\2026_Autumn_AI_Tutoring_Series\Lesson_02_Antigravity_Meta_Automation\FB_L02_03_Final_Call_Tomorrow.png",
-        "message": """最後通報。明天下午 14:00 正氣北路家宅開練。
+        "message": """最後 24 小時。明天下午 14:00，正氣北路家宅開練。
 
-第 2 講：【Meta 官方自動發文與秒回】。
-徹底消滅每天手動複製貼上、跟半夜盯著手機回訊息的焦慮。
+第 2 講主題：【把社群發射台交給 Python 與 Meta 官方 API】。
+徹底消滅每天半夜手動複製貼上、盯著手機回訊息的折磨。
 
-說到做到，現場就 6 張椅子，多一張都不加，絕無線上同步。
-帶著你的筆電來，現場把專屬發射台串通才放人下課。
+說到做到，客廳就 6 張椅子，多一張都不加，絕無線上同步。
+帶著你的筆電來，現場坐在你身邊，沒親手把專屬發射台跑通、發出第一篇，當天不准下課。
 
-正選名額即將全數鎖定，額滿表單立即關門。
-想把時間買回來的小老闆，第一則留言自取。明天下午見。""",
+老朋友 0 元免單，新夥伴單堂 $500。
+正選 6 席即刻關門。想把時間買回來的在地朋友，第一則留言申請。明天家宅見。""",
         "comment": """🐾 2026 秋季《AI 家教實戰系列班 · 第 2 講極致小班須知》
 ⚠️ 堅持【100% 純實體現場教學】，絕無線上同步！導師手把手巡桌排錯到底！
 全班極限 6 席深度陪伴，API 沒跑通不准走。
@@ -98,10 +101,11 @@ def save_state(state):
 def log_print(msg: str):
     ts = datetime.now(TZ_TW).strftime("[%Y-%m-%d %H:%M:%S]")
     full_msg = f"{ts} {msg}"
-    print(full_msg)
+    print(full_msg, flush=True)
     try:
         with open(LOG_FILE, "a", encoding="utf-8") as f:
             f.write(full_msg + "\n")
+            f.flush()
     except Exception as e:
         pass
 
@@ -167,6 +171,43 @@ def publish_single_post(task):
             log_print(f"✅ 第一則留言發布成功！Reply ID: {reply_id}")
             state[task_id_str]["reply_id"] = reply_id
             save_state(state)
+
+    # 🔗 連動補掛 Facebook 貼文留言（戴明安燈 Poka-Yoke）
+    fb_post_id = task.get("fb_post_id")
+    if fb_post_id:
+        log_print(f"💬 [戴明連動] 正在自動補掛 Facebook 貼文第一則留言 ({fb_post_id})...")
+        try:
+            root = Path(r'c:\Users\lenovo\我的雲端硬碟\00_Master_Polaris')
+            env = {}
+            for line in open(root / '.secrets.env', encoding='utf-8'):
+                if '=' in line and not line.startswith('#'):
+                    k, v = line.strip().split('=', 1)
+                    env[k.strip()] = v.strip()
+            fb_token = env.get('FB_PAGE_ACCESS_TOKEN')
+            url = f'https://graph.facebook.com/v20.0/{fb_post_id}/comments'
+            r = requests.post(url, data={'access_token': fb_token, 'message': task["comment"]}, timeout=15).json()
+            fb_comment_id = r.get('id')
+            if fb_comment_id:
+                log_print(f"✅ Facebook 第一則留言補掛成功！Reply ID: {fb_comment_id}")
+                state[task_id_str]["fb_comment_id"] = fb_comment_id
+                save_state(state)
+            else:
+                log_print(f"⚠️ Facebook 留言回傳異常: {r}")
+        except Exception as e:
+            log_print(f"⚠️ Facebook 留言發布失敗: {e}")
+
+    # 🐾 【影之完全體閉環】：文案發射後，自動啟動「去逛逛」(Autonomous Walk) 漫遊引擎！
+    log_print("🐾 [影 · 社交漫遊啟動] 貼文落地！立即喚醒 execute_autonomous_walk_v3.py 執行六部曲去逛逛...")
+    try:
+        walk_script = SCRIPTS_DIR / "execute_autonomous_walk_v3.py"
+        if walk_script.exists():
+            import subprocess
+            subprocess.Popen([sys.executable, str(walk_script), "--patrol-only"])
+            log_print("✅ 已成功派出影出門『去逛逛』（看家門、訪鄰居、借光端茶引流）！")
+        else:
+            log_print(f"⚠️ 找不到漫遊腳本: {walk_script}")
+    except Exception as w_err:
+        log_print(f"⚠️ 啟動去逛逛漫遊失敗: {w_err}")
             
     return True, th_url
 

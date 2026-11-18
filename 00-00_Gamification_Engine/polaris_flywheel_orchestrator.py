@@ -8,7 +8,7 @@
 最高統帥：陳品碩 (Pinshuo Chen)
 核心定位：
   1. 智慧事件路由 (Event Router)：將業務需求秒級分派至九大天王流水線。
-  2. 品牌出廠防火牆 (Brand Sovereign Gate)：硬性攔截「極星」，強制合規「生活的一部分，就醬點！」。
+  2. 品牌出廠防火牆 (Brand Sovereign Gate)：硬性攔截「極星」，強制合規「生活管家，就醬點！」。
   3. 創辦人一鍵批准發射台 (One-Click Launch Pipeline)：組裝極簡決策卡，一鍵出廠交付。
 """
 
@@ -28,7 +28,7 @@ class BrandFirewallViolationError(Exception):
 class PolarisFlywheelOrchestrator:
     def __init__(self):
         self.brand_rules = {
-            "official_brand_name": "生活的一部分，就醬點！",
+            "official_brand_name": "生活管家，就醬點！",
             "self_identity": "生活管家",
             "merchandise_category": "管家選品",
             "service_category": "生活服務",
@@ -186,7 +186,7 @@ def run_tests():
     print("✅ PASS ｜ G-01: 品牌對外紅線硬性阻斷測試（成功攔截極星字眼）")
 
     # 測試 2: 品牌合法文案放行
-    good_text = "生活管家為您推薦生活的一部分，就醬點！管家選品美味直送！"
+    good_text = "生活管家為您推薦生活管家，就醬點！管家選品美味直送！"
     res2 = orchestrator.audit_brand_firewall(good_text, is_outward=True)
     assert res2["passed"], "合法品牌文案必須滿分放行"
     print("✅ PASS ｜ G-02: 品牌法定命名放行測試（100分通過）")

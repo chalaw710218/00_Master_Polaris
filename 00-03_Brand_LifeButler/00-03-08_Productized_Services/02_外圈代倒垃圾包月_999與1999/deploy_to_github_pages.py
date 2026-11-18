@@ -45,7 +45,7 @@ def deploy():
         shutil.rmtree(temp_dir, ignore_errors=True)
     os.makedirs(temp_dir, exist_ok=True)
 
-    # 2. 複製必要前端靜態檔案
+    # 2. 複製必要前端靜態檔案與資料目錄
     files_to_copy = [
         "index.html",
         "taitung_trash_routes_seed.json",
@@ -54,14 +54,22 @@ def deploy():
     for fn in files_to_copy:
         src = os.path.join(ENGINE_DIR, fn)
         dst = os.path.join(temp_dir, fn)
-        shutil.copy2(src, dst)
-        print(f"📦 複製靜態檔案: {fn}")
+        if os.path.exists(src):
+            shutil.copy2(src, dst)
+            print(f"📦 複製靜態檔案: {fn}")
+
+    # 複製 data/ 外部資料目錄 (重要：供 index.html 載入路線資料)
+    data_src = os.path.join(ENGINE_DIR, "data")
+    data_dst = os.path.join(temp_dir, "data")
+    if os.path.exists(data_src):
+        shutil.copytree(data_src, data_dst, dirs_exist_ok=True)
+        print("📦 複製資料目錄: data/ (含路線與定點站 json)")
 
     # 3. 建立乾淨專業之 README.md (符合品牌法定名稱零洩漏防火牆)
     readme_content = """# 生活管家・台東一鍵倒垃圾雷達 (Taitung Trash Radar)
 
 > 台東在地常民零挫折清運導航 ✕ LINE LIFF 輕量單頁應用  
-> 官方服務品牌：生活的一部分，就醬點！｜日常業務：生活管家
+> 官方服務品牌：生活管家，就醬點！｜日常業務：生活管家
 
 ## 🌟 功能亮點
 - **雙軌出發點**：支援自動手機 GPS 定位 ＋ 手動輸入台東路名模糊匹配

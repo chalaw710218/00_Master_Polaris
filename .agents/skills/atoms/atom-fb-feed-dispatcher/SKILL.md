@@ -28,5 +28,5 @@ description: "Facebook 粉絲專頁多圖暫存與 Feed 貼文派發底座原子
 
 ## 執行腳本
 ```bash
-python scripts/fb_feed_dispatcher.py --message "生活的一部分，就醬點！" --images "sample1.jpg" "sample2.jpg" --dry-run
+python scripts/fb_feed_dispatcher.py --message "生活管家，就醬點！" --images "sample1.jpg" "sample2.jpg" --dry-run
 ```

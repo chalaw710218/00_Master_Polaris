@@ -141,7 +141,7 @@ def calculate_grid_and_typography(fmt: str, theme: str, title: str, subtitle: st
                 "optical_balance_ratio": "橫細豎粗 1:1.18 補償"
             },
             "subtitle": {
-                "text": subtitle or "生活的一部分，就醬點！",
+                "text": subtitle or "生活管家，就醬點！",
                 "recommended_size_px": subtitle_font_size,
                 "line_height_ratio": 1.35
             },
@@ -170,7 +170,7 @@ def main():
     parser.add_argument("--format", type=str, default="A4", choices=["A3", "A4", "IG_PORTRAIT", "REELS"], help="海報格式規格")
     parser.add_argument("--theme", type=str, default="senior_care", choices=["local_produce", "senior_care", "tech_workshop"], help="風土主題配色")
     parser.add_argument("--title", type=str, default="生活管家·溫暖安居到府服務", help="主標題文字")
-    parser.add_argument("--subtitle", type=str, default="生活的一部分，就醬點！", help="副標題文字")
+    parser.add_argument("--subtitle", type=str, default="生活管家，就醬點！", help="副標題文字")
     parser.add_argument("--dry-run", action="store_true", help="執行排版幾何模擬驗證")
     args = parser.parse_args()
 

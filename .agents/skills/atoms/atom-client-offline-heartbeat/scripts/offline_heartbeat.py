@@ -16,7 +16,7 @@ sys.stdout.reconfigure(encoding='utf-8')
 FORBIDDEN_BRAND_TERMS = ["極星", "Polaris", "polaris", "POLARIS"]
 
 SW_TEMPLATE = """// Service Worker: LifeButler Warm Offline Heartbeat v1.0
-// Brand: 生活的一部分，就醬點！
+// Brand: 生活管家，就醬點！
 const CACHE_PROTECTED = 'lifebutler-protected-v1';
 const CACHE_PROBATION = 'lifebutler-probation-v1';
 
@@ -124,7 +124,7 @@ OFFLINE_HTML_TEMPLATE = """<!DOCTYPE html>
       <strong>等風雨停了、訊號通了，系統會第一時間替您送出！</strong>
     </p>
     <div class="brand-tag">
-      生活的一部分，就醬點！ · 生活管家守護中
+      生活管家，就醬點！ · 生活管家守護中
     </div>
   </div>
 </body>

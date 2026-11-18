@@ -87,7 +87,7 @@ def main():
     <head><meta charset="utf-8"><title>生活管家</title></head>
     <body class="w-full">
       <section class="h-screen w-full flex flex-col justify-center items-center px-12">
-        <h1 class="text-6xl font-bold tracking-tight">生活的一部分，就醬點！</h1>
+        <h1 class="text-6xl font-bold tracking-tight">生活管家，就醬點！</h1>
         <p class="text-xl text-slate-400 mt-6 max-w-2xl text-center">把所有繁瑣的瑣事交給我們，您只需享受台東純粹的生活。</p>
         <button class="mt-8 px-8 py-4 bg-amber-500 text-slate-950 font-semibold rounded hover:translate-y-[-2px] transition-transform">立即預約服務</button>
       </section>

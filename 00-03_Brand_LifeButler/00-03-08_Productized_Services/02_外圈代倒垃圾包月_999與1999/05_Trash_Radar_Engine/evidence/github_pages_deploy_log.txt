@@ -1,0 +1,5 @@
+Commit: aee2721
+Repo: chalaw710218/taitung-trash-radar
+URL: https://chalaw710218.github.io/taitung-trash-radar/
+Status: Published successfully to GitHub Pages (Exit Code 0)
+DATA_VERSION: 20261118_v4

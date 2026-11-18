@@ -69,7 +69,7 @@ def inspect_poster_print_spec(spec: Dict[str, Any]) -> Dict[str, Any]:
     for forbidden in FORBIDDEN_BRAND_TERMS:
         if forbidden in combined_text:
             andon_triggered = True
-            violations.append(f"【品牌紅線致命違規】海報內文出現內部代號「{forbidden}」，違反全域憲則！對外法定名稱僅能為「生活的一部分，就醬點！」或自稱「生活管家」")
+            violations.append(f"【品牌紅線致命違規】海報內文出現內部代號「{forbidden}」，違反全域憲則！對外法定名稱僅能為「生活管家，就醬點！」或自稱「生活管家」")
 
     # 7. 台灣正體中文語境審查
     for marker in SIMPLIFIED_CHINESE_MARKERS:
@@ -97,7 +97,7 @@ def main():
     parser.add_argument("--tac", type=int, default=225, help="總油墨覆蓋率 TAC 百分比")
     parser.add_argument("--black-mode", type=str, default="K100_OVERPRINT", help="黑色直壓模式")
     parser.add_argument("--qr-size", type=float, default=32.0, help="二維碼物理寬度毫米")
-    parser.add_argument("--text-sample", type=str, default="生活管家 到府陪伴與居安守護 生活的一部分，就醬點！ 預約專線：089-123456", help="海報內文抽樣")
+    parser.add_argument("--text-sample", type=str, default="生活管家 到府陪伴與居安守護 生活管家，就醬點！ 預約專線：089-123456", help="海報內文抽樣")
     parser.add_argument("--dry-run", action="store_true", help="執行出廠安燈驗證")
     args = parser.parse_args()
 

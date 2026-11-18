@@ -226,6 +226,11 @@ def tick(office: str, summary: str, evidence: str) -> int:
     if sha in used_evidence_shas(office):
         raise ValueError(f"防刷輪次阻斷：規則與驗算實質內容 SHA-256 ({sha[:12]}...) 與歷史輪次重複，無實質新變更！")
 
+    from evidence_gate import check_evidence
+    ok, reasons = check_evidence(str(ev_path))
+    if not ok:
+        raise ValueError("入帳拒絕：" + "；".join(reasons))
+
     n = cycle_count(office) + 1
     ev_data = {
         "type": "tick",

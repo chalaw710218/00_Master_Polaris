@@ -131,7 +131,7 @@ def _auto_archive_post(post_id, message, image_paths=None, comment_text=None, co
 ---
 
 ### 📝 【自動補登】Facebook 貼文 ({now_str})
-* **發布日期**：{now_str} ｜ **平台**：Facebook 粉專「生活的一部分，就醬點！」
+* **發布日期**：{now_str} ｜ **平台**：Facebook 粉專「生活管家，就醬點！」
 * **貼文 ID**：`{post_id}`{f" ｜ **第一留言 ID**：`{comment_id}`" if comment_id else ""}
 * **主題摘要**：{first_line}...
 * **搭配素材**：{image_paths if image_paths else "純文字貼文"}

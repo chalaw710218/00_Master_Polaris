@@ -1,6 +1,6 @@
 ---
 name: facebook-publisher
-description: 將指定商品資料夾內的文案與圖片，全自動發布或預約排程發布至「生活的一部分，就醬點！」Facebook 粉絲專頁。
+description: 將指定商品資料夾內的文案與圖片，全自動發布或預約排程發布至「生活管家，就醬點！」Facebook 粉絲專頁。
 ---
 # 臉書自動發文機 (Facebook Auto Publisher)
 

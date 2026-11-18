@@ -61,6 +61,8 @@ def parse_args():
     parser.add_argument("--topic", type=str, default=None, help="主題標籤 (例如：台東生活, 耍廢日常, 生活服務)")
     parser.add_argument("--reply", type=str, default=None, help="客製首回覆文字")
     parser.add_argument("--dry-run", action="store_true", help="演練模式，不真正調用 API 發文")
+    parser.add_argument("--patrol-only", action="store_true", help="僅執行社交巡邏與借光端茶，跳過新貼文發布")
+    parser.add_argument("--k-id", type=str, default=None, help="指定儲備知識 K-編號 (如 K-014)，若指定 control 或 [] 則為對照組")
     return parser.parse_args()
 
 args = parse_args()
@@ -443,7 +445,27 @@ with sync_playwright() as p:
             raise e
         print(f"   ℹ️ 仿生門禁檢驗提示: {e}")
 
-    if args.dry_run:
+    # 🔒 【文案物理雜湊與相似度零重複硬門禁 (text_hash_gate)】
+    try:
+        from text_hash_gate import check_text_poka_yoke, register_published_text_hash
+        ok_text, text_msg = check_text_poka_yoke(post_text)
+        if not ok_text:
+            print(f"🛑 [text_hash_gate] 硬性攔截出廠: {text_msg}")
+            raise ValueError(f"[text_hash_gate 物理阻斷] {text_msg}")
+        print(f"   🛡️ [text_hash_gate 合格] {text_msg}")
+    except ImportError:
+        register_published_text_hash = None
+        print("   ⚠️ 未載入 text_hash_gate 模組，請檢查 scripts 路徑！")
+
+    if args.patrol_only:
+        print("   🚶 [Patrol Only 巡邏模式] 跳過新貼文發布與首回覆，專注於看家門、訪鄰居與借光端茶！")
+        report_data["step4_post"] = {
+            "post_id": "SKIPPED_PATROL_ONLY",
+            "title": "巡邏漫遊模式（跳過發文）",
+            "hero": default_hero,
+            "topic_tag": topic_tag
+        }
+    elif args.dry_run:
         print("   🧪 [Dry Run 演練模式] 跳過真正發文與首回覆！")
         report_data["step4_post"] = {
             "post_id": "DRY_RUN_TEST_ONLY",
@@ -476,6 +498,25 @@ with sync_playwright() as p:
 
             print(f"   🎉 貼文發布成功！Post ID: {new_post_id}")
             print(f"   🔗 公開網址: {permalink}")
+
+            # 🎯 接入常態反饋測試登記：呼叫 feedback_loop.log_post
+            chosen_k_ids = []
+            try:
+                from feedback_loop import log_post, select_next_k_id
+                chosen_k_ids = select_next_k_id(args.k_id)
+                log_post(new_post_id, chosen_k_ids, post_text)
+                k_label = f"實驗組 {chosen_k_ids}" if chosen_k_ids else "對照組 []"
+                print(f"   🏷️ [常態反饋測試登記] 成功登記至 feedback_posts.json ({k_label})")
+            except Exception as e:
+                print(f"   ⚠️ 反饋測試登記提示: {e}")
+
+            # 🔒 【文案物理雜湊入庫】：登記至 published_text_hashes.json 永久去重
+            if register_published_text_hash:
+                try:
+                    register_published_text_hash(post_text, new_post_id)
+                except Exception as e:
+                    print(f"   ⚠️ 文案雜湊入庫提示: {e}")
+
             report_data["step4_post"] = {
                 "post_id": new_post_id,
                 "permalink": permalink,
@@ -483,7 +524,8 @@ with sync_playwright() as p:
                 "hero": default_hero,
                 "topic_tag": topic_tag,
                 "image": Path(post_image).name if post_image else None,
-                "image_reason": image_pick_reason
+                "image_reason": image_pick_reason,
+                "k_ids": chosen_k_ids
             }
         else:
             print("   ❌ 貼文發布失敗（未取得 Post ID）！")

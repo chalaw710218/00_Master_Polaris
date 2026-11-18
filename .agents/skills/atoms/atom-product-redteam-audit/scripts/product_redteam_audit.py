@@ -105,7 +105,7 @@ def audit_deming_compliance(full_text: str) -> Tuple[int, List[str], List[str], 
     for forbidden in FORBIDDEN_BRAND_TERMS:
         if forbidden in full_text:
             fatal_brand_violation = True
-            violations.append(f"【戴明致命紅線】文案出現內部研發代號「{forbidden}」！觸發全域憲則最高安燈！對外嚴格僅能使用「生活的一部分，就醬點！」或自稱「生活管家」！")
+            violations.append(f"【戴明致命紅線】文案出現內部研發代號「{forbidden}」！觸發全域憲則最高安燈！對外嚴格僅能使用「生活管家，就醬點！」或自稱「生活管家」！")
 
     # 2. 明碼標價齊備度
     if "NT$" not in full_text and "元" not in full_text:
@@ -177,7 +177,7 @@ def main():
 跑外送跑久了，最怕阿公一個人慢慢開門那種孤單的眼神。
 幾百塊的服務費，買回來的其實是整個晚上的安心。
 生活管家今天也在正氣北路上奔馳著。
-生活的一部分，就醬點！
+生活管家，就醬點！
 """
 
     res = run_product_redteam_audit(sample)

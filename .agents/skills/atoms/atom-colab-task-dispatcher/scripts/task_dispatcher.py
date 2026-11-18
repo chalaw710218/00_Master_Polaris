@@ -35,7 +35,7 @@ def sanitize_payload(raw_content: str) -> tuple[str, list[str]]:
 
     # 2. 品牌內部代號零洩漏審查（若有洩漏轉為對外法定名稱）
     if "極星" in sanitized:
-        sanitized = sanitized.replace("極星", "生活的一部分，就醬點！")
+        sanitized = sanitized.replace("極星", "生活管家，就醬點！")
         redacted_items.append("內部代號替換為法定名稱")
 
     # 3. 擦除潛在 Key 樣式

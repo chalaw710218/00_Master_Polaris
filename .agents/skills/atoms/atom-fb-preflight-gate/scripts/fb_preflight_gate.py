@@ -32,7 +32,7 @@ def inspect_and_sanitize_fb_post(text: str, schedule_str: str = None) -> Dict[st
     for forbidden in FORBIDDEN_BRAND_TERMS:
         if forbidden in text:
             andon_triggered = True
-            violations.append(f"【品牌紅線致命違規】內文出現內部代號「{forbidden}」！對外法定品牌僅能為「生活的一部分，就醬點！」或自稱「生活管家」")
+            violations.append(f"【品牌紅線致命違規】內文出現內部代號「{forbidden}」！對外法定品牌僅能為「生活管家，就醬點！」或自稱「生活管家」")
 
     # 2. 檢測外部 URL
     found_urls = URL_REGEX.findall(text)
@@ -96,7 +96,7 @@ def inspect_and_sanitize_fb_post(text: str, schedule_str: str = None) -> Dict[st
 
 def main():
     parser = argparse.ArgumentParser(description="Facebook 貼文防降權與品牌紅線安燈引擎")
-    parser.add_argument("--text", type=str, default="生活管家台東生鮮直送！訂購點這裡：https://lin.ee/z83YSq6 生活的一部分，就醬點！", help="原始貼文草稿")
+    parser.add_argument("--text", type=str, default="生活管家台東生鮮直送！訂購點這裡：https://lin.ee/z83YSq6 生活管家，就醬點！", help="原始貼文草稿")
     parser.add_argument("--schedule", type=str, default=None, help="預約排程時間 (格式: YYYY-MM-DD HH:MM:SS)")
     parser.add_argument("--dry-run", action="store_true", help="執行防降權審查與抽離模擬")
     args = parser.parse_args()

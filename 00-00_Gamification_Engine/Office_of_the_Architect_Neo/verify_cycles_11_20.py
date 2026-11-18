@@ -221,7 +221,7 @@ def run_cycle_17():
     replaced_count = 0
     for tok in forbidden_tokens:
         if tok in sanitized_html:
-            sanitized_html = sanitized_html.replace(tok, "生活的一部分，就醬點！" if tok != "Polaris" else "LivingPart")
+            sanitized_html = sanitized_html.replace(tok, "生活管家，就醬點！" if tok != "Polaris" else "LivingPart")
             replaced_count += 1
             
     # 驗證敏感字詞 100% 絕跡

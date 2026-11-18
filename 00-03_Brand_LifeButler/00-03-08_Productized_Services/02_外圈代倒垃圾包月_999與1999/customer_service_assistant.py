@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 生活管家·代倒垃圾包月專屬客服智慧回應助理 (Customer Service Assistant)
-品牌：生活的一部分，就醬點！｜生活管家 (LifeButler)
+品牌：生活管家，就醬點！｜生活管家 (LifeButler)
 版本：v1.5 (拓荒破冰實戰旗艦版 · 內嵌首單體驗制與非標容量應對指南)
 協同內閣：雪 (Yuki) ✕ 影 (Kage) ✕ 泰勒絲 (Taylor)
 """
@@ -247,7 +247,7 @@ def match_customer_query(query: str):
 def print_banner():
     print("=" * 68)
     print("🛎️  生活管家·外圈代倒垃圾專屬智慧客服助理 (Customer Care Bot)")
-    print("   品牌：生活的一部分，就醬點！｜日常業務：生活管家 (LifeButler)")
+    print("   品牌：生活管家，就醬點！｜日常業務：生活管家 (LifeButler)")
     print("   版本：v1.5 (拓荒破冰旗艦版) ｜ 內閣守護：雪 ✕ 影 ✕ 泰勒絲")
     print("=" * 68)
 

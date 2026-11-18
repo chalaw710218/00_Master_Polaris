@@ -33,7 +33,7 @@ def generate_bulletproof_quotation(service_name: str, service_price: int, item_a
 2. 【現場等候 5 分鐘上限】：管家抵達現場後將主動致電聯繫，若因故未能接聽，現場等候上限為 5 分鐘。若需二次出勤配送，將酌收 NT$ 100~150 元二次交通補貼。
 3. 【安心守護保證】：低溫生鮮保溫箱全程防護，專人送達，給您最從容的生活守護！
 
-生活的一部分，就醬點！ 敬上"""
+生活管家，就醬點！ 敬上"""
     return quote
 
 def generate_timeout_second_dispatch_notice(customer_name: str, wait_minutes: int = 6) -> str:
@@ -44,7 +44,7 @@ def generate_timeout_second_dispatch_notice(customer_name: str, wait_minutes: in
 為確保其他長輩與委託案件準時送達，管家目前已先將您的物品妥善收存（低溫商品均保溫保鮮保管）。
 稍後您方便時請隨時於此留言告知，我們將為您重新排程安排【二次出勤配送】（將酌收 NT$ 100 元二次出勤交通補貼），請您完全放心！
 
-生活的一部分，就醬點！ 生活管家關心您"""
+生活管家，就醬點！ 生活管家關心您"""
 
 def generate_high_eq_objection_handling(objection_type: str = "expensive") -> str:
     """客戶嫌貴或質疑價格時之高情商常民話術"""

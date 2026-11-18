@@ -82,6 +82,39 @@ def fetch_post_metrics(post_id, token):
         print(f"   ⚠️ 讀取 Post Insights 提示: {e}")
     return {}
 
+def fetch_post_replies(post_id, token):
+    """抓取貼文回覆清單並標註是否為自身回覆"""
+    if not token or not post_id:
+        return []
+    url = f"{API_BASE}/{post_id}/replies?fields=id,text,timestamp,username&access_token={token}"
+    try:
+        r = requests.get(url, timeout=15)
+        if r.status_code == 200:
+            replies = []
+            for item in r.json().get("data", []):
+                uname = item.get("username", "")
+                text = str(item.get("text", "")).strip()
+                is_self = (uname.lower() == "hellotaitung") or (uname == "")
+                replies.append({
+                    "id": item.get("id"),
+                    "text": text,
+                    "username": uname,
+                    "is_self": is_self,
+                    "timestamp": item.get("timestamp"),
+                })
+            return replies
+    except Exception as e:
+        print(f"   ⚠️ 讀取 Post Replies 提示: {e}")
+    return []
+
+def post_walk_fetcher(post_id: str) -> tuple[dict, list[dict]]:
+    """
+    符合 feedback_loop 規範之 fetcher 函式，回傳 (指標字典, 回覆清單)
+    """
+    metrics = fetch_post_metrics(post_id, TOKEN)
+    replies = fetch_post_replies(post_id, TOKEN)
+    return metrics, replies
+
 def fetch_user_profile(user_id, token):
     if not token or not user_id:
         return {}
@@ -130,39 +163,59 @@ def run_reflection():
     print(f"   👤 官方帳號: @{username} ({profile.get('name')})")
 
     metrics = {}
+    replies_list = []
+    true_dialogues = []
+    true_dialogue_count = 0
     if target_post_id:
         print(f"   🎯 標的貼文 Post ID: {target_post_id}")
-        metrics = fetch_post_metrics(target_post_id, TOKEN)
+        metrics, replies_list = post_walk_fetcher(target_post_id)
         views = metrics.get("views", 0)
         likes = metrics.get("likes", 0)
         replies = metrics.get("replies", 0)
         reposts = metrics.get("reposts", 0)
         quotes = metrics.get("quotes", 0)
-        interactions = likes + replies + reposts + quotes
-        er = (interactions / views * 100) if views > 0 else 0.0
-        print(f"   📊 遙測數據: Views={views} | Likes={likes} | Replies={replies} | Reposts={reposts} | ER={er:.2f}%")
+
+        # 🎯 核心標準（品碩親定）：真對話回覆（別人留的、10 字以上，不計入生活管家自身回覆）
+        for r in replies_list:
+            t = str(r.get("text", "")).strip()
+            if not r.get("is_self", False) and len(t) >= 10:
+                true_dialogues.append(r)
+        true_dialogue_count = len(true_dialogues)
+
+        print(f"   📊 遙測數據: Views={views} | Likes={likes} | 總回覆={replies} | 🎯真對話回覆={true_dialogue_count} 則 (>=10字他人留言)")
     else:
         print(f"   ℹ️ 本次漫遊無新發布貼文 ID，進行總體帳號狀態聽診。")
-        views, likes, replies, reposts, er = 0, 0, 0, 0, 0.0
+        views, likes, replies, reposts = 0, 0, 0, 0
 
-    # 3. PRM 突觸真值天平判定
+    # 3. PRM 突觸真值天平判定（全面切換至真對話回覆硬指標）
     now_str = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     reflection_notes = []
     if target_post_id:
         reflection_notes.append(f"貼文「{post_title[:30]}」成功交付，首回覆橋接已點火。")
-        if er >= 5.0 or views > 100:
-            reflection_notes.append("互動表現進入健康常民區間，生活真實感發揮效益。")
+        if true_dialogue_count > 0:
+            reflection_notes.append(f"真對話回覆捕獲 {true_dialogue_count} 則有效深入互動，驗證生活白描引發常民共鳴。")
         else:
-            reflection_notes.append("剛發布初期處於演算法前 60 分鐘冷測池，持續透過留言回訪點火。")
+            reflection_notes.append("目前尚無 10 字以上真對話回覆，持續以生活白描與首回覆款待維持自然互動。")
 
-    # 4. 回寫客觀事實庫 (Vault 01)
+    # 4. 接入 feedback_loop 每日常態數據收集 (collect)
+    if not args.dry_run:
+        try:
+            from feedback_loop import collect
+            print(f"\n🔄 正在呼叫 feedback_loop.collect(fetcher=post_walk_fetcher) 執行常態收集...")
+            c_res = collect(fetcher=post_walk_fetcher)
+            print(f"   ✅ 常態反饋收集已同步: 更新 {c_res.get('total_collected', 0)} 篇貼文數據")
+        except Exception as e:
+            print(f"   ⚠️ 常態反饋收集調用提示: {e}")
+
+    # 5. 回寫客觀事實庫 (Vault 01)
     if not args.dry_run:
         print(f"\n📝 正在回寫認知存摺 01 (客觀事實庫)...")
         vault_entry = f"""
 ### 🐾 【漫遊返航實測紀錄 · {now_str}】
 * **標的貼文**：`{target_post_id or '常態巡邏'}` ｜ **公開網址**：{permalink or 'N/A'}
 * **題材標題**：{post_title}
-* **遙測指標**：Views={views} ｜ Likes={likes} ｜ Replies={replies} ｜ Reposts={reposts} ｜ ER={er:.2f}%
+* **遙測指標**：Views={views} ｜ Likes={likes} ｜ 總Replies={replies} ｜ Reposts={reposts} ｜ 🎯真對話回覆={true_dialogue_count} 則
+* **真對話明細**：{json.dumps([r.get('text') for r in true_dialogues], ensure_ascii=False) if true_dialogues else '無'}
 * **自省反思**：{' ； '.join(reflection_notes)}
 * **閉環簽章**：經 atom-kage-walk-reflector 實時自省入庫。
 """
@@ -171,7 +224,7 @@ def run_reflection():
         else:
             print(f"   ⚠️ 回寫存摺 01 失敗或檔案不存在。")
 
-    # 5. 閉環生成憑證並推進輪次帳本 (cycle_ledger)
+    # 6. 閉環生成憑證並推進輪次帳本 (cycle_ledger)
     evidence_dir = ROOT_DIR / ".agents" / "skills" / "bionic-learning-system" / "bionic_core" / "vaults" / "cycle_evidence"
     evidence_dir.mkdir(parents=True, exist_ok=True)
     evidence_file = evidence_dir / f"kage_walk_reflect_{datetime.datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
@@ -181,6 +234,8 @@ def run_reflection():
         "action": "post_walk_reflection",
         "post_id": target_post_id,
         "metrics": metrics,
+        "true_dialogue_count": true_dialogue_count,
+        "true_dialogue_replies": true_dialogues,
         "reflection": reflection_notes,
         "verified": True
     }

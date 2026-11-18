@@ -53,7 +53,7 @@ def verify():
     assert "陳品碩" in frontmatter.get("authorized_by", ""), "授權人錯誤"
     assert "flowchart TD" in gentle_content, "缺少 Mermaid 架構圖"
     assert "GentleButton" in gentle_content, "缺少 GentleButton 代碼規格"
-    assert "生活的一部分，就醬點！" in gentle_content, "缺少法定品牌命名"
+    assert "生活管家，就醬點！" in gentle_content, "缺少法定品牌命名"
     print("  [Gate 2: PASS] polaris-gentle-ui 結構與參數驗證通過")
 
     # 3. 檢查 polaris-client-architect
@@ -68,7 +68,7 @@ def verify():
     assert "陳品碩" in frontmatter_arch.get("authorized_by", ""), "授權人錯誤"
     assert "flowchart TD" in arch_content, "缺少 Mermaid 架構圖"
     assert "service-worker-heartbeat" in arch_content, "缺少 Service Worker 代碼規格"
-    assert "生活的一部分，就醬點！" in arch_content, "缺少法定品牌命名"
+    assert "生活管家，就醬點！" in arch_content, "缺少法定品牌命名"
     print("  [Gate 3: PASS] polaris-client-architect 結構與參數驗證通過")
 
     # 4. 品牌紅線防護檢查
