@@ -1,24 +1,24 @@
 {
   "version": "3.1",
   "player_name": "Pinshuo",
-  "level": 13,
+  "level": 14,
   "exp": {
-    "current": 140,
-    "next_level_requirement": 150,
-    "total": 3010
+    "current": 55,
+    "next_level_requirement": 160,
+    "total": 3075
   },
-  "gold": 301,
+  "gold": 307,
   "attributes": {
     "STR": 58.11,
-    "INT": 86.86,
-    "AGI": 70.59,
-    "WILL": 79.55,
-    "CHA": 76.23,
-    "IMP": 80.54
+    "INT": 87.1,
+    "AGI": 70.84,
+    "WILL": 79.8,
+    "CHA": 76.48,
+    "IMP": 80.79
   },
   "hidden_attributes": {},
   "unspent_points": {
-    "level_points": 16,
+    "level_points": 17,
     "knowledge_points": 6,
     "will_points": 4
   },
@@ -35,5 +35,5 @@
     "【生活管家真實業務從容審批】以審批者身分調度內閣，享受閉環守門員帶來的零失誤出廠品質",
     "【午後 14:00 20分鐘 NSDR 深層修復】全力修復 STR 體能短板，維持神經系統高抗逆力"
   ],
-  "notes": "【四大治理除垢閉環 ✕ 假學習肅清 ✕ 真實上網研習v2.0 ✕ 五大宏觀維度憲章定錨】"
+  "notes": "【雙腦CDP直通打通、雪10輪仿生學習與第20輪Schnorr大審計解鎖、品牌全稱全面修正為生活管家就醬點】"
 }
