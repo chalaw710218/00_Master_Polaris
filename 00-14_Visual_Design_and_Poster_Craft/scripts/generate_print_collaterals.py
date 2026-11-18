@@ -5,7 +5,7 @@ Script: generate_print_collaterals.py
 Author: Josef Müller-Brockmann (CVO) & Yuki (CEO) & Deming (CQO)
 Description:
   Generates commercial-grade vector SVG print assets and HTML preview galleries
-  for "生活的一部分，就醬點！" (LifeButler) according to CIS Guidelines v1.0.
+  for "生活管家，就醬點！" (LifeButler) according to CIS Guidelines v1.0.
   
 Includes:
   1. Business Card Front & Back (90mm x 54mm + 1mm bleed)
@@ -69,7 +69,7 @@ def generate_business_card_front():
     <path d="M 2.1 5.1 Q 3.6 6.3 5.1 5.1" stroke="#FFFFFF" stroke-width="0.45" stroke-linecap="round" fill="none"/>
 
     <!-- 品牌全稱與標語 -->
-    <text x="9.2" y="4.0" class="text-title">生活的一部分，就醬點！</text>
+    <text x="9.2" y="4.0" class="text-title">生活管家，就醬點！</text>
     <text x="9.3" y="6.6" class="text-subtitle">日常便利 · 暖心到府 · 在地生活管家</text>
   </g>
 
@@ -209,7 +209,7 @@ def generate_business_card_back():
   </g>
 
   <!-- 底部微字標註 -->
-  <text x="46" y="52" class="footer-quote" text-anchor="middle">生活的一部分，就醬點！ · 台東寶桑在地營運</text>
+  <text x="46" y="52" class="footer-quote" text-anchor="middle">生活管家，就醬點！ · 台東寶桑在地營運</text>
 </svg>"""
     return svg
 
@@ -256,7 +256,7 @@ def generate_delivery_box_badge():
   <!-- 上方弧形品牌名稱 -->
   <text font-family="'Source Han Sans TW', sans-serif" font-weight="900" font-size="8.8px" fill="#1A1A1A">
     <textPath href="#textPathTop" startOffset="50%" text-anchor="middle">
-      生活的一部分，就醬點！
+      生活管家，就醬點！
     </textPath>
   </text>
 
@@ -436,7 +436,7 @@ def generate_html_showcase():
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>《生活的一部分，就醬點！》第一期實體印刷物料總覽 · SSOT Showcase</title>
+  <title>《生活管家，就醬點！》第一期實體印刷物料總覽 · SSOT Showcase</title>
   <style>
     :root {
       --primary: #F5A623;
@@ -566,7 +566,7 @@ def generate_html_showcase():
   <div class="container">
     <header>
       <span class="badge">CIS EXECUTABLE COLLATERALS · SSOT V1.0</span>
-      <h1>生活的一部分，就醬點！｜ 第一期實體印刷物料總覽</h1>
+      <h1>生活管家，就醬點！｜ 第一期實體印刷物料總覽</h1>
       <div class="meta">
         主政執行：雪 (Yuki, CEO) ✕ 約瑟夫 (Josef, CVO) ✕ 戴明 (Dr. Deming, CQO) ｜ 物理規格：全向量 SVG 300 DPI 健豪直通標準
       </div>
@@ -646,7 +646,7 @@ def generate_html_showcase():
     <div class="andon-gate">
       <div class="andon-title">🛡️ 戴明品質長 (Dr. Deming) 安燈出廠驗收合格證</div>
       <div class="andon-items">
-        ✔ <strong>名稱法定紅線</strong>：100% 遵照「生活的一部分，就醬點！」官方全稱與「生活管家」定錨，絕無洩漏內部代號。<br>
+        ✔ <strong>名稱法定紅線</strong>：100% 遵照「生活管家，就醬點！」官方全稱與「生活管家」定錨，絕無洩漏內部代號。<br>
         ✔ <strong>油墨覆蓋率 (TAC)</strong>：全體色值符合 $C+M+Y+K \le 250\%$ 健豪防呆紅線，防止大面積未乾背印。<br>
         ✔ <strong>純黑色彩直壓</strong>：文字嚴格使用純單色黑 (K100)，杜絕四色黑疊印模糊。<br>
         ✔ <strong>高齡視力友善</strong>：名片 QR Code 達 28mm，字體行距 $\ge 1.65$ 倍，符合 WCAG 2.1 AAA 閱讀平權。
