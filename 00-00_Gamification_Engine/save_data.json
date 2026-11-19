@@ -3,18 +3,18 @@
   "player_name": "Pinshuo",
   "level": 14,
   "exp": {
-    "current": 55,
+    "current": 120,
     "next_level_requirement": 160,
-    "total": 3075
+    "total": 3140
   },
-  "gold": 307,
+  "gold": 314,
   "attributes": {
     "STR": 58.11,
-    "INT": 87.1,
-    "AGI": 70.84,
-    "WILL": 79.8,
-    "CHA": 76.48,
-    "IMP": 80.79
+    "INT": 87.34,
+    "AGI": 71.09,
+    "WILL": 80.05,
+    "CHA": 76.72,
+    "IMP": 81.04
   },
   "hidden_attributes": {},
   "unspent_points": {
@@ -35,5 +35,5 @@
     "【生活管家真實業務從容審批】以審批者身分調度內閣，享受閉環守門員帶來的零失誤出廠品質",
     "【午後 14:00 20分鐘 NSDR 深層修復】全力修復 STR 體能短板，維持神經系統高抗逆力"
   ],
-  "notes": "【雙腦CDP直通打通、雪10輪仿生學習與第20輪Schnorr大審計解鎖、品牌全稱全面修正為生活管家就醬點】"
+  "notes": "【商戰反擊戰情室拓荒與48H極速團購方針確立，完成仿生事實庫九項大滿貫真值重構】"
 }

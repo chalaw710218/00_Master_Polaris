@@ -161,6 +161,8 @@ euromodulated_plasticity_engine.py**：三因子突觸可塑性與創辦人情�
 ---
 
 ## 🛒 00-02_GroupBuy_Products (團購與商品供應鏈)
+*   [⚡ 商戰反擊與 48 小時極速團購戰情室 (00_WAR_ROOM_HANDOVER_DOSSIER.md)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-02_GroupBuy_Products/00-02-11_商戰反擊與48小時極速團購戰情室/00_WAR_ROOM_HANDOVER_DOSSIER.md)
+    *   **說明**：【12/31 大凍庫收回全面反擊基地】42 天清庫存、冷鏈結盟與友店站點名冊、產地底價逆推與 48 小時超高速集單取貨交接卷宗。
 *   [📦 點點訂單自動化核銷與客戶數據中心 (00-02-09-00_Order_Hub_Overview.md)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-02_GroupBuy_Products/00-02-09_Order_and_Customer_Hub/00-02-09-00_Order_Hub_Overview.md)
     *   **說明**：【蒙格財務長親自核可】自動攔截點點點 (notify@dotdot.cc) Email，0.2 秒解析完整品項、金額與預約取餐，自動對比客戶資料庫並登錄帳本，徹底消滅手動打單摩擦成本。
 *   [🧠 萬用 AI 供應鏈價格逆推與審計協議 (系統文件)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-02_GroupBuy_Products/00-02-00_Universal_AI_Pricing_Audit_Protocol.md)

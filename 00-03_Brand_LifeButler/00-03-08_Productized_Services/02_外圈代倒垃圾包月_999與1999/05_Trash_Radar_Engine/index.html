@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>生活的一部分，就醬點！｜ 台東垃圾車雷達</title>
+  <title>生活管家，就醬點！｜ 台東垃圾車雷達</title>
   <meta name="theme-color" content="#0F2537">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -182,6 +182,83 @@
     .btn-hero-find:disabled {
       opacity: 0.88;
       cursor: wait;
+    }
+
+    /* 資源回收車篩選切換標籤 (Touch Pill Switch) */
+    .recycle-toggle-wrapper {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      margin-top: 2px;
+    }
+
+    .recycle-toggle-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 10px 18px;
+      min-height: 46px;
+      background-color: #FFFFFF;
+      border: 1.5px solid var(--color-border-subtle);
+      border-radius: var(--radius-full);
+      cursor: pointer;
+      user-select: none;
+      box-shadow: 0 2px 8px -1px rgba(15, 37, 55, 0.05);
+      transition: all 0.15s ease;
+      width: 100%;
+      max-width: 380px;
+    }
+
+    .recycle-toggle-pill input[type="checkbox"] {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 20px;
+      height: 20px;
+      border: 2px solid #94A3B8;
+      border-radius: 6px;
+      outline: none;
+      cursor: pointer;
+      position: relative;
+      background-color: #FFFFFF;
+      transition: all 0.12s ease;
+      flex-shrink: 0;
+    }
+
+    .recycle-toggle-pill input[type="checkbox"]:checked {
+      background-color: #059669;
+      border-color: #059669;
+    }
+
+    .recycle-toggle-pill input[type="checkbox"]:checked::after {
+      content: '';
+      position: absolute;
+      top: 2px;
+      left: 6px;
+      width: 5px;
+      height: 10px;
+      border: solid #FFFFFF;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
+    }
+
+    .recycle-toggle-pill.checked {
+      background-color: #ECFDF5;
+      border-color: #10B981;
+      box-shadow: 0 3px 12px -2px rgba(16, 185, 129, 0.25);
+    }
+
+    .recycle-toggle-label {
+      font-size: var(--font-size-sm);
+      font-weight: 700;
+      color: var(--color-text-main);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .recycle-toggle-pill.checked .recycle-toggle-label {
+      color: #065F46;
     }
 
     /* 動態載入/狀態反饋區 */
@@ -752,6 +829,62 @@
       line-height: 1.5;
       padding: var(--space-lg) 0;
     }
+    /* 原本離您最近的日常站狀態對照 (置於卡片底層，不搶行動焦點) */
+    .nearest-daily-status-box {
+      background-color: #F8FAFC;
+      border: 1px solid var(--color-border-subtle);
+      border-radius: var(--radius-md);
+      padding: 10px 14px;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      margin-top: 4px;
+      font-size: var(--font-size-xs);
+      color: var(--color-text-sub);
+    }
+
+    .nearest-daily-pin {
+      font-size: 1.1rem;
+      line-height: 1;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .nearest-daily-content {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      line-height: 1.45;
+    }
+
+    .nearest-daily-title {
+      font-weight: 700;
+      color: var(--color-text-main);
+    }
+
+    .nearest-status-tag-missed {
+      color: #DC2626;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .nearest-status-tag-match {
+      color: #059669;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .nearest-status-tag-future {
+      color: #0284C7;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
   </style>
 </head>
 <body>
@@ -760,7 +893,7 @@
     <!-- 頂部品牌標題區 -->
     <header class="radar-header">
       <div class="brand-badge" id="brandServiceBadge">生活管家</div>
-      <h1 class="brand-title">生活的一部分，就醬點！｜ 台東垃圾車雷達</h1>
+      <h1 class="brand-title">生活管家，就醬點！｜ 台東垃圾車雷達</h1>
       <p class="brand-tagline">不追車、不空等 · 一鍵掌握到站倒數</p>
       <div id="userGreeting" style="display:none; font-size: 12px; color: var(--color-primary); font-weight: 700;"></div>
     </header>
@@ -770,6 +903,14 @@
       <button type="button" id="btnHeroFind" class="btn-hero-find btn-tactile" onclick="handleHeroClick()">
         📍 幫我找垃圾車
       </button>
+
+      <!-- 資源回收車選項 (用戶勾選) -->
+      <div class="recycle-toggle-wrapper">
+        <label id="recycleTogglePill" class="recycle-toggle-pill btn-tactile" for="recycleFilterCheckbox">
+          <input type="checkbox" id="recycleFilterCheckbox" onchange="onRecycleFilterChanged()">
+          <span class="recycle-toggle-label">♻️ 我也要倒資源回收（只找雙收班次）</span>
+        </label>
+      </div>
       <div id="radarLoadingContainer" class="radar-loading-container" aria-live="polite">
         <div class="radar-spinner"></div>
         <span id="loadingMessage">定位中…</span>
@@ -818,35 +959,35 @@
     <!-- 今日已收工 / 生活管家 999 包月卡片區 -->
     <aside id="radarPromoContainer" class="radar-promo-container" style="display: none;">
       <div class="butler-service-card">
-        <div class="service-pill">生活的一部分，就醬點！專屬服務</div>
+        <div class="service-pill">生活管家，就醬點！專屬服務</div>
         <h3 class="service-title">不想追垃圾車？讓生活管家替你天天搞定</h3>
         <p class="service-subtitle">
-          下班太晚趕不上？長輩提重物不方便？台東市區專人定時到府收運。
+          下班太晚趕不上？長輩提重物不方便？台東市區專人定時到府代倒。
         </p>
         <div class="service-tier-row">
           <div class="tier-box">
             <div class="tier-name">外圈彈性包月</div>
             <div class="tier-price">NT$ 999 <span>/月</span></div>
-            <div class="tier-feat">週收 2~3 次 · 門前免等待</div>
+            <div class="tier-feat">每週代倒 2~3 次 · 門前免等待</div>
           </div>
           <div class="tier-box highlighted">
             <div class="tier-badge">熱門首選</div>
             <div class="tier-name">全區專屬管家</div>
             <div class="tier-price">NT$ 1,999 <span>/月</span></div>
-            <div class="tier-feat">週收 5 次 · 垃圾+回收全包</div>
+            <div class="tier-feat">每週代倒 5 次 · 垃圾+回收全包</div>
           </div>
         </div>
         <div class="service-cta-block">
           <a href="https://docs.google.com/forms/d/e/1FAIpQLSchOskqPJfVtCVVEZpZuN2cHODjdAGSjyp184GkDpbFs-cqvw/viewform" target="_blank" rel="noopener noreferrer" class="btn-service-cta btn-tactile">
             💬 線上登記預約生活管家代倒
           </a>
-          <p class="service-guarantee">✨ 經專業背景查核 ｜ 專用密封袋防異味 ｜ 無接觸收取</p>
+          <p class="service-guarantee">✨ 經專業背景查核 ｜ 門前無接觸代倒 ｜ 安心守護</p>
         </div>
       </div>
     </aside>
 
     <footer class="radar-footer">
-      生活的一部分，就醬點！生活管家團隊 溫暖守護<br>
+      生活管家，就醬點！生活管家團隊 溫暖守護<br>
       資料來源：台東市清潔隊公開路線表 ✕ 清運e點通動態邏輯
     </footer>
   </main>
@@ -856,7 +997,7 @@
     // 生活管家・台東垃圾車雷達核心邏輯引擎 (Neo ✕ Linus ✕ Josef 聯合實作)
     // ==========================================================================
 
-    const DATA_VERSION = "20261118_v4";
+    const DATA_VERSION = "20261120_v2";
     let LOCAL_SEED_ROUTES = [];
     let RECYCLING_SEED_ROUTES = [];
     let FIXED_STATIONS = [];
@@ -996,6 +1137,32 @@
     // ==========================================================================
     let searchTimer = null;
 
+    function updateHeroButtonLabel() {
+      const chk = document.getElementById("recycleFilterCheckbox");
+      const heroBtn = document.getElementById("btnHeroFind");
+      if (heroBtn && !heroBtn.disabled) {
+        heroBtn.innerText = (chk && chk.checked) ? "📍 幫我找雙收車（含回收）" : "📍 幫我找垃圾車";
+      }
+    }
+
+    function onRecycleFilterChanged() {
+      const chk = document.getElementById("recycleFilterCheckbox");
+      const pill = document.getElementById("recycleTogglePill");
+      const isChecked = chk && chk.checked;
+
+      if (pill) {
+        if (isChecked) pill.classList.add("checked");
+        else pill.classList.remove("checked");
+      }
+
+      updateHeroButtonLabel();
+
+      // 若目前已有座標（已查過），直接以當前座標重新運算並刷新結果，無需重新點擊 GPS 定位
+      if (currentLat !== null && currentLon !== null) {
+        calculateAndRenderRadar(currentLat, currentLon, currentDistrictName);
+      }
+    }
+
     function handleHeroClick() {
       const heroBtn = document.getElementById("btnHeroFind");
       const loadingBox = document.getElementById("radarLoadingContainer");
@@ -1026,7 +1193,7 @@
         (pos) => {
           if (searchTimer) clearTimeout(searchTimer);
           heroBtn.disabled = false;
-          heroBtn.innerText = "📍 幫我找垃圾車";
+          updateHeroButtonLabel();
           loadingBox.style.display = "none";
 
           // 定位成功時確保隱藏生活圈按鈕
@@ -1041,7 +1208,7 @@
         (err) => {
           if (searchTimer) clearTimeout(searchTimer);
           heroBtn.disabled = false;
-          heroBtn.innerText = "📍 幫我找垃圾車";
+          updateHeroButtonLabel();
           loadingBox.style.display = "none";
           let errReason = "未能取得 GPS 定位權限";
           if (err.code === 1) errReason = "定位權限被拒絕";
@@ -1057,7 +1224,7 @@
       const heroBtn = document.getElementById("btnHeroFind");
       if (heroBtn) {
         heroBtn.disabled = false;
-        heroBtn.innerText = "📍 幫我找垃圾車";
+        updateHeroButtonLabel();
       }
       const loadingBox = document.getElementById("radarLoadingContainer");
       if (loadingBox) loadingBox.style.display = "none";
@@ -1113,6 +1280,8 @@
           </div>
           ${renderFixedStationPreview(userLat, userLng)}
         `;
+        const promo = document.getElementById("radarPromoContainer");
+        if (promo) promo.style.display = "block";
         return;
       }
 
@@ -1185,19 +1354,42 @@
         });
       });
 
+      // 讀取是否勾選資源回收
+      const chk = document.getElementById("recycleFilterCheckbox");
+      const requireRecycle = chk && chk.checked;
+
       // 篩選能趕得上的站點
-      const reachableStops = candidateStops.filter(s => s.canReachByBike);
+      let reachableStops = candidateStops.filter(s => {
+        if (!s.canReachByBike) return false;
+        if (requireRecycle && !s.hasRecycleToday) return false;
+        return true;
+      });
 
       if (reachableStops.length === 0) {
-        // 今日附近班次已全數收工或已過
-        resultContainer.innerHTML = renderEodForecast(userLat, userLng);
+        if (requireRecycle) {
+          resultContainer.innerHTML = `
+            <div class="alert-banner alert-warning">
+              <div style="font-weight: 800; font-size: var(--font-size-base);">⚠️ 附近今日已無資源回收車班次</div>
+              <div>您搜尋的區域今日執勤班次中未包含資源回收車（或今日回收班次已結束）。</div>
+              <div style="margin-top: 10px;">
+                <button type="button" class="btn-alt-nav btn-tactile" onclick="document.getElementById('recycleFilterCheckbox').checked = false; onRecycleFilterChanged();" style="width: auto; padding: 6px 16px; background-color: var(--color-primary); color: #fff;">
+                  改查一般垃圾車班次 ➔
+                </button>
+              </div>
+            </div>
+            ${renderFixedStationPreview(userLat, userLng)}
+          `;
+        } else {
+          // 今日附近班次已全數收工或已過
+          resultContainer.innerHTML = renderEodForecast(userLat, userLng);
+        }
         const promo = document.getElementById("radarPromoContainer");
         if (promo) promo.style.display = "block";
         return;
       }
 
       const promo = document.getElementById("radarPromoContainer");
-      if (promo) promo.style.display = "none";
+      if (promo) promo.style.display = "block";
 
       // 排序邏輯回歸品碩親定唯一準則：
       // 主答案 = 使用者趕得上的班次中，最早能倒完垃圾的那一站。
@@ -1228,6 +1420,45 @@
       // 車程倒數分鐘
       const countdownMin = Math.max(1, bestStation.arrivalMin - nowMin);
 
+      // 找出原本離客人物理距離最近的日常站點 (原本客人倒垃圾的點)
+      let nearestDailyStop = null;
+      let minDailyDist = Infinity;
+      candidateStops.forEach(st => {
+        if (st.dist < minDailyDist) {
+          minDailyDist = st.dist;
+          nearestDailyStop = st;
+        }
+      });
+
+      let nearestDailyHtml = "";
+      if (nearestDailyStop) {
+        const isMatch = nearestDailyStop.name === bestStation.name;
+        const isPast = nearestDailyStop.arrivalMin < nowMin;
+        const diffMin = nearestDailyStop.arrivalMin - nowMin;
+
+        let statusText = "";
+        if (requireRecycle && !nearestDailyStop.hasRecycleToday) {
+          statusText = `<span class="nearest-status-tag-missed">⚠️ 此日常站今日「無」資源回收車 ➔ 生活管家已為您精準切換至有回收車的雙收班次！</span>`;
+        } else if (isMatch) {
+          statusText = `<span class="nearest-status-tag-match">✨ 本站即為離您最近的家門口日常站（車約 ${countdownMin} 分鐘到）</span>`;
+        } else if (isPast) {
+          statusText = `<span class="nearest-status-tag-missed">⚠️ 此班車表定 ${nearestDailyStop.time} 抵達，目前已開走（已錯過）</span>`;
+        } else {
+          statusText = `<span class="nearest-status-tag-future">⏱️ 此班車表定 ${nearestDailyStop.time} 抵達（還有約 ${Math.max(1, diffMin)} 分鐘）</span>`;
+        }
+
+        nearestDailyHtml = `
+          <!-- 離您最近日常站狀態對照 (解惑備註，置於卡片底層，不搶行動焦點) -->
+          <div class="nearest-daily-status-box">
+            <span class="nearest-daily-pin">🏠</span>
+            <div class="nearest-daily-content">
+              <div class="nearest-daily-title">離您最近的站：<strong>${nearestDailyStop.name}</strong>（距您約 ${nearestDailyStop.dist} 公尺）</div>
+              <div>${statusText}</div>
+            </div>
+          </div>
+        `;
+      }
+
       resultContainer.innerHTML = `
         <article class="master-answer-card">
           <!-- 頂部狀態列 -->
@@ -1235,6 +1466,7 @@
             ${bestStation.hasLiveGps
               ? `<span class="badge-status-live">● GPS 即時連線 (${bestStation.plate})</span>`
               : `<span class="badge-status-schedule">⏱️ 依表定班次推算</span>`}
+            ${requireRecycle ? `<span style="background-color: #ECFDF5; color: #065F46; border: 1px solid #10B981; padding: 2px 8px; border-radius: var(--radius-full); font-size: var(--font-size-xs); font-weight: 800;">♻️ 資源回收雙收</span>` : ''}
             ${isTight ? `<span style="background-color: var(--color-alert-light); color: var(--color-alert); padding: 2px 8px; border-radius: var(--radius-full); font-size: var(--font-size-xs); font-weight: 700;">⚠️ 這站時間非常緊迫！</span>` : ''}
             <span class="badge-distance">距您約 ${bestStation.dist} 公尺 (${locationLabel})</span>
           </div>
@@ -1325,6 +1557,8 @@
               📲 分享這班車給家人 (LINE)
             </button>
           </div>
+
+          ${nearestDailyHtml}
         </article>
       `;
     }

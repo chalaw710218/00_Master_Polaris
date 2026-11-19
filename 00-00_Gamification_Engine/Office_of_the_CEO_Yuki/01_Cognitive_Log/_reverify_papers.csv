@@ -1,0 +1,21 @@
+序號,狀態,網址,逐字摘句,對不上說明
+9,已驗證,https://arxiv.org/abs/2303.11366,"Reflexion achieves a 91% pass@1 accuracy on the HumanEval coding benchmark, surpassing the previous state-of-the-art GPT-4 that achieves 80%.",
+10,已驗證,https://arxiv.org/abs/2305.16291,"It obtains 3.3x more unique items, travels 2.3x longer distances, and unlocks key tech tree milestones up to 15.3x faster than prior SOTA.",
+11,已驗證,https://arxiv.org/abs/2310.12931,"In a diverse suite of 29 open-source RL environments that include 10 distinct robot morphologies, Eureka outperforms human experts on 83% of the tasks, leading to an average normalized improvement of 52%.",
+12,對不上,https://arxiv.org/abs/1901.01753,"Our results show that POET produces a diverse range of sophisticated behaviors that solve a wide range of environmental challenges, many of which cannot be solved by direct optimization alone","條目寫遠超傳統直接優化法 400% 以上，網頁無 400% 數字"
+13,未驗證,,,找不到出處
+14,對不上,https://arxiv.org/abs/2307.01850,"without enough fresh real data in each generation of an autophagous loop, future generative models are doomed to have their quality (precision) or diversity (recall) progressively decrease. We term this condition Model Autophagy Disorder (MAD)","條目寫合成數據超過 30% 在 3-5 代內方差崩潰，網頁無 30% 與 3-5 代數字"
+15,對不上,https://arxiv.org/abs/2310.08560,"To enable using context beyond limited context windows, we propose virtual context management, a technique drawing inspiration from hierarchical memory systems in traditional operating systems","條目寫突破標準 8k~32k 上下文限制，網頁無 8k~32k 數字"
+16,對不上,https://arxiv.org/abs/2212.08073,"The only human oversight is provided through a list of rules or principles, and so we refer to the method as 'Constitutional AI'.","條目寫攔截 99.4% 的虛假宣傳，網頁無 99.4% 數字"
+17,未驗證,,,找不到出處
+18,未驗證,,,找不到出處
+22,已驗證,https://arxiv.org/abs/2403.09629,"we find zero-shot improvements on GSM8K (5.9%...and CommonsenseQA (36.3%",
+23,已驗證,https://arxiv.org/abs/2408.08435,"Automated Design of Agentic Systems (ADAS), which aims to automatically create powerful agentic system designs, including inventing novel building blocks and/or combining them in new ways.",
+24,已驗證,https://arxiv.org/abs/2408.06292,"developed into a full paper at a cost of less than $15 per paper.",
+25,已驗證,https://arxiv.org/abs/2408.03314,"improve the efficiency of test-time compute scaling by more than 4x compared to a best-of-N baseline. Additionally, in a FLOPs-matched evaluation, we find that on problems where a smaller base model attains somewhat non-trivial success rates, test-time compute can be used to outperform a 14x larger model.",
+26,已驗證,https://arxiv.org/abs/2310.01798,"In the context of reasoning, our research indicates that LLMs struggle to self-correct their responses without external feedback, and at times, their performance even degrades after self-correction.",
+27,已驗證,https://arxiv.org/abs/2403.13187,"This approach even facilitates cross-domain merging, generating models like a Japanese LLM with Math reasoning capabilities.",
+28,已驗證,https://deepmind.google/discover/blog/ai-solves-imo-problems-at-silver-medal-level/,"We earned 28 out of 42 total points, achieving the same level as a silver medalist in the competition. ... AlphaGeometry 2 solved Problem 4 within 19 seconds after receiving its formalization.",
+29,已驗證,https://arxiv.org/abs/2212.08073,"The only human oversight is provided through a list of rules or principles, and so we refer to the method as 'Constitutional AI'. The process involves both a supervised learning and a reinforcement learning phase.",
+30,對不上,https://arxiv.org/abs/2406.03816,"In this paper, we develop a reinforced self-training approach, called ReST-MCTS*, based on integrating process reward guidance with tree search","條目寫 Google DeepMind (2024)，論文作者實為 THUDM / Tsinghua（非 DeepMind）"
+31,未驗證,,,找不到出處

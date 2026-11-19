@@ -340,7 +340,7 @@
     <a href="https://lin.ee/example" target="_blank" rel="noopener noreferrer" class="btn-service-cta btn-tactile">
       💬 加 LINE 預約生活管家代倒
     </a>
-    <p class="service-guarantee">✨ 經專業背景查核 ｜ 專用密封袋防異味 ｜ 無接觸收取</p>
+    <p class="service-guarantee">✨ 經專業背景查核 ｜ 門前無接觸代倒 ｜ 安心守護</p>
   </div>
 </aside>
 ```

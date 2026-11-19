@@ -111,7 +111,10 @@ async def relay(ws_url, text, timeout):
             await cdp.call("Emulation.setFocusEmulationEnabled", {"enabled": True})
         except Exception:
             pass
-        before = await cdp.js(JS_COUNT) or 0
+        before_text = await cdp.js("""(() => {
+            const a = document.querySelectorAll('[data-is-streaming]');
+            return a.length ? a[a.length-1].innerText : '';
+        })()""") or ""
         if not await cdp.js(JS_FOCUS):
             fail(3, "找不到 Claude 輸入框（頁面可能還沒載入）")
         await cdp.call("Input.insertText", {"text": text})
@@ -125,14 +128,15 @@ async def relay(ws_url, text, timeout):
         while time.time() < deadline:
             await asyncio.sleep(1.5)
             s = await cdp.js(JS_STATUS) or {}
-            if s.get("n", 0) <= before or s.get("streaming") or s.get("stop"):
+            curr_text = s.get("text", "")
+            if curr_text == before_text or s.get("streaming") or s.get("stop"):
                 last_text, stable_since = None, None
                 continue
-            if s["text"] == last_text:
+            if curr_text == last_text:
                 if time.time() - stable_since >= 5:  # 內容 5 秒沒變才算回完
-                    return s["text"]
+                    return curr_text
             else:
-                last_text, stable_since = s["text"], time.time()
+                last_text, stable_since = curr_text, time.time()
         fail(4, f"等了 {timeout} 秒 Claude 還沒回完")
 
 

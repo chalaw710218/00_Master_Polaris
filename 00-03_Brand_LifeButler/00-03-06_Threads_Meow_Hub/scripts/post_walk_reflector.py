@@ -229,10 +229,14 @@ def run_reflection():
     evidence_dir.mkdir(parents=True, exist_ok=True)
     evidence_file = evidence_dir / f"kage_walk_reflect_{datetime.datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
 
+    target_url = permalink or (f"https://www.threads.net/@hellotaitung/post/{target_post_id}" if target_post_id else "https://www.threads.net/@hellotaitung")
     evidence_data = {
         "timestamp": now_str,
         "action": "post_walk_reflection",
         "post_id": target_post_id,
+        "source_url": target_url,
+        "quote_status": "summary_only",
+        "quote": f"生活管家社交漫遊聽診：{post_title} 遙測數據 Views={views} Likes={likes} 總回覆={replies} 真對話回覆={true_dialogue_count} 則",
         "metrics": metrics,
         "true_dialogue_count": true_dialogue_count,
         "true_dialogue_replies": true_dialogues,

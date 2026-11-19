@@ -25,7 +25,7 @@
     ],
     "true_dialogue_replies": [],
     "true_dialogue_count": 0,
-    "last_collected_at": "2026-11-18T23:59:37",
+    "last_collected_at": "2026-11-20T01:20:12",
     "evaluated": false
   },
   {
@@ -54,7 +54,7 @@
     ],
     "true_dialogue_replies": [],
     "true_dialogue_count": 0,
-    "last_collected_at": "2026-11-18T23:59:37",
+    "last_collected_at": "2026-11-20T01:20:12",
     "evaluated": false
   },
   {
@@ -66,7 +66,7 @@
     "content": "午後三點半的斜陽，剛好把桌上那只厚陶杯曬得溫溫的。\n杯口有些洗了幾百次的歲月痕跡，摸起來特別順手。\n\n本喵把小下巴靠在老木桌邊，聽著茶水倒進陶杯裡清脆的聲音。\n比起那些亮晶晶的精緻瓷器，\n天天拿在手裡盛熱水、泡茶的質樸老件，好像更能裝下生活裡的踏實。\n\n下午稍微歇口氣吧！\n泡杯茶，摸摸身邊那些陪伴你很久的生活小物，\n日子就在這些微小的溫暖裡慢慢發亮。🐾 #台東生活",
     "created_at": "2026-11-17T15:37:57",
     "metrics": {
-      "views": 61,
+      "views": 65,
       "likes": 1,
       "replies": 1,
       "reposts": 1,
@@ -83,7 +83,7 @@
     ],
     "true_dialogue_replies": [],
     "true_dialogue_count": 0,
-    "last_collected_at": "2026-11-18T23:59:37",
+    "last_collected_at": "2026-11-20T01:20:12",
     "evaluated": false
   },
   {
@@ -95,7 +95,7 @@
     "content": "天色暗得比昨天早了一點點。\n台東街角的路燈，剛才一盞一盞亮起來了。\n\n下班下課的機車聲，慢慢多了一點。\n有人提著熱騰騰的便當，\n有人牽著腳踏車慢慢踩過路口。\n\n滑了一整天的手機，\n眼睛應該也有點酸了吧？\n\n先把螢幕放下來。\n轉一轉脖子，喝口溫水，\n吹一下傍晚這陣剛剛好的涼風。\n\n晚餐記得好好吃。\n今天大家辛苦了，下班快樂。🐾\n\n#台東生活",
     "created_at": "2026-11-17T18:06:04",
     "metrics": {
-      "views": 71,
+      "views": 72,
       "likes": 1,
       "replies": 1,
       "reposts": 0,
@@ -112,17 +112,19 @@
     ],
     "true_dialogue_replies": [],
     "true_dialogue_count": 0,
-    "last_collected_at": "2026-11-18T23:59:37",
+    "last_collected_at": "2026-11-20T01:20:12",
     "evaluated": false
   },
   {
     "post_id": "18198849217386400",
-    "k_ids": [],
+    "k_ids": [
+      "K-CONTROL-01"
+    ],
     "is_control": true,
     "content": "外面的路燈光線靜靜照在老木地板上。\n街道上的車聲慢慢停了，\n只剩下客廳角落均勻微小的呼嚕聲。\n\n不管今天忙得怎麼樣、事情有沒有全部做完，\n到了這個時間，都可以先安心放下了。\n\n給自己蓋好被子，把手機調成靜音。\n明天的事，明天醒來再說吧。\n\n晚安台東，大家做個溫暖的好夢。🐾\n\n#台東生活 #耍廢日常",
     "created_at": "2026-11-17T23:34:19",
     "metrics": {
-      "views": 51,
+      "views": 53,
       "likes": 0,
       "replies": 1,
       "reposts": 0,
@@ -139,17 +141,20 @@
     ],
     "true_dialogue_replies": [],
     "true_dialogue_count": 0,
-    "last_collected_at": "2026-11-18T23:59:37",
-    "evaluated": false
+    "last_collected_at": "2026-11-20T01:20:12",
+    "evaluated": false,
+    "control_code": "K-CONTROL-01"
   },
   {
     "post_id": "18114521324158329",
-    "k_ids": [],
+    "k_ids": [
+      "K-CONTROL-02"
+    ],
     "is_control": true,
     "content": "（在老木地板的晨光光斑裡慢慢伸個長長的大懶腰）\n\n早晨的風吹進木窗，帶著一點點涼意。\n太陽剛爬過屋頂，把木地板曬得暖暖的。\n\n管家剛剛把店門拉開，\n廚房裡傳來電鍋跳起的一聲「啵」。\n\n新的一天又開始了。\n今天不用太著急，先深呼吸一口氣，\n把肩膀放鬆，像本喵一樣先把腰伸開再說。\n\n大家早安！今天出門記得帶件外套喔。🐾\n\n#台東生活 #耍廢日常",
     "created_at": "2026-11-18T10:27:36",
     "metrics": {
-      "views": 76,
+      "views": 78,
       "likes": 0,
       "replies": 1,
       "reposts": 0,
@@ -166,8 +171,9 @@
     ],
     "true_dialogue_replies": [],
     "true_dialogue_count": 0,
-    "last_collected_at": "2026-11-18T23:59:37",
-    "evaluated": false
+    "last_collected_at": "2026-11-20T01:20:12",
+    "evaluated": false,
+    "control_code": "K-CONTROL-02"
   },
   {
     "post_id": "17919543159498813",
@@ -178,7 +184,7 @@
     "content": "（把兩隻小前爪收在白胸脯底下，折手手趴在木凳上）\n\n正午十二點半，巷子裡的陽光正好。\n隔壁阿姨提著剛買好的雞腿便當走進來，\n坐在門口長凳上吹電風扇喘口氣，順手摸了摸本喵的頭。\n\n不用刻意找話題，也不用談什麼大道理。\n在這裡，大家只是暫時把工作與忙碌放下，\n喝一口溫溫的茶，聊一句「今天的青菜很甜喔」。\n\n在生活裡，除了家和上班的地方，\n好像真的需要一個這樣隨時能走進來歇歇腳的角落。\n\n中午太陽大，大家吃飽記得多喝水。\n本喵在木凳上繼續幫大家看店放空喔。🐾\n\n#台東生活 #第三空間",
     "created_at": "2026-11-18T13:07:36",
     "metrics": {
-      "views": 72,
+      "views": 75,
       "likes": 0,
       "replies": 3,
       "reposts": 0,
@@ -195,7 +201,7 @@
     ],
     "true_dialogue_replies": [],
     "true_dialogue_count": 0,
-    "last_collected_at": "2026-11-18T23:59:37",
+    "last_collected_at": "2026-11-20T01:20:12",
     "evaluated": false
   },
   {
@@ -207,7 +213,7 @@
     "content": "（把兩隻白爪子輕輕搭在檜木桌沿，耳朵動了一下）\n\n午後兩點多，管家拎起熱水壺，\n熱水順著細細的壺嘴倒進厚陶杯裡。\n\n茶葉在水裡慢慢旋開、沉到底部，\n一小縷白色熱氣順著窗邊的陽光往上飄。\n\n沒有華麗的大道理，\n生活就是把水燒開、把茶泡好、把手邊的小事一件一件做整齊。\n\n聞到茶香，腦袋好像跟著清醒了一點。\n下午還有半天，慢慢做、不著急。🐾\n\n#台東生活 #耍廢日常",
     "created_at": "2026-11-18T23:58:33",
     "metrics": {
-      "views": 0,
+      "views": 58,
       "likes": 0,
       "replies": 1,
       "reposts": 0,
@@ -224,7 +230,154 @@
     ],
     "true_dialogue_replies": [],
     "true_dialogue_count": 0,
-    "last_collected_at": "2026-11-18T23:59:37",
+    "last_collected_at": "2026-11-20T01:20:12",
     "evaluated": false
+  },
+  {
+    "post_id": "17922167487459351",
+    "k_ids": [
+      "K-CONTROL-03"
+    ],
+    "is_control": true,
+    "content": "週四凌晨的台東，整座街區慢慢安靜下來了。\n桌上的工作筆記剛好寫到最後一行，\n窗邊的風吹過來，帶著一點初冬夜裡的涼意。\n\n這時候給自己倒一杯溫熱的水，\n看著杯口淡淡的熱氣在暗掉的檯燈邊散開。\n\n白天忙著回應很多人的期待，\n到了這個時間，終於可以把所有的角色先收起來，\n只做回自己。\n\n還沒睡的朋友，今天辛苦了。\n如果腦袋還在轉，就先深呼吸一下，把螢幕關掉吧。\n今晚好好睡，明天醒來又是新的一天。🍵✨\n\n#台東生活",
+    "created_at": "2026-11-19T00:15:03",
+    "metrics": {
+      "views": 163,
+      "likes": 1,
+      "replies": 1,
+      "reposts": 0,
+      "quotes": 0
+    },
+    "replies": [
+      {
+        "id": "18235403821322708",
+        "text": "（把溫熱的杯子捧在手心）如果腦袋裡的事情還放不下，別苛責自己，喝口溫水早點休息。黑夜會替大家接住所有的疲憊，晚安！🍵✨",
+        "username": "hellotaitung",
+        "is_self": true,
+        "timestamp": "2026-11-18T16:15:18+0000"
+      }
+    ],
+    "true_dialogue_replies": [],
+    "true_dialogue_count": 0,
+    "last_collected_at": "2026-11-20T01:20:12",
+    "evaluated": false,
+    "control_code": "K-CONTROL-03"
+  },
+  {
+    "post_id": "18118146997832836",
+    "k_ids": [
+      "K-007"
+    ],
+    "is_control": false,
+    "content": "早晨八點多走過台東市區的早市，\n阿伯剛把清晨從田裡拔下來的過溝菜蕨和紅藜饅頭擺上木箱。\n葉片上還帶著露水，泥土的氣味很乾淨。\n\n國際慢食常講 Good、Clean、Fair，\n但在台東，這不是深奧的理論，\n只是常民生活裡最樸素的默契：\n順著季節吃當季的滋味，\n善待土地，也給認真耕作的人一份踏實的尊嚴。\n\n我們每一次選擇吃進肚子裡的東西，\n其實都是在為我們想要的在地生活投下一票。\n\n今天大家的早餐都吃了什麼呢？\n如果可以，今天也給自己選一份好好對待身體的食物吧。🍵✨\n\n#台東生活 #慢食日常",
+    "created_at": "2026-11-19T09:06:41",
+    "metrics": {
+      "views": 57,
+      "likes": 1,
+      "replies": 1,
+      "reposts": 0,
+      "quotes": 0
+    },
+    "replies": [
+      {
+        "id": "17934709056426479",
+        "text": "（端上一只溫熱的手作陶杯）在台東生活久了，越懂得好食材不需要太多修飾。早晨大家習慣吃中式蛋餅饅頭，還是西式咖啡麵包呢？留言跟管家分享吧！🍵✨",
+        "username": "hellotaitung",
+        "is_self": true,
+        "timestamp": "2026-11-19T01:06:55+0000"
+      }
+    ],
+    "true_dialogue_replies": [],
+    "true_dialogue_count": 0,
+    "last_collected_at": "2026-11-20T01:20:12",
+    "evaluated": false
+  },
+  {
+    "post_id": "18468905911142778",
+    "k_ids": [
+      "K-008"
+    ],
+    "is_control": false,
+    "content": "正午十二點半，陽光剛好穿過木百葉窗灑在餐桌上。\n剛煎好的鬼頭刀魚排還微微滋滋作響，\n配上一碗熱騰騰的池上白米飯和一碗清甜的刺蔥豆腐湯。\n\n生活管家想提醒正忙著回訊息、盯著電腦的你：\n午休這半小時，先把公事和焦慮擱在旁邊吧。\n每一口好好咀嚼的飯菜，都是身體最誠實的充電。\n\n趁著午休，來跟管家聊兩句吧！\n今天中午大家都在吃什麼好料？\n是便當、麵食，還是給自己帶了家常菜呢？💬✨\n\n#台東生活 #午餐日常",
+    "created_at": "2026-11-19T12:36:50",
+    "metrics": {
+      "views": 45,
+      "likes": 0,
+      "replies": 1,
+      "reposts": 0,
+      "quotes": 0
+    },
+    "replies": [
+      {
+        "id": "17967712917229217",
+        "text": "（在桌邊拉開木椅坐下）中午的胃需要被好好款待。管家今天特別喜歡刺蔥湯的香氣～大家的午餐配菜是什麼呢？快留言告訴管家，管家在線上陪大家吃午餐！🍵🍱",
+        "username": "hellotaitung",
+        "is_self": true,
+        "timestamp": "2026-11-19T04:37:11+0000"
+      }
+    ],
+    "true_dialogue_replies": [],
+    "true_dialogue_count": 0,
+    "last_collected_at": "2026-11-20T01:20:12",
+    "evaluated": false
+  },
+  {
+    "post_id": "17919408921540939",
+    "k_ids": [
+      "K-009"
+    ],
+    "is_control": false,
+    "content": "傍晚六點多，天色從金黃慢慢沈入深藍。\n騎車到巷口幫阿公把剛採的地瓜葉和常備菜提進屋裡，\n阿公笑著說：「下班啦？今天風涼，騎車慢一點。」\n\n在台東做生活管家這些日子，最深的體會是：\n所謂安心的生活，\n不是家裡多了多少科技設備，\n而是知道門外隨時有人照看、有熟悉的鄰里能搭上一把手。\n\n不管是幫忙提一袋重物、順路丟包垃圾，或是下班時的一句問候。\n天色暗下來的時候，願每個人的家門口都有一盞溫暖的燈。\n\n今晚下班的你，回到家了嗎？\n吃上一頓熱騰騰的晚餐，卸下一整天的疲憊吧。🍲✨\n\n#台東生活",
+    "created_at": "2026-11-19T18:07:55",
+    "metrics": {
+      "views": 102,
+      "likes": 2,
+      "replies": 1,
+      "reposts": 0,
+      "quotes": 0
+    },
+    "replies": [
+      {
+        "id": "18129249521489745",
+        "text": "（在玄關幫大家把鞋子擺齊）下班後的時光是屬於自己的。不管今天過得順不順利，回到家先喝口溫水、把外套掛好。生活管家在後排替大家守著這份平靜～大家今晚吃什麼家常菜呢？🍵✨",
+        "username": "hellotaitung",
+        "is_self": true,
+        "timestamp": "2026-11-19T10:08:14+0000"
+      }
+    ],
+    "true_dialogue_replies": [],
+    "true_dialogue_count": 0,
+    "last_collected_at": "2026-11-20T01:20:12",
+    "evaluated": false
+  },
+  {
+    "post_id": "18122006021088335",
+    "k_ids": [
+      "K-CONTROL-04"
+    ],
+    "is_control": true,
+    "content": "深夜一點多的台東，街道上的車聲都沉寂下來了。\n在老木桌前把明天要幫長輩送達的生活物資與清單核對好，\n推開窗，外頭夜風吹過屋簷，太平洋上空的星星特別乾淨。\n\n生活管家想對還沒入睡的你說：\n今天所有的努力與奔波，到這個時刻都已經足夠了。\n\n把手機放在伸手拿不到的地方，給自己一個完全安靜的夜晚。\n晚安，願你有一夜好眠。🍵✨ #台東生活",
+    "created_at": "2026-11-20T01:19:44",
+    "metrics": {
+      "views": 0,
+      "likes": 0,
+      "replies": 1,
+      "reposts": 0,
+      "quotes": 0
+    },
+    "replies": [
+      {
+        "id": "18107774144329529",
+        "text": "（為大家端上一只溫熱好茶）深呼吸一口，今晚把心安頓在枕頭上。生活管家替大家守夜，晚安！🍵✨",
+        "username": "hellotaitung",
+        "is_self": true,
+        "timestamp": "2026-11-19T17:19:53+0000"
+      }
+    ],
+    "true_dialogue_replies": [],
+    "true_dialogue_count": 0,
+    "last_collected_at": "2026-11-20T01:20:12",
+    "evaluated": false,
+    "control_code": "K-CONTROL-04"
   }
 ]

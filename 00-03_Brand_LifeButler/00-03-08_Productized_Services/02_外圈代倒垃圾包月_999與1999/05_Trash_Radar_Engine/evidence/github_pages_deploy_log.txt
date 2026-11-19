@@ -1,5 +1,8 @@
-Commit: aee2721
+Commit: 07a2cd3
 Repo: chalaw710218/taitung-trash-radar
 URL: https://chalaw710218.github.io/taitung-trash-radar/
 Status: Published successfully to GitHub Pages (Exit Code 0)
-DATA_VERSION: 20261118_v4
+DATA_VERSION: 20261120_v2
+Features: Legal compliance copy refined (到府代倒 instead of 到府收運, removed 密封袋), updated label to 離您最近的站, deleted duplicate quick cta, recycling toggle enabled
+Brand_Name_Verified: 生活管家，就醬點！
+Deployed_At: 2026-11-20T00:44:04+08:00

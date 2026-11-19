@@ -63,3 +63,13 @@ desktop.ini
 *private_financials*
 *founder_private*
 
+# AI 對話框與會話記錄機密隔離 (GitHub 絕不上傳，僅本機留存)
+.system_generated/
+.gemini/
+*transcript*.jsonl
+*.transcript.jsonl
+*chat_history*
+*conversation_history*
+scratch/
+
+

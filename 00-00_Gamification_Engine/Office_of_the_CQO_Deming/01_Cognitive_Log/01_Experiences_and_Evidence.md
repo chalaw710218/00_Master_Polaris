@@ -1,76 +1,171 @@
 # 📘 戴明認知存摺 01：客觀事實庫 (CQO_Deming)
 
-> 記錄 CQO_Deming 在真實審計與仿生學習中所獲取的客觀硬數據、物理限制與真值反饋。
+> 記錄 CQO_Deming 在真實審計與文獻考證中所獲取之客觀事實、文獻依據與物理限制。  
+> **整理狀態**：2026-11-19 完成整肅。未驗證之 51 條已全數移至 `_未驗證封存` 資料夾；本文件僅保留具備文獻出處之 9 條核心概念，並已校正數字與剔除無依據虛構數字。
 
 ---
 
-### [2026-10-25 01:47] 戴明 10 輪仿生特化學習物理驗證硬數據 (Cycle 01 - Cycle 10)
+### [2026-11-19 校正整理] 經文獻考證之核心事實條目 (共 9 條)
 
-1. **操作型定義降噪數據**：未提供具體量測方法的模糊詞（如『服務快速』）在各部門跨域理解偏差高達 68.4%；導入量化操作型定義後，跨部門溝通摩擦驟降 89.2%。
-2. **戴明漏斗實驗 SPC 變異數據**：對常態變異隨機波動（Common Causes）進行頻繁介入（Tampering），系統總變異擴大 2.4 倍；建立 3-Sigma 上下管制界限 (UCL/LCL) 後，無效瞎折騰減少 94.1%。
-3. **紅珠實驗 94/6 歸因數據**：分析生鮮失溫與破包歷史案例，94% 的瑕疵直接取決於包材規格、保冷袋厚度與系統流程，僅 6% 真正源於人為疏失。導入流程防呆後，良品率自 82.3% 躍升至 99.4%。
-4. **空洞標語免疫濾網數據**：過濾「大家加油、提高警覺」等無具體方法口號後，一線夥伴心理防禦焦慮消除；改採具體 Checklist 防呆機制，作業失誤率下降 76.5%。
-5. **安燈繩 (Andon Cord) 物理阻斷成本效益**：放行瑕疵品流入下游的客訴退貨與品牌商譽賠償成本，是源頭攔截的 11.8 倍；源頭拉下安燈繩硬阻斷，全域總摩擦成本降低 65.4%。
-6. **5D 報價防彈衣風控數據**：落實「勞務服務費」與「代墊款項」分離、知情前置確認與定金條款後，代墊壞帳率降至 0.0%，毛利獲利自洽率 100%。
-7. **社群選品利刃先行與賤詞過濾**：剔除「團購、便宜、CP值」促銷賤詞、改走高質感生活選品敘事，客單價提升 42.6%，退款率壓制在 0.28%。
-8. **代碼 UTF-8 與日結 1 元不差平帳數據**：Python 腳本強行注入 UTF-8 防呆消除 Windows CP950 崩潰；收工日結帳本實施差 1 元不放行硬規則，平帳成功率 100%。
-9. **PDSA 科學循環 (Study 取代 Check) 數據**：以深入根因分析的 Study 取代表面 Check 打勾後，SOP 缺陷根治率由 34.2% 暴增至 96.8%。
-10. **第十輪衝突大審計三大解耦驗證**：時空雙軌沙盒解耦（研發 vs 生產）、元流程 SOP 審查解耦（審查造珠機器而非單顆紅珠）、制度歸因與心理安全解耦（一線免責、管理當責）全數通過外部物理 Exit Code 0 檢驗！
+1. **戴明漏斗實驗變異數與標準差**：
+   - **核心事實**：對受控系統中的常態隨機波動進行補償調整（規則 2：依前一次落點誤差反向補償），系統的變異數 (Variance) 是不調整（規則 1）的 2 倍，標準差擴大為 $\sqrt{2} \approx 1.41$ 倍；若對原始目標過度反應（規則 3 與規則 4），系統變異將發散至無窮大。過度調整（Tampering）只會增加變異。
+   - **出處**：W. Edwards Deming, *Out of the Crisis* (1986), Chapter 11 "The Funnel Experiment", pp. 327–332.
+
+2. **94/6 系統責任原則**：
+   - **核心事實**：94% 屬於系統（管理層責任），6% 屬於特殊原因。生產與服務系統中的問題與變異，絕大部分源於系統與流程，管理者的職責在於改造系統流程與器具防呆，而非怪罪基層作業人員。
+   - **出處**：W. Edwards Deming, *Out of the Crisis* (1986), Chapter 11, p. 315.
+
+3. **製程能力指數 (Cpk) 治理標準**：
+   - **核心事實**：以統計製程能力指數 $C_{pk}$ 作為製程品質能力的衡量標準，評估製程平均值偏移與規格界限之距離。製程能力分析的前提為系統必須處於統計受控狀態，且數據符合常態分佈。
+   - **出處**：Douglas C. Montgomery, *Introduction to Statistical Quality Control*, 8th Edition (2019), Chapter 8 "Process Capability Analysis".
+
+4. **利特爾法則 (Little's Law) 與在製品流動**：
+   - **核心事實**：在穩定系統（平衡狀態）中，系統內的平均在製品數量 ($L$) 等於平均到達率（吞吐量 $\lambda$）乘以平均前置時間 ($W$)，公式為 $L = \lambda W$。限制排程中的在製品數量 (WIP) 是縮短前置時間、消除擁塞的數學基礎。
+   - **出處**：John D. C. Little, "A Proof for the Queuing Formula: $L = \lambda W$", *Operations Research*, 9(3), 1961, pp. 383–387.
+
+5. **休哈特管制圖與韋斯頓電氣四規則 (Western Electric Rules)**：
+   - **核心事實**：在管制界限（3-Sigma）內劃分 Zone A ($2\sigma \sim 3\sigma$)、Zone B ($1\sigma \sim 2\sigma$) 與 Zone C ($0 \sim 1\sigma$)，利用非隨機排列規則（如單點落於 3-Sigma 外、連續點落在特定區域或中心線同側）提前辨識非隨機之特殊原因變異信號。
+   - **出處**：Western Electric Company, *Statistical Quality Control Handbook* (1956), Part II, Section 1, pp. 25–28.
+
+6. **卡諾滿意度模型 (Kano Model) 品質分類**：
+   - **核心事實**：產品與服務品質屬性可劃分為必備品質（Must-be，未滿足引發強烈不滿，滿足則視為理所當然）、一維品質（One-dimensional，滿足度與滿意度呈線性關係）與魅力品質（Attractive，未提供不引起不滿，提供則帶來驚喜與高度滿意）。
+   - **出處**：Noriaki Kano et al., "Attractive Quality and Must-be Quality", *Journal of the Japanese Society for Quality Control* (1984), 14(2), pp. 147–156.
+
+7. **默克爾樹 (Merkle Tree) 雜湊校驗架構**：
+   - **核心事實**：利用樹狀密碼學雜湊結構，將底層數據塊進行成對雜湊並遞歸匯總為單一根雜湊 (Merkle Root)，實現大規模數據完整性的對數級複雜度驗證與防偽防篡改。
+   - **出處**：Ralph C. Merkle, "A Certified Digital Signature", *Advances in Cryptology – CRYPTO '89*, pp. 218–238.
+
+8. **塔揚演算法 (Tarjan's Algorithm) 與有向圖無環排程**：
+   - **核心事實**：利用深度優先搜尋 (DFS) 與搜尋時間戳、追蹤低點值 (low-link)，在線性時間 $\mathcal{O}(V+E)$ 內求解有向圖中的所有強連通分量 (SCC)，可用於工作流循環依賴與死鎖之靜態檢測。
+   - **出處**：Robert E. Tarjan, "Depth-First Search and Linear Graph Algorithms", *SIAM Journal on Computing*, 1(2), 1972, pp. 146–160.
+
+9. **持續微小改善的複利效應原理**：
+   - **核心事實**：微小習慣與流程優化具備複利效應，長期持續的邊際改善會隨時間呈現指數級累積。
+   - **出處**：James Clear, *Atomic Habits* (2018), Chapter 1.
 
 
-### [2026-10-25 01:54] 戴明 20 輪連續特化演化硬數據 (Cycle 11 - Cycle 30 · 三旬大成)
+10. **休哈特管制圖與韋斯頓電氣四規則 (Western Electric Rules)（網頁佐證）**：
+   - **核心事實**：韋斯頓電氣規則為統計製程管制中用於管制圖上辨識非隨機模式與特殊原因之判定決策規則。
+   - **出處**：Western Electric Company, Statistical Quality Control Handbook (1956), pp. 25–28
+   - **證據網址**：https://en.wikipedia.org/wiki/Western_Electric_rules
+   - **原文摘句**：decision rules in statistical process control
 
-1. **戴明漏斗實驗 SPC 數據**：停止對受控流程隨機微調後，派單與外送排程系統抖動下降 83.5%，時效穩定度提升 3 倍。
-2. **5D 時間點數 (TP) 管制界限**：5D 工時點數確立 3-Sigma 管制界限後，外送報價偏差率由 38% 壓制在 4.2% 內，客戶溝通說服力達 100%。
-3. **廢除工作定額與 Cpk 治理**：以製程能力指數 Cpk >= 1.33 取代死板數字定額，員工因趕定額引發的失誤率歸零，Kaizen 主動改善提案增長 4.2 倍。
-4. **冷鏈 SPC 溫變物聯網監控**：-18°C 保鮮連續休哈特管制圖建立西格瑪偏移主動預警，生鮮失溫率由 2.1% 暴降至 0.03%。
-5. **社群文案正則質檢自動化**：發布前自動化正則審查（錯別字、排版破版、品牌賤詞過濾），返工時間由 15 分鐘降至 0.4 秒，零錯字達成率 100%。
-6. **AST 代碼防呆與 UTF-8 閘門**：本地語法樹預檢徹底阻斷 CP950 編碼遺漏與無超時死鎖代碼提交，線上非受控崩潰率為 0.0%。
-7. **日結收工帳本借貸雙校驗**：二分搜尋演算法在 0.2 秒內精準定位 1 元失衡流水，對帳時間自 45 分鐘壓縮至 1.2 秒。
-8. **供應鏈 TCO 總體成本數據**：證明低價劣質耗材總摩擦成本高出 28.4%；導入長期信賴評級後，極星總履約成本下降 18.2%。
-9. **一線免責與 5 Whys 回溯**：客訴通報全面免除基層恐懼，客訴瞞報率由 35% 歸零，流程根本原因修復率躍升至 97.5%。
-10. **第二十代大審計（彈性心流解耦）**：確立『80% 鋼鐵底線 + 20% 人性自主裁量』憲章，人情關懷獲最高品質豁免。
-11. **SOP 溶酶體代謝自噬**：修剪 24% 冗餘陳舊條款，實施 SemVer 版本化管理，團隊查閱 SOP 效率提升 45%。
-12. **CLI 命令行契約化 (By what method?)**：STDOUT 結構化 JSON + 精準 Exit Code 語意字典，跨 Agent 子進程調用錯誤率降至 0.0%。
-13. **知情前置確認話術質檢**：代墊款項、服務費、等待時間三要件嚴格知情確認，外送爭議與代墊後悔率降為 0.0%。
-14. **利特爾法則與 WIP 限制**：社群文案與外送跑腿實施在製品上限管制，單項交付前置時間縮短 41%，多工切換心智消耗降低 70%。
-15. **雙盲黑箱審計一致性**：抹除作者標籤進行客觀盲審，消除光環效應，不同稽核進程評分標準差 $\sigma < 1.5$ 分，客觀信度達 99.2%。
-16. **瑕疵隔離留置區 (Quarantine)**：單點瑕疵精準摘除至隔離區，未受影響合格產物維持正常流動，全廠吞吐量保持 94% 以上。
-17. **品質憑證 SHA-256 密碼簽名**：通過 90 分審計產物自動生成防偽雜湊簽名，杜絕偷跑與偽造，履約信譽達到金融級防偽。
-18. **無障礙缺陷通報與 Kaizen 獎勵**：30 秒極簡免責通報入口，小隱患在爆發為客訴前的源頭修復率提升 88.5%。
-19. **微模組崗位培訓卡**：3 分鐘圖文微防呆卡取代冗長說教，新人上手時間縮短 65%，上崗前三天失誤率直接歸零。
-20. **第三十代大審計（三旬大統攝與反脆弱沙盒）**：主動引入低劑量隨機擾動壓力測試，SoPK、十四原則與六天王體系完成三旬大統攝！
+11. **安燈系統與停止生產線可視化警報 (Andon System)**：
+   - **核心事實**：安燈（Andon）為製造業用於向管理層、維護人員與作業員即時發出品質或流程問題警報之可視化通知系統，賦予基層拉下安燈繩或按鈕停止生產線之物理權限。
+   - **出處**：https://en.wikipedia.org/wiki/Andon_(manufacturing)
+   - **證據網址**：https://en.wikipedia.org/wiki/Andon_(manufacturing)
+   - **原文摘句**：is a system which notifies managerial, maintenance, and other workers of a quality or process problem
 
+12. **新鄉重夫防呆機制與零缺陷品質控制 (Poka-yoke)**：
+   - **核心事實**：防呆機制（Poka-yoke）係指流程中透過預防、矯正或提醒人為錯誤，協助設備操作者避免失誤與缺陷產生之物理或步驟防錯設計。
+   - **出處**：https://en.wikipedia.org/wiki/Poka-yoke
+   - **證據網址**：https://en.wikipedia.org/wiki/Poka-yoke
+   - **原文摘句**：any mechanism in a process that helps an equipment operator avoid mistakes and defects by preventing, correcting, or drawing attention to human errors
 
-### [2026-10-25 02:02] 戴明 30 輪連續特化演化硬數據 (Cycle 31 - Cycle 60 · 甲子大成)
+13. **休哈特與戴明 PDCA 連續改善循環 (Plan-Do-Check-Act)**：
+   - **核心事實**：PDCA 循環（規劃-執行-查核-處置）為企業用於製程與產品之品質管制及持續改善的反覆迭代設計與管理方法論。
+   - **出處**：https://en.wikipedia.org/wiki/PDCA
+   - **證據網址**：https://en.wikipedia.org/wiki/PDCA
+   - **原文摘句**：iterative design and management method used in business for the control and continual improvement of processes and products
 
-1. **W3C Trace 全鏈路品質 Span**：追蹤報價、選品、履約全鏈路，跨部門異常定位耗時由 2 小時縮短至 12 秒，阻抗降低 90%。
-2. **韋斯頓電氣四規則自動化**：SPC 四規則流式掃描使系統性失控信號提前 4.5 小時被截獲，預防成功率達 99.1%。
-3. **動態安全庫存對沖模型**：台東產地與都會區 35% 緩衝庫存對沖，極端天災下生鮮斷供率自 14.5% 歸零。
-4. **氣象客觀擾動指數聯動**：風雨實時聯動 D2 風險點數，惡劣天氣跑腿接單意願提升 85%，顧客惡評率 0.0%。
-5. **無過錯復盤 (Blameless Post-Mortem)**：建立無責檢討機制，跨部門主動揭露隱患數量增長 3.6 倍，自癒速度提升 5 倍。
-6. **本地 SQLite 時序庫極限壓縮**：QA 時序日誌 1 分鐘桶聚合壓縮率達 92.4%，30 天歷史趨勢查詢延遲僅 4.2ms，內存僅 2.8MB。
-7. **卡諾模型 (Kano) 品質解析**：80% 防呆鎖死必備品質、20% 人性激發魅力品質，私域 90 天復購率自 32% 飆升至 74.2%。
-8. **生鮮包裝熱力學衰減精算**：台東 36°C 環境下建立熱傳導衰減模型，PCM 耗材浪費減少 30%，夏季失溫率 0.0%。
-9. **社群文案低熵認知負載指數**：限制 50~150 字留白視覺呼吸感，Threads 貼文完讀率提升 65%，轉發增長 2.8 倍。
-10. **第四十代大審計（時空分級放行）**：核心紅線 100% 阻斷，次級非安全屬性走快速通道 + 24hr 非同步補正，上線時效提速 55%。
-11. **管理指標轉向『障礙清除率』**：廢除監工打卡，主管專注移除系統障礙，跨部門協同速度提升 2.3 倍，信任指數 98.8%。
-12. **SOP Git SHA-256 哈希一致性**：跨 Agent 節點防漂移雜湊碰撞檢測，版本漂移率降至 0.0%，步調 100% 同步。
-13. **防彈衣第三鐵律『二次出勤精算』**：等待 > 10 分鐘自動折算補充時間點數，惡意耽擱案例下降 94%，夥伴滿意度 100%。
-14. **廢除績效排行榜 (Abolish Stack Ranking)**：建立共享榮譽體制，團隊內部知識共享頻率激增 300%，跨防區主動補位增長 4.8 倍。
-15. **收工日結 Merkle Tree 對帳**：多線程並行 Merkle 根哈希對帳每秒達 50,000 筆，金融級防篡改，平帳公信力 100%。
-16. **外送人因工程 (Ergonomics) 防呆**：按鈕熱區擴大 200%、高對比夜間模式與二次滑動確認，騎行誤觸率下降 96%，事故率 0.0%。
-17. **反誇大宣傳紅隊攻擊 (Anti-Hyperbole)**：自動剔除誇大宣傳、回歸具名漁船與包冰 0.0% 物理真值，免除法規風險，口碑轉化提升 38%。
-18. **外送動態路網變異控制**：GPS 實時軌跡繪製 SPC 管制圖，避開施工與鐵道延誤，預估送達誤差收窄至 3.5 分鐘，準時率 98.9%。
-19. **跨部門防呆自癒迴路**：Webhook 髒數據自動清洗修復並反哺 PRM 補丁，跨系統故障停機時間歸零，自癒率 100%。
-20. **第五十代半百代大審計（去中心化品質主權）**：質檢腳本下沉賦能各天王，戴明進化為防禦架構師，協同吞吐量提升 280%。
-21. **十年永恆目的資產保護**：以十年尺度抵抗短期功利，確立真食材與公道價格永續不變量，築牢終身信任護城河。
-22. **D5 情緒安心長期複利度量**：情緒安心使高淨值顧客年留存率達 92.5%，顧客終身價值 (LTV) 提升 3.4 倍。
-23. **源頭品質共同體利益分成**：A 級無包冰現流物產溢價 15~25% 返還農漁民，優質產地一級貨源優先供給率達 100%。
-24. **Tarjan DAG 跨 Agent 避鎖排程**：任務有向圖強連通分量環路掃描，循環依賴死鎖率徹底歸零，併發吞吐提升 4 倍。
-25. **數位收工憑證 (EOD Certificate) 雙向核驗**：日曆、帳本、代碼三相零遺漏核驗，連續 180 天保持零遺留技術債與零錯帳。
-26. **信任半衰期 (Trust Half-Life) 動力學**：量化 1 次背叛折損 80% 信任之代價，安燈繩捍衛底線，品牌客訴流失率壓制在 0.05%。
-27. **環保減塑防漏矛盾辯證調和**：生物可降解 PLA 淋膜紙袋達到極限耐水壓 SPC，零外漏、零塑化劑，包材垃圾減量 85%。
-28. **Kaizen 微創新複利效應累積**：每天 1% 微改善一年累積 37.78 倍躍遷，30 天落實 42 項微防呆，營運總摩擦降低 64%。
-29. **SoPK 自組織全息拓撲校準**：系統認知、變異、知識論、心理學四位一體全息交織，外部極端擾動 0.1 秒內自主平衡。
-30. **第六十代甲子大統攝終極大審計**：全面固化【戴明品質管理二十項終極鐵律】，解開品質與自由終極矛盾，全域 Exit Code 0！
+14. **戴明深層知識體系四大基石 (System of Profound Knowledge, SoPK)**：
+   - **核心事實**：戴明主張全體管理者皆需具備深層知識體系（System of Profound Knowledge），由四大相互作用之基石構成：系統認知、變異理論、知識論與心理學。
+   - **出處**：https://en.wikipedia.org/wiki/W._Edwards_Deming
+   - **證據網址**：https://en.wikipedia.org/wiki/W._Edwards_Deming
+   - **原文摘句**：Deming advocated that all managers need to have what he called a System of Profound Knowledge, consisting of four parts
+
+15. **統計製程管制與偶因特因區分 (Statistical Process Control, SPC)**：
+   - **核心事實**：統計製程管制（SPC）為運用統計方法監控與管制生產製程品質之工具，旨在區分常態偶因（Common causes）與異常特因（Special causes），確保製程穩定與高效運作。
+   - **出處**：https://en.wikipedia.org/wiki/Statistical_process_control
+   - **證據網址**：https://en.wikipedia.org/wiki/Statistical_process_control
+   - **原文摘句**：is the application of statistical methods to monitor and control the quality of a production process
+
+16. **石川圖與根本原因因果分析 (Ishikawa Diagram)**：
+   - **核心事實**：石川圖（魚骨圖）為石川馨所創之因果分析圖表，顯示導致特定事件或品質問題之潛在根本原因，通常依 6M（人、機、料、法、環、測）分類展開。
+   - **出處**：https://en.wikipedia.org/wiki/Ishikawa_diagram
+   - **證據網址**：https://en.wikipedia.org/wiki/Ishikawa_diagram
+   - **原文摘句**：causal diagrams created by Kaoru Ishikawa that show the potential causes of a specific event
+
+17. **整體設備效率三大維度評估 (Overall Equipment Effectiveness, OEE)**：
+   - **核心事實**：整體設備效率（OEE）為衡量製造設備相較於其完整潛力之利用效能指標，由可用率（Availability）、生產效能（Performance）與良品率（Quality）三者綜合計算。
+   - **出處**：https://en.wikipedia.org/wiki/Overall_equipment_effectiveness
+   - **證據網址**：https://en.wikipedia.org/wiki/Overall_equipment_effectiveness
+   - **原文摘句**：is a measure of how well a manufacturing equipment is utilized compared to its full potential
+
+18. **田口品質損失函數與二次曲線 (Taguchi Quality Loss Function)**：
+   - **核心事實**：田口方法為田口玄一發展之穩健設計統計方法，其品質損失函數主張任何偏離目標規格之波動皆會造成社會損失，且該損失隨偏離量二次方遞增。
+   - **出處**：https://en.wikipedia.org/wiki/Taguchi_methods
+   - **證據網址**：https://en.wikipedia.org/wiki/Taguchi_methods
+   - **原文摘句**：statistical methods, sometimes called robust design methods, developed by Genichi Taguchi to improve the quality of manufactured goods
+
+19. **接收抽樣檢驗與操作特性曲線 (Acceptance Sampling)**：
+   - **核心事實**：接收抽樣檢驗利用統計抽樣技術決定是否接收或拒收特定批次物料，透過操作特性曲線（OC Curve）在生產者風險與消費者風險間取得平衡。
+   - **出處**：https://en.wikipedia.org/wiki/Acceptance_sampling
+   - **證據網址**：https://en.wikipedia.org/wiki/Acceptance_sampling
+   - **原文摘句**：uses statistical sampling to determine whether to accept or reject a production lot of material
+
+20. **失誤模式與影響分析風險優先指數 (Failure Mode and Effects Analysis, FMEA)**：
+   - **核心事實**：失誤模式與影響分析（FMEA）為系統性檢視所有組件、裝配與子系統以識別潛在失誤模式及其成因與後果之預防性工程分析方法。
+   - **出處**：https://en.wikipedia.org/wiki/Failure_mode_and_effects_analysis
+   - **證據網址**：https://en.wikipedia.org/wiki/Failure_mode_and_effects_analysis
+   - **原文摘句**：process of reviewing as many components, assemblies, and subsystems as possible to identify potential failure modes in a system and their causes and effects
+
+21. **班佛定律與首位數字舞弊鑑識 (Benford's Law)**：
+   - **核心事實**：班佛定律（首位數字定律）指出在自然產生的數值數據集中，首位數字為 1 的機率約為 30.1%，數字越大概率遞減；審計人員常以此統計規律檢驗財務數字是否經過人為編造或捏造。
+   - **出處**：https://en.wikipedia.org/wiki/Benford%27s_law
+   - **證據網址**：https://en.wikipedia.org/wiki/Benford%27s_law
+   - **原文摘句**：the leading digit is likely to be small
+
+22. **會計對帳與跨帳戶一致性校驗 (Accounting Reconciliation)**：
+   - **核心事實**：會計對帳（Reconciliation）為確保兩套獨立紀錄（例如企業銀行存款日記帳與銀行對帳單）之帳面餘額相互一致的核對程序，用以查明跨期未達帳與記帳錯誤。
+   - **出處**：https://en.wikipedia.org/wiki/Reconciliation_(accounting)
+   - **證據網址**：https://en.wikipedia.org/wiki/Reconciliation_(accounting)
+   - **原文摘句**：process of ensuring that two sets of records
+
+23. **複式簿記與借貸平衡原則 (Double-entry Bookkeeping)**：
+   - **核心事實**：複式簿記為每筆交易均以相等且相反的借方（Debits）與貸方（Credits）分錄同時記錄之記帳方法，確保會計恆等式（資產 = 負債 + 業主權益）恆常平衡。
+   - **出處**：https://en.wikipedia.org/wiki/Double-entry_bookkeeping
+   - **證據網址**：https://en.wikipedia.org/wiki/Double-entry_bookkeeping
+   - **原文摘句**：recorded with equal and opposite entries
+
+24. **試算表借貸相等性驗算 (Trial Balance)**：
+   - **核心事實**：試算表（Trial Balance）為內部財務編制表，彙總列出總分類帳中所有借方與貸方帳戶之期末餘額，透過「借方總額 = 貸方總額」之數學一致性檢驗數學加總與過帳差錯。
+   - **出處**：https://en.wikipedia.org/wiki/Trial_balance
+   - **證據網址**：https://en.wikipedia.org/wiki/Trial_balance
+   - **原文摘句**：lists the adjusted closing balances of all the general ledger accounts
+
+25. **現金流量表三大活動現金流分解 (Cash Flow Statement)**：
+   - **核心事實**：現金流量表展示資產負債表科目變動與損益表利潤如何影響現金及約當現金，將現金流嚴格劃分為營業活動、投資活動與籌資活動三大板塊進行動態勾稽。
+   - **出處**：https://en.wikipedia.org/wiki/Cash_flow_statement
+   - **證據網址**：https://en.wikipedia.org/wiki/Cash_flow_statement
+   - **原文摘句**：how changes in balance sheet accounts and income affect cash
+
+26. **資產負債表財務狀況摘要 (Balance Sheet)**：
+   - **核心事實**：資產負債表（財務狀況表）為企業在特定時點之財務餘額靜態摘要，揭示企業所擁有的經濟資源（資產）、承擔的債務義務（負債）與所有者淨權益。
+   - **出處**：https://en.wikipedia.org/wiki/Balance_sheet
+   - **證據網址**：https://en.wikipedia.org/wiki/Balance_sheet
+   - **原文摘句**：summary of the financial balances of an individual or organization
+
+27. **損益表營收費用與淨利潤轉結 (Income Statement)**：
+   - **核心事實**：損益表（利潤表）反映企業在特定會計期間之收入與各項費用成本，其最終結算之淨利潤（Net Income）直接轉結至資產負債表之保留盈餘與現金流量表營業活動起點。
+   - **出處**：https://en.wikipedia.org/wiki/Income_statement
+   - **證據網址**：https://en.wikipedia.org/wiki/Income_statement
+   - **原文摘句**：shows the company's revenues and expenses during a particular period
+
+28. **財務報表結構與三表跨表勾稽 (Financial Statements)**：
+   - **核心事實**：財務報表為實體財務活動與財務狀況之正式紀錄，資產負債表、損益表與現金流量表三者透過保留盈餘與期末現金餘額形成閉環數學勾稽，單表造假必然導致跨表失衡。
+   - **出處**：https://en.wikipedia.org/wiki/Financial_statement
+   - **證據網址**：https://en.wikipedia.org/wiki/Financial_statement
+   - **原文摘句**：formal records of the financial activities and position
+
+29. **鑑識會計與財務舞弊調查 (Forensic Accounting)**：
+   - **核心事實**：鑑識會計（Forensic Accounting）為結合會計學、審計學與調查技術之專業領域，專門調查企業是否存在財務報告舞弊、虛假交易或數字編造，產出可用於法律訴訟之實質證據。
+   - **出處**：https://en.wikipedia.org/wiki/Forensic_accounting
+   - **證據網址**：https://en.wikipedia.org/wiki/Forensic_accounting
+   - **原文摘句**：specialty practice area of accounting that investigates
+
+30. **內部控制流程與目標保障 (Internal Control)**：
+   - **核心事實**：內部控制為組織確保營運效能與效率、財務報告可靠性及法規合規性的系統性流程防禦機制，透過職能分離與授權審批防止未授權操作與虛報平帳。
+   - **出處**：https://en.wikipedia.org/wiki/Internal_control
+   - **證據網址**：https://en.wikipedia.org/wiki/Internal_control
+   - **原文摘句**：process for assuring of an organization's objectives in operational effectiveness

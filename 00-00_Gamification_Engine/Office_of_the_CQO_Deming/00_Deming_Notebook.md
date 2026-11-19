@@ -1,7 +1,7 @@
-# 📔 首席品質長 (戴明 / Deming) 專屬戰略筆記本 (CQO Master Notebook v2.0 · 甲子大統攝旗艦版)
+# 📔 首席品質長 (戴明 / Deming) 專屬戰略筆記本 (CQO Master Notebook v2.0 · 2026-11-19 新生訓練後重建)
 
-> **定位**：戴明博士的全域品質管制界限、三大防區質檢綱要與安燈硬攔截索引站。  
-> **專屬仿生學習系統**：[`bionic-learning-deming.md`](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CQO_Deming/bionic-learning-deming.md) (v2.0 甲子大統攝旗艦版 · 累積 60 輪演化)。  
+> **定位**：戴明博士的全域品質管制界限、三大防區質檢綱要、三道把關程式與安燈硬攔截索引站。  
+> **專屬仿生學習系統**：[`bionic-learning-deming.md`](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CQO_Deming/bionic-learning-deming.md) (v2.0 · 2026-11-19 新生訓練後重建)。  
 > **更新維護**：由戴明博士親自隨全域審計案例即時增補。
 
 ---
@@ -50,27 +50,31 @@
 
 ---
 
-## 🧬 三、 戴明十輪仿生特化演化與認知存摺 (Cycle 01 - Cycle 10)
+## 🧬 三、 戴明仿生學習系統與三層認知存摺架構 (2026-11-19 重建)
 
-* **演化腳本實體**：
-  * 首輪 10 輪：[`scripts/deming_10round_bionic_engine.py`](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CQO_Deming/scripts/deming_10round_bionic_engine.py) (Exit Code 0)
-  * 中階 20 輪：[`scripts/deming_20round_bionic_engine.py`](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CQO_Deming/scripts/deming_20round_bionic_engine.py) (Cycle 11~30 · Exit Code 0)
-  * 終極 30 輪：[`scripts/deming_30round_bionic_engine.py`](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CQO_Deming/scripts/deming_30round_bionic_engine.py) (Cycle 31~60 · 甲子大成 · Exit Code 0)
-* **大審計里程碑**：
-  * Cycle 10：首代大審計（三大基礎解耦）
-  * Cycle 20：第二十代大審計（80/20 彈性心流區間解耦）
-  * Cycle 30：第三十代宏觀大統攝（反脆弱變異沙盒與局部隔離留置區）
-  * Cycle 40：第四十代大審計（時空分級放行機制）
-  * Cycle 50：第五十代半百代超級大審計（去中心化自組織品質防線）
-  * Cycle 60：第六十代甲子大統攝終極大審計（戴明品質管理二十項終極鐵律固化）
-* **認知存摺索引**：
-  * 客觀事實庫：[`01_Cognitive_Log/01_Experiences_and_Evidence.md`](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CQO_Deming/01_Cognitive_Log/01_Experiences_and_Evidence.md)
-  * 信念演化庫：[`01_Cognitive_Log/02_Belief_Evolution.md`](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CQO_Deming/01_Cognitive_Log/02_Belief_Evolution.md)
-  * 好奇心盲區：[`01_Cognitive_Log/03_Curiosities_and_Questions.md`](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CQO_Deming/01_Cognitive_Log/03_Curiosities_and_Questions.md)
+* **把關程式與測試架構**：
+  * 知識入庫出處守門員：[`scripts/bionic_knowledge_gate.py`](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CQO_Deming/scripts/bionic_knowledge_gate.py) (白名單嚴格制)
+  * 通用審查把關程式：[`scripts/three_gates_auditor.py`](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CQO_Deming/scripts/three_gates_auditor.py) (出處關、重算關、禁語關、防區 A 報價風控關)
+  * 防區 A 專屬報價把關程式：[`scripts/zone_a_pricing_auditor.py`](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CQO_Deming/scripts/zone_a_pricing_auditor.py)
+  * 防區 A 專屬回歸測試器：[`scripts/run_pricing_tests.py`](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CQO_Deming/scripts/run_pricing_tests.py) (4 個成對測試全數通過)
+  * 全域審查測試集自動回歸執行器：[`scripts/run_audit_tests.py`](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CQO_Deming/scripts/run_audit_tests.py) (含通用與防區 A 共有 10 個案例全數通過)
+  * 測試案例存放目錄：[`scripts/tests/`](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CQO_Deming/scripts/tests/)
+* **三層認知存摺索引**：
+  * **01 客觀事實庫**：[`01_Cognitive_Log/01_Experiences_and_Evidence.md`](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CQO_Deming/01_Cognitive_Log/01_Experiences_and_Evidence.md) (經反查整肅保留 9 條真實出處條目)
+  * **02 信念演化庫**：[`01_Cognitive_Log/02_Belief_Evolution.md`](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CQO_Deming/01_Cognitive_Log/02_Belief_Evolution.md) (戴明品質管理二十項終極鐵律，編號與 SKILL.md 統一)
+  * **03 好奇心盲區**：[`01_Cognitive_Log/03_Curiosities_and_Questions.md`](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CQO_Deming/01_Cognitive_Log/03_Curiosities_and_Questions.md)
+* **獨立審查憑證庫 (非三層存摺)**：
+  * **04 審查紀錄庫**：[`04_Audit_Certificates/`](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CQO_Deming/04_Audit_Certificates/) (存放正式公文、審查認證與退件紀錄單)
 * **第十輪衝突大審計時空解耦成果**：
   1. **時空雙軌沙盒解耦**：研發在沙盒低速磨合，生產環境由安燈繩硬攔截守門，兼顧創新與零缺陷。
   2. **元流程 SOP 審查解耦**：戴明審查造珠機器與 SOP，不依賴末端逐件抽檢，推動源頭品質。
   3. **制度歸因與心理安全解耦**：94% 系統責任免除一線恐懼，管理層對流程防呆負全責。
+* **2026-11-19 衝突大審計創辦人（品碩）最高裁決**：
+  1. **安燈阻斷 vs. 24 小時補正**：金額、日期、客戶承諾三類涉及關鍵誠信者一律硬阻斷！排版美化與非關鍵文字允許於 24 小時內補正。
+  2. **田口損失 vs. 財務 0 誤差**：財務審計與把關程式維持 100% 絕對 0 誤差（1 元不差）；田口二次方損失函數僅適用於實體生活服務（如到府家訪時間差、冷鏈溫控波幅）。
+  3. **頁碼證據防偽門禁**：出處包含頁碼者，該頁碼必須出現在證據網頁文字中，否則一律拒絕入庫，改以網址為出處，徹底終結憑記憶編造頁碼。
+  4. **班佛定律適用範圍門禁**：累積 100 筆以上才啟動班佛檢驗。固定方案價（如 999、1999、2999）與範圍很窄的小額金額不適用班佛定律。
+  5. **跨表勾稽與客觀事實原則**：核准在把關程式中加入跨表勾稽檢驗。依母版第四章之一鐵律：對不上就寫對不上，退回並附原始資料，嚴禁在報告中主觀推測造假原因。
 
 ---
 
