@@ -54,7 +54,8 @@
       "k_id": "K-013",
       "type": "EXPERIMENT_GROUP",
       "hero": "Shadow",
-      "theme": "夕陽歸途・生活管家到府送物資與長輩守護"
+      "theme": "夕陽歸途・生活管家到府送物資與長輩守護",
+      "image": "shadow_dusk_care_k013.jpg"
     }
   ],
   "next_trigger_time": "2026-11-20T17:30:00+08:00",
