@@ -61,7 +61,8 @@
     {
       "slot": 6,
       "time": "22:30:00",
-      "status": "PENDING_SCHEDULED",
+      "status": "COMPLETED",
+      "post_id": "18119444876096246",
       "k_id": "K-014",
       "type": "EXPERIMENT_GROUP",
       "hero": "Shadow",
@@ -69,7 +70,7 @@
       "image": "shadow_midnight_tea_k014.jpg"
     }
   ],
-  "next_trigger_time": "2026-11-20T22:30:00+08:00",
-  "next_k_id": "K-014",
-  "updated_at": "2026-11-20T17:35:00+08:00"
+  "next_trigger_time": "2026-11-21T07:30:00+08:00",
+  "next_k_id": "K-CONTROL-05",
+  "updated_at": "2026-11-20T22:36:00+08:00"
 }
