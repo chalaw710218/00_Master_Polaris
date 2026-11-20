@@ -39,11 +39,12 @@
     {
       "slot": 4,
       "time": "12:30:00",
-      "status": "PENDING_SCHEDULED",
+      "status": "COMPLETED",
+      "post_id": "17934631767165586",
       "k_id": "K-012",
       "type": "EXPERIMENT_GROUP",
       "hero": "Shadow",
-      "theme": "正午放慢・threads-rss-sentinel 在地友店美食款待",
+      "theme": "午後微風・池上米香與熱飯篇",
       "image": "shadow_noon_lunch_k012.jpg"
     },
     {
@@ -56,7 +57,7 @@
       "theme": "夕陽歸途・生活管家到府送物資與長輩守護"
     }
   ],
-  "next_trigger_time": "2026-11-20T12:30:00+08:00",
-  "next_k_id": "K-012",
-  "updated_at": "2026-11-20T10:40:00+08:00"
+  "next_trigger_time": "2026-11-20T17:30:00+08:00",
+  "next_k_id": "K-013",
+  "updated_at": "2026-11-20T12:38:00+08:00"
 }

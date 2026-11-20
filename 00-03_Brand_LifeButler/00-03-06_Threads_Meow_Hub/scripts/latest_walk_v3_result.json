@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-11-20 10:36:37",
+  "timestamp": "2026-11-20 12:34:25",
   "step1_home_replies": 0,
   "step2_friends_visited": [
     {
@@ -56,34 +56,34 @@
   },
   "step3_feed_likes": 3,
   "step4_post": {
-    "post_id": "17986891349898423",
-    "permalink": "https://www.threads.com/@hellotaitung/post/Df8mbsKE5Gt",
-    "title": "生活管家隨筆・【0050配息】時事共鳴篇",
+    "post_id": "17934631767165586",
+    "permalink": "https://www.threads.com/@hellotaitung/post/Df8z5MPE4kf",
+    "title": "午後微風・池上米香篇",
     "hero": "生活管家 (影)",
     "topic_tag": "台東生活",
-    "image": "shadow_morning_desk_k011.jpg",
+    "image": "shadow_noon_lunch_k012.jpg",
     "image_reason": "外部指定",
     "k_ids": [
-      "K-011"
+      "K-012"
     ],
-    "screenshot": "C:\\Users\\lenovo\\我的雲端硬碟\\00_Master_Polaris\\00-03_Brand_LifeButler\\00-03-06_Threads_Meow_Hub\\scripts\\screenshots\\walk_v3_17986891349898423_verified.png"
+    "screenshot": "C:\\Users\\lenovo\\我的雲端硬碟\\00_Master_Polaris\\00-03_Brand_LifeButler\\00-03-06_Threads_Meow_Hub\\scripts\\screenshots\\walk_v3_17934631767165586_verified.png"
   },
   "step45_first_reply": {
-    "reply_id": "17891337747478763",
-    "text": "（在木桌旁遞上一只溫熱白瓷杯）上午辛苦了。喝口溫水深呼吸，後半段繼續安穩前行。🍵✨"
+    "reply_id": "17950771017357649",
+    "text": "（拉開木椅坐下）好好把午餐吃完，下午笑著過。生活管家一直都在。🍵✨"
   },
   "step5_friend_ledger": null,
   "step6_cognitive_sync": true,
   "hot_trends_applied": {
-    "keyword": "0050配息",
+    "keyword": "國巨",
     "category": "股市降維轉譯（心電圖與犒賞）",
-    "traffic": "200+",
-    "news_sample": "台股又崩跌逾千點拖累 「平價版0050」！00850除息首日苦陷貼息 8萬人揪心",
-    "event_context": "股市波動加劇，0050配息 或大盤盤面一片綠油油，引發打工人與散戶對資產縮水的心慌焦慮。",
-    "life_pain_point": "看盤看得心驚肉跳，但指數是別人的，肚子才是自己的；需要一盒永遠不會破底的香脆雞腿便當撫慰心靈",
-    "meow_hook": "今天看大家的手機螢幕全都綠成一片……別盯著 0050配息 嘆氣了喵！指數是別人的，肚子是自己的。關掉看盤軟體，剛出爐的金黃現炸大雞腿便當已經送到了，大口咬下去肉汁噴出來，這才是永遠不會破底的漲停板啦！🍗✨",
-    "shadow_hook": "今天很多人的手機螢幕都是綠色的，數字起起伏伏，看得心驚肉跳。但股市是別人的漲跌，你今天認真跑完會議、搬完重物的疲憊，卻是真實的。關掉 App 吧，無論指數跌到哪裡，巷口那碗熱騰騰的現切滷肉飯，永遠是不會破底的防線。🍵",
-    "visual_concept": "【反差犒賞】老木桌上擺著熱騰騰剛出爐的超大金黃炸雞腿便當與香濃熱湯，喵編兩隻前爪緊緊護住便當，眼神傲嬌又堅定；木桌旁貼著手寫牛皮紙便簽：『0050配息 可以跌，但今天的炸雞腿便當必須香！放過自己，好好吃肉。——生活管家』"
+    "traffic": "2000+",
+    "news_sample": "國巨67萬股東心痛...股價「腰斬再腰斬」跌破300元 分析師看法曝",
+    "event_context": "股市波動加劇，國巨 或大盤盤面一片綠油油，引發打工人與散戶對資產縮水的心慌焦慮。",
+    "life_pain_point": "看盤看著 國巨 起伏心驚肉跳，但指數是別人的，肚子才是自己的；需要一盒永遠不會破底的香脆熱便當撫慰心靈",
+    "meow_hook": "今天看大家的手機螢幕全都綠成一片……別盯著 國巨 嘆氣了喵！指數是別人的，肚子是自己的。關掉看盤軟體，剛出爐的金黃現炸熱便當已經送到了，大口咬下去肉汁噴出來，這才是永遠不會破底的漲停板啦！🍗✨",
+    "shadow_hook": "滑開螢幕，關於 國巨 與大盤的震盪成了大家熱議焦點。但市場漲跌終究是遠方的數字，你今天認真工作、打理生活的辛勞，才是切切實實的真切。收起看盤畫面吧，中午老木桌上那盒剛出爐的池上米熱便當，永遠是不會破底的生活防線。🍵",
+    "visual_concept": "【反差犒賞】老木桌上擺著熱騰騰剛出爐的超大金黃炸雞腿便當與香濃熱湯，喵編兩隻前爪緊緊護住便當，眼神傲嬌又堅定；木桌旁貼著手寫牛皮紙便簽：『國巨 可以跌，但今天的炸雞腿便當必須香！放過自己，好好吃肉。——生活管家』"
   },
   "rss_sentinel_scout": [
     {
