@@ -19,20 +19,22 @@
     {
       "slot": 2,
       "time": "07:30:00",
-      "status": "PENDING_SCHEDULED",
+      "status": "COMPLETED",
       "k_id": "K-010",
       "type": "EXPERIMENT_GROUP",
       "hero": "Shadow",
-      "theme": "晨曦晨風・清晨通勤與精神提振"
+      "theme": "晨曦晨風・清晨通勤與精神提振",
+      "post_id": "18108543599376923"
     },
     {
       "slot": 3,
       "time": "10:30:00",
-      "status": "PENDING_SCHEDULED",
+      "status": "COMPLETED",
+      "post_id": "17986891349898423",
       "k_id": "K-011",
       "type": "EXPERIMENT_GROUP",
       "hero": "Shadow",
-      "theme": "上午充電・hot-trend-scout 台灣上午即時時事降維"
+      "theme": "上午充電・hot-trend-scout 台灣上午即時時事降維 (0050配息)"
     },
     {
       "slot": 4,
@@ -41,7 +43,8 @@
       "k_id": "K-012",
       "type": "EXPERIMENT_GROUP",
       "hero": "Shadow",
-      "theme": "正午放慢・threads-rss-sentinel 在地友店美食款待"
+      "theme": "正午放慢・threads-rss-sentinel 在地友店美食款待",
+      "image": "shadow_noon_lunch_k012.jpg"
     },
     {
       "slot": 5,
@@ -53,7 +56,7 @@
       "theme": "夕陽歸途・生活管家到府送物資與長輩守護"
     }
   ],
-  "next_trigger_time": "2026-11-20T07:30:00+08:00",
-  "next_k_id": "K-010",
-  "updated_at": "2026-11-20T01:34:00+08:00"
+  "next_trigger_time": "2026-11-20T12:30:00+08:00",
+  "next_k_id": "K-012",
+  "updated_at": "2026-11-20T10:40:00+08:00"
 }
