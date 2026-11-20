@@ -1,0 +1,76 @@
+{
+  "system": "Threads Autonomous Walker Scheduler",
+  "daily_frequency": 5,
+  "cron_expression": "30 7,10,12,17,22 * * *",
+  "daemon_task_id": "62615c83-54cd-4585-ac6a-95745b9ac34a/task-17695",
+  "timezone": "Asia/Taipei (UTC+8)",
+  "today": "2026-11-20",
+  "slots": [
+    {
+      "slot": 1,
+      "time": "01:20:00",
+      "status": "COMPLETED",
+      "post_id": "18122006021088335",
+      "k_id": "K-CONTROL-04",
+      "type": "CONTROL_GROUP",
+      "hero": "Shadow",
+      "theme": "深夜守候・清單核對與夜風篇"
+    },
+    {
+      "slot": 2,
+      "time": "07:30:00",
+      "status": "COMPLETED",
+      "k_id": "K-010",
+      "type": "EXPERIMENT_GROUP",
+      "hero": "Shadow",
+      "theme": "晨曦晨風・清晨通勤與精神提振",
+      "post_id": "18108543599376923"
+    },
+    {
+      "slot": 3,
+      "time": "10:30:00",
+      "status": "COMPLETED",
+      "post_id": "17986891349898423",
+      "k_id": "K-011",
+      "type": "EXPERIMENT_GROUP",
+      "hero": "Shadow",
+      "theme": "上午充電・hot-trend-scout 台灣上午即時時事降維 (0050配息)"
+    },
+    {
+      "slot": 4,
+      "time": "12:30:00",
+      "status": "COMPLETED",
+      "post_id": "17934631767165586",
+      "k_id": "K-012",
+      "type": "EXPERIMENT_GROUP",
+      "hero": "Shadow",
+      "theme": "午後微風・池上米香與熱飯篇",
+      "image": "shadow_noon_lunch_k012.jpg"
+    },
+    {
+      "slot": 5,
+      "time": "17:30:00",
+      "status": "COMPLETED",
+      "post_id": "18130516907490147",
+      "k_id": "K-013",
+      "type": "EXPERIMENT_GROUP",
+      "hero": "Shadow",
+      "theme": "夕陽歸途・生活管家到府送物資與長輩守護",
+      "image": "shadow_dusk_care_k013.jpg"
+    },
+    {
+      "slot": 6,
+      "time": "22:30:00",
+      "status": "COMPLETED",
+      "post_id": "18119444876096246",
+      "k_id": "K-014",
+      "type": "EXPERIMENT_GROUP",
+      "hero": "Shadow",
+      "theme": "深夜陪伴・合上代辦清單與夜風安眠",
+      "image": "shadow_midnight_tea_k014.jpg"
+    }
+  ],
+  "next_trigger_time": "2026-11-21T07:30:00+08:00",
+  "next_k_id": "K-CONTROL-05",
+  "updated_at": "2026-11-20T22:36:00+08:00"
+}
