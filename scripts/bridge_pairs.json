@@ -4,7 +4,7 @@
     "ag_name": "最高指揮",
     "claude_href": "/chat/ee308b26-41ac-438e-b859-d324e2bbaff6",
     "claude_name": "[已開分頁] 雪.仿生學習系統",
-    "enabled": true
+    "enabled": false
   },
   {
     "ag_id": "62615c83-54cd-4585-ac6a-95745b9ac34a",
@@ -14,10 +14,10 @@
     "enabled": false
   },
   {
-    "ag_id": "",
-    "ag_name": "",
-    "claude_href": "",
-    "claude_name": "",
+    "ag_id": "6ef6e107-c626-4a98-a8eb-707a733a97dd",
+    "ag_name": "逆向解析",
+    "claude_href": "/chat/3b448c43-9109-4644-969c-2c43e7853337",
+    "claude_name": "林納斯.仿生學習系統",
     "enabled": false
   }
 ]

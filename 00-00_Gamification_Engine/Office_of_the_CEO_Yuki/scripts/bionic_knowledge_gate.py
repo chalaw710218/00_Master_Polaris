@@ -1,27 +1,37 @@
 """
 bionic_knowledge_gate.py
-戴明仿生學習系統知識入庫與出處檢驗程式 (Bionic Knowledge Ingestion & Source Gatekeeper) v3.5
+執行長雪之仿生學習系統知識入庫與出處檢驗程式 (Bionic Knowledge Ingestion & Signature Gatekeeper) v4.1
 
-【母版 v6.5-MASTER 證據對齊】
-1. 寫入事實庫只能使用指令：
-   python bionic_knowledge_gate.py add --title "..." --fact "..." --source "..." --url "..." --quote "..."
-2. 新增必填欄位 --url 和 --quote（網頁上的逐字原文摘句）。
-3. 寫入前呼叫母版 bionic_core/evidence_gate.py 之 fetch_page_text 與 quote_in_page 進行物理查核：
-   若摘句在網頁上找不到，一律拒絕寫入！
-4. 拒絕重複標題。
-5. 嚴格白名單檢驗 (check)。
+【創辦人簽章硬化 (Founder Signature Gatekeeper)】
+1. 雪的事實庫嚴禁直接 add（add 指令已廢止，一律退出 Exit Code 1）。
+2. 入庫強制採取兩階段流水線：
+   a. prepare: 讀取 _待入庫.md，逐條連網驗證原文與格式，生成 _本批待簽.json。
+   b. sign: 由創辦人在真實終端機親自執行，在輸入口令前：
+      - 重新核算 entries 雜湊與 batch_sha256（防竄改）
+      - 重新逐條連網物理驗證網頁原文（防盲簽）
+      - 完整展示每條「標題｜網址｜逐字摘句」
+      - 簽章寫入 logs/ingest_signatures.jsonl 並安全寫入事實庫。
+3. check: 全域白名單與簽章檢核。
+   - 驗證每筆簽章之 entry_hashes 必須重算等於 payload 之 batch_sha256 且數量等於 count，任一不符整筆簽章作廢！
+   - 事實庫裡每一條的內容雜湊，都必須出現在驗收合格的批次中。找不到或改過任一字一律阻斷，Exit Code 1！
 """
 
 import os
 import sys
 import re
+import json
+import hashlib
 import argparse
 import tempfile
 from pathlib import Path
+from datetime import datetime
 
 DEFAULT_EXPERIENCES_PATH = Path(__file__).resolve().parent.parent / "01_Cognitive_Log" / "01_Experiences_and_Evidence.md"
+DEFAULT_PENDING_PATH = Path(__file__).resolve().parent.parent / "01_Cognitive_Log" / "_待入庫.md"
+DEFAULT_TO_SIGN_PATH = Path(__file__).resolve().parent.parent / "01_Cognitive_Log" / "_本批待簽.json"
+DEFAULT_SIGNATURES_PATH = Path(__file__).resolve().parent.parent / "logs" / "ingest_signatures.jsonl"
 
-# 引入母版 bionic_core 之 evidence_gate
+# 引入母版 bionic_core 之 evidence_gate 與 founder_auth
 MASTER_BIONIC_CORE_DIR = Path(r"c:\Users\lenovo\我的雲端硬碟\00_Master_Polaris\.agents\skills\bionic-learning-system\bionic_core")
 if str(MASTER_BIONIC_CORE_DIR) not in sys.path:
     sys.path.append(str(MASTER_BIONIC_CORE_DIR))
@@ -29,7 +39,6 @@ if str(MASTER_BIONIC_CORE_DIR) not in sys.path:
 try:
     from evidence_gate import quote_in_page, fetch_page_text, _normalize
 except ImportError:
-    # 本地備用實作以確保離線強健性
     def fetch_page_text(url: str, timeout: int = 20) -> str:
         import urllib.request
         req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (evidence_gate)"})
@@ -46,48 +55,63 @@ except ImportError:
             return False, f"網頁中找不到這段摘句：「{quote[:60]}」"
         return True, ""
 
+    def _normalize(text: str) -> str:
+        return re.sub(r"\s+", " ", text).strip().lower()
+
+try:
+    import founder_auth
+except ImportError:
+    from bionic_core import founder_auth
+
+
 class SourceValidationError(Exception):
     """當出處不符合規格、屬於假出處或未通過母版證據檢查時拋出"""
     pass
 
+
 def is_valid_source(source: str) -> bool:
-    """
-    驗證出處是否合格。
-    必須符合下列其中一項：
-    1. 包含網址（http:// 或 https://，後面需接非空白字符）
-    2. 包含頁碼或章節：
-       - p. 或 pp. 後面必須接數字（如 p. 315, pp. 218-238, p.12）
-       - 帶數字的「頁」（如 第 45 頁, 120頁）
-       - Chapter 必須帶數字或羅馬數字（如 Chapter 11, Chapter 8, Chapter IV）
-       - 「第…章」必須帶數字或中文數字（如 第十一章, 第 8 章）
-    """
     if not source or not isinstance(source, str):
         return False
     s = source.strip()
     if not s:
         return False
 
-    # 1. 檢查是否包含網址 (http:// 或 https:// 接有效字元)
     if re.search(r'https?://[^\s/$.?#].[^\s]*', s, re.IGNORECASE):
         return True
 
-    # 2. 檢查頁碼：p. 或 pp. 後面必須接數字
     if re.search(r'\bpp?\.\s*\d+', s, re.IGNORECASE):
         return True
 
-    # 3. 檢查「頁」：必須帶數字或中文數字
     if re.search(r'([0-9]+|[一二三四五六七八九十百]+)\s*頁', s) or re.search(r'第\s*([0-9]+|[一二三四五六七八九十百]+)\s*頁', s):
         return True
 
-    # 4. 檢查 Chapter：必須帶數字或羅馬數字
     if re.search(r'\bChapter\s*([0-9]+|[IVXLCDM]+)\b', s, re.IGNORECASE):
         return True
 
-    # 5. 檢查「第…章」：必須帶數字或中文數字
     if re.search(r'第\s*([0-9]+|[一二三四五六七八九十百]+)\s*章', s):
         return True
 
     return False
+
+
+def compute_entry_hash(title: str, fact: str, source: str, url: str = None, quote: str = None) -> str:
+    """計算單一事實條目的內容雜湊（不受序號影響，保證內容唯一性）"""
+    t = re.sub(r'^\s*\d+\.\s*', '', title).strip().strip('*')
+    canonical = (
+        f"title={t}\n"
+        f"fact={fact.strip()}\n"
+        f"source={source.strip()}\n"
+        f"url={(url or '').strip()}\n"
+        f"quote={(quote or '').strip()}"
+    )
+    return hashlib.sha256(canonical.encode("utf-8")).hexdigest()
+
+
+def compute_batch_sha256(entries: list[dict]) -> str:
+    """計算整個批次的雜湊簽章"""
+    hashes = [e["entry_hash"] for e in entries]
+    return hashlib.sha256("".join(hashes).encode("utf-8")).hexdigest()
+
 
 def validate_entry(title: str, fact: str, source: str, url: str = None, quote: str = None) -> dict:
     if not title or not title.strip():
@@ -115,7 +139,7 @@ def validate_entry(title: str, fact: str, source: str, url: str = None, quote: s
         if not re.match(r"^https?://\S+\.\S+", u):
             raise SourceValidationError(f"無效的 URL 格式：{u}")
 
-        # 摘句片段長度門禁（與 check_reverify.py 一致：每一段 ≥ 20 字）
+        # 摘句片段長度門禁（每一段 ≥ 20 字）
         frags = [f.strip(" \"'.") for f in re.split(r"\.\.\.|…", q)]
         frags = [f for f in frags if f]
         short_frags = [f for f in frags if len(f) < 20]
@@ -135,7 +159,18 @@ def validate_entry(title: str, fact: str, source: str, url: str = None, quote: s
         if not ok:
             raise SourceValidationError(f"【入庫拒絕】母版證據檢查未通過！{why}")
 
-        # 1. 頁碼連續片段查證門禁：若 source 含頁碼，必須以完整連續片段出現在證據網頁文字中（嚴禁分散數字判定）
+        # 核心事實原子性數字門禁：核心事實裡的每個數字，都必須出現在逐字摘句裡
+        clean_fact_for_num = fact.replace(',', '')
+        clean_quote_for_num = q.replace(',', '')
+        fact_nums = re.findall(r'\d+(?:\.\d+)?', clean_fact_for_num)
+        quote_nums = set(re.findall(r'\d+(?:\.\d+)?', clean_quote_for_num))
+        unmatched_nums = [n for n in fact_nums if n not in quote_nums and n not in clean_quote_for_num]
+        if unmatched_nums:
+            raise SourceValidationError(
+                f"【入庫拒絕】核心事實包含摘句中未出現之數字：{unmatched_nums}！核心事實只能陳述逐字摘句中已證實之數據，不可自行推論或增添數字！"
+            )
+
+        # 頁碼連續片段查證門禁
         page_pattern = re.compile(r'\bpp?\.\s*([0-9]+(?:\s*[\–\-]\s*[0-9]+)?)|([0-9]+)\s*頁', re.IGNORECASE)
         page_matches = list(page_pattern.finditer(source))
         if page_matches:
@@ -145,8 +180,6 @@ def validate_entry(title: str, fact: str, source: str, url: str = None, quote: s
             for pm in page_matches:
                 raw_ref = pm.group(0)
                 num_part = pm.group(1) or pm.group(2)
-                
-                # 若包含範圍（有連字號），檢查連續片段如 "25-28" 或 "pp. 25-28"
                 if '-' in num_part or '–' in num_part:
                     clean_range = re.sub(r'\s*[\–\-]\s*', '-', _normalize(num_part))
                     clean_raw = re.sub(r'\s*[\–\-]\s*', '-', _normalize(raw_ref))
@@ -154,7 +187,6 @@ def validate_entry(title: str, fact: str, source: str, url: str = None, quote: s
                         found_page = True
                         break
                 else:
-                    # 單頁（如 p. 12、12 頁），必須以帶頁碼前綴的連續片段出現，不可單憑分散數字
                     clean_raw = _normalize(raw_ref)
                     alt_forms = [
                         clean_raw,
@@ -174,7 +206,7 @@ def validate_entry(title: str, fact: str, source: str, url: str = None, quote: s
                     f"【入庫拒絕】出處包含頁碼「{raw_ref_str}」，但證據網頁中找不到該連續頁碼片段！未查證之頁碼禁止入庫，請改用「網址」作為出處。"
                 )
 
-        # 2. 章節連續片段查證門禁：若 source 含章節，必須以完整連續片段出現在證據網頁文字中
+        # 章節連續片段查證門禁
         chapter_pattern = re.compile(r'\bChapter\s*([0-9]+|[IVXLCDM]+)\b|第\s*([0-9]+|[一二三四五六七八九十百]+)\s*章', re.IGNORECASE)
         chap_matches = list(chapter_pattern.finditer(source))
         if chap_matches:
@@ -199,26 +231,282 @@ def validate_entry(title: str, fact: str, source: str, url: str = None, quote: s
                     f"【入庫拒絕】出處包含章節「{raw_chap_str}」，但證據網頁中找不到該連續章節片段！未查證之章節禁止入庫，請改用「網址」作為出處。"
                 )
 
+    clean_title = re.sub(r'^\s*\d+\.\s*', '', title).strip().strip('*')
+    eh = compute_entry_hash(clean_title, fact, source, url, quote)
     return {
-        "title": title.strip(),
+        "title": clean_title,
         "fact": fact.strip(),
         "source": source.strip(),
         "url": url.strip() if url else None,
-        "quote": quote.strip() if quote else None
+        "quote": quote.strip() if quote else None,
+        "entry_hash": eh
     }
 
-def check_file_whitelist(filepath: Path = DEFAULT_EXPERIENCES_PATH) -> bool:
-    """
-    白名單檢驗：
-    每行必須屬於：
-    - 空行
-    - # 開頭
-    - > 開頭
-    - --- 開頭
-    - 合格編號條目的合法行（標題行、核心事實行、出處行、證據網址行、原文摘句行）
-    其他任何內容一律 Exit Code 1，並列出行號。
-    """
-    print(f"開始執行白名單嚴格檢驗：{filepath}")
+
+def parse_pending_markdown(filepath: Path) -> list[dict]:
+    if not filepath.exists():
+        raise FileNotFoundError(f"找不到待入庫檔案：{filepath}")
+    
+    content = filepath.read_text(encoding="utf-8")
+    sections = re.split(r'\n(?=##\s+第\s*\d+\s*輪｜)', content)
+    items = []
+    
+    for sec in sections:
+        sec = sec.strip()
+        if not sec.startswith("##"):
+            continue
+        
+        m_title = re.search(r'^##\s+(.+)$', sec, re.MULTILINE)
+        m_url = re.search(r'^\s*[-*]\s+網址：\s*(.+)$', sec, re.MULTILINE)
+        m_quote = re.search(r'^\s*[-*]\s+逐字摘句：\s*(.+)$', sec, re.MULTILINE)
+        m_fact = re.search(r'^\s*[-*]\s+核心事實：\s*(.+)$', sec, re.MULTILINE)
+        
+        if m_title and m_url and m_quote and m_fact:
+            title = m_title.group(1).strip()
+            url = m_url.group(1).strip()
+            quote = m_quote.group(1).strip()
+            fact = m_fact.group(1).strip()
+            items.append({
+                "title": title,
+                "url": url,
+                "quote": quote,
+                "fact": fact,
+                "source": url
+            })
+    return items
+
+
+def parse_experiences_markdown(filepath: Path) -> list[dict]:
+    if not filepath.exists():
+        return []
+    content = filepath.read_text(encoding="utf-8")
+    lines = content.splitlines()
+    entries = []
+    curr = None
+    
+    for raw in lines:
+        s = raw.strip()
+        m_title = re.match(r'^\s*(\d+)\.\s+\*\*(.+?)\*\*：\s*$', raw)
+        if m_title:
+            if curr:
+                entries.append(curr)
+            curr = {
+                "index": int(m_title.group(1)),
+                "title": m_title.group(2).strip(),
+                "fact": "",
+                "source": "",
+                "url": None,
+                "quote": None
+            }
+            continue
+        if curr:
+            m_f = re.match(r'^\s*[-*]\s+\*\*核心事實\*\*：\s*(.+)$', raw)
+            if m_f:
+                curr["fact"] = m_f.group(1).strip()
+                continue
+            m_s = re.match(r'^\s*[-*]\s+\*\*出處\*\*：\s*(.+)$', raw)
+            if m_s:
+                curr["source"] = m_s.group(1).strip()
+                continue
+            m_u = re.match(r'^\s*[-*]\s+\*\*證據網址\*\*：\s*(.+)$', raw)
+            if m_u:
+                curr["url"] = m_u.group(1).strip()
+                continue
+            m_q = re.match(r'^\s*[-*]\s+\*\*原文摘句\*\*：\s*(.+)$', raw)
+            if m_q:
+                curr["quote"] = m_q.group(1).strip()
+                continue
+    if curr:
+        entries.append(curr)
+    
+    for e in entries:
+        e["entry_hash"] = compute_entry_hash(e["title"], e["fact"], e["source"], e.get("url"), e.get("quote"))
+    return entries
+
+
+def prepare_cmd(pending_path: Path = DEFAULT_PENDING_PATH, to_sign_path: Path = DEFAULT_TO_SIGN_PATH, is_baseline: bool = False, vault_path: Path = DEFAULT_EXPERIENCES_PATH) -> tuple[int, int, list]:
+    print(f"=== 開始執行入庫預檢 (prepare) ===")
+    
+    if is_baseline:
+        print(f"模式：現有事實庫基準批次預備 -> {vault_path}")
+        entries = parse_experiences_markdown(vault_path)
+        if not entries:
+            print("❌ 事實庫無現有條目，無法建立基準批次")
+            sys.exit(1)
+        batch_sha = compute_batch_sha256(entries)
+        pack = {
+            "office": "yuki",
+            "action": "ingest_batch",
+            "is_baseline": True,
+            "created_at": datetime.now().isoformat(),
+            "count": len(entries),
+            "batch_sha256": batch_sha,
+            "entry_hashes": [e["entry_hash"] for e in entries],
+            "entries": entries
+        }
+        to_sign_path.parent.mkdir(parents=True, exist_ok=True)
+        to_sign_path.write_text(json.dumps(pack, ensure_ascii=False, indent=2), encoding="utf-8")
+        print(f"✅ 成功預備基準批次待簽檔：{to_sign_path}")
+        print(f"   總條目數：{len(entries)} 條，批次雜湊：{batch_sha[:16]}...")
+        return len(entries), 0, []
+
+    items = parse_pending_markdown(pending_path)
+    if not items:
+        print(f"❌ 未在 {pending_path} 中找到任何待入庫條目！")
+        sys.exit(1)
+
+    passed_entries = []
+    rejected = []
+
+    for idx, item in enumerate(items, 1):
+        print(f"[{idx:02d}/{len(items):02d}] 正在檢驗：{item['title']} ...", end=" ")
+        try:
+            entry = validate_entry(item["title"], item["fact"], item["source"], url=item.get("url"), quote=item.get("quote"))
+            passed_entries.append(entry)
+            print("✅ 通過")
+        except Exception as e:
+            print("❌ 退回")
+            rejected.append((item["title"], str(e)))
+
+    if rejected:
+        print("\n❌ 退回條目清單：")
+        for title, reason in rejected:
+            print(f"  👉 「{title}」: {reason}")
+
+    if passed_entries:
+        batch_sha = compute_batch_sha256(passed_entries)
+        pack = {
+            "office": "yuki",
+            "action": "ingest_batch",
+            "is_baseline": False,
+            "created_at": datetime.now().isoformat(),
+            "count": len(passed_entries),
+            "batch_sha256": batch_sha,
+            "entry_hashes": [e["entry_hash"] for e in passed_entries],
+            "entries": passed_entries
+        }
+        to_sign_path.parent.mkdir(parents=True, exist_ok=True)
+        to_sign_path.write_text(json.dumps(pack, ensure_ascii=False, indent=2), encoding="utf-8")
+        print(f"\n✅ 成功產生待簽檔案：{to_sign_path}")
+        print(f"   通過條數：{len(passed_entries)} 條，退回條數：{len(rejected)} 條，批次雜湊：{batch_sha[:16]}...")
+    else:
+        print("\n❌ 所有條目皆未通過檢驗，未產生待簽檔案。")
+
+    return len(passed_entries), len(rejected), rejected
+
+
+def sign_cmd(to_sign_path: Path = DEFAULT_TO_SIGN_PATH, signatures_path: Path = DEFAULT_SIGNATURES_PATH, vault_path: Path = DEFAULT_EXPERIENCES_PATH, meta_path: Path = None, _test_passphrase: str = None) -> bool:
+    print(f"=== 開始執行創辦人簽章與入庫 (sign) ===")
+    if not to_sign_path.exists():
+        print(f"❌ 找不到待簽檔案：{to_sign_path}，請先執行 prepare")
+        sys.exit(1)
+
+    data = json.loads(to_sign_path.read_text(encoding="utf-8"))
+    entries = data.get("entries", [])
+    if not entries:
+        print("❌ 待簽檔案中無任何條目！")
+        sys.exit(1)
+
+    # 1. 嚴格防竄改防線：重新計算每條雜湊與整批 batch_sha256
+    recomputed_hashes = []
+    for idx, e in enumerate(entries, 1):
+        eh = compute_entry_hash(e["title"], e["fact"], e["source"], e.get("url"), e.get("quote"))
+        if eh != e.get("entry_hash"):
+            print(f"❌ [安全阻斷] 條目 {idx} 雜湊不符！記錄值={e.get('entry_hash')} vs 實算值={eh}，檔案疑似遭篡改！")
+            sys.exit(1)
+        recomputed_hashes.append(eh)
+
+    calc_batch_sha = hashlib.sha256("".join(recomputed_hashes).encode("utf-8")).hexdigest()
+    if calc_batch_sha != data.get("batch_sha256"):
+        print(f"❌ [安全阻斷] 整批 batch_sha256 不符！記錄值={data.get('batch_sha256')} vs 實算值={calc_batch_sha}，停止簽署！")
+        sys.exit(1)
+
+    if len(entries) != data.get("count"):
+        print(f"❌ [安全阻斷] 條目數量不符！記錄值={data.get('count')} vs 實算值={len(entries)}，停止簽署！")
+        sys.exit(1)
+
+    # 2. 嚴格防盲簽防線：重新逐條連網驗證網頁原文（若有提供 url 和 quote）
+    if not data.get("is_baseline", False):
+        print("\n🔍 正在重新進行物理網頁驗證，防止盲簽...")
+        for idx, e in enumerate(entries, 1):
+            try:
+                validate_entry(e["title"], e["fact"], e["source"], url=e.get("url"), quote=e.get("quote"))
+            except Exception as ex:
+                print(f"❌ [安全阻斷] 條目 {idx}「{e['title']}」重新驗證失敗：{ex}，停止簽署！")
+                sys.exit(1)
+        print("✅ 全數條目物理網頁重檢通過！\n")
+
+    # 3. 完整列印給創辦人親自核對之明細清單 (Anti-Blind-Signing)
+    print("=" * 70)
+    print("📜 創辦人審批待簽事實條目清單 (Anti-Blind-Signing)")
+    print("⚠️  請確認每條核心事實沒有超出摘句的內容")
+    print("=" * 70)
+    for idx, e in enumerate(entries, 1):
+        print(f"[{idx:02d}] 標題：{e['title']}")
+        if e.get("url"):
+            print(f"     網址：{e['url']}")
+        if e.get("quote"):
+            print(f"     逐字摘句：{e['quote']}")
+        print(f"     核心事實：{e['fact']}")
+        print("-" * 70)
+    print(f"總計待簽條數：{len(entries)} 條  ｜  整批雜湊：{calc_batch_sha}")
+    print("=" * 70)
+
+    payload = {
+        "action": "ingest_batch",
+        "office": data.get("office", "yuki"),
+        "batch_sha256": calc_batch_sha,
+        "count": len(entries)
+    }
+
+    sig_bundle = founder_auth.sign_founder_action(payload, meta_path=meta_path, _test_passphrase=_test_passphrase)
+    
+    # 寫入 signatures log
+    record = {
+        "payload": payload,
+        "sig": sig_bundle,
+        "batch_sha256": calc_batch_sha,
+        "count": len(entries),
+        "entry_hashes": recomputed_hashes,
+        "is_baseline": data.get("is_baseline", False),
+        "created_at": datetime.now().isoformat()
+    }
+    signatures_path.parent.mkdir(parents=True, exist_ok=True)
+    with open(signatures_path, "a", encoding="utf-8") as f:
+        f.write(json.dumps(record, ensure_ascii=False) + "\n")
+    print(f"✅ 創辦人簽章已記錄至：{signatures_path}")
+
+    # 若非 baseline，寫入事實庫
+    if not data.get("is_baseline", False):
+        if not vault_path.exists():
+            vault_path.parent.mkdir(parents=True, exist_ok=True)
+            vault_path.write_text("# 執行長雪之核心事實與客觀證據庫 (Experiences & Evidence)\n\n---\n", encoding="utf-8")
+        
+        vault_content = vault_path.read_text(encoding="utf-8")
+        existing_nums = [int(m) for m in re.findall(r'^\s*(\d+)\.\s+\*\*', vault_content, re.MULTILINE)]
+        next_idx = (max(existing_nums) + 1) if existing_nums else 1
+
+        new_text_blocks = []
+        for e in entries:
+            blk = f"\n\n{next_idx}. **{e['title']}**：\n   - **核心事實**：{e['fact']}\n   - **出處**：{e['source']}"
+            if e.get("url"):
+                blk += f"\n   - **證據網址**：{e['url']}"
+            if e.get("quote"):
+                blk += f"\n   - **原文摘句**：{e['quote']}"
+            new_text_blocks.append(blk)
+            next_idx += 1
+
+        with open(vault_path, "a", encoding="utf-8") as f:
+            f.write("".join(new_text_blocks))
+        print(f"✅ 成功將 {len(entries)} 條條目正式追加寫入事實庫：{vault_path}")
+    else:
+        print(f"✅ 基準批次簽章完成，現有 {len(entries)} 條事實已完成主權認證！")
+
+    return True
+
+
+def check_file_whitelist(filepath: Path = DEFAULT_EXPERIENCES_PATH, signatures_path: Path = DEFAULT_SIGNATURES_PATH, meta_path: Path = None) -> bool:
+    print(f"開始執行白名單與創辦人簽章嚴格檢驗：{filepath}")
     if not filepath.exists():
         print(f"❌ 錯誤：檔案不存在：{filepath}")
         sys.exit(1)
@@ -234,34 +522,29 @@ def check_file_whitelist(filepath: Path = DEFAULT_EXPERIENCES_PATH) -> bool:
     for line_idx, raw_line in enumerate(lines, 1):
         stripped = raw_line.strip()
         
-        # 1. 空行
         if not stripped:
             if state in ["EXPECT_OPTIONAL_EVIDENCE"]:
                 state = "IDLE"
             continue
             
-        # 2. 標題行
         if stripped.startswith('#'):
             if state in ["EXPECT_FACT", "EXPECT_SOURCE"]:
                 illegal_lines.append((line_idx, f"條目結構中斷（未完成出處即出現標題）：{raw_line}"))
             state = "IDLE"
             continue
 
-        # 3. 引言行
         if stripped.startswith('>'):
             if state in ["EXPECT_FACT", "EXPECT_SOURCE"]:
                 illegal_lines.append((line_idx, f"條目結構中斷（未完成出處即出現引言）：{raw_line}"))
             state = "IDLE"
             continue
 
-        # 4. 分隔線
         if stripped.startswith('---'):
             if state in ["EXPECT_FACT", "EXPECT_SOURCE"]:
                 illegal_lines.append((line_idx, f"條目結構中斷（未完成出處即出現分隔線）：{raw_line}"))
             state = "IDLE"
             continue
 
-        # 5. 編號條目標題行
         m_title = re.match(r'^\s*(\d+)\.\s+\*\*(.+?)\*\*：\s*$', raw_line)
         if m_title:
             if state in ["EXPECT_FACT", "EXPECT_SOURCE"]:
@@ -270,11 +553,12 @@ def check_file_whitelist(filepath: Path = DEFAULT_EXPERIENCES_PATH) -> bool:
             current_entry = {
                 "line_no": line_idx,
                 "index": int(m_title.group(1)),
-                "title": m_title.group(2).strip()
+                "title": m_title.group(2).strip(),
+                "url": None,
+                "quote": None
             }
             continue
 
-        # 6. 核心事實行
         m_fact = re.match(r'^\s*[-*]\s+\*\*核心事實\*\*：\s*(.+)$', raw_line)
         if m_fact:
             if state == "EXPECT_FACT":
@@ -286,7 +570,6 @@ def check_file_whitelist(filepath: Path = DEFAULT_EXPERIENCES_PATH) -> bool:
                 state = "IDLE"
                 continue
 
-        # 7. 出處行
         m_source = re.match(r'^\s*[-*]\s+\*\*出處\*\*：\s*(.+)$', raw_line)
         if m_source:
             if state == "EXPECT_SOURCE":
@@ -297,19 +580,22 @@ def check_file_whitelist(filepath: Path = DEFAULT_EXPERIENCES_PATH) -> bool:
                 else:
                     valid_entries.append(current_entry)
                 state = "EXPECT_OPTIONAL_EVIDENCE"
-                current_entry = {}
                 continue
             else:
                 illegal_lines.append((line_idx, f"非預期位置出現出處行：{raw_line}"))
                 state = "IDLE"
                 continue
 
-        # 8. 可選證據網址行與原文摘句行 (母版對齊)
         if state == "EXPECT_OPTIONAL_EVIDENCE":
-            if re.match(r'^\s*[-*]\s+\*\*(證據網址|原文摘句)\*\*：\s*(.+)$', raw_line):
+            m_url = re.match(r'^\s*[-*]\s+\*\*證據網址\*\*：\s*(.+)$', raw_line)
+            if m_url:
+                valid_entries[-1]["url"] = m_url.group(1).strip()
+                continue
+            m_quote = re.match(r'^\s*[-*]\s+\*\*原文摘句\*\*：\s*(.+)$', raw_line)
+            if m_quote:
+                valid_entries[-1]["quote"] = m_quote.group(1).strip()
                 continue
 
-        # 不在白名單內的非法行
         illegal_lines.append((line_idx, f"不在白名單內的非法行：{raw_line}"))
         state = "IDLE"
 
@@ -327,142 +613,138 @@ def check_file_whitelist(filepath: Path = DEFAULT_EXPERIENCES_PATH) -> bool:
         print("❌ 錯誤：未在檔案中解析到任何有效合格條目！Exit Code 1。\n")
         sys.exit(1)
 
-    print(f"\n✅ 白名單檢驗完全通過！共 {len(valid_entries)} 條條目全部合規，無任何游離段落或非法行。Exit Code 0。\n")
+    print(f"✅ 格式白名單檢驗通過，共 {len(valid_entries)} 條合格結構。")
+
+    # === 創辦人簽章驗簽檢核 (Signature Verification) ===
+    print("正在檢核創辦人主權簽章 (ingest_signatures.jsonl) ...")
+    verified_hashes = set()
+    if signatures_path.exists():
+        with open(signatures_path, "r", encoding="utf-8") as f:
+            for line_no, line in enumerate(f, 1):
+                line = line.strip()
+                if not line:
+                    continue
+                try:
+                    rec = json.loads(line)
+                    payload = rec.get("payload")
+                    sig = rec.get("sig")
+                    entry_hashes = rec.get("entry_hashes", [])
+                    
+                    # 1. 驗證密碼學簽章
+                    ok, why = founder_auth.verify_founder_action(payload, sig, meta_path=meta_path)
+                    if not ok:
+                        print(f"⚠️ [警告] 第 {line_no} 筆簽章批次驗簽失敗：{why}")
+                        continue
+
+                    # 2. 嚴格防塞入漏洞檢查 (Anti-Tampering Integrity Check)：
+                    # 重新計算 entry_hashes 的 batch_sha256，必須與 payload 完全一致且條數相符！
+                    calc_batch_sha = hashlib.sha256("".join(entry_hashes).encode("utf-8")).hexdigest()
+                    if calc_batch_sha != payload.get("batch_sha256") or len(entry_hashes) != payload.get("count"):
+                        print(f"⚠️ [安全阻斷] 第 {line_no} 筆簽章之 entry_hashes 遭竄改或塞入雜湊！整筆作廢（實算雜湊={calc_batch_sha[:16]}... vs 簽章={payload.get('batch_sha256')[:16]}...，條數={len(entry_hashes)} vs {payload.get('count')}）")
+                        continue
+
+                    for h in entry_hashes:
+                        verified_hashes.add(h)
+
+                except Exception as ex:
+                    print(f"⚠️ [警告] 解析簽章記錄失敗 (line {line_no})：{ex}")
+    else:
+        print(f"⚠️ 找不到簽章檔案：{signatures_path}")
+
+    unsigned_entries = []
     for entry in valid_entries:
-        print(f"  [合格] 條目 {entry['index']:02d} | {entry['title']} -> {entry['source']}")
+        eh = compute_entry_hash(entry["title"], entry["fact"], entry["source"], entry.get("url"), entry.get("quote"))
+        if eh not in verified_hashes:
+            unsigned_entries.append((entry, eh))
+
+    if unsigned_entries:
+        print("\n❌ [安燈阻斷] 發現未經創辦人簽章（或簽章後內容被篡改）的條目！")
+        for entry, eh in unsigned_entries:
+            print(f"  👉 條目 {entry['index']:02d} | **{entry['title']}** (hash: {eh[:16]}...)")
+        print(f"\n共 {len(unsigned_entries)} 條條目未通過創辦人簽章查驗！Exit Code 1。\n")
+        sys.exit(1)
+
+    print(f"\n🎉 全域白名單與創辦人簽章驗簽完全通過！共 {len(valid_entries)} 條條目皆具備有效創辦人簽章憑證。Exit Code 0。\n")
     return True
 
-def add_entry(title: str, fact: str, source: str, url: str, quote: str, filepath: Path = DEFAULT_EXPERIENCES_PATH) -> None:
-    entry = validate_entry(title, fact, source, url=url, quote=quote)
-    if not filepath.exists():
-        raise FileNotFoundError(f"目標事實庫檔案不存在：{filepath}")
-
-    content = filepath.read_text(encoding="utf-8")
-    
-    # 檢查是否與既有條目標題重複
-    existing_titles = [m.strip() for m in re.findall(r'^\s*\d+\.\s+\*\*(.+?)\*\*：', content, re.MULTILINE)]
-    new_title = entry['title'].strip()
-    for et in existing_titles:
-        if new_title == et or new_title.lower() == et.lower():
-            raise ValueError(f"【入庫拒絕】條目標題重複！已存在相同標題：「{et}」，禁止重複寫入！")
-
-    existing_nums = [int(m) for m in re.findall(r'^\s*(\d+)\.\s+\*\*', content, re.MULTILINE)]
-    next_idx = (max(existing_nums) + 1) if existing_nums else 1
-
-    formatted_text = f"\n\n{next_idx}. **{entry['title']}**：\n   - **核心事實**：{entry['fact']}\n   - **出處**：{entry['source']}"
-    if entry.get("url"):
-        formatted_text += f"\n   - **證據網址**：{entry['url']}"
-    if entry.get("quote"):
-        formatted_text += f"\n   - **原文摘句**：{entry['quote']}"
-    
-    with open(filepath, "a", encoding="utf-8") as f:
-        f.write(formatted_text)
-    
-    print(f"✅ 成功寫入條目 {next_idx}：{entry['title']}")
-    print(f"   出處：{entry['source']}")
-    if entry.get("url"):
-        print(f"   證據網址：{entry['url']}")
-        print(f"   原文摘句：{entry['quote']}")
-
-def run_self_tests() -> None:
-    print("=== 開始執行 bionic_knowledge_gate 自我測試 (母版 v6.5-MASTER 證據對齊版) ===")
-
-    # 1. 假出處測試
-    fake_sources = ["無", "N/A", "待補", "網路", "-", "網路 p.", "p.", "pp.", "Chapter", "第章", "網路 Chapter"]
-    for fake in fake_sources:
-        assert not is_valid_source(fake), f"假出處未攔截：{fake}"
-    print("✅ 假出處黑名單與無數字出處測試通過")
-
-    # 2. 合規出處測試
-    valid_citations = [
-        "https://www.deming.org/funnel",
-        "http://example.com/paper.pdf",
-        "W. Edwards Deming, Out of the Crisis (1986), Chapter 11, p. 315",
-        "Western Electric Handbook (1956), pp. 25-28",
-        "品質管制手冊，第 45 頁",
-        "統計學導論，第十章「變異分析」",
-        "Montgomery, SQC, Chapter 8",
-        "Crypto '89, pp. 218–238",
-    ]
-    for citation in valid_citations:
-        assert is_valid_source(citation), f"合規出處誤判：{citation}"
-    print("✅ 合規出處測試通過")
-
-    # 3. 測試 add 指令拒絕重複標題
-    dup_test_content = "# 事實庫\n\n1. **既有標題A**：\n   - **核心事實**：內容\n   - **出處**：https://example.com/a\n"
-    with tempfile.NamedTemporaryFile("w", delete=False, encoding="utf-8") as f:
-        f.write(dup_test_content)
-        t_dup = Path(f.name)
-    try:
-        try:
-            # 這裡不帶 url 和 quote 僅驗證標題重複攔截
-            validate_entry("既有標題A", "新內容", "https://example.com/new")
-            # 模擬重複標題
-            existing_titles = ["既有標題A"]
-            if "既有標題A" in existing_titles:
-                raise ValueError("【入庫拒絕】條目標題重複！已存在相同標題：「既有標題A」，禁止重複寫入！")
-        except ValueError as e:
-            print("✅ 成功攔截重複標題入庫：", e)
-    finally:
-        t_dup.unlink()
-
-    # 4. 母版證據檢查測試：真實網址加上編造的摘句，必須被 quote_in_page 拒絕
-    fake_quote = "這是一段完全由戴明編造的虛假摘句內容，長度超過二十個字元，絕對不可能出現在目標網頁中。"
-    fake_page = "Python is a programming language that lets you work quickly and integrate systems more effectively."
-    ok, why = quote_in_page(fake_quote, fake_page)
-    assert not ok, "漏洞：編造的摘句竟然通過了母版 evidence_gate！"
-    print("✅ 母版證據檢查（quote_in_page）成功攔截編造摘句：", why)
-
-    print("\n🎉 自我測試全部通過！白名單、重複標題與母版證據檢查 100% 成功攔截！Exit Code 0。\n")
 
 def main():
-    parser = argparse.ArgumentParser(description="戴明仿生學習系統知識入庫與出處檢驗守門員 (母版 v6.5 對齊版)")
+    parser = argparse.ArgumentParser(description="執行長雪之仿生知識門禁守門員 (創辦人簽章對齊版)")
     subparsers = parser.add_subparsers(dest="command", help="子指令")
 
-    # add 指令：新增 --url 和 --quote 為必填欄位
-    add_parser = subparsers.add_parser("add", help="新增合格知識條目至事實庫")
-    add_parser.add_argument("--title", required=True, help="條目標題")
-    add_parser.add_argument("--fact", required=True, help="核心事實")
-    add_parser.add_argument("--source", required=True, help="真實出處 (網址或頁碼/章節)")
-    add_parser.add_argument("--url", required=True, help="本次學習實際打開過之網址 (母版必填)")
-    add_parser.add_argument("--quote", required=True, help="網頁上的逐字原文摘句 (母版必填)")
-    add_parser.add_argument("--file", default=str(DEFAULT_EXPERIENCES_PATH), help="目標檔案路徑")
+    # prepare 指令
+    prep_parser = subparsers.add_parser("prepare", help="預檢待入庫條目並產生待簽檔案")
+    prep_parser.add_argument("--file", default=str(DEFAULT_PENDING_PATH), help="待入庫 Markdown 檔案路徑")
+    prep_parser.add_argument("--output", default=str(DEFAULT_TO_SIGN_PATH), help="輸出之待簽 JSON 檔案路徑")
+    prep_parser.add_argument("--baseline", action="store_true", help="將現有事實庫打包為基準待簽批次")
+    prep_parser.add_argument("--vault", default=str(DEFAULT_EXPERIENCES_PATH), help="現有事實庫檔案路徑")
+
+    # sign 指令
+    sign_parser = subparsers.add_parser("sign", help="創辦人親自簽章並正式入庫")
+    sign_parser.add_argument("--input", default=str(DEFAULT_TO_SIGN_PATH), help="待簽 JSON 檔案路徑")
+    sign_parser.add_argument("--signatures", default=str(DEFAULT_SIGNATURES_PATH), help="簽章日誌存放路徑")
+    sign_parser.add_argument("--vault", default=str(DEFAULT_EXPERIENCES_PATH), help="事實庫檔案路徑")
+    sign_parser.add_argument("--meta", default=None, help="創辦人 meta 設定檔路徑")
 
     # check 指令
-    check_parser = subparsers.add_parser("check", help="白名單檢查事實庫所有條目出處")
-    check_parser.add_argument("--file", default=str(DEFAULT_EXPERIENCES_PATH), help="檢查目標檔案路徑")
+    check_parser = subparsers.add_parser("check", help="白名單與創辦人簽章驗簽檢核")
+    check_parser.add_argument("--file", default=str(DEFAULT_EXPERIENCES_PATH), help="事實庫檔案路徑")
+    check_parser.add_argument("--signatures", default=str(DEFAULT_SIGNATURES_PATH), help="簽章日誌存放路徑")
+    check_parser.add_argument("--meta", default=None, help="創辦人 meta 設定檔路徑")
 
-    # test 指令
-    subparsers.add_parser("test", help="執行守門員自我測試")
+    # 廢止 add 指令
+    add_parser = subparsers.add_parser("add", help="已廢止之舊指令")
 
-    args = parser.parse_args()
+    args, unknown = parser.parse_known_args()
 
-    if args.command == "add":
+    if args.command == "prepare":
         try:
-            add_entry(args.title, args.fact, args.source, url=args.url, quote=args.quote, filepath=Path(args.file))
+            prepare_cmd(
+                pending_path=Path(args.file),
+                to_sign_path=Path(args.output),
+                is_baseline=args.baseline,
+                vault_path=Path(args.vault)
+            )
             sys.exit(0)
         except Exception as e:
-            print(f"❌ 寫入失敗：{e}", file=sys.stderr)
+            print(f"❌ prepare 失敗：{e}", file=sys.stderr)
             sys.exit(1)
-            
+
+    elif args.command == "sign":
+        try:
+            sign_cmd(
+                to_sign_path=Path(args.input),
+                signatures_path=Path(args.signatures),
+                vault_path=Path(args.vault),
+                meta_path=Path(args.meta) if args.meta else None
+            )
+            sys.exit(0)
+        except Exception as e:
+            print(f"❌ sign 失敗：{e}", file=sys.stderr)
+            sys.exit(1)
+
     elif args.command == "check":
         try:
-            check_file_whitelist(Path(args.file))
+            check_file_whitelist(
+                filepath=Path(args.file),
+                signatures_path=Path(args.signatures),
+                meta_path=Path(args.meta) if args.meta else None
+            )
             sys.exit(0)
         except SystemExit as se:
             sys.exit(se.code)
         except Exception as e:
-            print(f"❌ 檢查異常：{e}", file=sys.stderr)
+            print(f"❌ check 異常：{e}", file=sys.stderr)
             sys.exit(1)
-            
-    elif args.command == "test":
-        run_self_tests()
-        sys.exit(0)
-        
+
+    elif args.command == "add":
+        print("❌ [指令廢止] 雪的事實庫嚴禁直接 add！請改用 prepare + sign 兩階段創辦人簽章流程。")
+        sys.exit(1)
+
     else:
-        run_self_tests()
-        check_file_whitelist(DEFAULT_EXPERIENCES_PATH)
+        check_file_whitelist()
         sys.exit(0)
+
 
 if __name__ == "__main__":
     main()

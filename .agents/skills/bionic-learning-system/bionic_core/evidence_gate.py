@@ -42,9 +42,20 @@ def _normalize(text: str) -> str:
 
 
 def fetch_page_text(url: str, timeout: int = 20) -> str:
-    req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (evidence_gate)"})
-    with urllib.request.urlopen(req, timeout=timeout) as resp:
-        raw = resp.read().decode(resp.headers.get_content_charset() or "utf-8", errors="ignore")
+    try:
+        req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (evidence_gate)"})
+        with urllib.request.urlopen(req, timeout=timeout) as resp:
+            raw = resp.read().decode(resp.headers.get_content_charset() or "utf-8", errors="ignore")
+    except Exception:
+        try:
+            import requests
+            r = requests.get(url, headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (evidence_gate)"}, timeout=timeout)
+            if r.status_code == 200:
+                raw = r.text
+            else:
+                raise
+        except Exception:
+            raise
     raw = re.sub(r"(?is)<(script|style|noscript).*?</\1>", " ", raw)
     return re.sub(r"(?s)<[^>]+>", " ", raw)
 

@@ -67,6 +67,20 @@
   * `04_Weekly_Local_SEO_Post_Generator.py` (在地 SEO 動態貼文生成器)
   * `05_Operational_Roadmap_and_Next_Steps.md` (接管指南)
 
+### 📁 [Tutorial_09] Google Vids 常民全機能按鈕規格手冊 (Datasheet & Visual Manual) 🌟【零門檻數位平權】
+* **資料夾路徑**：`Tutorial_09_Google_Vids_Datasheet`
+* **核心內容**：貫徹工程師「Datasheet 規格手冊」極致嚴謹精神，將 Google Vids 畫面上每一個按鈕、每一格圖示與時間軸拉桿當作實體開關逐一標號拆解。以常民菜市場白話＋物理操作對照＋戴明防呆「十秒神救援」，讓完全不懂電腦操作的長輩、在地小農與傳統店家一秒看懂、一鍵上手！
+* **主要檔案**：
+  * `00-05-09_Google_Vids_Datasheet_Manual.md` (完整手冊全文)
+
+### 📁 [Special_Topic] 深度專題互動簡報：AI 自我進化的技術本質與安全邊界 🌟【Gemini Notebook 頂級互動簡報】
+* **資料夾路徑**：`Special_Topic_AI_Self_Evolution`
+* **線上快速存取**：[`ai-self-evolution-briefing.html`](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/ai-self-evolution-briefing.html)
+* **核心內容**：由創辦人品碩以 Gemini Notebook 深度萃取，雪 (Yuki) 封裝上架。涵蓋破除四大迷思、閉環核心四步走、七級自主度光譜、安全-效用權衡動態雷達（Chart.js）與八項工程安全護欄自檢清單（支援本地自動保存與文字匯出）。
+* **主要檔案**：
+  * `Special_Topic_AI_Self_Evolution/index.html` (獨立鏡像)
+  * `Special_Topic_AI_Self_Evolution/README.md` (架構與模組導航)
+
 ---
 
 ## 🎓 系列實戰課與工作坊 (Masterclasses & Workshops)

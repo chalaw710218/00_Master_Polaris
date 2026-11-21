@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>職人食堂 | 台東安慶街手作現蒸點心・日式定食烏龍麵</title>
+  <meta name="description" content="台東市安慶街人氣美味「職人食堂」。堅持每日新鮮手工備餡、現點現蒸爆汁小籠湯包、Q彈甘醇職人烏龍麵、滑蛋雞腿親子丼。預約外帶專線：089-342900。">
+  <meta name="keywords" content="台東美食, 職人食堂, 安慶街美食, 台東小籠湯包, 台東烏龍麵, 親子丼, 手工點心">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="restaurant">
+  <meta property="og:title" content="職人食堂 | 台東安慶街 手作現蒸點心・日式定食">
+  <meta property="og:description" content="安慶街的巷弄溫度，現點現蒸爆汁小籠湯包、甘醇柴魚昆布烏龍麵。堅持食材原味，視客如友。">
+  <meta property="og:image" content="images/soup_dumplings.jpg">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #9a3412;
+      --primary-hover: #c2410c;
+      --accent: #d97706;
+      --dark: #1c1917;
+      --light-bg: #faf8f5;
+      --card-bg: #ffffff;
+      --text-muted: #57534e;
+      --border: #e7e5e4;
+      --radius: 14px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--light-bg);
+      color: var(--dark);
+      line-height: 1.7;
+    }
+
+    /* Header & Navigation */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(250, 248, 245, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      padding: 0.85rem 1.5rem;
+    }
+
+    .nav-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-decoration: none;
+      color: var(--dark);
+    }
+
+    .brand-logo .badge {
+      background: var(--primary);
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      letter-spacing: 1px;
+    }
+
+    .brand-logo h1 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 1.45rem;
+      font-weight: 900;
+      letter-spacing: 1.5px;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .btn-call {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: var(--primary);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.92rem;
+      padding: 0.55rem 1.15rem;
+      border-radius: 50px;
+      box-shadow: 0 4px 12px rgba(154, 52, 18, 0.25);
+      transition: all 0.2s ease;
+    }
+
+    .btn-call:hover {
+      background: var(--primary-hover);
+      transform: translateY(-1px);
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      max-width: 1100px;
+      margin: 2rem auto;
+      padding: 3rem 1.5rem;
+      text-align: center;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: #fef3c7;
+      color: #92400e;
+      font-size: 0.85rem;
+      font-weight: 700;
+      padding: 0.35rem 1rem;
+      border-radius: 50px;
+      margin-bottom: 1.25rem;
+      letter-spacing: 0.5px;
+    }
+
+    .hero h2 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 2.45rem;
+      font-weight: 900;
+      line-height: 1.35;
+      color: var(--dark);
+      margin-bottom: 1.2rem;
+    }
+
+    .hero p {
+      max-width: 680px;
+      margin: 0 auto 2rem auto;
+      font-size: 1.1rem;
+      color: var(--text-muted);
+    }
+
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      background: #fff;
+      color: var(--dark);
+      border: 1px solid var(--border);
+      text-decoration: none;
+      font-weight: 600;
+      padding: 0.6rem 1.3rem;
+      border-radius: 50px;
+      transition: all 0.2s ease;
+    }
+
+    .btn-secondary:hover {
+      background: #f5f5f4;
+      border-color: #d6d3d1;
+    }
+
+    /* Menu Grid */
+    .section-title {
+      text-align: center;
+      margin: 3.5rem 0 2rem 0;
+    }
+
+    .section-title h3 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 1.95rem;
+      font-weight: 900;
+      color: var(--dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .section-title p {
+      color: var(--text-muted);
+      font-size: 0.98rem;
+    }
+
+    .menu-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.8rem;
+    }
+
+    .menu-card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+      transition: all 0.25s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .menu-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+    }
+
+    .menu-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      background: #eee;
+    }
+
+    .menu-content {
+      padding: 1.4rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .menu-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 0.6rem;
+    }
+
+    .menu-title {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--dark);
+    }
+
+    .menu-tag {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--primary);
+      background: #ffedd5;
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+    }
+
+    .menu-desc {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      margin-bottom: 1rem;
+      flex-grow: 1;
+    }
+
+    .menu-highlight {
+      font-size: 0.82rem;
+      color: #b45309;
+      background: #fef3c7;
+      padding: 0.4rem 0.75rem;
+      border-radius: 6px;
+      font-weight: 500;
+    }
+
+    /* Store Info Section */
+    .info-section {
+      max-width: 1100px;
+      margin: 4.5rem auto 3rem auto;
+      padding: 0 1.5rem;
+    }
+
+    .info-grid {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 2.5rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+    }
+
+    .info-box h4 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 1.35rem;
+      font-weight: 800;
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--dark);
+    }
+
+    .info-list {
+      list-style: none;
+    }
+
+    .info-list li {
+      margin-bottom: 0.9rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.8rem;
+      font-size: 0.96rem;
+      color: #44403c;
+    }
+
+    .info-list .icon {
+      font-size: 1.15rem;
+      line-height: 1;
+      color: var(--primary);
+    }
+
+    .callout-box {
+      margin-top: 1.5rem;
+      padding: 1rem 1.25rem;
+      background: #fff7ed;
+      border-left: 4px solid var(--primary);
+      border-radius: 4px;
+      font-size: 0.88rem;
+      color: #9a3412;
+      line-height: 1.6;
+    }
+
+    /* Map Box */
+    .map-container {
+      width: 100%;
+      height: 100%;
+      min-height: 280px;
+      background: #f5f5f4;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    .map-container h5 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .map-container p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 1.2rem;
+    }
+
+    /* Footer */
+    footer {
+      background: #1c1917;
+      color: #a8a29e;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+      font-size: 0.88rem;
+      margin-top: 5rem;
+    }
+
+    footer a {
+      color: #d6d3d1;
+      text-decoration: underline;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero h2 {
+        font-size: 1.85rem;
+      }
+      .info-grid {
+        grid-template-columns: 1fr;
+        padding: 1.5rem;
+      }
+    }
+  </style>
+
+  <!-- Schema.org Restaurant Structured Data for Google Indexing -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "職人食堂",
+    "alternateName": "台東 職人食堂",
+    "description": "台東安慶街手作現蒸小籠湯包、Q彈甘醇職人烏龍麵、滑蛋親子丼料理。",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "安慶街60號",
+      "addressLocality": "台東市",
+      "addressRegion": "台東縣",
+      "postalCode": "950",
+      "addressCountry": "TW"
+    },
+    "telephone": "+886-89-342900",
+    "servesCuisine": ["中式點心", "日式料理", "小籠湯包", "烏龍麵", "丼飯"],
+    "priceRange": "$$",
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        "opens": "11:00",
+        "closes": "14:30"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        "opens": "16:00",
+        "closes": "20:00"
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header>
+    <div class="nav-container">
+      <a href="#" class="brand-logo">
+        <span class="badge">台東</span>
+        <h1>職人食堂</h1>
+      </a>
+      <div class="nav-actions">
+        <a href="tel:089342900" class="btn-call">
+          <span>📞</span>
+          <span>089-342900</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-badge">安慶街的巷弄溫度 · 堅持現點現蒸</div>
+    <h2>一籠熱氣蒸騰的手作誠意<br>暖進心底的在地風味</h2>
+    <p>嚴選新鮮食材每日手工現拌肉餡，薄透麵皮鎖住醇厚鮮美肉汁。搭配慢火細熬的甘醇烏龍麵與滑蛋丼飯，用最純粹的職人手藝，溫暖每一位來訪台東的朋友。</p>
+    <div class="hero-buttons">
+      <a href="tel:089342900" class="btn-call">📞 電話預約外帶 (089-342900)</a>
+      <a href="https://maps.google.com/?q=台東縣台東市安慶街60號" target="_blank" rel="noopener" class="btn-secondary">📍 開啟 Google 地圖導航</a>
+    </div>
+  </section>
+
+  <!-- Menu Section -->
+  <section class="menu-section">
+    <div class="section-title">
+      <h3>🥢 招牌人氣餐點</h3>
+      <p>每一道餐點，都是老闆與闆娘全心奉上的真材實料</p>
+    </div>
+
+    <div class="menu-container">
+      <!-- Card 1: 小籠湯包 -->
+      <article class="menu-card">
+        <img src="images/soup_dumplings.jpg" alt="職人食堂 爆汁手工小籠湯包" loading="lazy">
+        <div class="menu-content">
+          <div class="menu-header">
+            <h4 class="menu-title">爆汁手工小籠湯包</h4>
+            <span class="menu-tag">鎮店必點</span>
+          </div>
+          <p class="menu-desc">皮薄餡滿、輕咬破皮即有滾燙鮮甜肉汁溢出。堅持現點現蒸，絕不微波覆熱，完美保留手揉麵皮彈性與鮮肉原味。</p>
+          <div class="menu-highlight">⏱️ 現蒸需約 8-10 分鐘，趕時間歡迎提早預約</div>
+        </div>
+      </article>
+
+      <!-- Card 2: 職人烏龍麵 -->
+      <article class="menu-card">
+        <img src="images/udon_noodles.jpg" alt="職人食堂 柴魚昆布職人烏龍麵" loading="lazy">
+        <div class="menu-content">
+          <div class="menu-header">
+            <h4 class="menu-title">招牌職人烏龍麵</h4>
+            <span class="menu-tag">暖胃首選</span>
+          </div>
+          <p class="menu-desc">慢火慢熬的柴魚昆布高湯，清甜回甘不口渴。搭配Q彈帶勁的烏龍麵條與豐富配料，簡單純粹卻讓人回味無窮。</p>
+          <div class="menu-highlight">✨ 在地老饕與家庭最愛的心頭好</div>
+        </div>
+      </article>
+
+      <!-- Card 3: 親子丼 -->
+      <article class="menu-card">
+        <img src="images/oyakodon.jpg" alt="職人食堂 和風滑蛋雞腿親子丼" loading="lazy">
+        <div class="menu-content">
+          <div class="menu-header">
+            <h4 class="menu-title">和風滑蛋親子丼</h4>
+            <span class="menu-tag">經典定食</span>
+          </div>
+          <p class="menu-desc">特調鹹甜適中的黃金比例日式醬汁，嚴選厚切鮮嫩雞肉與滑潤蛋液交融，鋪在熱騰騰的白飯上，飽足感十足。</p>
+          <div class="menu-highlight">🍚 肉質鮮嫩、醬香濃郁超下飯</div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Store Information Section -->
+  <section class="info-section">
+    <div class="info-grid">
+      <div class="info-box">
+        <h4><span>🏠</span> 店家基本資訊</h4>
+        <ul class="info-list">
+          <li>
+            <span class="icon">📍</span>
+            <div>
+              <strong>店面地址：</strong><br>
+              950 台東縣台東市安慶街 60 號<br>
+              <small style="color:#78716c;">(近中華路商圈、鐵花村周邊，交通便利)</small>
+            </div>
+          </li>
+          <li>
+            <span class="icon">☎️</span>
+            <div>
+              <strong>預約電話：</strong><br>
+              市話：<a href="tel:089342900" style="color:var(--primary); font-weight:700;">08-9342900</a><br>
+              手機：<a href="tel:0933512505" style="color:var(--primary); font-weight:700;">0933-512-505</a>
+            </div>
+          </li>
+          <li>
+            <span class="icon">⏰</span>
+            <div>
+              <strong>營業時間：</strong><br>
+              午餐：11:00 – 14:30<br>
+              晚餐：16:00 – 20:00<br>
+              <span style="color:#b91c1c; font-weight:700;">※ 每週三固定公休</span>
+            </div>
+          </li>
+        </ul>
+
+        <div class="callout-box">
+          <strong>貼心提醒：</strong><br>
+          小籠湯包與蒸籠手路菜皆為現點現蒸，出籠需 8 至 10 分鐘。若您行程匆忙或欲外帶回民宿/辦公室，強烈建議出發前致電預約！
+        </div>
+      </div>
+
+      <!-- Map & Directions -->
+      <div class="map-container">
+        <h5>📍 到安慶街找職人食堂</h5>
+        <p>台東市安慶街 60 號 (導航直達)</p>
+        <a href="https://maps.google.com/?q=台東縣台東市安慶街60號" target="_blank" rel="noopener" class="btn-call" style="margin-bottom: 1rem;">
+          🗺️ 在 Google 地圖上開啟導航
+        </a>
+        <p style="font-size:0.82rem; color:#78716c;">
+          歡迎在地鄉親、自駕環島與自由行旅客前來品嚐暖心手作料理！
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2026 台東 職人食堂 (Taitung Shokunin Diner) All Rights Reserved.</p>
+    <p style="margin-top: 0.5rem; font-size: 0.8rem; color: #78716c;">
+      官方網站由生活管家數位技術小組建置維護
+    </p>
+  </footer>
+
+</body>
+</html>

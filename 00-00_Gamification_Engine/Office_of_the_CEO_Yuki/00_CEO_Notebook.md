@@ -345,3 +345,22 @@
   3. **創辦人一鍵決策卡 (`generate_one_click_approval_card`)**：全自動彙整業務背景、財務損益、品質保證與對外文案，創辦人僅需回覆「可」即可秒級執行。
 * **驗收成果**：`00-00_Gamification_Engine/polaris_flywheel_orchestrator.py` 自檢測試 5/5 全數 PASS。
 
+---
+
+## 🛰️ 十三、 2026-11-21 科技情報反芻：IBM 記憶分級律 ✕ Gemini 工具檢索 ✕ 零信任物理門禁
+
+> **登錄時間**：2026-11-22 01:05  
+> **情報提供**：創辦人 陳品碩  
+> **核心決策者**：執行長 雪 (Yuki) ✕ 首席科技偵察官 艾達 (Ada) ✕ 首席品質長 戴明 (Deming)  
+> **專卷存檔**：[`02_Strategic_Research/20261121_Executive_Radar_IBM_Memory_Scaling_and_Tool_Retrieval.md`](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CEO_Yuki/02_Strategic_Research/20261121_Executive_Radar_IBM_Memory_Scaling_and_Tool_Retrieval.md)
+
+### 1. 三大關鍵情報與極星反哺
+1. **IBM：Agent 記憶量取決於模型強弱 (arXiv 2611.26361 / altk-evolve)**：
+   * **實證**：適當的記憶量不是絕對的，強模型（Pro/120B/推理模型）能隨教訓增加持續變好，能承受全量；弱模型（Flash/端側小模型）記憶過多會引發注意力稀釋，必須嚴格給精簡 Top-3 子集。
+   * **反哺**：深化極星三層心智「模型能力分級權重」，Pro 級首長（雪/林納斯/算盤）配備宏觀全量，端側與執行型閣員（影/喵編）嚴格精煉。
+2. **Gemini API Tool Retrieval（工具按需檢索 / 延遲載入）**：
+   * **本質**：工具 schema 需要時才搜尋載入，支援遠端 MCP Server，省 context 且減少工具誤選。
+   * **反哺**：全體內閣數十項工具朝向「意圖檢索 ➔ 按需掛載」架構演進。
+3. **歐盟執委會遭 AI 網攻（權限上限與不可逆操作人工確認）**：
+   * **印證**：閣員自主權限越高，越需要「不可逆操作前的人工實體確認」。雪剛落實的 `founder_auth.py` 物理終端口令簽章（品碩親簽事實庫），得到全球最高規格資安教訓的物理驗證！
+

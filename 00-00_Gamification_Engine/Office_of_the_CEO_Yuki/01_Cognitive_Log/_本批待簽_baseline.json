@@ -1,0 +1,172 @@
+{
+  "office": "yuki",
+  "action": "ingest_batch",
+  "is_baseline": true,
+  "created_at": "2026-11-21T22:36:46.833443",
+  "count": 16,
+  "batch_sha256": "4f42d84b40d1d0fe0a9f62d553e3f07ad5617c88efac964ea8a8a34bc0a44de5",
+  "entry_hashes": [
+    "b52969d061785091ae884203f4b67640d5993e821812947821f7e66f7ba0a9c7",
+    "84f463bbe3064c35b94d852bedf59777f839a79e43e18580a7bc4d3ef5634d16",
+    "feb76f389ccc4e0cc5e4697371fd6ad289b3353a0e6cd9500918bdd23f5921be",
+    "a4b93c8528749cfb12993cc014fff31b39b0d8f72a3c7fe431f1c59d0a13d239",
+    "7e1ecb905139cef6229715abc241ae6a00eab298c105d29e59111160a01346c6",
+    "16aff1a357dda7ea60fee4c18d4bc4fb95f634e253b283e254bdddc527240b4b",
+    "6b130148ad8192e03b0788c4eac66439fd394980909c719aca9cbfe64b7e2015",
+    "51291b8d45bb6ad1ea2d4fa9a4b80c9f07a1eba352e074dc61b8f497835c50c9",
+    "c82a3621041f2874a300a674f136d7a74c4c12b91a75f0f59da330e3e27a5ae1",
+    "82f71ebac73797230e42f6f44de405e2fac32a1ee5e93a3d2799b3d6fd710646",
+    "af913eb7e718cecafccfd5417a16df08f62fbc1d8c1d039c73a5cac8e586a255",
+    "bbe52486b135b84446b469c6b4e2f58e183852109313ba9b5cb5610119168e5a",
+    "0be215d2b1cd99e479c90655be8352f9eabbeb18b870b03f97d3663ce657ab72",
+    "5050646a53c956fa68a4d3f94b95a3b5672071c5c07238e808f061f31f7fc1d4",
+    "2d4a664d70b74e43990d24499128227a72f8c4dc6d5395f9dc896decaf9314cd",
+    "41c7b3e9f69e23df3147a587036a01059a4092a3966d627499d1cfdd1e7b98b0"
+  ],
+  "entries": [
+    {
+      "index": 1,
+      "title": "[Cycle 01: 2026-10-22] Reflexion 語言強化學習與語意梯度",
+      "fact": "Reflexion achieves a 91% pass@1 accuracy on the HumanEval coding benchmark, surpassing the previous state-of-the-art GPT-4 that achieves 80%.",
+      "source": "https://arxiv.org/abs/2303.11366",
+      "url": "https://arxiv.org/abs/2303.11366",
+      "quote": "Reflexion achieves a 91% pass@1 accuracy on the HumanEval coding benchmark, surpassing the previous state-of-the-art GPT-4 that achieves 80%.",
+      "entry_hash": "b52969d061785091ae884203f4b67640d5993e821812947821f7e66f7ba0a9c7"
+    },
+    {
+      "index": 2,
+      "title": "[Cycle 02: 2026-10-22] Voyager 具身終身學習與代碼技能庫 (Code-as-Memory)",
+      "fact": "It obtains 3.3x more unique items, travels 2.3x longer distances, and unlocks key tech tree milestones up to 15.3x faster than prior SOTA.",
+      "source": "https://arxiv.org/abs/2305.16291",
+      "url": "https://arxiv.org/abs/2305.16291",
+      "quote": "It obtains 3.3x more unique items, travels 2.3x longer distances, and unlocks key tech tree milestones up to 15.3x faster than prior SOTA.",
+      "entry_hash": "84f463bbe3064c35b94d852bedf59777f839a79e43e18580a7bc4d3ef5634d16"
+    },
+    {
+      "index": 3,
+      "title": "[Cycle 03: 2026-10-22] Eureka 演化式獎勵設計與物理反饋 (Evolutionary Reward via Code)",
+      "fact": "In a diverse suite of 29 open-source RL environments that include 10 distinct robot morphologies, Eureka outperforms human experts on 83% of the tasks, leading to an average normalized improvement of 52%.",
+      "source": "https://arxiv.org/abs/2310.12931",
+      "url": "https://arxiv.org/abs/2310.12931",
+      "quote": "In a diverse suite of 29 open-source RL environments that include 10 distinct robot morphologies, Eureka outperforms human experts on 83% of the tasks, leading to an average normalized improvement of 52%.",
+      "entry_hash": "feb76f389ccc4e0cc5e4697371fd6ad289b3353a0e6cd9500918bdd23f5921be"
+    },
+    {
+      "index": 4,
+      "title": "[Cycle 04: 2026-10-22] POET 開放式課程與踏腳石跨環境轉移 (Open-Ended Auto-Curriculum)",
+      "fact": "Our results show that POET produces a diverse range of sophisticated behaviors that solve a wide range of environmental challenges, many of which cannot be solved by direct optimization alone",
+      "source": "https://arxiv.org/abs/1901.01753",
+      "url": "https://arxiv.org/abs/1901.01753",
+      "quote": "Our results show that POET produces a diverse range of sophisticated behaviors that solve a wide range of environmental challenges, many of which cannot be solved by direct optimization alone",
+      "entry_hash": "a4b93c8528749cfb12993cc014fff31b39b0d8f72a3c7fe431f1c59d0a13d239"
+    },
+    {
+      "index": 5,
+      "title": "[Cycle 06: 2026-10-22] Model Autophagy Disorder (MAD) 模型自噬與合成數據衛生",
+      "fact": "without enough fresh real data in each generation of an autophagous loop, future generative models are doomed to have their quality (precision) or diversity (recall) progressively decrease. We term this condition Model Autophagy Disorder (MAD)",
+      "source": "https://arxiv.org/abs/2307.01850",
+      "url": "https://arxiv.org/abs/2307.01850",
+      "quote": "without enough fresh real data in each generation of an autophagous loop, future generative models are doomed to have their quality (precision) or diversity (recall) progressively decrease. We term this condition Model Autophagy Disorder (MAD)",
+      "entry_hash": "7e1ecb905139cef6229715abc241ae6a00eab298c105d29e59111160a01346c6"
+    },
+    {
+      "index": 6,
+      "title": "[Cycle 07: 2026-10-22] MemGPT 階層虛擬分頁記憶體與作業系統架構 (Towards LLMs as OS)",
+      "fact": "To enable using context beyond limited context windows, we propose virtual context management, a technique drawing inspiration from hierarchical memory systems in traditional operating systems",
+      "source": "https://arxiv.org/abs/2310.08560",
+      "url": "https://arxiv.org/abs/2310.08560",
+      "quote": "To enable using context beyond limited context windows, we propose virtual context management, a technique drawing inspiration from hierarchical memory systems in traditional operating systems",
+      "entry_hash": "16aff1a357dda7ea60fee4c18d4bc4fb95f634e253b283e254bdddc527240b4b"
+    },
+    {
+      "index": 7,
+      "title": "[Cycle 08: 2026-10-22] 語意護欄、憲法 AI 與交易式自動回滾 (Semantic Guardrails & Auto-Rollback)",
+      "fact": "The only human oversight is provided through a list of rules or principles, and so we refer to the method as 'Constitutional AI'.",
+      "source": "https://arxiv.org/abs/2212.08073",
+      "url": "https://arxiv.org/abs/2212.08073",
+      "quote": "The only human oversight is provided through a list of rules or principles, and so we refer to the method as 'Constitutional AI'.",
+      "entry_hash": "6b130148ad8192e03b0788c4eac66439fd394980909c719aca9cbfe64b7e2015"
+    },
+    {
+      "index": 8,
+      "title": "[Web-Iter 01: 2026-10-22] Quiet-STaR：語言模型開口前自主學會隱式思考",
+      "fact": "we find zero-shot improvements on GSM8K (5.9%...and CommonsenseQA (36.3%",
+      "source": "https://arxiv.org/abs/2403.09629",
+      "url": "https://arxiv.org/abs/2403.09629",
+      "quote": "we find zero-shot improvements on GSM8K (5.9%...and CommonsenseQA (36.3%",
+      "entry_hash": "51291b8d45bb6ad1ea2d4fa9a4b80c9f07a1eba352e074dc61b8f497835c50c9"
+    },
+    {
+      "index": 9,
+      "title": "[Web-Iter 02: 2026-10-22] ADAS：圖靈完備代碼空間中的 Meta-Agent 自動演化設計",
+      "fact": "Automated Design of Agentic Systems (ADAS), which aims to automatically create powerful agentic system designs, including inventing novel building blocks and/or combining them in new ways.",
+      "source": "https://arxiv.org/abs/2408.08435",
+      "url": "https://arxiv.org/abs/2408.08435",
+      "quote": "Automated Design of Agentic Systems (ADAS), which aims to automatically create powerful agentic system designs, including inventing novel building blocks and/or combining them in new ways.",
+      "entry_hash": "c82a3621041f2874a300a674f136d7a74c4c12b91a75f0f59da330e3e27a5ae1"
+    },
+    {
+      "index": 10,
+      "title": "[Web-Iter 03: 2026-10-22] The AI Scientist：全自動端到端科研生命週期與自主同儕評審",
+      "fact": "developed into a full paper at a cost of less than $15 per paper.",
+      "source": "https://arxiv.org/abs/2408.06292",
+      "url": "https://arxiv.org/abs/2408.06292",
+      "quote": "developed into a full paper at a cost of less than $15 per paper.",
+      "entry_hash": "82f71ebac73797230e42f6f44de405e2fac32a1ee5e93a3d2799b3d6fd710646"
+    },
+    {
+      "index": 11,
+      "title": "[Web-Iter 04: 2026-10-22] 測試時計算擴展律 (Test-Time Compute Scaling)",
+      "fact": "improve the efficiency of test-time compute scaling by more than 4x compared to a best-of-N baseline. Additionally, in a FLOPs-matched evaluation, we find that on problems where a smaller base model attains somewhat non-trivial success rates, test-time compute can be used to outperform a 14x larger model.",
+      "source": "https://arxiv.org/abs/2408.03314",
+      "url": "https://arxiv.org/abs/2408.03314",
+      "quote": "improve the efficiency of test-time compute scaling by more than 4x compared to a best-of-N baseline. Additionally, in a FLOPs-matched evaluation, we find that on problems where a smaller base model attains somewhat non-trivial success rates, test-time compute can be used to outperform a 14x larger model.",
+      "entry_hash": "af913eb7e718cecafccfd5417a16df08f62fbc1d8c1d039c73a5cac8e586a255"
+    },
+    {
+      "index": 12,
+      "title": "[Web-Iter 05: 2026-10-22] 本質自省邊界 (The Verifier Bottleneck)",
+      "fact": "In the context of reasoning, our research indicates that LLMs struggle to self-correct their responses without external feedback, and at times, their performance even degrades after self-correction.",
+      "source": "https://arxiv.org/abs/2310.01798",
+      "url": "https://arxiv.org/abs/2310.01798",
+      "quote": "In the context of reasoning, our research indicates that LLMs struggle to self-correct their responses without external feedback, and at times, their performance even degrades after self-correction.",
+      "entry_hash": "bbe52486b135b84446b469c6b4e2f58e183852109313ba9b5cb5610119168e5a"
+    },
+    {
+      "index": 13,
+      "title": "[Web-Iter 06: 2026-10-22] 演化式模型融合 (Evolutionary Model Merging)",
+      "fact": "This approach even facilitates cross-domain merging, generating models like a Japanese LLM with Math reasoning capabilities.",
+      "source": "https://arxiv.org/abs/2403.13187",
+      "url": "https://arxiv.org/abs/2403.13187",
+      "quote": "This approach even facilitates cross-domain merging, generating models like a Japanese LLM with Math reasoning capabilities.",
+      "entry_hash": "0be215d2b1cd99e479c90655be8352f9eabbeb18b870b03f97d3663ce657ab72"
+    },
+    {
+      "index": 14,
+      "title": "[Web-Iter 07: 2026-10-22] 符號自對弈與形式化驗證 (AlphaProof & AlphaGeometry 2)",
+      "fact": "We earned 28 out of 42 total points, achieving the same level as a silver medalist in the competition. ... AlphaGeometry 2 solved Problem 4 within 19 seconds after receiving its formalization.",
+      "source": "https://deepmind.google/discover/blog/ai-solves-imo-problems-at-silver-medal-level/",
+      "url": "https://deepmind.google/discover/blog/ai-solves-imo-problems-at-silver-medal-level/",
+      "quote": "We earned 28 out of 42 total points, achieving the same level as a silver medalist in the competition. ... AlphaGeometry 2 solved Problem 4 within 19 seconds after receiving its formalization.",
+      "entry_hash": "5050646a53c956fa68a4d3f94b95a3b5672071c5c07238e808f061f31f7fc1d4"
+    },
+    {
+      "index": 15,
+      "title": "[Web-Iter 08: 2026-10-22] 憲法 AI 與無人化自我對齊 (Constitutional AI / RLAIF)",
+      "fact": "The only human oversight is provided through a list of rules or principles, and so we refer to the method as 'Constitutional AI'. The process involves both a supervised learning and a reinforcement learning phase.",
+      "source": "https://arxiv.org/abs/2212.08073",
+      "url": "https://arxiv.org/abs/2212.08073",
+      "quote": "The only human oversight is provided through a list of rules or principles, and so we refer to the method as 'Constitutional AI'. The process involves both a supervised learning and a reinforcement learning phase.",
+      "entry_hash": "2d4a664d70b74e43990d24499128227a72f8c4dc6d5395f9dc896decaf9314cd"
+    },
+    {
+      "index": 16,
+      "title": "[Web-Iter 09: 2026-10-22] ReST-MCTS：搜尋引導的自訓練飛輪",
+      "fact": "In this paper, we develop a reinforced self-training approach, called ReST-MCTS*, based on integrating process reward guidance with tree search",
+      "source": "https://arxiv.org/abs/2406.03816",
+      "url": "https://arxiv.org/abs/2406.03816",
+      "quote": "In this paper, we develop a reinforced self-training approach, called ReST-MCTS*, based on integrating process reward guidance with tree search",
+      "entry_hash": "41c7b3e9f69e23df3147a587036a01059a4092a3966d627499d1cfdd1e7b98b0"
+    }
+  ]
+}
