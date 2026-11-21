@@ -1,24 +1,24 @@
 {
   "version": "3.1",
   "player_name": "Pinshuo",
-  "level": 14,
+  "level": 15,
   "exp": {
-    "current": 120,
-    "next_level_requirement": 160,
-    "total": 3140
+    "current": 25,
+    "next_level_requirement": 170,
+    "total": 3205
   },
-  "gold": 314,
+  "gold": 320,
   "attributes": {
     "STR": 58.11,
-    "INT": 87.34,
-    "AGI": 71.09,
-    "WILL": 80.05,
-    "CHA": 76.72,
-    "IMP": 81.04
+    "INT": 87.58,
+    "AGI": 71.34,
+    "WILL": 80.3,
+    "CHA": 76.96,
+    "IMP": 81.29
   },
   "hidden_attributes": {},
   "unspent_points": {
-    "level_points": 17,
+    "level_points": 18,
     "knowledge_points": 6,
     "will_points": 4
   },
@@ -35,5 +35,5 @@
     "【生活管家真實業務從容審批】以審批者身分調度內閣，享受閉環守門員帶來的零失誤出廠品質",
     "【午後 14:00 20分鐘 NSDR 深層修復】全力修復 STR 體能短板，維持神經系統高抗逆力"
   ],
-  "notes": "【商戰反擊戰情室拓荒與48H極速團購方針確立，完成仿生事實庫九項大滿貫真值重構】"
+  "notes": "【【AI自我進化互動簡報全域上架 ✕ 夥伴AI課程行銷籌備 ✕ 仿生事實庫46條全通簽章】】"
 }

@@ -1,0 +1,1462 @@
+{
+  "office": "linus",
+  "action": "ingest_batch",
+  "is_baseline": true,
+  "created_at": "2026-11-22T01:36:58.079212",
+  "count": 145,
+  "batch_sha256": "17a08568cc431e8fb0b40b5f55d6d79e2abbea250dcbe2a00c486c6b11df9d96",
+  "entry_hashes": [
+    "bfb116baa47a82c38592e1bb0933b3d87afc790133c632b7a385644d3bceaa11",
+    "af4fe68b6eda168b27fcca7d3a2bc351712dde3b0fbf1e9b8dabf14d7261864b",
+    "ac8b3d3ddf2f40633319ad0370abef2273f78c44463e29c87c53d027d40f6307",
+    "e5a965cd6875faf7969e56ee2cf3892d2aa2c05d0d94438a2c29a36c16181ac8",
+    "b52b393c2ed2a85e008900133a273fc3f47b0cf4e79f490c1624f174a88738dd",
+    "c4a0afbd4bde76975592a13c820b3a44fb6c5d1923698b10f84dd37d50d2c35f",
+    "53876efcd013f76b047fbf085ff05b75dd66eac480b30fce4e0a8395aeffa302",
+    "079098dda2d593c20c8f688ae672db4eae45730872aab43178225c3b97d1af45",
+    "f2ebbc7bb85b270771e40b312493439e02c99b5430adefc910f6496472dd581d",
+    "b5b9cd22ee32756fffa6ca72d94bfa14670ca1603aabce79170e77c8c97ecbee",
+    "efbe591298a1adbcc62c40136bb3bb533b678b6d5adb4aaf1cf7a952e1a17614",
+    "56807098a03c66dff928aae906e53b1fe5b1b40b211776ff9b0018e914149a8a",
+    "a15430deaf582a827ad9c8a186ee3720316e84bb0964e9f8970d2afd5b162c22",
+    "6c794849fe60dc01b60da7f1e5a1329072f68e7e714727d49a73bd6c60a439fe",
+    "73e5734fa8dac16f8c5127d46e1fddd6dd2c0b16ccbf0163f50716a5e569f7a5",
+    "25b6bc4a004915edaba74fd43a0df364575a61825e646266549030a26a0cdee4",
+    "b0628365d7ccde9d5382be511b7b4b5c219fc3901478805ada87c928512ae1c0",
+    "ce0854146b34570f48f12b2180cb45cb8503c23e99276286ae054da69928fe4b",
+    "3d145468d5693d8f517d808149d03bcd71890190f8f23b040823088519c11491",
+    "5063f2b07087a6048b9251a5425fb6c40db8e437a4eaa17cdeaaf25736deed08",
+    "a48be3a051535ff1d508c7bac1b829d1b0285e1c987d31ed1dbbcb7a7a6f9468",
+    "8cfa9608d8ca46ffb71ec2e3ff52c3af1944f131d9ce1709f0632587fab7b62d",
+    "d3c17b05b87c307831e4a3d9ba0800b5b26451408f336e7f78f66a37f9156b21",
+    "7ecafa570e80ad8dbc8fd3650afa2422bf52072cbee7539d50dbec01e2b93cc0",
+    "2c32cc8d11478cbb738324a71ec583db35667bfa5f6cd2e0fc5aaff3fd886bf8",
+    "b2c41f1e4cb016336bcdb173b98410fd7482505d7cf23761b5fdc70ed103c8b3",
+    "f9fbfec0fcbe3384c3cdd4624b402320292ba660fdc4233de017a49513ded418",
+    "30746c9516ce1066dd0bc88e32a8a7584895e7d8205c263edd10811f057d1b27",
+    "6db670a7b65fb8e94ad5a7d4e8783fcf965c86a1182282c9bb41c5e7a3d3f6b2",
+    "1dd51856a8651c559c91e5759fdf4a29729866b527c8228b2a86e5289ee9ccfc",
+    "0cbd405faa658fce167e24d22fae77a3349babcc3cde4c4177df0a557fea35c3",
+    "1563c10ad6e4dacfba0428afd96899c156a978bb4a5dcd01fd215430548aff9c",
+    "bbd15453716aa21cda18818e037e52dbc1616cd1fb4e67725689ce0c31bf13c0",
+    "bad2132d78ff3ea8ff1e3e41d1f6ad9bb6edfb46c74c331d4820466cf39b8dbf",
+    "8c3cf7c455fdfc689747677e25f59beb0a63b089e0cc1e702d3a755cbc3ea465",
+    "09cdeede1caa8d026214df86858509230727440d15e93dde7b32a488a5e7a613",
+    "acda66108efcc719b2431c77952d37e11bd2b0eb77fc7cee044b572dc6c0d0b2",
+    "ba3c0d35e190103c51c0422786cd0940897a36f6dc86d4010e05a470fd64d0ac",
+    "97c8de2363d89bacc2026049ab2293a00e2006c757822df83af72e8c87167b4a",
+    "cbf961ab8a74d1a657789451af30ae788b23f8173eefa3cfc647c04098d49c01",
+    "4bf8cc05fb53b39e84a1ea2b6e148420cbfe2b10502498594ca495d8fecea7d9",
+    "43bd2e3267682b186f39ce8ce91f164b0ac18a16d324be8ff3098959756dd5e3",
+    "f7e1c11fc5b3aa5d7f34faf7c3a61f0bcd75c9b91a7c719a5d4fa2a0f40f7793",
+    "2e34fd3bee2d77a11e3a6564b5c585ce38e7a2c108321c8288ccd20693b88495",
+    "36f126691adf9e13cb6dc5272c39800e4dff0ffa355f88ef152b4f89d4af730c",
+    "4104b648685aa05281f9ebfee21ae86aa7b0fde9ecc40c42270193c52acfdf42",
+    "b1cbc43bdfa4192539a9fe94f91db27c3bc208fca0e0529cce6987d4aca2e078",
+    "269fd4ece6e79a0c5e88d913c804499b7bc719b84b982fa46fcf03da54eaf158",
+    "c74b08487e0102f99d7456fa1716f0b07fbe980dc0d09cf4b596ad44962eb43d",
+    "89f141b41773ec35cf7a938c542d5051d821826472afab2958f365729bde32f4",
+    "60ba89de483ab34cadf7eaa525e0cea6ebd57ebf20dac3d1186484ba43fe9980",
+    "5bf865b86f1533027318c69d779dcc7e085aa48a0f9b60b471402dd59b38366a",
+    "e7a5f28a5804c34d386ea28e068323015c751da16d1c1342015ed0302341c4a8",
+    "8aa29da0a29d31f0cb325171c89a2f13010293260d080a07cffd183769958313",
+    "d60970d74fa0365c45f0b2f7af75cf7e797225671ad364580322293abe5284fe",
+    "fae08677772d804093fe7756ab27df6baf0ac1fbd215022be91608249ca7c124",
+    "879a156b3150b034bd368e59d490967a1cc9fb8b5789e4fe7fc6eb1b29abbbf7",
+    "ba26afdb184c1efff98598850d7545f4b79f26eacb3d30d1ae549928442bd3b6",
+    "8356d83bb2b64aae34d844ed6bd5206003b1a5347a09e8749e11cc1071792584",
+    "06d33b9e55202844289e349c19523e588e794ca086d88e019c3edc3689649538",
+    "5f63a7508c0c6f315ff44f3b08e0139cdb66faaf1e8ae09530bdc381e7d26636",
+    "7412e34ece51ffe2c6733895989b486ef3717a15be793d31ce1386742d2d2449",
+    "fa72de7a5bd0a95ab847aee098d156c41863ca78062aca5a20c0b1b37df824fe",
+    "cb32050655e1da3dbdb792772518c5ac886434f0fcfd4de46f31b2b71b9436f2",
+    "e417275a442515ad9dcda32460af082cd57fd61f1a8fc35a503945f6c7f94d25",
+    "ba7c9155f6268b098efe600e1cec6fda41ff21af898c180fe33d844a3be96132",
+    "cc154d60eeabead8b99f0c33cfe958d3af759fc3ff84d3799250929677544003",
+    "2f16bd0f06af3de6e8cf17e77af390d0b8e0ad77c2f064b590a45ce6aacd56ba",
+    "287f7c1ac9baef502c6a759b77967add9a122598053699d6d1ae6774b73d0946",
+    "e939ef8cfceaa9d74cd0396dcdca9e4f7b7b2064acc2ef7a29d2499a3a510c36",
+    "2f3b07afc3f13c86743c1a8571948dd04556bcb47c403a59bd64375553b128a1",
+    "99d3fafa8689346889954c425143477ee060ad2bdf22721f7311b5903f37d7df",
+    "844be18d01d6e1773115434039d83bb8690649a8fb2e105f6dba68da77a7773e",
+    "628fb765272d08833c739c5e6e89d5212b9f3bbf0fd4540eed771cd1993ba285",
+    "4a6f95d23d2c105564244f5745e581a866085ea3760c2b489c0a07c79ff25513",
+    "5792a852f77e03ef5f55eb24c18a28310e9d0a113485443628a61f99abdd3f5c",
+    "08831a1a3e3371bea6e742f61853facb9cf36c5e189dd667034bf74bfbabae4e",
+    "8fdc1b928fdcbfadc97345587f892ed57a45ead6cf9234d30ae29525ed027856",
+    "ac47aad1fd09c6b6bf7372ac4f66bfbbfb726e41b77bf281537d96b53a590141",
+    "24a08d98b00546c00691c60bff8844a2c3f914dfd9b81529a309e67abf1413c4",
+    "38c606f287d0a0e00afc6ce4e88a8eb8be07675b80f71cbcffdaede942e02e8e",
+    "1688b221a85e31a1fe46ad3d80f0938b3826568d9cd1fb134fb1bbd1f2b55c80",
+    "3917b7d07d7e78acace376f51d7d3faf4f678fa9bb199d5766ce84c49336e2fc",
+    "b18a88b2002c742085de6b91d576cae4a94fb8de091c04900a7d9acb034d7e8c",
+    "41a31bdd6de576ef154ff29ed77c9945669caf7e87565c1ebd069e6d4f3633a1",
+    "7769ec25e161668af564fa92656109be587fa8cff8fbdf2b7f8152b99fdcda8e",
+    "ada02b6d0860e1e88cdcd2cb55438f6f2ac7ea6b205dcbda0197331f392a0051",
+    "616237cd56ff210ee9bad5dd3438f990aaaaa815b9452b04535578cacfc4a906",
+    "4cfbcaceddb530ff7e8f9b65f80c3c8945b496d9be4352e9997e68235d8b5db2",
+    "d7ea25c05cd20382f027965a2fc535ceac7d69262e8b722673f1409e6373a74f",
+    "52c3d729325cf6ad8fe49d57a149f0ece8d4215c86acadd62f4c7fad09a8493a",
+    "b8235fd17ed1544cd52c4c4234729ef8515412a064099768318ab1e360a5efef",
+    "4c8252ea020e1a6b9a77738c4adb3d6700fc6a42fba253e0c7b026d99bc36c68",
+    "66c525b81518d32739381feaf04edb3f49106d578d0ed0d16aa7d856fa86d562",
+    "2e48e53cebb992f2c1c09409344583d1d209c93c5ec042c1deeb9f5f51fbefb8",
+    "e7febde9b4d1df37a2720922644b5115767e2c8da0bd88fd1c36fe7fbe89be5f",
+    "d0249a4fc80bcb588b468d577801afe354955e43e1cced9f412e19671f79c714",
+    "fd9be6ca9f5c39f98bf682d1273bdab8db59a5534b434a88696f6722d87bd5cf",
+    "7d372e95c98a82164564a83f691c71abc01b9d018ae29970b0ab4c1f3943a19f",
+    "46843bb670f8f5fe6033aa1c619bc86ad9f60431f3dec993f4fe9457c02a3a9b",
+    "b3153769579454f9bde2f62ed8e315fc12be360a69353c0aed65147772fae1b1",
+    "799bbae5e1ab592b171760e87e8e4ee576966378c26daeeb258ab33d61665759",
+    "f8e1fa53d4c60abc7fe9d59ac08bda5baebac5cbde4952e62ba483a6208a7ce8",
+    "1d75db54f320908ae40b0d3486dc1d6eeebf75cf61da12f15a5819ee06d130a7",
+    "e3771efc846ca1e0b53818614187af520767d276654db74ef8730facacd2a575",
+    "e75272b5be3459363b8f11f7273d8bd7df9add5dc47ac4bc4e06081174da6b71",
+    "c4fd5b3ce7daac094de53f063e66af983a4861808c0b53c9070ac93767db823a",
+    "d164898d0bbbbc82ea9d7012d40545f7b575e654d68f0d05d2882b5432eac576",
+    "9304bbe7cbbf73687193c47f32aa07b0e968f1eb186e05e817b03882d2146e14",
+    "e409a9917b409fbc1ea16f0ea1146aa35dfc466db1d5dbfa79fda7602b94826d",
+    "d0714f68721086edeb5dee53180d9dd805a0001e6cc700f24e2f6a38a831ed51",
+    "160f204392b52c5246eb02309140902ab983acdf6cc60baceb1d6380356d7715",
+    "74e3c84c3f7acf64e7aabae277952e7d84c8384f2bd6b709ae11698a049dc29e",
+    "60489f3dce68616f29843c9065455ffdff565475ef624b50ee057d85517fca34",
+    "04acd9af41b73273f24cab35c9be888ed258a752c9230f5929763bc8bfee8dbc",
+    "739ab53e22b54dc3e868281bd511586d87090be6b307ab55786d2f4eabc03d7b",
+    "5c5d3d33b6f22b3ca95e6a841de16768e4173c51ffbf8a3b323131993de056fb",
+    "49e870240003dd4cbb7969608481eef5f6beb5b5e192d28ad81ed2ed842cdf87",
+    "1399eea6bbf9aaee163cdb9ccfc9158502c7f0b8997d111c291b4c292033e593",
+    "3542ae3ab81600fceae1d8dfe9117333697e48895ea516daf859b488910c5237",
+    "e70be6818b2d52148a2d413117f73c74ba3732aed66f624b4b7822dc1062226b",
+    "63524de362fea14c16990d27303a1a942e4f6ef19133a847081ffa0087aa16fe",
+    "b3a5856b1c60f22b101444d5552ab8020a7860c2ea9e4dbed1fc738d1bb539f9",
+    "f787f6a63f22f22e673d3e91199da0a00473c09980a1a810be6546aa5be34865",
+    "1b7220121ab793dd3bc324797d411a0c2b8a86edffe3c0fb7f333e4fb78be11a",
+    "22748167303b59eb0e0ef516a5bb791ee2f29bd6cfdf8ea3baac24fff8fd4a26",
+    "82c24f90731141ead81eb958614a49c99ecd1921233e86c5725ff0b472fbd2aa",
+    "852cdcc2b140c4f2a9bf38e9e63e77932b5d95c21d76ee233d33ddea94a8ca7e",
+    "fca8ded69dde00850eba58479a78d7a45996e4bc8883af99b83074864e6e3eeb",
+    "cfb30ac4c7f8e87c75521b1f325974364a2ab5c0a79c24d6f738d4a7fc01445b",
+    "11f9de9d4dbe31c64b62399cf805989f2ab7a3d7755505b950c2ce03067db671",
+    "494e1544a8d40665cdf0a4d8b03cb0eb6e090a28633f7c96d64fdc3d49eab462",
+    "df0e4080e2930d28f872dad636e46ca9389a46bc532f25779a02223547ca7f77",
+    "4fceca34fd116760a7da7cadfc5402bca79124819da7f0a8a7b42fb48fca1312",
+    "4a0163d5399222e649aa451a62867b789e73a614b26a10a2353a9e511ed92911",
+    "e1c3ffac31ca16cff33064e1fe270a7d0a1cbf05bed8b9eb2991f23c5636d1aa",
+    "051af378ac8a12060493f3748c0412f383ae2a339fa70cf1b0044fef5eba293c",
+    "8f643e729de5881b6783610665059293e61bd62fbebac1d6144b9b70b8f507ee",
+    "3c6da8c5638240d6a9e8daf417c5a0d9fb2d13d6bd2c7eae0d0fe061f36cd13b",
+    "c65f30ff5144881facd3452652566b8c866aaa8eae13846db2a263333a5b83ae",
+    "52587436ad0b5d4c46ddf2d667aa63bb3df58b38d68c14acbef0a62c77ac4035",
+    "befe7cfc2e5233325103b78f2924c909a36e7c5dc4a3e280c49618ba05a8f096",
+    "c39a355640f10fc6cc0a1bdb798cdbf86a38aa33a6448c77c9b8b1b9789884a6",
+    "d8106afdf18c87bcd566112cde068186aeb52ec3a59eef64e859c5509ea5572f",
+    "d96adfec095f0de9c2cded4d11a48da9c2b77bcc4cef9ebfb7cdff5d2b7f3f86"
+  ],
+  "entries": [
+    {
+      "index": 1,
+      "title": "Google Sheets API Quota 硬限制",
+      "fact": "Google Sheets API Quota 硬限制",
+      "source": "https://developers.google.com/sheets/api/limits",
+      "url": "https://developers.google.com/sheets/api/limits",
+      "quote": "read request limit of 300 per minute per project",
+      "entry_hash": "bfb116baa47a82c38592e1bb0933b3d87afc790133c632b7a385644d3bceaa11"
+    },
+    {
+      "index": 3,
+      "title": "代碼溶酶體 GC 掃描",
+      "fact": "代碼溶酶體 GC 掃描",
+      "source": "https://docs.python.org/3/library/ast.html",
+      "url": "https://docs.python.org/3/library/ast.html",
+      "quote": "The ast module helps Python applications to process trees of the Python abstract syntax grammar",
+      "entry_hash": "af4fe68b6eda168b27fcca7d3a2bc351712dde3b0fbf1e9b8dabf14d7261864b"
+    },
+    {
+      "index": 4,
+      "title": "ESC/POS 印表機 Raw Socket 物理穩定性",
+      "fact": "ESC/POS 印表機 Raw Socket 物理穩定性",
+      "source": "https://en.wikipedia.org/wiki/AppSocket",
+      "url": "https://en.wikipedia.org/wiki/AppSocket",
+      "quote": "TCP port on the printer (default port is 9100)",
+      "entry_hash": "ac8b3d3ddf2f40633319ad0370abef2273f78c44463e29c87c53d027d40f6307"
+    },
+    {
+      "index": 5,
+      "title": "GCP e2-micro 1GB 記憶體物理數據",
+      "fact": "GCP e2-micro 1GB 記憶體物理數據",
+      "source": "https://cloud.google.com/compute/docs/general-purpose-machines",
+      "url": "https://cloud.google.com/compute/docs/general-purpose-machines",
+      "quote": "e2-micro : 0.25 vCPU, 1 to 2 GB of memory",
+      "entry_hash": "e5a965cd6875faf7969e56ee2cf3892d2aa2c05d0d94438a2c29a36c16181ac8"
+    },
+    {
+      "index": 6,
+      "title": "零信任金庫安全線",
+      "fact": "零信任金庫安全線",
+      "source": "https://git-scm.com/docs/gitignore",
+      "url": "https://git-scm.com/docs/gitignore",
+      "quote": "gitignore - Specifies intentionally untracked files to ignore",
+      "entry_hash": "b52b393c2ed2a85e008900133a273fc3f47b0cf4e79f490c1624f174a88738dd"
+    },
+    {
+      "index": 8,
+      "title": "多 Agent 檔案寫入無鎖 CRDT",
+      "fact": "多 Agent 檔案寫入無鎖 CRDT",
+      "source": "https://en.wikipedia.org/wiki/Conflict-free_replicated_data_type",
+      "url": "https://en.wikipedia.org/wiki/Conflict-free_replicated_data_type",
+      "quote": "is a data structure that is replicated across multiple computers in a network",
+      "entry_hash": "c4a0afbd4bde76975592a13c820b3a44fb6c5d1923698b10f84dd37d50d2c35f"
+    },
+    {
+      "index": 11,
+      "title": "Linux TCP BBR 弱網數據",
+      "fact": "Linux TCP BBR 弱網數據",
+      "source": "https://en.wikipedia.org/wiki/TCP_congestion_control",
+      "url": "https://en.wikipedia.org/wiki/TCP_congestion_control",
+      "quote": "BBR has been available for Linux TCP since Linux 4.9.",
+      "entry_hash": "53876efcd013f76b047fbf085ff05b75dd66eac480b30fce4e0a8395aeffa302"
+    },
+    {
+      "index": 12,
+      "title": "SQLite 高並發鎖數據",
+      "fact": "SQLite 高並發鎖數據",
+      "source": "https://www.sqlite.org/pragma.html",
+      "url": "https://www.sqlite.org/pragma.html",
+      "quote": "PRAGMA busy_timeout = milliseconds",
+      "entry_hash": "079098dda2d593c20c8f688ae672db4eae45730872aab43178225c3b97d1af45"
+    },
+    {
+      "index": 13,
+      "title": "記憶體快取極限對比",
+      "fact": "記憶體快取極限對比",
+      "source": "https://docs.python.org/3/library/functools.html",
+      "url": "https://docs.python.org/3/library/functools.html",
+      "quote": "memoizing callable that saves up to the maxsize most recent calls",
+      "entry_hash": "f2ebbc7bb85b270771e40b312493439e02c99b5430adefc910f6496472dd581d"
+    },
+    {
+      "index": 14,
+      "title": "Google API 連線池",
+      "fact": "Google API 連線池",
+      "source": "https://requests.readthedocs.io/en/latest/user/advanced/",
+      "url": "https://requests.readthedocs.io/en/latest/user/advanced/",
+      "quote": "Session object allows you to persist certain parameters across requests",
+      "entry_hash": "b5b9cd22ee32756fffa6ca72d94bfa14670ca1603aabce79170e77c8c97ecbee"
+    },
+    {
+      "index": 15,
+      "title": "Playwright 記憶體洩漏遏止",
+      "fact": "Playwright 記憶體洩漏遏止",
+      "source": "https://playwright.dev/docs/browser-contexts",
+      "url": "https://playwright.dev/docs/browser-contexts",
+      "quote": "Playwright uses browser contexts to achieve Test Isolation",
+      "entry_hash": "efbe591298a1adbcc62c40136bb3bb533b678b6d5adb4aaf1cf7a952e1a17614"
+    },
+    {
+      "index": 16,
+      "title": "AES-256-GCM 本地加密",
+      "fact": "AES-256-GCM 本地加密",
+      "source": "https://docs.python.org/3/library/hashlib.html",
+      "url": "https://docs.python.org/3/library/hashlib.html",
+      "quote": "Key derivation and key stretching algorithms are designed for secure password hashing",
+      "entry_hash": "56807098a03c66dff928aae906e53b1fe5b1b40b211776ff9b0018e914149a8a"
+    },
+    {
+      "index": 17,
+      "title": "asyncio vs 多進程",
+      "fact": "asyncio vs 多進程",
+      "source": "https://docs.python.org/3/library/asyncio.html",
+      "url": "https://docs.python.org/3/library/asyncio.html",
+      "quote": "asyncio is a library to write concurrent code using the async/await syntax",
+      "entry_hash": "a15430deaf582a827ad9c8a186ee3720316e84bb0964e9f8970d2afd5b162c22"
+    },
+    {
+      "index": 19,
+      "title": "API 熔斷器指標",
+      "fact": "API 熔斷器指標",
+      "source": "https://martinfowler.com/bliki/CircuitBreaker.html",
+      "url": "https://martinfowler.com/bliki/CircuitBreaker.html",
+      "quote": "The basic idea behind the circuit breaker is very simple",
+      "entry_hash": "6c794849fe60dc01b60da7f1e5a1329072f68e7e714727d49a73bd6c60a439fe"
+    },
+    {
+      "index": 22,
+      "title": "MySQL 8.0 瘦身數據",
+      "fact": "MySQL 8.0 瘦身數據",
+      "source": "https://dev.mysql.com/doc/refman/8.0/en/performance-schema.html",
+      "url": "https://dev.mysql.com/doc/refman/8.0/en/performance-schema.html",
+      "quote": "The MySQL Performance Schema is a feature for monitoring MySQL Server execution at a low level",
+      "entry_hash": "73e5734fa8dac16f8c5127d46e1fddd6dd2c0b16ccbf0163f50716a5e569f7a5"
+    },
+    {
+      "index": 23,
+      "title": "Git Pre-Commit Hook 攔截率",
+      "fact": "Git Pre-Commit Hook 攔截率",
+      "source": "https://git-scm.com/docs/githooks",
+      "url": "https://git-scm.com/docs/githooks",
+      "quote": "This hook is invoked by git-commit[1] , and can be bypassed with the --no-verify option",
+      "entry_hash": "25b6bc4a004915edaba74fd43a0df364575a61825e646266549030a26a0cdee4"
+    },
+    {
+      "index": 24,
+      "title": "Webhook HMAC-SHA256 驗證",
+      "fact": "Webhook HMAC-SHA256 驗證",
+      "source": "https://docs.python.org/3/library/hmac.html",
+      "url": "https://docs.python.org/3/library/hmac.html",
+      "quote": "This module implements the HMAC algorithm as described by RFC 2104",
+      "entry_hash": "b0628365d7ccde9d5382be511b7b4b5c219fc3901478805ada87c928512ae1c0"
+    },
+    {
+      "index": 25,
+      "title": "SQLite 零停機熱快照",
+      "fact": "SQLite 零停機熱快照",
+      "source": "https://www.sqlite.org/lang_vacuum.html",
+      "url": "https://www.sqlite.org/lang_vacuum.html",
+      "quote": "The advantage of using VACUUM INTO is that the resulting backup database is minimal in size",
+      "entry_hash": "ce0854146b34570f48f12b2180cb45cb8503c23e99276286ae054da69928fe4b"
+    },
+    {
+      "index": 26,
+      "title": "AST 死循環預檢防禦",
+      "fact": "AST 死循環預檢防禦",
+      "source": "https://docs.python.org/3/library/ast.html",
+      "url": "https://docs.python.org/3/library/ast.html",
+      "quote": "The ast module helps Python applications to process trees of the Python abstract syntax grammar",
+      "entry_hash": "3d145468d5693d8f517d808149d03bcd71890190f8f23b040823088519c11491"
+    },
+    {
+      "index": 27,
+      "title": "大檔案分塊斷點續傳",
+      "fact": "大檔案分塊斷點續傳",
+      "source": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Range_requests",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Range_requests",
+      "quote": "An HTTP Range request asks the server to send parts of a resource back to a client",
+      "entry_hash": "5063f2b07087a6048b9251a5425fb6c40db8e437a4eaa17cdeaaf25736deed08"
+    },
+    {
+      "index": 28,
+      "title": "跨平台 IPC 管道",
+      "fact": "跨平台 IPC 管道",
+      "source": "https://en.wikipedia.org/wiki/Unix_domain_socket",
+      "url": "https://en.wikipedia.org/wiki/Unix_domain_socket",
+      "quote": "Communications endpoint for exchanging data between processes",
+      "entry_hash": "a48be3a051535ff1d508c7bac1b829d1b0285e1c987d31ed1dbbcb7a7a6f9468"
+    },
+    {
+      "index": 29,
+      "title": "Cython BOM 數值計算加速",
+      "fact": "Cython BOM 數值計算加速",
+      "source": "https://cython.org/",
+      "url": "https://cython.org/",
+      "quote": "Cython is an optimising static compiler for both the Python programming language",
+      "entry_hash": "8cfa9608d8ca46ffb71ec2e3ff52c3af1944f131d9ce1709f0632587fab7b62d"
+    },
+    {
+      "index": 31,
+      "title": "QUIC 0-RTT 弱網數據",
+      "fact": "QUIC 0-RTT 弱網數據",
+      "source": "https://datatracker.ietf.org/doc/html/rfc9000",
+      "url": "https://datatracker.ietf.org/doc/html/rfc9000",
+      "quote": "QUIC is a connection-oriented protocol that creates a stateful interaction between a client and server",
+      "entry_hash": "d3c17b05b87c307831e4a3d9ba0800b5b26451408f336e7f78f66a37f9156b21"
+    },
+    {
+      "index": 32,
+      "title": "W3C 分散式 Trace",
+      "fact": "W3C 分散式 Trace",
+      "source": "https://www.w3.org/TR/trace-context/",
+      "url": "https://www.w3.org/TR/trace-context/",
+      "quote": "The traceparent header represents the incoming request in a tracing system in a common format",
+      "entry_hash": "7ecafa570e80ad8dbc8fd3650afa2422bf52072cbee7539d50dbec01e2b93cc0"
+    },
+    {
+      "index": 33,
+      "title": "本地 ONNX 向量檢索",
+      "fact": "本地 ONNX 向量檢索",
+      "source": "https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2",
+      "url": "https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2",
+      "quote": "This is a sentence-transformers model: It maps sentences & paragraphs to a 384 dimensional dense vector space",
+      "entry_hash": "2c32cc8d11478cbb738324a71ec583db35667bfa5f6cd2e0fc5aaff3fd886bf8"
+    },
+    {
+      "index": 34,
+      "title": "aiofiles 事件循環防禦",
+      "fact": "aiofiles 事件循環防禦",
+      "source": "https://raw.githubusercontent.com/Tinche/aiofiles/main/README.md",
+      "url": "https://raw.githubusercontent.com/Tinche/aiofiles/main/README.md",
+      "quote": "is an Apache2 licensed library, written in Python, for handling local disk files in asyncio applications",
+      "entry_hash": "b2c41f1e4cb016336bcdb173b98410fd7482505d7cf23761b5fdc70ed103c8b3"
+    },
+    {
+      "index": 35,
+      "title": "mmap 零拷貝分頁",
+      "fact": "mmap 零拷貝分頁",
+      "source": "https://docs.python.org/3/library/mmap.html",
+      "url": "https://docs.python.org/3/library/mmap.html",
+      "quote": "Memory-mapped file objects behave like both bytearray and like file objects",
+      "entry_hash": "f9fbfec0fcbe3384c3cdd4624b402320292ba660fdc4233de017a49513ded418"
+    },
+    {
+      "index": 36,
+      "title": "cgroups v2 容器硬限制",
+      "fact": "cgroups v2 容器硬限制",
+      "source": "https://docs.kernel.org/admin-guide/cgroup-v2.html",
+      "url": "https://docs.kernel.org/admin-guide/cgroup-v2.html",
+      "quote": "It describes all userland-visible aspects of cgroup including core and specific controller behaviors",
+      "entry_hash": "30746c9516ce1066dd0bc88e32a8a7584895e7d8205c263edd10811f057d1b27"
+    },
+    {
+      "index": 37,
+      "title": "Singleflight 請求合併",
+      "fact": "Singleflight 請求合併",
+      "source": "https://pkg.go.dev/golang.org/x/sync/singleflight",
+      "url": "https://pkg.go.dev/golang.org/x/sync/singleflight",
+      "quote": "Package singleflight provides a duplicate function call suppression mechanism",
+      "entry_hash": "6db670a7b65fb8e94ad5a7d4e8783fcf965c86a1182282c9bb41c5e7a3d3f6b2"
+    },
+    {
+      "index": 38,
+      "title": "DoH 本地快取解析",
+      "fact": "DoH 本地快取解析",
+      "source": "https://datatracker.ietf.org/doc/html/rfc8484",
+      "url": "https://datatracker.ietf.org/doc/html/rfc8484",
+      "quote": "This document defines a protocol for sending DNS queries and getting DNS responses over HTTPS",
+      "entry_hash": "1dd51856a8651c559c91e5759fdf4a29729866b527c8228b2a86e5289ee9ccfc"
+    },
+    {
+      "index": 41,
+      "title": "Protobuf 二進位提速",
+      "fact": "Protobuf 二進位提速",
+      "source": "https://en.wikipedia.org/wiki/Protocol_Buffers",
+      "url": "https://en.wikipedia.org/wiki/Protocol_Buffers",
+      "quote": "is a free and open-source cross-platform data format used to serialize structured data",
+      "entry_hash": "0cbd405faa658fce167e24d22fae77a3349babcc3cde4c4177df0a557fea35c3"
+    },
+    {
+      "index": 42,
+      "title": "Google RE2 正則防 ReDoS",
+      "fact": "Google RE2 正則防 ReDoS",
+      "source": "https://raw.githubusercontent.com/google/re2/main/README.md",
+      "url": "https://raw.githubusercontent.com/google/re2/main/README.md",
+      "quote": "One of its primary guarantees is that the match time is linear in the length of the input string",
+      "entry_hash": "1563c10ad6e4dacfba0428afd96899c156a978bb4a5dcd01fd215430548aff9c"
+    },
+    {
+      "index": 43,
+      "title": "Lamport 邏輯時鐘",
+      "fact": "Lamport 邏輯時鐘",
+      "source": "https://en.wikipedia.org/wiki/Lamport_timestamp",
+      "url": "https://en.wikipedia.org/wiki/Lamport_timestamp",
+      "quote": "The Lamport timestamp algorithm is a simple logical clock algorithm used to determine the order of events in a distributed computer system",
+      "entry_hash": "bbd15453716aa21cda18818e037e52dbc1616cd1fb4e67725689ce0c31bf13c0"
+    },
+    {
+      "index": 44,
+      "title": "Wasm 內存沙盒啟動",
+      "fact": "Wasm 內存沙盒啟動",
+      "source": "https://developer.mozilla.org/en-US/docs/WebAssembly",
+      "url": "https://developer.mozilla.org/en-US/docs/WebAssembly",
+      "quote": "WebAssembly is designed to complement and run alongside JavaScript",
+      "entry_hash": "bad2132d78ff3ea8ff1e3e41d1f6ad9bb6edfb46c74c331d4820466cf39b8dbf"
+    },
+    {
+      "index": 45,
+      "title": "環形緩衝區日誌",
+      "fact": "環形緩衝區日誌",
+      "source": "https://en.wikipedia.org/wiki/Circular_buffer",
+      "url": "https://en.wikipedia.org/wiki/Circular_buffer",
+      "quote": "circular buffer , circular queue , cyclic buffer or ring buffer is a data structure that uses a single, fixed-size buffer as if it were connected end-to-end",
+      "entry_hash": "8c3cf7c455fdfc689747677e25f59beb0a63b089e0cc1e702d3a755cbc3ea465"
+    },
+    {
+      "index": 46,
+      "title": "Linux 核心臟頁調優",
+      "fact": "Linux 核心臟頁調優",
+      "source": "https://docs.kernel.org/admin-guide/sysctl/vm.html",
+      "url": "https://docs.kernel.org/admin-guide/sysctl/vm.html",
+      "quote": "the number of pages at which the background kernel flusher threads will start writing out dirty data",
+      "entry_hash": "09cdeede1caa8d026214df86858509230727440d15e93dde7b32a488a5e7a613"
+    },
+    {
+      "index": 47,
+      "title": "TCP Vegas 自適應限流",
+      "fact": "TCP Vegas 自適應限流",
+      "source": "https://en.wikipedia.org/wiki/TCP_Vegas",
+      "url": "https://en.wikipedia.org/wiki/TCP_Vegas",
+      "quote": "TCP Vegas is a TCP congestion avoidance algorithm that emphasizes packet delay, rather than packet loss, as a signal to help determine the rate at which to send packets",
+      "entry_hash": "acda66108efcc719b2431c77952d37e11bd2b0eb77fc7cee044b572dc6c0d0b2"
+    },
+    {
+      "index": 48,
+      "title": "布隆過濾器去重",
+      "fact": "布隆過濾器去重",
+      "source": "https://en.wikipedia.org/wiki/Bloom_filter",
+      "url": "https://en.wikipedia.org/wiki/Bloom_filter",
+      "quote": "Bloom filter is a space-efficient probabilistic data structure , conceived by Burton Howard Bloom",
+      "entry_hash": "ba3c0d35e190103c51c0422786cd0940897a36f6dc86d4010e05a470fd64d0ac"
+    },
+    {
+      "index": 49,
+      "title": "POSIX 共享記憶體",
+      "fact": "POSIX 共享記憶體",
+      "source": "https://man7.org/linux/man-pages/man7/shm_overview.7.html",
+      "url": "https://man7.org/linux/man-pages/man7/shm_overview.7.html",
+      "quote": "The POSIX shared memory API allows processes to communicate information by sharing a region of memory",
+      "entry_hash": "97c8de2363d89bacc2026049ab2293a00e2006c757822df83af72e8c87167b4a"
+    },
+    {
+      "index": 51,
+      "title": "TLS 1.3 0-RTT 防重放",
+      "fact": "TLS 1.3 0-RTT 防重放",
+      "source": "https://datatracker.ietf.org/doc/html/rfc8446",
+      "url": "https://datatracker.ietf.org/doc/html/rfc8446",
+      "quote": "0-RTT data is just added to the 1-RTT handshake in the first flight",
+      "entry_hash": "cbf961ab8a74d1a657789451af30ae788b23f8173eefa3cfc647c04098d49c01"
+    },
+    {
+      "index": 52,
+      "title": "SQLite FTS5 全文檢索",
+      "fact": "SQLite FTS5 全文檢索",
+      "source": "https://www.sqlite.org/fts5.html",
+      "url": "https://www.sqlite.org/fts5.html",
+      "quote": "FTS5 is an SQLite virtual table module that provides full-text search functionality to database applications",
+      "entry_hash": "4bf8cc05fb53b39e84a1ea2b6e148420cbfe2b10502498594ca495d8fecea7d9"
+    },
+    {
+      "index": 53,
+      "title": "B-Tree 填充因子優化",
+      "fact": "B-Tree 填充因子優化",
+      "source": "https://en.wikipedia.org/wiki/B-tree",
+      "url": "https://en.wikipedia.org/wiki/B-tree",
+      "quote": "a B-tree is a self-balancing tree data structure that maintains sorted data and allows searches, sequential access, insertions, and deletions in logarithmic time",
+      "entry_hash": "43bd2e3267682b186f39ce8ce91f164b0ac18a16d324be8ff3098959756dd5e3"
+    },
+    {
+      "index": 54,
+      "title": "網卡 RSS 與親和性綁定",
+      "fact": "網卡 RSS 與親和性綁定",
+      "source": "https://docs.kernel.org/networking/scaling.html",
+      "url": "https://docs.kernel.org/networking/scaling.html",
+      "quote": "The goal of RSS and the other scaling techniques is to increase performance uniformly",
+      "entry_hash": "f7e1c11fc5b3aa5d7f34faf7c3a61f0bcd75c9b91a7c719a5d4fa2a0f40f7793"
+    },
+    {
+      "index": 55,
+      "title": "事件溯源狀態還原",
+      "fact": "事件溯源狀態還原",
+      "source": "https://martinfowler.com/eaaDev/EventSourcing.html",
+      "url": "https://martinfowler.com/eaaDev/EventSourcing.html",
+      "quote": "Capture all changes to an application state as a sequence of events",
+      "entry_hash": "2e34fd3bee2d77a11e3a6564b5c585ce38e7a2c108321c8288ccd20693b88495"
+    },
+    {
+      "index": 56,
+      "title": "Linux sendfile 零拷貝",
+      "fact": "Linux sendfile 零拷貝",
+      "source": "https://man7.org/linux/man-pages/man2/sendfile.2.html",
+      "url": "https://man7.org/linux/man-pages/man2/sendfile.2.html",
+      "quote": "sendfile () copies data between one file descriptor and another",
+      "entry_hash": "36f126691adf9e13cb6dc5272c39800e4dff0ffa355f88ef152b4f89d4af730c"
+    },
+    {
+      "index": 57,
+      "title": "Tarjan SCC 死鎖檢測",
+      "fact": "Tarjan SCC 死鎖檢測",
+      "source": "https://en.wikipedia.org/wiki/Tarjan%27s_strongly_connected_components_algorithm",
+      "url": "https://en.wikipedia.org/wiki/Tarjan%27s_strongly_connected_components_algorithm",
+      "quote": "Tarjan's strongly connected components algorithm is an algorithm in graph theory for finding the strongly connected components (SCCs) of a directed graph",
+      "entry_hash": "4104b648685aa05281f9ebfee21ae86aa7b0fde9ecc40c42270193c52acfdf42"
+    },
+    {
+      "index": 58,
+      "title": "Reed-Solomon FEC 前向糾錯",
+      "fact": "Reed-Solomon FEC 前向糾錯",
+      "source": "https://en.wikipedia.org/wiki/Reed%E2%80%93Solomon_error_correction",
+      "url": "https://en.wikipedia.org/wiki/Reed%E2%80%93Solomon_error_correction",
+      "quote": "Reed-Solomon codes are a group of error-correcting codes that were introduced by Irving S. Reed and Gustave Solomon in 1960",
+      "entry_hash": "b1cbc43bdfa4192539a9fe94f91db27c3bc208fca0e0529cce6987d4aca2e078"
+    },
+    {
+      "index": 59,
+      "title": "微架構快取行對齊 (DOD)",
+      "fact": "微架構快取行對齊 (DOD)",
+      "source": "https://en.wikipedia.org/wiki/Data-oriented_design",
+      "url": "https://en.wikipedia.org/wiki/Data-oriented_design",
+      "quote": "data-oriented design is a program optimization approach motivated by efficient usage of the CPU cache",
+      "entry_hash": "269fd4ece6e79a0c5e88d913c804499b7bc719b84b982fa46fcf03da54eaf158"
+    },
+    {
+      "index": 62,
+      "title": "JSI (JavaScript Interface) 零拷貝記憶體指標",
+      "fact": "JSI (JavaScript Interface) 零拷貝記憶體指標",
+      "source": "https://reactnative.dev/architecture/glossary",
+      "url": "https://reactnative.dev/architecture/glossary",
+      "quote": "A lightweight API to embed a JavaScript engine in a C++ application",
+      "entry_hash": "c74b08487e0102f99d7456fa1716f0b07fbe980dc0d09cf4b596ad44962eb43d"
+    },
+    {
+      "index": 63,
+      "title": "Hermes Bytecode AOT 預編譯熱啟動",
+      "fact": "Hermes Bytecode AOT 預編譯熱啟動",
+      "source": "https://raw.githubusercontent.com/facebook/hermes/main/README.md",
+      "url": "https://raw.githubusercontent.com/facebook/hermes/main/README.md",
+      "quote": "Hermes is a JavaScript engine optimized for fast start-up",
+      "entry_hash": "89f141b41773ec35cf7a938c542d5051d821826472afab2958f365729bde32f4"
+    },
+    {
+      "index": 64,
+      "title": "邊緣 Webhook 快速握手 (Fast-Ack) 防禦",
+      "fact": "邊緣 Webhook 快速握手 (Fast-Ack) 防禦",
+      "source": "https://en.wikipedia.org/wiki/Webhook",
+      "url": "https://en.wikipedia.org/wiki/Webhook",
+      "quote": "In web development, a webhook is a method of augmenting or altering the behavior of a web page",
+      "entry_hash": "60ba89de483ab34cadf7eaa525e0cea6ebd57ebf20dac3d1186484ba43fe9980"
+    },
+    {
+      "index": 71,
+      "title": "Loro CRDT 邊緣記憶體與同步壓榨",
+      "fact": "Loro CRDT 邊緣記憶體與同步壓榨",
+      "source": "https://raw.githubusercontent.com/loro-dev/loro/main/README.md",
+      "url": "https://raw.githubusercontent.com/loro-dev/loro/main/README.md",
+      "quote": "library that makes building ... and collaborative apps easier. You can now use it in Rust",
+      "entry_hash": "5bf865b86f1533027318c69d779dcc7e085aa48a0f9b60b471402dd59b38366a"
+    },
+    {
+      "index": 72,
+      "title": "io_uring 環形緩衝區網路與儲存統一架構",
+      "fact": "io_uring 環形緩衝區網路與儲存統一架構",
+      "source": "https://man7.org/linux/man-pages/man7/io_uring.7.html",
+      "url": "https://man7.org/linux/man-pages/man7/io_uring.7.html",
+      "quote": "create a submission queue entry, or SQE, describe the I/O operation you need to get done and add it to the tail of the submission queue",
+      "entry_hash": "e7a5f28a5804c34d386ea28e068323015c751da16d1c1342015ed0302341c4a8"
+    },
+    {
+      "index": 73,
+      "title": "`IOSQE_IO_LINK` 內核鏈路級連動",
+      "fact": "`IOSQE_IO_LINK` 內核鏈路級連動",
+      "source": "https://man7.org/linux/man-pages/man2/io_uring_enter.2.html",
+      "url": "https://man7.org/linux/man-pages/man2/io_uring_enter.2.html",
+      "quote": "See IOSQE_IO_LINK for more details on linked SQEs",
+      "entry_hash": "8aa29da0a29d31f0cb325171c89a2f13010293260d080a07cffd183769958313"
+    },
+    {
+      "index": 74,
+      "title": "Apple Neural Engine (ANE) 本機輕量 OCR 分類器",
+      "fact": "Apple Neural Engine (ANE) 本機輕量 OCR 分類器",
+      "source": "https://en.wikipedia.org/wiki/Apple_silicon",
+      "url": "https://en.wikipedia.org/wiki/Apple_silicon",
+      "quote": "enhances artificial intelligence and machine learning processes",
+      "entry_hash": "d60970d74fa0365c45f0b2f7af75cf7e797225671ad364580322293abe5284fe"
+    },
+    {
+      "index": 76,
+      "title": "SQLite WAL 與 Loro 二進位雙軌混合持久化",
+      "fact": "SQLite WAL 與 Loro 二進位雙軌混合持久化",
+      "source": "https://www.sqlite.org/wal.html",
+      "url": "https://www.sqlite.org/wal.html",
+      "quote": "The default method by which SQLite implements atomic commit and rollback is a rollback journal",
+      "entry_hash": "fae08677772d804093fe7756ab27df6baf0ac1fbd215022be91608249ca7c124"
+    },
+    {
+      "index": 77,
+      "title": "邊緣 Headless Worker 內存硬隔離",
+      "fact": "邊緣 Headless Worker 內存硬隔離",
+      "source": "https://docs.kernel.org/userspace-api/seccomp_filter.html",
+      "url": "https://docs.kernel.org/userspace-api/seccomp_filter.html",
+      "quote": "A large number of system calls are exposed to every userland process with many of them going unused for the entire lifetime of the process",
+      "entry_hash": "879a156b3150b034bd368e59d490967a1cc9fb8b5789e4fe7fc6eb1b29abbbf7"
+    },
+    {
+      "index": 79,
+      "title": "WebTransport (HTTP/3) 雙向多路複用串流",
+      "fact": "WebTransport (HTTP/3) 雙向多路複用串流",
+      "source": "https://www.w3.org/TR/webtransport/",
+      "url": "https://www.w3.org/TR/webtransport/",
+      "quote": "There are two main protocol concepts for WebTransport: sessions and streams",
+      "entry_hash": "ba26afdb184c1efff98598850d7545f4b79f26eacb3d30d1ae549928442bd3b6"
+    },
+    {
+      "index": 81,
+      "title": "eBPF XDP 線速微秒級封包過濾",
+      "fact": "eBPF XDP 線速微秒級封包過濾",
+      "source": "https://en.wikipedia.org/wiki/Express_Data_Path",
+      "url": "https://en.wikipedia.org/wiki/Express_Data_Path",
+      "quote": "XDP bypasses the networking stack and memory allocation for packet metadata",
+      "entry_hash": "8356d83bb2b64aae34d844ed6bd5206003b1a5347a09e8749e11cc1071792584"
+    },
+    {
+      "index": 82,
+      "title": "simdjson 向量指令解析",
+      "fact": "simdjson 向量指令解析",
+      "source": "https://raw.githubusercontent.com/simdjson/simdjson/master/README.md",
+      "url": "https://raw.githubusercontent.com/simdjson/simdjson/master/README.md",
+      "quote": "simdjson : Parsing gigabytes of JSON per second",
+      "entry_hash": "06d33b9e55202844289e349c19523e588e794ca086d88e019c3edc3689649538"
+    },
+    {
+      "index": 83,
+      "title": "CPU 快取行偽共享 (False Sharing) 消除",
+      "fact": "CPU 快取行偽共享 (False Sharing) 消除",
+      "source": "https://en.wikipedia.org/wiki/False_sharing",
+      "url": "https://en.wikipedia.org/wiki/False_sharing",
+      "quote": "false sharing is a performance-degrading usage pattern that can arise in systems with distributed, coherent caches",
+      "entry_hash": "5f63a7508c0c6f315ff44f3b08e0139cdb66faaf1e8ae09530bdc381e7d26636"
+    },
+    {
+      "index": 84,
+      "title": "Wasmtime 邊緣沙盒 Pooling Allocator 亞毫秒啟動",
+      "fact": "Wasmtime 邊緣沙盒 Pooling Allocator 亞毫秒啟動",
+      "source": "https://raw.githubusercontent.com/bytecodealliance/wasmtime/main/README.md",
+      "url": "https://raw.githubusercontent.com/bytecodealliance/wasmtime/main/README.md",
+      "quote": "A standalone runtime for WebAssembly",
+      "entry_hash": "7412e34ece51ffe2c6733895989b486ef3717a15be793d31ce1386742d2d2449"
+    },
+    {
+      "index": 85,
+      "title": "偏鄉長距 LoRaWAN 與 BLE Mesh 斷網中繼",
+      "fact": "偏鄉長距 LoRaWAN 與 BLE Mesh 斷網中繼",
+      "source": "https://en.wikipedia.org/wiki/LoRa",
+      "url": "https://en.wikipedia.org/wiki/LoRa",
+      "quote": "is a physical proprietary radio communication technique based on spread spectrum modulation",
+      "entry_hash": "fa72de7a5bd0a95ab847aee098d156c41863ca78062aca5a20c0b1b37df824fe"
+    },
+    {
+      "index": 86,
+      "title": "AF_XDP (XSK) 用戶態零拷貝傳輸",
+      "fact": "AF_XDP (XSK) 用戶態零拷貝傳輸",
+      "source": "https://docs.kernel.org/networking/af_xdp.html",
+      "url": "https://docs.kernel.org/networking/af_xdp.html",
+      "quote": "AF_XDP is an address family that is optimized for high performance packet processing",
+      "entry_hash": "cb32050655e1da3dbdb792772518c5ac886434f0fcfd4de46f31b2b71b9436f2"
+    },
+    {
+      "index": 88,
+      "title": "io_uring SQPOLL 核心線程輪詢極限",
+      "fact": "io_uring SQPOLL 核心線程輪詢極限",
+      "source": "https://man7.org/linux/man-pages/man2/io_uring_setup.2.html",
+      "url": "https://man7.org/linux/man-pages/man2/io_uring_setup.2.html",
+      "quote": "When this flag is specified, a kernel thread is created to perform submission queue polling",
+      "entry_hash": "e417275a442515ad9dcda32460af082cd57fd61f1a8fc35a503945f6c7f94d25"
+    },
+    {
+      "index": 89,
+      "title": "邊緣時序數據自適應 Gorillas 浮點壓縮",
+      "fact": "邊緣時序數據自適應 Gorillas 浮點壓縮",
+      "source": "https://blog.acolyer.org/2016/05/03/gorilla-a-fast-scalable-in-memory-time-series-database/",
+      "url": "https://blog.acolyer.org/2016/05/03/gorilla-a-fast-scalable-in-memory-time-series-database/",
+      "quote": "to compute a simple XOR of the current and previous values rather than employing a delta encoding scheme",
+      "entry_hash": "ba7c9155f6268b098efe600e1cec6fda41ff21af898c180fe33d844a3be96132"
+    },
+    {
+      "index": 91,
+      "title": "mimalloc 執行緒局部堆疊與原子跨核隊列",
+      "fact": "mimalloc 執行緒局部堆疊與原子跨核隊列",
+      "source": "https://en.wikipedia.org/wiki/Mimalloc",
+      "url": "https://en.wikipedia.org/wiki/Mimalloc",
+      "quote": "free list sharding , eager page reset, and first-class heaps",
+      "entry_hash": "cc154d60eeabead8b99f0c33cfe958d3af759fc3ff84d3799250929677544003"
+    },
+    {
+      "index": 92,
+      "title": "TLA+ / PlusCal 狀態機形式化數學驗證",
+      "fact": "TLA+ / PlusCal 狀態機形式化數學驗證",
+      "source": "https://en.wikipedia.org/wiki/TLA%2B",
+      "url": "https://en.wikipedia.org/wiki/TLA%2B",
+      "quote": "The TLC model checker uses Java implementations for improved performance",
+      "entry_hash": "2f16bd0f06af3de6e8cf17e77af390d0b8e0ad77c2f064b590a45ce6aacd56ba"
+    },
+    {
+      "index": 93,
+      "title": "機密運算 (Confidential Computing) 硬體封裝",
+      "fact": "機密運算 (Confidential Computing) 硬體封裝",
+      "source": "https://en.wikipedia.org/wiki/Confidential_computing",
+      "url": "https://en.wikipedia.org/wiki/Confidential_computing",
+      "quote": "prevent unauthorized access or modification of applications and data while they are in use",
+      "entry_hash": "287f7c1ac9baef502c6a759b77967add9a122598053699d6d1ae6774b73d0946"
+    },
+    {
+      "index": 97,
+      "title": "snmalloc 訊息傳遞式跨執行緒記憶體回收",
+      "fact": "snmalloc 訊息傳遞式跨執行緒記憶體回收",
+      "source": "https://raw.githubusercontent.com/microsoft/snmalloc/main/README.md",
+      "url": "https://raw.githubusercontent.com/microsoft/snmalloc/main/README.md",
+      "quote": "any locks and instead uses a novel message passing scheme to return the",
+      "entry_hash": "e939ef8cfceaa9d74cd0396dcdca9e4f7b7b2064acc2ef7a29d2499a3a510c36"
+    },
+    {
+      "index": 99,
+      "title": "Linux BPF-LSM 核心級零信任防呆",
+      "fact": "Linux BPF-LSM 核心級零信任防呆",
+      "source": "https://docs.kernel.org/security/lsm.html",
+      "url": "https://docs.kernel.org/security/lsm.html",
+      "quote": "security hooks to control operations on kernel objects and a set of opaque security fields in kernel data structures",
+      "entry_hash": "2f3b07afc3f13c86743c1a8571948dd04556bcb47c403a59bd64375553b128a1"
+    },
+    {
+      "index": 101,
+      "title": "WasmEdge AOT 編譯與邊緣沙盒冷啟動",
+      "fact": "WasmEdge AOT 編譯與邊緣沙盒冷啟動",
+      "source": "https://raw.githubusercontent.com/WasmEdge/WasmEdge/master/README.md",
+      "url": "https://raw.githubusercontent.com/WasmEdge/WasmEdge/master/README.md",
+      "quote": "WasmEdge is a lightweight, high-performance, and extensible WebAssembly runtime",
+      "entry_hash": "99d3fafa8689346889954c425143477ee060ad2bdf22721f7311b5903f37d7df"
+    },
+    {
+      "index": 102,
+      "title": "Firecracker Snapshot CoW 與極限虛擬化",
+      "fact": "Firecracker Snapshot CoW 與極限虛擬化",
+      "source": "https://raw.githubusercontent.com/firecracker-microvm/firecracker/main/README.md",
+      "url": "https://raw.githubusercontent.com/firecracker-microvm/firecracker/main/README.md",
+      "quote": "Firecracker is an open source virtualization technology that is purpose-built for creating and managing secure, multi-tenant",
+      "entry_hash": "844be18d01d6e1773115434039d83bb8690649a8fb2e105f6dba68da77a7773e"
+    },
+    {
+      "index": 103,
+      "title": "libp2p WebRTC DataChannel 行動端 CGNAT 穿透",
+      "fact": "libp2p WebRTC DataChannel 行動端 CGNAT 穿透",
+      "source": "https://raw.githubusercontent.com/libp2p/specs/master/relay/circuit-v2.md",
+      "url": "https://raw.githubusercontent.com/libp2p/specs/master/relay/circuit-v2.md",
+      "quote": "This is the version 2 of the libp2p Circuit Relay protocol",
+      "entry_hash": "628fb765272d08833c739c5e6e89d5212b9f3bbf0fd4540eed771cd1993ba285"
+    },
+    {
+      "index": 105,
+      "title": "Rust 零成本抽象 (Zero-Cost Abstraction) 狀態機",
+      "fact": "Rust 零成本抽象 (Zero-Cost Abstraction) 狀態機",
+      "source": "https://en.wikipedia.org/wiki/Typestate_analysis",
+      "url": "https://en.wikipedia.org/wiki/Typestate_analysis",
+      "quote": "Typestate analysis , sometimes called protocol analysis , is a form of program analysis employed in programming languages",
+      "entry_hash": "4a6f95d23d2c105564244f5745e581a866085ea3760c2b489c0a07c79ff25513"
+    },
+    {
+      "index": 106,
+      "title": "GPUDirect Storage (GDS) 零拷貝張量直通",
+      "fact": "GPUDirect Storage (GDS) 零拷貝張量直通",
+      "source": "https://docs.nvidia.com/gpudirect-storage/overview-guide/index.html",
+      "url": "https://docs.nvidia.com/gpudirect-storage/overview-guide/index.html",
+      "quote": "enables a direct data path for direct memory access (DMA) transfers between GPU memory and storage",
+      "entry_hash": "5792a852f77e03ef5f55eb24c18a28310e9d0a113485443628a61f99abdd3f5c"
+    },
+    {
+      "index": 108,
+      "title": "WebRTC SCTP 多路複用與自適應 MTU 探測",
+      "fact": "WebRTC SCTP 多路複用與自適應 MTU 探測",
+      "source": "https://datatracker.ietf.org/doc/html/rfc8899",
+      "url": "https://datatracker.ietf.org/doc/html/rfc8899",
+      "quote": "This is a robust method for Path MTU Discovery (PMTUD) for datagram Packetization Layers",
+      "entry_hash": "08831a1a3e3371bea6e742f61853facb9cf36c5e189dd667034bf74bfbabae4e"
+    },
+    {
+      "index": 113,
+      "title": "Rust Glommio 每核心單執行緒 (Thread-per-Core) 無共享架構",
+      "fact": "Rust Glommio 每核心單執行緒 (Thread-per-Core) 無共享架構",
+      "source": "https://raw.githubusercontent.com/DataDog/glommio/master/README.md",
+      "url": "https://raw.githubusercontent.com/DataDog/glommio/master/README.md",
+      "quote": "is a Cooperative Thread-per-Core crate for Rust & Linux based on",
+      "entry_hash": "8fdc1b928fdcbfadc97345587f892ed57a45ead6cf9234d30ae29525ed027856"
+    },
+    {
+      "index": 115,
+      "title": "後量子密碼學 (PQC) ML-KEM-768 在邊緣金流密鑰交換的落地",
+      "fact": "後量子密碼學 (PQC) ML-KEM-768 在邊緣金流密鑰交換的落地",
+      "source": "https://en.wikipedia.org/wiki/Kyber",
+      "url": "https://en.wikipedia.org/wiki/Kyber",
+      "quote": "is a key encapsulation mechanism (KEM) designed to be resistant to",
+      "entry_hash": "ac47aad1fd09c6b6bf7372ac4f66bfbbfb726e41b77bf281537d96b53a590141"
+    },
+    {
+      "index": 116,
+      "title": "去中心化可驗證憑據 (W3C Verifiable Credentials) 司機身份離線驗章",
+      "fact": "去中心化可驗證憑據 (W3C Verifiable Credentials) 司機身份離線驗章",
+      "source": "https://www.w3.org/TR/vc-data-model/",
+      "url": "https://www.w3.org/TR/vc-data-model/",
+      "quote": "on the Web in a way that is cryptographically secure, privacy respecting, and machine verifiable",
+      "entry_hash": "24a08d98b00546c00691c60bff8844a2c3f914dfd9b81529a309e67abf1413c4"
+    },
+    {
+      "index": 117,
+      "title": "Linux Bcachefs 邊緣日誌型檔案系統持久化評測",
+      "fact": "Linux Bcachefs 邊緣日誌型檔案系統持久化評測",
+      "source": "https://en.wikipedia.org/wiki/Bcachefs",
+      "url": "https://en.wikipedia.org/wiki/Bcachefs",
+      "quote": "copy-on-write (COW) file system for Linux -based operating systems. It is intended to compete with the modern features of ZFS or Btrfs",
+      "entry_hash": "38c606f287d0a0e00afc6ce4e88a8eb8be07675b80f71cbcffdaede942e02e8e"
+    },
+    {
+      "index": 118,
+      "title": "靜態分片 (Hash-Ring Sharding) 與無鎖核心負載路由",
+      "fact": "靜態分片 (Hash-Ring Sharding) 與無鎖核心負載路由",
+      "source": "https://en.wikipedia.org/wiki/Consistent_hashing",
+      "url": "https://en.wikipedia.org/wiki/Consistent_hashing",
+      "quote": "technique such that when a hash table is resized, only",
+      "entry_hash": "1688b221a85e31a1fe46ad3d80f0938b3826568d9cd1fb134fb1bbd1f2b55c80"
+    },
+    {
+      "index": 119,
+      "title": "邊緣記憶體鎖定 (`RLIMIT_MEMLOCK`) 與核心環形緩衝區安全配額",
+      "fact": "邊緣記憶體鎖定 (`RLIMIT_MEMLOCK`) 與核心環形緩衝區安全配額",
+      "source": "https://man7.org/linux/man-pages/man2/mlock.2.html",
+      "url": "https://man7.org/linux/man-pages/man2/mlock.2.html",
+      "quote": "preventing that memory from being paged to the swap area",
+      "entry_hash": "3917b7d07d7e78acace376f51d7d3faf4f678fa9bb199d5766ce84c49336e2fc"
+    },
+    {
+      "index": 121,
+      "title": "BPF Ringbuf MPSC 全域環形緩衝區與零拷貝",
+      "fact": "BPF Ringbuf MPSC 全域環形緩衝區與零拷貝",
+      "source": "https://docs.kernel.org/bpf/ringbuf.html",
+      "url": "https://docs.kernel.org/bpf/ringbuf.html",
+      "quote": "bpf_ringbuf_reserve() avoids the extra copy of memory by providing a memory pointer directly to ring buffer memory",
+      "entry_hash": "b18a88b2002c742085de6b91d576cae4a94fb8de091c04900a7d9acb034d7e8c"
+    },
+    {
+      "index": 122,
+      "title": "嚴格全域時間時序 (Global Chronological Ordering)",
+      "fact": "嚴格全域時間時序 (Global Chronological Ordering)",
+      "source": "https://docs.kernel.org/bpf/ringbuf.html",
+      "url": "https://docs.kernel.org/bpf/ringbuf.html",
+      "quote": "preserving ordering of events that happen sequentially in time, even across multiple CPUs",
+      "entry_hash": "41a31bdd6de576ef154ff29ed77c9945669caf7e87565c1ebd069e6d4f3633a1"
+    },
+    {
+      "index": 123,
+      "title": "DuckDB-WASM 邊緣端向量化 OLAP 引擎",
+      "fact": "DuckDB-WASM 邊緣端向量化 OLAP 引擎",
+      "source": "https://duckdb.org/2021/10/29/duckdb-wasm.html",
+      "url": "https://duckdb.org/2021/10/29/duckdb-wasm.html",
+      "quote": "DuckDB-Wasm is an in-process analytical SQL database for the browser. It is powered by WebAssembly",
+      "entry_hash": "7769ec25e161668af564fa92656109be587fa8cff8fbdf2b7f8152b99fdcda8e"
+    },
+    {
+      "index": 124,
+      "title": "Apache Parquet 列式修剪 (Column Pruning) 與 HTTP Range",
+      "fact": "Apache Parquet 列式修剪 (Column Pruning) 與 HTTP Range",
+      "source": "https://duckdb.org/2021/10/29/duckdb-wasm.html",
+      "url": "https://duckdb.org/2021/10/29/duckdb-wasm.html",
+      "quote": "we may not need to download the entire file for a query but only required bytes",
+      "entry_hash": "ada02b6d0860e1e88cdcd2cb55438f6f2ac7ea6b205dcbda0197331f392a0051"
+    },
+    {
+      "index": 125,
+      "title": "Apache Arrow 零拷貝記憶體資料傳遞",
+      "fact": "Apache Arrow 零拷貝記憶體資料傳遞",
+      "source": "https://duckdb.org/2021/10/29/duckdb-wasm.html",
+      "url": "https://duckdb.org/2021/10/29/duckdb-wasm.html",
+      "quote": "Arrow is a database-friendly columnar format that is organized in chunks of column vectors, called record batches and that support zero-copy reads",
+      "entry_hash": "616237cd56ff210ee9bad5dd3438f990aaaaa815b9452b04535578cacfc4a906"
+    },
+    {
+      "index": 126,
+      "title": "邊緣端零知識證明 (zk-SNARKs) 輕量驗證器",
+      "fact": "邊緣端零知識證明 (zk-SNARKs) 輕量驗證器",
+      "source": "https://raw.githubusercontent.com/arkworks-rs/groth16/master/README.md",
+      "url": "https://raw.githubusercontent.com/arkworks-rs/groth16/master/README.md",
+      "quote": "contains an efficient implementation of the zkSNARK of",
+      "entry_hash": "4cfbcaceddb530ff7e8f9b65f80c3c8945b496d9be4352e9997e68235d8b5db2"
+    },
+    {
+      "index": 127,
+      "title": "HTTP/3 Datagrams 與不可靠 WebTransport 即時遙測",
+      "fact": "HTTP/3 Datagrams 與不可靠 WebTransport 即時遙測",
+      "source": "https://datatracker.ietf.org/doc/html/rfc9297",
+      "url": "https://datatracker.ietf.org/doc/html/rfc9297",
+      "quote": "In HTTP/3, HTTP Datagrams can be sent unreliably using the QUIC DATAGRAM",
+      "entry_hash": "d7ea25c05cd20382f027965a2fc535ceac7d69262e8b722673f1409e6373a74f"
+    },
+    {
+      "index": 128,
+      "title": "確定性分代垃圾回收 (Generational GC) 核心調優",
+      "fact": "確定性分代垃圾回收 (Generational GC) 核心調優",
+      "source": "https://en.wikipedia.org/wiki/Tracing_garbage_collection",
+      "url": "https://en.wikipedia.org/wiki/Tracing_garbage_collection",
+      "quote": "generational garbage collectors use separate memory regions for different ages of objects",
+      "entry_hash": "52c3d729325cf6ad8fe49d57a149f0ece8d4215c86acadd62f4c7fad09a8493a"
+    },
+    {
+      "index": 131,
+      "title": "eBPF CO-RE 與 BTF 零開銷動態欄位重定位",
+      "fact": "eBPF CO-RE 與 BTF 零開銷動態欄位重定位",
+      "source": "https://docs.kernel.org/bpf/btf.html",
+      "url": "https://docs.kernel.org/bpf/btf.html",
+      "quote": "The .BTF.ext section encodes func_info, line_info and CO-RE relocations",
+      "entry_hash": "b8235fd17ed1544cd52c4c4234729ef8515412a064099768318ab1e360a5efef"
+    },
+    {
+      "index": 132,
+      "title": "rkyv 相對指針 (Relative Pointers) 物理零拷貝反序列化",
+      "fact": "rkyv 相對指針 (Relative Pointers) 物理零拷貝反序列化",
+      "source": "https://raw.githubusercontent.com/rkyv/rkyv/master/README.md",
+      "url": "https://raw.githubusercontent.com/rkyv/rkyv/master/README.md",
+      "quote": "is a zero-copy deserialization framework for Rust",
+      "entry_hash": "4c8252ea020e1a6b9a77738c4adb3d6700fc6a42fba253e0c7b026d99bc36c68"
+    },
+    {
+      "index": 133,
+      "title": "Cap'n Proto 8-byte 對齊 Segment Arena 跨進程 IPC",
+      "fact": "Cap'n Proto 8-byte 對齊 Segment Arena 跨進程 IPC",
+      "source": "https://capnproto.org/encoding.html",
+      "url": "https://capnproto.org/encoding.html",
+      "quote": "is defined as 8 bytes, or 64 bits",
+      "entry_hash": "66c525b81518d32739381feaf04edb3f49106d578d0ed0d16aa7d856fa86d562"
+    },
+    {
+      "index": 135,
+      "title": "ARM big.LITTLE / DynamIQ 異質核心非對稱負載調度",
+      "fact": "ARM big.LITTLE / DynamIQ 異質核心非對稱負載調度",
+      "source": "https://en.wikipedia.org/wiki/ARM_big.LITTLE",
+      "url": "https://en.wikipedia.org/wiki/ARM_big.LITTLE",
+      "quote": "coupling relatively battery-saving and slower processor cores",
+      "entry_hash": "2e48e53cebb992f2c1c09409344583d1d209c93c5ec042c1deeb9f5f51fbefb8"
+    },
+    {
+      "index": 136,
+      "title": "sqlite-vec 本機輕量向量資料庫檢索",
+      "fact": "sqlite-vec 本機輕量向量資料庫檢索",
+      "source": "https://raw.githubusercontent.com/asg017/sqlite-vec/main/README.md",
+      "url": "https://raw.githubusercontent.com/asg017/sqlite-vec/main/README.md",
+      "quote": "vector search SQLite extension that runs anywhere",
+      "entry_hash": "e7febde9b4d1df37a2720922644b5115767e2c8da0bd88fd1c36fe7fbe89be5f"
+    },
+    {
+      "index": 137,
+      "title": "rkyv Validate-on-Read 不可信邊緣網路封包硬防禦",
+      "fact": "rkyv Validate-on-Read 不可信邊緣網路封包硬防禦",
+      "source": "https://raw.githubusercontent.com/rkyv/rkyv/master/README.md",
+      "url": "https://raw.githubusercontent.com/rkyv/rkyv/master/README.md",
+      "quote": "safe API for fast zero-copy deserialization",
+      "entry_hash": "d0249a4fc80bcb588b468d577801afe354955e43e1cced9f412e19671f79c714"
+    },
+    {
+      "index": 139,
+      "title": "mmap `MAP_SHARED` 線上快照極速災難復原",
+      "fact": "mmap `MAP_SHARED` 線上快照極速災難復原",
+      "source": "https://man7.org/linux/man-pages/man2/mmap.2.html",
+      "url": "https://man7.org/linux/man-pages/man2/mmap.2.html",
+      "quote": "Updates to the mapping are visible to other processes mapping the same region, and (in the case of file-backed mappings) are carried through to the underlying file",
+      "entry_hash": "fd9be6ca9f5c39f98bf682d1273bdab8db59a5534b434a88696f6722d87bd5cf"
+    },
+    {
+      "index": 141,
+      "title": "`IORING_OP_SEND_ZC` 雙階 CQE 零拷貝網路發送",
+      "fact": "`IORING_OP_SEND_ZC` 雙階 CQE 零拷貝網路發送",
+      "source": "https://man7.org/linux/man-pages/man2/io_uring_enter.2.html",
+      "url": "https://man7.org/linux/man-pages/man2/io_uring_enter.2.html",
+      "quote": "The two step model is needed because the kernel may hold on to buffers for a long time",
+      "entry_hash": "7d372e95c98a82164564a83f691c71abc01b9d018ae29970b0ab4c1f3943a19f"
+    },
+    {
+      "index": 142,
+      "title": "`IORING_OP_RECV_ZC` 零拷貝網路接收",
+      "fact": "`IORING_OP_RECV_ZC` 零拷貝網路接收",
+      "source": "https://docs.kernel.org/networking/iou-zcrx.html",
+      "url": "https://docs.kernel.org/networking/iou-zcrx.html",
+      "quote": "is a feature that removes kernel-to-user copy on the network receive path, allowing packet data to be received directly into userspace memory",
+      "entry_hash": "46843bb670f8f5fe6033aa1c619bc86ad9f60431f3dec993f4fe9457c02a3a9b"
+    },
+    {
+      "index": 143,
+      "title": "Linux mTHP 多尺寸透明大頁微架構調優",
+      "fact": "Linux mTHP 多尺寸透明大頁微架構調優",
+      "source": "https://docs.kernel.org/admin-guide/mm/transhuge.html",
+      "url": "https://docs.kernel.org/admin-guide/mm/transhuge.html",
+      "quote": "introduces the ability to allocate memory in blocks that are bigger than a base page but smaller than traditional PMD-size",
+      "entry_hash": "b3153769579454f9bde2f62ed8e315fc12be360a69353c0aed65147772fae1b1"
+    },
+    {
+      "index": 144,
+      "title": "ARM64 `contpte` 頁表聚合與 TLB Miss 驟降",
+      "fact": "ARM64 `contpte` 頁表聚合與 TLB Miss 驟降",
+      "source": "https://docs.kernel.org/arch/arm64/hugetlbpage.html",
+      "url": "https://docs.kernel.org/arch/arm64/hugetlbpage.html",
+      "quote": "hints to the MMU to indicate that it is one of a contiguous set of entries that can be cached in a single TLB entry",
+      "entry_hash": "799bbae5e1ab592b171760e87e8e4ee576966378c26daeeb258ab33d61665759"
+    },
+    {
+      "index": 145,
+      "title": "Landlock LSM ✕ Seccomp-BPF 非特權邊緣極致沙盒",
+      "fact": "Landlock LSM ✕ Seccomp-BPF 非特權邊緣極致沙盒",
+      "source": "https://docs.kernel.org/security/landlock.html",
+      "url": "https://docs.kernel.org/security/landlock.html",
+      "quote": "Landlock is designed to be usable by unprivileged processes while following the system security policy",
+      "entry_hash": "f8e1fa53d4c60abc7fe9d59ac08bda5baebac5cbde4952e62ba483a6208a7ce8"
+    },
+    {
+      "index": 146,
+      "title": "io_uring 固定緩衝區 (`IORING_REGISTER_BUFFERS`) 查表消解",
+      "fact": "io_uring 固定緩衝區 (`IORING_REGISTER_BUFFERS`) 查表消解",
+      "source": "https://man7.org/linux/man-pages/man2/io_uring_register.2.html",
+      "url": "https://man7.org/linux/man-pages/man2/io_uring_register.2.html",
+      "quote": "The buffers associated with the iovecs will be locked in memory and charged against the user",
+      "entry_hash": "1d75db54f320908ae40b0d3486dc1d6eeebf75cf61da12f15a5819ee06d130a7"
+    },
+    {
+      "index": 148,
+      "title": "sqlite-vec INT8 標量量化 (Scalar Quantization) 記憶體壓縮",
+      "fact": "sqlite-vec INT8 標量量化 (Scalar Quantization) 記憶體壓縮",
+      "source": "https://raw.githubusercontent.com/asg017/sqlite-vec/main/README.md",
+      "url": "https://raw.githubusercontent.com/asg017/sqlite-vec/main/README.md",
+      "quote": "query float, int8, and binary vectors",
+      "entry_hash": "e3771efc846ca1e0b53818614187af520767d276654db74ef8730facacd2a575"
+    },
+    {
+      "index": 149,
+      "title": "BPF LSM 內核動態行為防護天網",
+      "fact": "BPF LSM 內核動態行為防護天網",
+      "source": "https://docs.kernel.org/bpf/prog_lsm.html",
+      "url": "https://docs.kernel.org/bpf/prog_lsm.html",
+      "quote": "allow runtime instrumentation of the LSM hooks by privileged users to implement system-wide MAC",
+      "entry_hash": "e75272b5be3459363b8f11f7273d8bd7df9add5dc47ac4bc4e06081174da6b71"
+    },
+    {
+      "index": 151,
+      "title": "`sched_ext` (SCX) BPF 延伸排程器落地",
+      "fact": "`sched_ext` (SCX) BPF 延伸排程器落地",
+      "source": "https://docs.kernel.org/scheduler/sched-ext.html",
+      "url": "https://docs.kernel.org/scheduler/sched-ext.html",
+      "quote": "sched_ext uses DSQs (dispatch queues) which can operate as both a FIFO and a priority queue",
+      "entry_hash": "c4fd5b3ce7daac094de53f063e66af983a4861808c0b53c9070ac93767db823a"
+    },
+    {
+      "index": 152,
+      "title": "`scx_lavd` 延遲敏感關鍵路徑專屬調度",
+      "fact": "`scx_lavd` 延遲敏感關鍵路徑專屬調度",
+      "source": "https://raw.githubusercontent.com/sched-ext/scx/main/scheds/rust/scx_lavd/README.md",
+      "url": "https://raw.githubusercontent.com/sched-ext/scx/main/scheds/rust/scx_lavd/README.md",
+      "quote": "measuring how much a task is latency critical and 2) leveraging the task",
+      "entry_hash": "d164898d0bbbbc82ea9d7012d40545f7b575e654d68f0d05d2882b5432eac576"
+    },
+    {
+      "index": 153,
+      "title": "Landlock ABI v4/v5 網路端口無特權沙盒",
+      "fact": "Landlock ABI v4/v5 網路端口無特權沙盒",
+      "source": "https://docs.kernel.org/userspace-api/landlock.html",
+      "url": "https://docs.kernel.org/userspace-api/landlock.html",
+      "quote": "These flags enable to restrict a sandboxed process to a set of network",
+      "entry_hash": "9304bbe7cbbf73687193c47f32aa07b0e968f1eb186e05e817b03882d2146e14"
+    },
+    {
+      "index": 154,
+      "title": "io_uring `IORING_SETUP_SQPOLL` 內核輪詢免系統調用",
+      "fact": "io_uring `IORING_SETUP_SQPOLL` 內核輪詢免系統調用",
+      "source": "https://man7.org/linux/man-pages/man2/io_uring_setup.2.html",
+      "url": "https://man7.org/linux/man-pages/man2/io_uring_setup.2.html",
+      "quote": "When this flag is specified, a kernel thread is created to perform submission queue polling",
+      "entry_hash": "e409a9917b409fbc1ea16f0ea1146aa35dfc466db1d5dbfa79fda7602b94826d"
+    },
+    {
+      "index": 155,
+      "title": "eBPF XDP `data_meta` 網卡元數據零拷貝傳遞",
+      "fact": "eBPF XDP `data_meta` 網卡元數據零拷貝傳遞",
+      "source": "https://man7.org/linux/man-pages/man7/bpf-helpers.7.html",
+      "url": "https://man7.org/linux/man-pages/man7/bpf-helpers.7.html",
+      "quote": "it is possible to push further meta data along with it before passing to the stack",
+      "entry_hash": "d0714f68721086edeb5dee53180d9dd805a0001e6cc700f24e2f6a38a831ed51"
+    },
+    {
+      "index": 156,
+      "title": "SQLite WAL-Index (`.shm`) 共享記憶體無鎖協同",
+      "fact": "SQLite WAL-Index (`.shm`) 共享記憶體無鎖協同",
+      "source": "https://www.sqlite.org/walformat.html",
+      "url": "https://www.sqlite.org/walformat.html",
+      "quote": "individual database clients mmap the shm file and use it as shared memory for coordinating access to the database",
+      "entry_hash": "160f204392b52c5246eb02309140902ab983acdf6cc60baceb1d6380356d7715"
+    },
+    {
+      "index": 157,
+      "title": "WASI 0.2 Component Model 規範化 ABI (Canonical ABI) 零拷貝互操作",
+      "fact": "WASI 0.2 Component Model 規範化 ABI (Canonical ABI) 零拷貝互操作",
+      "source": "https://raw.githubusercontent.com/WebAssembly/component-model/main/design/mvp/CanonicalABI.md",
+      "url": "https://raw.githubusercontent.com/WebAssembly/component-model/main/design/mvp/CanonicalABI.md",
+      "quote": "This document defines the Canonical ABI used to convert between the values and functions of components in the Component Model",
+      "entry_hash": "74e3c84c3f7acf64e7aabae277952e7d84c8384f2bd6b709ae11698a049dc29e"
+    },
+    {
+      "index": 158,
+      "title": "ARM MPAM / 晶片硬體快取分區防護",
+      "fact": "ARM MPAM / 晶片硬體快取分區防護",
+      "source": "https://docs.kernel.org/arch/arm64/mpam.html",
+      "url": "https://docs.kernel.org/arch/arm64/mpam.html",
+      "quote": "This allows tasks that share memory system resources, such as caches, to be isolated from each other according to the partitioning policy",
+      "entry_hash": "60489f3dce68616f29843c9065455ffdff565475ef624b50ee057d85517fca34"
+    },
+    {
+      "index": 159,
+      "title": "io_uring 直接描述符 (`IORING_FILE_INDEX_ALLOC`) 消解檔案表鎖",
+      "fact": "io_uring 直接描述符 (`IORING_FILE_INDEX_ALLOC`) 消解檔案表鎖",
+      "source": "https://man7.org/linux/man-pages/man2/io_uring_enter.2.html",
+      "url": "https://man7.org/linux/man-pages/man2/io_uring_enter.2.html",
+      "quote": "the kernel will allocate descriptors from the previously registered direct descriptor table",
+      "entry_hash": "04acd9af41b73273f24cab35c9be888ed258a752c9230f5929763bc8bfee8dbc"
+    },
+    {
+      "index": 161,
+      "title": "cgroup v2 PSI (Pressure Stall Information) 記憶體停頓主動卸載",
+      "fact": "cgroup v2 PSI (Pressure Stall Information) 記憶體停頓主動卸載",
+      "source": "https://docs.kernel.org/accounting/psi.html",
+      "url": "https://docs.kernel.org/accounting/psi.html",
+      "quote": "Users can register triggers and use poll() to be woken up when resource pressure exceeds certain thresholds",
+      "entry_hash": "739ab53e22b54dc3e868281bd511586d87090be6b307ab55786d2f4eabc03d7b"
+    },
+    {
+      "index": 162,
+      "title": "`poll(POLLPRI)` 微秒級 PSI 內核中斷觸發器",
+      "fact": "`poll(POLLPRI)` 微秒級 PSI 內核中斷觸發器",
+      "source": "https://docs.kernel.org/accounting/psi.html",
+      "url": "https://docs.kernel.org/accounting/psi.html",
+      "quote": "The open file descriptor should be used to wait for trigger events using select(), poll() or",
+      "entry_hash": "5c5d3d33b6f22b3ca95e6a841de16768e4173c51ffbf8a3b323131993de056fb"
+    },
+    {
+      "index": 163,
+      "title": "`tokio-uring` 原生完成環磁碟 I/O 壓榨",
+      "fact": "`tokio-uring` 原生完成環磁碟 I/O 壓榨",
+      "source": "https://raw.githubusercontent.com/tokio-rs/tokio-uring/master/README.md",
+      "url": "https://raw.githubusercontent.com/tokio-rs/tokio-uring/master/README.md",
+      "quote": "by exposing a new Runtime that is compatible with Tokio",
+      "entry_hash": "49e870240003dd4cbb7969608481eef5f6beb5b5e192d28ad81ed2ed842cdf87"
+    },
+    {
+      "index": 165,
+      "title": "Linux BPF EDT (Earliest Departure Time) 網卡封包定時步進",
+      "fact": "Linux BPF EDT (Earliest Departure Time) 網卡封包定時步進",
+      "source": "https://man7.org/linux/man-pages/man8/tc-fq.8.html",
+      "url": "https://man7.org/linux/man-pages/man8/tc-fq.8.html",
+      "quote": "linux adopted EDT (Earliest Departure Time) and TCP directly sets the appropriate Departure Time for each skb",
+      "entry_hash": "1399eea6bbf9aaee163cdb9ccfc9158502c7f0b8997d111c291b4c292033e593"
+    },
+    {
+      "index": 166,
+      "title": "Rust `sqlite-loadable-rs` 零分配本機擴展",
+      "fact": "Rust `sqlite-loadable-rs` 零分配本機擴展",
+      "source": "https://raw.githubusercontent.com/asg017/sqlite-loadable-rs/main/README.md",
+      "url": "https://raw.githubusercontent.com/asg017/sqlite-loadable-rs/main/README.md",
+      "quote": "A framework for building loadable SQLite extensions in Rust",
+      "entry_hash": "3542ae3ab81600fceae1d8dfe9117333697e48895ea516daf859b488910c5237"
+    },
+    {
+      "index": 167,
+      "title": "cgroup v2 `memory.low` 核心物理水庫保證",
+      "fact": "cgroup v2 `memory.low` 核心物理水庫保證",
+      "source": "https://docs.kernel.org/admin-guide/cgroup-v2.html",
+      "url": "https://docs.kernel.org/admin-guide/cgroup-v2.html",
+      "quote": "If the memory usage of a cgroup is within its effective low boundary, the cgroup's memory won't be reclaimed",
+      "entry_hash": "e70be6818b2d52148a2d413117f73c74ba3732aed66f624b4b7822dc1062226b"
+    },
+    {
+      "index": 171,
+      "title": "Linux DAMON (Data Access MONitor) 輕量採樣與存取溫度畫像",
+      "fact": "Linux DAMON (Data Access MONitor) 輕量採樣與存取溫度畫像",
+      "source": "https://docs.kernel.org/mm/damon/design.html",
+      "url": "https://docs.kernel.org/mm/damon/design.html",
+      "quote": "To avoid the unbounded increase of the overhead, DAMON groups adjacent pages that assumed to have the same access frequencies into a region",
+      "entry_hash": "63524de362fea14c16990d27303a1a942e4f6ef19133a847081ffa0087aa16fe"
+    },
+    {
+      "index": 172,
+      "title": "DAMOS (`DAMOS_MIGRATE_COLD`) 冷數據主動分層降級",
+      "fact": "DAMOS (`DAMOS_MIGRATE_COLD`) 冷數據主動分層降級",
+      "source": "https://docs.kernel.org/admin-guide/mm/damon/usage.html",
+      "url": "https://docs.kernel.org/admin-guide/mm/damon/usage.html",
+      "quote": "only meaningful when the action is either migrate_hot or migrate_cold",
+      "entry_hash": "b3a5856b1c60f22b101444d5552ab8020a7860c2ea9e4dbed1fc738d1bb539f9"
+    },
+    {
+      "index": 173,
+      "title": "iceoryx2 純 Rust 去中心化無鎖零拷貝 IPC",
+      "fact": "iceoryx2 純 Rust 去中心化無鎖零拷貝 IPC",
+      "source": "https://raw.githubusercontent.com/eclipse-iceoryx/iceoryx2/main/README.md",
+      "url": "https://raw.githubusercontent.com/eclipse-iceoryx/iceoryx2/main/README.md",
+      "quote": "fast and reliable zero-copy and lock-free inter-process communication mechanisms",
+      "entry_hash": "f787f6a63f22f22e673d3e91199da0a00473c09980a1a810be6546aa5be34865"
+    },
+    {
+      "index": 175,
+      "title": "io_uring NVMe 穿透 (`IORING_OP_URING_CMD`) 繞過區塊層",
+      "fact": "io_uring NVMe 穿透 (`IORING_OP_URING_CMD`) 繞過區塊層",
+      "source": "https://man7.org/linux/man-pages/man2/io_uring_enter.2.html",
+      "url": "https://man7.org/linux/man-pages/man2/io_uring_enter.2.html",
+      "quote": "Issues an asynchronous, per-file private operation, similar to ioctl(2)",
+      "entry_hash": "1b7220121ab793dd3bc324797d411a0c2b8a86edffe3c0fb7f333e4fb78be11a"
+    },
+    {
+      "index": 178,
+      "title": "Linux zRAM ✕ ZSTD 邊緣實體記憶體膨脹水庫",
+      "fact": "Linux zRAM ✕ ZSTD 邊緣實體記憶體膨脹水庫",
+      "source": "https://docs.kernel.org/admin-guide/blockdev/zram.html",
+      "url": "https://docs.kernel.org/admin-guide/blockdev/zram.html",
+      "quote": "Pages written to these disks are compressed and stored in memory itself",
+      "entry_hash": "22748167303b59eb0e0ef516a5bb791ee2f29bd6cfdf8ea3baac24fff8fd4a26"
+    },
+    {
+      "index": 179,
+      "title": "iceoryx2 黑板模式 (Blackboard) 共享記憶體即時同步",
+      "fact": "iceoryx2 黑板模式 (Blackboard) 共享記憶體即時同步",
+      "source": "https://raw.githubusercontent.com/eclipse-iceoryx/iceoryx2/main/README.md",
+      "url": "https://raw.githubusercontent.com/eclipse-iceoryx/iceoryx2/main/README.md",
+      "quote": "blackboard pattern, making it ideal for scenarios where large datasets need to be shared",
+      "entry_hash": "82c24f90731141ead81eb958614a49c99ecd1921233e86c5725ff0b472fbd2aa"
+    },
+    {
+      "index": 181,
+      "title": "Linux 6.9+ `bpf_arena` 稀疏共享記憶體與真指針直通",
+      "fact": "Linux 6.9+ `bpf_arena` 稀疏共享記憶體與真指針直通",
+      "source": "https://lwn.net/Articles/961594/",
+      "url": "https://lwn.net/Articles/961594/",
+      "quote": "Introduce bpf_arena, which is a sparse shared memory region between the bpf program and user space",
+      "entry_hash": "852cdcc2b140c4f2a9bf38e9e63e77932b5d95c21d76ee233d33ddea94a8ca7e"
+    },
+    {
+      "index": 182,
+      "title": "`bpf_arena` 隨選分頁 (Demand Paging) 極致節省實體 RAM",
+      "fact": "`bpf_arena` 隨選分頁 (Demand Paging) 極致節省實體 RAM",
+      "source": "https://lwn.net/Articles/961594/",
+      "url": "https://lwn.net/Articles/961594/",
+      "quote": "While servicing a page fault, bpf_arena logic will insert a new page into the kernel and user vmas",
+      "entry_hash": "fca8ded69dde00850eba58479a78d7a45996e4bc8883af99b83074864e6e3eeb"
+    },
+    {
+      "index": 184,
+      "title": "Rust 異步取消安全 (Cancellation-Safe) 狀態機實裝",
+      "fact": "Rust 異步取消安全 (Cancellation-Safe) 狀態機實裝",
+      "source": "https://tokio.rs/tokio/tutorial/select",
+      "url": "https://tokio.rs/tokio/tutorial/select",
+      "quote": "With asynchronous Rust, cancellation is performed by dropping a future",
+      "entry_hash": "cfb30ac4c7f8e87c75521b1f325974364a2ab5c0a79c24d6f738d4a7fc01445b"
+    },
+    {
+      "index": 185,
+      "title": "io_uring GSO (Generic Segmentation Offload) 巨幀聚合",
+      "fact": "io_uring GSO (Generic Segmentation Offload) 巨幀聚合",
+      "source": "https://docs.kernel.org/networking/segmentation-offloads.html",
+      "url": "https://docs.kernel.org/networking/segmentation-offloads.html",
+      "quote": "Generic segmentation offload is a pure software offload that is meant to",
+      "entry_hash": "11f9de9d4dbe31c64b62399cf805989f2ab7a3d7755505b950c2ce03067db671"
+    },
+    {
+      "index": 186,
+      "title": "NVMe ZNS (Zoned Namespaces) 原子分區追加 (`ZONE_APPEND`)",
+      "fact": "NVMe ZNS (Zoned Namespaces) 原子分區追加 (`ZONE_APPEND`)",
+      "source": "https://en.wikipedia.org/wiki/NVM_Express",
+      "url": "https://en.wikipedia.org/wiki/NVM_Express",
+      "quote": "introduces Zoned Namespaces (ZNS) to organize data into zones for efficient write operations",
+      "entry_hash": "494e1544a8d40665cdf0a4d8b03cb0eb6e090a28633f7c96d64fdc3d49eab462"
+    },
+    {
+      "index": 189,
+      "title": "Linux `mincore` 與高溫頁快取主動預溫 (Pre-faulting)",
+      "fact": "Linux `mincore` 與高溫頁快取主動預溫 (Pre-faulting)",
+      "source": "https://man7.org/linux/man-pages/man2/mincore.2.html",
+      "url": "https://man7.org/linux/man-pages/man2/mincore.2.html",
+      "quote": "returns a vector that indicates whether pages of the calling process",
+      "entry_hash": "df0e4080e2930d28f872dad636e46ca9389a46bc532f25779a02223547ca7f77"
+    },
+    {
+      "index": 193,
+      "title": "io_uring `IORING_FEAT_NODROP` 提交環防爆硬保證",
+      "fact": "io_uring `IORING_FEAT_NODROP` 提交環防爆硬保證",
+      "source": "https://man7.org/linux/man-pages/man2/io_uring_setup.2.html",
+      "url": "https://man7.org/linux/man-pages/man2/io_uring_setup.2.html",
+      "quote": "If this flag is set, io_uring supports almost never dropping completion events",
+      "entry_hash": "4fceca34fd116760a7da7cadfc5402bca79124819da7f0a8a7b42fb48fca1312"
+    },
+    {
+      "index": 194,
+      "title": "eBPF 網卡硬體卸載 (SmartNIC / DPU Offload)",
+      "fact": "eBPF 網卡硬體卸載 (SmartNIC / DPU Offload)",
+      "source": "https://en.wikipedia.org/wiki/Express_Data_Path",
+      "url": "https://en.wikipedia.org/wiki/Express_Data_Path",
+      "quote": "XDP has infrastructure to offload the eBPF program to a network interface controller which supports it, reducing the CPU load",
+      "entry_hash": "4a0163d5399222e649aa451a62867b789e73a614b26a10a2353a9e511ed92911"
+    },
+    {
+      "index": 195,
+      "title": "SQLite `PRAGMA mmap_size` 與 mTHP 結合之巨量圖資瞬間映射",
+      "fact": "SQLite `PRAGMA mmap_size` 與 mTHP 結合之巨量圖資瞬間映射",
+      "source": "https://www.sqlite.org/pragma.html",
+      "url": "https://www.sqlite.org/pragma.html",
+      "quote": "Query or change the maximum number of bytes that are set aside for memory-mapped I/O on a single database",
+      "entry_hash": "e1c3ffac31ca16cff33064e1fe270a7d0a1cbf05bed8b9eb2991f23c5636d1aa"
+    },
+    {
+      "index": 196,
+      "title": "Rust `zerocopy` 編譯期型別對齊與安全證明",
+      "fact": "Rust `zerocopy` 編譯期型別對齊與安全證明",
+      "source": "https://raw.githubusercontent.com/google/zerocopy/main/zerocopy/README.md",
+      "url": "https://raw.githubusercontent.com/google/zerocopy/main/zerocopy/README.md",
+      "quote": "indicates that a type may safely be converted from an arbitrary byte sequence",
+      "entry_hash": "051af378ac8a12060493f3748c0412f383ae2a339fa70cf1b0044fef5eba293c"
+    },
+    {
+      "index": 199,
+      "title": "CPPC (協同處理器性能控制) 微秒級能耗伸縮",
+      "fact": "CPPC (協同處理器性能控制) 微秒級能耗伸縮",
+      "source": "https://docs.kernel.org/admin-guide/acpi/cppc_sysfs.html",
+      "url": "https://docs.kernel.org/admin-guide/acpi/cppc_sysfs.html",
+      "quote": "describes a mechanism for the OS to manage the performance of a logical processor",
+      "entry_hash": "8f643e729de5881b6783610665059293e61bd62fbebac1d6144b9b70b8f507ee"
+    },
+    {
+      "index": 201,
+      "title": "Devmem TCP (`SO_DEVMEM`) 零拷貝網卡直通設備記憶體",
+      "fact": "Devmem TCP (`SO_DEVMEM`) 零拷貝網卡直通設備記憶體",
+      "source": "https://docs.kernel.org/networking/devmem.html",
+      "url": "https://docs.kernel.org/networking/devmem.html",
+      "quote": "Packet payloads go directly from the NIC to device memory",
+      "entry_hash": "3c6da8c5638240d6a9e8daf417c5a0d9fb2d13d6bd2c7eae0d0fe061f36cd13b"
+    },
+    {
+      "index": 202,
+      "title": "Devmem TCP 標頭分離 (Header Split) 與 `SO_DEVMEM_DONTNEED` 閉環",
+      "fact": "Devmem TCP 標頭分離 (Header Split) 與 `SO_DEVMEM_DONTNEED` 閉環",
+      "source": "https://docs.kernel.org/networking/devmem.html",
+      "url": "https://docs.kernel.org/networking/devmem.html",
+      "quote": "Header split is used to split incoming packets into a header buffer in host memory, and a payload buffer in device memory",
+      "entry_hash": "c65f30ff5144881facd3452652566b8c866aaa8eae13846db2a263333a5b83ae"
+    },
+    {
+      "index": 203,
+      "title": "Kani Rust 符號執行模型檢查器 (MIR-level Verification)",
+      "fact": "Kani Rust 符號執行模型檢查器 (MIR-level Verification)",
+      "source": "https://raw.githubusercontent.com/model-checking/kani/main/README.md",
+      "url": "https://raw.githubusercontent.com/model-checking/kani/main/README.md",
+      "quote": "The Kani Rust Verifier is a bit-precise model checker for Rust",
+      "entry_hash": "52587436ad0b5d4c46ddf2d667aa63bb3df58b38d68c14acbef0a62c77ac4035"
+    },
+    {
+      "index": 205,
+      "title": "BIG TCP (IPv4/IPv6 TSO/GRO) 協議棧極限壓榨",
+      "fact": "BIG TCP (IPv4/IPv6 TSO/GRO) 協議棧極限壓榨",
+      "source": "https://lwn.net/Articles/884104/",
+      "url": "https://lwn.net/Articles/884104/",
+      "quote": "The BIG TCP patch set adds the logic necessary to generate and accept jumbo",
+      "entry_hash": "befe7cfc2e5233325103b78f2924c909a36e7c5dc4a3e280c49618ba05a8f096"
+    },
+    {
+      "index": 206,
+      "title": "NVMe-oF (NVMe over Fabrics) RDMA 零拷貝遠程狀態鏡像",
+      "fact": "NVMe-oF (NVMe over Fabrics) RDMA 零拷貝遠程狀態鏡像",
+      "source": "https://en.wikipedia.org/wiki/NVM_Express",
+      "url": "https://en.wikipedia.org/wiki/NVM_Express",
+      "quote": "is the concept of using a transport protocol over a network to connect remote",
+      "entry_hash": "c39a355640f10fc6cc0a1bdb798cdbf86a38aa33a6448c77c9b8b1b9789884a6"
+    },
+    {
+      "index": 208,
+      "title": "ARM EAS (Energy Aware Scheduling) 仿生動態能耗排程",
+      "fact": "ARM EAS (Energy Aware Scheduling) 仿生動態能耗排程",
+      "source": "https://docs.kernel.org/scheduler/sched-energy.html",
+      "url": "https://docs.kernel.org/scheduler/sched-energy.html",
+      "quote": "Energy Aware Scheduling (or EAS) gives the scheduler the ability to predict",
+      "entry_hash": "d8106afdf18c87bcd566112cde068186aeb52ec3a59eef64e859c5509ea5572f"
+    },
+    {
+      "index": 209,
+      "title": "Winnow 零分配二進位解析器結合 Kani 契約證明",
+      "fact": "Winnow 零分配二進位解析器結合 Kani 契約證明",
+      "source": "https://raw.githubusercontent.com/winnow-rs/winnow/main/README.md",
+      "url": "https://raw.githubusercontent.com/winnow-rs/winnow/main/README.md",
+      "quote": "Build up a parser for your format of choice with the building blocks provided by",
+      "entry_hash": "d96adfec095f0de9c2cded4d11a48da9c2b77bcc4cef9ebfb7cdff5d2b7f3f86"
+    }
+  ]
+}

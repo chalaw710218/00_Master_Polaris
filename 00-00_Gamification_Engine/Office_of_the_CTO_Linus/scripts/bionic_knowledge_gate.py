@@ -1,4 +1,4 @@
-﻿"""
+"""
 bionic_knowledge_gate.py
 技術長林納斯之仿生學習系統知識入庫與出處檢驗程式 (Bionic Knowledge Ingestion & Signature Gatekeeper) v4.1
 
@@ -335,7 +335,7 @@ def prepare_cmd(pending_path: Path = DEFAULT_PENDING_PATH, to_sign_path: Path = 
             sys.exit(1)
         batch_sha = compute_batch_sha256(entries)
         pack = {
-            "office": "yuki",
+            "office": "linus",
             "action": "ingest_batch",
             "is_baseline": True,
             "created_at": datetime.now().isoformat(),
@@ -376,7 +376,7 @@ def prepare_cmd(pending_path: Path = DEFAULT_PENDING_PATH, to_sign_path: Path = 
     if passed_entries:
         batch_sha = compute_batch_sha256(passed_entries)
         pack = {
-            "office": "yuki",
+            "office": "linus",
             "action": "ingest_batch",
             "is_baseline": False,
             "created_at": datetime.now().isoformat(),
@@ -454,7 +454,7 @@ def sign_cmd(to_sign_path: Path = DEFAULT_TO_SIGN_PATH, signatures_path: Path = 
 
     payload = {
         "action": "ingest_batch",
-        "office": data.get("office", "yuki"),
+        "office": data.get("office", "linus"),
         "batch_sha256": calc_batch_sha,
         "count": len(entries)
     }
