@@ -4,64 +4,65 @@
   "cron_expression": "30 7,10,12,17,22 * * *",
   "daemon_task_id": "62615c83-54cd-4585-ac6a-95745b9ac34a/task-17695",
   "timezone": "Asia/Taipei (UTC+8)",
-  "today": "2026-11-21",
+  "today": "2026-11-22",
   "slots": [
     {
       "slot": 1,
       "time": "07:30:00",
-      "status": "COMPLETED",
-      "post_id": "18092890997705088",
-      "k_id": "K-CONTROL-05",
+      "status": "READY_NEXT",
+      "post_id": null,
+      "k_id": "K-CONTROL-06",
       "type": "CONTROL_GROUP",
       "hero": "Shadow",
-      "theme": "週六晨曦・晨間走廊與遠山清涼篇 (對照組)",
-      "image": "shadow_saturday_morning_control_05.jpg"
+      "theme": "週日晨曦・日式老屋走廊遠山品茗 (純淨對照組，影小編出鏡)",
+      "image": "shadow_sunday_morning_in_frame_control_06.jpg"
     },
     {
       "slot": 2,
       "time": "10:30:00",
-      "status": "COMPLETED",
-      "post_id": "18454939747120408",
-      "k_id": "K-015",
+      "status": "PENDING_SCHEDULED",
+      "post_id": null,
+      "k_id": "K-019",
       "type": "EXPERIMENT_GROUP",
-      "hero": "Shadow",
-      "theme": "上午充電・週末在地市集與漫步時事轉譯",
-      "image": "shadow_saturday_market_k015.jpg"
+      "hero": "Meow / Shadow",
+      "theme": "上午充電・週日常民生活漫步與在地熱點轉譯",
+      "image": null
     },
     {
       "slot": 3,
       "time": "12:30:00",
-      "status": "COMPLETED",
-      "post_id": "18171627031472130",
-      "k_id": "K-016",
+      "status": "PENDING_SCHEDULED",
+      "post_id": null,
+      "k_id": "K-020",
       "type": "EXPERIMENT_GROUP",
       "hero": "Shadow",
-      "theme": "正午放慢・週末台東慢食與米飯香",
-      "image": "shadow_saturday_lunch_k016.jpg"
+      "theme": "正午放慢・週日台東慢活食堂",
+      "image": null
     },
     {
       "slot": 4,
       "time": "17:30:00",
-      "status": "COMPLETED",
-      "post_id": "17956672698314066",
-      "k_id": "K-017",
+      "status": "PENDING_SCHEDULED",
+      "post_id": null,
+      "k_id": "K-021",
       "type": "EXPERIMENT_GROUP",
       "hero": "Shadow",
-      "theme": "傍晚夕陽・週末回家一桌暖湯與物資守護",
-      "image": "shadow_saturday_dusk_soup_k017.jpg"
+      "theme": "傍晚夕陽・週日收假前夕溫暖陪伴",
+      "image": null
     },
     {
       "slot": 5,
       "time": "22:30:00",
       "status": "PENDING_SCHEDULED",
-      "k_id": "K-018",
+      "post_id": null,
+      "k_id": "K-022",
       "type": "EXPERIMENT_GROUP",
       "hero": "Shadow",
-      "theme": "深夜沉澱・影小編親自出鏡放鬆喝茶",
-      "image": "shadow_saturday_midnight_in_frame_k018.jpg"
+      "theme": "深夜沉澱・整裝迎向新一週的平靜祝福",
+      "image": null
     }
   ],
-  "next_trigger_time": "2026-11-21T22:30:00+08:00",
-  "next_k_id": "K-018",
-  "updated_at": "2026-11-21T17:35:00+08:00"
+  "next_trigger_time": "2026-11-22T07:30:00+08:00",
+  "next_k_id": "K-CONTROL-06",
+  "updated_at": "2026-11-21T22:38:06.427308"
 }
