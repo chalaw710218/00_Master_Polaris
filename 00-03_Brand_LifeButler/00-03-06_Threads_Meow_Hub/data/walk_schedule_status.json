@@ -42,7 +42,8 @@
     {
       "slot": 4,
       "time": "17:30:00",
-      "status": "PENDING_SCHEDULED",
+      "status": "COMPLETED",
+      "post_id": "17956672698314066",
       "k_id": "K-017",
       "type": "EXPERIMENT_GROUP",
       "hero": "Shadow",
@@ -59,7 +60,7 @@
       "theme": "深夜沉澱・週末放下所有緊繃好好放鬆"
     }
   ],
-  "next_trigger_time": "2026-11-21T17:30:00+08:00",
-  "next_k_id": "K-017",
-  "updated_at": "2026-11-21T12:35:00+08:00"
+  "next_trigger_time": "2026-11-21T22:30:00+08:00",
+  "next_k_id": "K-018",
+  "updated_at": "2026-11-21T17:35:00+08:00"
 }
