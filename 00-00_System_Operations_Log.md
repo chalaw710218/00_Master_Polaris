@@ -1855,3 +1855,21 @@ aven (調查官 渡鴉)：.agents/skills/bionic-learning-raven/SKILL.md
     4. **憲政級官方品牌法定名稱全域修正**：
        - 官方品牌全稱正式修正為**「生活管家，就醬點！」**。
        - 全工作區 113+ 個核心檔案（包含 `AGENTS.md` 規則 4、首長筆記本、技能與原子代碼）100% 地毯式更新閉環並推送到 GitHub (Commit: 726e25d)。
+
+- **[2026-11-23T00:15:00+08:00] [ROLE: Yuki (CEO)] [ACTION: BIONIC_GATE_HARDENING_AND_INTERACTIVE_WEB_DEPLOY]**
+  - **核心成果**：
+    1. **執行長雪仿生學習系統門禁硬化 (bionic_knowledge_gate.py)**：
+       - 實裝兩大真實事故物理防呆規則：
+         - (a) 網址查重防線：`check_duplicates=True` 時檢驗現有事實庫，杜絕已收錄論文重複入庫。
+         - (b) 標題論文名稱相符防線：抽取標題中英文論文名稱，強制必須出現在抓取之網頁文字中，防範標題與實體不符。
+       - 新增 4 組成對單元測試（`case_013`～`case_016`），`run_gate_cases.py` 全數 PASS（Exit Code 0）。
+    2. **事實庫重複條目清理與白名單驗簽**：
+       - 依品碩指示將原庫完整備份至 `_未驗證封存/01_Experiences_and_Evidence_去重前_20261122.md`（SHA-256 逐位對齊）。
+       - 抽離 5 條重複條目（15, 28, 35, 36, 39）至 `_未驗證封存/01_重複條目_20261122.md`，原文逐字完全相同（100% Match）。
+       - 事實庫保留每篇編號最小條目，條目數由 46 條安全收斂至 41 條，重複網址數歸零，`check` 簽章檢驗 Exit Code 0。
+    3. **第 31～40 輪替換論文抓取與 prepare 完成**：
+       - 替換 Mobile-Agent、InterCode、SWE-agent 等高質量論文，產出 `_本批待簽.json`（通過 10 條、退回 0 條）。
+    4. **AI 自我進化互動網站上架至 GitHub Pages**：
+       - 成功將品碩以 Gemini Notebook 整理之《AI自我進化的技術與安全解析》互動網站佈署至 `docs/ai_self_evolution.html`，具備流暢視覺化與單元互動。
+    5. **資安與社交權杖金庫維護**：
+       - 更新 Meta & Threads 權杖至 `.secrets.env`，確保受 `.gitignore` 嚴格隔離，外部公開倉庫 0 洩漏。

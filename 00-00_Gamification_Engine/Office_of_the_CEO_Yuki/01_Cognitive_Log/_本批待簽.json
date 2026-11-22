@@ -2,101 +2,101 @@
   "office": "yuki",
   "action": "ingest_batch",
   "is_baseline": false,
-  "created_at": "2026-11-21T23:28:34.300019",
+  "created_at": "2026-11-22T23:40:04.156461",
   "count": 10,
-  "batch_sha256": "e30bee45f8f38c09457790ee2c3165087c91bb02935fd89e4cb2fa1c67a1ec89",
+  "batch_sha256": "edf163935aa98779f8cfbe661fce646c6ab20a6dbcbbe87df7c02cd33534f41a",
   "entry_hashes": [
-    "8ee7540602e90b450a7f60cf1f15de3f37262364424c70e6b1ada1f03f793a57",
-    "d72e6a5c9da2b109be6ee920b55942aed145c10cdb68bf4c4812b82b3bbbcc5f",
-    "7576bfd224b11f70d7fc37c92b1b9a19d43054f7f3ce9ac8ddeddc318a2bf7c4",
-    "3b46a553e520d19277729f8432436a391e0f9c68876576597f80263ace4ceaf9",
-    "80d98f083d63f11bc803c73226c28b1f98cdeeaeb54ea80bc598805dd1ccb68b",
-    "297a6086b504b5c871d597f205623a19141ef2e941f07c9c57b41c866a072855",
-    "a696b28366007534ae517cd3b1fa29e1b1d141149e5cc30135bd54441e202ea4",
-    "48380c65fe188eb40546a2665e547c9220ce4c557584b0343541d81e6bb1058d",
-    "1d43fe272a515a67819c1e84c2966ffa5a6740bab5dc86f08d182e035e7151b2",
-    "599a676ae0b664e88628c059dba52b88aef00377f54b563f4fe3b538bd4d5e51"
+    "c131b22e50d2c8f006a8262138b2a6a2528a6b913d8d807092975760a85d108a",
+    "7c9098d5d2ae5ddb2711542b75a9f1862a305581f0e0fdc25298c0ba3df382a3",
+    "671368a5d11bf963a20a5aeef261b7106de78d40a84c4dc90c70e616a5588f3d",
+    "762b594c000fac7de15e977fe34b7181599b999fb13d860a68bb65aba4a22159",
+    "fe30f9eb54f760f56fcc5a1edee7d084edc3b9fb87c36b482baa2acc7c782951",
+    "75b0d137fb8c2e8592a329f516f60299541e74b6ce78be64db906ae7c61cebe5",
+    "0c789129d48967188273ae5383b7b0c933cc4f9d69a80804c78fcb888140ea75",
+    "0bb2610722fcced9f0bbdb3b2c6d70b57c76ab5533e6d10a7e5e0a80e77a828b",
+    "dd62412e7a75ab9321d476e875245b7dbe2548e485c90466a01a10e6b1c4a469",
+    "6fe3614fd297bf012b94f16d9126609722a1a6baee465a000e4d6b6c86e2b8e7"
   ],
   "entries": [
     {
-      "title": "第 21 輪｜CAMEL（通訊代理人角色扮演與自主合作）",
-      "fact": "為應對實現自主合作的挑戰，提出名為角色扮演（role-playing）的通訊代理人框架，使用初始提示（inception prompting）引導聊天代理人完成任務，同時保持與人類意圖的一致性。",
-      "source": "https://arxiv.org/abs/2303.17760",
-      "url": "https://arxiv.org/abs/2303.17760",
-      "quote": "To address the challenges of achieving autonomous cooperation, we propose a novel communicative agent framework named role-playing. Our approach involves using inception prompting to guide chat agents toward task completion while maintaining consistency with human intentions.",
-      "entry_hash": "8ee7540602e90b450a7f60cf1f15de3f37262364424c70e6b1ada1f03f793a57"
+      "title": "第 31 輪｜Mobile-Agent（基於視覺多模態大模型的手機自主操作代理人）",
+      "fact": "Mobile-Agent 是一個自主多模態行動裝置代理人，利用視覺感知工具在應用程式前端介面中準確識別和定位視覺與文本元素。",
+      "source": "https://arxiv.org/abs/2401.16158",
+      "url": "https://arxiv.org/abs/2401.16158",
+      "quote": "In this paper, we introduce Mobile-Agent, an autonomous multi-modal mobile device agent.",
+      "entry_hash": "c131b22e50d2c8f006a8262138b2a6a2528a6b913d8d807092975760a85d108a"
     },
     {
-      "title": "第 22 輪｜ChatDev（基於多輪對話的虛擬軟體開發社群）",
-      "fact": "ChatDev 是一個由對話驅動的軟體開發框架，由大語言模型驅動的專業代理人透過對話鏈被引導溝通什麼內容，並透過通訊去幻覺被引導如何溝通。",
-      "source": "https://arxiv.org/abs/2307.07924",
-      "url": "https://arxiv.org/abs/2307.07924",
-      "quote": "In this paper, we introduce ChatDev, a chat-powered software development framework in which specialized agents driven by large language models (LLMs) are guided in what to communicate (via chat chain) and how to communicate (via communicative dehallucination).",
-      "entry_hash": "d72e6a5c9da2b109be6ee920b55942aed145c10cdb68bf4c4812b82b3bbbcc5f"
+      "title": "第 32 輪｜WebArena（真實世界網頁環境端到端自主代理人評估）",
+      "fact": "針對語言引導的代理人建立一個高度真實且可重現的環境，解決既有代理人主要在簡化合成環境中建立與測試導致與真實世界脫節的問題。",
+      "source": "https://arxiv.org/abs/2307.13854",
+      "url": "https://arxiv.org/abs/2307.13854",
+      "quote": "In this paper, we build an environment for language-guided agents that is highly realistic and reproducible.",
+      "entry_hash": "7c9098d5d2ae5ddb2711542b75a9f1862a305581f0e0fdc25298c0ba3df382a3"
     },
     {
-      "title": "第 23 輪｜MemGPT（虛擬上下文管理與作業系統分層記憶體）",
-      "fact": "MemGPT 智能管理不同的記憶層級，以在大語言模型的有限上下文窗口內有效提供擴展上下文，並利用中斷來管理自身與使用者之間的控制流。",
-      "source": "https://arxiv.org/abs/2310.08560",
-      "url": "https://arxiv.org/abs/2310.08560",
-      "quote": "Using this technique, we introduce MemGPT (Memory-GPT), a system that intelligently manages different memory tiers in order to effectively provide extended context within the LLM's limited context window, and utilizes interrupts to manage control flow between itself and the user.",
-      "entry_hash": "7576bfd224b11f70d7fc37c92b1b9a19d43054f7f3ce9ac8ddeddc318a2bf7c4"
+      "title": "第 33 輪｜InterCode（交互式代碼執行反饋標準化評估基準）",
+      "fact": "InterCode 是一個將交互式編程作為標準強化學習環境的輕量且靈活的框架，以代碼作為動作，並以執行反饋作為觀察。",
+      "source": "https://arxiv.org/abs/2306.14898",
+      "url": "https://arxiv.org/abs/2306.14898",
+      "quote": "To address this gap, we introduce InterCode, a lightweight, flexible, and easy-to-use framework of interactive coding as a standard reinforcement learning (RL) environment, with code as actions and execution feedback as observations.",
+      "entry_hash": "671368a5d11bf963a20a5aeef261b7106de78d40a84c4dc90c70e616a5588f3d"
     },
     {
-      "title": "第 24 輪｜ToolLLM（真實世界海量 API 調用通用工具學習）",
-      "fact": "ToolLLM 是一個包含數據構建、模型訓練和評估的通用工具使用框架，其指令微調數據集 ToolBench 是使用 ChatGPT 自動構建的。",
-      "source": "https://arxiv.org/abs/2307.16789",
-      "url": "https://arxiv.org/abs/2307.16789",
-      "quote": "To bridge this gap, we introduce ToolLLM, a general tool-use framework encompassing data construction, model training, and evaluation. We first present ToolBench, an instruction-tuning dataset for tool use, which is constructed automatically using ChatGPT.",
-      "entry_hash": "3b46a553e520d19277729f8432436a391e0f9c68876576597f80263ace4ceaf9"
+      "title": "第 34 輪｜OpenHands（開源靈活自主軟體開發代理人平台）",
+      "fact": "OpenHands 是一個用於開發強大且靈活 AI 代理人的平台，這些代理人透過編寫代碼、與命令行交互以及瀏覽網頁，以類似人類開發者的方式與世界進行交互。",
+      "source": "https://arxiv.org/abs/2407.16741",
+      "url": "https://arxiv.org/abs/2407.16741",
+      "quote": "In this paper, we introduce OpenHands (f.k.a. OpenDevin), a platform for the development of powerful and flexible AI agents that interact with the world in similar ways to those of a human developer: by writing code, interacting with a command line, and browsing the web.",
+      "entry_hash": "762b594c000fac7de15e977fe34b7181599b999fb13d860a68bb65aba4a22159"
     },
     {
-      "title": "第 25 輪｜Gorilla（連接龐大 API 與檢索系統集成）",
-      "fact": "當與文檔檢索器結合時，Gorilla 展現出適應測試時文檔變化的強大能力，並實質上減輕了直接提示大語言模型時常見的幻覺問題。",
-      "source": "https://arxiv.org/abs/2305.15334",
-      "url": "https://arxiv.org/abs/2305.15334",
-      "quote": "When combined with a document retriever, Gorilla demonstrates a strong capability to adapt to test-time document changes, enabling flexible user updates or version changes. It also substantially mitigates the issue of hallucination, commonly encountered when prompting LLMs directly.",
-      "entry_hash": "80d98f083d63f11bc803c73226c28b1f98cdeeaeb54ea80bc598805dd1ccb68b"
+      "title": "第 35 輪｜SWE-agent（代理人計算機介面自主軟體工程系統）",
+      "fact": "SWE-agent 是一個促進語言模型代理人自主使用計算機來解決軟體工程任務的系統，其自定義代理人計算機介面顯著增強了代理人創建和編輯代碼文件的能力。",
+      "source": "https://arxiv.org/abs/2405.15793",
+      "url": "https://arxiv.org/abs/2405.15793",
+      "quote": "As a result of this exploration, we introduce SWE-agent: a system that facilitates LM agents to autonomously use computers to solve software engineering tasks.",
+      "entry_hash": "fe30f9eb54f760f56fcc5a1edee7d084edc3b9fb87c36b482baa2acc7c782951"
     },
     {
-      "title": "第 26 輪｜Self-Refine（自我反饋與反覆迭代優化）",
-      "fact": "Self-Refine 不需要任何監督訓練數據、額外訓練或強化學習，而是使用單一大語言模型作為生成器、優化器和反饋提供者，透過同一個模型為自身輸出提供反饋並進行反覆迭代優化。",
-      "source": "https://arxiv.org/abs/2303.17651",
-      "url": "https://arxiv.org/abs/2303.17651",
-      "quote": "The main idea is to generate an initial output using an LLMs; then, the same LLMs provides feedback for its output and uses it to refine itself, iteratively. Self-Refine does not require any supervised training data, additional training, or reinforcement learning, and instead uses a single LLM as the generator, refiner, and feedback provider.",
-      "entry_hash": "297a6086b504b5c871d597f205623a19141ef2e941f07c9c57b41c866a072855"
+      "title": "第 36 輪｜Agent Hospital（模擬全流程醫療自主進化多代理人醫院）",
+      "fact": "Agent Hospital 模擬了治療疾病的整個過程，其中所有患者、護士和醫生都是由大語言模型驅動的自主代理人。",
+      "source": "https://arxiv.org/abs/2405.02957",
+      "url": "https://arxiv.org/abs/2405.02957",
+      "quote": "We introduce a simulacrum of hospital called Agent Hospital that simulates the entire process of treating illness, in which all patients, nurses, and doctors are LLM-powered autonomous agents.",
+      "entry_hash": "75b0d137fb8c2e8592a329f516f60299541e74b6ce78be64db906ae7c61cebe5"
     },
     {
-      "title": "第 27 輪｜Graph of Thoughts（思維圖非線性推理拓撲）",
-      "fact": "Graph of Thoughts（GoT）將大語言模型生成的信息建模為任意圖，其中信息單元（思維）為頂點，而邊對應於這些頂點之間的依賴關係。",
-      "source": "https://arxiv.org/abs/2308.09687",
-      "url": "https://arxiv.org/abs/2308.09687",
-      "quote": "The key idea and primary advantage of GoT is the ability to model the information generated by an LLM as an arbitrary graph, where units of information (\"LLM thoughts\") are vertices, and edges correspond to dependencies between these vertices.",
-      "entry_hash": "a696b28366007534ae517cd3b1fa29e1b1d141149e5cc30135bd54441e202ea4"
+      "title": "第 37 輪｜ProAgent（代理化流程自動化與專門代理人協同）",
+      "fact": "ProAgent 是一個基於大語言模型的代理人，旨在根據人類指令構建工作流程，並透過協調專業代理人做出複雜決策。",
+      "source": "https://arxiv.org/abs/2311.10751",
+      "url": "https://arxiv.org/abs/2311.10751",
+      "quote": "We then instantiate ProAgent, an LLM-based agent designed to craft workflows from human instructions and make intricate decisions by coordinating specialized agents.",
+      "entry_hash": "0c789129d48967188273ae5383b7b0c933cc4f9d69a80804c78fcb888140ea75"
     },
     {
-      "title": "第 28 輪｜Plan-and-Solve（規劃再求解零樣本思維鏈增強）",
-      "fact": "Plan-and-Solve（PS）提示法包含兩個組件：首先制定計劃將整個任務分解為較小的子任務，然後根據該計劃執行這些子任務。",
-      "source": "https://arxiv.org/abs/2305.04091",
-      "url": "https://arxiv.org/abs/2305.04091",
-      "quote": "To address the missing-step errors, we propose Plan-and-Solve (PS) Prompting. It consists of two components: first, devising a plan to divide the entire task into smaller subtasks, and then carrying out the subtasks according to the plan.",
-      "entry_hash": "48380c65fe188eb40546a2665e547c9220ce4c557584b0343541d81e6bb1058d"
+      "title": "第 38 輪｜Mind2Web（跨領域通用網頁交互代理人指令數據集）",
+      "fact": "Mind2Web 是一個用於開發和評估通用網頁代理人的數據集，這些代理人能夠遵循語言指令在任何網站上完成複雜任務。",
+      "source": "https://arxiv.org/abs/2306.06070",
+      "url": "https://arxiv.org/abs/2306.06070",
+      "quote": "We introduce Mind2Web, the first dataset for developing and evaluating generalist agents for the web that can follow language instructions to complete complex tasks on any website.",
+      "entry_hash": "0bb2610722fcced9f0bbdb3b2c6d70b57c76ab5533e6d10a7e5e0a80e77a828b"
     },
     {
-      "title": "第 29 輪｜LATS（語言代理人樹搜尋統一推理行動與規劃）",
-      "fact": "Language Agent Tree Search（LATS）將蒙地卡羅樹搜尋（MCTS）整合至 LATS 中以使語言模型作為代理人，並結合由語言模型驅動的價值函數與自我反思，協同語言模型在推理、行動和規劃方面的能力。",
-      "source": "https://arxiv.org/abs/2310.04406",
-      "url": "https://arxiv.org/abs/2310.04406",
-      "quote": "In this paper, we introduce Language Agent Tree Search (LATS) -- the first general framework that synergizes the capabilities of LMs in reasoning, acting, and planning. By leveraging the in-context learning ability of LMs, we integrate Monte Carlo Tree Search into LATS to enable LMs as agents, along with LM-powered value functions and self-reflections for proficient exploration and enhanced decision-making.",
-      "entry_hash": "1d43fe272a515a67819c1e84c2966ffa5a6740bab5dc86f08d182e035e7151b2"
+      "title": "第 39 輪｜AppAgent（基於簡化動作空間的手機應用多模態操作代理人）",
+      "fact": "該框架透過簡化的動作空間使代理人能夠操作智慧型手機應用程式，模擬點擊和滑動等類似人類的交互行為。",
+      "source": "https://arxiv.org/abs/2312.13771",
+      "url": "https://arxiv.org/abs/2312.13771",
+      "quote": "Our framework enables the agent to operate smartphone applications through a simplified action space, mimicking human-like interactions such as tapping and swiping.",
+      "entry_hash": "dd62412e7a75ab9321d476e875245b7dbe2548e485c90466a01a10e6b1c4a469"
     },
     {
-      "title": "第 30 輪｜Math-Shepherd（無人工標註逐步過程獎勵模型）",
-      "fact": "Math-Shepherd 的訓練是使用自動構建的逐步過程監督數據實現的，打破了現有工作中對人工標註嚴重依賴的瓶頸。",
-      "source": "https://arxiv.org/abs/2312.08935",
-      "url": "https://arxiv.org/abs/2312.08935",
-      "quote": "The training of Math-Shepherd is achieved using automatically constructed process-wise supervision data, breaking the bottleneck of heavy reliance on manual annotation in existing work.",
-      "entry_hash": "599a676ae0b664e88628c059dba52b88aef00377f54b563f4fe3b538bd4d5e51"
+      "title": "第 40 輪｜OS-Copilot（作業系統全元素通用交互數位代理人框架）",
+      "fact": "OS-Copilot 是一個用於構建通用代理人的框架，能夠與作業系統（OS）中的全面元素進行接口交互，包括網頁、代碼終端、文件、多媒體以及各種第三方應用程式。",
+      "source": "https://arxiv.org/abs/2402.07456",
+      "url": "https://arxiv.org/abs/2402.07456",
+      "quote": "To this end, we introduce OS-Copilot, a framework to build generalist agents capable of interfacing with comprehensive elements in an operating system (OS), including the web, code terminals, files, multimedia, and various third-party applications.",
+      "entry_hash": "6fe3614fd297bf012b94f16d9126609722a1a6baee465a000e4d6b6c86e2b8e7"
     }
   ]
 }

@@ -52,25 +52,38 @@ TESTS_DIR = WORKSPACE_DIR / "scripts" / "tests"
 def run_original_case(filepath: Path):
     content = filepath.read_text(encoding="utf-8")
     m_decision = re.search(r'判定：【(應通過|應退回)】', content)
+    m_title = re.search(r'標題：\s*(.+)', content)
     m_url = re.search(r'網址：\s*(.+)', content)
     m_source = re.search(r'出處：\s*(.+)', content)
     m_quote = re.search(r'摘句：\s*(.+)', content)
     m_fact = re.search(r'核心事實：\s*(.+)', content)
+    m_dup_check = re.search(r'檢查網址重複：\s*【(是|否)】', content)
     
     assert m_decision, f"無法解析判定：{filepath.name}"
     expected_pass = (m_decision.group(1) == "應通過")
+    title = m_title.group(1).strip() if m_title else f"測試_{filepath.stem}"
     url = m_url.group(1).strip() if m_url else None
     source = m_source.group(1).strip() if m_source else None
     quote = m_quote.group(1).strip() if m_quote else None
     fact = m_fact.group(1).strip() if m_fact else "測試核心事實"
 
+    should_check_dup = False
+    if m_dup_check:
+        should_check_dup = (m_dup_check.group(1) == "是")
+    elif "網址重複" in filepath.name or "網址未重複" in filepath.name:
+        should_check_dup = True
+
+    existing_urls = gate.get_vault_urls() if should_check_dup else None
+
     try:
         gate.validate_entry(
-            title=f"測試_{filepath.stem}",
+            title=title,
             fact=fact,
             source=source,
             url=url,
-            quote=quote
+            quote=quote,
+            existing_urls=existing_urls,
+            check_duplicates=should_check_dup
         )
         passed = True
     except Exception as ex:
@@ -86,7 +99,7 @@ def run_original_case(filepath: Path):
 
 def run_all_cases():
     print("=" * 70)
-    print("🚀 開始執行雪事實庫門禁全域安全審計測試 (case_001~006, case_010, sig_001~009)")
+    print("🚀 開始執行雪事實庫門禁全域安全審計測試 (case_001~006, 010~016, sig_001~009)")
     print("=" * 70)
 
     temp_sandbox = Path(tempfile.mkdtemp(prefix="yuki_gate_test_"))
@@ -105,9 +118,9 @@ def run_all_cases():
         print(f"🔑 測試金鑰已建立：{test_meta_path} (指紋: {meta_dict['fingerprint']})\n")
 
         # -------------------------------------------------------------
-        # 一、 執行 scripts/tests/ 原始測試案例 (case_001 ~ case_006, case_011, case_012)
+        # 一、 執行 scripts/tests/ 原始與擴充測試案例 (case_001 ~ case_006, case_011 ~ case_016)
         # -------------------------------------------------------------
-        print("▶️ [一、 執行 scripts/tests/ 真實案例 case_001 ~ 006, case_011, 012]")
+        print("▶️ [一、 執行 scripts/tests/ 真實案例 case_001 ~ 006, case_011 ~ 016]")
         orig_cases = [
             "case_001_省略號跳過數字.md",
             "case_002_省略號但每段夠長.md",
@@ -116,13 +129,17 @@ def run_all_cases():
             "case_005_頁碼數字分散_應退回.md",
             "case_006_多餘空白_應通過.md",
             "case_011_核心事實多出數字_應退回.md",
-            "case_012_核心事實數字都在摘句_應通過.md"
+            "case_012_核心事實數字都在摘句_應通過.md",
+            "case_013_網址重複_應退回.md",
+            "case_014_網址未重複_應通過.md",
+            "case_015_標題論文名不符_應退回.md",
+            "case_016_標題論文名相符_應通過.md",
         ]
         for cf in orig_cases:
             c_path = TESTS_DIR / cf
             assert c_path.exists(), f"找不到案例檔案：{c_path}"
             run_original_case(c_path)
-        print("   🎉 case_001 ~ case_006, case_011, case_012 全數通過！\n")
+        print("   🎉 case_001 ~ 006, case_011 ~ 016 全數通過！\n")
 
         # -------------------------------------------------------------
         # 二、 創辦人簽章安全測試 (sig_001 ~ sig_006)

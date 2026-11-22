@@ -73,3 +73,9 @@ desktop.ini
 scratch/
 
 
+
+# 田野調查原始高解析照片與影音 (大檔案隔離，僅本機存檔)
+00-03_Brand_LifeButler/00-03-10_Coastal_Greenway_Fieldwork/photos/*.JPG
+00-03_Brand_LifeButler/00-03-10_Coastal_Greenway_Fieldwork/photos/*.jpg
+00-03_Brand_LifeButler/00-03-10_Coastal_Greenway_Fieldwork/photos/*.MOV
+00-03_Brand_LifeButler/00-03-10_Coastal_Greenway_Fieldwork/photos/*.mov

@@ -88,12 +88,6 @@
   - **證據網址**：https://deepmind.google/discover/blog/ai-solves-imo-problems-at-silver-medal-level/
   - **原文摘句**：We earned 28 out of 42 total points, achieving the same level as a silver medalist in the competition. ... AlphaGeometry 2 solved Problem 4 within 19 seconds after receiving its formalization.
 
-15. **[Web-Iter 08: 2026-10-22] 憲法 AI 與無人化自我對齊 (Constitutional AI / RLAIF)**：
-  - **核心事實**：The only human oversight is provided through a list of rules or principles, and so we refer to the method as 'Constitutional AI'. The process involves both a supervised learning and a reinforcement learning phase.
-  - **出處**：https://arxiv.org/abs/2212.08073
-  - **證據網址**：https://arxiv.org/abs/2212.08073
-  - **原文摘句**：The only human oversight is provided through a list of rules or principles, and so we refer to the method as 'Constitutional AI'. The process involves both a supervised learning and a reinforcement learning phase.
-
 16. **[Web-Iter 09: 2026-10-22] ReST-MCTS：搜尋引導的自訓練飛輪**：
   - **核心事實**：In this paper, we develop a reinforced self-training approach, called ReST-MCTS*, based on integrating process reward guidance with tree search
   - **出處**：https://arxiv.org/abs/2406.03816
@@ -167,12 +161,6 @@
    - **證據網址**：https://arxiv.org/abs/2210.03629
    - **原文摘句**：In this paper, we explore the use of LLMs to generate both reasoning traces and task-specific actions in an interleaved manner, allowing for greater synergy between the two: reasoning traces help the model induce, track, and update action plans as well as handle exceptions, while actions allow it to interface with external sources, such as knowledge bases or environments, to gather additional information.
 
-28. **第 12 輪｜Reflexion（基於語言反饋的語言代理人自省）**：
-   - **核心事實**：Reflexion 代理人以語言形式對任務反饋信號進行口語自省，然後將自省文本保存在情境記憶緩衝區中，以在後續試驗中引導更好的決策。
-   - **出處**：https://arxiv.org/abs/2303.11366
-   - **證據網址**：https://arxiv.org/abs/2303.11366
-   - **原文摘句**：Concretely, Reflexion agents verbally reflect on task feedback signals, then maintain their own reflective text in an episodic memory buffer to induce better decision-making in subsequent trials.
-
 29. **第 13 輪｜Tree of Thoughts（思維樹審慎問題求解）**：
    - **核心事實**：Tree of Thoughts（ToT）泛化了思維鏈方法，允許在作為問題解決中間步驟的連貫文本單元（思維）上進行探索。
    - **出處**：https://arxiv.org/abs/2305.10601
@@ -209,18 +197,6 @@
    - **證據網址**：https://arxiv.org/abs/2310.03714
    - **原文摘句**：Toward a more systematic approach for developing and optimizing LM pipelines, we introduce DSPy, a programming model that abstracts LM pipelines as text transformation graphs, i.e. imperative computational graphs where LMs are invoked through declarative modules.
 
-35. **第 19 輪｜Constitutional AI（憲法級反饋自對弈無害化治理）**：
-   - **核心事實**：透過自我改進訓練無害的 AI 助手，無需任何標識有害輸出的人工標籤，唯一的人類監督透過一份規則或原則清單提供，該方法被稱為「Constitutional AI」。
-   - **出處**：https://arxiv.org/abs/2212.08073
-   - **證據網址**：https://arxiv.org/abs/2212.08073
-   - **原文摘句**：We experiment with methods for training a harmless AI assistant through self-improvement, without any human labels identifying harmful outputs. The only human oversight is provided through a list of rules or principles, and so we refer to the method as 'Constitutional AI'.
-
-36. **第 20 輪｜Voyager（終身終端實體開放探索代理人）**：
-   - **核心事實**：Voyager 包含三個關鍵組件：1) 最大化探索的自動課程，2) 用於儲存與檢索複雜行為的可執行代碼技能庫，3) 整合環境反饋、執行錯誤與自我驗證以改進程序的新型迭代提示機制。
-   - **出處**：https://arxiv.org/abs/2305.16291
-   - **證據網址**：https://arxiv.org/abs/2305.16291
-   - **原文摘句**：We introduce Voyager, the first LLM-powered embodied lifelong learning agent in Minecraft that continuously explores the world, acquires diverse skills, and makes novel discoveries without human intervention. Voyager consists of three key components: 1) an automatic curriculum that maximizes exploration, 2) an ever-growing skill library of executable code for storing and retrieving complex behaviors, and 3) a new iterative prompting mechanism that incorporates environment feedback, execution errors, and self-verification for program improvement.
-
 37. **第 21 輪｜CAMEL（通訊代理人角色扮演與自主合作）**：
    - **核心事實**：為應對實現自主合作的挑戰，提出名為角色扮演（role-playing）的通訊代理人框架，使用初始提示（inception prompting）引導聊天代理人完成任務，同時保持與人類意圖的一致性。
    - **出處**：https://arxiv.org/abs/2303.17760
@@ -232,12 +208,6 @@
    - **出處**：https://arxiv.org/abs/2307.07924
    - **證據網址**：https://arxiv.org/abs/2307.07924
    - **原文摘句**：In this paper, we introduce ChatDev, a chat-powered software development framework in which specialized agents driven by large language models (LLMs) are guided in what to communicate (via chat chain) and how to communicate (via communicative dehallucination).
-
-39. **第 23 輪｜MemGPT（虛擬上下文管理與作業系統分層記憶體）**：
-   - **核心事實**：MemGPT 智能管理不同的記憶層級，以在大語言模型的有限上下文窗口內有效提供擴展上下文，並利用中斷來管理自身與使用者之間的控制流。
-   - **出處**：https://arxiv.org/abs/2310.08560
-   - **證據網址**：https://arxiv.org/abs/2310.08560
-   - **原文摘句**：Using this technique, we introduce MemGPT (Memory-GPT), a system that intelligently manages different memory tiers in order to effectively provide extended context within the LLM's limited context window, and utilizes interrupts to manage control flow between itself and the user.
 
 40. **第 24 輪｜ToolLLM（真實世界海量 API 調用通用工具學習）**：
    - **核心事實**：ToolLLM 是一個包含數據構建、模型訓練和評估的通用工具使用框架，其指令微調數據集 ToolBench 是使用 ChatGPT 自動構建的。
@@ -280,3 +250,63 @@
    - **出處**：https://arxiv.org/abs/2312.08935
    - **證據網址**：https://arxiv.org/abs/2312.08935
    - **原文摘句**：The training of Math-Shepherd is achieved using automatically constructed process-wise supervision data, breaking the bottleneck of heavy reliance on manual annotation in existing work.
+
+47. **第 31 輪｜Mobile-Agent（基於視覺多模態大模型的手機自主操作代理人）**：
+   - **核心事實**：Mobile-Agent 是一個自主多模態行動裝置代理人，利用視覺感知工具在應用程式前端介面中準確識別和定位視覺與文本元素。
+   - **出處**：https://arxiv.org/abs/2401.16158
+   - **證據網址**：https://arxiv.org/abs/2401.16158
+   - **原文摘句**：In this paper, we introduce Mobile-Agent, an autonomous multi-modal mobile device agent.
+
+48. **第 32 輪｜WebArena（真實世界網頁環境端到端自主代理人評估）**：
+   - **核心事實**：針對語言引導的代理人建立一個高度真實且可重現的環境，解決既有代理人主要在簡化合成環境中建立與測試導致與真實世界脫節的問題。
+   - **出處**：https://arxiv.org/abs/2307.13854
+   - **證據網址**：https://arxiv.org/abs/2307.13854
+   - **原文摘句**：In this paper, we build an environment for language-guided agents that is highly realistic and reproducible.
+
+49. **第 33 輪｜InterCode（交互式代碼執行反饋標準化評估基準）**：
+   - **核心事實**：InterCode 是一個將交互式編程作為標準強化學習環境的輕量且靈活的框架，以代碼作為動作，並以執行反饋作為觀察。
+   - **出處**：https://arxiv.org/abs/2306.14898
+   - **證據網址**：https://arxiv.org/abs/2306.14898
+   - **原文摘句**：To address this gap, we introduce InterCode, a lightweight, flexible, and easy-to-use framework of interactive coding as a standard reinforcement learning (RL) environment, with code as actions and execution feedback as observations.
+
+50. **第 34 輪｜OpenHands（開源靈活自主軟體開發代理人平台）**：
+   - **核心事實**：OpenHands 是一個用於開發強大且靈活 AI 代理人的平台，這些代理人透過編寫代碼、與命令行交互以及瀏覽網頁，以類似人類開發者的方式與世界進行交互。
+   - **出處**：https://arxiv.org/abs/2407.16741
+   - **證據網址**：https://arxiv.org/abs/2407.16741
+   - **原文摘句**：In this paper, we introduce OpenHands (f.k.a. OpenDevin), a platform for the development of powerful and flexible AI agents that interact with the world in similar ways to those of a human developer: by writing code, interacting with a command line, and browsing the web.
+
+51. **第 35 輪｜SWE-agent（代理人計算機介面自主軟體工程系統）**：
+   - **核心事實**：SWE-agent 是一個促進語言模型代理人自主使用計算機來解決軟體工程任務的系統，其自定義代理人計算機介面顯著增強了代理人創建和編輯代碼文件的能力。
+   - **出處**：https://arxiv.org/abs/2405.15793
+   - **證據網址**：https://arxiv.org/abs/2405.15793
+   - **原文摘句**：As a result of this exploration, we introduce SWE-agent: a system that facilitates LM agents to autonomously use computers to solve software engineering tasks.
+
+52. **第 36 輪｜Agent Hospital（模擬全流程醫療自主進化多代理人醫院）**：
+   - **核心事實**：Agent Hospital 模擬了治療疾病的整個過程，其中所有患者、護士和醫生都是由大語言模型驅動的自主代理人。
+   - **出處**：https://arxiv.org/abs/2405.02957
+   - **證據網址**：https://arxiv.org/abs/2405.02957
+   - **原文摘句**：We introduce a simulacrum of hospital called Agent Hospital that simulates the entire process of treating illness, in which all patients, nurses, and doctors are LLM-powered autonomous agents.
+
+53. **第 37 輪｜ProAgent（代理化流程自動化與專門代理人協同）**：
+   - **核心事實**：ProAgent 是一個基於大語言模型的代理人，旨在根據人類指令構建工作流程，並透過協調專業代理人做出複雜決策。
+   - **出處**：https://arxiv.org/abs/2311.10751
+   - **證據網址**：https://arxiv.org/abs/2311.10751
+   - **原文摘句**：We then instantiate ProAgent, an LLM-based agent designed to craft workflows from human instructions and make intricate decisions by coordinating specialized agents.
+
+54. **第 38 輪｜Mind2Web（跨領域通用網頁交互代理人指令數據集）**：
+   - **核心事實**：Mind2Web 是一個用於開發和評估通用網頁代理人的數據集，這些代理人能夠遵循語言指令在任何網站上完成複雜任務。
+   - **出處**：https://arxiv.org/abs/2306.06070
+   - **證據網址**：https://arxiv.org/abs/2306.06070
+   - **原文摘句**：We introduce Mind2Web, the first dataset for developing and evaluating generalist agents for the web that can follow language instructions to complete complex tasks on any website.
+
+55. **第 39 輪｜AppAgent（基於簡化動作空間的手機應用多模態操作代理人）**：
+   - **核心事實**：該框架透過簡化的動作空間使代理人能夠操作智慧型手機應用程式，模擬點擊和滑動等類似人類的交互行為。
+   - **出處**：https://arxiv.org/abs/2312.13771
+   - **證據網址**：https://arxiv.org/abs/2312.13771
+   - **原文摘句**：Our framework enables the agent to operate smartphone applications through a simplified action space, mimicking human-like interactions such as tapping and swiping.
+
+56. **第 40 輪｜OS-Copilot（作業系統全元素通用交互數位代理人框架）**：
+   - **核心事實**：OS-Copilot 是一個用於構建通用代理人的框架，能夠與作業系統（OS）中的全面元素進行接口交互，包括網頁、代碼終端、文件、多媒體以及各種第三方應用程式。
+   - **出處**：https://arxiv.org/abs/2402.07456
+   - **證據網址**：https://arxiv.org/abs/2402.07456
+   - **原文摘句**：To this end, we introduce OS-Copilot, a framework to build generalist agents capable of interfacing with comprehensive elements in an operating system (OS), including the web, code terminals, files, multimedia, and various third-party applications.

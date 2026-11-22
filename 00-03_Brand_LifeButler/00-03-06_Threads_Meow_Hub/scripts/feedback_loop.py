@@ -123,12 +123,13 @@ def select_next_k_id(preferred_k_id: str = None) -> list[str]:
     return [chosen]
 
 
-def log_post(post_id: str, k_ids: list[str], content: str) -> dict:
+def log_post(post_id: str, k_ids: list[str], content: str, hot_trend: bool = False) -> dict:
     """
     發文成功後呼叫：
     post_id: Threads 官方貼文 ID
     k_ids: 儲備知識編號清單（如 ["K-014"]），若為當日對照組則傳入 []
     content: 發布之內文
+    hot_trend: 是否為熱搜融入貼文
     """
     posts = _read_log()
     now_str = datetime.datetime.now().isoformat(timespec="seconds")
@@ -138,15 +139,17 @@ def log_post(post_id: str, k_ids: list[str], content: str) -> dict:
         if p.get("post_id") == post_id:
             p["k_ids"] = k_ids
             p["content"] = content
+            p["hot_trend"] = hot_trend
             p["updated_at"] = now_str
             _write_log(posts)
-            print(f"📝 [feedback_loop] 已更新貼文紀錄: {post_id} (K-IDs: {k_ids})")
+            print(f"📝 [feedback_loop] 已更新貼文紀錄: {post_id} (K-IDs: {k_ids}, hot_trend: {hot_trend})")
             return p
 
     entry = {
         "post_id": str(post_id),
         "k_ids": k_ids or [],
         "is_control": (len(k_ids or []) == 0),
+        "hot_trend": hot_trend,
         "content": content,
         "created_at": now_str,
         "metrics": {},
@@ -183,11 +186,11 @@ def fetch_threads(post_id: str) -> tuple[dict, list[dict]]:
     except Exception as e:
         print(f"⚠️ [feedback_loop] 讀取 Insights 警告 ({post_id}): {e}")
 
-    # 2. 抓取 Replies 回覆清單
+    # 2. 抓取 Conversation 整串回覆清單（創辦人親定：改用 /conversation 抓整串回覆，不只抓第一層）
     replies_list = []
-    replies_url = f"{API_BASE}/{post_id}/replies?fields=id,text,timestamp,username&access_token={TOKEN}"
+    conv_url = f"{API_BASE}/{post_id}/conversation?fields=id,text,timestamp,username&access_token={TOKEN}"
     try:
-        r = requests.get(replies_url, timeout=15)
+        r = requests.get(conv_url, timeout=15)
         if r.status_code == 200:
             for item in r.json().get("data", []):
                 uname = item.get("username", "")
@@ -200,8 +203,24 @@ def fetch_threads(post_id: str) -> tuple[dict, list[dict]]:
                     "is_self": is_self,
                     "timestamp": item.get("timestamp"),
                 })
+        else:
+            # 若 /conversation 不支援，fallback 至 /replies
+            fallback_url = f"{API_BASE}/{post_id}/replies?fields=id,text,timestamp,username&access_token={TOKEN}"
+            r_fb = requests.get(fallback_url, timeout=15)
+            if r_fb.status_code == 200:
+                for item in r_fb.json().get("data", []):
+                    uname = item.get("username", "")
+                    text = item.get("text", "")
+                    is_self = (uname.lower() == SELF_USERNAME.lower()) or (uname == "")
+                    replies_list.append({
+                        "id": item.get("id"),
+                        "text": text,
+                        "username": uname,
+                        "is_self": is_self,
+                        "timestamp": item.get("timestamp"),
+                    })
     except Exception as e:
-        print(f"⚠️ [feedback_loop] 讀取 Replies 警告 ({post_id}): {e}")
+        print(f"⚠️ [feedback_loop] 讀取 Conversation 警告 ({post_id}): {e}")
 
     return metrics, replies_list
 
@@ -269,11 +288,12 @@ def evaluate(report_path=REPORT_FILE) -> str:
         rp.write_text(md, encoding="utf-8")
         return md
 
-    # 分組統計
+    # 分組統計（品碩親定：排除 deleted: true 的貼文）
+    active_posts = [p for p in posts if not p.get("deleted")]
     k_stats: dict[str, dict] = {}
     control_stats = {"count": 0, "total_views": 0, "total_true_replies": 0, "posts": []}
 
-    for p in posts:
+    for p in active_posts:
         k_ids = p.get("k_ids", [])
         views = p.get("metrics", {}).get("views", 0)
         td_count = p.get("true_dialogue_count", 0)
@@ -295,18 +315,20 @@ def evaluate(report_path=REPORT_FILE) -> str:
     ctrl_avg_td = (control_stats["total_true_replies"] / control_stats["count"]) if control_stats["count"] > 0 else 0.0
     ctrl_avg_views = (control_stats["total_views"] / control_stats["count"]) if control_stats["count"] > 0 else 0.0
 
+    deleted_count = len(posts) - len(active_posts)
+
     lines = [
         "# 📊 Threads 常態反饋測試與真對話審計週報 (Feedback Report)",
         "",
         f"- **統計基準時間**：{now_str}",
-        f"- **追蹤貼文總數**：{len(posts)} 篇（對照組：{control_stats['count']} 篇，實驗組：{len(posts) - control_stats['count']} 篇）",
+        f"- **有效追蹤貼文數**：{len(active_posts)} 篇（對照組：{control_stats['count']} 篇，實驗組：{len(active_posts) - control_stats['count']} 篇；已排除刪除違規貼文：{deleted_count} 篇）",
         f"- **唯一評判硬標準**：**「真對話回覆」**（排除管家自身回覆、真實網友留言、字數 >= 10 字）",
         f"- **公理晉級守則**：**一律等待創辦人（品碩）親自回「收」解鎖晉升**",
         "",
         "---",
         "",
         "## 一、 對照組基準線 (Control Group: `[]`)",
-        f"- **樣本數**：{control_stats['count']} 篇",
+        f"- **有效樣本數**：{control_stats['count']} 篇",
         f"- **平均瀏覽數 (Views)**：{ctrl_avg_views:.1f}",
         f"- **平均真對話回覆數**：**{ctrl_avg_td:.2f} 則／篇**",
         "",
@@ -360,7 +382,7 @@ def evaluate(report_path=REPORT_FILE) -> str:
     ])
 
     has_real_reply = False
-    for p in posts:
+    for p in active_posts:
         tds = p.get("true_dialogue_replies", [])
         if tds:
             has_real_reply = True

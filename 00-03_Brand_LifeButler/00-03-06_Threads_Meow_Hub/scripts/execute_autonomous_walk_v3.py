@@ -381,6 +381,8 @@ if not args.text:
                     print(f"   💡 轉譯切角: {hook[:60]}...")
                     
                     tag_kw = kw.replace(" ", "").replace("#", "")
+                    allow_tag = chosen_trend.get("hashtag_allowed", False)
+                    final_tag = f"#{tag_kw}" if allow_tag else ("#店貓日常" if is_cat_hero else "#台東生活")
                     
                     if is_cat_hero:
                         post_title = f"店貓時事趣談・【{kw}】篇"
@@ -392,7 +394,7 @@ if not args.text:
 {pain}
 
 早晨出門上班的大家辛苦了喵，
-不管外面怎麼喧鬧，把肚子填飽、把背挺直最要緊喵！🐾 #{tag_kw} #店貓日常"""
+不管外面怎麼喧鬧，把肚子填飽、把背挺直最要緊喵！🐾 {final_tag}"""
                             first_reply = f"（探出毛毛頭）大家早安！吃過熱騰騰的早餐了嗎？不管『{kw}』怎麼轉，都要開開心心出發喵🐾"
                         elif 10 <= current_hour < 12:
                             post_text = f"""（在店門口陽光下慢慢打個哈欠）
@@ -402,7 +404,7 @@ if not args.text:
 {pain}
 
 上午忙碌的朋友記得站起來喝兩口溫水、活動一下筋骨，
-像本喵一樣隨時把體力維持在滿格狀態喵！🐾 #{tag_kw} #店貓日常"""
+像本喵一樣隨時把體力維持在滿格狀態喵！🐾 {final_tag}"""
                             first_reply = f"（動動小耳朵）忙了一早上辛苦了喵！伸個懶腰喝口水，下半場更有元氣🐾"
                         elif 12 <= current_hour < 15:
                             post_text = f"""（窩在窗台前把兩隻手手折好）
@@ -412,7 +414,7 @@ if not args.text:
 {pain}
 
 午休時間先把手機放旁邊，把午餐好好吃完，
-學本喵一樣原地深呼吸、伸個長長的懶腰再出發喵！🐾 #{tag_kw} #店貓日常"""
+學本喵一樣原地深呼吸、伸個長長的懶腰再出發喵！🐾 {final_tag}"""
                             first_reply = f"（翻個肚肚伸懶腰）中午記得好好吃飯喝水喵～生活管家與喵編隨時在後排替大家充電！🐾"
                         elif 15 <= current_hour < 19:
                             post_text = f"""（在木椅上端正坐好凝視窗外夕陽）
@@ -422,7 +424,7 @@ if not args.text:
 {pain}
 
 下班放學的大家辛苦了喵，
-今晚早點回家卸下包袱，吃一頓熱騰騰的晚餐最實在喵！🐾 #{tag_kw} #店貓日常"""
+今晚早點回家卸下包袱，吃一頓熱騰騰的晚餐最實在喵！🐾 {final_tag}"""
                             first_reply = f"（搖搖蓬鬆尾巴）下班路上騎車開車要注意安全喵～回到家就好好放鬆吧！🐾"
                         else:
                             post_text = f"""（把身體縮進溫暖的紙箱裡只露出一對耳朵）
@@ -432,7 +434,7 @@ if not args.text:
 {pain}
 
 夜深了就別再盯著手機螢幕看了喵，
-今晚把所有雜訊關在門外，早點鑽進被窩好好充電吧喵！🐾 #{tag_kw} #店貓日常"""
+今晚把所有雜訊關在門外，早點鑽進被窩好好充電吧喵！🐾 {final_tag}"""
                             first_reply = f"（發出均勻的打呼嚕聲）睡前喝口溫熱的，明天台東的太陽一樣會升起喵～晚安！🐾"
                     else: # 影 (生活管家)
                         post_title = f"生活管家隨筆・【{kw}】時事共鳴篇"
@@ -445,7 +447,7 @@ if not args.text:
 {pain}
 
 生活裡的踏實感，往往不在於跟上每一個網路脈動，
-而是把眼前的早餐吃好、把當下的呼吸安頓好。大家早安！🍵✨ #{tag_kw} #台東生活"""
+而是把眼前的早餐吃好、把當下的呼吸安頓好。大家早安！🍵✨ {final_tag}"""
                             first_reply = f"（為大家倒上一杯剛煮好的溫開水）早晨先深呼吸一口。不管『{kw}』如何變幻，給今天一個從容的開場吧。🍵✨"
                         elif 10 <= current_hour < 12:
                             post_text = f"""上午十點半，手邊的晨會與日常備料告一段落。
@@ -456,7 +458,7 @@ if not args.text:
 {pain}
 
 資訊流轉得再快，人體與心靈依舊需要穩定的節奏。
-忙碌了一個上午，不妨站起身給自己倒杯溫開水，把焦躁的心收攏回當下。🍵✨ #{tag_kw} #台東生活"""
+忙碌了一個上午，不妨站起身給自己倒杯溫開水，把焦躁的心收攏回當下。🍵✨ {final_tag}"""
                             first_reply = f"（在木桌旁遞上一只溫熱白瓷杯）上午辛苦了。喝口溫水深呼吸，後半段繼續安穩前行。🍵✨"
                         elif 12 <= current_hour < 15:
                             post_text = f"""正午十二點半，窗外的熱氣正被微涼的穿堂風吹散。
@@ -468,7 +470,7 @@ if not args.text:
 
 生活裡的大多數焦慮，
 往往在肯走慢兩步、把注意力收回真實生活的時候，就悄悄散開了。
-正午給自己留下一頓安靜吃飯的時間吧。🍵✨ #{tag_kw} #台東生活"""
+正午給自己留下一頓安靜吃飯的時間吧。🍵✨ {final_tag}"""
                             first_reply = f"（端上一只溫熱茶杯）午休時把手機稍稍放下，讓大腦徹底休息十分鐘。生活管家一直都在。🍵✨"
                         elif 15 <= current_hour < 19:
                             post_text = f"""傍晚五點多，斜陽映在老宅磨石子地板上染出一片溫潤。
@@ -479,7 +481,7 @@ if not args.text:
 {pain}
 
 世界越是喧囂，越要把自己的真實生活過好。
-辛苦了一整天，準備回家的朋友，願今晚有一桌熱騰騰的飯菜等著你。🍵✨ #{tag_kw} #台東生活"""
+辛苦了一整天，準備回家的朋友，願今晚有一桌熱騰騰的飯菜等著你。🍵✨ {final_tag}"""
                             first_reply = f"（在玄關輕輕點亮一盞暖燈）下班後的時光完全屬於你自己，今晚好好休息。🍵✨"
                         else:
                             post_text = f"""深夜時分，合上整天奔波的代辦清單。
@@ -490,7 +492,7 @@ if not args.text:
 {pain}
 
 今天大家辛苦了，
-今晚鑽進暖暖的被窩，把所有的紛擾留在今天。好好睡上一覺充電，晚安！🍵✨ #{tag_kw} #台東生活"""
+今晚鑽進暖暖的被窩，把所有的紛擾留在今天。好好睡上一覺充電，晚安！🍵✨ {final_tag}"""
                             first_reply = f"（輕輕遞上一只溫熱紅烏龍）今晚讓緊繃的神經徹底關機。生活管家在後排替大家守夜，願你好夢。🍵✨"
                     
                     # 🛡️ 立即針對生成的時事文案執行 text_hash_gate 預審，若碰撞前台歷史長句則自癒降級
@@ -1088,6 +1090,17 @@ with sync_playwright() as p:
         register_published_text_hash = None
         print("   ⚠️ 未載入 text_hash_gate 模組，請檢查 scripts 路徑！")
 
+    # 🔒 【服務真實性硬門禁 (service_truth_gate)】落實創辦人親定鐵律
+    try:
+        from service_truth_gate import check_service_truth_poka_yoke
+        ok_truth, truth_msg = check_service_truth_poka_yoke(post_text)
+        if not ok_truth:
+            print(f"🛑 [service_truth_gate] 硬性攔截出廠: {truth_msg}")
+            raise ValueError(f"[service_truth_gate 物理阻斷] {truth_msg}")
+        print(f"   🛡️ [service_truth_gate 合格] {truth_msg}")
+    except ImportError:
+        pass
+
     if args.patrol_only:
         print("   🚶 [Patrol Only 巡邏模式] 跳過新貼文發布與首回覆，專注於看家門、訪鄰居與借光端茶！")
         report_data["step4_post"] = {
@@ -1140,7 +1153,7 @@ with sync_playwright() as p:
             try:
                 from feedback_loop import log_post, select_next_k_id
                 chosen_k_ids = select_next_k_id(args.k_id)
-                log_post(new_post_id, chosen_k_ids, post_text)
+                log_post(new_post_id, chosen_k_ids, post_text, hot_trend=bool(applied_trend_info))
                 k_label = f"實驗組 {chosen_k_ids}" if chosen_k_ids else "對照組 []"
                 print(f"   🏷️ [常態反饋測試登記] 成功登記至 feedback_posts.json ({k_label})")
             except Exception as e:

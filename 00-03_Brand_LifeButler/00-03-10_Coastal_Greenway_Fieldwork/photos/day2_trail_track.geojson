@@ -1,0 +1,2368 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.328392,
+          23.0275,
+          0.0
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2147.JPG",
+        "datetime": "2026:11:22 09:18:32",
+        "altitude_m": 0.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.3275,
+          23.029058,
+          54.3
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2148.JPG",
+        "datetime": "2026:11:22 09:18:37",
+        "altitude_m": 54.3
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.330733,
+          23.026994,
+          31.9
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2149.JPG",
+        "datetime": "2026:11:22 09:20:35",
+        "altitude_m": 31.9
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.330733,
+          23.026994,
+          31.9
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2150.JPG",
+        "datetime": "2026:11:22 09:20:37",
+        "altitude_m": 31.9
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.326875,
+          23.029475,
+          0.0
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2151.JPG",
+        "datetime": "2026:11:22 09:25:39",
+        "altitude_m": 0.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.328378,
+          23.027525,
+          0.0
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2152.JPG",
+        "datetime": "2026:11:22 09:30:35",
+        "altitude_m": 0.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.326753,
+          23.02945,
+          63.4
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2153.JPG",
+        "datetime": "2026:11:22 09:30:55",
+        "altitude_m": 63.4
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.326758,
+          23.029453,
+          63.0
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2154.JPG",
+        "datetime": "2026:11:22 09:31:03",
+        "altitude_m": 63.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.329086,
+          23.028089,
+          41.1
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2155.JPG",
+        "datetime": "2026:11:22 09:40:40",
+        "altitude_m": 41.1
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.329086,
+          23.028089,
+          40.2
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2156.JPG",
+        "datetime": "2026:11:22 09:40:42",
+        "altitude_m": 40.2
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.329856,
+          23.028208,
+          46.5
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2157.JPG",
+        "datetime": "2026:11:22 09:58:03",
+        "altitude_m": 46.5
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.329964,
+          23.028336,
+          38.6
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2158.JPG",
+        "datetime": "2026:11:22 09:58:25",
+        "altitude_m": 38.6
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.3301,
+          23.028489,
+          37.6
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2159.JPG",
+        "datetime": "2026:11:22 09:58:51",
+        "altitude_m": 37.6
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.330253,
+          23.028553,
+          37.6
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2160.JPG",
+        "datetime": "2026:11:22 09:59:35",
+        "altitude_m": 37.6
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.330217,
+          23.02855,
+          37.8
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2161.JPG",
+        "datetime": "2026:11:22 09:59:38",
+        "altitude_m": 37.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.330292,
+          23.028561,
+          37.6
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2162.JPG",
+        "datetime": "2026:11:22 10:00:07",
+        "altitude_m": 37.6
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.330764,
+          23.028308,
+          32.3
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2163.JPG",
+        "datetime": "2026:11:22 10:01:05",
+        "altitude_m": 32.3
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.330825,
+          23.028328,
+          34.5
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2164.JPG",
+        "datetime": "2026:11:22 10:01:12",
+        "altitude_m": 34.5
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.330833,
+          23.028328,
+          36.8
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2165.JPG",
+        "datetime": "2026:11:22 10:01:14",
+        "altitude_m": 36.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.331,
+          23.0286,
+          36.1
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2166.JPG",
+        "datetime": "2026:11:22 10:01:53",
+        "altitude_m": 36.1
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.331314,
+          23.028525,
+          33.6
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2167.JPG",
+        "datetime": "2026:11:22 10:03:19",
+        "altitude_m": 33.6
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.331306,
+          23.028753,
+          31.3
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2168.JPG",
+        "datetime": "2026:11:22 10:03:38",
+        "altitude_m": 31.3
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.331253,
+          23.028717,
+          30.9
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2169.JPG",
+        "datetime": "2026:11:22 10:03:51",
+        "altitude_m": 30.9
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.331872,
+          23.028447,
+          31.7
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2170.JPG",
+        "datetime": "2026:11:22 10:04:52",
+        "altitude_m": 31.7
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.332144,
+          23.028228,
+          27.3
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2171.JPG",
+        "datetime": "2026:11:22 10:06:11",
+        "altitude_m": 27.3
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.332267,
+          23.028181,
+          26.8
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2172.JPG",
+        "datetime": "2026:11:22 10:06:28",
+        "altitude_m": 26.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.334389,
+          23.025992,
+          12.9
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2173.JPG",
+        "datetime": "2026:11:22 10:27:16",
+        "altitude_m": 12.9
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.334642,
+          23.025689,
+          15.6
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2175.JPG",
+        "datetime": "2026:11:22 10:38:54",
+        "altitude_m": 15.6
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.334664,
+          23.025658,
+          14.9
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2176.JPG",
+        "datetime": "2026:11:22 10:38:57",
+        "altitude_m": 14.9
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.334725,
+          23.025606,
+          0.0
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2177.JPG",
+        "datetime": "2026:11:22 10:40:00",
+        "altitude_m": 0.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.335158,
+          23.025239,
+          8.3
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2178.JPG",
+        "datetime": "2026:11:22 10:40:16",
+        "altitude_m": 8.3
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.335144,
+          23.025236,
+          8.4
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2179.JPG",
+        "datetime": "2026:11:22 10:40:19",
+        "altitude_m": 8.4
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.335144,
+          23.025236,
+          9.7
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2180.JPG",
+        "datetime": "2026:11:22 10:40:25",
+        "altitude_m": 9.7
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.335092,
+          23.025222,
+          4.9
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2181.JPG",
+        "datetime": "2026:11:22 10:41:18",
+        "altitude_m": 4.9
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.335114,
+          23.025206,
+          4.4
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2182.JPG",
+        "datetime": "2026:11:22 10:42:59",
+        "altitude_m": 4.4
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.335214,
+          23.025289,
+          7.8
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2184.JPG",
+        "datetime": "2026:11:22 10:53:45",
+        "altitude_m": 7.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.334861,
+          23.02505,
+          8.5
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2185.JPG",
+        "datetime": "2026:11:22 10:55:25",
+        "altitude_m": 8.5
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.335456,
+          23.025492,
+          3.5
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2186.JPG",
+        "datetime": "2026:11:22 11:06:33",
+        "altitude_m": 3.5
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.335464,
+          23.025406,
+          5.0
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2187.JPG",
+        "datetime": "2026:11:22 11:06:36",
+        "altitude_m": 5.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.337136,
+          23.026394,
+          5.4
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2188.JPG",
+        "datetime": "2026:11:22 11:25:05",
+        "altitude_m": 5.4
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.337111,
+          23.026617,
+          5.3
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2189.JPG",
+        "datetime": "2026:11:22 11:26:39",
+        "altitude_m": 5.3
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.331628,
+          23.02125,
+          0.0
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2190.JPG",
+        "datetime": "2026:11:22 11:29:54",
+        "altitude_m": 0.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.338142,
+          23.027672,
+          10.1
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2192.JPG",
+        "datetime": "2026:11:22 11:45:13",
+        "altitude_m": 10.1
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.337739,
+          23.030431,
+          55.4
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2193.JPG",
+        "datetime": "2026:11:22 11:53:40",
+        "altitude_m": 55.4
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.337708,
+          23.030533,
+          4.4
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2194.JPG",
+        "datetime": "2026:11:22 11:53:47",
+        "altitude_m": 4.4
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.338714,
+          23.038461,
+          0.0
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2195.JPG",
+        "datetime": "2026:11:22 11:57:00",
+        "altitude_m": 0.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.338019,
+          23.033383,
+          18.1
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2196.JPG",
+        "datetime": "2026:11:22 12:00:30",
+        "altitude_m": 18.1
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.338019,
+          23.033386,
+          13.3
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2197.JPG",
+        "datetime": "2026:11:22 12:00:31",
+        "altitude_m": 13.3
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.337967,
+          23.033469,
+          7.6
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2198.JPG",
+        "datetime": "2026:11:22 12:00:50",
+        "altitude_m": 7.6
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.337967,
+          23.033469,
+          6.8
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2199.JPG",
+        "datetime": "2026:11:22 12:00:53",
+        "altitude_m": 6.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.338311,
+          23.037322,
+          0.0
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2200.JPG",
+        "datetime": "2026:11:22 12:04:51",
+        "altitude_m": 0.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.336722,
+          23.033208,
+          17.6
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2201.JPG",
+        "datetime": "2026:11:22 12:04:55",
+        "altitude_m": 17.6
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.335939,
+          23.033583,
+          11.7
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2202.JPG",
+        "datetime": "2026:11:22 12:06:26",
+        "altitude_m": 11.7
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.335694,
+          23.033817,
+          11.0
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2203.JPG",
+        "datetime": "2026:11:22 12:10:33",
+        "altitude_m": 11.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.335542,
+          23.033825,
+          16.6
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2204.JPG",
+        "datetime": "2026:11:22 12:10:56",
+        "altitude_m": 16.6
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.335425,
+          23.033833,
+          16.5
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2205.JPG",
+        "datetime": "2026:11:22 12:11:04",
+        "altitude_m": 16.5
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.334061,
+          23.034328,
+          21.4
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2206.JPG",
+        "datetime": "2026:11:22 12:13:37",
+        "altitude_m": 21.4
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.333992,
+          23.034344,
+          21.3
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2207.JPG",
+        "datetime": "2026:11:22 12:13:42",
+        "altitude_m": 21.3
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.333406,
+          23.035392,
+          31.6
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2208.JPG",
+        "datetime": "2026:11:22 12:18:15",
+        "altitude_m": 31.6
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.332864,
+          23.035358,
+          24.3
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2209.JPG",
+        "datetime": "2026:11:22 12:20:25",
+        "altitude_m": 24.3
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.332414,
+          23.035381,
+          26.4
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2210.JPG",
+        "datetime": "2026:11:22 12:21:23",
+        "altitude_m": 26.4
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.331986,
+          23.035331,
+          29.0
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2211.JPG",
+        "datetime": "2026:11:22 12:22:36",
+        "altitude_m": 29.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.331908,
+          23.035442,
+          0.0
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2212.JPG",
+        "datetime": "2026:11:22 12:24:55",
+        "altitude_m": 0.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.332078,
+          23.035628,
+          0.0
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2213.JPG",
+        "datetime": "2026:11:22 12:26:00",
+        "altitude_m": 0.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.333031,
+          23.037692,
+          27.0
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2214.JPG",
+        "datetime": "2026:11:22 12:26:57",
+        "altitude_m": 27.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.333236,
+          23.038203,
+          27.0
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2215.JPG",
+        "datetime": "2026:11:22 12:27:58",
+        "altitude_m": 27.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.333511,
+          23.038917,
+          20.8
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2216.JPG",
+        "datetime": "2026:11:22 12:29:15",
+        "altitude_m": 20.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.333528,
+          23.038928,
+          20.7
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2217.JPG",
+        "datetime": "2026:11:22 12:29:18",
+        "altitude_m": 20.7
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.333625,
+          23.039075,
+          25.9
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2218.JPG",
+        "datetime": "2026:11:22 12:29:34",
+        "altitude_m": 25.9
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.333511,
+          23.039575,
+          30.0
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2219.JPG",
+        "datetime": "2026:11:22 12:30:48",
+        "altitude_m": 30.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.333519,
+          23.039614,
+          30.2
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2220.JPG",
+        "datetime": "2026:11:22 12:30:53",
+        "altitude_m": 30.2
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.333519,
+          23.039978,
+          35.3
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2221.JPG",
+        "datetime": "2026:11:22 12:31:34",
+        "altitude_m": 35.3
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.333839,
+          23.041733,
+          29.9
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2222.JPG",
+        "datetime": "2026:11:22 12:34:47",
+        "altitude_m": 29.9
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.333725,
+          23.043481,
+          40.3
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2223.JPG",
+        "datetime": "2026:11:22 12:38:14",
+        "altitude_m": 40.3
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.333581,
+          23.044242,
+          45.9
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2224.JPG",
+        "datetime": "2026:11:22 12:39:52",
+        "altitude_m": 45.9
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.333831,
+          23.044822,
+          45.3
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2225.JPG",
+        "datetime": "2026:11:22 12:40:55",
+        "altitude_m": 45.3
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.334161,
+          23.046025,
+          48.6
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2226.JPG",
+        "datetime": "2026:11:22 12:43:06",
+        "altitude_m": 48.6
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.334717,
+          23.046606,
+          48.5
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2227.JPG",
+        "datetime": "2026:11:22 12:44:32",
+        "altitude_m": 48.5
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.335669,
+          23.047558,
+          51.2
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2228.JPG",
+        "datetime": "2026:11:22 12:46:48",
+        "altitude_m": 51.2
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.335694,
+          23.047583,
+          50.6
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2229.JPG",
+        "datetime": "2026:11:22 12:46:50",
+        "altitude_m": 50.6
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.336272,
+          23.048339,
+          52.7
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2230.JPG",
+        "datetime": "2026:11:22 12:48:17",
+        "altitude_m": 52.7
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.336272,
+          23.04835,
+          50.7
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2231.JPG",
+        "datetime": "2026:11:22 12:48:19",
+        "altitude_m": 50.7
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.336617,
+          23.048947,
+          54.2
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2232.JPG",
+        "datetime": "2026:11:22 12:49:33",
+        "altitude_m": 54.2
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.336647,
+          23.049006,
+          53.9
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2233.JPG",
+        "datetime": "2026:11:22 12:49:39",
+        "altitude_m": 53.9
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.336961,
+          23.049022,
+          58.2
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2234.JPG",
+        "datetime": "2026:11:22 12:50:30",
+        "altitude_m": 58.2
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.337569,
+          23.049028,
+          53.6
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2235.JPG",
+        "datetime": "2026:11:22 12:51:45",
+        "altitude_m": 53.6
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.338097,
+          23.049742,
+          56.0
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2236.JPG",
+        "datetime": "2026:11:22 12:53:16",
+        "altitude_m": 56.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.338325,
+          23.049769,
+          52.0
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2237.JPG",
+        "datetime": "2026:11:22 12:53:43",
+        "altitude_m": 52.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.338753,
+          23.050331,
+          48.9
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2238.JPG",
+        "datetime": "2026:11:22 12:55:00",
+        "altitude_m": 48.9
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.338775,
+          23.050419,
+          49.7
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2239.JPG",
+        "datetime": "2026:11:22 12:55:09",
+        "altitude_m": 49.7
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.339158,
+          23.049586,
+          0.0
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2240.JPG",
+        "datetime": "2026:11:22 13:00:24",
+        "altitude_m": 0.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.339058,
+          23.050839,
+          49.5
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2242.JPG",
+        "datetime": "2026:11:22 13:56:51",
+        "altitude_m": 49.5
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.339058,
+          23.050819,
+          49.3
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2243.JPG",
+        "datetime": "2026:11:22 13:59:58",
+        "altitude_m": 49.3
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.340119,
+          23.045556,
+          0.0
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2244.JPG",
+        "datetime": "2026:11:22 14:06:05",
+        "altitude_m": 0.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.340119,
+          23.045556,
+          0.0
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2245.JPG",
+        "datetime": "2026:11:22 14:06:05",
+        "altitude_m": 0.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.337325,
+          23.049981,
+          58.4
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2246.JPG",
+        "datetime": "2026:11:22 14:08:06",
+        "altitude_m": 58.4
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.336992,
+          23.050178,
+          61.7
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2247.JPG",
+        "datetime": "2026:11:22 14:09:02",
+        "altitude_m": 61.7
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.336419,
+          23.050381,
+          62.6
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2248.JPG",
+        "datetime": "2026:11:22 14:10:35",
+        "altitude_m": 62.6
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.335892,
+          23.050572,
+          69.5
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2249.JPG",
+        "datetime": "2026:11:22 14:12:17",
+        "altitude_m": 69.5
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.3358,
+          23.050597,
+          69.4
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2250.JPG",
+        "datetime": "2026:11:22 14:12:31",
+        "altitude_m": 69.4
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.335403,
+          23.050975,
+          72.4
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2251.JPG",
+        "datetime": "2026:11:22 14:14:19",
+        "altitude_m": 72.4
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.334883,
+          23.051814,
+          76.6
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2252.JPG",
+        "datetime": "2026:11:22 14:19:16",
+        "altitude_m": 76.6
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.333406,
+          23.052153,
+          0.0
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2253.JPG",
+        "datetime": "2026:11:22 14:24:44",
+        "altitude_m": 0.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.332742,
+          23.052308,
+          92.6
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2254.JPG",
+        "datetime": "2026:11:22 14:26:22",
+        "altitude_m": 92.6
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.332742,
+          23.052297,
+          92.7
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2255.JPG",
+        "datetime": "2026:11:22 14:26:24",
+        "altitude_m": 92.7
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.332594,
+          23.052339,
+          93.3
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2256.JPG",
+        "datetime": "2026:11:22 14:26:41",
+        "altitude_m": 93.3
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.332558,
+          23.052339,
+          93.1
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2257.JPG",
+        "datetime": "2026:11:22 14:26:50",
+        "altitude_m": 93.1
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.332306,
+          23.052411,
+          94.9
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2258.JPG",
+        "datetime": "2026:11:22 14:28:05",
+        "altitude_m": 94.9
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.332031,
+          23.052497,
+          98.4
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2259.JPG",
+        "datetime": "2026:11:22 14:28:47",
+        "altitude_m": 98.4
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.331567,
+          23.052717,
+          91.1
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2260.JPG",
+        "datetime": "2026:11:22 14:33:22",
+        "altitude_m": 91.1
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.332444,
+          23.052436,
+          91.0
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2261.JPG",
+        "datetime": "2026:11:22 14:50:46",
+        "altitude_m": 91.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.333411,
+          23.051931,
+          85.5
+        ]
+      },
+      "properties": {
+        "filename": "IMG_2262.JPG",
+        "datetime": "2026:11:22 14:59:38",
+        "altitude_m": 85.5
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            121.328392,
+            23.0275,
+            0.0
+          ],
+          [
+            121.3275,
+            23.029058,
+            54.3
+          ],
+          [
+            121.330733,
+            23.026994,
+            31.9
+          ],
+          [
+            121.330733,
+            23.026994,
+            31.9
+          ],
+          [
+            121.326875,
+            23.029475,
+            0.0
+          ],
+          [
+            121.328378,
+            23.027525,
+            0.0
+          ],
+          [
+            121.326753,
+            23.02945,
+            63.4
+          ],
+          [
+            121.326758,
+            23.029453,
+            63.0
+          ],
+          [
+            121.329086,
+            23.028089,
+            41.1
+          ],
+          [
+            121.329086,
+            23.028089,
+            40.2
+          ],
+          [
+            121.329856,
+            23.028208,
+            46.5
+          ],
+          [
+            121.329964,
+            23.028336,
+            38.6
+          ],
+          [
+            121.3301,
+            23.028489,
+            37.6
+          ],
+          [
+            121.330253,
+            23.028553,
+            37.6
+          ],
+          [
+            121.330217,
+            23.02855,
+            37.8
+          ],
+          [
+            121.330292,
+            23.028561,
+            37.6
+          ],
+          [
+            121.330764,
+            23.028308,
+            32.3
+          ],
+          [
+            121.330825,
+            23.028328,
+            34.5
+          ],
+          [
+            121.330833,
+            23.028328,
+            36.8
+          ],
+          [
+            121.331,
+            23.0286,
+            36.1
+          ],
+          [
+            121.331314,
+            23.028525,
+            33.6
+          ],
+          [
+            121.331306,
+            23.028753,
+            31.3
+          ],
+          [
+            121.331253,
+            23.028717,
+            30.9
+          ],
+          [
+            121.331872,
+            23.028447,
+            31.7
+          ],
+          [
+            121.332144,
+            23.028228,
+            27.3
+          ],
+          [
+            121.332267,
+            23.028181,
+            26.8
+          ],
+          [
+            121.334389,
+            23.025992,
+            12.9
+          ],
+          [
+            121.334642,
+            23.025689,
+            15.6
+          ],
+          [
+            121.334664,
+            23.025658,
+            14.9
+          ],
+          [
+            121.334725,
+            23.025606,
+            0.0
+          ],
+          [
+            121.335158,
+            23.025239,
+            8.3
+          ],
+          [
+            121.335144,
+            23.025236,
+            8.4
+          ],
+          [
+            121.335144,
+            23.025236,
+            9.7
+          ],
+          [
+            121.335092,
+            23.025222,
+            4.9
+          ],
+          [
+            121.335114,
+            23.025206,
+            4.4
+          ],
+          [
+            121.335214,
+            23.025289,
+            7.8
+          ],
+          [
+            121.334861,
+            23.02505,
+            8.5
+          ],
+          [
+            121.335456,
+            23.025492,
+            3.5
+          ],
+          [
+            121.335464,
+            23.025406,
+            5.0
+          ],
+          [
+            121.337136,
+            23.026394,
+            5.4
+          ],
+          [
+            121.337111,
+            23.026617,
+            5.3
+          ],
+          [
+            121.331628,
+            23.02125,
+            0.0
+          ],
+          [
+            121.338142,
+            23.027672,
+            10.1
+          ],
+          [
+            121.337739,
+            23.030431,
+            55.4
+          ],
+          [
+            121.337708,
+            23.030533,
+            4.4
+          ],
+          [
+            121.338714,
+            23.038461,
+            0.0
+          ],
+          [
+            121.338019,
+            23.033383,
+            18.1
+          ],
+          [
+            121.338019,
+            23.033386,
+            13.3
+          ],
+          [
+            121.337967,
+            23.033469,
+            7.6
+          ],
+          [
+            121.337967,
+            23.033469,
+            6.8
+          ],
+          [
+            121.338311,
+            23.037322,
+            0.0
+          ],
+          [
+            121.336722,
+            23.033208,
+            17.6
+          ],
+          [
+            121.335939,
+            23.033583,
+            11.7
+          ],
+          [
+            121.335694,
+            23.033817,
+            11.0
+          ],
+          [
+            121.335542,
+            23.033825,
+            16.6
+          ],
+          [
+            121.335425,
+            23.033833,
+            16.5
+          ],
+          [
+            121.334061,
+            23.034328,
+            21.4
+          ],
+          [
+            121.333992,
+            23.034344,
+            21.3
+          ],
+          [
+            121.333406,
+            23.035392,
+            31.6
+          ],
+          [
+            121.332864,
+            23.035358,
+            24.3
+          ],
+          [
+            121.332414,
+            23.035381,
+            26.4
+          ],
+          [
+            121.331986,
+            23.035331,
+            29.0
+          ],
+          [
+            121.331908,
+            23.035442,
+            0.0
+          ],
+          [
+            121.332078,
+            23.035628,
+            0.0
+          ],
+          [
+            121.333031,
+            23.037692,
+            27.0
+          ],
+          [
+            121.333236,
+            23.038203,
+            27.0
+          ],
+          [
+            121.333511,
+            23.038917,
+            20.8
+          ],
+          [
+            121.333528,
+            23.038928,
+            20.7
+          ],
+          [
+            121.333625,
+            23.039075,
+            25.9
+          ],
+          [
+            121.333511,
+            23.039575,
+            30.0
+          ],
+          [
+            121.333519,
+            23.039614,
+            30.2
+          ],
+          [
+            121.333519,
+            23.039978,
+            35.3
+          ],
+          [
+            121.333839,
+            23.041733,
+            29.9
+          ],
+          [
+            121.333725,
+            23.043481,
+            40.3
+          ],
+          [
+            121.333581,
+            23.044242,
+            45.9
+          ],
+          [
+            121.333831,
+            23.044822,
+            45.3
+          ],
+          [
+            121.334161,
+            23.046025,
+            48.6
+          ],
+          [
+            121.334717,
+            23.046606,
+            48.5
+          ],
+          [
+            121.335669,
+            23.047558,
+            51.2
+          ],
+          [
+            121.335694,
+            23.047583,
+            50.6
+          ],
+          [
+            121.336272,
+            23.048339,
+            52.7
+          ],
+          [
+            121.336272,
+            23.04835,
+            50.7
+          ],
+          [
+            121.336617,
+            23.048947,
+            54.2
+          ],
+          [
+            121.336647,
+            23.049006,
+            53.9
+          ],
+          [
+            121.336961,
+            23.049022,
+            58.2
+          ],
+          [
+            121.337569,
+            23.049028,
+            53.6
+          ],
+          [
+            121.338097,
+            23.049742,
+            56.0
+          ],
+          [
+            121.338325,
+            23.049769,
+            52.0
+          ],
+          [
+            121.338753,
+            23.050331,
+            48.9
+          ],
+          [
+            121.338775,
+            23.050419,
+            49.7
+          ],
+          [
+            121.339158,
+            23.049586,
+            0.0
+          ],
+          [
+            121.339058,
+            23.050839,
+            49.5
+          ],
+          [
+            121.339058,
+            23.050819,
+            49.3
+          ],
+          [
+            121.340119,
+            23.045556,
+            0.0
+          ],
+          [
+            121.340119,
+            23.045556,
+            0.0
+          ],
+          [
+            121.337325,
+            23.049981,
+            58.4
+          ],
+          [
+            121.336992,
+            23.050178,
+            61.7
+          ],
+          [
+            121.336419,
+            23.050381,
+            62.6
+          ],
+          [
+            121.335892,
+            23.050572,
+            69.5
+          ],
+          [
+            121.3358,
+            23.050597,
+            69.4
+          ],
+          [
+            121.335403,
+            23.050975,
+            72.4
+          ],
+          [
+            121.334883,
+            23.051814,
+            76.6
+          ],
+          [
+            121.333406,
+            23.052153,
+            0.0
+          ],
+          [
+            121.332742,
+            23.052308,
+            92.6
+          ],
+          [
+            121.332742,
+            23.052297,
+            92.7
+          ],
+          [
+            121.332594,
+            23.052339,
+            93.3
+          ],
+          [
+            121.332558,
+            23.052339,
+            93.1
+          ],
+          [
+            121.332306,
+            23.052411,
+            94.9
+          ],
+          [
+            121.332031,
+            23.052497,
+            98.4
+          ],
+          [
+            121.331567,
+            23.052717,
+            91.1
+          ],
+          [
+            121.332444,
+            23.052436,
+            91.0
+          ],
+          [
+            121.333411,
+            23.051931,
+            85.5
+          ]
+        ]
+      },
+      "properties": {
+        "name": "2026-11-22 都歷至八嗡嗡踏查軌跡"
+      }
+    }
+  ]
+}

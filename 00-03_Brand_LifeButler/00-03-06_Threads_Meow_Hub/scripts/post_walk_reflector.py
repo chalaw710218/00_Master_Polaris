@@ -83,10 +83,10 @@ def fetch_post_metrics(post_id, token):
     return {}
 
 def fetch_post_replies(post_id, token):
-    """抓取貼文回覆清單並標註是否為自身回覆"""
+    """抓取貼文整串回覆清單 (/conversation) 並標註是否為自身回覆"""
     if not token or not post_id:
         return []
-    url = f"{API_BASE}/{post_id}/replies?fields=id,text,timestamp,username&access_token={token}"
+    url = f"{API_BASE}/{post_id}/conversation?fields=id,text,timestamp,username&access_token={token}"
     try:
         r = requests.get(url, timeout=15)
         if r.status_code == 200:
@@ -104,7 +104,7 @@ def fetch_post_replies(post_id, token):
                 })
             return replies
     except Exception as e:
-        print(f"   ⚠️ 讀取 Post Replies 提示: {e}")
+        print(f"   ⚠️ 讀取 Post Conversation 提示: {e}")
     return []
 
 def post_walk_fetcher(post_id: str) -> tuple[dict, list[dict]]:
@@ -224,42 +224,13 @@ def run_reflection():
         else:
             print(f"   ⚠️ 回寫存摺 01 失敗或檔案不存在。")
 
-    # 6. 閉環生成憑證並推進輪次帳本 (cycle_ledger)
-    evidence_dir = ROOT_DIR / ".agents" / "skills" / "bionic-learning-system" / "bionic_core" / "vaults" / "cycle_evidence"
-    evidence_dir.mkdir(parents=True, exist_ok=True)
-    evidence_file = evidence_dir / f"kage_walk_reflect_{datetime.datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
-
-    target_url = permalink or (f"https://www.threads.net/@hellotaitung/post/{target_post_id}" if target_post_id else "https://www.threads.net/@hellotaitung")
-    evidence_data = {
-        "timestamp": now_str,
-        "action": "post_walk_reflection",
-        "post_id": target_post_id,
-        "source_url": target_url,
-        "quote_status": "summary_only",
-        "quote": f"生活管家社交漫遊聽診：{post_title} 遙測數據 Views={views} Likes={likes} 總回覆={replies} 真對話回覆={true_dialogue_count} 則",
-        "metrics": metrics,
-        "true_dialogue_count": true_dialogue_count,
-        "true_dialogue_replies": true_dialogues,
-        "reflection": reflection_notes,
-        "verified": True
-    }
-
-    if not args.dry_run:
-        with open(evidence_file, "w", encoding="utf-8") as ef:
-            json.dump(evidence_data, ef, ensure_ascii=False, indent=2)
-        print(f"\n🧾 實質閉環憑證已生成: {evidence_file.name}")
-
-        # 調用 cycle_ledger.tick 推進帳本
-        try:
-            import cycle_ledger
-            tick_summary = f"漫遊返航自省：貼文 {target_post_id or '巡邏'} 遙測聽診與存摺回寫"
-            res = cycle_ledger.tick("kage", tick_summary, str(evidence_file))
-            print(f"   📈 輪次帳本物理入帳結果: {res}")
-        except Exception as e:
-            print(f"   ⚠️ 輪次入帳調用提示 (可能需審計或已鎖定): {e}")
+    # 6. 依創辦人（品碩）親定規範：
+    # - 只寫入 01_Experiences_and_Evidence.md，不准自動寫入 02_Belief_Evolution.md、不准自動淘汰模板。
+    # - 仿生學習輪次維持暫停（不調用 cycle_ledger.tick 推進輪次，不新增 K）。
+    print("\n⏸️ [規範執行] 仿生學習輪次已依創辦人指示暫停（凍結於 Cycle 54），且不自動寫入 02 信念存摺。題材優劣由每週一 feedback_loop.evaluate 判定。")
 
     print("\n" + "=" * 60)
-    print("✨ [自省完成] 漫遊 ➔ 聽診 ➔ 存摺 ➔ 帳本 四重閉環圓滿落成！")
+    print("✨ [自省完成] 漫遊 ➔ 聽診 ➔ 01 實證存摺入帳 閉環落成！")
     print("=" * 60)
     return 0
 

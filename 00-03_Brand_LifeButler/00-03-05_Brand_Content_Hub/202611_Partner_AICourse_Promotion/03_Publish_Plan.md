@@ -29,9 +29,12 @@
 ## ☀️ 第 1 天：11/22（日）
 
 ### 【第 1 篇｜上午 09:00】熟齡長輩視角 · 不會打字也能記錄一生
+* **狀態**：🎉 **已正式公開發布！**（Post ID: `110505444816362_1170497268992508`）
+* **第一則留言**：✅ **已成功搶佔一樓發布表單！**（Comment ID: `1170497268992508_1669538774670463`）
+* **發布時間**：2026-11-22（日）09:00:00 (TW)
 * **核心客群**：50~75 歲熟齡長輩、退休族
 * **切入痛點**：想留回憶給子孫，但老花眼、手抖、不會用電腦打字
-* **建議配圖**：電影海報 [`02_Visual_Assets/poster_01_cinematic_final.jpg`](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-03_Brand_LifeButler/00-03-05_Brand_Content_Hub/202611_Partner_AICourse_Promotion/02_Visual_Assets/poster_01_cinematic_final.jpg)
+* **搭配視覺**：電影海報風格《把歲月，說成一本書》（[`02_Visual_Assets/poster_01_cinematic_final.jpg`](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-03_Brand_LifeButler/00-03-05_Brand_Content_Hub/202611_Partner_AICourse_Promotion/02_Visual_Assets/poster_01_cinematic_final.jpg)）
 
 ```text
 【不用打字，用講話就能把一生的故事留給孩子】
@@ -54,9 +57,12 @@
 ---
 
 ### 【第 2 篇｜晚間 19:30】在地小農與手作頭家 · 說出品牌故事
+* **狀態**：🎉 **已正式公開發布！**（Post ID: `110505444816362_1170497398992495`）
+* **第一則留言**：✅ **已成功搶佔一樓發布表單！**（Comment ID: `1170497398992495_2634477277073356`）
+* **發布時間**：2026-11-22（日）19:30:00 (TW)
 * **核心客群**：台東在地小農、獨立手作店家、自營商
 * **切入痛點**：想寫創業故事與品牌理念，但請寫手要幾萬塊花不起，自己寫又卡住
-* **建議配圖**：農園/手作工作桌生活實拍照，或電影海報
+* **搭配視覺**：電影海報風格《說出你的土地與生活》（[`02_Visual_Assets/poster_02_cinematic_final.jpg`](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-03_Brand_LifeButler/00-03-05_Brand_Content_Hub/202611_Partner_AICourse_Promotion/02_Visual_Assets/poster_02_cinematic_final.jpg)）
 
 ```text
 【別花幾萬塊找行銷寫手，用嘴巴把你的品牌故事說出來】
@@ -79,9 +85,11 @@
 ## ☀️ 第 2 天：11/23（一）
 
 ### 【第 3 篇｜上午 09:00】孝順子女視角 · 送給爸媽最珍貴的禮物
+* **狀態**：✅ **已成功上架 Facebook 伺服器排程！**（Post ID: `110505444816362_1171509428891292`）
+* **排程發布時間**：2026-11-23（一）09:00:00 (TW)
 * **核心客群**：30~50 歲上班族子女
 * **切入痛點**：常聽爸媽講古很精彩，想幫他們整理自傳，但自己上班忙碌抽不出空
-* **建議配圖**：子女牽著長輩散步、或客廳聊天情境照
+* **搭配視覺**：台東慢活明信片《寄給想念爸媽的你》（[`02_Visual_Assets/postcard_01_final.jpg`](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-03_Brand_LifeButler/00-03-05_Brand_Content_Hub/202611_Partner_AICourse_Promotion/02_Visual_Assets/postcard_01_final.jpg)）
 
 ```text
 【今年送給爸媽最珍貴的禮物：幫他們把人生經歷寫成一本書】
@@ -100,9 +108,11 @@
 ---
 
 ### 【第 4 篇｜晚間 19:30】AI 學習者視角 · 真正落地產出完整作品
+* **狀態**：✅ **已成功上架 Facebook 伺服器排程！**（Post ID: `110505444816362_1171510192224549`）
+* **排程發布時間**：2026-11-23（一）19:30:00 (TW)
 * **核心客群**：買過很多 AI 線上課、對科技感興趣的自學者、文字創作者
 * **切入痛點**：買了一堆課只會問答瞎聊，從沒做出過一件具體作品
-* **建議配圖**：書桌檯燈、筆記型電腦與一本空白筆記本
+* **搭配視覺**：台東慢活明信片《寄給在鍵盤前卡關的你》（[`02_Visual_Assets/postcard_02_final.jpg`](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-03_Brand_LifeButler/00-03-05_Brand_Content_Hub/202611_Partner_AICourse_Promotion/02_Visual_Assets/postcard_02_final.jpg)）
 
 ```text
 【學了半年 AI，你做出過任何一件真正的作品嗎？】

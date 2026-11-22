@@ -113,7 +113,52 @@ def compute_batch_sha256(entries: list[dict]) -> str:
     return hashlib.sha256("".join(hashes).encode("utf-8")).hexdigest()
 
 
-def validate_entry(title: str, fact: str, source: str, url: str = None, quote: str = None) -> dict:
+def get_vault_urls(vault_path: Path = DEFAULT_EXPERIENCES_PATH) -> set[str]:
+    """讀取現有事實庫中的所有網址 (標準化去除結尾斜線)"""
+    if not vault_path.exists():
+        return set()
+    content = vault_path.read_text(encoding="utf-8")
+    urls = set()
+    for m in re.finditer(r'-\s+\*\*(?:證據網址|網址|出處)\*\*[：:]\s*(https?://[^\s\)]+)', content):
+        u = m.group(1).strip().rstrip("/")
+        urls.add(u)
+    return urls
+
+
+def extract_paper_name_from_title(title: str) -> str | None:
+    """從標題中提取英文論文名稱"""
+    t = re.sub(r'^\s*\d+\.\s*', '', title)
+    t = re.sub(r'^第\s*\d+\s*輪[｜|]\s*', '', t)
+    t = re.sub(r'^測試_[^\s：:]+[：:]?\s*', '', t)
+    t = re.sub(r'^\[[^\]]+\]\s*', '', t)
+    
+    if '｜' in t:
+        t = t.split('｜')[-1].strip()
+    elif '|' in t:
+        t = t.split('|')[-1].strip()
+        
+    main_part = re.split(r'[（\(]', t)[0].strip()
+    if not re.search(r'[A-Za-z]', main_part):
+        return None
+    
+    m = re.search(r'[A-Za-z0-9][A-Za-z0-9_\-\*\+\.\s]*[A-Za-z0-9\*]', main_part)
+    if m:
+        name = m.group(0).strip()
+        if len(name) >= 2:
+            return name
+    return None
+
+
+def validate_entry(
+    title: str,
+    fact: str,
+    source: str,
+    url: str = None,
+    quote: str = None,
+    existing_urls: set[str] = None,
+    check_duplicates: bool = False,
+    vault_path: Path = DEFAULT_EXPERIENCES_PATH
+) -> dict:
     if not title or not title.strip():
         raise ValueError("條目標題 (title) 不得為空")
     if not fact or not fact.strip():
@@ -139,6 +184,15 @@ def validate_entry(title: str, fact: str, source: str, url: str = None, quote: s
         if not re.match(r"^https?://\S+\.\S+", u):
             raise SourceValidationError(f"無效的 URL 格式：{u}")
 
+        # 網址重複檢查門禁
+        if check_duplicates:
+            target_existing = existing_urls if existing_urls is not None else get_vault_urls(vault_path)
+            u_clean = u.rstrip("/")
+            if u_clean in target_existing:
+                raise SourceValidationError(
+                    f"【入庫拒絕】網址已出現在事實庫中（重複網址：{u}）！一網址只能對應一筆知識！"
+                )
+
         # 摘句片段長度門禁（每一段 ≥ 20 字）
         frags = [f.strip(" \"'.") for f in re.split(r"\.\.\.|…", q)]
         frags = [f for f in frags if f]
@@ -153,6 +207,16 @@ def validate_entry(title: str, fact: str, source: str, url: str = None, quote: s
             page_text = fetch_page_text(u)
         except Exception as e:
             raise SourceValidationError(f"【入庫拒絕】無法抓取網頁進行驗證（{e}），拒絕入庫！")
+
+        # 標題英文論文名稱存在性檢查
+        paper_name = extract_paper_name_from_title(title)
+        if paper_name:
+            norm_paper = _normalize(paper_name)
+            norm_page_all = _normalize(page_text)
+            if norm_paper not in norm_page_all:
+                raise SourceValidationError(
+                    f"【入庫拒絕】標題論文名稱「{paper_name}」未出現在網頁文字中！網頁可能非該論文或標題誤植。"
+                )
 
         # 呼叫母版 evidence_gate.quote_in_page 進行逐字驗證
         ok, why = quote_in_page(q, page_text)
@@ -357,12 +421,24 @@ def prepare_cmd(pending_path: Path = DEFAULT_PENDING_PATH, to_sign_path: Path = 
 
     passed_entries = []
     rejected = []
+    vault_urls = get_vault_urls(vault_path)
 
     for idx, item in enumerate(items, 1):
         print(f"[{idx:02d}/{len(items):02d}] 正在檢驗：{item['title']} ...", end=" ")
         try:
-            entry = validate_entry(item["title"], item["fact"], item["source"], url=item.get("url"), quote=item.get("quote"))
+            entry = validate_entry(
+                item["title"],
+                item["fact"],
+                item["source"],
+                url=item.get("url"),
+                quote=item.get("quote"),
+                existing_urls=vault_urls,
+                check_duplicates=True,
+                vault_path=vault_path
+            )
             passed_entries.append(entry)
+            if item.get("url"):
+                vault_urls.add(item["url"].strip().rstrip("/"))
             print("✅ 通過")
         except Exception as e:
             print("❌ 退回")

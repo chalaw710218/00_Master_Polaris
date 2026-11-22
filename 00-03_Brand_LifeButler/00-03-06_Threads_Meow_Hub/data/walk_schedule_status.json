@@ -4,30 +4,30 @@
   "cron_expression": "30 7,10,12,17,22 * * *",
   "daemon_task_id": "62615c83-54cd-4585-ac6a-95745b9ac34a/task-17695",
   "timezone": "Asia/Taipei (UTC+8)",
-  "today": "2026-11-22",
+  "today": "2026-11-23",
+  "hero_schedule_rule": "週一至週三：喵編 (Meow) ｜ 週四至週日：影 (Shadow)",
+  "experiment_plan": "下週三條K輪替專案 (K-014 感官白描, K-025 現有服務真實代勞：外送/跑腿/追垃圾車, K-031 規劃中服務徵詢) + 每日 07:30 對照組 []",
   "slots": [
     {
       "slot": 1,
       "time": "07:30:00",
-      "status": "COMPLETED",
-      "post_id": "18075091295771169",
-      "k_id": "K-CONTROL-06",
+      "status": "PENDING_SCHEDULED",
+      "post_id": null,
+      "k_id": "[]",
       "type": "CONTROL_GROUP",
-      "hero": "Shadow",
-      "theme": "週日晨曦・日式老屋走廊遠山品茗 (純淨對照組，影小編出鏡)",
-      "image": "shadow_sunday_morning_in_frame_control_06.jpg",
-      "permalink": "https://www.threads.net/@hellotaitung/post/DgDHjbaE9Kk",
-      "reply_id": "18065360423558250"
+      "hero": "Meow",
+      "theme": "週一晨曦・店貓喵編晨間真實白描 (每日純淨對照組 [])",
+      "image": null
     },
     {
       "slot": 2,
       "time": "10:30:00",
       "status": "PENDING_SCHEDULED",
       "post_id": null,
-      "k_id": "K-019",
+      "k_id": "K-014",
       "type": "EXPERIMENT_GROUP",
-      "hero": "Meow / Shadow",
-      "theme": "上午充電・週日常民生活漫步與在地熱點轉譯",
+      "hero": "Meow",
+      "theme": "上午十點半・感官白描組 (K-014 具身認知，微小感官與物理細節)",
       "image": null
     },
     {
@@ -35,10 +35,10 @@
       "time": "12:30:00",
       "status": "PENDING_SCHEDULED",
       "post_id": null,
-      "k_id": "K-020",
+      "k_id": "K-025",
       "type": "EXPERIMENT_GROUP",
-      "hero": "Shadow",
-      "theme": "正午放慢・週日台東慢活食堂",
+      "hero": "Meow",
+      "theme": "正午十二點半・現有服務真實代勞組 (K-025 外送、代跑腿、追垃圾車實際日常)",
       "image": null
     },
     {
@@ -46,10 +46,10 @@
       "time": "17:30:00",
       "status": "PENDING_SCHEDULED",
       "post_id": null,
-      "k_id": "K-021",
+      "k_id": "K-031",
       "type": "EXPERIMENT_GROUP",
-      "hero": "Shadow",
-      "theme": "傍晚夕陽・週日收假前夕溫暖陪伴",
+      "hero": "Meow",
+      "theme": "傍晚五點半・規劃中服務徵詢組 (K-031 未來服務規劃中，問大家需不需要)",
       "image": null
     },
     {
@@ -57,14 +57,11 @@
       "time": "22:30:00",
       "status": "PENDING_SCHEDULED",
       "post_id": null,
-      "k_id": "K-022",
+      "k_id": "K-014",
       "type": "EXPERIMENT_GROUP",
-      "hero": "Shadow",
-      "theme": "深夜沉澱・整裝迎向新一週的平靜祝福",
+      "hero": "Meow",
+      "theme": "深夜十點半・感官白描組 (K-014 夜風、呼嚕聲、大腦關機充電)",
       "image": null
     }
-  ],
-  "next_trigger_time": "2026-11-22T07:30:00+08:00",
-  "next_k_id": "K-CONTROL-06",
-  "updated_at": "2026-11-22T23:24:58.517973"
+  ]
 }
