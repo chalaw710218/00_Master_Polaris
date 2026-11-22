@@ -9,13 +9,15 @@
     {
       "slot": 1,
       "time": "07:30:00",
-      "status": "READY_NEXT",
-      "post_id": null,
+      "status": "COMPLETED",
+      "post_id": "18075091295771169",
       "k_id": "K-CONTROL-06",
       "type": "CONTROL_GROUP",
       "hero": "Shadow",
       "theme": "週日晨曦・日式老屋走廊遠山品茗 (純淨對照組，影小編出鏡)",
-      "image": "shadow_sunday_morning_in_frame_control_06.jpg"
+      "image": "shadow_sunday_morning_in_frame_control_06.jpg",
+      "permalink": "https://www.threads.net/@hellotaitung/post/DgDHjbaE9Kk",
+      "reply_id": "18065360423558250"
     },
     {
       "slot": 2,
@@ -64,5 +66,5 @@
   ],
   "next_trigger_time": "2026-11-22T07:30:00+08:00",
   "next_k_id": "K-CONTROL-06",
-  "updated_at": "2026-11-21T22:38:06.427308"
+  "updated_at": "2026-11-22T23:24:58.517973"
 }

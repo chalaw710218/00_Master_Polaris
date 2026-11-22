@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-11-21 22:33:13",
+  "timestamp": "2026-11-22 23:21:04",
   "step1_home_replies": 0,
   "step2_friends_visited": [
     {
@@ -35,7 +35,7 @@
     {
       "username": "956leissmoker",
       "name": "雨田燻",
-      "action": "already_liked",
+      "action": "liked",
       "rss_post": "🌵馜享空間｜CAMA CAFE鐵花村店旁 ▫️20、22 _ 17:30-售完 🥙花蓮永續風格展｜花蓮縣運動休閒園區（吉安舊菸葉廠） ▫️11/21 _ 12:"
     },
     {
@@ -56,35 +56,23 @@
   },
   "step3_feed_likes": 3,
   "step4_post": {
-    "post_id": "18082941527465088",
-    "permalink": "https://www.threads.com/@hellotaitung/post/DgAdNsQEwHV",
-    "title": "深夜隨筆・老宅夜風與紅烏龍篇",
+    "post_id": "18075091295771169",
+    "permalink": "https://www.threads.com/@hellotaitung/post/DgDHjbaE9Kk",
+    "title": "自定義隨筆巡邏貼文",
     "hero": "生活管家 (影)",
-    "topic_tag": "台東生活",
-    "image": "shadow_saturday_midnight_in_frame_k018.jpg",
+    "topic_tag": "台東晨曦",
+    "image": "shadow_sunday_morning_in_frame_control_06.jpg",
     "image_reason": "外部指定",
-    "k_ids": [
-      "K-018"
-    ],
-    "screenshot": "C:\\Users\\lenovo\\我的雲端硬碟\\00_Master_Polaris\\00-03_Brand_LifeButler\\00-03-06_Threads_Meow_Hub\\scripts\\screenshots\\walk_v3_18082941527465088_verified.png"
+    "k_ids": [],
+    "screenshot": "C:\\Users\\lenovo\\我的雲端硬碟\\00_Master_Polaris\\00-03_Brand_LifeButler\\00-03-06_Threads_Meow_Hub\\scripts\\screenshots\\walk_v3_18075091295771169_verified.png"
   },
   "step45_first_reply": {
-    "reply_id": "17977651530169642",
-    "text": "（輕輕端上一只溫熱手作陶杯）今晚什麼煩惱都別想了，讓大腦徹底關機充電。生活管家祝你好夢！🍵✨"
+    "reply_id": "18065360423558250",
+    "text": "早安！今天的台東天空很清透，連遠處的山陵線都特別清晰。如果你也剛醒來，記得先喝杯溫水，給自己一個大大的深呼吸喔 ☕🌾"
   },
   "step5_friend_ledger": null,
   "step6_cognitive_sync": true,
-  "hot_trends_applied": {
-    "keyword": "卡洛斯·艾卡拉茲",
-    "category": "常民日常關注",
-    "traffic": "200+",
-    "news_sample": "Carlos Alcaraz in off-court 'challenge' to stay healthy for semis of ATP Finals",
-    "event_context": "全網熱搜話題：Carlos Alcaraz in off-court 'challenge' to stay healthy for semis of ATP Finals，引發大量網友在社群上熱烈圍觀與討論。",
-    "life_pain_point": "社群資訊轟炸讓人疲憊，但在柴米油鹽的真實生活裡，吃飽睡好才是最大的踏實",
-    "meow_hook": "滑開手機大家都在熱烈聊『卡洛斯·艾卡拉茲』，討論得不可開交喵～本喵雖然看不太懂人類的世界，但知道肚子餓了一定要吃熱便當！不管世界怎麼變，中午這盒香脆雞腿是絕對不會背叛你的！🍗",
-    "shadow_hook": "今天整個網路世界因為『卡洛斯·艾卡拉茲』熱鬧非凡。但在台東的老木桌前，水剛煮滾、飯菜正香，推開門，生活管家替你守護最平凡踏實的溫飽日常。🍵",
-    "visual_concept": "【老宅生活定心丸】老木桌前擺著熱騰騰的在地家常便當與熱茶，光影靜謐溫柔；手寫便簽寫著：『世界再吵，也記得把眼前的飯好好吃完。——生活管家 影』"
-  },
+  "hot_trends_applied": null,
   "rss_sentinel_scout": [
     {
       "username": "sinapayan_youth",
