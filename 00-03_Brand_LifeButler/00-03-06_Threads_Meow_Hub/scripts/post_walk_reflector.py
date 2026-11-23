@@ -68,19 +68,16 @@ def parse_args():
 
 def fetch_post_metrics(post_id, token):
     if not token or not post_id:
-        return {}
+        raise RuntimeError("未設定 Token 或 Post ID")
     url = f"{API_BASE}/{post_id}/insights?metric=views,likes,replies,reposts,quotes&access_token={token}"
-    try:
-        r = requests.get(url, timeout=15)
-        if r.status_code == 200:
-            data = r.json().get("data", [])
-            metrics = {}
-            for item in data:
-                metrics[item.get("name")] = item.get("values", [{}])[0].get("value", 0)
-            return metrics
-    except Exception as e:
-        print(f"   ⚠️ 讀取 Post Insights 提示: {e}")
-    return {}
+    r = requests.get(url, timeout=15)
+    if r.status_code != 200:
+        raise RuntimeError(f"Threads Insights API 失敗 (HTTP {r.status_code}): {r.text}")
+    data = r.json().get("data", [])
+    metrics = {}
+    for item in data:
+        metrics[item.get("name")] = item.get("values", [{}])[0].get("value", 0)
+    return metrics
 
 def fetch_post_replies(post_id, token):
     """抓取貼文整串回覆清單 (/conversation) 並標註是否為自身回覆"""

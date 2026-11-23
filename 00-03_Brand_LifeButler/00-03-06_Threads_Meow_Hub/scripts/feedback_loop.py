@@ -68,6 +68,39 @@ def _read_log() -> list[dict]:
 
 def _write_log(data: list[dict]):
     LOG_FILE.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+    # 依創辦人品碩硬性規定：由腳本自動同步寫入 posts_log.jsonl 與 metrics.jsonl，嚴禁手打生成
+    posts_log_path = DATA_DIR / "posts_log.jsonl"
+    metrics_log_path = DATA_DIR / "metrics.jsonl"
+    with open(posts_log_path, "w", encoding="utf-8") as plf, open(metrics_log_path, "w", encoding="utf-8") as mlf:
+        for p in data:
+            pl_entry = {
+                "post_id": p.get("post_id"),
+                "created_at": p.get("created_at"),
+                "api_timestamp": p.get("api_timestamp"),
+                "is_control": p.get("is_control", False),
+                "k_ids": p.get("k_ids", []),
+                "hot_trend": p.get("hot_trend", False),
+                "content": p.get("content", ""),
+            }
+            if p.get("deleted"):
+                pl_entry["deleted"] = True
+            plf.write(json.dumps(pl_entry, ensure_ascii=False) + "\n")
+
+            ml_entry = {
+                "post_id": p.get("post_id"),
+                "created_at": p.get("created_at"),
+                "is_control": p.get("is_control", False),
+                "k_ids": p.get("k_ids", []),
+                "hot_trend": p.get("hot_trend", False),
+                "metrics": p.get("metrics", {}),
+                "true_dialogue_count": p.get("true_dialogue_count", 0),
+                "true_dialogue_replies": p.get("true_dialogue_replies", []),
+                "conversation_replies": p.get("replies", []),
+                "last_collected_at": p.get("last_collected_at"),
+            }
+            if p.get("deleted"):
+                ml_entry["deleted"] = True
+            mlf.write(json.dumps(ml_entry, ensure_ascii=False) + "\n")
 
 
 def get_all_k_ids() -> list[str]:
@@ -177,14 +210,12 @@ def fetch_threads(post_id: str) -> tuple[dict, list[dict]]:
     # 1. 抓取 Insights 指標
     metrics = {"views": 0, "likes": 0, "replies": 0, "reposts": 0, "quotes": 0}
     insights_url = f"{API_BASE}/{post_id}/insights?metric=views,likes,replies,reposts,quotes&access_token={TOKEN}"
-    try:
-        r = requests.get(insights_url, timeout=15)
-        if r.status_code == 200:
-            for item in r.json().get("data", []):
-                val = item.get("values", [{}])[0].get("value", 0)
-                metrics[item.get("name")] = val
-    except Exception as e:
-        print(f"⚠️ [feedback_loop] 讀取 Insights 警告 ({post_id}): {e}")
+    r = requests.get(insights_url, timeout=15)
+    if r.status_code != 200:
+        raise RuntimeError(f"Threads Insights API 失敗 (HTTP {r.status_code}): {r.text}")
+    for item in r.json().get("data", []):
+        val = item.get("values", [{}])[0].get("value", 0)
+        metrics[item.get("name")] = val
 
     # 2. 抓取 Conversation 整串回覆清單（創辦人親定：改用 /conversation 抓整串回覆，不只抓第一層）
     replies_list = []
@@ -240,7 +271,23 @@ def collect(fetcher=fetch_threads) -> dict:
     now_str = datetime.datetime.now().isoformat(timespec="seconds")
 
     for p in posts:
+        if p.get("deleted"):
+            continue
         pid = p["post_id"]
+        # 強制自 Threads API 拉取實際 text 與 timestamp 覆蓋 content
+        if TOKEN and pid:
+            try:
+                text_url = f"{API_BASE}/{pid}?fields=id,text,timestamp,permalink&access_token={TOKEN}"
+                rt = requests.get(text_url, timeout=15)
+                if rt.status_code == 200:
+                    tdata = rt.json()
+                    if tdata.get("text"):
+                        p["content"] = tdata["text"]
+                    if tdata.get("timestamp"):
+                        p["api_timestamp"] = tdata["timestamp"]
+            except Exception as e:
+                print(f"⚠️ 讀取貼文實際 text 提示 ({pid}): {e}")
+
         try:
             metrics, replies = fetcher(pid)
         except Exception as e:
@@ -322,7 +369,7 @@ def evaluate(report_path=REPORT_FILE) -> str:
         "",
         f"- **統計基準時間**：{now_str}",
         f"- **有效追蹤貼文數**：{len(active_posts)} 篇（對照組：{control_stats['count']} 篇，實驗組：{len(active_posts) - control_stats['count']} 篇；已排除刪除違規貼文：{deleted_count} 篇）",
-        f"- **唯一評判硬標準**：**「真對話回覆」**（排除管家自身回覆、真實網友留言、字數 >= 10 字）",
+        f"- **唯一評判硬標準**：**「真對話回覆」**（只計算真實網友留言（排除管家自身回覆），字數 >= 10）",
         f"- **公理晉級守則**：**一律等待創辦人（品碩）親自回「收」解鎖晉升**",
         "",
         "---",

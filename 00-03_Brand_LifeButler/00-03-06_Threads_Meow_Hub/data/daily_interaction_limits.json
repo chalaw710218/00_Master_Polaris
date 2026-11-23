@@ -1,0 +1,81 @@
+{
+  "date": "2026-11-23",
+  "max_comments": 15,
+  "max_likes": 60,
+  "min_comment_interval_seconds": 120,
+  "comments_count": 4,
+  "likes_count": 7,
+  "last_comment_timestamp": 1795445224.3557935,
+  "history": [
+    {
+      "timestamp": "2026-11-23T22:39:48.794312",
+      "type": "like",
+      "target_user": "hattcoffee",
+      "post_url": "https://www.threads.net/@hattcoffee/post/Df_FO_fkiMg"
+    },
+    {
+      "timestamp": "2026-11-23T22:40:06.938344",
+      "type": "comment",
+      "target_user": "hattcoffee",
+      "post_url": "https://www.threads.net/@hattcoffee/post/Df_FO_fkiMg",
+      "comment_text": "這幾天台東早晚風吹起來真的有涼意喵！冷冷的天氣能吃到熱呼呼的可頌配早午餐最幸福了，本喵都想鑽進被窩偷聞香氣了喵🥐🐾"
+    },
+    {
+      "timestamp": "2026-11-23T22:40:14.724857",
+      "type": "like",
+      "target_user": "956leissmoker",
+      "post_url": "https://www.threads.net/@956leissmoker/post/DgCZce9ktWB"
+    },
+    {
+      "timestamp": "2026-11-23T22:42:26.790500",
+      "type": "comment",
+      "target_user": "956leissmoker",
+      "post_url": "https://www.threads.net/@956leissmoker/post/DgCZce9ktWB",
+      "comment_text": "從花蓮出完車馬上殺回台東老地方接著出攤，這體力本喵真的佩服得五體投地喵！跑長途辛苦了，今晚收攤一定要好好休息補眠喵🍖🐾"
+    },
+    {
+      "timestamp": "2026-11-23T22:42:34.206895",
+      "type": "like",
+      "target_user": "love_love_cat_cake",
+      "post_url": "https://www.threads.net/@love_love_cat_cake/post/DgCWcphEeBv"
+    },
+    {
+      "timestamp": "2026-11-23T22:44:45.828418",
+      "type": "comment",
+      "target_user": "love_love_cat_cake",
+      "post_url": "https://www.threads.net/@love_love_cat_cake/post/DgCWcphEeBv",
+      "comment_text": "忍了十天終於喝到心心念念的波霸鮮奶茶，第一口下去一定超療癒喵！做甜點忙完來一杯手搖飲完全是最佳充電喵🧋🐾"
+    },
+    {
+      "timestamp": "2026-11-23T22:44:53.812665",
+      "type": "like",
+      "target_user": "howhow_sweets",
+      "post_url": "https://www.threads.net/@howhow_sweets/post/DfbgPIQlHXX"
+    },
+    {
+      "timestamp": "2026-11-23T22:47:04.355793",
+      "type": "comment",
+      "target_user": "howhow_sweets",
+      "post_url": "https://www.threads.net/@howhow_sweets/post/DfbgPIQlHXX",
+      "comment_text": "備料真的像在跟天氣還有客人猜拳一樣難捉摸喵！但大家吃過你們家甜點一定會再回頭的，老闆不要氣餒，本喵幫你加油打氣喵🍰🐾"
+    },
+    {
+      "timestamp": "2026-11-23T22:47:11.857233",
+      "type": "like",
+      "target_user": "slowfoodtaitung",
+      "post_url": "https://www.threads.net/@slowfoodtaitung/post/DGQDJ_oBk4I"
+    },
+    {
+      "timestamp": "2026-11-23T22:47:44.602174",
+      "type": "like",
+      "target_user": "leannecrystal777",
+      "post_url": "https://www.threads.net/@leannecrystal777/post/DgFmXHrGS9_"
+    },
+    {
+      "timestamp": "2026-11-23T22:47:51.336211",
+      "type": "like",
+      "target_user": "roots_coworking",
+      "post_url": "https://www.threads.net/@roots_coworking/post/DgFk3R-nW5W"
+    }
+  ]
+}

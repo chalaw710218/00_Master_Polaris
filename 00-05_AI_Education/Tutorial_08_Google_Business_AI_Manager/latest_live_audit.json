@@ -1,0 +1,649 @@
+{
+  "location_info": {
+    "name": "locations/1774177451467087781",
+    "title": "職人食堂",
+    "categories": {
+      "primaryCategory": {
+        "name": "categories/gcid:mandarin_restaurant",
+        "displayName": "中式餐廳",
+        "moreHoursTypes": [
+          {
+            "hoursTypeId": "ACCESS",
+            "displayName": "Access",
+            "localizedDisplayName": "自助服務"
+          },
+          {
+            "hoursTypeId": "BREAKFAST",
+            "displayName": "Breakfast",
+            "localizedDisplayName": "早餐"
+          },
+          {
+            "hoursTypeId": "BRUNCH",
+            "displayName": "Brunch",
+            "localizedDisplayName": "早午餐"
+          },
+          {
+            "hoursTypeId": "DELIVERY",
+            "displayName": "Delivery",
+            "localizedDisplayName": "外送"
+          },
+          {
+            "hoursTypeId": "DINNER",
+            "displayName": "Dinner",
+            "localizedDisplayName": "晚餐"
+          },
+          {
+            "hoursTypeId": "DRIVE_THROUGH",
+            "displayName": "Drive through",
+            "localizedDisplayName": "免下車服務"
+          },
+          {
+            "hoursTypeId": "HAPPY_HOUR",
+            "displayName": "Happy hours",
+            "localizedDisplayName": "優惠"
+          },
+          {
+            "hoursTypeId": "KITCHEN",
+            "displayName": "Kitchen",
+            "localizedDisplayName": "廚房"
+          },
+          {
+            "hoursTypeId": "LUNCH",
+            "displayName": "Lunch",
+            "localizedDisplayName": "午餐"
+          },
+          {
+            "hoursTypeId": "ONLINE_SERVICE_HOURS",
+            "displayName": "Online service hours",
+            "localizedDisplayName": "線上服務"
+          },
+          {
+            "hoursTypeId": "TAKEOUT",
+            "displayName": "Takeout",
+            "localizedDisplayName": "外帶"
+          },
+          {
+            "hoursTypeId": "SENIOR_HOURS",
+            "displayName": "Senior hours",
+            "localizedDisplayName": "敬老"
+          }
+        ]
+      },
+      "additionalCategories": [
+        {
+          "name": "categories/gcid:noodle_shop",
+          "displayName": "麵店",
+          "moreHoursTypes": [
+            {
+              "hoursTypeId": "ACCESS",
+              "displayName": "Access",
+              "localizedDisplayName": "自助服務"
+            },
+            {
+              "hoursTypeId": "BREAKFAST",
+              "displayName": "Breakfast",
+              "localizedDisplayName": "早餐"
+            },
+            {
+              "hoursTypeId": "BRUNCH",
+              "displayName": "Brunch",
+              "localizedDisplayName": "早午餐"
+            },
+            {
+              "hoursTypeId": "DELIVERY",
+              "displayName": "Delivery",
+              "localizedDisplayName": "外送"
+            },
+            {
+              "hoursTypeId": "DINNER",
+              "displayName": "Dinner",
+              "localizedDisplayName": "晚餐"
+            },
+            {
+              "hoursTypeId": "DRIVE_THROUGH",
+              "displayName": "Drive through",
+              "localizedDisplayName": "免下車服務"
+            },
+            {
+              "hoursTypeId": "HAPPY_HOUR",
+              "displayName": "Happy hours",
+              "localizedDisplayName": "優惠"
+            },
+            {
+              "hoursTypeId": "KITCHEN",
+              "displayName": "Kitchen",
+              "localizedDisplayName": "廚房"
+            },
+            {
+              "hoursTypeId": "LUNCH",
+              "displayName": "Lunch",
+              "localizedDisplayName": "午餐"
+            },
+            {
+              "hoursTypeId": "ONLINE_SERVICE_HOURS",
+              "displayName": "Online service hours",
+              "localizedDisplayName": "線上服務"
+            },
+            {
+              "hoursTypeId": "TAKEOUT",
+              "displayName": "Takeout",
+              "localizedDisplayName": "外帶"
+            },
+            {
+              "hoursTypeId": "SENIOR_HOURS",
+              "displayName": "Senior hours",
+              "localizedDisplayName": "敬老"
+            }
+          ]
+        },
+        {
+          "name": "categories/gcid:dim_sum_restaurant",
+          "displayName": "茶餐廳",
+          "moreHoursTypes": [
+            {
+              "hoursTypeId": "ACCESS",
+              "displayName": "Access",
+              "localizedDisplayName": "自助服務"
+            },
+            {
+              "hoursTypeId": "BREAKFAST",
+              "displayName": "Breakfast",
+              "localizedDisplayName": "早餐"
+            },
+            {
+              "hoursTypeId": "BRUNCH",
+              "displayName": "Brunch",
+              "localizedDisplayName": "早午餐"
+            },
+            {
+              "hoursTypeId": "DELIVERY",
+              "displayName": "Delivery",
+              "localizedDisplayName": "外送"
+            },
+            {
+              "hoursTypeId": "DINNER",
+              "displayName": "Dinner",
+              "localizedDisplayName": "晚餐"
+            },
+            {
+              "hoursTypeId": "DRIVE_THROUGH",
+              "displayName": "Drive through",
+              "localizedDisplayName": "免下車服務"
+            },
+            {
+              "hoursTypeId": "HAPPY_HOUR",
+              "displayName": "Happy hours",
+              "localizedDisplayName": "優惠"
+            },
+            {
+              "hoursTypeId": "KITCHEN",
+              "displayName": "Kitchen",
+              "localizedDisplayName": "廚房"
+            },
+            {
+              "hoursTypeId": "LUNCH",
+              "displayName": "Lunch",
+              "localizedDisplayName": "午餐"
+            },
+            {
+              "hoursTypeId": "ONLINE_SERVICE_HOURS",
+              "displayName": "Online service hours",
+              "localizedDisplayName": "線上服務"
+            },
+            {
+              "hoursTypeId": "TAKEOUT",
+              "displayName": "Takeout",
+              "localizedDisplayName": "外帶"
+            },
+            {
+              "hoursTypeId": "SENIOR_HOURS",
+              "displayName": "Senior hours",
+              "localizedDisplayName": "敬老"
+            }
+          ]
+        }
+      ]
+    },
+    "storefrontAddress": {
+      "regionCode": "TW",
+      "languageCode": "zh",
+      "postalCode": "950",
+      "administrativeArea": "台東縣",
+      "locality": "台東市",
+      "addressLines": [
+        "安慶街60號"
+      ]
+    },
+    "websiteUri": "https://chalaw710218.github.io/shokunin-taitung/",
+    "metadata": {
+      "canDelete": true,
+      "canHaveFoodMenus": true,
+      "placeId": "ChIJpXV-WBu5bzQRERUmRxxrjyI",
+      "mapsUri": "https://maps.google.com/maps?cid=2490326888156108049",
+      "newReviewUri": "https://search.google.com/local/writereview?placeid=ChIJpXV-WBu5bzQRERUmRxxrjyI",
+      "hasVoiceOfMerchant": true
+    },
+    "profile": {
+      "description": "〔台東 職人食堂〕 堅持手工備餡與現蒸工藝，為您在安慶街60號奉上熱騰騰的現蒸美味！\n原（加依軒小籠湯包）老字號手路菜持續傳承，更有老饕喜愛的柴魚昆布職人烏龍麵、和風燒肉丼飯與手工蒸餃。\n\n🥢 招牌人氣推薦：\n- 爆汁手工小籠湯包：每日新鮮備餡，堅持現點現蒸不微波，鎖住甘甜鮮美肉汁（現蒸需約8-10分鐘，趕時間歡迎提早電話預約！）。\n- 招牌職人烏龍麵：柴魚昆布慢熬甘醇高湯，麵體Q彈滑順，暖胃又飽足。\n- 經典和風丼飯：濃郁醬香肉厚下飯，搭配滑蛋更添風味。\n\n無論是在地鄉親日常用餐，還是自駕環島自由行旅客，都歡迎來安慶街坐坐，品嚐手作溫度！\n外帶預約專線：089-342900 / 0933-512-505"
+    }
+  },
+  "attributes": [
+    {
+      "name": "attributes/serves_late_night_food",
+      "valueType": "BOOL",
+      "values": [
+        false
+      ]
+    },
+    {
+      "name": "attributes/has_seating",
+      "valueType": "BOOL",
+      "values": [
+        true
+      ]
+    },
+    {
+      "name": "attributes/has_takeout",
+      "valueType": "BOOL",
+      "values": [
+        true
+      ]
+    },
+    {
+      "name": "attributes/has_delivery",
+      "valueType": "BOOL",
+      "values": [
+        true
+      ]
+    },
+    {
+      "name": "attributes/has_restroom",
+      "valueType": "BOOL",
+      "values": [
+        true
+      ]
+    },
+    {
+      "name": "attributes/serves_lunch",
+      "valueType": "BOOL",
+      "values": [
+        true
+      ]
+    },
+    {
+      "name": "attributes/has_bar_onsite",
+      "valueType": "BOOL",
+      "values": [
+        false
+      ]
+    },
+    {
+      "name": "attributes/serves_dine_in",
+      "valueType": "BOOL",
+      "values": [
+        true
+      ]
+    },
+    {
+      "name": "attributes/serves_vegetarian",
+      "valueType": "BOOL",
+      "values": [
+        true
+      ]
+    },
+    {
+      "name": "attributes/welcomes_children",
+      "valueType": "BOOL",
+      "values": [
+        true
+      ]
+    },
+    {
+      "name": "attributes/welcomes_families",
+      "valueType": "BOOL",
+      "values": [
+        true
+      ]
+    },
+    {
+      "name": "attributes/serves_dinner",
+      "valueType": "BOOL",
+      "values": [
+        true
+      ]
+    },
+    {
+      "name": "attributes/has_drive_through",
+      "valueType": "BOOL",
+      "values": [
+        false
+      ]
+    },
+    {
+      "name": "attributes/has_no_contact_delivery",
+      "valueType": "BOOL",
+      "values": [
+        false
+      ]
+    },
+    {
+      "name": "attributes/pay_debit_card",
+      "valueType": "BOOL",
+      "values": [
+        false
+      ]
+    },
+    {
+      "name": "attributes/requires_cash_only",
+      "valueType": "BOOL",
+      "values": [
+        true
+      ]
+    },
+    {
+      "name": "attributes/url_facebook",
+      "valueType": "URL",
+      "uriValues": [
+        {
+          "uri": "https://www.facebook.com/profile.php?id=61561543646858"
+        }
+      ]
+    }
+  ],
+  "food_menus": {
+    "name": "accounts/112884798662846885062/locations/1774177451467087781/foodMenus",
+    "menus": [
+      {
+        "sections": [
+          {
+            "labels": [
+              {
+                "displayName": "招牌現蒸點心・湯包系列",
+                "description": "現點現蒸，堅持手工製作薄皮爆汁",
+                "languageCode": "zh-TW"
+              }
+            ],
+            "items": [
+              {
+                "labels": [
+                  {
+                    "displayName": "手工爆汁小籠湯包",
+                    "description": "現點現蒸爆汁薄皮小籠湯包，鮮甜肉汁一咬迸發",
+                    "languageCode": "zh-TW"
+                  }
+                ],
+                "attributes": {
+                  "price": {
+                    "currencyCode": "TWD",
+                    "units": "80"
+                  }
+                }
+              },
+              {
+                "labels": [
+                  {
+                    "displayName": "打拋豬小籠湯包",
+                    "description": "泰式香料九層塔風味，微辣濃郁多汁開胃",
+                    "languageCode": "zh-TW"
+                  }
+                ],
+                "attributes": {
+                  "price": {
+                    "currencyCode": "TWD",
+                    "units": "90"
+                  }
+                }
+              },
+              {
+                "labels": [
+                  {
+                    "displayName": "鮮蝦河粉",
+                    "description": "晶瑩剔透Q彈河粉，包裹爽脆鮮甜大蝦仁",
+                    "languageCode": "zh-TW"
+                  }
+                ],
+                "attributes": {
+                  "price": {
+                    "currencyCode": "TWD",
+                    "units": "70"
+                  }
+                }
+              },
+              {
+                "labels": [
+                  {
+                    "displayName": "手工鮮肉蒸餃",
+                    "description": "外皮Q勁，內餡扎實鮮美飽滿",
+                    "languageCode": "zh-TW"
+                  }
+                ],
+                "attributes": {
+                  "price": {
+                    "currencyCode": "TWD",
+                    "units": "70"
+                  }
+                }
+              },
+              {
+                "labels": [
+                  {
+                    "displayName": "招牌酸辣湯",
+                    "description": "木耳豆腐蛋花料多味濃，酸香微辣恰到好處",
+                    "languageCode": "zh-TW"
+                  }
+                ],
+                "attributes": {
+                  "price": {
+                    "currencyCode": "TWD",
+                    "units": "40"
+                  }
+                }
+              },
+              {
+                "labels": [
+                  {
+                    "displayName": "海苔蛋花湯",
+                    "description": "清爽高湯搭配細緻蛋花與海苔，暖胃解膩",
+                    "languageCode": "zh-TW"
+                  }
+                ],
+                "attributes": {
+                  "price": {
+                    "currencyCode": "TWD",
+                    "units": "35"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "labels": [
+              {
+                "displayName": "招牌丼飯・特色定食",
+                "description": "均附溫泉半熟蛋、特製泡菜、胡麻綠花椰",
+                "languageCode": "zh-TW"
+              }
+            ],
+            "items": [
+              {
+                "labels": [
+                  {
+                    "displayName": "炙燒牛五花燒肉丼飯",
+                    "description": "高溫炙燒焦香油花牛五花，鹹甜醬汁拌飯必點",
+                    "languageCode": "zh-TW"
+                  }
+                ],
+                "attributes": {
+                  "price": {
+                    "currencyCode": "TWD",
+                    "units": "170"
+                  }
+                }
+              },
+              {
+                "labels": [
+                  {
+                    "displayName": "泰式酸辣雞腿飯",
+                    "description": "外皮金黃酥脆大雞腿，附特製雞汁飯與泰式酸辣醬",
+                    "languageCode": "zh-TW"
+                  }
+                ],
+                "attributes": {
+                  "price": {
+                    "currencyCode": "TWD",
+                    "units": "160"
+                  }
+                }
+              },
+              {
+                "labels": [
+                  {
+                    "displayName": "酥脆厚切炸豬排飯",
+                    "description": "嚴選厚切豬排裹上酥脆麵衣，金黃厚實鮮嫩多汁",
+                    "languageCode": "zh-TW"
+                  }
+                ],
+                "attributes": {
+                  "price": {
+                    "currencyCode": "TWD",
+                    "units": "150"
+                  }
+                }
+              },
+              {
+                "labels": [
+                  {
+                    "displayName": "經典蒲燒鰻魚飯",
+                    "description": "醇厚蒲燒醬汁細火烘烤，肉質細緻香醇下飯",
+                    "languageCode": "zh-TW"
+                  }
+                ],
+                "attributes": {
+                  "price": {
+                    "currencyCode": "TWD",
+                    "units": "200"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "labels": [
+              {
+                "displayName": "手作麵食・讚岐烏龍系列",
+                "description": "每日熬煮清爽高湯，可選讚岐烏龍麵或手工拉麵",
+                "languageCode": "zh-TW"
+              }
+            ],
+            "items": [
+              {
+                "labels": [
+                  {
+                    "displayName": "招牌麻辣烏龍麵",
+                    "description": "大紅袍花椒秘製麻辣高湯，辛香濃郁後勁十足",
+                    "languageCode": "zh-TW"
+                  }
+                ],
+                "attributes": {
+                  "price": {
+                    "currencyCode": "TWD",
+                    "units": "110"
+                  }
+                }
+              },
+              {
+                "labels": [
+                  {
+                    "displayName": "柴魚昆布烏龍麵",
+                    "description": "北海道昆布佐特級日式柴魚慢熬清冽高湯，甘甜暖心",
+                    "languageCode": "zh-TW"
+                  }
+                ],
+                "attributes": {
+                  "price": {
+                    "currencyCode": "TWD",
+                    "units": "90"
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "labels": [
+          {
+            "displayName": "職人食堂 內用外帶菜單",
+            "description": "每日新鮮手工備料，現蒸現煮職人料理",
+            "languageCode": "zh-TW"
+          }
+        ]
+      }
+    ]
+  },
+  "media_count": 8,
+  "latest_media": [
+    {
+      "name": "accounts/112884798662846885062/locations/1774177451467087781/media/AF1QipPNzC2Pi4G6_mLCVMcVQxvcJyx9k-rh4DfvxfeH",
+      "mediaFormat": "PHOTO",
+      "locationAssociation": {
+        "category": "MENU"
+      },
+      "googleUrl": "https://lh3.googleusercontent.com/grass-cs/AABkmLeKoNkUynPrOGckZMkd2yLz6o23bX1V6qbWlUHaD2G_WxTx0W3CLcuHRzCpymBNuJplGcrCpjr_NiMt8NT9YWOV-vPoVSn7MODFViok80tyq9B3TdM7ZganOr3hWzE3RBhCSiFbX-ZIB6AO=s0",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/grass-cs/AABkmLeKoNkUynPrOGckZMkd2yLz6o23bX1V6qbWlUHaD2G_WxTx0W3CLcuHRzCpymBNuJplGcrCpjr_NiMt8NT9YWOV-vPoVSn7MODFViok80tyq9B3TdM7ZganOr3hWzE3RBhCSiFbX-ZIB6AO=s300",
+      "createTime": "2026-06-18T06:37:59Z",
+      "dimensions": {
+        "widthPixels": 720,
+        "heightPixels": 1018
+      }
+    },
+    {
+      "name": "accounts/112884798662846885062/locations/1774177451467087781/media/AF1QipP1XQIPozrBWmqx30qwxTNiSwqlkHcj65hwv82H",
+      "mediaFormat": "PHOTO",
+      "locationAssociation": {
+        "category": "ADDITIONAL"
+      },
+      "googleUrl": "https://lh3.googleusercontent.com/grass-cs/AABkmLcCd5_VlJFRuFv9IljSXtmF0R9a4255NqUTd5eOt3AkW9BC763P_vxMG88WQbjXagQPcuB-4KRt9_hbzBVHQsduhflBuilVJBvZrkLNFyBrC5obLN9TZraGRGUIaJCMiVcFQGBelg=s0",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/grass-cs/AABkmLcCd5_VlJFRuFv9IljSXtmF0R9a4255NqUTd5eOt3AkW9BC763P_vxMG88WQbjXagQPcuB-4KRt9_hbzBVHQsduhflBuilVJBvZrkLNFyBrC5obLN9TZraGRGUIaJCMiVcFQGBelg=s300",
+      "createTime": "2020-02-13T04:45:58Z",
+      "dimensions": {
+        "widthPixels": 550,
+        "heightPixels": 402
+      }
+    },
+    {
+      "name": "accounts/112884798662846885062/locations/1774177451467087781/media/profile",
+      "sourceUrl": "https://lh3.googleusercontent.com/a-/ALV-UjUJy6r8qXCOXtBLSKubNWKs5aFb5cGQg9Bj-X5F0dzUxp3AKTib",
+      "mediaFormat": "PHOTO",
+      "locationAssociation": {
+        "category": "PROFILE"
+      },
+      "googleUrl": "https://lh3.googleusercontent.com/a-/ALV-UjUJy6r8qXCOXtBLSKubNWKs5aFb5cGQg9Bj-X5F0dzUxp3AKTib",
+      "thumbnailUrl": "https://lh3.googleusercontent.com/a-/ALV-UjUJy6r8qXCOXtBLSKubNWKs5aFb5cGQg9Bj-X5F0dzUxp3AKTib=s300",
+      "createTime": "1970-01-01T00:00:00Z",
+      "dimensions": {}
+    }
+  ],
+  "posts_count": 6,
+  "latest_post": {
+    "name": "accounts/112884798662846885062/locations/1774177451467087781/localPosts/8567287819535635169",
+    "languageCode": "zh-Hant",
+    "summary": "【堅持手工現點現蒸・鎖住鮮甜爆汁美味！】\n\n微涼的季節，最需要一籠熱氣蒸騰的溫暖滋味！\n職人食堂堅持每日新鮮備餡，手工捏製透光薄皮，現點現蒸不微波，咬開滿滿鮮甜肉汁！搭配現切薑絲與特調烏醋，一口入魂。\n\n🥢 招牌人氣推薦：\n・手工爆汁小籠湯包（NT$ 80）\n・打拋豬小籠湯包（NT$ 90）\n・柴魚昆布讚岐烏龍麵（NT$ 90）\n・炙燒牛五花燒肉丼飯（NT$ 170）\n\n現蒸約需 8~10 分鐘，趕時間的鄉親朋友歡迎提早來電預訂，為您提早出蒸籠熱騰騰帶著走！\n\n📍 門市地址：台東市安慶街60號\n📞 外帶專線：089-342900 / 0933-512-505",
+    "callToAction": {
+      "actionType": "CALL"
+    },
+    "state": "LIVE",
+    "updateTime": "2026-11-23T15:06:56.484852476Z",
+    "createTime": "2026-11-23T15:06:56.484852476Z",
+    "searchUrl": "https://local.google.com/place?id=2490326888156108049&use=posts&lpsid=CAIQACoeChxtc3BfaDpPTkdxMUJCRjhCZ3UzWGVEczYwZVdB",
+    "media": [
+      {
+        "name": "accounts/112884798662846885062/locations/1774177451467087781/media/localPosts/AF1QipNYl0U9wHLELE2XypDblcLyhawrMR7DYptnN0NG",
+        "mediaFormat": "PHOTO",
+        "googleUrl": "https://lh3.googleusercontent.com/p/AF1QipNYl0U9wHLELE2XypDblcLyhawrMR7DYptnN0NG"
+      }
+    ],
+    "topicType": "STANDARD"
+  },
+  "total_reviews": 208,
+  "average_rating": 4.400000095367432,
+  "unreplied_count_in_first_batch": 0
+}

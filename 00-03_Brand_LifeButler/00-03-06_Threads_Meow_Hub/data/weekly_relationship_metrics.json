@@ -1,0 +1,62 @@
+{
+  "calculated_at": "2026-11-23T22:31:41.618055",
+  "week_start": "2026-11-23",
+  "week_end": "2026-11-23",
+  "metrics": {
+    "1_heartfelt_comments_sent": 0,
+    "2_replies_received_unique_comments": 0,
+    "3_return_commenters_unique_users_10chars": 0,
+    "4_familiar_regulars_cumulative": 6,
+    "4_familiar_regulars_new_this_week": 0
+  },
+  "details": {
+    "heartfelt_comments": [],
+    "replies_received": [],
+    "return_commenters": [],
+    "familiar_regulars_cumulative": [
+      {
+        "username": "hattcoffee",
+        "name": "Hatt Coffee 自家烘焙",
+        "comment_reply_interactions": 7,
+        "before_week_interactions": 7,
+        "is_new_this_week": false
+      },
+      {
+        "username": "slowfoodtaitung",
+        "name": "臺東慢食節",
+        "comment_reply_interactions": 3,
+        "before_week_interactions": 3,
+        "is_new_this_week": false
+      },
+      {
+        "username": "travel_zztaitung",
+        "name": "台東製造",
+        "comment_reply_interactions": 2,
+        "before_week_interactions": 2,
+        "is_new_this_week": false
+      },
+      {
+        "username": "956leissmoker",
+        "name": "956leissmoker",
+        "comment_reply_interactions": 2,
+        "before_week_interactions": 2,
+        "is_new_this_week": false
+      },
+      {
+        "username": "starrytaitung_",
+        "name": "台東最美星空",
+        "comment_reply_interactions": 2,
+        "before_week_interactions": 2,
+        "is_new_this_week": false
+      },
+      {
+        "username": "love_love_cat_cake",
+        "name": "小瑪莉貓的手作甜點",
+        "comment_reply_interactions": 2,
+        "before_week_interactions": 2,
+        "is_new_this_week": false
+      }
+    ],
+    "familiar_regulars_new_this_week": []
+  }
+}

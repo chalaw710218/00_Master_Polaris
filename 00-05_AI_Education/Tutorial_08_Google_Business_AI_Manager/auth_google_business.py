@@ -48,8 +48,13 @@ def authenticate():
     if not creds or not creds.valid:
         if creds and creds.expired and creds.refresh_token:
             print("🔄 正在以 Refresh Token 自動無感續期金鑰...")
-            creds.refresh(Request())
-        else:
+            try:
+                creds.refresh(Request())
+            except Exception as e:
+                print(f"⚠️ 舊金鑰已過期失效，準備開啟瀏覽器重新登入...")
+                creds = None
+        
+        if not creds or not creds.valid:
             print("🌐 正在為您開啟瀏覽器進行 Google 商家管理員授權...")
             print("👉 請在跳出的瀏覽器視窗中，登入您的管理員帳號並點選【允許】！")
             flow = InstalledAppFlow.from_client_secrets_file(CLIENT_SECRET_FILE, SCOPES)

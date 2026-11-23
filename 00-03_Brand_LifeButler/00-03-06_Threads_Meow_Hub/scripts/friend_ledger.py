@@ -21,13 +21,25 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 DATA_FILE = BASE_DIR / "data" / "friend_interactions.json"
 TARGETS_FILE = BASE_DIR / "scripts" / "following_targets.json"
 
-def calculate_tier(total_count):
-    if total_count >= 5:
+def is_comment_or_reply(action: str) -> bool:
+    """創辦人親定：「互動」只計算留言和回覆，不計算按讚與純造訪"""
+    act = (action or "").lower()
+    return ("comment" in act) or ("reply" in act)
+
+def count_valid_interactions(friend_entry: dict) -> int:
+    """從 history 精算有效互動次數（僅計留言與回覆）"""
+    history = friend_entry.get("history", [])
+    return sum(1 for h in history if is_comment_or_reply(h.get("action", "")))
+
+def calculate_tier(comment_reply_count: int) -> str:
+    if comment_reply_count >= 5:
         return "🤝 摯友同盟"
-    elif total_count >= 2:
+    elif comment_reply_count >= 2:
         return "☕ 熟稔常客"
-    else:
+    elif comment_reply_count >= 1:
         return "🌱 初次問候"
+    else:
+        return "👀 僅點讚/造訪"
 
 def load_ledger():
     if not DATA_FILE.exists():
@@ -36,19 +48,22 @@ def load_ledger():
         with open(DATA_FILE, "r", encoding="utf-8") as f:
             return json.load(f)
     except Exception as e:
-        print(f"Warning: could not load ledger: {e}")
-        return {"last_updated": datetime.now().isoformat(), "summary": {}, "friends": {}}
+        raise RuntimeError(f"讀取好友帳本 {DATA_FILE} 失敗: {e}") from e
 
 def save_ledger(data):
     data["last_updated"] = datetime.now().isoformat()
-    # 重新計算 summary
+    # 重新計算每位好友的有效互動（僅計留言與回覆）與 summary
+    for f in data.get("friends", {}).values():
+        valid_cnt = count_valid_interactions(f)
+        f["comments_given"] = valid_cnt
+        f["relationship_tier"] = calculate_tier(valid_cnt)
+
     total_friends = len(data.get("friends", {}))
-    total_interactions = sum(f.get("total_interactions", 0) for f in data.get("friends", {}).values())
-    total_likes = sum(f.get("likes_given", 0) for f in data.get("friends", {}).values())
     total_comments = sum(f.get("comments_given", 0) for f in data.get("friends", {}).values())
+    total_likes = sum(f.get("likes_given", 0) for f in data.get("friends", {}).values())
     data["summary"] = {
         "total_friends_contacted": total_friends,
-        "total_interactions": total_interactions,
+        "total_interactions": total_comments,
         "total_likes": total_likes,
         "total_comments": total_comments
     }
@@ -70,21 +85,15 @@ def record_interaction(username, name, action="comment", post_url="", comment_te
             "total_interactions": 0,
             "likes_given": 0,
             "comments_given": 0,
-            "relationship_tier": "🌱 初次問候",
+            "relationship_tier": "👀 僅點讚/造訪",
             "first_contact_at": now_iso,
             "last_interaction_at": now_iso,
             "history": []
         }
 
     f = friends[clean_user]
-    f["total_interactions"] += 1
     if "like" in action:
-        f["likes_given"] += 1
-    if "comment" in action or "reply" in action:
-        f["comments_given"] += 1
-
-    f["relationship_tier"] = calculate_tier(f["total_interactions"])
-    f["last_interaction_at"] = now_iso
+        f["likes_given"] = f.get("likes_given", 0) + 1
 
     history_item = {
         "timestamp": now_iso,
@@ -94,9 +103,14 @@ def record_interaction(username, name, action="comment", post_url="", comment_te
         "screenshot": screenshot
     }
     f["history"].append(history_item)
+    valid_cnt = count_valid_interactions(f)
+    f["comments_given"] = valid_cnt
+    f["total_interactions"] = valid_cnt
+    f["relationship_tier"] = calculate_tier(valid_cnt)
+    f["last_interaction_at"] = now_iso
 
     save_ledger(data)
-    print(f"✅ 成功記錄與 {name} (@{clean_user}) 的互動！當前累積: {f['total_interactions']} 次 | 關係階梯: {f['relationship_tier']}")
+    print(f"✅ 成功記錄與 {name} (@{clean_user}) 的互動！當前有效留言/回覆互動: {valid_cnt} 次 | 關係階梯: {f['relationship_tier']}")
     return f
 
 def print_dashboard():

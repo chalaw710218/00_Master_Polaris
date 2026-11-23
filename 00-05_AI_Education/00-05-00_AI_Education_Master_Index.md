@@ -73,6 +73,12 @@
 * **主要檔案**：
   * `00-05-09_Google_Vids_Datasheet_Manual.md` (完整手冊全文)
 
+### 📁 [Tutorial_10] Threads (脆) 官方 API 權杖申請、60 天長效換發與實戰排錯全指南 (SOP) 🌟【社群自動化憑證防呆】
+* **資料夾路徑**：`Tutorial_10_Threads_Token_Lifecycle_SOP`
+* **核心內容**：完整收錄 Threads 專屬權杖 (`THAA...`) 與 Facebook 權杖 (`EAAP...`) 之雙軌差異、Meta 雙層 App 架構（FB 主 App 密鑰 vs Threads 專屬密鑰）、破解「客戶密鑰無效 (code: 100)」與「網頁沒有延長按鈕」心智盲點、破除「Currently ineligible for submission」紅框心魔、測試人員邀請開通與破解 `error_code: 1349245`（邀請空白排錯）、1 小時短期權杖升級 60 天（5,184,000 秒）長效權杖 (`th_exchange_token`)、每 30 天自動續期排程 (`th_refresh_token`)，以及 Token 過期時防止空字典覆蓋歷史數據之硬防呆規範。
+* **主要檔案**：
+  * `00-05-10_Threads_Token_Application_and_Lifecycle_SOP.md` (完整教案與 SOP 全文)
+
 ### 📁 [Special_Topic] 深度專題互動簡報：AI 自我進化的技術本質與安全邊界 🌟【Gemini Notebook 頂級互動簡報】
 * **資料夾路徑**：`Special_Topic_AI_Self_Evolution`
 * **線上快速存取**：[`ai-self-evolution-briefing.html`](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/ai-self-evolution-briefing.html)

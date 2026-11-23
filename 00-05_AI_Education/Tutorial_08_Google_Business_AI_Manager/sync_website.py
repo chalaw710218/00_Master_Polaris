@@ -1,0 +1,318 @@
+import os
+import shutil
+import subprocess
+
+website_src = r"C:\Users\lenovo\我的雲端硬碟\00_Master_Polaris\00-05_AI_Education\Tutorial_08_Google_Business_AI_Manager\clients\01_Taitung_Shokunin_Diner\website"
+images_src = os.path.join(website_src, "images")
+temp_clone = r"C:\Users\lenovo\AppData\Local\Temp\shokunin-taitung"
+temp_images = os.path.join(temp_clone, "images")
+os.makedirs(temp_images, exist_ok=True)
+
+# 複製圖片
+for img in ["soup_dumplings_macro.jpg", "udon_macro.jpg", "oyakodon_macro.jpg"]:
+    s = os.path.join(images_src, img)
+    d = os.path.join(temp_images, img)
+    if os.path.exists(s):
+        shutil.copy2(s, d)
+        print("Copied image:", img)
+
+# 建立極致專業精美的官方網站 index.html，包含真實菜單與純餐點特寫
+html_content = """<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>職人食堂 | 台東市安慶街 正宗手工小籠湯包・讚岐烏龍麵・經典丼飯</title>
+    <meta name="description" content="台東市安慶街60號「職人食堂」，堅持每日現包現蒸爆汁小籠湯包、熬煮柴魚昆布讚岐烏龍麵、炙燒牛五花燒肉丼飯。預約訂餐專線：089-342900。">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;900&family=Noto+Sans+TC:wght@300;400;500;700&display=swap');
+        body { font-family: 'Noto Sans TC', sans-serif; }
+        .font-serif { font-family: 'Noto Serif TC', serif; }
+    </style>
+</head>
+<body class="bg-stone-50 text-stone-800 antialiased selection:bg-amber-100 selection:text-amber-900">
+
+    <!-- Top Notice Banner -->
+    <div class="bg-amber-900 text-amber-100 text-xs sm:text-sm py-2 px-4 text-center tracking-wide font-medium">
+        <i class="fas fa-bullhorn mr-2 text-amber-400"></i> 台東市區正宗手工現蒸麵食點心・歡迎提前電話預訂：<a href="tel:089342900" class="underline font-bold text-white ml-1">089-342900</a>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-stone-200">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <span class="w-8 h-8 rounded-full bg-stone-900 text-amber-400 flex items-center justify-center font-serif font-black text-lg">職</span>
+                <span class="text-xl font-bold tracking-wider font-serif text-stone-900">職人食堂</span>
+                <span class="hidden sm:inline-block text-xs bg-stone-100 text-stone-600 px-2.5 py-0.5 rounded-full border border-stone-300">台東安慶街</span>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="#menu" class="text-sm font-medium text-stone-700 hover:text-amber-700 transition">真實菜單</a>
+                <a href="#info" class="text-sm font-medium text-stone-700 hover:text-amber-700 transition">營業資訊</a>
+                <a href="tel:089342900" class="inline-flex items-center px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-bold bg-amber-600 text-white hover:bg-amber-700 shadow-sm transition">
+                    <i class="fas fa-phone mr-1.5"></i> 立即訂餐
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative bg-stone-900 text-white py-16 sm:py-24 px-4 overflow-hidden">
+        <div class="max-w-4xl mx-auto text-center relative z-10">
+            <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md text-amber-300 text-xs sm:text-sm mb-6 border border-white/20">
+                <i class="fas fa-fire"></i>
+                <span>堅持每日手工現蒸・純粹食材原汁原味</span>
+            </div>
+            <h1 class="text-3xl sm:text-5xl font-black font-serif tracking-tight leading-tight mb-6">
+                皮薄汁多，一口入魂。<br class="sm:hidden"><span class="text-amber-400">台東在地的溫暖滋味</span>
+            </h1>
+            <p class="text-stone-300 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed mb-8">
+                隱身於台東市安慶街，專注手工小籠湯包、熬煮柴魚昆布湯頭、現炒現做經典丼飯與拉麵。每一道料理，皆乘載職人手作的堅持與真誠。
+            </p>
+            <div class="flex flex-wrap items-center justify-center gap-3">
+                <a href="tel:089342900" class="px-6 py-3 rounded-xl bg-amber-500 hover:bg-amber-600 text-stone-950 font-bold text-sm sm:text-base shadow-lg transition">
+                    <i class="fas fa-phone-alt mr-2"></i> 電話外帶：089-342900
+                </a>
+                <a href="https://maps.google.com/?q=台東市安慶街60號+職人食堂" target="_blank" class="px-6 py-3 rounded-xl bg-white/10 hover:bg-white/20 text-white font-medium text-sm sm:text-base border border-white/20 backdrop-blur transition">
+                    <i class="fas fa-map-marker-alt mr-2 text-amber-400"></i> Google 地圖導航
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Visual Highlights (Pure Food Macro Close-ups) -->
+    <section class="max-w-5xl mx-auto px-4 -mt-8 sm:-mt-12 relative z-20">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
+            <!-- Card 1: Soup Dumpling -->
+            <div class="bg-white rounded-2xl overflow-hidden shadow-xl border border-stone-200/80 group">
+                <div class="h-52 overflow-hidden bg-stone-100">
+                    <img src="images/soup_dumplings_macro.jpg" alt="手工爆汁小籠湯包" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                </div>
+                <div class="p-5">
+                    <div class="flex items-center justify-between mb-2">
+                        <h3 class="font-bold text-base text-stone-900 font-serif">手工爆汁小籠湯包</h3>
+                        <span class="text-amber-700 font-extrabold text-sm">NT$ 80</span>
+                    </div>
+                    <p class="text-xs text-stone-600 leading-relaxed">
+                        現點現蒸，透光薄皮包裹鮮甜肉汁，佐以現切薑絲與烏醋，入口溫潤爆汁。
+                    </p>
+                </div>
+            </div>
+
+            <!-- Card 2: Udon -->
+            <div class="bg-white rounded-2xl overflow-hidden shadow-xl border border-stone-200/80 group">
+                <div class="h-52 overflow-hidden bg-stone-100">
+                    <img src="images/udon_macro.jpg" alt="柴魚昆布讚岐烏龍麵" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                </div>
+                <div class="p-5">
+                    <div class="flex items-center justify-between mb-2">
+                        <h3 class="font-bold text-base text-stone-900 font-serif">柴魚昆布讚岐烏龍麵</h3>
+                        <span class="text-amber-700 font-extrabold text-sm">NT$ 90</span>
+                    </div>
+                    <p class="text-xs text-stone-600 leading-relaxed">
+                        北海道昆布與日式柴魚慢熬清冽高湯，搭配彈牙讚岐烏龍麵，清爽甘甜回味無窮。
+                    </p>
+                </div>
+            </div>
+
+            <!-- Card 3: Donburi -->
+            <div class="bg-white rounded-2xl overflow-hidden shadow-xl border border-stone-200/80 group">
+                <div class="h-52 overflow-hidden bg-stone-100">
+                    <img src="images/oyakodon_macro.jpg" alt="炙燒牛五花燒肉丼飯" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                </div>
+                <div class="p-5">
+                    <div class="flex items-center justify-between mb-2">
+                        <h3 class="font-bold text-base text-stone-900 font-serif">炙燒牛五花燒肉丼飯</h3>
+                        <span class="text-amber-700 font-extrabold text-sm">NT$ 170</span>
+                    </div>
+                    <p class="text-xs text-stone-600 leading-relaxed">
+                        高溫炙燒帶出牛五花油脂焦香，搭配溫泉半熟蛋、胡麻綠花椰與特製泡菜，滿足飽足。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Structured Real Menu Section -->
+    <section id="menu" class="max-w-4xl mx-auto px-4 py-16">
+        <div class="text-center mb-12">
+            <span class="text-xs font-bold text-amber-700 tracking-widest uppercase">Honest & Authentic</span>
+            <h2 class="text-2xl sm:text-3xl font-bold font-serif text-stone-900 mt-1">完整實體菜單</h2>
+            <p class="text-xs sm:text-sm text-stone-500 mt-2">食材每日新鮮備料・現點現做請耐心等候</p>
+        </div>
+
+        <div class="space-y-10">
+            <!-- Category 1: 現蒸點心 -->
+            <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-stone-200">
+                <div class="flex items-center space-x-3 mb-6 pb-4 border-b border-stone-100">
+                    <span class="text-xl">🥟</span>
+                    <h3 class="text-lg font-bold font-serif text-stone-900">招牌現蒸點心・湯包系列</h3>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="flex justify-between items-center p-3 rounded-xl bg-stone-50 hover:bg-amber-50/50 transition border border-stone-100">
+                        <div>
+                            <div class="font-bold text-sm text-stone-800">手工爆汁小籠湯包</div>
+                            <div class="text-xs text-stone-500">現點現蒸・薄皮鮮甜肉汁</div>
+                        </div>
+                        <span class="font-bold text-amber-700 text-sm">NT$ 80</span>
+                    </div>
+                    <div class="flex justify-between items-center p-3 rounded-xl bg-stone-50 hover:bg-amber-50/50 transition border border-stone-100">
+                        <div>
+                            <div class="font-bold text-sm text-stone-800">打拋豬小籠湯包</div>
+                            <div class="text-xs text-stone-500">泰式香料風味・微辣開胃</div>
+                        </div>
+                        <span class="font-bold text-amber-700 text-sm">NT$ 90</span>
+                    </div>
+                    <div class="flex justify-between items-center p-3 rounded-xl bg-stone-50 hover:bg-amber-50/50 transition border border-stone-100">
+                        <div>
+                            <div class="font-bold text-sm text-stone-800">鮮蝦河粉</div>
+                            <div class="text-xs text-stone-500">Q彈河粉包裹鮮脆大蝦仁</div>
+                        </div>
+                        <span class="font-bold text-amber-700 text-sm">NT$ 70</span>
+                    </div>
+                    <div class="flex justify-between items-center p-3 rounded-xl bg-stone-50 hover:bg-amber-50/50 transition border border-stone-100">
+                        <div>
+                            <div class="font-bold text-sm text-stone-800">手工鮮肉蒸餃</div>
+                            <div class="text-xs text-stone-500">扎實飽滿內餡</div>
+                        </div>
+                        <span class="font-bold text-amber-700 text-sm">NT$ 70</span>
+                    </div>
+                    <div class="flex justify-between items-center p-3 rounded-xl bg-stone-50 hover:bg-amber-50/50 transition border border-stone-100">
+                        <div>
+                            <div class="font-bold text-sm text-stone-800">招牌酸辣湯</div>
+                            <div class="text-xs text-stone-500">料多味濃・酸辣適中</div>
+                        </div>
+                        <span class="font-bold text-amber-700 text-sm">NT$ 40</span>
+                    </div>
+                    <div class="flex justify-between items-center p-3 rounded-xl bg-stone-50 hover:bg-amber-50/50 transition border border-stone-100">
+                        <div>
+                            <div class="font-bold text-sm text-stone-800">海苔蛋花湯</div>
+                            <div class="text-xs text-stone-500">清爽暖胃好滋味</div>
+                        </div>
+                        <span class="font-bold text-amber-700 text-sm">NT$ 35</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category 2: 招牌飯食 -->
+            <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-stone-200">
+                <div class="flex items-center space-x-3 mb-6 pb-4 border-b border-stone-100">
+                    <span class="text-xl">🍚</span>
+                    <div>
+                        <h3 class="text-lg font-bold font-serif text-stone-900">招牌丼飯・特色定食</h3>
+                        <p class="text-xs text-stone-500">均附溫泉半熟蛋、特製泡菜、胡麻綠花椰</p>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="flex justify-between items-center p-3 rounded-xl bg-stone-50 hover:bg-amber-50/50 transition border border-stone-100">
+                        <div>
+                            <div class="font-bold text-sm text-stone-800">炙燒牛五花燒肉丼飯</div>
+                            <div class="text-xs text-stone-500">油花焦香・醬汁拌飯一絕</div>
+                        </div>
+                        <span class="font-bold text-amber-700 text-sm">NT$ 170</span>
+                    </div>
+                    <div class="flex justify-between items-center p-3 rounded-xl bg-stone-50 hover:bg-amber-50/50 transition border border-stone-100">
+                        <div>
+                            <div class="font-bold text-sm text-stone-800">泰式酸辣雞腿飯</div>
+                            <div class="text-xs text-stone-500">附特製雞汁飯・酥脆厚實大雞腿</div>
+                        </div>
+                        <span class="font-bold text-amber-700 text-sm">NT$ 160</span>
+                    </div>
+                    <div class="flex justify-between items-center p-3 rounded-xl bg-stone-50 hover:bg-amber-50/50 transition border border-stone-100">
+                        <div>
+                            <div class="font-bold text-sm text-stone-800">酥脆厚切炸豬排飯</div>
+                            <div class="text-xs text-stone-500">金黃香脆・厚實多汁</div>
+                        </div>
+                        <span class="font-bold text-amber-700 text-sm">NT$ 150</span>
+                    </div>
+                    <div class="flex justify-between items-center p-3 rounded-xl bg-stone-50 hover:bg-amber-50/50 transition border border-stone-100">
+                        <div>
+                            <div class="font-bold text-sm text-stone-800">經典蒲燒鰻魚飯</div>
+                            <div class="text-xs text-stone-500">醇厚蒲燒醬・肉質細緻</div>
+                        </div>
+                        <span class="font-bold text-amber-700 text-sm">NT$ 200</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category 3: 暖心麵食 -->
+            <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-stone-200">
+                <div class="flex items-center space-x-3 mb-6 pb-4 border-b border-stone-100">
+                    <span class="text-xl">🍜</span>
+                    <div>
+                        <h3 class="text-lg font-bold font-serif text-stone-900">手作麵食・讚岐烏龍系列</h3>
+                        <p class="text-xs text-stone-500">可選讚岐烏龍麵 / 手工拉麵</p>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="flex justify-between items-center p-3 rounded-xl bg-stone-50 hover:bg-amber-50/50 transition border border-stone-100">
+                        <div>
+                            <div class="font-bold text-sm text-stone-800">招牌麻辣烏龍麵</div>
+                            <div class="text-xs text-stone-500">特調花椒麻辣高湯・辛香過癮</div>
+                        </div>
+                        <span class="font-bold text-amber-700 text-sm">NT$ 110</span>
+                    </div>
+                    <div class="flex justify-between items-center p-3 rounded-xl bg-stone-50 hover:bg-amber-50/50 transition border border-stone-100">
+                        <div>
+                            <div class="font-bold text-sm text-stone-800">柴魚昆布烏龍麵</div>
+                            <div class="text-xs text-stone-500">清澈日式高湯・鮮美甘甜</div>
+                        </div>
+                        <span class="font-bold text-amber-700 text-sm">NT$ 90</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Store Info & Location -->
+    <footer id="info" class="bg-stone-900 text-stone-300 py-12 px-4 border-t border-stone-800">
+        <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <div>
+                <div class="flex items-center space-x-2 mb-4">
+                    <span class="w-8 h-8 rounded-full bg-amber-500 text-stone-950 flex items-center justify-center font-serif font-black text-lg">職</span>
+                    <span class="text-2xl font-bold font-serif text-white">職人食堂</span>
+                </div>
+                <p class="text-sm text-stone-400 mb-6 leading-relaxed">
+                    台東在地小籠湯包、丼飯、手作麵食專賣。<br>
+                    感謝每一位顧客的喜愛與回饋，我們將持續以最真誠的心為您端上熱騰騰的佳餚。
+                </p>
+                <div class="space-y-2 text-sm text-stone-300">
+                    <p><i class="fas fa-map-marker-alt w-5 text-amber-400"></i> 地址：台東縣台東市安慶街60號</p>
+                    <p><i class="fas fa-phone w-5 text-amber-400"></i> 預約專線：<a href="tel:089342900" class="text-white hover:underline">089-342900</a> / <a href="tel:0933512505" class="text-white hover:underline">0933-512-505</a></p>
+                    <p><i class="fas fa-clock w-5 text-amber-400"></i> 營業時段：午餐 11:00-14:00｜晚餐 17:00-20:00</p>
+                </div>
+            </div>
+            <div class="bg-stone-800 p-6 rounded-2xl border border-stone-700 text-center">
+                <h4 class="text-white font-bold mb-2">需要大量訂餐或團體便當？</h4>
+                <p class="text-xs text-stone-400 mb-4">歡迎提前 1~2 天來電預訂，我們將為您提早準備。</p>
+                <a href="tel:089342900" class="inline-block w-full py-3 bg-amber-500 hover:bg-amber-600 text-stone-950 font-bold rounded-xl transition text-sm">
+                    <i class="fas fa-phone mr-2"></i> 撥打訂餐專線：089-342900
+                </a>
+            </div>
+        </div>
+        <div class="max-w-4xl mx-auto mt-8 pt-6 border-t border-stone-800 text-center text-xs text-stone-500">
+            &copy; 2026 職人食堂. All rights reserved. 官方資訊更新發布.
+        </div>
+    </footer>
+
+</body>
+</html>"""
+
+with open(os.path.join(temp_clone, "index.html"), "w", encoding="utf-8") as f:
+    f.write(html_content)
+
+# 也覆蓋本地 website/index.html
+with open(os.path.join(website_src, "index.html"), "w", encoding="utf-8") as f:
+    f.write(html_content)
+
+print("Updated index.html in both locations.")
+
+# git add, commit, push
+subprocess.run(["git", "add", "."], cwd=temp_clone)
+commit_res = subprocess.run(["git", "commit", "-m", "feat: update real menu structure and high-definition macro food photography"], cwd=temp_clone, capture_output=True, text=True)
+print("Commit:", commit_res.stdout)
+
+push_res = subprocess.run(["git", "push", "origin", "main"], cwd=temp_clone, capture_output=True, text=True)
+print("Push:", push_res.stdout, push_res.stderr)

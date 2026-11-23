@@ -1,10 +1,10 @@
 {
-  "last_updated": "2026-11-05T02:29:00.686283",
+  "last_updated": "2026-11-23T22:47:04.358805",
   "summary": {
     "total_friends_contacted": 19,
-    "total_interactions": 75,
+    "total_interactions": 25,
     "total_likes": 38,
-    "total_comments": 21
+    "total_comments": 25
   },
   "relationship_tiers_definition": {
     "🌱 初次問候": "互動 1 次",
@@ -19,7 +19,7 @@
       "total_interactions": 8,
       "likes_given": 6,
       "comments_given": 3,
-      "relationship_tier": "🤝 摯友同盟",
+      "relationship_tier": "☕ 熟稔常客",
       "first_contact_at": "2026-10-24T17:39:00+08:00",
       "last_interaction_at": "2026-11-04T09:32:09.440321",
       "history": [
@@ -83,12 +83,12 @@
       "username": "hattcoffee",
       "name": "Hatt Coffee 自家烘焙",
       "category": "cat_and_lifestyle_cafes",
-      "total_interactions": 12,
+      "total_interactions": 8,
       "likes_given": 6,
-      "comments_given": 7,
+      "comments_given": 8,
       "relationship_tier": "🤝 摯友同盟",
       "first_contact_at": "2026-10-21T17:27:00+08:00",
-      "last_interaction_at": "2026-11-05T02:29:00.610886",
+      "last_interaction_at": "2026-11-23T22:40:06.941074",
       "history": [
         {
           "timestamp": "2026-10-21T17:27:00+08:00",
@@ -171,6 +171,13 @@
           "post_url": "",
           "comment_text": "",
           "screenshot": ""
+        },
+        {
+          "timestamp": "2026-11-23T22:40:06.941074",
+          "action": "comment",
+          "post_url": "https://www.threads.net/@hattcoffee/post/Df_FO_fkiMg",
+          "comment_text": "這幾天台東早晚風吹起來真的有涼意喵！冷冷的天氣能吃到熱呼呼的可頌配早午餐最幸福了，本喵都想鑽進被窩偷聞香氣了喵🥐🐾",
+          "screenshot": "scripts\\screenshots\\reciprocal_hattcoffee_20261123_224006.png"
         }
       ]
     },
@@ -181,7 +188,7 @@
       "total_interactions": 6,
       "likes_given": 3,
       "comments_given": 2,
-      "relationship_tier": "🤝 摯友同盟",
+      "relationship_tier": "☕ 熟稔常客",
       "first_contact_at": "2026-10-21T17:18:00+08:00",
       "last_interaction_at": "2026-11-04T09:32:09.601532",
       "history": [
@@ -231,10 +238,10 @@
     },
     "956leissmoker": {
       "username": "956leissmoker",
-      "total_interactions": 6,
+      "total_interactions": 3,
       "likes_given": 2,
-      "comments_given": 2,
-      "relationship_tier": "🤝 摯友同盟",
+      "comments_given": 3,
+      "relationship_tier": "☕ 熟稔常客",
       "first_contact_at": "2026-11-01T12:15:51.438553",
       "history": [
         {
@@ -274,16 +281,23 @@
           "post_url": "",
           "comment_text": "",
           "screenshot": ""
+        },
+        {
+          "timestamp": "2026-11-23T22:42:26.795503",
+          "action": "comment",
+          "post_url": "https://www.threads.net/@956leissmoker/post/DgCZce9ktWB",
+          "comment_text": "從花蓮出完車馬上殺回台東老地方接著出攤，這體力本喵真的佩服得五體投地喵！跑長途辛苦了，今晚收攤一定要好好休息補眠喵🍖🐾",
+          "screenshot": "scripts\\screenshots\\reciprocal_956leissmoker_20261123_224226.png"
         }
       ],
-      "last_interaction_at": "2026-11-05T02:29:00.411640"
+      "last_interaction_at": "2026-11-23T22:42:26.795503"
     },
     "chaiyuan_bakery": {
       "username": "chaiyuan_bakery",
       "total_interactions": 7,
       "likes_given": 4,
       "comments_given": 0,
-      "relationship_tier": "🤝 摯友同盟",
+      "relationship_tier": "👀 僅點讚/造訪",
       "first_contact_at": "2026-11-01T12:15:51.438553",
       "history": [
         {
@@ -336,10 +350,10 @@
     },
     "howhow_sweets": {
       "username": "howhow_sweets",
-      "total_interactions": 6,
+      "total_interactions": 2,
       "likes_given": 4,
-      "comments_given": 1,
-      "relationship_tier": "🤝 摯友同盟",
+      "comments_given": 2,
+      "relationship_tier": "☕ 熟稔常客",
       "first_contact_at": "2026-11-01T12:15:51.438553",
       "history": [
         {
@@ -379,16 +393,23 @@
           "post_url": "",
           "comment_text": "",
           "screenshot": ""
+        },
+        {
+          "timestamp": "2026-11-23T22:47:04.358805",
+          "action": "comment",
+          "post_url": "https://www.threads.net/@howhow_sweets/post/DfbgPIQlHXX",
+          "comment_text": "備料真的像在跟天氣還有客人猜拳一樣難捉摸喵！但大家吃過你們家甜點一定會再回頭的，老闆不要氣餒，本喵幫你加油打氣喵🍰🐾",
+          "screenshot": "scripts\\screenshots\\reciprocal_howhow_sweets_20261123_224704.png"
         }
       ],
-      "last_interaction_at": "2026-11-04T15:16:12.385642"
+      "last_interaction_at": "2026-11-23T22:47:04.358805"
     },
     "yuanlung.667": {
       "username": "yuanlung.667",
       "total_interactions": 3,
       "likes_given": 2,
       "comments_given": 1,
-      "relationship_tier": "☕ 熟稔常客",
+      "relationship_tier": "🌱 初次問候",
       "first_contact_at": "2026-11-01T12:15:51.438553",
       "history": [
         {
@@ -416,7 +437,7 @@
       "total_interactions": 2,
       "likes_given": 2,
       "comments_given": 0,
-      "relationship_tier": "☕ 熟稔常客",
+      "relationship_tier": "👀 僅點讚/造訪",
       "first_contact_at": "2026-11-01T12:15:51.438553",
       "history": [
         {
@@ -439,7 +460,7 @@
       "total_interactions": 4,
       "likes_given": 2,
       "comments_given": 0,
-      "relationship_tier": "☕ 熟稔常客",
+      "relationship_tier": "👀 僅點讚/造訪",
       "first_contact_at": "2026-11-02T01:46:44.151816",
       "last_interaction_at": "2026-11-04T09:32:09.299223",
       "history": [
@@ -480,7 +501,7 @@
       "total_interactions": 1,
       "likes_given": 1,
       "comments_given": 0,
-      "relationship_tier": "🌱 初次問候",
+      "relationship_tier": "👀 僅點讚/造訪",
       "first_contact_at": "2026-11-02T01:46:44.264047",
       "last_interaction_at": "2026-11-02T01:46:44.264047",
       "history": [
@@ -500,7 +521,7 @@
       "total_interactions": 2,
       "likes_given": 1,
       "comments_given": 0,
-      "relationship_tier": "☕ 熟稔常客",
+      "relationship_tier": "👀 僅點讚/造訪",
       "first_contact_at": "2026-11-02T01:46:44.449471",
       "last_interaction_at": "2026-11-05T02:29:00.685286",
       "history": [
@@ -553,10 +574,10 @@
       "category": "local_community",
       "total_interactions": 3,
       "likes_given": 0,
-      "comments_given": 2,
+      "comments_given": 3,
       "relationship_tier": "☕ 熟稔常客",
       "first_contact_at": "2026-11-02T16:08:39.183661",
-      "last_interaction_at": "2026-11-04T15:16:12.326673",
+      "last_interaction_at": "2026-11-23T22:44:45.830422",
       "history": [
         {
           "timestamp": "2026-11-02T16:08:39.183661",
@@ -578,6 +599,13 @@
           "post_url": "",
           "comment_text": "週三下午三點，空氣裡都是小瑪莉家現烤貓咪造型戚風蛋糕的香氣... 生活管家默默在後排端出剛泡好的無糖鹿野紅烏龍，配這塊甜點剛剛好。週三小週末辛苦了，吃塊小蛋糕喝口茶，剩下的半天笑著過！🍵🍰🐱",
           "screenshot": "C:\\Users\\lenovo\\我的雲端硬碟\\00_Master_Polaris\\00-03_Brand_LifeButler\\00-03-06_Threads_Meow_Hub\\scripts\\screenshots\\walk_v3_clout_tea_love_cat_cake_wednesday.png"
+        },
+        {
+          "timestamp": "2026-11-23T22:44:45.830422",
+          "action": "comment",
+          "post_url": "https://www.threads.net/@love_love_cat_cake/post/DgCWcphEeBv",
+          "comment_text": "忍了十天終於喝到心心念念的波霸鮮奶茶，第一口下去一定超療癒喵！做甜點忙完來一杯手搖飲完全是最佳充電喵🧋🐾",
+          "screenshot": "scripts\\screenshots\\reciprocal_love_love_cat_cake_20261123_224445.png"
         }
       ]
     },
@@ -588,7 +616,7 @@
       "total_interactions": 2,
       "likes_given": 1,
       "comments_given": 0,
-      "relationship_tier": "☕ 熟稔常客",
+      "relationship_tier": "👀 僅點讚/造訪",
       "first_contact_at": "2026-11-02T16:08:39.274661",
       "last_interaction_at": "2026-11-04T15:16:12.501406",
       "history": [
@@ -615,7 +643,7 @@
       "total_interactions": 2,
       "likes_given": 1,
       "comments_given": 0,
-      "relationship_tier": "☕ 熟稔常客",
+      "relationship_tier": "👀 僅點讚/造訪",
       "first_contact_at": "2026-11-02T16:08:39.354683",
       "last_interaction_at": "2026-11-04T15:16:12.576731",
       "history": [
@@ -642,7 +670,7 @@
       "total_interactions": 4,
       "likes_given": 1,
       "comments_given": 1,
-      "relationship_tier": "☕ 熟稔常客",
+      "relationship_tier": "🌱 初次問候",
       "first_contact_at": "2026-11-02T16:08:39.448117",
       "last_interaction_at": "2026-11-05T02:29:00.520217",
       "history": [
@@ -683,7 +711,7 @@
       "total_interactions": 2,
       "likes_given": 1,
       "comments_given": 0,
-      "relationship_tier": "☕ 熟稔常客",
+      "relationship_tier": "👀 僅點讚/造訪",
       "first_contact_at": "2026-11-02T16:08:39.536247",
       "last_interaction_at": "2026-11-04T15:16:12.649083",
       "history": [
@@ -710,7 +738,7 @@
       "total_interactions": 1,
       "likes_given": 1,
       "comments_given": 0,
-      "relationship_tier": "🌱 初次問候",
+      "relationship_tier": "👀 僅點讚/造訪",
       "first_contact_at": "2026-11-02T16:08:39.648790",
       "last_interaction_at": "2026-11-02T16:08:39.648790",
       "history": [
@@ -730,7 +758,7 @@
       "total_interactions": 2,
       "likes_given": 0,
       "comments_given": 0,
-      "relationship_tier": "☕ 熟稔常客",
+      "relationship_tier": "👀 僅點讚/造訪",
       "first_contact_at": "2026-11-02T23:38:06.914780",
       "last_interaction_at": "2026-11-05T02:29:00.283298",
       "history": [

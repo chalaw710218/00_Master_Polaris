@@ -60,17 +60,29 @@ def upload_local_image_to_meta_cdn(image_path):
 
     print(f"📤 正在將本地圖片託管至 Meta 官方 CDN: {path.name}...")
     try:
+        # 自動解析真正的 Page Access Token (防呆：若 .env 內為 User Token 則自動轉換為 Page Token)
+        page_token = FB_PAGE_ACCESS_TOKEN
+        try:
+            r_pt = requests.get(
+                f"https://graph.facebook.com/v20.0/{FB_PAGE_ID}?fields=access_token&access_token={FB_PAGE_ACCESS_TOKEN}",
+                timeout=10
+            )
+            if r_pt.status_code == 200 and r_pt.json().get("access_token"):
+                page_token = r_pt.json()["access_token"]
+        except Exception:
+            pass
+
         url_upload = f"https://graph.facebook.com/v20.0/{FB_PAGE_ID}/photos"
         with open(path, "rb") as f:
             r = requests.post(url_upload, files={"source": f}, data={
-                "access_token": FB_PAGE_ACCESS_TOKEN,
+                "access_token": page_token,
                 "published": "false"
             }, timeout=30)
         res = r.json()
         photo_id = res.get("id")
         if photo_id:
             # 抓取最高畫質的 CDN 網址
-            url_query = f"https://graph.facebook.com/v20.0/{photo_id}?fields=images&access_token={FB_PAGE_ACCESS_TOKEN}"
+            url_query = f"https://graph.facebook.com/v20.0/{photo_id}?fields=images&access_token={page_token}"
             r2 = requests.get(url_query, timeout=20).json()
             images = r2.get("images", [])
             if images:

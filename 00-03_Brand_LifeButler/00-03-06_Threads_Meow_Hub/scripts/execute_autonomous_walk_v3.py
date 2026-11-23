@@ -87,8 +87,10 @@ def parse_args():
     parser.add_argument("--topic", type=str, default=None, help="主題標籤 (例如：台東生活, 耍廢日常, 生活服務)")
     parser.add_argument("--reply", type=str, default=None, help="客製首回覆文字")
     parser.add_argument("--dry-run", action="store_true", help="演練模式，不真正調用 API 發文")
-    parser.add_argument("--patrol-only", action="store_true", help="僅執行社交巡邏與借光端茶，跳過新貼文發布")
-    parser.add_argument("--k-id", type=str, default=None, help="指定儲備知識 K-編號 (如 K-014)，若指定 control 或 [] 則為對照組")
+    parser.add_argument("--patrol-only", action="store_true", help="僅執行社交巡邏與蹭熱度/散散步，跳過新貼文發布")
+    parser.add_argument("--post-only", action="store_true", help="純發文任務模式：僅執行看家門、發文與首回覆，不做訪鄰居、蹭熱度留言與散散步")
+    parser.add_argument("--k-id", type=str, default=None, help="指定儲備知識 K-編號 (如 K-014/auto)，若未指定則依 4x4 每日時段輪換表自動決定")
+    parser.add_argument("--slot", type=int, default=None, help="指定時段索引 (0:09:07, 1:12:34, 2:17:36, 3:22:33)，預設依當前時間自動判定")
     parser.add_argument("--trend", action="store_true", help="強制融入即時台灣熱搜趨勢 (hot-trend-scout)")
     parser.add_argument("--trend-keyword", type=str, default=None, help="指定融入之熱搜關鍵字")
     parser.add_argument("--skip-rss", action="store_true", help="跳過 RSS 友店探測")
@@ -105,27 +107,15 @@ is_cat_hero = today_weekday in [0, 1, 2] # 週一至週三主役為店貓喵編�
 default_hero = "喵編 (店貓)" if is_cat_hero else "生活管家 (影)"
 default_topic = "耍廢日常" if is_cat_hero else "台東生活"
 
-# 判斷是否為每日第一篇對照組
-is_control_post = (args.k_id in ["control", "[]"])
+# 🔒 【創辦人親定 4x4 每日時段輪換排程】：若未手動強制指定 k-id (或傳入 auto)，依日期與時段自動決定
+if not args.patrol_only and (args.k_id is None or args.k_id.lower() == "auto"):
+    from k_slot_rotator import get_k_id_for_date_and_slot, infer_slot_index_from_hour, format_k_display
+    slot_idx = args.slot if args.slot is not None else infer_slot_index_from_hour(current_hour)
+    args.k_id = get_k_id_for_date_and_slot(now_dt.date(), slot_idx)
+    print(f"🔄【4x4 時段自動輪換】：今日 ({now_dt.date().isoformat()}) 時段 #{slot_idx} 自動配發 -> {format_k_display(args.k_id)}")
 
-# 🔒 【創辦人親定鐵律 · 自動防呆防遺漏】：若未指定 k-id，自動檢查今日是否已存在對照組
-if not is_control_post and args.k_id is None:
-    feedback_file = ROOT_DIR / "data" / "feedback_posts.json"
-    today_str = now_dt.strftime("%Y-%m-%d")
-    has_today_control = False
-    if feedback_file.exists():
-        try:
-            with open(feedback_file, "r", encoding="utf-8") as f:
-                fb_posts = json.load(f)
-                for p in fb_posts:
-                    if p.get("created_at", "").startswith(today_str) and p.get("is_control"):
-                        has_today_control = True
-                        break
-        except Exception:
-            pass
-    if not has_today_control:
-        is_control_post = True
-        print(f"🧪【創辦人親定鐵律 · 自動防呆鎖定】：今日 ({today_str}) 尚未建立對照組，自動強制鎖定 --k-id control！確保全天具備不可動搖之科學比對真值基準線！")
+# 判斷是否為對照組
+is_control_post = (args.k_id in ["control", "[]"])
 
 applied_trend_info = None
 
@@ -145,18 +135,17 @@ if not args.text:
             if 5 <= current_hour < 11:
                 cat_morning_candidates = [
                     (
-                        "店貓日常・晨間伸懶腰篇 (對照組)",
-                        """（在木地板上的晨光裡慢慢伸個長長的懶腰）
-早晨的台東微風涼涼的，
-陽光剛好把本喵的毛皮曬得溫溫熱熱喵。
+                        "店貓日常・週一藺草蓆晨光篇 (對照組)",
+                        """（把兩隻白手套往前伸到最長，在藺草蓆上拱起背拉個大懶腰）
+週一早晨七點半，台東老宅走廊的亞麻布簾被微風吹得輕輕晃動喵。
+矮木桌上的陶杯剛倒滿溫水，冒著淡淡的白煙。
 
-人類一大早總是在慌慌張張找鑰匙、趕時間，
-但對本喵來說，早晨最重要的儀式只有一件：
-原地深呼吸，然後等罐罐打開的那一聲「啵」！
+外面的麻雀已經在樹梢吱吱喳喳開早會了，
+本喵的草蓆剛好被第一道晨光曬得暖烘烘的，還帶著一點草香。
 
-今天大家出門上班都順利嗎？
-不管待辦事項有多少，記得像本喵一樣先把背挺直再出發喵！🐾 #台東生活""",
-                        "（探出毛毛頭）早餐記得要吃飽飽喵！今天一整天本喵都在店裡幫大家隔空充電喵🐾"
+新的一週慢慢開始就好喵，
+出門前先喝口溫水，把肩膀放輕鬆再出發吧！🐾 #台東生活""",
+                        "（打個小小的哈欠）週一早安喵！大家今天的早餐準備吃蛋餅還是飯糰呢？吃飽飽才有元氣喔🐾"
                     ),
                     (
                         "店貓日常・老木門晨風篇 (對照組)",
@@ -168,10 +157,29 @@ if not args.text:
 本喵在門口幫大家把關每一陣吹過來的海風。
 
 大家早安喵！出門前深呼吸一口氣，
-今天也像本喵一樣踏踏實實過好一天喵！🐾 #店貓日常"""
+今天也像本喵一樣踏踏實實過好一天喵！🐾 #台東生活""",
+                        "（晃晃毛茸茸的尾巴）早起的空氣特別清爽喵！祝大家今天都有好心情🐾"
+                    ),
+                    (
+                        "店貓日常・木窗陽光洗臉篇 (對照組)",
+                        """（坐在窗邊的木地板上，用白爪子沾沾口水認真洗臉）
+早晨的陽光穿過木窗框，在地板上畫出亮亮的小格子喵。
+空氣裡有一點露水跟泥土的清爽味道。
+
+本喵已經把鬍鬚跟耳朵都整理乾淨了，
+準備迎接今天第一波路過門口的小蝴蝶。
+
+大家週一早安喵！不管今天有什麼行程，先把早餐吃得飽飽的再說喵！🐾 #台東生活""",
+                        "（探出毛毛頭）早安喵！記得帶件薄外套出門，今天本喵也在店裡陪大家喔🐾"
                     )
                 ]
-                post_title, post_text, first_reply = cat_morning_candidates[0]
+                chosen = cat_morning_candidates[0]
+                for cand in cat_morning_candidates:
+                    passed, _ = check_text_poka_yoke(cand[1], check_remote=True)
+                    if passed:
+                        chosen = cand
+                        break
+                post_title, post_text, first_reply = chosen
             elif 11 <= current_hour < 17:
                 post_title = "店貓日常・午後折手手篇 (對照組)"
                 post_text = """（把前腳折好在胸口，窩在木窗台前）
@@ -351,6 +359,160 @@ if not args.text:
                         print(f"ℹ️ 對照組候選『{cand[0]}』未通過檢驗 ({msg})，自動切換至下一場景...")
                 
                 post_title, post_text, first_reply = chosen
+
+    # ── 1.5 創辦人親定規則 4 & 5：K-014 / K-025 / K-031 專屬特化分支 ──
+    elif args.k_id in ["K-014", "K-025", "K-031"]:
+        print(f"🎯【創辦人親定軍規】：啟動 {args.k_id} 專屬風格與具體問句流水線！")
+        k_candidates = []
+        if args.k_id == "K-014": # 感官白描：只寫畫面和感覺，不提服務！
+            if is_cat_hero:
+                k_candidates = [
+                    (
+                        "K-014 感官白描・老木窗微風光影篇",
+                        """（把前腳整整齊齊收在胸口，下巴貼在微涼的木窗框上）
+午後四點多的台東，斜陽把老宅的磨石子地曬出一大片溫暖的金黃色。
+空氣裡有一點乾草和泥土被風吹過的氣味，
+院子裡的欖仁樹葉被風吹得沙沙響。
+
+沒有什麼催促的聲音，只有木頭和風的呼吸。
+把身體放鬆下來，看著光影慢慢往牆角移過去。
+
+你那邊現在風也這麼大嗎？""",
+                        "（輕輕搖搖尾巴尖端）吹著風好舒服喵。站起來看看窗外的天空吧🐾"
+                    ),
+                    (
+                        "K-014 感官白描・藺草蓆茶香篇",
+                        """（趴在走廊的藺草蓆上，鼻尖湊近剛泡好的溫熱陶杯）
+老宅走廊的亞麻簾子被太平洋吹來的風微微掀起一角。
+深焙紅烏龍的白煙裊裊升起，帶著淡淡的花果香與木頭香氣。
+屋簷上的麻雀剛跳過瓦片，留下一陣細微的爪子聲。
+
+台東這時候的天色漸漸從金黃沉入淺藍。
+光線落在手背上的溫度剛剛好。
+
+你那邊今天有看到夕陽嗎？""",
+                        "（半瞇著眼睛打個小哈欠）傍晚的空氣特別乾淨喵。深呼吸一口放鬆一下吧🐾"
+                    )
+                ]
+            else:
+                k_candidates = [
+                    (
+                        "K-014 感官白描・黃昏天色與茶煙篇",
+                        """推開老木窗，午後帶著海鹽鹹味的微風吹進長廊。
+老宅的磨石子地板泛著淡淡的光澤，
+矮几上一只粗陶茶杯，熱水剛沖下去，茶煙在光影裡慢悠悠地打轉。
+
+中央山脈的稜線在暮色裡漸漸被勾勒成一層深黛色。
+沒有喇叭聲，只有遠處傳來兩聲狗吠與落葉刮過路面的聲響。
+
+你那邊現在天黑了嗎？""",
+                        "（輕輕遞上一只溫熱杯盞）深呼吸一口清涼空氣，給今天一個安靜的落幕。🍵✨"
+                    )
+                ]
+        elif args.k_id == "K-025": # 現有服務：寫外送、跑腿、追垃圾車真實工作細節！
+            if is_cat_hero:
+                k_candidates = [
+                    (
+                        "K-025 現有服務・後座保溫袋與外送細節篇",
+                        """（在店門口好奇地盯著剛回到店裡的安全帽與保溫箱）
+剛才生活管家騎車幫市區的客人送完晚餐回來，
+機車後座的深藍色大保溫箱一打開，熱騰騰的麻油排骨湯和現切滷菜香氣立刻飄出來喵。
+每一盒便當都用厚厚防撞泡棉固定得好好的，湯汁一滴都沒灑出來。
+
+在台東幫大家跑腿送飯、順路帶生活用品，
+最療癒的就是把熱熱的晚餐親手遞給剛下班的人類時，對方臉上的笑容。
+
+台東市區你們吃便當最常夾哪三樣菜？""",
+                        "（探出毛毛頭蹭蹭）聞到便當香氣本喵的肚子也叫了喵～大家今晚吃什麼好料呢？🐾"
+                    ),
+                    (
+                        "K-025 現有服務・黃昏追垃圾車真實腳步篇",
+                        """（跳上門口木柵欄看著巷子口）
+傍晚五點多，遠遠傳來少女的祈禱音樂聲，台東的垃圾車準時拐進巷子了喵！
+生活管家穿著反光背心，雙手提著兩大袋分類好的回收物與廚餘袋，
+小跑步幫巷子裡行動不便的長輩順路丟上垃圾車，跟清潔隊員點頭道謝。
+
+這就是生活管家每天真實的跑腿日常，
+追垃圾車、送熱飯、幫忙提重物，讓出門不方便的鄉親少流一趟汗。
+
+你家那邊的垃圾車今天幾點來？""",
+                        "（晃晃尾巴）追垃圾車是每天最刺激的運動喵！大家今天有記得丟垃圾嗎？🐾"
+                    )
+                ]
+            else:
+                k_candidates = [
+                    (
+                        "K-025 現有服務・雨後外送與長輩跑腿篇",
+                        """安全帽的鏡片上還帶著剛才路過鐵花村時飄來的細微水氣。
+後座保溫箱裡，兩盒剛從正氣路老店包好的熱便當穩穩固定在防晃夾層裡，
+提上二樓交給獨居的阿公時，湯碗摸起來還是滾燙的。
+
+生活管家做的事情很樸實：
+外送一頓準時的熱飯、幫忙跑腿領個包裹、傍晚順手幫鄰居把垃圾丟上車。
+看到門打開時那句「辛苦了、慢慢騎」，一整天的奔波就很值得。
+
+你家那邊的垃圾車每天幾點到巷口？""",
+                        "（在門口遞上一杯溫開水）生活裡的踏實，往往就藏在這些跑腿的小細節裡。今晚好好吃飯！🍵✨"
+                    )
+                ]
+        elif args.k_id == "K-031": # 服務徵詢：直接問一個未來服務「大家需不需要」
+            if is_cat_hero:
+                k_candidates = [
+                    (
+                        "K-031 服務徵詢・免動腦下班備菜盒篇",
+                        """（兩隻白爪子按在木桌前，認真盯著桌上的小筆記本）
+生活管家最近正在規劃一個新的貼心服務喵！
+常常看到很多上班族跟小家庭，下班想自己煮頓健康晚餐，
+但想到要去菜市場挑菜、回家洗菜切菜、廚餘又堆滿垃圾桶就覺得心好累。
+
+如果生活管家每天傍晚幫大家把「當天產地直送、洗乾淨、切好的一餐份蔬菜肉片備菜盒」順路送到家，
+下班回家只要直接倒進熱鍋、開火五分鐘就能開飯。
+
+這個服務如果生活管家來做，大家會需要嗎？""",
+                        "（用期待的翠綠大眼睛看著你）直接丟下鍋煮熟就能吃，連本喵都想幫忙切菜了喵！大家覺得實用嗎？🐾"
+                    ),
+                    (
+                        "K-031 服務徵詢・到府換高處燈泡與電池篇",
+                        """（歪著小腦袋看著天花板上閃爍的小燈泡）
+生活管家最近到府跑腿時發現，好多人家裡的走廊燈泡壞了、或是冷氣遙控器沒電了，
+長輩自己爬梯子好危險，年輕人又在外地工作沒辦法隨時回來弄。
+
+我們正在規劃：「順路到府居家小微修」服務，
+例如順路幫忙換高處燈泡、替換遙控器與熱水器電池、或是檢查一下水龍頭墊片。
+
+如果生活管家推出這個順路幫忙換燈泡的服務，大家會需要嗎？""",
+                        "（坐在梯子旁幫忙把關）爬高交給專業的人類，安全第一喵！這個服務大家會想預約嗎？🐾"
+                    )
+                ]
+            else:
+                k_candidates = [
+                    (
+                        "K-031 服務徵詢・居家水電耗材微更換篇",
+                        """在台東走訪各家時常看到一個很現實的問題：
+家裡的高處燈泡燒壞了、冷氣遙控器電池沒電、或是水龍頭墊片微微滴水，
+找大水電師傅跑一趟划不來，長輩自己爬高拿鐵梯又讓人捏把冷汗。
+
+生活管家正在評估推出「居家小微修與耗材更換服務」：
+順路幫忙換燈泡、換電池、換濾網，讓小問題當天解決不拖延。
+
+如果生活管家推出這樣的到府微修小幫手，大家會需要嗎？""",
+                        "（在留言區為大家泡好熱茶）居家安全不能馬虎。這樣的順路服務，大家覺得實用嗎？🍵✨"
+                    )
+                ]
+
+        # 檢驗選出可用的候選
+        chosen = k_candidates[0]
+        try:
+            from text_hash_gate import check_text_poka_yoke
+            for cand in k_candidates:
+                passed, msg = check_text_poka_yoke(cand[1], threshold=0.70, check_remote=True)
+                if passed:
+                    chosen = cand
+                    print(f"🛡️【{args.k_id} 專屬候選選中】：{cand[0]}（物理檢驗通過零重複）")
+                    break
+        except Exception as e:
+            print(f"ℹ️ {args.k_id} 候選檢驗提示: {e}")
+        post_title, post_text, first_reply = chosen
 
     # ── 2. 非對照組：啟動 hot-trend-scout 融合即時台灣時事熱點 ──
     else:
@@ -768,6 +930,14 @@ if rss_sentinel and hasattr(rss_sentinel, "DEFAULT_TARGETS"):
             })
             existing_users.add(du)
 
+# 啟動時間去整點化 (Jitter 防風控門禁)
+try:
+    from interaction_safety_gate import apply_walk_jitter
+    if not args.dry_run:
+        apply_walk_jitter()
+except Exception:
+    pass
+
 # --- 步驟一：看家門 (自帳最新留言動態掃描 ＋ 100% 走心秒回門禁) ---
 print("\n>>> 步驟一：看家門 (自帳近期貼文動態掃描 ＋ 100% 秒回門禁) <<<")
 STATE_FILE = SCRIPT_DIR / "replied_ids.json"
@@ -844,217 +1014,252 @@ with sync_playwright() as p:
     )
     page = context.new_page()
 
-    # --- 步驟二：訪鄰居 (threads-rss-sentinel 動態嗅探 ＋ 在地友店 80/20 溫暖巡邏) ---
-    print("\n>>> 步驟二：訪鄰居 (threads-rss-sentinel 動態嗅探 ＋ 在地友店巡邏) <<<")
-    
-    # 啟動 threads-rss-sentinel 預先探測友店最新動態
-    active_neighbors = []
-    normal_neighbors = []
-    
-    if rss_sentinel and not args.skip_rss:
-        print("📡【threads-rss-sentinel 啟動】：正在巡邏在地友店最新 RSS 發文動態...")
-        # 探測前 6 家友店，快速過濾出近期有活躍貼文之鄰居
-        scout_pool = LOCAL_TARGETS[:8]
-        for t in scout_pool:
+    if args.post_only:
+        print("\n>>> 📝 [Post-Only 純發文模式] 僅執行看家門、發文與首回覆；跳過訪鄰居、蹭熱度留言與散散步（交朋友動作集中於每日 3 次 --patrol-only 逛逛） <<<")
+    else:
+        # --- 步驟二：訪鄰居 (threads-rss-sentinel 動態嗅探 ＋ 在地友店 80/20 溫暖巡邏) ---
+        print("\n>>> 步驟二：訪鄰居 (threads-rss-sentinel 動態嗅探 ＋ 在地友店巡邏) <<<")
+        
+        # 啟動 threads-rss-sentinel 預先探測友店最新動態
+        active_neighbors = []
+        normal_neighbors = []
+        
+        if rss_sentinel and not args.skip_rss:
+            print("📡【threads-rss-sentinel 啟動】：正在巡邏在地友店最新 RSS 發文動態...")
+            # 探測前 8 家友店，快速過濾出近期有活躍貼文之鄰居
+            scout_pool = LOCAL_TARGETS[:8]
+            for t in scout_pool:
+                u = t["user"]
+                name = t["name"]
+                try:
+                    feed_res = rss_sentinel.fetch_threads_feed(u, timeout=5)
+                    if feed_res.get("status") == "ok" and feed_res.get("items"):
+                        latest_item = feed_res["items"][0]
+                        drafts = rss_sentinel.generate_draft_replies(latest_item)
+                        best_draft = drafts[0]["text"] if drafts else ""
+                        
+                        finding = {
+                            "username": u,
+                            "name": name,
+                            "title": latest_item.get("title", "")[:80],
+                            "link": latest_item.get("link", ""),
+                            "pub_date": latest_item.get("pub_date", ""),
+                            "draft_reply": best_draft
+                        }
+                        report_data["rss_sentinel_scout"].append(finding)
+                        t_active = dict(t)
+                        t_active["rss_finding"] = finding
+                        active_neighbors.append(t_active)
+                        print(f"   🌟 友店 @{u} ({name}) 最新動態: 「{latest_item.get('title', '')[:35]}...」")
+                    else:
+                        normal_neighbors.append(t)
+                except Exception as e:
+                    normal_neighbors.append(t)
+            
+            # 剩餘未探測的加入 normal_neighbors
+            for t in LOCAL_TARGETS[8:]:
+                normal_neighbors.append(t)
+        else:
+            normal_neighbors = list(LOCAL_TARGETS)
+
+        # 排序巡邏目標：近期有動態的友店排在最前列，總共拜訪前 8 家
+        sorted_targets = (active_neighbors + normal_neighbors)[:8]
+        print(f"🚶 今日拜訪鄰里隊列：共 {len(sorted_targets)} 家友店（其中 {len(active_neighbors)} 家有即時新動態）")
+
+        friend_comment_sent = 0
+        for t in sorted_targets:
             u = t["user"]
             name = t["name"]
+            rf = t.get("rss_finding")
+            url = f"https://www.threads.net/@{u}"
+            print(f" -> 拜訪 @{u} ({name})...")
+            if rf:
+                print(f"   📡 [RSS 哨兵快報]: 「{rf['title'][:40]}...」")
             try:
-                feed_res = rss_sentinel.fetch_threads_feed(u, timeout=5)
-                if feed_res.get("status") == "ok" and feed_res.get("items"):
-                    latest_item = feed_res["items"][0]
-                    drafts = rss_sentinel.generate_draft_replies(latest_item)
-                    best_draft = drafts[0]["text"] if drafts else ""
-                    
-                    finding = {
+                if rf and rf.get("draft_reply") and friend_comment_sent < 4 and visit_and_reply_page and not args.dry_run:
+                    ok_c = visit_and_reply_page(page, u, custom_comment=rf["draft_reply"], post_url=rf.get("link"))
+                    if ok_c:
+                        friend_comment_sent += 1
+                        report_data["step2_friends_visited"].append({
+                            "username": u,
+                            "name": name,
+                            "action": "commented",
+                            "comment": rf["draft_reply"],
+                            "rss_post": rf.get("title")
+                        })
+
+                page.goto(url, wait_until="domcontentloaded", timeout=25000)
+                page.wait_for_timeout(2000)
+                
+                like_btn = page.locator('div[role="button"]:has(svg[title="Like"]), div[role="button"]:has(svg[title="讚"])').first
+                if like_btn.is_visible(timeout=2000):
+                    # 安全門禁：檢查每日愛心上限 (60個)
+                    can_l = True
+                    try:
+                        from interaction_safety_gate import can_like, record_like
+                        can_l, l_reason = can_like()
+                        if not can_l:
+                            print(f"   🛑 [安全門禁阻斷] {l_reason}，跳過按讚")
+                    except Exception:
+                        pass
+
+                    if can_l:
+                        like_btn.click(force=True, timeout=3000)
+                        page.wait_for_timeout(800)
+                        print(f"   ❤️ 已為 {name} 最新動態點亮愛心！")
+                        try:
+                            record_like(target_user=u, post_url=url)
+                        except Exception:
+                            pass
+                        report_data["step2_friends_visited"].append({
+                            "username": u,
+                            "name": name,
+                            "action": "liked",
+                            "rss_post": rf.get("title") if rf else None
+                        })
+                    else:
+                        report_data["step2_friends_visited"].append({
+                            "username": u,
+                            "name": name,
+                            "action": "like_skipped_limit_reached",
+                            "rss_post": rf.get("title") if rf else None
+                        })
+                else:
+                    print(f"   ℹ️ {name} 目前無可點按鈕或已點亮")
+                    report_data["step2_friends_visited"].append({
                         "username": u,
                         "name": name,
-                        "title": latest_item.get("title", "")[:80],
-                        "link": latest_item.get("link", ""),
-                        "pub_date": latest_item.get("pub_date", ""),
-                        "draft_reply": best_draft
-                    }
-                    report_data["rss_sentinel_scout"].append(finding)
-                    t_active = dict(t)
-                    t_active["rss_finding"] = finding
-                    active_neighbors.append(t_active)
-                    print(f"   🌟 友店 @{u} ({name}) 最新動態: 「{latest_item.get('title', '')[:35]}...」")
-                else:
-                    normal_neighbors.append(t)
+                        "action": "already_liked",
+                        "rss_post": rf.get("title") if rf else None
+                    })
             except Exception as e:
-                normal_neighbors.append(t)
-        
-        # 剩餘未探測的加入 normal_neighbors
-        for t in LOCAL_TARGETS[8:]:
-            normal_neighbors.append(t)
-    else:
-        normal_neighbors = list(LOCAL_TARGETS)
+                print(f"   ⚠️ 拜訪 {name} 提示: {e}")
+                report_data["step2_friends_visited"].append({"username": u, "name": name, "action": "visited"})
 
-    # 排序巡邏目標：近期有動態的友店排在最前列，總共拜訪前 7 家
-    sorted_targets = (active_neighbors + normal_neighbors)[:7]
-    print(f"🚶 今日拜訪鄰里隊列：共 {len(sorted_targets)} 家友店（其中 {len(active_neighbors)} 家有即時新動態）")
-
-    for t in sorted_targets:
-        u = t["user"]
-        name = t["name"]
-        rf = t.get("rss_finding")
-        url = f"https://www.threads.net/@{u}"
-        print(f" -> 拜訪 @{u} ({name})...")
-        if rf:
-            print(f"   📡 [RSS 哨兵快報]: 「{rf['title'][:40]}...」")
-            if rf.get("draft_reply"):
-                print(f"   💬 [走心留言建議]: {rf['draft_reply']}")
-        try:
-            page.goto(url, wait_until="domcontentloaded", timeout=25000)
-            page.wait_for_timeout(2000)
-            
-            like_btn = page.locator('div[role="button"]:has(svg[title="Like"]), div[role="button"]:has(svg[title="讚"])').first
-            if like_btn.is_visible(timeout=2000):
-                like_btn.click(force=True, timeout=3000)
-                page.wait_for_timeout(800)
-                print(f"   ❤️ 已為 {name} 最新動態點亮愛心！")
-                report_data["step2_friends_visited"].append({
-                    "username": u,
-                    "name": name,
-                    "action": "liked",
-                    "rss_post": rf.get("title") if rf else None
-                })
-            else:
-                print(f"   ℹ️ {name} 目前無可點按鈕或已點亮")
-                report_data["step2_friends_visited"].append({
-                    "username": u,
-                    "name": name,
-                    "action": "already_liked",
-                    "rss_post": rf.get("title") if rf else None
-                })
-        except Exception as e:
-            print(f"   ⚠️ 拜訪 {name} 提示: {e}")
-            report_data["step2_friends_visited"].append({"username": u, "name": name, "action": "visited"})
-
-    # --- 步驟二點三：登門回訪協議 (創辦人親定：去來過我們家留言的好友最新貼文下方回禮) ---
-    print("\n>>> 步驟二點三：登門回訪協議 (回訪近期留言好友最新貼文) <<<")
-    reciprocal_log_path = ROOT_DIR / "data" / "reciprocal_log.json"
-    recent_visited = {}
-    if reciprocal_log_path.exists():
-        try:
-            with open(reciprocal_log_path, "r", encoding="utf-8") as rlf:
-                recent_visited = json.load(rlf)
-        except Exception:
-            pass
-
-    # 候選好友名單：主動留言者優先，接續備選活躍好友
-    all_candidates = list(active_commenters)
-    for backup_friend in ["horsee153", "_cy__.02", "love5205209900", "oh.ouo"]:
-        if backup_friend not in all_candidates:
-            all_candidates.append(backup_friend)
-
-    # 挑選尚未回訪或拜訪間隔最久的好友
-    reciprocal_candidate = None
-    for cand in all_candidates:
-        if cand not in recent_visited:
-            reciprocal_candidate = cand
-            break
-    if not reciprocal_candidate and all_candidates:
-        reciprocal_candidate = all_candidates[0]
-
-    if reciprocal_candidate:
-        print(f"   🏠 鎖定登門回訪對象: @{reciprocal_candidate}")
-        if args.dry_run:
-            print(f"   🧪 [Dry Run] 模擬登門回訪 @{reciprocal_candidate} 完畢")
-            report_data["step2_reciprocal_visit"] = {
-                "target": f"@{reciprocal_candidate}",
-                "status": "dry_run_simulated",
-                "proof": None
-            }
-        else:
+        # --- 步驟二點三：登門回訪協議 (創辦人親定：去來過我們家留言的好友最新貼文下方回禮) ---
+        print("\n>>> 步驟二點三：登門回訪協議 (回訪近期留言好友最新貼文) <<<")
+        reciprocal_log_path = ROOT_DIR / "data" / "reciprocal_log.json"
+        recent_visited = {}
+        if reciprocal_log_path.exists():
             try:
-                if visit_and_reply_page:
-                    # 依主角客製回訪走心文案
-                    if is_cat_hero:
-                        c_msg = f"（探出毛毛頭）在台東看到 @{reciprocal_candidate} 的分享特別有共鳴喵！端上一塊剛烤好的小魚乾致敬～今天也辛苦了喵🐾"
-                    else:
-                        c_msg = f"看到 @{reciprocal_candidate} 的分享很有感觸。在台東做生活管家也是這樣，步子慢慢走才會踏實。默默端上一杯鹿野紅烏龍致敬！🍵✨"
-                    
-                    ok = visit_and_reply_page(page, reciprocal_candidate, custom_comment=c_msg)
-                    if ok:
-                        report_data["step2_reciprocal_visit"] = {
-                            "target": f"@{reciprocal_candidate}",
-                            "status": "success"
-                        }
-                        print(f"   🎉 登門回訪 @{reciprocal_candidate} 圓滿成功！")
-            except Exception as re_err:
-                print(f"   ⚠️ 登門回訪提示: {re_err}")
+                with open(reciprocal_log_path, "r", encoding="utf-8") as rlf:
+                    recent_visited = json.load(rlf)
+            except Exception:
+                pass
 
-    # --- 步驟二點五：借光端茶協議 ---
-    print("\n>>> 步驟二點五：借光端茶協議 (熱門生活串走心端茶) <<<")
-    clout_target_url = "https://www.threads.net/@956leissmoker"
-    try:
-        page.goto(clout_target_url, wait_until="domcontentloaded", timeout=25000)
-        page.wait_for_timeout(2500)
-        shot_clout = SCREENSHOT_DIR / "walk_v3_clout_tea_956leissmoker.png"
-        tea_msg = "看老闆認真專注煙燻，生活管家默默在後排端出剛泡好的熱茶... 辛苦了，今晚別想工作，好好犒勞自己！🍵🍖"
-        
-        # 嘗試尋找貼文回覆按鈕並留言互動
-        try:
-            reply_btn = page.locator('div[role="button"]:has(svg[title="回覆"]), svg[title="回覆"], svg[aria-label="回覆"], svg[aria-label="Reply"]').first
-            if reply_btn.is_visible(timeout=2500):
-                reply_btn.click(force=True, timeout=3000)
-                page.wait_for_timeout(1000)
-                input_box = page.locator('div[contenteditable="true"], div[role="textbox"]').first
-                if input_box.is_visible(timeout=2500):
-                    input_box.click(force=True)
-                    page.keyboard.type(tea_msg, delay=20)
-                    page.wait_for_timeout(1000)
-                    post_btn = page.locator('div[role="button"]:has-text("發佈"), div[role="button"]:has-text("Post")').first
-                    if post_btn.is_visible(timeout=2000):
-                        post_btn.click(force=True, timeout=3000)
-                        page.wait_for_timeout(2500)
-                        print(f"   🍵 借光端茶走心留言已成功送出！")
-        except Exception as ce:
-            print(f"   ℹ️ 借光端茶走心互動提示: {ce}")
+        # 候選好友名單：主動留言者優先，接續備選活躍好友
+        all_candidates = list(active_commenters)
+        for backup_friend in ["horsee153", "_cy__.02", "love5205209900", "oh.ouo"]:
+            if backup_friend not in all_candidates:
+                all_candidates.append(backup_friend)
 
-        page.screenshot(path=str(shot_clout))
+        # 挑選尚未回訪或拜訪間隔最久的好友
+        reciprocal_candidate = None
+        for cand in all_candidates:
+            if cand not in recent_visited:
+                reciprocal_candidate = cand
+                break
+        if not reciprocal_candidate and all_candidates:
+            reciprocal_candidate = all_candidates[0]
+
+        if reciprocal_candidate:
+            print(f"   🏠 鎖定登門回訪對象: @{reciprocal_candidate}")
+            if args.dry_run:
+                print(f"   🧪 [Dry Run] 模擬登門回訪 @{reciprocal_candidate} 完畢")
+                report_data["step2_reciprocal_visit"] = {
+                    "target": f"@{reciprocal_candidate}",
+                    "status": "dry_run_simulated",
+                    "proof": None
+                }
+            else:
+                try:
+                    if visit_and_reply_page:
+                        if is_cat_hero:
+                            c_msg = f"（探出毛毛頭）在台東看到 @{reciprocal_candidate} 的日常分享特別有共鳴，端上一塊剛烤好的小魚乾致敬，今天也辛苦囉！"
+                        else:
+                            c_msg = f"看到 @{reciprocal_candidate} 的分享很有感觸。在台東做生活管家也是這樣，步子慢慢走才會踏實。默默端上一杯鹿野紅烏龍致敬！🍵✨"
+                        
+                        ok = visit_and_reply_page(page, reciprocal_candidate, custom_comment=c_msg)
+                        if ok:
+                            report_data["step2_reciprocal_visit"] = {
+                                "target": f"@{reciprocal_candidate}",
+                                "status": "success"
+                            }
+                            print(f"   🎉 登門回訪 @{reciprocal_candidate} 圓滿成功！")
+                except Exception as re_err:
+                    print(f"   ⚠️ 登門回訪提示: {re_err}")
+
+        # --- 步驟二點五：蹭熱度 (原借光端茶與 hot-trend-scout 合併) ---
+        print("\n>>> 步驟二點五：蹭熱度 (全台熱門話題轉譯台東視角) <<<")
         report_data["step2_clout_tea"] = {
-            "target": "@956leissmoker (雨田燻)",
-            "message": tea_msg,
-            "proof": str(shot_clout)
+            "target": "N/A (公域熱門大串)",
+            "commented_count": 0,
+            "note": "友店巡邏已全數歸入第二步『訪鄰居』，2.5 僅統計熱門大串"
         }
-        print(f"   🍵 借光端茶存證留存: {shot_clout.name}")
-    except Exception as e:
-        print(f"   ⚠️ 借光端茶提示: {e}")
 
-    # --- 步驟三：散散步 (首頁推薦動態點讚) ---
-    print("\n>>> 步驟三：散散步 (首頁推薦動態漫遊) <<<")
-    try:
-        page.goto("https://www.threads.net/", wait_until="domcontentloaded", timeout=25000)
-        page.wait_for_timeout(2500)
-        feed_likes = 0
-        for scroll in range(3):
-            like_btns = page.locator('div[role="button"]:has(svg[title="Like"]), div[role="button"]:has(svg[title="讚"])').all()
-            for btn in like_btns:
+        # --- 步驟三：散散步 (搜尋「台東生活」常民貼文點讚) ---
+        print("\n>>> 步驟三：散散步 (搜尋「台東生活」常民貼文點讚) <<<")
+        try:
+            page.goto("https://www.threads.net/search?q=%E5%8F%B0%E6%9D%B1%E7%94%9F%E6%B4%BB&serp_type=default&filter=recent", wait_until="domcontentloaded", timeout=25000)
+            page.wait_for_timeout(3000)
+            feed_likes = 0
+            for scroll in range(3):
+                like_btns = page.locator('div[role="button"]:has(svg[title="Like"]), div[role="button"]:has(svg[title="讚"])').all()
+                for btn in like_btns:
+                    if feed_likes >= 3:
+                        break
+                    try:
+                        b = btn.bounding_box()
+                        if b and 120 < b['y'] < 800:
+                            try:
+                                from interaction_safety_gate import can_like, record_like
+                                can_l, l_reason = can_like()
+                                if not can_l:
+                                    print(f"   🛑 [安全門禁阻斷] {l_reason}，停止搜尋按讚")
+                                    break
+                            except Exception:
+                                pass
+
+                            btn.click(force=True)
+                            feed_likes += 1
+                            try:
+                                record_like(target_user="taitung_search", post_url="https://www.threads.net/search?q=台東生活")
+                            except Exception:
+                                pass
+                            print(f"   ❤️ 台東生活搜尋動態贈送第 {feed_likes}/3 顆微光愛心")
+                            page.wait_for_timeout(1200)
+                    except Exception:
+                        continue
                 if feed_likes >= 3:
                     break
-                try:
-                    b = btn.bounding_box()
-                    if b and 120 < b['y'] < 800:
-                        btn.click(force=True)
-                        feed_likes += 1
-                        print(f"   ❤️ 首頁動態贈送第 {feed_likes}/3 顆微光愛心")
-                        page.wait_for_timeout(1200)
-                except Exception:
-                    continue
-            if feed_likes >= 3:
-                break
-            page.evaluate("window.scrollBy(0, 600)")
-            page.wait_for_timeout(1000)
-        report_data["step3_feed_likes"] = feed_likes
-    except Exception as e:
-        print(f"   ⚠️ 首頁漫遊提示: {e}")
-        report_data["step3_feed_likes"] = 2
+                page.evaluate("window.scrollBy(0, 600)")
+                page.wait_for_timeout(1000)
+            report_data["step3_feed_likes"] = feed_likes
+        except Exception as e:
+            print(f"   ⚠️ 台東搜尋漫遊提示: {e}")
+            report_data["step3_feed_likes"] = 0
 
     # --- 步驟四：隨筆記（真實調用 Threads API 發文）---
     print("\n>>> 步驟四：隨筆記 (Meta Threads API 真實發布) <<<")
     new_post_id = None
     permalink = None
+
+    # 🔒 【創辦人親定規則 2】：每篇只能有 1 個標籤，內文嚴禁放任何 hashtag，只用主題標籤
+    import re
+    cleaned_post_text = re.sub(r'#\S+', '', post_text).strip()
+    cleaned_post_text = re.sub(r'\n{3,}', '\n\n', cleaned_post_text)
+    if cleaned_post_text != post_text:
+        print(f"   🧹 [標籤防呆] 已自動剝離內文中的 hashtag，僅保留官方主題標籤 (Topic Tag: > {topic_tag})")
+        post_text = cleaned_post_text
+
+    # 🔒 【創辦人親定規則 3】：貼文真實人物/事件/對話審計
+    person_dialogues = re.findall(r'(阿公|阿姨|頭家|老闆|店長|阿伯|叔叔|阿嬤|阿婆|鄰居|客人)說|「[^」]+」', post_text)
+    if person_dialogues:
+        audit_note = f"⚠️ 檢測到具體人物/對話: {person_dialogues}（需呈報創辦人品碩確認是否真實發生）"
+    else:
+        audit_note = "✅ 純淨環境感官/工作白描，無虛構人物對話或歷史事件"
+    print(f"   🔍【真實人物/事件審計】：{audit_note}")
+    report_data["person_dialogue_audit"] = audit_note
 
     # 🔒 【仿生學習系統前向硬約束門禁】：調用 bionic_core.enforce 檢驗 active 規則
     try:
@@ -1247,6 +1452,24 @@ with sync_playwright() as p:
             print(f"⚠️ 黃金聽診過程提示: {e}")
 
     browser.close()
+
+# 查核昨日 21:23 通知頁巡檢是否執行（若電腦未開機導致沒跑，戰報強制註明「昨日通知頁未巡檢」）
+try:
+    act_log_path = ROOT_DIR / "data" / "activity_replies_log.json"
+    yesterday_str = (datetime.date.today() - datetime.timedelta(days=1)).isoformat()
+    today_str = datetime.date.today().isoformat()
+    yesterday_inspected = False
+    if act_log_path.exists():
+        with open(act_log_path, "r", encoding="utf-8") as af:
+            act_data = json.load(af)
+            last_f = (act_data.get("last_fetched") or "")[:10]
+            if last_f in (yesterday_str, today_str):
+                yesterday_inspected = True
+    report_data["yesterday_activity_inspected"] = yesterday_inspected
+    if not yesterday_inspected:
+        print("⚠️ 【通知頁巡檢查核】：昨日通知頁未巡檢（戰報需如實註明）")
+except Exception as ae:
+    print(f"⚠️ 通知頁巡檢紀錄查核提示: {ae}")
 
 # 儲存本次漫遊成果
 output_file = ROOT_DIR / "scripts" / "latest_walk_v3_result.json"

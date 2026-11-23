@@ -1,0 +1,423 @@
+{
+  "name": "accounts/112884798662846885062/locations/1774177451467087781/foodMenus",
+  "menus": [
+    {
+      "sections": [
+        {
+          "labels": [
+            {
+              "displayName": "蒸滿足系列"
+            }
+          ],
+          "items": [
+            {
+              "labels": [
+                {
+                  "displayName": "蒸騷包"
+                }
+              ],
+              "attributes": {
+                "price": {
+                  "currencyCode": "TWD",
+                  "units": "110"
+                }
+              }
+            },
+            {
+              "labels": [
+                {
+                  "displayName": "珍珠盒子"
+                }
+              ],
+              "attributes": {
+                "price": {
+                  "currencyCode": "TWD",
+                  "units": "110"
+                }
+              }
+            },
+            {
+              "labels": [
+                {
+                  "displayName": "蒸蒸日上餃餃者"
+                }
+              ],
+              "attributes": {
+                "price": {
+                  "currencyCode": "TWD",
+                  "units": "80"
+                }
+              }
+            },
+            {
+              "labels": [
+                {
+                  "displayName": "包禮滿意"
+                }
+              ],
+              "attributes": {
+                "price": {
+                  "currencyCode": "TWD",
+                  "units": "70"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "labels": [
+            {
+              "displayName": "蒸物系列"
+            }
+          ],
+          "items": [
+            {
+              "labels": [
+                {
+                  "displayName": "小籠湯包（8粒）"
+                }
+              ],
+              "attributes": {
+                "price": {
+                  "currencyCode": "TWD",
+                  "units": "80"
+                }
+              }
+            },
+            {
+              "labels": [
+                {
+                  "displayName": "高麗菜蒸餃（8粒）"
+                }
+              ],
+              "attributes": {
+                "price": {
+                  "currencyCode": "TWD",
+                  "units": "75"
+                }
+              }
+            },
+            {
+              "labels": [
+                {
+                  "displayName": "牛肉蒸餃（8粒）"
+                }
+              ],
+              "attributes": {
+                "price": {
+                  "currencyCode": "TWD",
+                  "units": "80"
+                }
+              }
+            },
+            {
+              "labels": [
+                {
+                  "displayName": "韭菜蒸餃（8粒）"
+                }
+              ],
+              "attributes": {
+                "price": {
+                  "currencyCode": "TWD",
+                  "units": "75"
+                }
+              }
+            },
+            {
+              "labels": [
+                {
+                  "displayName": "蔥肉蒸餃（8粒）"
+                }
+              ],
+              "attributes": {
+                "price": {
+                  "currencyCode": "TWD",
+                  "units": "75"
+                }
+              }
+            },
+            {
+              "labels": [
+                {
+                  "displayName": "大口蒸餃（10粒）"
+                }
+              ],
+              "attributes": {
+                "price": {
+                  "currencyCode": "TWD",
+                  "units": "65"
+                }
+              }
+            },
+            {
+              "labels": [
+                {
+                  "displayName": "打拋豬辣蒸餃（8粒）"
+                }
+              ],
+              "attributes": {
+                "price": {
+                  "currencyCode": "TWD",
+                  "units": "75"
+                }
+              }
+            },
+            {
+              "labels": [
+                {
+                  "displayName": "鮮蝦河粉（3條）"
+                }
+              ],
+              "attributes": {
+                "price": {
+                  "currencyCode": "TWD",
+                  "units": "70"
+                }
+              }
+            },
+            {
+              "labels": [
+                {
+                  "displayName": "蝦肉蒸餃（8粒）"
+                }
+              ],
+              "attributes": {
+                "price": {
+                  "currencyCode": "TWD",
+                  "units": "75"
+                }
+              }
+            },
+            {
+              "labels": [
+                {
+                  "displayName": "酸辣湯餃"
+                }
+              ],
+              "attributes": {
+                "price": {
+                  "currencyCode": "TWD",
+                  "units": "70"
+                }
+              }
+            },
+            {
+              "labels": [
+                {
+                  "displayName": "雞肉湯包8粒"
+                }
+              ],
+              "attributes": {
+                "price": {
+                  "currencyCode": "TWD",
+                  "units": "80"
+                }
+              }
+            },
+            {
+              "labels": [
+                {
+                  "displayName": "素食蒸餃(8粒)"
+                }
+              ],
+              "attributes": {
+                "dietaryRestriction": [
+                  "VEGETARIAN"
+                ],
+                "price": {
+                  "currencyCode": "TWD",
+                  "units": "80"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "labels": [
+            {
+              "displayName": "港點系列"
+            }
+          ],
+          "items": [
+            {
+              "labels": [
+                {
+                  "displayName": "蟹黃燒賣（6粒）"
+                }
+              ],
+              "attributes": {
+                "price": {
+                  "currencyCode": "TWD",
+                  "units": "75"
+                }
+              }
+            },
+            {
+              "labels": [
+                {
+                  "displayName": "蝦仁燒賣（6粒）"
+                }
+              ],
+              "attributes": {
+                "price": {
+                  "currencyCode": "TWD",
+                  "units": "75"
+                }
+              }
+            },
+            {
+              "labels": [
+                {
+                  "displayName": "白米珍珠丸（6粒）"
+                }
+              ],
+              "attributes": {
+                "price": {
+                  "currencyCode": "TWD",
+                  "units": "75"
+                }
+              }
+            },
+            {
+              "labels": [
+                {
+                  "displayName": "黑米珍珠丸（6粒）"
+                }
+              ],
+              "attributes": {
+                "price": {
+                  "currencyCode": "TWD",
+                  "units": "75"
+                }
+              }
+            },
+            {
+              "labels": [
+                {
+                  "displayName": "肉圓",
+                  "description": "三顆"
+                }
+              ],
+              "attributes": {
+                "price": {
+                  "currencyCode": "TWD",
+                  "units": "60"
+                }
+              }
+            },
+            {
+              "labels": [
+                {
+                  "displayName": "港式叉燒包"
+                }
+              ],
+              "attributes": {
+                "price": {
+                  "currencyCode": "TWD",
+                  "units": "70"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "labels": [
+            {
+              "displayName": "湯品"
+            }
+          ],
+          "items": [
+            {
+              "labels": [
+                {
+                  "displayName": "紫菜蛋花湯"
+                }
+              ],
+              "attributes": {
+                "price": {
+                  "currencyCode": "TWD",
+                  "units": "35"
+                }
+              }
+            },
+            {
+              "labels": [
+                {
+                  "displayName": "酸辣湯"
+                }
+              ],
+              "attributes": {
+                "price": {
+                  "currencyCode": "TWD",
+                  "units": "40"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "labels": [
+            {
+              "displayName": "甜點"
+            }
+          ],
+          "items": [
+            {
+              "labels": [
+                {
+                  "displayName": "奶黃包"
+                }
+              ],
+              "attributes": {
+                "price": {
+                  "currencyCode": "TWD",
+                  "units": "12"
+                }
+              }
+            },
+            {
+              "labels": [
+                {
+                  "displayName": "芝麻包"
+                }
+              ],
+              "attributes": {
+                "price": {
+                  "currencyCode": "TWD",
+                  "units": "12"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "labels": [
+            {
+              "displayName": "飲品"
+            }
+          ],
+          "items": [
+            {
+              "labels": [
+                {
+                  "displayName": "可樂"
+                }
+              ],
+              "attributes": {
+                "price": {
+                  "currencyCode": "TWD",
+                  "units": "25"
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "labels": [
+        {
+          "displayName": "菜單"
+        }
+      ]
+    }
+  ]
+}

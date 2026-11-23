@@ -226,6 +226,10 @@ euromodulated_plasticity_engine.py**：三因子突觸可塑性與創辦人情�
     *   **說明**：【最高心智傳承教案】完整拆解極星自進化核心架構之六代心智躍遷與七階實戰指引。
 *   [🌟 Tutorial_08：數位平權 · Google 商家 AI 數位店長篇 (00-05-08)](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-05_AI_Education/Tutorial_08_Google_Business_AI_Manager/README.md)
     *   **說明**：【數位平權旗艦】整合店長本尊模式問卷、24H 評論自動回覆 (SEO埋設/負評降溫)、每週在地 SEO 動態生成器與專案工作計畫書。
+*   [🎬 Tutorial_09：Google Vids 數據驅動短影音 SOP (00-05-09)](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-05_AI_Education/Tutorial_09_Google_Vids_Datasheet/00-05-09_Google_Vids_Datasheet_Manual.md)
+    *   **說明**：Google Vids 試算表數據驅動短影音製作全指南，批次生成高質感行銷影音。
+*   [📁 Tutorial_10：Threads 官方 API 權杖生命週期與 60 天長效換發 SOP (00-05-10)](file:///c:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-05_AI_Education/Tutorial_10_Threads_Token_Lifecycle_SOP/00-05-10_Threads_Token_Application_and_Lifecycle_SOP.md)
+    *   **說明**：【社群自動化憑證防呆】完整收錄 Threads 專屬權杖與 FB 權杖雙軌差異、Meta 雙層 App 架構、短期升級 60 天長效 Token 與自動續期防空字典機制。
 *   [📖 Haba 筆記方法論與雙軌 Hugo 網站架設規範 (Google Drive)](https://drive.google.com/file/d/1tTvKNMntsJfLB4p0gA3DS14Ns6fGFOVj/view) ｜ [本地存檔](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-05_AI_Education/Haba_Notes_Methodology_Spec.md)
     *   **說明**：創辦人親自引入之靜態筆記與知識庫架構規範。結合 GitHub Actions 自動發布、雙主題架構（PaperMod 時間流隨筆 ＋ Hugo-Book 結構化知識庫），並制定 AI 寫作專屬技能 (`SKILL.md`) 與 PostLabels 控制平面。
 *   [🎓 創辦人啟蒙 AI 導師教材與實戰指南 (Google Doc)](https://docs.google.com/document/d/1m3my2TsMFe_wdXWFDLQhAnQLTFzb9W4ih4z3DM03Ol8/edit?tab=t.0#heading=h.wtnb4bnkw262)

@@ -1,0 +1,63 @@
+{
+  "merchant_id": "01_Taitung_Shokunin_Diner",
+  "name": "職人食堂",
+  "gcp_account_id": "112884798662846885062",
+  "gcp_location_id": "1774177451467087781",
+  "address": "台東縣台東市安慶街60號",
+  "phone": "089-342900",
+  "phone_mobile": "0933-512-505",
+  "website_url": "https://chalaw710218.github.io/shokunin-taitung/",
+  "google_maps_url": "https://maps.google.com/maps?cid=2490326888156108049",
+  "place_id": "ChIJpXV-WBu5bzQRERUmRxxrjyI",
+  "status": "OPERATIONAL",
+  "categories": {
+    "primary": "categories/gcid:mandarin_restaurant (中式餐廳)",
+    "additional": [
+      "categories/gcid:noodle_shop (麵店)",
+      "categories/gcid:dim_sum_restaurant (茶餐廳/點心)"
+    ]
+  },
+  "metrics_baseline_20261123": {
+    "total_reviews": 208,
+    "replied_reviews": 208,
+    "reply_rate": "100%",
+    "rating_average": 4.5
+  },
+  "uploaded_macro_photos": [
+    {
+      "name": "手工爆汁小籠湯包",
+      "media_id": "CIABIhCqAb61_abLY3_aKg7KhDR4",
+      "category": "FOOD_AND_DRINK"
+    },
+    {
+      "name": "柴魚昆布讚岐烏龍麵",
+      "media_id": "CIABIhC0OjClpheKeooSw1Z6OShY",
+      "category": "FOOD_AND_DRINK"
+    },
+    {
+      "name": "炙燒牛五花燒肉丼飯",
+      "media_id": "CIABIhDINmjaApqeb6Rl_VwvU0ja",
+      "category": "FOOD_AND_DRINK"
+    }
+  ],
+  "structured_menu_status": "PUBLISHED_VIA_API_20261123",
+  "automation_cron": {
+    "scheduled_task_name": "Polaris_GBP_Midnight_Autopilot",
+    "schedule": "Daily at 00:00",
+    "action": "Fetch new reviews, auto reply, sync metrics"
+  },
+  "latest_post_20261123": {
+    "post_id": "8567287819535635169",
+    "state": "LIVE",
+    "createTime": "2026-11-23T15:06:56Z",
+    "title_topic": "堅持手工現點現蒸・鎖住鮮甜爆汁美味！",
+    "searchUrl": "https://local.google.com/place?id=2490326888156108049&use=posts&lpsid=CAIQACoeChxtc3BfaDpPTkdxMUJCRjhCZ3UzWGVEczYwZVdB",
+    "media_google_url": "https://lh3.googleusercontent.com/p/AF1QipNYl0U9wHLELE2XypDblcLyhawrMR7DYptnN0NG",
+    "call_to_action": "CALL (撥打電話預約外帶)"
+  },
+  "social_profiles": {
+    "facebook": "https://www.facebook.com/p/職人食堂-61561543646858/",
+    "facebook_page_id": "61561543646858",
+    "status": "LINKED_TO_GOOGLE_BUSINESS_PROFILE"
+  }
+}
