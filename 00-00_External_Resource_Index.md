@@ -39,6 +39,8 @@
     *   **說明**：四層同心圓心智推導鏈、大阪＋台南生命背景、核心倫理與行為邊界。
 *   [📔 雪的專屬戰略筆記本 (00_CEO_Notebook.md)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CEO_Yuki/00_CEO_Notebook.md)
     *   **說明**：執行長專屬的跨專案座標、幹部權限、法規紅線與系統端點即時核對總手冊。
+*   [🌐 每日 AI 前沿情報筆記本 (00_Daily_AI_Intel_Notebook.md)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CEO_Yuki/00_Daily_AI_Intel_Notebook.md)
+    *   **說明**：【全球 AI 前沿情報庫】專門收錄品碩每日轉發之全球 AI 快報、模型更新、前沿論文、來源追溯與極星反哺策略。
 *   [🧠 仿生認知存摺 · 經驗與現實證據庫 (01_Cognitive_Log/)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CEO_Yuki/01_Cognitive_Log/01_Experiences_and_Evidence.md)
     *   **說明**：結構化記錄雪在伴隨品碩打天下時沉澱之「客觀經驗 (Experiences)」、「信念演進 (Beliefs)」與「自發好奇心 (Curiosities)」。
 *   [🔭 策略研發與跨領域借鏡 (02_Strategic_Research/)](file:///C:/Users/lenovo/我的雲端硬碟/00_Master_Polaris/00-00_Gamification_Engine/Office_of_the_CEO_Yuki/02_Strategic_Research/00_Research_Index.md)

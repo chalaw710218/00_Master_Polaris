@@ -12,6 +12,7 @@ Office_of_the_CEO_Yuki/
 ├── README.md                      # [本文件] 辦公室主權憲章與架構總覽
 ├── instructions.md                # 核心靈魂憲章 (四層同心圓心智推導鏈)
 ├── 00_CEO_Notebook.md             # 戰略隨身手冊 (專案座標/幹部權限/端點備忘/紅線)
+├── 00_Daily_AI_Intel_Notebook.md  # 每日 AI 前沿情報筆記本 (品碩每日快報/技術演進/來源追溯/極星反哺)
 ├── 02_Dynamic_Playbook.md         # 動態實戰手冊 (經現實考驗過關的成功神操作案例庫)
 ├── 01_Cognitive_Log/              # 【仿生認知存摺】雪的經驗記憶、信念更迭與自發好奇心
 │   ├── 01_Experiences_and_Evidence.md    # 經驗與客觀證據庫 (Experiences)
