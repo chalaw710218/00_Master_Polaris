@@ -1,0 +1,82 @@
+【影】靠的，第十個任務（雙重漏洞物理修補、排程巡檢與完整回歸測試）已全數執行完畢，回報如下：
+
+一、 第 1 項：免簽模式漏洞修補（check 啟動連網逐字驗收 & 工作排程器巡檢）：
+1. 程式碼修補（bionic_knowledge_gate.py）：
+   - 在 `REQUIRE_SIGNATURE = False` 時，`check` 指令對事實庫每一條條目強制重新連網執行 `fetch_page_text` 與 `quote_in_page`。
+   - 凡缺少網址/摘句、網頁抓取失敗、或逐字比對不符者，一律嚴格判定失敗，安燈阻斷並退出 Exit Code 1，徹底杜絕手動偷塞假條目繞過 prepare 的漏洞！
+2. Windows 工作排程器巡檢任務已成功就緒：
+   - 任務名稱：`Polaris_Threads_Weekly_Gate_Check`（狀態：`Ready`）
+   - 觸發時機：每週一 08:30 定期自轉執行
+   - 執行腳本：`scripts/run_weekly_check.ps1`
+   - 日誌記錄：全域輸出自動追加至 `logs/weekly_gate_check.log`（實測首跑已生成紀錄，7/7 全部 PASS，Exit Code 0）。
+
+---
+
+二、 第 3 項：出處不合格 IndexError 崩潰 Bug 修補：
+1. 程式碼修補：
+   - `check_file_whitelist` 遇到出處不合格時，將 state 設為 `DISCARD_REMAINDER`，跳過該條目後續之證據網址與原文摘句，嚴禁調用 `valid_entries[-1]`。
+   - 徹底消除 `list index out of range` 崩潰，並防止錯誤網址/摘句掛到前一條條目上。
+2. 案例驗收：
+   - 新增 `scripts/tests/case_005_出處寫網路.md`【應退回】。
+   - 實測正常列出 `👉 第 9 行：出處不合格（需帶網址或頁碼/章節數字）：  - **出處**：網路`，安燈阻斷退出 Exit Code 1，完全不崩潰！
+
+---
+
+三、 第 2 & 4 項：回歸測試套件 run_gate_tests.py (v2.0) 執行輸出：
+案例庫擴充至 5 個固定案例：
+- `case_001_假摘句.md`【模式: prepare | 應退回】
+- `case_002_重複網址.md`【模式: prepare | 應退回】
+- `case_003_真實條目.md`【模式: prepare | 應通過】
+- `case_004_手動寫入假摘句.md`【模式: check | 應退回】（手動偷塞假摘句，check 連網抓包）
+- `case_005_出處寫網路.md`【模式: check | 應退回】（出處寫網路，修復後不當掉正常攔截）
+
+執行指令：`python scripts/tests/run_gate_tests.py`
+執行輸出：
+```
+=== 生活管家影門禁自動化回歸測試 (v2.0) 開始 ===
+找到 5 個測試案例。
+
+▶ 執行案例：case_001_假摘句.md（模式：prepare | 預期：REJECT）
+=== 開始執行入庫預檢 (prepare) ===
+[01/01] 正在檢驗：第 01 輪｜測試假摘句條目【應退回】 ... ❌ 退回
+
+❌ 退回條目清單：
+  👉 「第 01 輪｜測試假摘句條目【應退回】」: 【入庫拒絕】母版證據檢查未通過！網頁中找不到這段摘句：「this is a totally fabricated sentence that does not exist on」
+
+❌ 所有條目皆未通過檢驗，未產生待簽檔案。
+  結果：✅ PASS | 通過=0, 退回=1（退回原因：【入庫拒絕】母版證據檢查未通過！網頁中找不到這段摘句：「this is a to...）
+
+▶ 執行案例：case_002_重複網址.md（模式：prepare | 預期：REJECT）
+=== 開始執行入庫預檢 (prepare) ===
+[01/01] 正在檢驗：第 02 輪｜測試重複網址條目【應退回】 ... ❌ 退回
+
+❌ 退回條目清單：
+  👉 「第 02 輪｜測試重複網址條目【應退回】」: 【入庫拒絕】網址已出現在事實庫中（重複網址：https://www.brookings.edu/articles/third-places-as-community-builders/）！一網址只能對應一筆知識！
+
+❌ 所有條目皆未通過檢驗，未產生待簽檔案。
+  結果：✅ PASS | 通過=0, 退回=1（退回原因：【入庫拒絕】網址已出現在事實庫中（重複網址：https://www.brooki...）
+
+▶ 執行案例：case_003_真實條目.md（模式：prepare | 預期：PASS）
+=== 開始執行入庫預檢 (prepare) ===
+[01/01] 正在檢驗：第 03 輪｜Python 開源許可與商業分發特性【應通過】 ... ✅ 通過
+
+✅ 免簽模式：已將 1 條通過條目直接寫入事實庫：C:\Users\lenovo\我的雲端硬碟\00_Master_Polaris\00-03_Brand_LifeButler\00-03-06_Threads_Meow_Hub\scripts\tests\tmp_fact_bank.md
+  結果：✅ PASS | 通過=1, 退回=0
+
+▶ 執行案例：case_004_手動寫入假摘句.md（模式：check | 預期：REJECT）
+  結果：✅ PASS | Exit Code 1（預期相符）
+
+▶ 執行案例：case_005_出處寫網路.md（模式：check | 預期：REJECT）
+  結果：✅ PASS | Exit Code 1（預期相符）
+
+=== 測試矩陣總結 ===
+  [✅ PASS] case_001_假摘句.md (預期: REJECT | 實際: REJECT)
+  [✅ PASS] case_002_重複網址.md (預期: REJECT | 實際: REJECT)
+  [✅ PASS] case_003_真實條目.md (預期: PASS | 實際: PASS)
+  [✅ PASS] case_004_手動寫入假摘句.md (預期: REJECT | 實際: REJECT)
+  [✅ PASS] case_005_出處寫網路.md (預期: REJECT | 實際: REJECT)
+
+🎉 全部 5 個案例測試 100% 通過！Exit Code 0。
+```
+
+全部 5 個正反案例 100% 通過，漏洞全數修補完畢！請靠的驗收！

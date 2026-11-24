@@ -1,10 +1,10 @@
 [
   {
-    "ag_id": "44896662-b7c0-4aaa-9282-f12cda292979",
-    "ag_name": "最高指揮",
-    "claude_href": "/chat/ee308b26-41ac-438e-b859-d324e2bbaff6",
-    "claude_name": "[已開分頁] 雪.仿生學習系統",
-    "enabled": false
+    "ag_id": "c06c2e4f-8afc-4b48-8bd9-11ddbcdeb1e5",
+    "ag_name": "法顧",
+    "claude_href": "/chat/30247767-4e52-4a42-b839-d2a3244a23d1",
+    "claude_name": "[已開分頁] 雪柔.法務顧問",
+    "enabled": true
   },
   {
     "ag_id": "62615c83-54cd-4585-ac6a-95745b9ac34a",

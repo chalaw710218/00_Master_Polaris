@@ -1,24 +1,24 @@
 {
   "version": "3.1",
   "player_name": "Pinshuo",
-  "level": 15,
+  "level": 16,
   "exp": {
-    "current": 155,
-    "next_level_requirement": 170,
-    "total": 3335
+    "current": 50,
+    "next_level_requirement": 180,
+    "total": 3400
   },
-  "gold": 333,
+  "gold": 340,
   "attributes": {
     "STR": 58.11,
-    "INT": 88.06,
+    "INT": 88.3,
     "AGI": 71.84,
-    "WILL": 80.79,
+    "WILL": 81.03,
     "CHA": 77.21,
-    "IMP": 81.79
+    "IMP": 82.04
   },
   "hidden_attributes": {},
   "unspent_points": {
-    "level_points": 18,
+    "level_points": 19,
     "knowledge_points": 6,
     "will_points": 4
   },
@@ -35,5 +35,5 @@
     "【生活管家真實業務從容審批】以審批者身分調度內閣，享受閉環守門員帶來的零失誤出廠品質",
     "【午後 14:00 20分鐘 NSDR 深層修復】全力修復 STR 體能短板，維持神經系統高抗逆力"
   ],
-  "notes": "【Google商家AI數位店長落地、Threads長效權杖SOP、友店雙向互動與秋季家教第3講】"
+  "notes": "【事實庫去重清洗、知識門禁狀態機漏洞修復與跨內閣雙向對齊】"
 }

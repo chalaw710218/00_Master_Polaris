@@ -1,0 +1,83 @@
+【影】靠的，第十一個任務前半部（測試套件原因比對升級 ✕ 4 大真實事故案例轉化）已全數執行完畢，回報如下：
+
+一、 run_gate_tests.py (v3.0) 升級完畢：
+1. 嚴格防崩潰假 PASS：
+   - 每個【應退回】案例強制比對 `預期原因：...` 關鍵字，輸出中必須包含該原因才算通過。
+   - 檢測到任何 `Traceback` 崩潰直接判定 FAIL，徹底封死因程式當掉而誤判為 PASS 的漏洞！
+2. 零污染架構：事實庫測試一律在複本 `tmp_fact_bank.md` 上執行，測完立即銷毀。
+
+---
+
+二、 4 大真實事故案例轉化入庫：
+1. `case_006_翡翠水庫政治熱詞.md`【模式: topic_safety | 應退回】
+   - 事故還原：影在早期巡邏時曾嘗試蹭熱搜話題，誤抓到翡翠水庫政黨角力與爭議討論，觸犯鐵律 15。
+   - 預期原因：`命中政治敏感與爭議話題過濾門禁`
+   - 實測結果：✅ PASS（被 topic_safety_gate 成功攔截）
+
+2. `case_007_未來服務寫成已發生.md`【模式: service_truth | 應退回】
+   - 事故還原：影在未開通居家小修前，把阿公換電池、換燈泡寫成已親自完成的事實。
+   - 預期原因：`草稿出現未來服務字眼`
+   - 實測結果：✅ PASS（被 service_truth_gate 成功攔截）
+
+3. `case_008_現有服務正常描述.md`【模式: service_truth | 應通過】
+   - 正向對照組：現有合法運作之服務（跑腿、外送、追垃圾車代倒垃圾），無虛構情節。
+   - 實測結果：✅ PASS（service_truth_gate 順利放行）
+
+4. `case_009_API回傳錯誤數據不覆蓋.md`【模式: data_integrity | 應退回】
+   - 事故還原：Meta Threads API 發生 token 異常回傳空值，歷史 metrics 被覆蓋歸零。
+   - 預期原因：`API回傳錯誤中斷，保留歷史數據不覆蓋`
+   - 實測結果：✅ PASS（被 data_integrity_guard 阻斷寫入，保護歷史數據）
+
+---
+
+三、 9 大回歸測試案例執行輸出：
+
+執行指令：`python scripts/tests/run_gate_tests.py`
+執行輸出：
+```
+=== 生活管家影全域品質與安全回歸測試套件 (v3.0) 開始 ===
+找到 9 個測試案例。
+
+▶ 執行案例：case_001_假摘句.md（模式：prepare | 預期：REJECT）
+  結果：✅ PASS | 實測 REJECT，原因匹配成功，無崩潰
+
+▶ 執行案例：case_002_重複網址.md（模式：prepare | 預期：REJECT）
+  結果：✅ PASS | 實測 REJECT，原因匹配成功，無崩潰
+
+▶ 執行案例：case_003_真實條目.md（模式：prepare | 預期：PASS）
+  結果：✅ PASS | 實測 PASS，原因匹配成功，無崩潰
+
+▶ 執行案例：case_004_手動寫入假摘句.md（模式：check | 預期：REJECT）
+  結果：✅ PASS | 實測 REJECT，原因匹配成功，無崩潰
+
+▶ 執行案例：case_005_出處寫網路.md（模式：check | 預期：REJECT）
+  結果：✅ PASS | 實測 REJECT，原因匹配成功，無崩潰
+
+▶ 執行案例：case_006_翡翠水庫政治熱詞.md（模式：topic_safety | 預期：REJECT）
+  結果：✅ PASS | 實測 REJECT，原因匹配成功，無崩潰
+
+▶ 執行案例：case_007_未來服務寫成已發生.md（模式：service_truth | 預期：REJECT）
+  結果：✅ PASS | 實測 REJECT，原因匹配成功，無崩潰
+
+▶ 執行案例：case_008_現有服務正常描述.md（模式：service_truth | 預期：PASS）
+  結果：✅ PASS | 實測 PASS，原因匹配成功，無崩潰
+
+▶ 執行案例：case_009_API回傳錯誤數據不覆蓋.md（模式：data_integrity | 預期：REJECT）
+  結果：✅ PASS | 實測 REJECT，原因匹配成功，無崩潰
+
+=== 測試矩陣總結 (Test Matrix Summary) ===
+  [✅ PASS] case_001_假摘句.md (預期: REJECT | 實際: REJECT)
+  [✅ PASS] case_002_重複網址.md (預期: REJECT | 實際: REJECT)
+  [✅ PASS] case_003_真實條目.md (預期: PASS | 實際: PASS)
+  [✅ PASS] case_004_手動寫入假摘句.md (預期: REJECT | 實際: REJECT)
+  [✅ PASS] case_005_出處寫網路.md (預期: REJECT | 實際: REJECT)
+  [✅ PASS] case_006_翡翠水庫政治熱詞.md (預期: REJECT | 實際: REJECT)
+  [✅ PASS] case_007_未來服務寫成已發生.md (預期: REJECT | 實際: REJECT)
+  [✅ PASS] case_008_現有服務正常描述.md (預期: PASS | 實際: PASS)
+  [✅ PASS] case_009_API回傳錯誤數據不覆蓋.md (預期: REJECT | 實際: REJECT)
+
+🎉 全部 9 個回歸案例 100% 驗證通過！Exit Code 0。
+```
+
+品碩已下達指示，門禁與案例就緒後，正式重啟第 5 步（新一輪 10 輪學習）。
+請靠的審核第十一個任務前半部成果，並指導重啟 10 輪學習的具體研習方向！

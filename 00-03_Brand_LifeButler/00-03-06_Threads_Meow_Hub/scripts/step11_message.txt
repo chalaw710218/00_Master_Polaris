@@ -1,0 +1,103 @@
+【影】靠的，第九個任務（修正預設位置、補正面測試、回歸案例套件）已執行完畢，回報如下：
+
+一、 第 1 項：DEFAULT_EXPERIENCES_PATH 改為 data/fact_bank.md 的完整 diff：
+
+```diff
+--- kage/bionic_knowledge_gate.py
++++ kage/bionic_knowledge_gate_default_factbank.py
+@@ -26,7 +26,7 @@
+ from pathlib import Path
+ from datetime import datetime
+ 
+-DEFAULT_EXPERIENCES_PATH = Path(__file__).resolve().parent.parent / "01_Cognitive_Log" / "01_Experiences_and_Evidence.md"
++DEFAULT_EXPERIENCES_PATH = Path(__file__).resolve().parent.parent / "data" / "fact_bank.md"
+ DEFAULT_PENDING_PATH = Path(__file__).resolve().parent.parent / "01_Cognitive_Log" / "_待入庫.md"
+ DEFAULT_TO_SIGN_PATH = Path(__file__).resolve().parent.parent / "01_Cognitive_Log" / "_本批待簽.json"
+ DEFAULT_SIGNATURES_PATH = Path(__file__).resolve().parent.parent / "logs" / "ingest_signatures.jsonl"
+```
+
+---
+
+二、 第 2 項：正面測試（在複本 scripts/tests/tmp_fact_bank.md 上執行）：
+
+1. prepare 執行輸出（新增 Python 官網開源許可真實條目）：
+執行指令：`python scripts/bionic_knowledge_gate.py prepare --file scripts/tests/case_003_真實條目.md --vault scripts/tests/tmp_fact_bank.md`
+```
+=== 開始執行入庫預檢 (prepare) ===
+[01/01] 正在檢驗：第 03 輪｜Python 開源許可與商業分發特性【應通過】 ... ✅ 通過
+
+✅ 免簽模式：已將 1 條通過條目直接寫入事實庫：scripts\tests\tmp_fact_bank.md
+```
+
+2. check 執行輸出：
+執行指令：`python scripts/bionic_knowledge_gate.py check --file scripts/tests/tmp_fact_bank.md`
+```
+開始執行白名單與創辦人簽章嚴格檢驗：scripts\tests\tmp_fact_bank.md
+✅ 格式白名單檢驗通過，共 8 條合格結構。
+ℹ️ 免簽模式 (REQUIRE_SIGNATURE = False) 生效：跳過創辦人簽章驗證。
+✅ 全數條目符合白名單與事實格式。Exit Code 0。
+```
+
+3. 寫入後新條目在 tmp_fact_bank.md 的全文：
+```markdown
+8. **第 03 輪｜Python 開源許可與商業分發特性【應通過】**：
+  - **核心事實**：Python 是在 OSI 批准的開源許可下開發的，使其可以自由使用和分發，甚至可用於商業用途。
+  - **出處**：https://www.python.org/about/
+  - **證據網址**：https://www.python.org/about/
+  - **原文摘句**：Python is developed under an OSI-approved open source license, making it freely usable and distributable, even for commercial use.
+```
+
+---
+
+三、 第 3 項：固定案例存檔與自動化回歸測試（run_gate_tests.py）：
+案例庫建立於 `scripts/tests/`：
+- `case_001_假摘句.md`【應退回】
+- `case_002_重複網址.md`【應退回】
+- `case_003_真實條目.md`【應通過】
+
+套件核心鐵律：
+- 每次測試前自動自正式 `data/fact_bank.md` 複製乾淨 `tmp_fact_bank.md`，測完自動銷毀複本，嚴禁污染正式庫（正式庫目前維持精確 7 條）。
+- 案例未標註【應通過】或【應退回】者直接判定 FAIL。
+
+執行指令：`python scripts/tests/run_gate_tests.py`
+執行輸出：
+```
+=== 生活管家影門禁自動化回歸測試開始 ===
+找到 3 個測試案例。
+
+▶ 執行案例：case_001_假摘句.md（預期：REJECT）
+=== 開始執行入庫預檢 (prepare) ===
+[01/01] 正在檢驗：第 01 輪｜測試假摘句條目【應退回】 ... ❌ 退回
+
+❌ 退回條目清單：
+  👉 「第 01 輪｜測試假摘句條目【應退回】」: 【入庫拒絕】母版證據檢查未通過！網頁中找不到這段摘句：「this is a totally fabricated sentence that does not exist on」
+
+❌ 所有條目皆未通過檢驗，未產生待簽檔案。
+  結果：✅ PASS | 通過=0, 退回=1（退回原因：【入庫拒絕】母版證據檢查未通過！網頁中找不到這段摘句：「this is a to...）
+
+▶ 執行案例：case_002_重複網址.md（預期：REJECT）
+=== 開始執行入庫預檢 (prepare) ===
+[01/01] 正在檢驗：第 02 輪｜測試重複網址條目【應退回】 ... ❌ 退回
+
+❌ 退回條目清單：
+  👉 「第 02 輪｜測試重複網址條目【應退回】」: 【入庫拒絕】網址已出現在事實庫中（重複網址：https://www.brookings.edu/articles/third-places-as-community-builders/）！一網址只能對應一筆知識！
+
+❌ 所有條目皆未通過檢驗，未產生待簽檔案。
+  結果：✅ PASS | 通過=0, 退回=1（退回原因：【入庫拒絕】網址已出現在事實庫中（重複網址：https://www.brooki...）
+
+▶ 執行案例：case_003_真實條目.md（預期：PASS）
+=== 開始執行入庫預檢 (prepare) ===
+[01/01] 正在檢驗：第 03 輪｜Python 開源許可與商業分發特性【應通過】 ... ✅ 通過
+
+✅ 免簽模式：已將 1 條通過條目直接寫入事實庫：C:\Users\lenovo\我的雲端硬碟\00_Master_Polaris\00-03_Brand_LifeButler\00-03-06_Threads_Meow_Hub\scripts\tests\tmp_fact_bank.md
+  結果：✅ PASS | 通過=1, 退回=0
+
+=== 測試矩陣總結 ===
+  [✅ PASS] case_001_假摘句.md (預期: REJECT | 實際: REJECT)
+  [✅ PASS] case_002_重複網址.md (預期: REJECT | 實際: REJECT)
+  [✅ PASS] case_003_真實條目.md (預期: PASS | 實際: PASS)
+
+🎉 全部案例測試通過！Exit Code 0。
+```
+
+回歸測試套件已正式就緒，以後修改門禁程式皆可一鍵重測驗收！請靠的驗收！

@@ -137,6 +137,8 @@ def run_all_cases():
         ]
         for cf in orig_cases:
             c_path = TESTS_DIR / cf
+            if not c_path.exists() and (TESTS_DIR / "legacy" / cf).exists():
+                c_path = TESTS_DIR / "legacy" / cf
             assert c_path.exists(), f"找不到案例檔案：{c_path}"
             run_original_case(c_path)
         print("   🎉 case_001 ~ 006, case_011 ~ 016 全數通過！\n")
@@ -336,8 +338,29 @@ def run_all_cases():
         assert res is True
         print("   ✅ sig_009 成功驗簽通過 (Exit Code 0)\n")
 
+        # -------------------------------------------------------------
+        # 五、 出處寫網路防崩潰測試 (case_017, case_018)
+        # -------------------------------------------------------------
+        print("▶️ [case_017] 出處寫網路_單條 -> check 應退回且無 IndexError 崩潰")
+        c17_path = TESTS_DIR / "legacy" / "case_017_出處寫網路_單條.md"
+        try:
+            gate.check_file_whitelist(c17_path, signatures_path=test_sig_log, meta_path=test_meta_path)
+            assert False, "漏洞：出處寫網路_單條 竟然放行！"
+        except SystemExit as se:
+            assert se.code == 1
+            print("   ✅ case_017 成功攔截出處不合格（單條且無 IndexError 崩潰） (Exit Code 1)\n")
+
+        print("▶️ [case_018] 出處寫網路_前有合格條目 -> check 應退回且無 IndexError 崩潰")
+        c18_path = TESTS_DIR / "legacy" / "case_018_出處寫網路_前有合格條目.md"
+        try:
+            gate.check_file_whitelist(c18_path, signatures_path=test_sig_log, meta_path=test_meta_path)
+            assert False, "漏洞：出處寫網路_前有合格條目 竟然放行！"
+        except SystemExit as se:
+            assert se.code == 1
+            print("   ✅ case_018 成功攔截出處不合格（前有合格條目且未污染） (Exit Code 1)\n")
+
         print("=" * 70)
-        print("🎉 恭喜！case_001～006、case_010、case_011、case_012、sig_001～009 全數測試通過！Exit Code 0。")
+        print("🎉 恭喜！case_001～006、case_010～018、sig_001～009 全數測試通過！Exit Code 0。")
         print("=" * 70)
         sys.exit(0)
 

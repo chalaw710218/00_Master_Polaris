@@ -1,4 +1,5 @@
 ---
+status: 已停用（2026-11-24）。原因：三振自噬與 feedback_loop 週評估衝突；學習判定一律由 feedback_loop.py 執行，升級由品碩核准。
 name: atom-kage-synaptic-metabolic-learner
 description: 首席特務兼生活管家影·突觸代謝與殘酷遺忘自噬原子 (Kage Synaptic Metabolic Learner Protocol v1.0)。落實創辦人親授「這個技能原本的用意是讓影自主學習耶」法旨！精準落實突觸代謝方程：以脆真實後台數據（主頁造訪、淨增粉、真實互動）為物理真值誤差，自主加強高效突觸；並啟動溶酶體代謝自噬機制，對連續 3 次平淡（瀏覽<30且0互動）的陳舊套路進行殘酷遺忘與自噬清空，保持自主學習生命力。
 role_key: kage

@@ -1,143 +1,31 @@
 {
-  "timestamp": "2026-11-23 17:32:39",
+  "timestamp": "2026-11-24 22:33:03",
   "step1_home_replies": 0,
-  "step2_friends_visited": [
-    {
-      "username": "sinapayan_youth",
-      "name": "喜拿巴漾青年工作站",
-      "action": "commented",
-      "comment": "辛苦了！台東的節奏就是要提醒大家累了先停下來喘口氣～今晚給自己點一杯好喝的好好犒賞一下吧 🌿",
-      "rss_post": "《kisusu｜依據；依循；跟著》 ：謝謝正興村。 ：謝謝愛我們的哥哥姐姐。 也謝謝你們的到來，讓我們能成就這一些美好的事。很開心在大家的陪伴下，能夠長成自己喜"
-    },
-    {
-      "username": "howhow_sweets",
-      "name": "好好·食甜",
-      "action": "already_liked",
-      "rss_post": "🍇 店裡甜點的人潮總是一陣一陣 想說準備剛好的時候 一下就賣光 多做一點的時候 結果沒人剩很多"
-    },
-    {
-      "username": "chaiyuan_bakery",
-      "name": "柴源製菓",
-      "action": "already_liked",
-      "rss_post": "感謝晴晴的分享推薦！！！ 店休日老闆備足了全部泡芙材料 暑假週三～週一天天12:30開賣"
-    },
-    {
-      "username": "sankou_food_office",
-      "name": "仨口食事處",
-      "action": "already_liked",
-      "rss_post": "還在煩惱要吃什麼嗎🥹 有喜歡吃咖哩的朋友嗎～～"
-    },
-    {
-      "username": "yuanlung.667",
-      "name": "緣龍無骨鹽酥雞",
-      "action": "already_liked",
-      "rss_post": "你～們～吃～過～嗎～"
-    },
-    {
-      "username": "956leissmoker",
-      "name": "雨田燻",
-      "action": "already_liked",
-      "rss_post": "🌵馜享空間｜CAMA CAFE鐵花村店旁 ▫️20、22 _ 17:30-售完 🥙花蓮永續風格展｜花蓮縣運動休閒園區（吉安舊菸葉廠） ▫️11/21 _ 12:"
-    },
-    {
-      "username": "hattcoffee",
-      "name": "Hatt Coffee",
-      "action": "already_liked",
-      "rss_post": "[ 台東 | 海特 HATT ]"
-    }
-  ],
+  "step2_friends_visited": [],
   "step2_reciprocal_visit": null,
-  "step2_clout_tea": {
-    "target": "N/A (公域熱門大串)",
-    "commented_count": 0,
-    "note": "友店巡邏已全數歸入第二步『訪鄰居』，2.5 僅統計公域熱門大串"
-  },
-  "step3_feed_likes": 3,
+  "step2_clout_tea": null,
+  "step3_feed_likes": 0,
   "step4_post": {
-    "post_id": "18077492081777662",
-    "permalink": "https://www.threads.com/@hellotaitung/post/DgFEc1VlDzc",
-    "title": "K-031 服務徵詢・免動腦下班備菜盒篇",
+    "post_id": "18084431312375620",
+    "permalink": "https://www.threads.com/@hellotaitung/post/DgILhjPGY0e",
+    "title": "K-014 感官白描・夜間老木窗折手手與紅烏龍茶煙篇",
     "hero": "喵編 (店貓)",
-    "topic_tag": "生活服務",
-    "image": "meow_taitung_evening_paws_on_edge_1795426329919.jpg",
+    "topic_tag": "台東生活",
+    "image": "meow_20261124_slot3_night_k014_window_tea_loaf.jpg",
     "image_reason": "外部指定",
     "k_ids": [
-      "K-031"
+      "K-014"
     ],
-    "screenshot": "C:\\Users\\lenovo\\我的雲端硬碟\\00_Master_Polaris\\00-03_Brand_LifeButler\\00-03-06_Threads_Meow_Hub\\scripts\\screenshots\\walk_v3_18077492081777662_verified.png"
+    "screenshot": "C:\\Users\\lenovo\\我的雲端硬碟\\00_Master_Polaris\\00-03_Brand_LifeButler\\00-03-06_Threads_Meow_Hub\\scripts\\screenshots\\walk_v3_18084431312375620_verified.png"
   },
   "step45_first_reply": {
-    "reply_id": "18120050423146352",
-    "text": "（用期待的翠綠大眼睛看著你）直接丟下鍋煮熟就能吃，連本喵都想幫忙切菜了喵！大家覺得實用嗎？🐾"
+    "reply_id": "18241150828323465",
+    "text": "（半瞇著翠綠眼睛打呼嚕）夜深了，喝口溫水把肩膀放輕鬆，準備早點休息囉。"
   },
   "step5_friend_ledger": null,
   "step6_cognitive_sync": true,
   "hot_trends_applied": null,
-  "rss_sentinel_scout": [
-    {
-      "username": "sinapayan_youth",
-      "name": "喜拿巴漾青年工作站",
-      "title": "《kisusu｜依據；依循；跟著》 ：謝謝正興村。 ：謝謝愛我們的哥哥姐姐。 也謝謝你們的到來，讓我們能成就這一些美好的事。很開心在大家的陪伴下，能夠長成自己喜",
-      "link": "https://www.threads.com/@sinapayan_youth/post/Ddjb15-E4hQ",
-      "pub_date": "Mon, 21 Sep 2026 15:01:52 GMT",
-      "draft_reply": "辛苦了！台東的節奏就是要提醒大家累了先停下來喘口氣～今晚給自己點一杯好喝的好好犒賞一下吧 🌿"
-    },
-    {
-      "username": "howhow_sweets",
-      "name": "好好·食甜",
-      "title": "🍇 店裡甜點的人潮總是一陣一陣 想說準備剛好的時候 一下就賣光 多做一點的時候 結果沒人剩很多",
-      "link": "https://www.threads.com/@howhow_sweets/post/DfbgPIQlHXX",
-      "pub_date": "Sat, 07 Nov 2026 06:09:06 GMT",
-      "draft_reply": "看著看著螢幕直接飄出香味是正常的嗎...默默收進小編私房口袋名單，這週放假一定要去朝聖！✨"
-    },
-    {
-      "username": "chaiyuan_bakery",
-      "name": "柴源製菓",
-      "title": "感謝晴晴的分享推薦！！！ 店休日老闆備足了全部泡芙材料 暑假週三～週一天天12:30開賣",
-      "link": "https://www.threads.com/@chaiyuan_bakery/post/Db5yi00Ee-7",
-      "pub_date": "Tue, 11 Aug 2026 14:20:42 GMT",
-      "draft_reply": "看著看著螢幕直接飄出香味是正常的嗎...默默收進小編私房口袋名單，這週放假一定要去朝聖！✨"
-    },
-    {
-      "username": "sankou_food_office",
-      "name": "仨口食事處",
-      "title": "還在煩惱要吃什麼嗎🥹 有喜歡吃咖哩的朋友嗎～～",
-      "link": "https://www.threads.com/@sankou_food_office/post/DDcHcl2ypxf",
-      "pub_date": "Wed, 11 Dec 2024 13:12:41 GMT",
-      "draft_reply": "看著看著螢幕直接飄出香味是正常的嗎...默默收進小編私房口袋名單，這週放假一定要去朝聖！✨"
-    },
-    {
-      "username": "yuanlung.667",
-      "name": "緣龍無骨鹽酥雞",
-      "title": "你～們～吃～過～嗎～",
-      "link": "https://www.threads.com/@yuanlung.667/post/DXOwVsNAYNc",
-      "pub_date": "Fri, 17 Apr 2026 11:08:31 GMT",
-      "draft_reply": "看著看著螢幕直接飄出香味是正常的嗎...默默收進小編私房口袋名單，這週放假一定要去朝聖！✨"
-    },
-    {
-      "username": "956leissmoker",
-      "name": "雨田燻",
-      "title": "🌵馜享空間｜CAMA CAFE鐵花村店旁 ▫️20、22 _ 17:30-售完 🥙花蓮永續風格展｜花蓮縣運動休閒園區（吉安舊菸葉廠） ▫️11/21 _ 12:",
-      "link": "https://www.threads.com/@956leissmoker/post/Df1t8UbgLvm",
-      "pub_date": "Tue, 17 Nov 2026 10:29:07 GMT",
-      "draft_reply": "台東這幾天的風真的有感～出門巡店真的要小心！你們今天店裡一切都安好嗎？☕"
-    },
-    {
-      "username": "hattcoffee",
-      "name": "Hatt Coffee",
-      "title": "[ 台東 | 海特 HATT ]",
-      "link": "https://www.threads.com/@hattcoffee/post/Df_GZJeko8W",
-      "pub_date": "Sat, 21 Nov 2026 01:55:56 GMT",
-      "draft_reply": "看著看著螢幕直接飄出香味是正常的嗎...默默收進小編私房口袋名單，這週放假一定要去朝聖！✨"
-    },
-    {
-      "username": "hungryyyummy",
-      "name": "台東餓人 ✶ 台東美食",
-      "title": "✨ 成功毛利屋 ✿ 營業時間 11:15-15:00、17:15-22:00 ✿ 週三公休 📍成功鎮忠仁里中華路57號",
-      "link": "https://www.threads.com/@hungryyyummy/post/DfwRLQRmfcz",
-      "pub_date": "Sun, 15 Nov 2026 07:41:33 GMT",
-      "draft_reply": "完全懂這種感覺！在台東生活最迷人的就是這些小細節，看完心裡一陣舒坦～🍃"
-    }
-  ],
-  "person_dialogue_audit": "⚠️ 檢測到具體人物/對話: ['']（需呈報創辦人品碩確認是否真實發生）"
+  "rss_sentinel_scout": [],
+  "person_dialogue_audit": "✅ 純淨環境感官/工作白描，無虛構人物對話或歷史事件",
+  "yesterday_activity_inspected": true
 }

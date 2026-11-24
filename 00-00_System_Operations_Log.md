@@ -1,3 +1,21 @@
+### [2026-11-24 23:59] 🛡️【事實庫去重清洗 ✕ 知識門禁狀態機漏洞修復 ✕ 雙內閣驗簽全勝 ✕ 晉升 Lv.16】
+* **決策背景**：
+  - 創辦人（品碩）指示清理事實庫歷史重複條目（Reflexion 28、Voyager 36、MemGPT 39、Constitutional AI 15, 35），執行精準備份封存與 0 重複網址治理。
+  - 首席特務影捕獲 `bionic_knowledge_gate.py` 在 `check` 遇到出處不合格時，狀態機錯誤進入 `EXPECT_OPTIONAL_EVIDENCE` 導致 `valid_entries[-1]` 出現 `IndexError` 崩潰或覆蓋前條之重大漏洞。經 Claude 驗證後，由雪與技術長林納斯同步各自完成程式碼物理修復。
+  - 創辦人拍板商業推進方針：月底負擔代管服務與 AI 實戰賦能工作坊雙軌推進，並確立以「湧現 (Emergence)」探索人情味回覆。
+* **落地重大成果與物理閉環**：
+  1. **事實庫去重清洗與防重複機制落實**：
+     - 事實庫備份至 `_未驗證封存/01_Experiences_and_Evidence_去重前_20261122.md`（SHA256 完全一致）。
+     - 5 條重複條目原文無損搬遷至 `_未驗證封存/01_重複條目_20261122.md`，實現事實庫 0 重複網址，結構零損壞。
+  2. **知識門禁狀態機漏洞修復與跨內閣雙向對齊**：
+     - 雪（Yuki）與林納斯（Linus）兩支 `bionic_knowledge_gate.py` 分別導入 `DISCARD_REMAINDER` 狀態隔離，徹底修復 `check_file_whitelist` 越界與污染漏洞。
+     - 建立新增測試案例（`case_NNN_出處寫網路_單條.md` 與 `case_NNN_出處寫網路_前有合格條目.md`），覆蓋單條越界防護與前有合格條目之防污染防護。
+     - 執行全量回歸測試：雪（18 案例 + 9 簽章）、林納斯（全門禁案例）全數 PASS，正式事實庫（雪 51 條、林納斯 155 條）全數 Exit Code 0 完美驗簽通過。
+  3. **前沿 AI 快報專屬筆記本沉澱**：
+     - 建立每日 AI 快報專卷，完整收錄 11/20~11/24 之全球前沿動態（Gemini 4 Neon、Antigravity CLI 1.5.12、IBM 記憶規模律、Agent 憲法式改進等）。
+  4. **創辦人遊戲化確定性物理結算**：
+     - 榮耀晉升 **Lv. 16**（總經驗值 3,400 EXP），金幣累積至 340 Gold，INT 突破至 88.30、WILL 達 81.03、IMP 達 82.04。
+
 ### [2026-11-22 01:50] 🧠【AI自我進化簡報全域上架 ✕ 夥伴AI課程行銷籌備 ✕ 仿生事實庫46條全通簽章】
 * **決策背景**：
   - 創辦人（品碩）以 Gemini Notebook 深度整理《AI 自我進化的技術本質與安全邊界》專題，指示執行長雪進行全域網站上架與教育知識庫沉澱。
@@ -1892,3 +1910,7 @@ aven (調查官 渡鴉)：.agents/skills/bionic-learning-raven/SKILL.md
        - 實裝互動次數安全門禁 (`interaction_safety_gate.py`, `daily_interaction_limits.json`)。
        - 實測落地友店雙向互訪互動（`reciprocal_visitor.py`），成功造訪台東在地友店（956leissmoker、hattcoffee、howhow_sweets、love_love_cat_cake、sinapayan_youth）並留下驗收截圖。
        - 建立每週友誼緊密度評估模型 (`calculate_weekly_relationship_metrics.py`)，將社交互動從隨機逛街昇華為客觀量化之信任資產。
+
+
+---
+職稱更正：雪柔自 2026-11-24 起為首席法務顧問兼市場情報長

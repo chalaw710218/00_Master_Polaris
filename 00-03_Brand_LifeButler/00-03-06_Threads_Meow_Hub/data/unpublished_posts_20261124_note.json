@@ -1,0 +1,64 @@
+{
+  "audit_date": "2026-11-24",
+  "audited_at": "2026-11-24T21:57:00+08:00",
+  "account": "@hellotaitung",
+  "published_today": [
+    {
+      "slot": "12:34 (午間檔 Slot 1)",
+      "k_id": "K-025",
+      "title": "K-025 現有服務・正午深藍保溫箱與熱便當外送細節篇",
+      "post_id": "17872051539660149",
+      "permalink": "https://www.threads.com/@hellotaitung/post/DgHG6aRGSpn",
+      "published_at_local": "2026-11-24 12:34:31",
+      "image_used": "meow_20261124_slot1_noon_k025_delivery_bag.jpg",
+      "status": "PUBLISHED"
+    },
+    {
+      "slot": "課程宣傳排程 (08:30 & 19:30)",
+      "k_id": "course_promo",
+      "posts": [
+        {
+          "post_id": "18154433398513732",
+          "permalink": "https://www.threads.com/@hellotaitung/post/DgGrB1uGQE6",
+          "published_at_local": "2026-11-24 08:30:55",
+          "title": "第 3 講大壓軸：去塑料三刀法"
+        },
+        {
+          "post_id": "18126113858072765",
+          "permalink": "https://www.threads.com/@hellotaitung/post/DgH2i2PmfC4",
+          "published_at_local": "2026-11-24 19:30:47",
+          "title": "倒數 18 小時：《商業資料架構 ✕ AI 擬人化工程》"
+        }
+      ],
+      "status": "PUBLISHED"
+    }
+  ],
+  "unpublished_today_notes": [
+    {
+      "slot": "09:07 (晨間檔 Slot 0)",
+      "k_id": "control (對照組 [])",
+      "title": "店貓日常・晨光藺草蓆伸懶腰篇 (對照組)",
+      "bound_image": "meow_20261124_slot0_morning_control_stretch.jpg",
+      "status": "UNPUBLISHED (未發)",
+      "reason": "09:07 排程觸發時，專屬新圖庫尚未建立完成（我們於中午 12:05 才完成 16 張新圖綁定），被戴明無圖防呆門禁攔截未發。",
+      "text": "（把兩隻白手套往前伸到最長，在藺草蓆上拱起背拉個大懶腰）\n早晨的台東老宅走廊，亞麻布簾被微風吹得輕輕晃動喵。\n矮木桌上的陶杯剛倒滿溫水，冒著淡淡的白煙。\n\n外面的麻雀已經在樹梢吱吱喳喳開早會了，\n本喵的草蓆剛好被晨光曬得暖烘烘的，還帶著一點草香。\n\n新的一天慢慢開始就好喵，\n你今天早餐吃的是蛋餅還是飯糰呢？"
+    },
+    {
+      "slot": "17:36 (傍晚檔 Slot 2)",
+      "k_id": "K-031 (服務徵詢)",
+      "title": "K-031 服務徵詢・免動腦下班洗切備菜盒篇",
+      "bound_image": "meow_20261124_slot2_dusk_k031_meal_prep_box.jpg",
+      "status": "UNPUBLISHED (未發)",
+      "reason": "17:36 排程觸發時，原草稿與昨日 (11/23 17:34) 已發之備菜盒貼文 (18077492081777662) 字元相似度達 74.6%（超過 text_hash_gate 70% 防重複紅線）而被自動攔截。目前已重寫降重至 <70%，隨時可補發或留供下輪使用。",
+      "text": "（兩隻白手套搭在木餐桌邊緣，盯著桌上那盒切得整整齊齊的青菜、紅蘿蔔片與新鮮肉片，旁邊還攤開一本小筆記本）\n傍晚的廚房總是特別忙碌喵！\n很多台東的朋友喜歡自己在家開伙，但每次下班回到家還要揀菜葉、削皮切絲、清理流理台的菜渣，還沒開火就先累了一半。\n\n我們想試著做看看「傍晚鮮切備菜盒」服務：\n幫你把一餐份量的台東時蔬跟肉片全部洗好切好裝盒送到家，打開盒子就能直接下鍋快炒。\n\n這種免洗菜免切菜的備菜盒服務，你平常下班會想試試看嗎？"
+    },
+    {
+      "slot": "22:33 (夜間檔 Slot 3)",
+      "k_id": "K-014 (感官白描)",
+      "title": "K-014 感官白描・夜間老木窗折手手與紅烏龍茶煙篇",
+      "bound_image": "meow_20261124_slot3_night_k014_window_tea_loaf.jpg",
+      "status": "PENDING_TONIGHT_2233 (待今晚 22:33 自動發布)",
+      "reason": "目前時間為 21:57，尚未到達 22:33 排程時間；文案與專屬配圖均已通過遠端 70% 相似度與 SHA-256 門禁，將於 22:33 自動發出。"
+    }
+  ]
+}

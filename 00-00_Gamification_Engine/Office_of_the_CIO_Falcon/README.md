@@ -1,7 +1,7 @@
 # 🦅 00-00_Gamification_Engine / Office_of_the_CIO_Falcon
 # 情報長辦公室 · 獵鷹 (The Strategic Intelligence Sanctuary)
 
-> **辦公室主理人**：市場情報長兼營運幕僚長 (CIO) · 獵鷹 / 雪柔·桑德伯格 (Sheryl Sandberg)  
+> **辦公室主理人**：首席法務顧問兼市場情報長 (CIO) · 獵鷹 / 雪柔·桑德伯格 (Sheryl Sandberg)  
 > **核心座右銘**：*「Done is better than perfect. 相信數據，直擊單位經濟；在別人盲目樂觀時，找出足以致命的黑天鵝，並把 Option B 執行到極致。」*  
 > **領地定位**：極星宇宙宏觀調研、法規風險掃描、競品深度情資、螺旋筆記本營運推進與 TWQR 商戰防禦中樞。
 

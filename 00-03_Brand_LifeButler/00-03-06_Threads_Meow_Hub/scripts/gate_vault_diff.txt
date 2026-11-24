@@ -1,0 +1,11 @@
+--- kage/bionic_knowledge_gate.py
++++ kage/bionic_knowledge_gate_default_factbank.py
+@@ -26,7 +26,7 @@
+ from pathlib import Path
+ from datetime import datetime
+ 
+-DEFAULT_EXPERIENCES_PATH = Path(__file__).resolve().parent.parent / "01_Cognitive_Log" / "01_Experiences_and_Evidence.md"
++DEFAULT_EXPERIENCES_PATH = Path(__file__).resolve().parent.parent / "data" / "fact_bank.md"
+ DEFAULT_PENDING_PATH = Path(__file__).resolve().parent.parent / "01_Cognitive_Log" / "_待入庫.md"
+ DEFAULT_TO_SIGN_PATH = Path(__file__).resolve().parent.parent / "01_Cognitive_Log" / "_本批待簽.json"
+ DEFAULT_SIGNATURES_PATH = Path(__file__).resolve().parent.parent / "logs" / "ingest_signatures.jsonl"

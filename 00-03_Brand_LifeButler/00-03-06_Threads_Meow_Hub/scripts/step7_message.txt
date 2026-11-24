@@ -1,0 +1,53 @@
+【影】靠的，第七個任務（事實與推論徹底解耦）已執行完畢，回報如下：
+
+一、 第 1 項：fact_bank.md 已全面純化：
+- 7 條條目每條嚴格只保留五行：標題、核心事實、出處、證據網址、原文摘句。
+- 核心事實嚴格依據原文摘句逐字內容陳述，不夾帶任何生活管家推論或主觀結論。
+- 所有「生活管家應用要點」已 100% 移出事實庫。
+- K-008 的引據全面改為反查表中已驗證之 Sprout Social 逐字摘句，核心事實亦改寫為摘句原文（早期、高速的互動，例如收藏和分享，會被演算法放大）。
+
+二、 第 2 項：移出的應用要點已轉移至 02_Belief_Evolution.md 新段落「由事實推出的工作信念」：
+- 分別建立工作信念 1～6，每條皆明確標註「依據：事實庫第 N 條（K-編號）」。
+- K-002 因論文主題為模型生成數據訓練導致模型崩潰，與生活管家社群文案無直接邏輯推論關係，已依指示捨棄不收錄。
+- 兩份 02_Belief_Evolution.md（Hub 端與 Operative 總部端）已同步追加更新完畢。
+
+三、 第 4 項：修改後 K-002 與 K-008 在 fact_bank.md 的全文：
+
+```markdown
+1. **[K-002] 遞歸模型崩潰與數據分佈長尾消失**：
+  - **核心事實**：以模型生成的內容進行訓練會對產生的模型造成不可逆的缺陷，導致原始內容分佈的長尾消失（稱為模型崩潰，發生於 VAE、GMM 與 LLM）。
+  - **出處**：https://arxiv.org/abs/2305.17493
+  - **證據網址**：https://arxiv.org/abs/2305.17493
+  - **原文摘句**：We find that use of model-generated content in training causes irreversible defects in the resulting models, where tails of the original content distribution disappear. We refer to this effect as Model Collapse and show that it can occur in Variational Autoencoders, Gaussian Mixture Models and LLMs.
+```
+
+```markdown
+4. **[K-008] 社群會話速度與互動時效**：
+  - **核心事實**：社群媒體演算法作為主要分發過濾器，會大幅放大捕捉到早期高速互動（如收藏與分享）的內容，並主動將被動低努力的內容埋沒於競爭信號之下。
+  - **出處**：https://sproutsocial.com/insights/social-media-algorithms/
+  - **證據網址**：https://sproutsocial.com/insights/social-media-algorithms/
+  - **原文摘句**：Social media algorithms act as primary distribution filters. They heavily amplify content that captures early, high-velocity engagement like saves and shares, while actively burying passive, low-effort content beneath more competitive signals.
+```
+
+四、 第 3 項：重跑 check 執行結果輸出：
+
+```
+開始執行白名單與創辦人簽章嚴格檢驗：data\fact_bank.md
+✅ 格式白名單檢驗通過，共 7 條合格結構。
+正在檢核創辦人主權簽章 (ingest_signatures.jsonl) ...
+⚠️ 找不到簽章檔案：C:\Users\lenovo\我的雲端硬碟\00_Master_Polaris\00-03_Brand_LifeButler\00-03-06_Threads_Meow_Hub\logs\ingest_signatures.jsonl
+
+❌ [安燈阻斷] 發現未經創辦人簽章（或簽章後內容被篡改）的條目！
+  👉 條目 01 | **[K-002] 遞歸模型崩潰與數據分佈長尾消失** (hash: 00bed4af8e47543e...)
+  👉 條目 02 | **[K-005] 第三空間與社區弱連結信任** (hash: 8dae6c16924257d4...)
+  👉 條目 03 | **[K-007] 國際慢食哲學（優質/清潔/公平）** (hash: 2c9d8520765c6a52...)
+  👉 條目 04 | **[K-008] 社群會話速度與互動時效** (hash: 24e6149ccbdfc466...)
+  👉 條目 05 | **[K-009] WHO 高齡友善環境與在地安老八大面向** (hash: 31199107cd1c1729...)
+  👉 條目 06 | **[K-012] Threads 推薦系統二階會話與主動互動權重** (hash: 383f135bca0ca717...)
+  👉 條目 07 | **[K-017] 侘寂美學與自然光常民生活攝影視覺信任** (hash: 699f692d61c54b51...)
+
+共 7 條條目未通過創辦人簽章查驗！Exit Code 1。
+```
+
+格式白名單 100% 嚴格通過，簽章硬防呆如期生效阻斷。
+請靠的指示下一步（是否進入 prepare 產出待簽批次）！

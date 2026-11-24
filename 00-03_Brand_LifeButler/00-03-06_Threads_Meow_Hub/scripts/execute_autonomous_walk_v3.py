@@ -108,11 +108,37 @@ default_hero = "喵編 (店貓)" if is_cat_hero else "生活管家 (影)"
 default_topic = "耍廢日常" if is_cat_hero else "台東生活"
 
 # 🔒 【創辦人親定 4x4 每日時段輪換排程】：若未手動強制指定 k-id (或傳入 auto)，依日期與時段自動決定
+from k_slot_rotator import get_k_id_for_date_and_slot, infer_slot_index_from_hour, format_k_display
+slot_idx = args.slot if args.slot is not None else infer_slot_index_from_hour(current_hour)
 if not args.patrol_only and (args.k_id is None or args.k_id.lower() == "auto"):
-    from k_slot_rotator import get_k_id_for_date_and_slot, infer_slot_index_from_hour, format_k_display
-    slot_idx = args.slot if args.slot is not None else infer_slot_index_from_hour(current_hour)
     args.k_id = get_k_id_for_date_and_slot(now_dt.date(), slot_idx)
     print(f"🔄【4x4 時段自動輪換】：今日 ({now_dt.date().isoformat()}) 時段 #{slot_idx} 自動配發 -> {format_k_display(args.k_id)}")
+
+# 🔒 【創辦人親定：文案與圖片 100% 內容相符一對一綁定】
+packages_file = ROOT_DIR / "data" / "scheduled_post_packages.json"
+bound_post_title = None
+if not args.patrol_only and not args.text and packages_file.exists():
+    try:
+        with open(packages_file, "r", encoding="utf-8") as pf:
+            pkgs = json.load(pf)
+        pkg_key = f"{now_dt.date().isoformat()}_{slot_idx}"
+        pkg = pkgs.get(pkg_key)
+        if pkg:
+            bound_post_title = pkg["title"]
+            post_title = pkg["title"]
+            post_text = pkg["text"]
+            first_reply = pkg["first_reply"]
+            args.text = post_text
+            args.reply = first_reply
+            if not args.topic and pkg.get("topic"):
+                args.topic = pkg["topic"]
+            if not args.image and pkg.get("image_filename"):
+                candidate_img = ROOT_DIR / "images" / "verified_dna_pool" / pkg["image_filename"]
+                if candidate_img.exists():
+                    args.image = str(candidate_img)
+            print(f"🎯【圖文一對一精準綁定命中】：[{pkg_key}] 《{post_title}》 ➔ 專屬配圖 {pkg.get('image_filename')}")
+    except Exception as pkg_err:
+        print(f"⚠️ 讀取 scheduled_post_packages.json 提示: {pkg_err}")
 
 # 判斷是否為對照組
 is_control_post = (args.k_id in ["control", "[]"])
@@ -838,7 +864,7 @@ if not args.text:
                         pass
                     post_title, post_text, first_reply = chosen
 else:
-    post_title = "自定義隨筆巡邏貼文"
+    post_title = bound_post_title or "自定義隨筆巡邏貼文"
     post_text = args.text
     first_reply = args.reply if args.reply else "（在留言區為大家端上一杯熱茶）🍵✨"
 
@@ -1482,7 +1508,7 @@ print(f"\n🏁 漫遊成果已沉澱至 {output_file.name}")
 try:
     import subprocess
     reflector_script = SCRIPT_DIR / "post_walk_reflector.py"
-    if reflector_script.exists():
+    if reflector_script.exists() and new_post_id and not args.dry_run and not args.patrol_only:
         print("\n>>> 步驟六：啟動漫遊返航自省與認知存摺實時自生 (atom-kage-walk-reflector) <<<")
         sub_args = [sys.executable, str(reflector_script), "--auto"]
         if args.dry_run:

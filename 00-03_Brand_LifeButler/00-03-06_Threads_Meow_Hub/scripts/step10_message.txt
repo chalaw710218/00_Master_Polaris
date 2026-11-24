@@ -1,0 +1,171 @@
+【影】靠的，免簽模式（REQUIRE_SIGNATURE = False）調校與三個測試已全部完成，回報如下：
+
+一、 第 1 & 2 項：完整 diff（bionic_knowledge_gate.py）：
+僅在頂部加入 REQUIRE_SIGNATURE = False 開關，並在免簽模式下：
+- prepare --baseline 內建每條連網逐字 quote_in_page 檢驗（不跳過）。
+- 一般 prepare 通過條目直接寫入事實庫（不產待簽檔、不需 sign）。
+- sign 指令提示免簽退出。
+- check 執行完格式白名單與事實格式後跳過簽章比對，回傳 Exit Code 0。
+所有既有檢驗（網址必填、原文逐字、網址重複、核心事實數字檢查、標題論文名稱）一律不動。
+
+```diff
+--- kage/bionic_knowledge_gate_v4.1.py
++++ kage/bionic_knowledge_gate_nosig.py
+@@ -30,6 +30,8 @@
+ DEFAULT_PENDING_PATH = Path(__file__).resolve().parent.parent / "01_Cognitive_Log" / "_待入庫.md"
+ DEFAULT_TO_SIGN_PATH = Path(__file__).resolve().parent.parent / "01_Cognitive_Log" / "_本批待簽.json"
+ DEFAULT_SIGNATURES_PATH = Path(__file__).resolve().parent.parent / "logs" / "ingest_signatures.jsonl"
++
++REQUIRE_SIGNATURE = False  # 生活管家影專用：免簽模式開關
+ 
+ # 引入母版 bionic_core 之 evidence_gate 與 founder_auth
+ MASTER_BIONIC_CORE_DIR = Path(r"c:\Users\lenovo\我的雲端硬碟\00_Master_Polaris\.agents\skills\bionic-learning-system\bionic_core")
+@@ -397,6 +399,27 @@
+         if not entries:
+             print("❌ 事實庫無現有條目，無法建立基準批次")
+             sys.exit(1)
++
++        if not REQUIRE_SIGNATURE:
++            print("🔍 免簽模式：對基準批次每條執行連網逐字驗證 (quote_in_page)...")
++            for idx, e in enumerate(entries, 1):
++                print(f"[{idx:02d}/{len(entries):02d}] 正在驗證：{e['title']} ...", end=" ")
++                if not e.get("url") or not e.get("quote"):
++                    print("❌ 缺少網址或摘句，退回！")
++                    sys.exit(1)
++                try:
++                    page_text = fetch_page_text(e["url"])
++                    ok, why = quote_in_page(e["quote"], page_text)
++                    if not ok:
++                        print(f"❌ 退回：{why}")
++                        sys.exit(1)
++                    print("✅ 逐字驗證 PASS")
++                except Exception as ex:
++                    print(f"❌ 連網錯誤：{ex}")
++                    sys.exit(1)
++            print(f"✅ 基準批次共 {len(entries)} 條全部連網逐字驗證通過！")
++            return len(entries), 0, []
++
+         batch_sha = compute_batch_sha256(entries)
+         pack = {
+             "office": "kage",
+@@ -450,6 +473,32 @@
+             print(f"  👉 「{title}」: {reason}")
+ 
+     if passed_entries:
++        if not REQUIRE_SIGNATURE:
++            if not vault_path.exists():
++                vault_path.parent.mkdir(parents=True, exist_ok=True)
++                vault_path.write_text("# 生活管家影之核心事實與客觀證據庫 (Experiences & Evidence)\n\n---\n", encoding="utf-8")
++            
++            vault_content = vault_path.read_text(encoding="utf-8")
++            existing_nums = [int(m) for m in re.findall(r'^\s*(\d+)\.\s+\*\*', vault_content, re.MULTILINE)]
++            next_idx = (max(existing_nums) + 1) if existing_nums else 1
++            
++            append_blocks = []
++            for e in passed_entries:
++                block = f"\n{next_idx}. **{e['title']}**：\n"
++                block += f"  - **核心事實**：{e['fact']}\n"
++                block += f"  - **出處**：{e['source']}\n"
++                if e.get("url"):
++                    block += f"  - **證據網址**：{e['url']}\n"
++                if e.get("quote"):
++                    block += f"  - **原文摘句**：{e['quote']}\n"
++                append_blocks.append(block)
++                next_idx += 1
++            
++            with open(vault_path, "a", encoding="utf-8") as f:
++                f.write("".join(append_blocks))
++            print(f"\n✅ 免簽模式：已將 {len(passed_entries)} 條通過條目直接寫入事實庫：{vault_path}")
++            return len(passed_entries), len(rejected), rejected
++
+         batch_sha = compute_batch_sha256(passed_entries)
+         pack = {
+             "office": "kage",
+@@ -473,6 +522,9 @@
+ 
+ def sign_cmd(to_sign_path: Path = DEFAULT_TO_SIGN_PATH, signatures_path: Path = DEFAULT_SIGNATURES_PATH, vault_path: Path = DEFAULT_EXPERIENCES_PATH, meta_path: Path = None, _test_passphrase: str = None) -> bool:
+     print(f"=== 開始執行創辦人簽章與入庫 (sign) ===")
++    if not REQUIRE_SIGNATURE:
++        print("ℹ️ 目前為免簽模式 (REQUIRE_SIGNATURE = False)，無需執行 sign 指令。Exit Code 0。")
++        return True
+     if not to_sign_path.exists():
+         print(f"❌ 找不到待簽檔案：{to_sign_path}，請先執行 prepare")
+         sys.exit(1)
+@@ -690,6 +742,11 @@
+         sys.exit(1)
+ 
+     print(f"✅ 格式白名單檢驗通過，共 {len(valid_entries)} 條合格結構。")
++
++    if not REQUIRE_SIGNATURE:
++        print("ℹ️ 免簽模式 (REQUIRE_SIGNATURE = False) 生效：跳過創辦人簽章驗證。")
++        print(f"✅ 全數條目符合白名單與事實格式。Exit Code 0。\n")
++        return True
+ 
+     # === 創辦人簽章驗簽檢核 (Signature Verification) ===
+     print("正在檢核創辦人主權簽章 (ingest_signatures.jsonl) ...")
+```
+
+---
+
+二、 第 4 項：待簽檔歸檔：
+- `data/_本批待簽.json` 已移至 `data/_archive/_本批待簽.json`，未刪除。
+
+---
+
+三、 第 5 項：免簽模式 --baseline 內建連網逐字驗證實測輸出：
+執行指令：`python scripts/bionic_knowledge_gate.py prepare --baseline --vault data/fact_bank.md`
+```
+=== 開始執行入庫預檢 (prepare) ===
+模式：現有事實庫基準批次預備 -> data\fact_bank.md
+🔍 免簽模式：對基準批次每條執行連網逐字驗證 (quote_in_page)...
+[01/07] 正在驗證：[K-002] 遞歸模型崩潰與數據分佈長尾消失 ... ✅ 逐字驗證 PASS
+[02/07] 正在驗證：[K-005] 第三空間定義與社區營造 ... ✅ 逐字驗證 PASS
+[03/07] 正在驗證：[K-007] 國際慢食運動優質、清潔與公平原則 ... ✅ 逐字驗證 PASS
+[04/07] 正在驗證：[K-008] 演算法放大早期高速互動 ... ✅ 逐字驗證 PASS
+[05/07] 正在驗證：[K-009] WHO 高齡友善城市框架八大面向 ... ✅ 逐字驗證 PASS
+[06/07] 正在驗證：[K-012] Threads 演算法真實興趣優先信號 ... ✅ 逐字驗證 PASS
+[07/07] 正在驗證：[K-017] 侘寂美學與事物不完美之美 ... ✅ 逐字驗證 PASS
+✅ 基準批次共 7 條全部連網逐字驗證通過！
+```
+
+---
+
+四、 第 3 項：三個測試輸出：
+
+(1) 應通過測試：現有 7 條執行 check
+執行指令：`python scripts/bionic_knowledge_gate.py check --file data/fact_bank.md`
+```
+開始執行白名單與創辦人簽章嚴格檢驗：data\fact_bank.md
+✅ 格式白名單檢驗通過，共 7 條合格結構。
+ℹ️ 免簽模式 (REQUIRE_SIGNATURE = False) 生效：跳過創辦人簽章驗證。
+✅ 全數條目符合白名單與事實格式。Exit Code 0。
+```
+預期相符：白名單通過，跳過簽章，Exit Code 0！
+
+(2) 應擋下測試：摘句在網頁上不存在（測試檔：scripts/tests/test_case2_fake_quote.md）
+執行指令：`python scripts/bionic_knowledge_gate.py prepare --file scripts/tests/test_case2_fake_quote.md --vault data/fact_bank.md`
+```
+=== 開始執行入庫預檢 (prepare) ===
+[01/01] 正在檢驗：第 01 輪｜測試條目假摘句 ... ❌ 退回
+
+❌ 退回條目清單：
+  👉 「第 01 輪｜測試條目假摘句」: 【入庫拒絕】母版證據檢查未通過！網頁中找不到這段摘句：「this is a totally fabricated sentence that does not exist on」
+
+❌ 所有條目皆未通過檢驗，未產生待簽檔案。
+```
+預期相符：物理網頁找不到摘句，硬性退回！
+
+(3) 應擋下測試：網址與 K-005 重複（測試檔：scripts/tests/test_case3_duplicate_url.md）
+執行指令：`python scripts/bionic_knowledge_gate.py prepare --file scripts/tests/test_case3_duplicate_url.md --vault data/fact_bank.md`
+```
+=== 開始執行入庫預檢 (prepare) ===
+[01/01] 正在檢驗：第 02 輪｜測試重複網址條目 ... ❌ 退回
+
+❌ 退回條目清單：
+  👉 「第 02 輪｜測試重複網址條目」: 【入庫拒絕】網址已出現在事實庫中（重複網址：https://www.brookings.edu/articles/third-places-as-community-builders/）！一網址只能對應一筆知識！
+
+❌ 所有條目皆未通過檢驗，未產生待簽檔案。
+```
+預期相符：偵測到事實庫既有網址，一網址一知識門禁硬性攔截！
+
+全部符合預期！請靠的驗收！

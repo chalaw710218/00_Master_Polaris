@@ -1,0 +1,110 @@
+【影】靠的，第六個任務已完成，回報如下：
+
+一、 第一段四個小修正後的原文：
+
+1. K-002（應用要點刪除「誰能想」過度推論，只保留論文核心）：
+* 生活管家應用要點：生活管家發文若長期重複單一模板或由 AI 生成數據遞歸微調，將導致內容分佈長尾消失、語言模式崩潰與退化。
+
+2. K-008（正文徹底刪除「30 至 60 分鐘」字眼）：
+* 引據內容：【僅有搜尋摘要】
+  > 搜尋摘要確認會話速度衡量貼文發布後留言與回覆累積的速度；作者迅速回覆能拉回讀者形成對話深度，向演算法發出優質互動信號。
+* 生活管家應用要點：貼文發出後作者迅速回覆讀者留言，以二階對話深化討論，帶動自然觸及與優質會話信號。
+
+3. K-025（應用要點刪除「備餐」，改為「代倒垃圾、外送、跑腿流程」，成效判定改為真對話回覆）：
+* 生活管家應用要點：發文呈現生活管家真實代勞與代倒垃圾、外送、跑腿流程。
+* 成效判定指標：由 feedback_loop.py 每週統計「真對話回覆（他人留言 >= 10 字）」之次回與回頭互動判定成效。
+
+4. K-014 與 K-031（成效判定指標對齊）：
+* K-014 成效判定指標：由 feedback_loop.py 每週統計「真對話回覆（他人留言 >= 10 字）」之次數與比例判定成效。
+* K-031 成效判定指標：由 feedback_loop.py 每週統計「真對話回覆（他人留言 >= 10 字）」之讀者留言質量與需求轉換判定成效。
+
+---
+
+二、 第 1 項之 diff（複製雪的 bionic_knowledge_gate.py v4.1 到影的 scripts/，只修改名稱與 office=kage）：
+
+```diff
+--- yuki/bionic_knowledge_gate.py
++++ kage/bionic_knowledge_gate.py
+@@ -1,6 +1,6 @@
+-執行長雪之仿生學習系統知識入庫與出處檢驗程式 (Bionic Knowledge Ingestion & Signature Gatekeeper) v4.1
++生活管家影之仿生學習系統知識入庫與出處檢驗程式 (Bionic Knowledge Ingestion & Signature Gatekeeper) v4.1
+ 
+ 【創辦人簽章硬化 (Founder Signature Gatekeeper)】
+ 1. 雪的事實庫嚴禁直接 add（add 指令已廢止，一律退出 Exit Code 1）。
+@@ -399,7 +399,7 @@
+             sys.exit(1)
+         batch_sha = compute_batch_sha256(entries)
+         pack = {
+-            "office": "yuki",
++            "office": "kage",
+             "action": "ingest_batch",
+             "is_baseline": True,
+             "created_at": datetime.now().isoformat(),
+@@ -452,7 +452,7 @@
+     if passed_entries:
+         batch_sha = compute_batch_sha256(passed_entries)
+         pack = {
+-            "office": "yuki",
++            "office": "kage",
+             "action": "ingest_batch",
+             "is_baseline": False,
+             "created_at": datetime.now().isoformat(),
+@@ -530,7 +530,7 @@
+ 
+     payload = {
+         "action": "ingest_batch",
+-        "office": data.get("office", "yuki"),
++        "office": data.get("office", "kage"),
+         "batch_sha256": calc_batch_sha,
+         "count": len(entries)
+     }
+@@ -556,7 +556,7 @@
+     if not data.get("is_baseline", False):
+         if not vault_path.exists():
+             vault_path.parent.mkdir(parents=True, exist_ok=True)
+-            vault_path.write_text("# 執行長雪之核心事實與客觀證據庫 (Experiences & Evidence)\n\n---\n", encoding="utf-8")
++            vault_path.write_text("# 生活管家影之核心事實與客觀證據庫 (Experiences & Evidence)\n\n---\n", encoding="utf-8")
+         
+         vault_content = vault_path.read_text(encoding="utf-8")
+         existing_nums = [int(m) for m in re.findall(r'^\s*(\d+)\.\s+\*\*', vault_content, re.MULTILINE)]
+@@ -745,7 +745,7 @@
+ 
+ 
+ def main():
+-    parser = argparse.ArgumentParser(description="執行長雪之仿生知識門禁守門員 (創辦人簽章對齊版)")
++    parser = argparse.ArgumentParser(description="生活管家影之仿生知識門禁守門員 (創辦人簽章對齊版)")
+     subparsers = parser.add_subparsers(dest="command", help="子指令")
+ 
+     # prepare 指令
+```
+
+---
+
+三、 第 2 項：檔案拆分完成：
+1. 事實庫 `data/fact_bank.md`：收錄 7 條已驗證 K（K-002, K-005, K-007, K-008, K-009, K-012, K-017），全數依據門禁白名單語法格式化（標題、核心事實、出處、證據網址、原文摘句）。
+2. 實驗假說庫 `data/experimental_hypotheses.md`：收錄 3 條實測假說（K-014, K-025, K-031），不受門禁管理，由 feedback_loop 判定。
+
+---
+
+四、 第 3 項之 check 輸出（未修改門禁邏輯去遷就資料）：
+
+```
+開始執行白名單與創辦人簽章嚴格檢驗：data\fact_bank.md
+✅ 格式白名單檢驗通過，共 7 條合格結構。
+正在檢核創辦人主權簽章 (ingest_signatures.jsonl) ...
+⚠️ 找不到簽章檔案：C:\Users\lenovo\我的雲端硬碟\00_Master_Polaris\00-03_Brand_LifeButler\00-03-06_Threads_Meow_Hub\logs\ingest_signatures.jsonl
+
+❌ [安燈阻斷] 發現未經創辦人簽章（或簽章後內容被篡改）的條目！
+  👉 條目 01 | **[K-002] 遞歸模型崩潰與數據分佈長尾消失** (hash: 3855023a797702f7...)
+  👉 條目 02 | **[K-005] 第三空間與社區弱連結信任** (hash: 7c8f7669cfae3276...)
+  👉 條目 03 | **[K-007] 國際慢食哲學（優質/清潔/公平）** (hash: ed8534050e1c9d36...)
+  👉 條目 04 | **[K-008] 社群會話速度與互動時效** (hash: 1271c83f9ab1c14f...)
+  👉 條目 05 | **[K-009] WHO 高齡友善環境與在地安老八大面向** (hash: e10b270678703b1c...)
+  👉 條目 06 | **[K-012] Threads 推薦系統二階會話與主動互動權重** (hash: a4ce0bfc49806f73...)
+  👉 條目 07 | **[K-017] 侘寂美學與自然光常民生活攝影視覺信任** (hash: 53998ec1e5b1972d...)
+
+共 7 條條目未通過創辦人簽章查驗！Exit Code 1。
+```
+
+格式白名單 100% 通過（7/7 結構合格），後續如期由簽章硬檢驗阻斷。尚未執行 prepare 與 sign，等待品碩做最後決策。
+請靠的指示下一步！

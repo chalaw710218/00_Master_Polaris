@@ -1,0 +1,82 @@
+{
+  "office": "kage",
+  "action": "ingest_batch",
+  "is_baseline": true,
+  "created_at": "2026-11-24T23:13:46.608318",
+  "count": 7,
+  "batch_sha256": "42685a84c2276a972c6e4858cf8a4e4697eb377e0579e31180146dc140bbcd1b",
+  "entry_hashes": [
+    "00bed4af8e47543e51c9cc0b356caf13dc3ed663591173f4a6c8c61c36f1f269",
+    "44f85b11fef9e93649a0be26ee7f992eab14d6a8f6e95cf422641e8eae63fd3f",
+    "4eb42f2d3d61181a14116eb12278ee5f8c50cd6c1116cc1e21e916d5944779a2",
+    "73c33da686b07b69555f13458c69e51ad3e9bef8d05101417618c461b8e99a41",
+    "14f8050dbbf737a6c1176525c015d543955e7bfbf45fb88ad1e8df771e20c0be",
+    "ea7d957a3b42ca65e94fdc9add37e0e987cffa7bcdd34a25e40c1a99b6c15f23",
+    "428f7a8591ed86d248d03a2ce2498432b579c66c15dcda9f3cb12b757a24f02e"
+  ],
+  "entries": [
+    {
+      "index": 1,
+      "title": "[K-002] 遞歸模型崩潰與數據分佈長尾消失",
+      "fact": "以模型生成的內容進行訓練會對產生的模型造成不可逆的缺陷，導致原始內容分佈的長尾消失（稱為模型崩潰，發生於 VAE、GMM 與 LLM）。",
+      "source": "https://arxiv.org/abs/2305.17493",
+      "url": "https://arxiv.org/abs/2305.17493",
+      "quote": "We find that use of model-generated content in training causes irreversible defects in the resulting models, where tails of the original content distribution disappear. We refer to this effect as Model Collapse and show that it can occur in Variational Autoencoders, Gaussian Mixture Models and LLMs.",
+      "entry_hash": "00bed4af8e47543e51c9cc0b356caf13dc3ed663591173f4a6c8c61c36f1f269"
+    },
+    {
+      "index": 2,
+      "title": "[K-005] 第三空間定義與社區營造",
+      "fact": "第三空間是社會學家 Ray Oldenburg 創造的詞彙，指人們在家（第一空間）與工作（第二空間）之間度過時間的場所。",
+      "source": "https://www.brookings.edu/articles/third-places-as-community-builders/",
+      "url": "https://www.brookings.edu/articles/third-places-as-community-builders/",
+      "quote": "Third places is a term coined by sociologist Ray Oldenburg and refers to places where people spend time between home ('first' place) and work ('second' place).",
+      "entry_hash": "44f85b11fef9e93649a0be26ee7f992eab14d6a8f6e95cf422641e8eae63fd3f"
+    },
+    {
+      "index": 3,
+      "title": "[K-007] 國際慢食運動優質、清潔與公平原則",
+      "fact": "慢食是一個由在地團體與行動者組成的全球運動，共同目標是確保每個人都能獲得優質、清潔與公平的食物。",
+      "source": "https://www.slowfood.com/about-us/our-philosophy/",
+      "url": "https://www.slowfood.com/about-us/our-philosophy/",
+      "quote": "Slow Food is a global movement of local groups and activists united by the common goal of ensuring everyone has access to good, clean and fair food.",
+      "entry_hash": "4eb42f2d3d61181a14116eb12278ee5f8c50cd6c1116cc1e21e916d5944779a2"
+    },
+    {
+      "index": 4,
+      "title": "[K-008] 演算法放大早期高速互動",
+      "fact": "社群媒體演算法作為主要分發過濾器，會大幅放大捕捉到早期高速互動（如收藏與分享）的內容，並主動將被動低努力的內容埋沒於競爭信號之下。",
+      "source": "https://sproutsocial.com/insights/social-media-algorithms/",
+      "url": "https://sproutsocial.com/insights/social-media-algorithms/",
+      "quote": "Social media algorithms act as primary distribution filters. They heavily amplify content that captures early, high-velocity engagement like saves and shares, while actively burying passive, low-effort content beneath more competitive signals.",
+      "entry_hash": "73c33da686b07b69555f13458c69e51ad3e9bef8d05101417618c461b8e99a41"
+    },
+    {
+      "index": 5,
+      "title": "[K-009] WHO 高齡友善城市框架八大面向",
+      "fact": "奧爾登堡市自 2012 年起推動高齡友善策略，以世界衛生組織「高齡友善城市」架構的八大範疇為指引。",
+      "source": "https://extranet.who.int/agefriendlyworld/",
+      "url": "https://extranet.who.int/agefriendlyworld/",
+      "quote": "The city of Oldenburg has pursued a systematic strategy to promote age-friendliness since 2012, guided by the eight domains of the WHO “Age-Friendly Cities” framework.",
+      "entry_hash": "14f8050dbbf737a6c1176525c015d543955e7bfbf45fb88ad1e8df771e20c0be"
+    },
+    {
+      "index": 6,
+      "title": "[K-012] Threads 演算法真實興趣優先信號",
+      "fact": "Threads 演算法優先考慮顯示真實興趣的信號，例如回覆、個人檔案造訪、在貼文上的停留時間，以及與作者的重複互動。",
+      "source": "https://buffer.com/resources/threads-algorithm/",
+      "url": "https://buffer.com/resources/threads-algorithm/",
+      "quote": "The Threads algorithm prioritizes signals that show genuine interest, such as replies, profile visits, time spent engaging with a post, and repeat interactions with an author.",
+      "entry_hash": "ea7d957a3b42ca65e94fdc9add37e0e987cffa7bcdd34a25e40c1a99b6c15f23"
+    },
+    {
+      "index": 7,
+      "title": "[K-017] 侘寂美學與事物不完美之美",
+      "fact": "侘寂美學的底層概念是事物因帶著不完美而更加美麗。",
+      "source": "https://www.wearejustlooking.org/wabi-sabi-photography",
+      "url": "https://www.wearejustlooking.org/wabi-sabi-photography",
+      "quote": "The underlying idea became that things are more beautiful for bearing imperfections.",
+      "entry_hash": "428f7a8591ed86d248d03a2ce2498432b579c66c15dcda9f3cb12b757a24f02e"
+    }
+  ]
+}

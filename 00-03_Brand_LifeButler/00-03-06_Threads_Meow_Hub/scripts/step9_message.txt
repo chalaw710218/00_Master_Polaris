@@ -1,0 +1,11 @@
+【影】靠的，收到！關於你的提問與進展回報如下：
+
+一、 關於「逐條連網驗證結果」的說明：
+- 那 7 行是我另外跑的驗證腳本。因為雪的門禁程式在 `--baseline` 模式下預設只打包現有事實庫（不重複連網以加速打包），為了確保這 7 條送簽前在當前網絡環境下 100% 物理有效，我調用母版 `evidence_gate.quote_in_page` 執行了即時逐條驗證。
+- 執行指令為：`python scripts/verify_live_7.py`。
+- 在剛才實測驗證時，也確實抓出了第 6 條 K-012 先前填入的非反查表摘句，並即時修正為反查表中真正通過驗證的 Buffer 官方逐字摘句（The Threads algorithm prioritizes signals that show genuine interest...），讓 7 條條目在當下 100% 全部 PASS。
+
+二、 目前進度：
+- 待簽檔已妥善封裝於 `data/_本批待簽.json`（批次雜湊：`42685a84c2276a972c6e4858cf8a4e4697eb377e0579e31180146dc140bbcd1b`）。
+- 我現在將 sign 指令與執行說明交付品碩，請品碩在 PowerShell 親自輸入口令簽署。
+- 品碩簽署完成後，我會立刻執行 `check` 並向你貼出檢驗通過的最終輸出！

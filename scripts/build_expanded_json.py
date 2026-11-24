@@ -1,0 +1,233 @@
+import json
+from pathlib import Path
+
+HERE = Path(r"c:\Users\lenovo\我的雲端硬碟\00_Master_Polaris\scripts")
+
+raw_records = [
+    # 13
+    {
+        "rule_no": "第13條",
+        "law": "一般廢棄物回收清除處理辦法",
+        "article": "第2條",
+        "url": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=O0050024&flno=2",
+        "quote": "九、排出：指一般廢棄物送出家戶或其他產生源之行為。",
+        "label": "【對不上】"
+    },
+    {
+        "rule_no": "第13條",
+        "law": "廢棄物清理法",
+        "article": "第41條",
+        "url": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=O0050001&flno=41",
+        "quote": "從事廢棄物清除、處理業務者，應向直轄市、縣（市）主管機關或中央主管機關委託之機關申請核發公民營廢棄物清除處理機構許可文件後，始得受託清除、處理廢棄物業務。",
+        "label": "【已驗證】"
+    },
+    {
+        "rule_no": "第13條",
+        "law": "廢棄物清理法",
+        "article": "第46條",
+        "url": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=O0050001&flno=46",
+        "quote": "有下列情形之一者，處一年以上七年以下有期徒刑，得併科新臺幣一千五百萬元以下罰金：",
+        "label": "【已驗證】"
+    },
+    # 14
+    {
+        "rule_no": "第14條",
+        "law": "公寓大廈管理條例",
+        "article": "第3條",
+        "url": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0070118&flno=3",
+        "quote": "本條例用辭定義如下：  一、公寓大廈：指構造上或使用上或在建築執照設計圖樣標有明確界線，得區分為數部分之建築物及其基地。",
+        "label": "【對不上】"
+    },
+    {
+        "rule_no": "第14條",
+        "law": "公寓大廈管理條例",
+        "article": "第53條",
+        "url": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0070118&flno=53",
+        "quote": "多數各自獨立使用之建築物、公寓大廈，其共同設施之使用與管理具有整體不可分性之集居地區者，其管理及組織準用本條例之規定。",
+        "label": "【對不上】"
+    },
+    # 15
+    {
+        "rule_no": "第15條",
+        "law": "長期照顧服務法",
+        "article": "第3條",
+        "url": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=L0070040&flno=3",
+        "quote": "一、長期照顧（以下稱長照）：指身心失能持續已達或預期達六個月以上者，依其個人或其照顧者之需要，所提供之生活支持、協助、社會參與、照顧及相關之醫護服務。",
+        "label": "【已驗證】"
+    },
+    {
+        "rule_no": "第15條",
+        "law": "醫師法",
+        "article": "第28條",
+        "url": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=L0020001&flno=28",
+        "quote": "未取得合法醫師資格，執行醫療業務，除有下列情形之一者外，處六個月以上五年以下有期徒刑，得併科新臺幣三十萬元以上一百五十萬元以下罰金",
+        "label": "【已驗證】"
+    },
+    # 16
+    {
+        "rule_no": "第16條",
+        "law": "食品安全衛生管理法",
+        "article": "第8條",
+        "url": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=L0040001&flno=8",
+        "quote": "經中央主管機關公告類別及規模之食品業者，應向中央或直轄市、縣（市）主管機關申請登錄，始得營業。",
+        "label": "【已驗證】"
+    },
+    {
+        "rule_no": "第16條",
+        "law": "民法",
+        "article": "第528條",
+        "url": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=B0000001&flno=528",
+        "quote": "稱委任者，謂當事人約定，一方委託他方處理事務，他方允為處理之契約。",
+        "label": "【已驗證】"
+    },
+    # 17
+    {
+        "rule_no": "第17條",
+        "law": "動物保護法",
+        "article": "第22條",
+        "url": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=M0060027&flno=22",
+        "quote": "任何人不得販賣特定寵物。但申請經直轄市、縣（市）主管機關許可，並依法領得營業證照之業者，得經營特定寵物之繁殖、買賣或寄養；許可期間，以三年為限。",
+        "label": "【已驗證】"
+    },
+    {
+        "rule_no": "第17條",
+        "law": "動物保護法",
+        "article": "第25-2條",
+        "url": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=M0060027&flno=25-2",
+        "quote": "處新臺幣十萬元以上三百萬元以下罰鍰，並令其停止營業；拒不停止營業者，按次處罰之。",
+        "label": "【已驗證】"
+    },
+    # 18
+    {
+        "rule_no": "第18條",
+        "law": "電業法",
+        "article": "第59條",
+        "url": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=J0030011&flno=59",
+        "quote": "用戶用電設備工程應交由電器承裝業承裝、施作及裝修，並在向電業申報竣工供電時，應檢附相關電氣工程工業同業公會核發之申報竣工會員證明單，方得接電。",
+        "label": "【已驗證】"
+    },
+    # 19
+    {
+        "rule_no": "第19條",
+        "law": "公平交易法",
+        "article": "第21條",
+        "url": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=J0150002&flno=21",
+        "quote": "事業不得在商品或廣告上，或以其他使公眾得知之方法，對於與商品相關而足以影響交易決定之事項，為虛偽不實或引人錯誤之表示或表徵。",
+        "label": "【對不上】"
+    },
+    {
+        "rule_no": "第19條",
+        "law": "公平交易法",
+        "article": "第42條",
+        "url": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=J0150002&flno=42",
+        "quote": "主管機關對於違反第二十一條、第二十三條至第二十五條規定之事業，得限期令停止、改正其行為或採取必要更正措施，並得處新臺幣五萬元以上二千五百萬元以下罰鍰",
+        "label": "【已驗證】"
+    },
+    # 20
+    {
+        "rule_no": "第20條",
+        "law": "電子簽章法",
+        "article": "第4條",
+        "url": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=J0080037&flno=4",
+        "quote": "電子文件及電子簽章，符合本法規定者，在功能上等同於實體文件及簽章，不得僅因其電子形式而否認其法律效力。",
+        "label": "【已驗證】"
+    },
+    {
+        "rule_no": "第20條",
+        "law": "電子簽章法",
+        "article": "第5條",
+        "url": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=J0080037&flno=5",
+        "quote": "前三項文件或簽章之使用有相對人者，除相對人已同意採用電子形式外，應於採用電子形式之前，以合理期間及方式給予相對人反對之機會，並告知相對人未反對者，推定同意採用電子形式。",
+        "label": "【已驗證】"
+    },
+    # 21
+    {
+        "rule_no": "第21條",
+        "law": "建築物室內裝修管理辦法",
+        "article": "第3條",
+        "url": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0070148&flno=3",
+        "quote": "本辦法所稱室內裝修，指除壁紙、壁布、窗簾、家具、活動隔屏、地氈等之黏貼及擺設外之下列行為：  一、固著於建築物構造體之天花板裝修。  二、內部牆面裝修。",
+        "label": "【已驗證】"
+    },
+    {
+        "rule_no": "第21條",
+        "law": "建築法",
+        "article": "第77-2條",
+        "url": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0070109&flno=77-2",
+        "quote": "建築物室內裝修應遵守左列規定：  一、供公眾使用建築物之室內裝修應申請審查許可，非供公眾使用建築物，經內政部認有必要時，亦同。",
+        "label": "【對不上】"
+    },
+    {
+        "rule_no": "第21條",
+        "law": "建築法",
+        "article": "第95-1條",
+        "url": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0070109&flno=95-1",
+        "quote": "違反第七十七條之二第一項或第二項規定者，處建築物所有權人、使用人或室內裝修從業者新臺幣六萬元以上三十萬元以下罰鍰",
+        "label": "【已驗證】"
+    },
+    # 22
+    {
+        "rule_no": "第22條",
+        "law": "發展觀光條例",
+        "article": "第27條",
+        "url": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=K0110001&flno=27",
+        "quote": "非旅行業者不得經營旅行業業務。但代售日常生活所需國內海、陸、空運輸事業之客票，不在此限。",
+        "label": "【已驗證】"
+    },
+    {
+        "rule_no": "第22條",
+        "law": "發展觀光條例",
+        "article": "第4項",
+        "url": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=K0110001&flno=55",
+        "quote": "未依本條例領取營業執照或登記證而經營觀光旅館業務、旅館業務、旅行業務或觀光遊樂業務者，處新臺幣十萬元以上二百萬元以下罰鍰，並勒令歇業。",
+        "label": "【已驗證】"
+    },
+    # 23
+    {
+        "rule_no": "第23條",
+        "law": "公司法",
+        "article": "第356-1條",
+        "url": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=J0080001&flno=356-1",
+        "quote": "閉鎖性股份有限公司，指股東人數不超過五十人，並於章程定有股份轉讓限制之非公開發行股票公司。",
+        "label": "【已驗證】"
+    },
+    {
+        "rule_no": "第23條",
+        "law": "公司法",
+        "article": "第356-7條",
+        "url": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=J0080001&flno=356-7",
+        "quote": "三、特別股之股東行使表決權之順序、限制、無表決權、複數表決權或對於特定事項之否決權。",
+        "label": "【已驗證】"
+    },
+    # 24
+    {
+        "rule_no": "第24條",
+        "law": "民法",
+        "article": "第224條",
+        "url": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=B0000001&flno=224",
+        "quote": "債務人之代理人或使用人，關於債之履行有故意或過失時，債務人應與自己之故意或過失負同一責任。但當事人另有訂定者，不在此限。",
+        "label": "【已驗證】"
+    },
+    {
+        "rule_no": "第24條",
+        "law": "仲裁法",
+        "article": "第1條",
+        "url": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=I0020001&flno=1",
+        "quote": "有關現在或將來之爭議，當事人得訂立仲裁協議，約定由仲裁人一人或單數之數人成立仲裁庭仲裁之。",
+        "label": "【對不上】"
+    },
+    {
+        "rule_no": "第24條",
+        "law": "仲裁法",
+        "article": "第15條",
+        "url": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=I0020001&flno=15",
+        "quote": "仲裁人應獨立、公正處理仲裁事件，並保守秘密。",
+        "label": "【已驗證】"
+    }
+]
+
+json_path = HERE / "falcon_recheck_13_24.json"
+with open(json_path, "w", encoding="utf-8") as f:
+    json.dump(raw_records, f, ensure_ascii=False, indent=2)
+
+print(f"Updated falcon_recheck_13_24.json with {len(raw_records)} records.")

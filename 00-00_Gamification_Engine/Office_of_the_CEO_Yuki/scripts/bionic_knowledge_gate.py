@@ -653,14 +653,22 @@ def check_file_whitelist(filepath: Path = DEFAULT_EXPERIENCES_PATH, signatures_p
                 current_entry["source"] = source_val
                 if not is_valid_source(source_val):
                     illegal_lines.append((line_idx, f"出處不合格（需帶網址或頁碼/章節數字）：{raw_line}"))
+                    state = "DISCARD_REMAINDER"
                 else:
                     valid_entries.append(current_entry)
-                state = "EXPECT_OPTIONAL_EVIDENCE"
+                    state = "EXPECT_OPTIONAL_EVIDENCE"
                 continue
             else:
                 illegal_lines.append((line_idx, f"非預期位置出現出處行：{raw_line}"))
                 state = "IDLE"
                 continue
+
+        if state == "DISCARD_REMAINDER":
+            m_url = re.match(r'^\s*[-*]\s+\*\*證據網址\*\*：\s*(.+)$', raw_line)
+            m_quote = re.match(r'^\s*[-*]\s+\*\*原文摘句\*\*：\s*(.+)$', raw_line)
+            if m_url or m_quote:
+                continue
+            state = "IDLE"
 
         if state == "EXPECT_OPTIONAL_EVIDENCE":
             m_url = re.match(r'^\s*[-*]\s+\*\*證據網址\*\*：\s*(.+)$', raw_line)

@@ -1,0 +1,66 @@
+--- kage/bionic_knowledge_gate_prev.py
++++ kage/bionic_knowledge_gate_hardened.py
+@@ -705,14 +705,22 @@
+                 current_entry["source"] = source_val
+                 if not is_valid_source(source_val):
+                     illegal_lines.append((line_idx, f"出處不合格（需帶網址或頁碼/章節數字）：{raw_line}"))
++                    state = "DISCARD_REMAINDER"
+                 else:
+                     valid_entries.append(current_entry)
+-                state = "EXPECT_OPTIONAL_EVIDENCE"
++                    state = "EXPECT_OPTIONAL_EVIDENCE"
+                 continue
+             else:
+                 illegal_lines.append((line_idx, f"非預期位置出現出處行：{raw_line}"))
+                 state = "IDLE"
+                 continue
++
++        if state == "DISCARD_REMAINDER":
++            m_url = re.match(r'^\s*[-*]\s+\*\*證據網址\*\*：\s*(.+)$', raw_line)
++            m_quote = re.match(r'^\s*[-*]\s+\*\*原文摘句\*\*：\s*(.+)$', raw_line)
++            if m_url or m_quote:
++                continue
++            state = "IDLE" 
+ 
+         if state == "EXPECT_OPTIONAL_EVIDENCE":
+             m_url = re.match(r'^\s*[-*]\s+\*\*證據網址\*\*：\s*(.+)$', raw_line)
+@@ -744,8 +752,37 @@
+     print(f"✅ 格式白名單檢驗通過，共 {len(valid_entries)} 條合格結構。")
+ 
+     if not REQUIRE_SIGNATURE:
+-        print("ℹ️ 免簽模式 (REQUIRE_SIGNATURE = False) 生效：跳過創辦人簽章驗證。")
+-        print(f"✅ 全數條目符合白名單與事實格式。Exit Code 0。\n")
++        print("ℹ️ 免簽模式 (REQUIRE_SIGNATURE = False) 生效：跳過簽章比對，啟動全域連網逐字驗收 (quote_in_page)...")
++        failed_checks = []
++        for idx, entry in enumerate(valid_entries, 1):
++            title = entry.get("title", f"條目 {idx}")
++            url = entry.get("url")
++            quote = entry.get("quote")
++            print(f"  [{idx:02d}/{len(valid_entries):02d}] 正在連網校驗：{title} ...", end=" ")
++            if not url or not quote:
++                print("❌ 缺少證據網址或原文摘句")
++                failed_checks.append((title, "缺少 --url 或 --quote，無法證明逐字真實性"))
++                continue
++            try:
++                page_text = fetch_page_text(url)
++                ok, why = quote_in_page(quote, page_text)
++                if not ok:
++                    print(f"❌ 逐字比對失敗")
++                    failed_checks.append((title, f"逐字驗證未通過：{why}"))
++                    continue
++                print("✅ 逐字驗證 PASS")
++            except Exception as ex:
++                print(f"❌ 連網抓取失敗")
++                failed_checks.append((title, f"無法連線或抓取網頁（{ex}）"))
++
++        if failed_checks:
++            print("\n❌ [安燈阻斷] 免簽模式發現未經連網驗證（或摘句不符）的條目！")
++            for t, why in failed_checks:
++                print(f"  👉 「{t}」: {why}")
++            print("\nExit Code 1。\n")
++            sys.exit(1)
++
++        print(f"\n✅ 全數 {len(valid_entries)} 條合格條目皆通過線上逐字物理驗證！Exit Code 0。\n")
+         return True
+ 
+     # === 創辦人簽章驗簽檢核 (Signature Verification) ===
