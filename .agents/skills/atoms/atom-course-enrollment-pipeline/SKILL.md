@@ -1,13 +1,17 @@
 ---
 name: atom-course-enrollment-pipeline
-description: "學員名額審查分流與 24h-RSVP 履約閉環底座原子技能。專為實體小班工作坊打造之狀態機級別名冊分流與履約調度引擎。完全遵照創辦人最新法旨：【正取嚴格限額 6 名】、備取 2 名、超額名冊自動分流至【第二梯次加開庫】。自動生成 Google 日曆邀請 Payload、課前 24 小時 RSVP 點名通知模板、逾時自動無痛遞補演算法與現場 DOD 驗收清單。"
+description: 審查名額三軌分流、發送日曆邀請、24h RSVP 點名與現場驗收。在學員報名後名額調度與課前課後履約時使用；初期課綱規劃時不用。只由 polaris-course-master 呼叫，不單獨使用。
+metadata:
+  group: 開課營運
+  parent: polaris-course-master
+  owner: 雪
+  status: draft
+  version: "1.0"
 ---
 
 # 🎟️ 學員名額審查分流與 24h-RSVP 履約閉環底座原子技能 (Course Enrollment Pipeline Atom)
 
-> **所屬技能組**：開課營運 / 學員履約工匠  
 > **核心職責**：專精於「報名名冊三軌分流 (正取 6 名 / 備取 2 名 / 第二梯次加開庫)、Google 日曆邀請 Payload 生成、課前 24h RSVP 點名機制、備取自動遞補、現場 DOD 驗收閉環」。  
-> **原技能母體**：`polaris-course-master`
 
 ---
 

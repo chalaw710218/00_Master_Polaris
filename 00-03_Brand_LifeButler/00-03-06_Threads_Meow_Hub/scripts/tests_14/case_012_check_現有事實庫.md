@@ -1,0 +1,195 @@
+【應通過】
+模式：check
+# 艾達 01 事實庫
+
+1. **第 1 輪｜Llama 3.2 輕量模型 1B/3B**：
+  - **核心事實**：Meta 正式發布 Llama 3.2 輕量純文字模型（1B 與 3B），適用於邊緣與行動設備。
+  - **出處**：https://ai.meta.com/blog/llama-3-2-connect-2024-vision-edge-mobile-devices/
+  - **證據網址**：https://ai.meta.com/blog/llama-3-2-connect-2024-vision-edge-mobile-devices/
+  - **原文摘句**：Today, we’re releasing Llama 3.2, which includes small and medium-sized vision LLMs (11B and 90B), and lightweight, text-only models (1B and 3B) that fit onto edge and mobile devices
+
+2. **第 2 輪｜Llama 3.2 支援 128K 上下文**：
+  - **核心事實**：Llama 3.2 1B 與 3B 模型支援 128K tokens 上下文長度。
+  - **出處**：https://ai.meta.com/blog/llama-3-2-connect-2024-vision-edge-mobile-devices/
+  - **證據網址**：https://ai.meta.com/blog/llama-3-2-connect-2024-vision-edge-mobile-devices/
+  - **原文摘句**：The Llama 3.2 1B and 3B models support context length of 128K tokens and are state-of-the-art in their class for on-device use cases
+
+3. **第 3 輪｜微軟 Phi-4-Mini 語言模型**：
+  - **核心事實**：Phi-4-Mini 為 3.8-billion-parameter 語言模型。
+  - **出處**：https://arxiv.org/abs/2503.01743
+  - **證據網址**：https://arxiv.org/abs/2503.01743
+  - **原文摘句**：Phi-4-Mini is a 3.8-billion-parameter language model trained on high-quality web and synthetic data
+
+4. **第 1 輪｜DeepSeek-R1 強化學習推理模型**：
+  - **核心事實**：LLMs 的推理能力可透過純強化學習激發，無需人工標註的推理軌跡。
+  - **出處**：https://arxiv.org/abs/2501.12948
+  - **證據網址**：https://arxiv.org/abs/2501.12948
+  - **原文摘句**：Here we show that the reasoning abilities of LLMs can be incentivized through pure reinforcement learning (RL), obviating the need for human-labeled reasoning trajectories.
+
+5. **第 2 輪｜模型上下文協議 MCP 開放標準**：
+  - **核心事實**：模型上下文協議（MCP）是一項開放標準，使開發者能夠在資料來源與 AI 工具之間建立安全的雙向連接。
+  - **出處**：https://www.anthropic.com/news/model-context-protocol
+  - **證據網址**：https://www.anthropic.com/news/model-context-protocol
+  - **原文摘句**：The Model Context Protocol is an open standard that enables developers to build secure, two-way connections between their data sources and AI-powered tools.
+
+6. **第 3 輪｜端側小語言模型 SmolLM2**：
+  - **核心事實**：SmolLM2 在約 11 兆 tokens 的數據上進行多階段過訓練。
+  - **出處**：https://arxiv.org/abs/2502.02737
+  - **證據網址**：https://arxiv.org/abs/2502.02737
+  - **原文摘句**：To attain strong performance, we overtrain SmolLM2 on ~11 trillion tokens of data using a multi-stage training process that mixes web text with specialized math, code, and instruction-following data.
+
+7. **第 4 輪｜推論加速投機解碼 Speculative Decoding**：
+  - **核心事實**：推論加速算法投機解碼（speculative decoding）透過並行計算多個 tokens，在不改變輸出的情況下加速自回歸模型採樣。
+  - **出處**：https://arxiv.org/abs/2211.17192
+  - **證據網址**：https://arxiv.org/abs/2211.17192
+  - **原文摘句**：In this work we introduce speculative decoding - an algorithm to sample from autoregressive models faster without any changes to the outputs, by computing several tokens in parallel.
+
+8. **第 5 輪｜毫米波雷達跌倒偵測 mmFall**：
+  - **核心事實**：當異常程度突增與質心高度驟降同時發生時，毫米波雷達系統判定跌倒事件發生。
+  - **出處**：https://arxiv.org/abs/2003.02386
+  - **證據網址**：https://arxiv.org/abs/2003.02386
+  - **原文摘句**：A fall is claimed to have occurred when the spike in anomaly level and the drop in centroid height occur simultaneously.
+
+9. **第 6 輪｜全同態加密醫療應用 Fully Homomorphic Encryption**：
+  - **核心事實**：該研究探討將全同態加密應用於醫療診斷神經網路演算法等真實醫療場景。
+  - **出處**：https://arxiv.org/abs/2501.04058
+  - **證據網址**：https://arxiv.org/abs/2501.04058
+  - **原文摘句**：Focussing on two different use cases-Quality Control methods in industrial contexts and Neural Network algorithms for healthcare diagnostics-this research investigates the inclusion of Fully Homomorphic Encryption into real-world applications in the healthcare sector.
+
+10. **第 7 輪｜LoRa 應急通訊自組網 HELPER**：
+  - **核心事實**：應急通訊節點 HELPER 由具備 WiFi 功能的樹莓派與 LoRa 模組組成原型並以鋰電池驅動。
+  - **出處**：https://arxiv.org/abs/1903.08974
+  - **證據網址**：https://arxiv.org/abs/1903.08974
+  - **原文摘句**：The HELPER is prototyped using WiFi enabled Raspberry Pi and LoRa module that is configured to run using Li-ion batteries.
+
+11. **第 8 輪｜OverServe 智能體資源放大攻擊**：
+  - **核心事實**：OverServe 透過共同設計模型上下文協議（MCP）狀態工具與完成確認提示詞對 SaaS Agent 實施資源放大攻擊。
+  - **出處**：https://arxiv.org/abs/2611.14808
+  - **證據網址**：https://arxiv.org/abs/2611.14808
+  - **原文摘句**：OverServe co-designs Model Context Protocol (MCP) status tools and completion-confirmation prompts for the attacker.
+
+12. **第 9 輪｜CLiFT-ASR 跨語言台語語音辨識**：
+  - **核心事實**：由於標註數據稀缺，台語等低資源語言的自動語音辨識（ASR）面臨困難。
+  - **出處**：https://arxiv.org/abs/2511.06860
+  - **證據網址**：https://arxiv.org/abs/2511.06860
+  - **原文摘句**：Automatic speech recognition (ASR) for low-resource languages such as Taiwanese Hokkien is difficult due to the scarcity of annotated data.
+
+13. **第 11 輪｜毫米波跌倒偵測 a**：
+  - **核心事實**：系統將毫米波感測與機器人移動性相結合，允許機器人主動調整感測視角並跨房間維持目標可觀察性。
+  - **出處**：https://arxiv.org/abs/2606.11109
+  - **證據網址**：https://arxiv.org/abs/2606.11109
+  - **原文摘句**：The system integrates millimeter-wave (mmWave) sensing with robotic mobility, allowing the robot to actively adjust its sensing viewpoint and maintain target observability across rooms and under occlusion.
+
+14. **第 11 輪｜毫米波跌倒偵測 b**：
+  - **核心事實**：在該數位分身中，時域頻譜圖達到 98-99% 測試準確率，而靜態 RDMs 達到 89.4%。
+  - **出處**：https://arxiv.org/abs/2601.11938
+  - **證據網址**：https://arxiv.org/abs/2601.11938
+  - **原文摘句**：In this twin, temporal spectrograms reach 98-99% test accuracy with similar precision and recall for both classes, while static RDMs reach 89.4% and show more variable training despite using the same backbone.
+
+15. **第 12 輪｜具身智能邊緣推論運行時 vla.cpp**：
+  - **核心事實**：該運行時共享模型載入、張量執行與服務，同時保留各架構專屬的注意力、調節與動作頭。
+  - **出處**：https://arxiv.org/abs/2606.08094
+  - **證據網址**：https://arxiv.org/abs/2606.08094
+  - **原文摘句**：The runtime shares model loading, tensor execution, and serving while retaining architecture-specific attention, conditioning, and action heads.
+
+16. **第 13 輪｜超寬頻 UWB 室內精準定位導航**：
+  - **核心事實**：該系統利用超寬頻（UWB）感測器在無 GPS 環境下提供精準定位。
+  - **出處**：https://arxiv.org/abs/2607.16614
+  - **證據網址**：https://arxiv.org/abs/2607.16614
+  - **原文摘句**：The system utilizes UWB sensors to provide precision localization in GPS-denied environments.
+
+17. **第 14 輪｜衛星手機直連應急架構 D2C**：
+  - **核心事實**：手機直連衛星（D2C）利用現有地面頻譜與未改裝之消費級手機提供應急連網能力。
+  - **出處**：https://arxiv.org/abs/2605.05843
+  - **證據網址**：https://arxiv.org/abs/2605.05843
+  - **原文摘句**：D2C, pioneered by SpaceX Starlink and AST SpaceMobile, leverages existing terrestrial spectrum and unmodified consumer handsets to provide emergency connectivity as a market-driven overlay.
+
+18. **第 15 輪｜多智能體工作流動態路由 ProgRouter**：
+  - **核心事實**：ProgRouter 是一個在線進度引導的路由架構，能在工作流步驟中自適應選擇 LLM 智能體以在遵守時間與成本預算下保持解題品質。
+  - **出處**：https://arxiv.org/abs/2608.25992
+  - **證據網址**：https://arxiv.org/abs/2608.25992
+  - **原文摘句**：We present ProgRouter, an online progress-guided routing framework that adaptively selects LLM agents across workflow steps to preserve task-solving quality while adhering to time and cost budgets.
+
+19. **第 16 輪｜醫療隱私聯邦學習 Federated Learning**：
+  - **核心事實**：聯邦學習（FL）透過使機構能夠在本地訓練模型並僅共享模型更新來減少數據集中化。
+  - **出處**：https://arxiv.org/abs/2604.27598
+  - **證據網址**：https://arxiv.org/abs/2604.27598
+  - **原文摘句**：Federated Learning (FL) reduces data centralization by enabling institutions to train models locally and share only model updates.
+
+20. **第 17 輪｜神經音訊編解碼器語音模型優化 LLM-Codec**：
+  - **核心事實**：神經音訊編解碼器廣泛用作口語語言模型的標記器，但其優化目標為波形重構而非自回歸預測。
+  - **出處**：https://arxiv.org/abs/2604.17852
+  - **證據網址**：https://arxiv.org/abs/2604.17852
+  - **原文摘句**：Neural audio codecs are widely used as tokenizers for spoken language models, but they are optimized for waveform reconstruction rather than autoregressive prediction.
+
+21. **第 18 輪｜間接提示詞注入攻擊防禦 RETA**：
+  - **核心事實**：間接提示詞注入攻擊透過在智能體任務執行期間檢索的第三方數據中嵌入惡意指令來劫持基於 LLM 的智能體。
+  - **出處**：https://arxiv.org/abs/2606.15441
+  - **證據網址**：https://arxiv.org/abs/2606.15441
+  - **原文摘句**：Indirect prompt injection attacks hijack LLM-based agents by embedding malicious instructions in third-party data that the agent retrieves during task execution.
+
+22. **第 19 輪｜端側能效檢索增強生成 NPU 架構**：
+  - **核心事實**：完全在設備端運行檢索增強生成有益於隱私、延遲與離線使用，但 CPU 推理的能源成本是主要障礙。
+  - **出處**：https://arxiv.org/abs/2606.11257
+  - **證據網址**：https://arxiv.org/abs/2606.11257
+  - **原文摘句**：Running them entirely on-device benefits privacy, latency, and offline use, but the energy cost of CPU inference is a major barrier.
+
+23. **第 20 輪｜台灣客語方言感知語音辨識模型**：
+  - **核心事實**：台灣客語是一種低資源語言，其高度方言變異性與漢字拼音雙重書寫系統對自動語音辨識帶來挑戰。
+  - **出處**：https://arxiv.org/abs/2602.22522
+  - **證據網址**：https://arxiv.org/abs/2602.22522
+  - **原文摘句**：Taiwanese Hakka is a low-resource, endangered language that poses significant challenges for automatic speech recognition (ASR), including high dialectal variability and the presence of two distinct writing systems (Hanzi and Pinyin).
+
+24. **第 12 輪｜具身智能邊緣推論運行時 vla.cpp 結果**：
+  - **核心事實**：在 8,GB Jetson Orin Nano 硬體上實測，BitVLA 完成了 200/200 個 LIBERO-Object 任務回合。
+  - **出處**：https://arxiv.org/abs/2606.08094
+  - **證據網址**：https://arxiv.org/abs/2606.08094
+  - **原文摘句**：BitVLA completes 200/200 LIBERO-Object episodes on an 8,GB Jetson Orin Nano.
+
+25. **第 13 輪｜超寬頻 UWB 室內精準定位導航 結果**：
+  - **核心事實**：實驗結果實測表明，該系統以低延遲可靠運行，在複雜室內空間為使用者提供安全性與靈活性。
+  - **出處**：https://arxiv.org/abs/2607.16614
+  - **證據網址**：https://arxiv.org/abs/2607.16614
+  - **原文摘句**：Experimental results demonstrate that the system operates reliably with low latency, providing safety and flexibility for users in complex indoor spaces.
+
+26. **第 14 輪｜衛星手機直連應急架構 D2C 結果**：
+  - **核心事實**：分析結果表明，雖然 D2C 透過既有設備兼容性實現快速市場進入，但 NTN 提供更優越的效能、安全性與可擴展性，定位為 6G 星地融合之基礎架構。（資料類型：摘要未說明）
+  - **出處**：https://arxiv.org/abs/2605.05843
+  - **證據網址**：https://arxiv.org/abs/2605.05843
+  - **原文摘句**：Our analysis shows that, although D2C enables rapid market entry through legacy-device compatibility, NTN provides superior performance, security, and scalability, positioning it as the foundational framework for 6G satellite-terrestrial convergence.
+
+27. **第 15 輪｜多智能體工作流動態路由 ProgRouter 結果**：
+  - **核心事實**：在涵蓋代碼生成、數學推理與問答的基準實驗實測中，ProgRouter 相較關鍵基線降低了運營成本，同時保持強大的任務解決效能。
+  - **出處**：https://arxiv.org/abs/2608.25992
+  - **證據網址**：https://arxiv.org/abs/2608.25992
+  - **原文摘句**：Experiments on HumanEval Plus, MBPP, MATH-500, and ASQA, spanning agentic code generation, mathematical reasoning, and retrieval-augmented long-form question answering, demonstrate that ProgRouter reduces the operating cost relative to key baselines while maintaining strong task-solving performance.
+
+28. **第 16 輪｜醫療隱私聯邦學習 Federated Learning 結果**：
+  - **核心事實**：以真實醫療數據實測，結合同態加密之聯邦學習達到與集中式機器學習相當之效能，但在神經網路實作中帶來可測量的密碼學開銷。
+  - **出處**：https://arxiv.org/abs/2604.27598
+  - **證據網址**：https://arxiv.org/abs/2604.27598
+  - **原文摘句**：FL with HE achieved performance comparable to cML but introduced measurable cryptographic overhead, particularly in the NN implementation.
+
+29. **第 17 輪｜神經音訊編解碼器語音模型優化 LLM-Codec 結果**：
+  - **核心事實**：在 SALMon 語音連貫性基準實測中，以該方法訓練之標記語言模型達到 61.6% 準確率（比 AUV 高出 12.1 個百分點），並降低困惑度 35。
+  - **出處**：https://arxiv.org/abs/2604.17852
+  - **證據網址**：https://arxiv.org/abs/2604.17852
+  - **原文摘句**：On SALMon speech coherence, token LMs trained on \ours reach 61.6% accuracy (+12.1 points over AUV) while reducing perplexity 35.
+
+30. **第 18 輪｜間接提示詞注入攻擊防禦 RETA 結果**：
+  - **核心事實**：在六項黑盒自適應攻擊實測中，RETA 將每項攻擊的攻擊成功率維持在 10% 以下，在兩個目標模型上的平均攻擊成功率分別為 2.92% 與 3.75%。
+  - **出處**：https://arxiv.org/abs/2606.15441
+  - **證據網址**：https://arxiv.org/abs/2606.15441
+  - **原文摘句**：Across six black-box adaptive attacks, RETA keeps every per-attack ASR below 10%, with average ASR of 2.92% and 3.75% on the two target models, while preserving most utility under attack and on clean inputs.
+
+31. **第 19 輪｜端側能效檢索增強生成 NPU 架構 結果**：
+  - **核心事實**：在 120 個查詢的維基百科基準測試實測中，相較於 CPU 基線，NPU 實現了 18.1x 更快的大模型預填充、4.0x 更低的端到端查詢延遲與 4.0x 更少的系統能耗。
+  - **出處**：https://arxiv.org/abs/2606.11257
+  - **證據網址**：https://arxiv.org/abs/2606.11257
+  - **原文摘句**：On a 120-query Wikipedia-passage benchmark, it delivers 18.1x faster LLM prefilling, 4.0x lower end-to-end query latency, and 4.0x less system energy than the CPU baseline; the same workload on the integrated GPU is 1.7x slower than CPU and uses 6.5x more energy than the NPU.
+
+32. **第 20 輪｜台灣客語方言感知語音辨識模型 結果**：
+  - **核心事實**：該架構引入方言感知建模策略以將方言風格與語言內容解耦；在 HAT 語料庫實測中，該模型在漢字與拼音語音辨識上分別取得 57.00% 與 40.41% 的相對錯誤率降低。
+  - **出處**：https://arxiv.org/abs/2602.22522
+  - **證據網址**：https://arxiv.org/abs/2602.22522
+  - **原文摘句**：Central to our approach is the introduction of dialect-aware modeling strategies designed to disentangle dialectal "style" from linguistic "content", which enhances the model's capacity to learn robust and generalized representations. ... Experiments conducted on the HAT corpus reveal that our model achieves 57.00% and 40.41% relative error rate reduction on Hanzi and Pinyin ASR, respectively.

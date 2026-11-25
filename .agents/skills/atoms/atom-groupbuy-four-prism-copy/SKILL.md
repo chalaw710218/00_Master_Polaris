@@ -1,13 +1,17 @@
 ---
 name: atom-groupbuy-four-prism-copy
-description: "管家選品四稜鏡文案與商城規格折射原子技能。嚴格遵循創辦人親定之『四大面向折射輸出鐵律 (The 4-Prism Rule)』，以喵編（灰色小虎牙虎斑貓）生活管家人設，將選品參數一鍵折射為：【專業知識】、【成長歷程】、【三觀哲學】與【選品宣告】四篇社群文案，外加【網路商城精簡版規格】。內建嚴格禁語過濾（一票否決『團購/便宜/划算/俗擱大碗/+1』）與官方固定版尾審查。"
+description: 折射喵編人設四大面向選品文案、商城精簡規格與禁語過濾。在選品定價確立後產出社群圖文文案時使用；上游成本逆推時不用。只由 sharp-groupbuy-analyzer 呼叫，不單獨使用。
+metadata:
+  group: 管家選品
+  parent: sharp-groupbuy-analyzer
+  owner: 泰勒絲
+  status: draft
+  version: "1.0"
 ---
 
 # 💎 管家選品四稜鏡文案與商城規格折射原子技能 (Groupbuy Four-Prism Copy Atom)
 
-> **所屬技能組**：選品行銷 / 泰勒絲文案工匠  
 > **核心職責**：專精於「喵編生活管家人設、四大面向折射矩陣 (專業知識/成長歷程/三觀哲學/選品宣告)、商城精簡規格、絕對禁語過濾、品牌法定版尾」。  
-> **原技能母體**：`sharp-groupbuy-analyzer`
 
 ---
 

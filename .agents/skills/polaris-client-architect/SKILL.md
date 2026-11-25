@@ -1,9 +1,11 @@
 ---
 name: polaris-client-architect
-description: 🛡️ 極星客戶端極限抗逆架構與離線生存總控協議 (Polaris Client Extreme Resilience & Offline Survival Architecture Protocol v1.0)。由首席前端與客戶端體驗架構師尼奧 (Neo) 業務主政、CTO 林納斯 (Linus) 確定性底層代碼監製、首席品質長戴明 (Dr. Deming) 安燈驗收。專門將任何前端與客戶端應用（Next.js 15+ / PWA / LINE LIFF / WebApp），一鍵封裝為具備「溫暖離線 Service Worker 心跳 ✕ OPFS/IndexedDB 本地優先不可篡改存證 ✕ 現代 WebTransport 毫米波雨衰極限穿透 (99.92% 到達率) ✕ WASM SIMD 5 種共病用藥 DDI 監測 ✕ 2.5KB Micro-NN 孤島推論 ✕ ML-DSA-65 後量子晶格簽章」之工業級高抗逆客戶端架構骨架。
-version: v1.0 (Flagship Master Edition)
-role_key: neo
-authorized_by: 陳品碩 (Pinshuo)
+description: 建構前端極限抗逆架構、離線心跳與斷線隊列重放機制。在開發與架構 WebApp、PWA 與 LIFF 客戶端時使用；後端伺服器運維時不用。
+metadata:
+  group: 客戶端抗逆
+  owner: 尼奧
+  status: draft
+  version: "1.0"
 ---
 
 # 🛡️ 極星客戶端極限抗逆架構與離線生存總控協議 (Polaris Client Architect Protocol v1.0)
@@ -17,6 +19,16 @@ authorized_by: 陳品碩 (Pinshuo)
 > 讓極星的客戶端在中央山脈暴雨、太平洋斷纜或偏鄉弱網孤島下，依然如泰山般穩如磐石。
 
 ---
+
+## 🧩 所屬原子技能與調用順序 (Atom Sequence)
+
+本母體按以下先後順序協同原子技能完成全閉環運作：
+
+1. **執行 `atom-client-offline-heartbeat`**：負責 生成離線 Service Worker 心跳、本地優先存證與雙層快取。
+2. **執行 `atom-client-resilient-transport`**：負責 管理極限弱網傳輸、離線待發隊列與冪等靜默重放狀態機。
+
+---
+
 
 ## 🏗️ 第一章｜系統全景架構 (System Architecture)
 

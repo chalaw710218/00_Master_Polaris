@@ -1,18 +1,23 @@
 ---
 name: atom-supplychain-layer-deconstructor
-description: "供應鏈四層摩擦與毛利精算底座原子技能。專門針對各級供應商開出的批發報價，建立嚴謹數學倒推模型：從中盤報價逆向剝離『L3 中盤加成』、『L2 進口大盤利潤』、『物理加工修清/失水損耗 (5%~20%)』、『跨國海空運與關稅檢疫摩擦』，精準還原『L1 產地出貨價 (FOB/EXW)』，並量化其虛報溢價率 (Markup Inflation Rate)。"
+description: 精算供應鏈四層毛利倒推模型、產地出貨價與虛報溢價率。在供應商批發報價成本審計時使用；談判心理攻防時不用。只由 sharp-groupbuy-analyzer 呼叫，不單獨使用。
+metadata:
+  group: 管家選品
+  parent: sharp-groupbuy-analyzer
+  owner: 算盤
+  status: draft
+  version: "1.0"
 ---
 
 # ⚓ 供應鏈四層摩擦與毛利精算底座原子技能 (Supply Chain Layer Deconstructor Atom)
 
-> **所屬技能組**：選品審計 / 算盤財務工匠  
 > **核心職責**：專精於「四層供應鏈數學倒推、產地出貨價 (FOB) 精算、加工修清耗損率量化、國際物流與關稅摩擦剝離、虛報溢價率審計」。  
-> **原技能母體**：`ai-pricing-auditor`
 
 ---
 
 ## 核心功能與深度特性
 1. **四層階層毛利數學倒推架構 (4-Layer Supply Chain Decomposition)**：
+   - 考量物理加工修清與失水損耗 (5%~20%)，精算真實還原成本。
    - $\text{L3 中盤價 (Quoted Price)}$ ➔ 剝離中盤毛利 (15%~25%) ➔ $\text{L2 大盤批發價}$。
    - 剝離物理加工耗損（肉品修清失水 12%~18%、水產包冰 10%~15%、乾貨篩選 5%）。
    - 剝離國際物流摩擦（跨國貨櫃運費 4%~8%、進口關稅 5%~15%、報驗檢疫與冷凍倉儲 3%）。

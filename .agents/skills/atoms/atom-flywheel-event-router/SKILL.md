@@ -1,13 +1,17 @@
 ---
 name: atom-flywheel-event-router
-description: "全域業務事件意圖解析與流水線智慧路由原子技能。由執行長雪業務主政，專門將創辦人、社群或客戶傳入的未修飾文字與圖片資訊，於毫秒級內進行意圖解析，精準路由至四大作戰動脈：『groupbuy (管家選品)』、『life_service (生活服務)』、『ai_education (AI教育開課)』與『forensics (商業徵信)』，並附載信心評分 (Confidence Score) 與推薦下游調用之專精原子技能清單。"
+description: 解析全域業務事件意圖並路由至四大作戰動脈流水線。在需求傳入時進行語義解析與流水線分派時使用；決策卡組裝審批時不用。只由 polaris-flywheel-orchestrator 呼叫，不單獨使用。
+metadata:
+  group: 飛輪總控
+  parent: polaris-flywheel-orchestrator
+  owner: 雪
+  status: draft
+  version: "1.0"
 ---
 
 # 🧭 全域業務事件意圖解析與流水線智慧路由原子技能 (Flywheel Event Router Atom)
 
-> **所屬技能組**：飛輪總控 / 執行長戰略調度  
 > **核心職責**：專精於「原始業務事件意圖解析、四大作戰動脈精準路由 (groupbuy/life_service/ai_education/forensics)、信心度量化、下游專精原子鏈路裝配」。  
-> **原技能母體**：`polaris-flywheel-orchestrator`
 
 ---
 

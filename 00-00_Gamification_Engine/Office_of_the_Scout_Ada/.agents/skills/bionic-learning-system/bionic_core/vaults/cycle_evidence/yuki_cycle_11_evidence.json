@@ -1,0 +1,31 @@
+{
+  "cycle": 11,
+  "office": "yuki",
+  "timestamp": "2026-11-16T02:37:59.528774",
+  "topic": "台東偏鄉緊急災難救護與公衛韌性實務 (Taitung Disaster Medical Assistance & Public Health Resilience)",
+  "sources": [
+    {
+      "url": "https://www.taitung.gov.tw/News_Content.aspx?n=13370&s=134812",
+      "title": "臺東首度跨區及國際災難醫療救護隊聯合演練！饒慶鈴親臨DMAT演練 強化救災能力",
+      "fetched_at": "2026-11-16T02:37:59.525774",
+      "status_code": 200,
+      "raw_sha256": "48cae32d2925e08625d897467c5a2a22b3bb52be0f62523c207978058df6719e",
+      "bytes_length": 109055,
+      "key_takeaways": "臺東縣政府首次結合花東、北區與國際醫療團隊進行跨區災難醫療演練，模擬地震發生後的急救與公衛應變。演練特別將災後3至5天的災民心理輔導、情緒支持與公共衛生防護列為關鍵任務，降低二次健康危機。",
+      "quoted_metrics": [
+        {
+          "number": "1至3天",
+          "original_quote": "昨日模擬災情剛發生1至3天，由跨縣市團隊支援，現場開設兩個急救站處理傷患、進行醫療救治等",
+          "verified_in_source": true
+        },
+        {
+          "number": "3至5天",
+          "original_quote": "今日則模擬災後3至5天，進行災民收容、為受災民眾提供心理輔導和情緒支持等",
+          "verified_in_source": true
+        }
+      ]
+    }
+  ],
+  "usefulness_for_polaris": "生活管家在台東推行偏鄉到府服務與孤老探訪時，可借鑑演練中『災後 3~5 天心理輔導與防範二次公衛危機』架構，在豪雨或地震等孤島情境下，優先為獨居長輩提供物資順路帶與身心安撫，成為官方醫療隊抵達前之超在地微型守護節點。",
+  "validation_status": "真實網路來源驗證合格 (HTTP 200 + SHA256)"
+}

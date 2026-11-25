@@ -1,0 +1,16 @@
+{
+  "cycle": 8,
+  "office": "yuki",
+  "timestamp": "2026-11-15T02:52:26.123340",
+  "topic": "常民注意力經濟與心智定錨神經學 (Neuroeconomics of Attention & Dwell Time Allocation)",
+  "hypothesis": "在短影音與 Threads 碎片化資訊洪流中，讀者大腦遵循自由能原理（FEP）。文案開頭捨棄宏大敘事，直接以常民生理共鳴（熱騰騰的便當香氣、老街黃昏的斜陽）建立心智定錨，能在 1.5 秒內大幅降低認知摩擦，停留時間超過 5 秒。",
+  "web_source": "Neuroeconomics of Digital Attention & Free Energy Principle in Content Consumption (2024)",
+  "evidence_metrics": {
+    "neuro_attention_dwell_sec": 5.4,
+    "friction_reduction_pct": 65.0,
+    "hook_pass_rate": 96.0
+  },
+  "axiom_learned": "好內容尊重常民的生理節奏。用最具溫度的生活白描，穿透冰冷浮躁的演算法資訊迷霧。",
+  "validation_status": "未經來源驗證的假說",
+  "note": "數據為假說推演，非真實物理測量"
+}

@@ -10,8 +10,10 @@
 2. **嚴禁 Linux 肌肉記憶**：
    * ❌ **絕對禁止使用 Linux 語法**：`grep`, `ls -la`, `cat`, `find . -name`, `sed`（會導致 `Exited with code 1` 崩潰）。
    * ⭕ **命令列規範**：若必須執行命令列，僅使用 PowerShell 標準 Cmdlet（`Get-ChildItem`, `Select-String`, `Test-Path`）。
-3. **原生工具優先原則**：
+3. **原生工具優先與檔案編碼契約**：
    * 讀寫與編輯檔案，**100% 強制使用 Antigravity 原生工具（`read_file`, `write_file`, `edit_file`）**，嚴禁用命令列下 `echo "..." > file` 或 `cat` 假手他人。
+   * ❌ **寫入文字檔一律指定 UTF-8，禁止使用 PowerShell 的 `>` 和 `>>` 輸出檔案**（Windows PowerShell 預設為 UTF-16 LE，會導致編碼污染與破壞事實庫）。
+   * ⭕ 若以程式或命令列寫入檔案，Python 務必使用 `open(..., "a", encoding="utf-8")`；PowerShell 務必使用 `Add-Content -Encoding utf8` 或 `Out-File -Encoding utf8`。
 4. **禁止盲目全域搜尋（Zero-Blind-Search）**：
    * 嚴禁對整座工作區發動遞歸搜尋（如 `Get-ChildItem -Recurse` 或全硬碟掃描）。
    * 所有天王辦公室、仿生技能、執行腳本與資料庫路徑，**皆已明確登記在 `00-01_Master_Polaris_Map.md`**，必須直接依循地圖精確讀取！

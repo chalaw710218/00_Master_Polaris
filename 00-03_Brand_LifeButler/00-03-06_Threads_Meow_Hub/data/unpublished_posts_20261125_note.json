@@ -1,0 +1,60 @@
+{
+  "audit_date": "2026-11-25",
+  "audited_at": "2026-11-25T23:01:00+08:00",
+  "account": "@hellotaitung",
+  "published_today": [
+    {
+      "slot": "活動宣傳檔 (09:30)",
+      "k_id": "course_reminder",
+      "title": "今天下午 14:00 見！正氣北路家宅總部實體工作坊開課提醒",
+      "post_id": "18105959819636912",
+      "permalink": "https://www.threads.com/@hellotaitung/post/DgJWp0kmaia",
+      "published_at_local": "2026-11-25 09:30:35",
+      "status": "PUBLISHED",
+      "summary": "今天下午 14:00 見！正氣北路家宅總部的熱茶已備妥...正取的夥伴們，筆電請充飽電，下午 14:00 正氣北路 166 巷 90 號見 ☕✨"
+    }
+  ],
+  "unpublished_today_notes": [
+    {
+      "slot": "09:07 (晨間檔 Slot 0)",
+      "k_id": "K-014",
+      "title": "K-014 感官白描・清晨磨石子地與欖仁樹葉光影篇",
+      "hero": "喵編 (店貓)",
+      "bound_image": "meow_20261125_slot0_morning_k014_courtyard_breeze.jpg",
+      "status": "UNPUBLISHED (未發)",
+      "reason": "Windows 排程任務 Polaris_Threads_Post_0907_Morning 執行返回 Exit Code 1，排程發文未成功送出；前台於 09:30 獨立發布了工作坊實體課提醒。",
+      "text": "（端正坐在走廊的磨石子地板上，微微仰起鼻尖聞著清晨的空氣）\n早晨的陽光穿過院子裡的欖仁樹葉，在微涼的磨石子地上灑下一塊一塊搖晃的金色光影喵。\n空氣裡帶著露水剛蒸發的青草味，還有太平洋那頭吹過來的一點點海風濕度。\n\n新長的葉子在風裡輕輕摩擦，\n光影慢慢爬過本喵的白手套腳掌，暖洋洋的。\n\n今天早上你出門時有曬到太陽嗎？"
+    },
+    {
+      "slot": "12:34 (午間檔 Slot 1)",
+      "k_id": "control (對照組 [])",
+      "title": "店貓日常・正午木窗軟毯曬太陽午睡篇 (對照組)",
+      "hero": "喵編 (店貓)",
+      "bound_image": "meow_20261125_slot1_noon_control_sunbeam_nap.jpg",
+      "status": "UNPUBLISHED (未發)",
+      "reason": "Windows 排程任務 Polaris_Threads_Post_1234_Noon 執行返回 Exit Code 1，排程發文未成功送出。",
+      "text": "（側躺在木窗邊的米色軟毛毯上，舒服地半瞇著眼睛曬太陽）\n週三中午的陽光把窗台上的毛毯曬得蓬鬆又暖和喵。\n外面的街道安安靜靜的，連風吹過來的速度都慢了下來。\n\n人類總是在忙著看時鐘趕進度，\n但對本喵來說，中午最重要的正事就是找一塊有陽光的地方躺平充電。\n\n你今天中午有留半小時給自己休息嗎？"
+    },
+    {
+      "slot": "17:36 (傍晚檔 Slot 2)",
+      "k_id": "K-025",
+      "title": "K-025 現有服務・傍晚木柵欄與追垃圾車跑腿日常篇",
+      "hero": "喵編 (店貓)",
+      "bound_image": "meow_20261125_slot2_dusk_k025_garbage_truck_watch.jpg",
+      "status": "UNPUBLISHED (未發)",
+      "reason": "Windows 排程任務 Polaris_Threads_Post_1736_Dusk 未能成功發布。",
+      "text": "（跳上店門口的木柵欄往巷子口張望，玄關旁還掛著生活管家的反光背心與分類回收籃）\n傍晚五點多，巷子口遠遠亮起黃色車燈、傳來垃圾車的音樂聲了喵！\n生活管家每天這時候都會穿好反光背心，幫忙家裡有事不在、或是行動不方便的鄰居長輩，把分類好的垃圾跟回收袋準時提去巷口丟上車。\n\n外送、代跑腿、傍晚幫忙追垃圾車，\n這些日常小事雖然不起眼，卻能讓忙碌的人少趕一趟路。\n\n你家那邊的垃圾車都是幾點經過巷口？"
+    },
+    {
+      "slot": "22:33 (夜間檔 Slot 3)",
+      "k_id": "K-031",
+      "title": "K-031 服務徵詢・到府換燈泡與遙控器電池微修篇",
+      "hero": "喵編 (店貓)",
+      "bound_image": "meow_20261125_slot3_night_k031_lightbulb_battery_helper.jpg",
+      "status": "UNPUBLISHED (未發)",
+      "reason": "Windows 排程任務 Polaris_Threads_Post_2233_Night 執行返回 Exit Code 1，排程發文未成功送出；目前時間已過 22:33。",
+      "text": "（端正坐在木桌旁，歪著小腦袋看著桌上剛買回來的全新燈泡、冷氣遙控器跟電池，牆邊還靠著一把小木梯）\n生活管家最近跑腿時發現，很多台東長輩或獨居朋友家裡的高處燈泡壞了、或是熱水器與冷氣遙控器沒電了，\n自己爬梯子換燈泡很危險，找水電師傅專程跑一趟又不好意思。\n\n我們正在規劃「順路到府居家小微修」服務：\n外送或跑腿時，順手幫忙換高處燈泡、換電池、或是換水龍頭墊片。\n\n如果生活管家推出這個順路換燈泡與電池的服務，你家或長輩家會需要嗎？"
+    }
+  ],
+  "disposition_recommendation": "今日未發之 4 篇貼文草稿與專屬配圖（配圖 SHA-256 均未受污染），文案與圖質良好，可順延保留或作為後續檔次/對照組備案使用。"
+}

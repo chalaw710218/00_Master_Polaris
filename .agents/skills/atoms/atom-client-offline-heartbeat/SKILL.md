@@ -1,13 +1,17 @@
 ---
 name: atom-client-offline-heartbeat
-description: "客戶端本地優先存證與 Service Worker 離線心跳原子技能。由尼奧與林納斯監製，專門為 WebApp、PWA 與 LINE LIFF 應用，一鍵生成具備『本地優先 (Local-First) 寫入即確認』與『雙層 SLRU 緩存 Service Worker (sw.js)』之離線抗逆套件。當裝置斷網時，自動攔截請求並渲染生活管家溫潤安撫介面（『別擔心，交代的事都妥妥記在手機裡了』），徹底終結白屏崩潰，並嚴格遵循品牌法定名稱零洩漏防火牆。"
+description: 生成離線 Service Worker 心跳、本地優先存證與雙層快取。在前端建立離線韌性與本地存證機制時使用；網路傳輸隊列重放時不用。只由 polaris-client-architect 呼叫，不單獨使用。
+metadata:
+  group: 客戶端抗逆
+  parent: polaris-client-architect
+  owner: 尼奧
+  status: draft
+  version: "1.0"
 ---
 
 # 🛡️ 客戶端本地優先存證與 Service Worker 離線心跳原子技能 (Client Offline Heartbeat Atom)
 
-> **所屬技能組**：客戶端抗逆 / 尼奧前端工匠  
 > **核心職責**：專精於「本地優先 (Local-First) 寫入即確認、雙層 SLRU 緩存 Service Worker 套件生成、斷網溫暖安撫介面、品牌法定名稱零洩漏防火牆」。  
-> **原技能母體**：`polaris-client-architect`
 
 ---
 

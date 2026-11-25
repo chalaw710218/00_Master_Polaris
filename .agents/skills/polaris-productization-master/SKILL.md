@@ -1,9 +1,11 @@
 ---
 name: polaris-productization-master
-description: 極星萬用服務與業務商品化總控技能 (Polaris Universal Productization Protocol v1.0)。由執行長雪 (Yuki, CEO) 業務主政、首席品質長戴明 (Dr. Deming) 安燈監製。將任何未經修飾的非標勞務、技術、知識或選品，全自動標準化封裝為具備「01_SOP、02_產品規格與定價手冊、03_行銷文案與地推銷售話術」之三合一萬用套版，並強制啟動「約瑟夫 ✕ 泰勒絲 ✕ 影」鐵三角三方交叉盲測溝通協定，實現高轉化、零心智混淆、明碼標價、活得從容的商品化閉環。
-version: v1.1 (Multi-Agent Debate & Cross-Auditing Edition)
-role_key: yuki
-authorized_by: 陳品碩 (Pinshuo)
+description: 封裝非標業務為 SOP、規格手冊與文案話術三合一套版。在新業務、服務或選品準備標準化落地時使用；日常重複性派工時不用。
+metadata:
+  group: 商品化
+  owner: 雪
+  status: draft
+  version: "1.0"
 ---
 
 # 📦 極星萬用商品化總控技能 (Polaris Universal Productization Protocol v1.1)
@@ -14,6 +16,16 @@ authorized_by: 陳品碩 (Pinshuo)
 > 📜 **核心哲學**：**「服務即產品，流程即工廠，文案即業務；消滅繁瑣雜事，拿回生活主導權，活得從容。」**
 
 ---
+
+## 🧩 所屬原子技能與調用順序 (Atom Sequence)
+
+本母體按以下先後順序協同原子技能完成全閉環運作：
+
+1. **執行 `atom-product-trio-scaffolder`**：負責 自動裝配三合一交付套版物理檔案與結構化規格骨架。
+2. **執行 `atom-product-redteam-audit`**：負責 執行四方黑臉交叉審查與戴明防呆安燈出廠驗收。
+
+---
+
 
 ## 🏗️ 第一章｜萬用三合一商品化交付套版 (The Universal 3-in-1 Blueprint)
 

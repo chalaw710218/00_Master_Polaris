@@ -1,0 +1,5 @@
+{
+  "source_url": "https://arxiv.org/abs/2305.17493",
+  "quote_status": "verbatim",
+  "quote": "We find that use of model-generated content in training causes irreversible defects in the resulting models, where tails of the original content distribution disappear. We refer to this effect as Model Collapse and show that it can occur in Variational Autoencoders, Gaussian Mixture Models and LLMs."
+}

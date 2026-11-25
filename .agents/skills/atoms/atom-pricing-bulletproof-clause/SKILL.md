@@ -1,13 +1,17 @@
 ---
 name: atom-pricing-bulletproof-clause
-description: "生活管家高情商防彈合約與防勒索客服話術原子技能。將創辦人原創之防彈衣四大防禦鐵律（隱形摩擦前置折算、實報實銷完全解耦、授權知情前置確認、二次出勤與等候上限律）轉化為標準報價單、現場等候 5 分鐘超時二次出勤加收通知、客戶嫌貴時高情商價值解讀話術，並嚴格把關品牌法定名稱零洩漏防火牆。"
+description: 裝配防彈衣四大鐵律條款、超時加收通知與高情商溝通話術。在合約條款草擬、現場等候超時或客戶嫌貴時使用；數值純計算時不用。只由 polaris-5d-pricing-engine 呼叫，不單獨使用。
+metadata:
+  group: 5D定價
+  parent: polaris-5d-pricing-engine
+  owner: 算盤
+  status: draft
+  version: "1.0"
 ---
 
 # 🛡️ 生活管家高情商防彈合約與防勒索客服話術原子技能 (Pricing Bulletproof Clause & Dialog Atom)
 
-> **所屬技能組**：5D定價 / 生活管家溝通  
 > **核心職責**：專精於「防彈衣四大鐵律條款化、明碼報價單自動生成、現場等候超時二次出勤話術、客戶嫌貴高情商溝通、品牌法定名稱零洩漏防火牆」。  
-> **原技能母體**：`polaris-5d-pricing-engine`
 
 ---
 

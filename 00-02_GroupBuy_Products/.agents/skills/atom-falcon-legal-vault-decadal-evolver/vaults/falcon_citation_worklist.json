@@ -1,0 +1,119 @@
+{
+  "status": "WORKLIST_BUILT",
+  "built_at": "2026-11-14T02:06:23",
+  "files_scanned": 9,
+  "unique_article_citations": 11,
+  "unique_case_numbers_in_code": 0,
+  "pending_markers": 5,
+  "articles_by_law": {
+    "廢棄物清理法": 2,
+    "電子簽章法": 1,
+    "醫師法": 1,
+    "消費者保護法": 1,
+    "發展觀光條例": 1,
+    "公司法": 1,
+    "一般廢棄物回收清除處理辦法": 1,
+    "長期照顧服務法": 1,
+    "動物保護法": 1,
+    "電業法": 1
+  },
+  "article_citations": [
+    {
+      "citation": "《一般廢棄物回收清除處理辦法》第2條",
+      "law": "一般廢棄物回收清除處理辦法",
+      "locations": [
+        "atom-falcon-regulatory-moat-architect/scripts/regulatory_moat_architect.py:29",
+        "atom-falcon-statute-legislative-learner/SKILL.md:24",
+        "atom-falcon-statute-legislative-learner/scripts/statute_legislative_learner.py:73"
+      ],
+      "status": "UNVERIFIED"
+    },
+    {
+      "citation": "《公司法》第356條",
+      "law": "公司法",
+      "locations": [
+        "atom-falcon-regulatory-moat-architect/SKILL.md:3"
+      ],
+      "status": "UNVERIFIED"
+    },
+    {
+      "citation": "《動物保護法》第22條",
+      "law": "動物保護法",
+      "locations": [
+        "atom-falcon-regulatory-moat-architect/scripts/regulatory_moat_architect.py:41"
+      ],
+      "status": "UNVERIFIED"
+    },
+    {
+      "citation": "《廢棄物清理法》第41條",
+      "law": "廢棄物清理法",
+      "locations": [
+        "atom-falcon-regulatory-moat-architect/scripts/regulatory_moat_architect.py:29"
+      ],
+      "status": "UNVERIFIED"
+    },
+    {
+      "citation": "《廢棄物清理法》第46條第4款",
+      "law": "廢棄物清理法",
+      "locations": [
+        "atom-falcon-precedent-caselaw-analyst/SKILL.md:19",
+        "atom-falcon-precedent-caselaw-analyst/scripts/precedent_caselaw_analyst.py:36"
+      ],
+      "status": "UNVERIFIED"
+    },
+    {
+      "citation": "《消費者保護法》第12條",
+      "law": "消費者保護法",
+      "locations": [
+        "atom-falcon-precedent-caselaw-analyst/SKILL.md:21"
+      ],
+      "status": "UNVERIFIED"
+    },
+    {
+      "citation": "《發展觀光條例》第27條第3項",
+      "law": "發展觀光條例",
+      "locations": [
+        "atom-falcon-precedent-caselaw-analyst/scripts/precedent_caselaw_analyst.py:29",
+        "atom-falcon-regulatory-moat-architect/scripts/regulatory_moat_architect.py:53"
+      ],
+      "status": "UNVERIFIED"
+    },
+    {
+      "citation": "《醫師法》第28條",
+      "law": "醫師法",
+      "locations": [
+        "atom-falcon-precedent-caselaw-analyst/SKILL.md:17",
+        "atom-falcon-precedent-caselaw-analyst/scripts/precedent_caselaw_analyst.py:43",
+        "atom-falcon-regulatory-moat-architect/scripts/regulatory_moat_architect.py:35"
+      ],
+      "status": "UNVERIFIED"
+    },
+    {
+      "citation": "《長期照顧服務法》第3條",
+      "law": "長期照顧服務法",
+      "locations": [
+        "atom-falcon-regulatory-moat-architect/scripts/regulatory_moat_architect.py:35"
+      ],
+      "status": "UNVERIFIED"
+    },
+    {
+      "citation": "《電子簽章法》第4條",
+      "law": "電子簽章法",
+      "locations": [
+        "atom-falcon-legal-vault-decadal-evolver/scripts/legal_vault_decadal_evolver.py:72"
+      ],
+      "status": "UNVERIFIED"
+    },
+    {
+      "citation": "《電業法》第59條",
+      "law": "電業法",
+      "locations": [
+        "atom-falcon-regulatory-moat-architect/scripts/regulatory_moat_architect.py:47"
+      ],
+      "status": "UNVERIFIED"
+    }
+  ],
+  "case_numbers": [],
+  "next_step": "待全國法規資料庫可連線（或創辦人提供官方 ZIP）後，逐條對照官方條文；裁判案號須至司法院裁判書系統查證。",
+  "limitation": "僅抽取引用字串，不驗證其正確性。"
+}

@@ -1,6 +1,11 @@
 ---
 name: polaris-course-master
-description: 極星開課與工作坊全生命週期萬用營運引擎 (Polaris Course Master Protocol)。由執行長雪 (Yuki) 業務主政、首席品質長戴明 (Dr. Deming) 品質防呆、CTO 林納斯 (Linus) API 自動化監製。專門將任何主題（AI 應用、社群自動化、營運管理、在地技術）全自動封裝為具備「五步履約閉環 ✕ 戴明三道防呆閘門」的高保真商業化實體/線上課程。
+description: 封裝實體小班工作坊教案規格、報名表單與履約通知。在籌辦 AI 或營運工作坊並執行招生履約時使用；一般社群發文時不用。
+metadata:
+  group: 開課營運
+  owner: 雪
+  status: draft
+  version: "1.0"
 ---
 
 # 🎓 極星開課與工作坊全生命週期萬用營運引擎 (Polaris Course Master)
@@ -10,6 +15,16 @@ description: 極星開課與工作坊全生命週期萬用營運引擎 (Polaris 
 > **核心使命**：拒絕空泛的文字教案！將創辦人（闆仔）腦中的任何知識點，在 10 分鐘內一鍵轉譯為包含「多切角行銷宣傳、Google 表單自動建表、Email 核心審查、Google 日曆排程自動推播、雙軌通知與現場驗收轉化」之不可逆標準商業化課程生產線。
 
 ---
+
+## 🧩 所屬原子技能與調用順序 (Atom Sequence)
+
+本母體按以下先後順序協同原子技能完成全閉環運作：
+
+1. **執行 `atom-course-syllabus-scaffolder`**：負責 裝配實體小班工作坊 4 大硬參數、雙核課綱與 10 題防呆表單。
+2. **執行 `atom-course-enrollment-pipeline`**：負責 審查名額三軌分流、發送日曆邀請、24h RSVP 點名與現場驗收。
+
+---
+
 
 ## 🧭 觸發時機
 

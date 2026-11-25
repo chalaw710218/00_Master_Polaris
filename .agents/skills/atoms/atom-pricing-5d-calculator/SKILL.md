@@ -1,13 +1,17 @@
 ---
 name: atom-pricing-5d-calculator
-description: "創辦人原創 5D 商業價值矩陣多型精算底座原子技能。專精於 D1(摩擦力)、D2(風險承擔)、D3(認知門檻)、D4(時效槓桿)、D5(情緒信任) 五維係數校準，支援 5D-Labor (勞務工時)、5D-Impact (成果價值捕獲)、5D-Asset (數位資產研發攤提) 三大模態純淨數值計算，並內建查理·蒙格代墊款三色燈風控線。"
+description: 校準 D1 到 D5 價值係數並精算勞務、成果與資產模態定價。在 5D 矩陣數值試算與風控審核時使用；草擬合約條款時不用。只由 polaris-5d-pricing-engine 呼叫，不單獨使用。
+metadata:
+  group: 5D定價
+  parent: polaris-5d-pricing-engine
+  owner: 算盤
+  status: draft
+  version: "1.0"
 ---
 
 # 🧮 創辦人原創 5D 商業價值矩陣多型精算底座原子技能 (5D Pricing Matrix Calculator Atom)
 
-> **所屬技能組**：5D定價 / 算盤財務工匠  
 > **核心職責**：專精於「D1~D5 五維係數校準、三大模態 (Labor/Impact/Asset) 數學連乘、查理·蒙格代墊款三色燈風控線、最低起步價保底精算」。  
-> **原技能母體**：`polaris-5d-pricing-engine`
 
 ---
 

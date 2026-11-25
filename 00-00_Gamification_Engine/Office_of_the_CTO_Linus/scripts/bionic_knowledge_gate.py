@@ -113,6 +113,13 @@ def compute_batch_sha256(entries: list[dict]) -> str:
     return hashlib.sha256("".join(hashes).encode("utf-8")).hexdigest()
 
 
+def nums_missing(fact: str, quote: str) -> list:
+    """核心事實裡的數字，必須以完整數字出現在摘句裡（1 不能靠 11B 蒙混）"""
+    q = quote.replace(',', '')
+    return [x for x in re.findall(r'\d+(?:\.\d+)?', fact.replace(',', ''))
+            if not re.search(r'(?<!\d)(?<!\d\.)' + re.escape(x) + r'(?!\d|\.\d)', q)]
+
+
 def validate_entry(title: str, fact: str, source: str, url: str = None, quote: str = None) -> dict:
     if not title or not title.strip():
         raise ValueError("條目標題 (title) 不得為空")
@@ -164,7 +171,7 @@ def validate_entry(title: str, fact: str, source: str, url: str = None, quote: s
         clean_quote_for_num = q.replace(',', '')
         fact_nums = re.findall(r'\d+(?:\.\d+)?', clean_fact_for_num)
         quote_nums = set(re.findall(r'\d+(?:\.\d+)?', clean_quote_for_num))
-        unmatched_nums = [n for n in fact_nums if n not in quote_nums and n not in clean_quote_for_num]
+        unmatched_nums = nums_missing(fact, quote)
         if unmatched_nums:
             raise SourceValidationError(
                 f"【入庫拒絕】核心事實包含摘句中未出現之數字：{unmatched_nums}！核心事實只能陳述逐字摘句中已證實之數據，不可自行推論或增添數字！"
@@ -351,6 +358,25 @@ def prepare_cmd(pending_path: Path = DEFAULT_PENDING_PATH, to_sign_path: Path = 
         return len(entries), 0, []
 
     items = parse_pending_markdown(pending_path)
+    n_sec = len(re.findall(r'^##\s', pending_path.read_text(encoding="utf-8"), re.MULTILINE))
+    bad_titles = [i["title"] for i in items if not re.match(r'^第\s*\d+\s*輪｜', i["title"])]
+    if n_sec == 0 or n_sec != len(items) or bad_titles:
+        print(f"❌ 待入庫檔有 {n_sec} 段，合格解析 {len(items) - len(bad_titles)} 條：有段落格式不完整（標題要「## 第 N 輪｜」，網址／逐字摘句／核心事實都要有）。Exit Code 1")
+        sys.exit(1)
+    # 只檢查新條目：新條目和事實庫重複、或新條目彼此重複（事實庫裡原有的重複不影響）
+    _old = parse_experiences_markdown(vault_path)
+    old_titles = {e["title"] for e in _old}
+    new_titles = [i["title"] for i in items]
+    dup = sorted({t for t in new_titles if t in old_titles or new_titles.count(t) > 1})
+    if dup:
+        print(f"❌ 標題重複：{dup}。Exit Code 1")
+        sys.exit(1)
+    old_keys = {((e.get("url") or "").strip().rstrip("/"), (e.get("quote") or "").strip()) for e in _old}
+    new_keys = [(i["url"].strip().rstrip("/"), i["quote"].strip()) for i in items]
+    dupk = [k for k in new_keys if k in old_keys or new_keys.count(k) > 1]
+    if dupk:
+        print(f"❌ 同一網址＋同一摘句重複：{dupk[0][0]}。Exit Code 1")
+        sys.exit(1)
     if not items:
         print(f"❌ 未在 {pending_path} 中找到任何待入庫條目！")
         sys.exit(1)
@@ -372,6 +398,8 @@ def prepare_cmd(pending_path: Path = DEFAULT_PENDING_PATH, to_sign_path: Path = 
         print("\n❌ 退回條目清單：")
         for title, reason in rejected:
             print(f"  👉 「{title}」: {reason}")
+        print("\n❌ 有條目被退回，整批不產生待簽檔。Exit Code 1")
+        sys.exit(1)
 
     if passed_entries:
         batch_sha = compute_batch_sha256(passed_entries)

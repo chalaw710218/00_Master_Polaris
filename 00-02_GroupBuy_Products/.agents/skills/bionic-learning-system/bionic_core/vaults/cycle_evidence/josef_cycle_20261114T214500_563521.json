@@ -1,0 +1,25 @@
+{
+  "office": "josef",
+  "executed_at": "2026-11-14T21:45:00.567526",
+  "meta": {
+    "state_file": "C:\\Users\\lenovo\\我的雲端硬碟\\00_Master_Polaris\\.agents\\skills\\atom-josef-visual-aesthetics-learner\\vaults\\josef_contrast_history.jsonl"
+  },
+  "discover": null,
+  "proposed_or_verified_rules": [
+    "R-20261114-50c4ef"
+  ],
+  "evaluations": [
+    {
+      "rule_id": "R-20261114-50c4ef",
+      "ok": true,
+      "message": "真值驗算完成：with=35.71 vs without=0.0 (N=28, sha256=4c7ae4e97e...)"
+    }
+  ],
+  "newly_promoted": [
+    "R-20261114-50c4ef"
+  ],
+  "active_rules": [
+    "R-20261114-50c4ef"
+  ],
+  "retired_by_sweep": []
+}

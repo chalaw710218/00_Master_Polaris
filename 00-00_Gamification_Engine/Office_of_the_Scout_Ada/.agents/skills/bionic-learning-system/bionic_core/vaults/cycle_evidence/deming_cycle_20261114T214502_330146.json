@@ -1,0 +1,25 @@
+{
+  "office": "deming",
+  "executed_at": "2026-11-14T21:45:02.334142",
+  "meta": {
+    "state_file": "C:\\Users\\lenovo\\我的雲端硬碟\\00_Master_Polaris\\.agents\\skills\\atom-deming-quality-sopk-learner\\vaults\\deming_quality_history.jsonl"
+  },
+  "discover": null,
+  "proposed_or_verified_rules": [
+    "R-20261114-428984"
+  ],
+  "evaluations": [
+    {
+      "rule_id": "R-20261114-428984",
+      "ok": true,
+      "message": "真值驗算完成：with=98.51 vs without=1.49 (N=134, sha256=cb50b3e44e...)"
+    }
+  ],
+  "newly_promoted": [
+    "R-20261114-428984"
+  ],
+  "active_rules": [
+    "R-20261114-428984"
+  ],
+  "retired_by_sweep": []
+}

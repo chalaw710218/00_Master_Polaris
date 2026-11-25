@@ -7,6 +7,8 @@ authorized_by: 陳品碩 (陳先生 / 品碩 / 董事長)
 version: v6.5-MASTER
 ---
 
+> 所有技能與資料一律遵守 00_Master_Polaris/00-00_Format_Standard.md。
+
 # 🧬 北極星萬用仿生自進化系統母版 (Universal Bionic Learning Master v6.5)
 
 > ⚡ **【第一章｜憲法級總綱 · 萬用純數學底座與特化分離】**

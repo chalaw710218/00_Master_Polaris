@@ -252,6 +252,30 @@ def publish_thread(text, image=None, video=None, reply_to_id=None, topic_tag=Non
         except ImportError:
             pass
 
+    # 創辦人親定鐵律 15：政治與對立絕對排除律（真實事故：翡翠水庫防呆）
+    try:
+        hot_trend_dir = ROOT_DIR / ".agents" / "skills" / "hot-trend-scout" / "scripts"
+        if hot_trend_dir.exists() and str(hot_trend_dir) not in sys.path:
+            sys.path.append(str(hot_trend_dir))
+        import scan_taiwan_trends
+        is_bad, dispute_reason = scan_taiwan_trends.is_fatal_dispute(text)
+        if is_bad:
+            err_msg = f"出廠政治/爭議硬攔截：{dispute_reason}，依鐵律 15 堅決排除！"
+            print(f"\n🛑【創辦人親定鐵律 15 物理硬攔截】：{err_msg}")
+            log_dir = Path(__file__).resolve().parent.parent / "logs"
+            log_dir.mkdir(parents=True, exist_ok=True)
+            with open(log_dir / "dispute_rejections.log", "a", encoding="utf-8") as rf:
+                rf.write(f"[{time.strftime('%Y-%m-%d %H:%M:%S')}] {err_msg} | 內容: {text[:60]}...\n")
+            raise ValueError(err_msg)
+    except ImportError as e:
+        err_msg = f"出廠安全檢查失敗：無法匯入 scan_taiwan_trends 模組 ({e})，依母版規則 3 判定失敗阻斷發布！"
+        print(f"\n🛑【創辦人親定鐵律 15 物理硬攔截】：{err_msg}")
+        log_dir = Path(__file__).resolve().parent.parent / "logs"
+        log_dir.mkdir(parents=True, exist_ok=True)
+        with open(log_dir / "dispute_rejections.log", "a", encoding="utf-8") as rf:
+            rf.write(f"[{time.strftime('%Y-%m-%d %H:%M:%S')}] {err_msg} | 內容: {text[:60]}...\n")
+        raise RuntimeError(err_msg) from e
+
     # 若未指定 topic_tag 且非回覆留言，啟動智慧主題判定
     if not topic_tag and not reply_to_id:
         text_lower = text.lower()

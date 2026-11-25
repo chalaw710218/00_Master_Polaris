@@ -1,13 +1,17 @@
 ---
 name: atom-supplychain-tactical-negotiator
-description: "供應商商業心理戰預判與高情商議價話術原子技能。基於供應鏈底牌數據（產地 FOB、到港 CIF、虛報溢價率），深度解析對手盤商操盤手動機（恐慌性虛報溢價、庫存週轉壓力或試探性開高），產出溫和堅定、給予對方台階下並精準爭取到底價之老闆專用高情商談判話術，並嚴格把關品牌法定名稱零洩漏防火牆。"
+description: 預判盤商操盤手心理動機並產出高情商議價籌碼話術。在掌握底牌數據後進行供應商商務談判時使用；底層純數值拆解時不用。只由 sharp-groupbuy-analyzer 呼叫，不單獨使用。
+metadata:
+  group: 管家選品
+  parent: sharp-groupbuy-analyzer
+  owner: 雪柔
+  status: draft
+  version: "1.0"
 ---
 
 # 🧠 供應商商業心理戰預判與高情商議價話術原子技能 (Supply Chain Tactical Negotiator Atom)
 
-> **所屬技能組**：選品審計 / 商業情報工匠  
 > **核心職責**：專精於「對手操盤手心理動機解析、底牌數據戰術轉譯、高情商拆穿溢價話術、品牌法定名稱零洩漏防火牆」。  
-> **原技能母體**：`ai-pricing-auditor`
 
 ---
 

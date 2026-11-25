@@ -1,13 +1,17 @@
 ---
 name: atom-product-redteam-audit
-description: "商品化多 Agent 四方黑臉交叉審查與戴明防呆安燈原子技能。整合泰勒絲 (FB 資訊過載與 0.8s 穿透率挑刺)、影 (Threads 反 AI 塑料假手寫與痛點真實性挑刺)、約瑟夫 (視覺留白率 >= 35% 與排版視讀層級) 以及戴明 (漏標價格、蒙格代墊風控、家宅座標與品牌法定名稱零洩漏防火牆)，進行 100 分制安燈審查。未達 85 分或觸犯品牌紅線硬性阻斷退件 (Exit Code 1)。"
+description: 執行四方黑臉交叉審查與戴明防呆安燈出廠驗收。在三合一交付套版完稿準備發布前審核時使用；初稿骨架裝配時不用。只由 polaris-productization-master 呼叫，不單獨使用。
+metadata:
+  group: 商品化
+  parent: polaris-productization-master
+  owner: 戴明
+  status: draft
+  version: "1.0"
 ---
 
 # 🛑 商品化多 Agent 四方黑臉交叉審查與戴明防呆安燈原子技能 (Product Red-Team Audit & Deming Andon Atom)
 
-> **所屬技能組**：商品化 / 戴明品質工匠  
 > **核心職責**：專精於「四方黑臉多維挑刺審查、反 AI 塑料感真實性驗收、品牌法定名稱零洩漏防火牆、100 分制安燈拉繩門禁」。  
-> **原技能母體**：`polaris-productization-master`
 
 ---
 

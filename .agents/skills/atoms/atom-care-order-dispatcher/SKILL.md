@@ -1,13 +1,17 @@
 ---
 name: atom-care-order-dispatcher
-description: "生活管家孝親安居工單排程與 5D 定價底座原子技能。專門將外地兒女或在地長輩委託，標準化封裝為包含『五大孝親旗艦模組』(居安防滑熱像/就醫陪診聽診/體面修容理髮/老農回憶錄/風土滋補軟膳) 之標準派工單 (CARE-YYYYMMDD-XX)。自動試算 5D 明碼報價、工具箱裝備清單、戴明到府前置防呆，並映射至生活管家唯一真實帳本。"
+description: 封裝五大孝親旗艦模組工單、5D 定價與裝備檢核派工。在產生標準派工單、成本試算與 3PL 排程時使用；繪製兒女安心圖卡時不用。只由 lifebutler-care-artisan 呼叫，不單獨使用。
+metadata:
+  group: 生活管家
+  parent: lifebutler-care-artisan
+  owner: 雪
+  status: draft
+  version: "1.0"
 ---
 
 # 👵🏡 生活管家孝親安居工單排程與 5D 定價底座原子技能 (Care Order Dispatcher Atom)
 
-> **所屬技能組**：生活管家 / 業務排程底座  
 > **核心職責**：專精於「五大孝親服務模組工單生成、5D 透明價格試算、車資與代墊解耦、現場防呆工具箱裝備檢核、寶桑 3PL 派工排程」。  
-> **原技能母體**：`lifebutler-care-artisan`
 
 ---
 

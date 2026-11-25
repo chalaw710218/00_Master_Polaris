@@ -1,10 +1,10 @@
 {
-  "last_updated": "2026-11-24T19:54:50.207192",
+  "last_updated": "2026-11-25T15:27:28.193980",
   "summary": {
-    "total_friends_contacted": 21,
-    "total_interactions": 38,
+    "total_friends_contacted": 22,
+    "total_interactions": 43,
     "total_likes": 38,
-    "total_comments": 38
+    "total_comments": 43
   },
   "relationship_tiers_definition": {
     "🌱 初次問候": "互動 1 次",
@@ -301,9 +301,9 @@
     },
     "chaiyuan_bakery": {
       "username": "chaiyuan_bakery",
-      "total_interactions": 3,
+      "total_interactions": 4,
       "likes_given": 4,
-      "comments_given": 3,
+      "comments_given": 4,
       "relationship_tier": "☕ 熟稔常客",
       "first_contact_at": "2026-11-01T12:15:51.438553",
       "history": [
@@ -372,16 +372,23 @@
           "post_url": "https://www.threads.com/@chaiyuan_bakery/post/Db5yi00Ee-7",
           "comment_text": "看著看著螢幕直接飄出香味是正常的嗎...默默收進小編私房口袋名單，這週放假一定要去朝聖！✨",
           "screenshot": "scripts\\screenshots\\reciprocal_chaiyuan_bakery_20261124_195015.png"
+        },
+        {
+          "timestamp": "2026-11-25T15:22:46.855465",
+          "action": "comment",
+          "post_url": "https://www.threads.com/@chaiyuan_bakery/post/Db5yi00Ee-7",
+          "comment_text": "看著看著螢幕直接飄出香味是正常的嗎...默默收進小編私房口袋名單，這週放假一定要去朝聖！✨",
+          "screenshot": "scripts\\screenshots\\reciprocal_chaiyuan_bakery_20261125_152246.png"
         }
       ],
-      "last_interaction_at": "2026-11-24T19:50:15.903019"
+      "last_interaction_at": "2026-11-25T15:22:46.855465"
     },
     "howhow_sweets": {
       "username": "howhow_sweets",
-      "total_interactions": 4,
+      "total_interactions": 5,
       "likes_given": 4,
-      "comments_given": 4,
-      "relationship_tier": "☕ 熟稔常客",
+      "comments_given": 5,
+      "relationship_tier": "🤝 摯友同盟",
       "first_contact_at": "2026-11-01T12:15:51.438553",
       "history": [
         {
@@ -442,15 +449,22 @@
           "post_url": "https://www.threads.com/@howhow_sweets/post/DfbgPIQlHXX",
           "comment_text": "看著看著螢幕直接飄出香味是正常的嗎...默默收進小編私房口袋名單，這週放假一定要去朝聖！✨",
           "screenshot": "scripts\\screenshots\\reciprocal_howhow_sweets_20261124_153847.png"
+        },
+        {
+          "timestamp": "2026-11-25T15:20:28.734764",
+          "action": "comment",
+          "post_url": "https://www.threads.com/@howhow_sweets/post/DfbgPIQlHXX",
+          "comment_text": "看著看著螢幕直接飄出香味是正常的嗎...默默收進小編私房口袋名單，這週放假一定要去朝聖！✨",
+          "screenshot": "scripts\\screenshots\\reciprocal_howhow_sweets_20261125_152028.png"
         }
       ],
-      "last_interaction_at": "2026-11-24T15:38:47.194242"
+      "last_interaction_at": "2026-11-25T15:20:28.734764"
     },
     "yuanlung.667": {
       "username": "yuanlung.667",
-      "total_interactions": 2,
+      "total_interactions": 3,
       "likes_given": 2,
-      "comments_given": 2,
+      "comments_given": 3,
       "relationship_tier": "☕ 熟稔常客",
       "first_contact_at": "2026-11-01T12:15:51.438553",
       "history": [
@@ -477,9 +491,16 @@
           "post_url": "https://www.threads.com/@yuanlung.667/post/DXOwVsNAYNc",
           "comment_text": "看著看著螢幕直接飄出香味是正常的嗎...默默收進小編私房口袋名單，這週放假一定要去朝聖！✨",
           "screenshot": "scripts\\screenshots\\reciprocal_yuanlung.667_20261124_195233.png"
+        },
+        {
+          "timestamp": "2026-11-25T15:25:04.171096",
+          "action": "comment",
+          "post_url": "https://www.threads.com/@yuanlung.667/post/DXOwVsNAYNc",
+          "comment_text": "看著看著螢幕直接飄出香味是正常的嗎...默默收進小編私房口袋名單，這週放假一定要去朝聖！✨",
+          "screenshot": "scripts\\screenshots\\reciprocal_yuanlung.667_20261125_152504.png"
         }
       ],
-      "last_interaction_at": "2026-11-24T19:52:33.198027"
+      "last_interaction_at": "2026-11-25T15:25:04.171096"
     },
     "hello_cornerbook": {
       "username": "hello_cornerbook",
@@ -506,12 +527,12 @@
       "username": "sinapayan_youth",
       "name": "喜拿巴漾青年工作站",
       "category": "local_community",
-      "total_interactions": 3,
+      "total_interactions": 4,
       "likes_given": 2,
-      "comments_given": 3,
+      "comments_given": 4,
       "relationship_tier": "☕ 熟稔常客",
       "first_contact_at": "2026-11-02T01:46:44.151816",
-      "last_interaction_at": "2026-11-24T19:47:57.858674",
+      "last_interaction_at": "2026-11-25T15:18:09.924859",
       "history": [
         {
           "timestamp": "2026-11-02T01:46:44.151816",
@@ -561,6 +582,13 @@
           "post_url": "https://www.threads.com/@sinapayan_youth/post/Ddjb15-E4hQ",
           "comment_text": "辛苦了！台東的節奏就是要提醒大家累了先停下來喘口氣～今晚給自己點一杯好喝的好好犒賞一下吧 🌿",
           "screenshot": "scripts\\screenshots\\reciprocal_sinapayan_youth_20261124_194757.png"
+        },
+        {
+          "timestamp": "2026-11-25T15:18:09.924859",
+          "action": "comment",
+          "post_url": "https://www.threads.com/@sinapayan_youth/post/Ddjb15-E4hQ",
+          "comment_text": "辛苦了！台東的節奏就是要提醒大家累了先停下來喘口氣～今晚給自己點一杯好喝的好好犒賞一下吧 🌿",
+          "screenshot": "scripts\\screenshots\\reciprocal_sinapayan_youth_20261125_151809.png"
         }
       ]
     },
@@ -892,6 +920,26 @@
           "post_url": "https://www.threads.net/@trader_lens/post/DNr5O8bUlmB",
           "comment_text": "（探出毛毛頭）在台東看到 @trader_lens 的日常分享特別有共鳴，端上一塊剛烤好的小魚乾致敬，今天也辛苦囉！",
           "screenshot": "scripts\\screenshots\\reciprocal_trader_lens_20261124_103212.png"
+        }
+      ]
+    },
+    "lee_wu_ying_chih": {
+      "username": "lee_wu_ying_chih",
+      "name": "lee_wu_ying_chih",
+      "category": "local_community",
+      "total_interactions": 1,
+      "likes_given": 0,
+      "comments_given": 1,
+      "relationship_tier": "🌱 初次問候",
+      "first_contact_at": "2026-11-25T15:27:28.193980",
+      "last_interaction_at": "2026-11-25T15:27:28.193980",
+      "history": [
+        {
+          "timestamp": "2026-11-25T15:27:28.193980",
+          "action": "comment",
+          "post_url": "https://www.threads.net/@lee_wu_ying_chih/post/DgJe847EbeY",
+          "comment_text": "（探出毛毛頭）在台東看到 @lee_wu_ying_chih 的日常分享特別有共鳴，端上一塊剛烤好的小魚乾致敬，今天也辛苦囉！",
+          "screenshot": "scripts\\screenshots\\reciprocal_lee_wu_ying_chih_20261125_152728.png"
         }
       ]
     }

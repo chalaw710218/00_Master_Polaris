@@ -1,7 +1,11 @@
 ---
 name: polaris-motion-reels
-description: >-
-  極星微動態短影音自動合成引擎。以 Python 與 FFmpeg 為底層，將靜態高清食材照、生活攝影與 AI 角色定裝照，自動轉譯為具備 Ken Burns 視差緩動、微光呼吸感、氛圍漸層與動態字卡之 5~15 秒直式 9:16 短影音（MP4），專為 Threads、Instagram Reels 與 TikTok 高頻發布而生。
+description: 合成靜態圖文為具備運鏡緩動與動態字卡之直式短影音。在產出生鮮食材、日常工作隨手拍短影音時使用；單純發布靜態圖文時不用。
+metadata:
+  group: 做短影音
+  owner: 影
+  status: draft
+  version: "1.0"
 ---
 
 # 🎬 極星微動態短影音自動合成引擎 (Polaris Motion Reels)
@@ -11,6 +15,16 @@ description: >-
 > **核心使命**：突破靜態圖文的演算法天花板，將極星高精度的生鮮食材照、小編生活照與產地風土紀實，全自動合成為具備好萊塢推軌運鏡與環境呼吸感的 9:16 直式微短影音（MP4）。
 
 ---
+
+## 🧩 所屬原子技能與調用順序 (Atom Sequence)
+
+本母體按以下先後順序協同原子技能完成全閉環運作：
+
+1. **執行 `atom-motion-camera-engine`**：負責 精算電影級運鏡軌跡、平滑緩動曲線與視差逐幀渲染。
+2. **執行 `atom-motion-overlay-safezone`**：負責 精算社群 UI 安全邊界避讓、防眩暗角覆層與字幕時間軸。
+
+---
+
 
 ## 🎯 什麼時候使用本技能？
 

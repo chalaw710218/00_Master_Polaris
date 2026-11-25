@@ -1,13 +1,17 @@
 ---
 name: atom-motion-camera-engine
-description: "短影音微動態鏡頭運鏡軌跡與逐幀渲染原子技能。專門將靜態食材、人物立繪與生活攝影，透過電影級 Ease-In-Out 平滑緩動曲線、Ken Burns 視差推拉搖移與正弦波呼吸感，精算多維運鏡軌跡並以 H.264 MP4 逐幀渲染輸出。"
+description: 精算電影級運鏡軌跡、平滑緩動曲線與視差逐幀渲染。在微動態短影音運鏡設計與 MP4 編碼輸出時使用；安全區排版時不用。只由 polaris-motion-reels 呼叫，不單獨使用。
+metadata:
+  group: 做短影音
+  parent: polaris-motion-reels
+  owner: 約瑟夫
+  status: draft
+  version: "1.0"
 ---
 
 # 🎥 短影音微動態鏡頭運鏡軌跡與逐幀渲染原子技能 (Motion Reels Camera Engine Atom)
 
-> **所屬技能組**：做短影音 / 視覺工匠  
 > **核心職責**：專精於短影音之「電影級運鏡軌跡精算、Ease-In-Out 平滑緩動、多比例智能裁切、逐幀 LANCZOS 高清視差採樣與 MP4 編碼」。  
-> **原技能母體**：`polaris-motion-reels`
 
 ---
 

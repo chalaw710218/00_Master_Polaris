@@ -1,13 +1,17 @@
 ---
 name: atom-course-syllabus-scaffolder
-description: "實體工作坊教案規格與 10 題防呆表單裝配原子技能。專門將創辦人腦中的知識點，標準化商品化為【純實體小班制 · 每堂嚴格限額 6 席】之高保真工作坊。內建 4 大硬參數 (每堂6席/單堂500元/老學員免單/正氣北路家宅總部)、120 分鐘雙核課綱 (60m精講+60m實作排錯)、10 道防呆審查表單 Schema (硬體自檢/業務資料痛點/加開場意願) 與社群招生長文第一留言閉環。"
+description: 裝配實體小班工作坊 4 大硬參數、雙核課綱與 10 題防呆表單。在工作坊開課規格規劃與建表時使用；報名名冊審查與分流時不用。只由 polaris-course-master 呼叫，不單獨使用。
+metadata:
+  group: 開課營運
+  parent: polaris-course-master
+  owner: 雪
+  status: draft
+  version: "1.0"
 ---
 
 # 🎓 實體工作坊教案規格與 10 題防呆表單裝配原子技能 (Course Syllabus & Form Scaffolder Atom)
 
-> **所屬技能組**：開課營運 / 業務主政  
 > **核心職責**：專精於「實體小班工作坊 4 大硬參數設定 (每堂限額 6 席)、120m 雙核課綱裝配、10 題防呆 Google 表單 Schema 生成、招生文案與第一則留言置頂閉環」。  
-> **原技能母體**：`polaris-course-master`
 
 ---
 

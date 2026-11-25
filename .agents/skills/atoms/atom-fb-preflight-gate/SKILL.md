@@ -1,13 +1,17 @@
 ---
 name: atom-fb-preflight-gate
-description: "Facebook 粉絲專頁貼文發布前防降權與品牌紅線安燈原子技能。專門在臉書貼文發布前，嚴格執行『內文零外部超連結審查（避免遭演算法降權）』，自動將外部連結抽離並封裝為第一則留言 (First Comment) 導流矩陣，校驗品牌法定名稱零洩漏防火牆，並解析排程時間合法性 (10 分鐘 ~ 75 天)。"
+description: 審查臉書內文零外部連結、抽離第一留言導流與品牌紅線。在臉書發布前防降權質檢與排程窗口驗證時使用；API 實際推送時不用。只由 facebook-publisher 呼叫，不單獨使用。
+metadata:
+  group: 發臉書
+  parent: facebook-publisher
+  owner: 戴明
+  status: draft
+  version: "1.0"
 ---
 
 # 🛑 Facebook 貼文防降權與品牌紅線安燈原子技能 (FB Post Preflight & Anti-Downgrade Gate Atom)
 
-> **所屬技能組**：發臉書 / 戴明品質工匠  
 > **核心職責**：專精於臉書發文前的「貼文內文防降權審計 (零外部 URL)、第一留言導流自動抽離封裝、品牌法定名稱零洩漏防火牆、排程時間窗口合規性」。  
-> **原技能母體**：`facebook-publisher`
 
 ---
 

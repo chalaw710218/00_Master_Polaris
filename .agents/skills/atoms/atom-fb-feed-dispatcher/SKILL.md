@@ -1,13 +1,17 @@
 ---
 name: atom-fb-feed-dispatcher
-description: "Facebook 粉絲專頁多圖暫存與 Feed 貼文派發底座原子技能。直連 Meta Graph API v20.0，專精於多圖 published=false 暫存池上傳、attached_media 陣列組合、即時發布與 10m~75d 預約排程雙模、貼文公開後秒發第一則導流留言，以及自動追加歸檔至 00_Social_Posts_Master_Archive.md。"
+description: 上傳多圖暫存池、組合貼文矩陣並執行即時或排程發布。在貼文通過安燈質檢後派發與第一留言秒發時使用；貼文內容質檢時不用。只由 facebook-publisher 呼叫，不單獨使用。
+metadata:
+  group: 發臉書
+  parent: facebook-publisher
+  owner: 林納斯
+  status: draft
+  version: "1.0"
 ---
 
 # 🚀 Facebook 粉絲專頁多圖暫存與 Feed 派發底座原子技能 (FB Feed Dispatcher Atom)
 
-> **所屬技能組**：發臉書 / 工程底座  
 > **核心職責**：專精於臉書粉專之「多圖 published=false 暫存池上傳、attached_media 矩陣組合、即時/排程雙模發布、第一留言秒發、貼文歷程自動歸檔」。  
-> **原技能母體**：`facebook-publisher`
 
 ---
 

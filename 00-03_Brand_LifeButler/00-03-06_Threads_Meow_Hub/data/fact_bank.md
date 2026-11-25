@@ -165,3 +165,177 @@
   - **出處**：https://en.wikipedia.org/wiki/Dialectic
   - **證據網址**：https://en.wikipedia.org/wiki/Dialectic
   - **原文摘句**：discourse between two or more people holding different points of view about a subject but wishing to establish the truth through reasoned argumentation.
+
+28. **第 21 輪｜地方感與人地空間關係建構**：
+  - **核心事實**：地方感是一個多維度且複雜的建構，用以描述人與空間環境之間的深層關係。
+  - **出處**：https://en.wikipedia.org/wiki/Sense_of_place
+  - **證據網址**：https://en.wikipedia.org/wiki/Sense_of_place
+  - **原文摘句**：Sense of place refers to a multidimensional, complex construct used to characterize the relationship between people and spatial settings.
+
+29. **第 22 輪｜積極傾聽與專注互動理解機制**：
+  - **核心事實**：傾聽者透過有意識的專注投入，能夠吸收更多的資訊，並獲得更深入的理解與領會。
+  - **出處**：https://en.wikipedia.org/wiki/Active_listening
+  - **證據網址**：https://en.wikipedia.org/wiki/Active_listening
+  - **原文摘句**：listeners absorb more information, comprehension, and understanding by being consciously engaged.
+
+30. **第 23 輪｜社區感與彼此歸屬重要性維度**：
+  - **核心事實**：社區感指成員擁有的歸屬感，以及成員之間彼此重要、並對群體具有意義的感受。
+  - **出處**：https://en.wikipedia.org/wiki/Sense_of_community
+  - **證據網址**：https://en.wikipedia.org/wiki/Sense_of_community
+  - **原文摘句**：feeling that members have of belonging, a feeling that members matter to one another and to the group
+
+31. **第 24 輪｜同理心與利他助人動力機制**：
+  - **核心事實**：當人們注意到他人處於需要之中時會產生同理慈悲，而這種感受會激勵人們伸出援手。
+  - **出處**：https://en.wikipedia.org/wiki/Empathy
+  - **證據網址**：https://en.wikipedia.org/wiki/Empathy
+  - **原文摘句**：compassion when they notice others are in need, and this feeling motivates that person to help
+
+32. **第 25 輪｜社會認同與模糊情境參照機制**：
+  - **核心事實**：社會認同現象適用於人們在模稜兩可的社交情境中，無法確定適當行為模式時尋求參照。
+  - **出處**：https://en.wikipedia.org/wiki/Social_proof
+  - **證據網址**：https://en.wikipedia.org/wiki/Social_proof
+  - **原文摘句**：Social proof is used in ambiguous social situations where people are unable to determine the appropriate mode of behavior
+
+33. **第 26 輪｜社會支持網絡與被關懷客觀感知**：
+  - **核心事實**：社會支持是個人被關懷照顧、且能夠獲得他人提供協助的感知與客觀事實。
+  - **出處**：https://en.wikipedia.org/wiki/Social_support
+  - **證據網址**：https://en.wikipedia.org/wiki/Social_support
+  - **原文摘句**：perception and actuality that one is cared for, has assistance available from other people
+
+34. **第 27 輪｜感恩在哲學與倫理學之核心地位**：
+  - **核心事實**：感恩在規範倫理學等哲學領域中是備受關注的研究課題。
+  - **出處**：https://en.wikipedia.org/wiki/Gratitude
+  - **證據網址**：https://en.wikipedia.org/wiki/Gratitude
+  - **原文摘句**：Gratitude is a topic of interest in the philosophical disciplines of normative ethics
+
+35. **第 28 輪｜幽默感在社交愉悅與引發歡笑之功能**：
+  - **核心事實**：幽默是指經驗能夠引發歡笑並帶來愉悅趣味的傾向。
+  - **出處**：https://en.wikipedia.org/wiki/Humour
+  - **證據網址**：https://en.wikipedia.org/wiki/Humour
+  - **原文摘句**：tendency of experiences to provoke laughter and provide amusement
+
+36. **第 29 輪｜顧客關係管理策略互動歷程**：
+  - **核心事實**：顧客關係管理是組織用以管理、分析並改善其與顧客之間互動的策略性歷程。
+  - **出處**：https://en.wikipedia.org/wiki/Customer_relationship_management
+  - **證據網址**：https://en.wikipedia.org/wiki/Customer_relationship_management
+  - **原文摘句**：is a strategic process that organizations use to manage, analyze, and improve their interactions with customers.
+
+37. **第 30 輪｜系統反饋機制與閉環自我迭代**：
+  - **核心事實**：反饋機制發生於系統的輸出結果被重新導回作為後續輸入之時。
+  - **出處**：https://en.wikipedia.org/wiki/Feedback
+  - **證據網址**：https://en.wikipedia.org/wiki/Feedback
+  - **原文摘句**：occurs when outputs of a system are routed back as inputs
+
+38. **第 31 輪｜待客之道與友善接納賓客關係**：
+  - **核心事實**：待客之道是主人對待賓客的關係，主人帶著善意與歡迎接納賓客。
+  - **出處**：https://en.wikipedia.org/wiki/Hospitality
+  - **證據網址**：https://en.wikipedia.org/wiki/Hospitality
+  - **原文摘句**：Hospitality is the relationship of a host towards a guest, wherein the host receives the guest with some amount of goodwill and welcome
+
+39. **第 32 輪｜志願服務與自由付出時間勞動**：
+  - **核心事實**：志願服務是個人或群體出於自願且自由選擇付出時間與勞動的行為，通常用於社區服務。
+  - **出處**：https://en.wikipedia.org/wiki/Volunteering
+  - **證據網址**：https://en.wikipedia.org/wiki/Volunteering
+  - **原文摘句**：Volunteering is an optional and freely chosen act of an individual or group giving their time and labor, often for community service.
+
+40. **第 33 輪｜具身認知與心智受身體狀態形塑**：
+  - **核心事實**：具身認知代表多元理論，研究認知如何受到有機體的身體狀態與能力所形塑。
+  - **出處**：https://en.wikipedia.org/wiki/Embodied_cognition
+  - **證據網址**：https://en.wikipedia.org/wiki/Embodied_cognition
+  - **原文摘句**：Embodied cognition represents a diverse group of theories which investigate how cognition is shaped by the bodily state and capacities of the organism
+
+41. **第 34 輪｜同理心與換位感知他人經驗能力**：
+  - **核心事實**：同理心通常被描述為感知他人觀點、理解、感受並可能分享與回應他人經驗之能力。
+  - **出處**：https://en.wikipedia.org/wiki/Empathy
+  - **證據網址**：https://en.wikipedia.org/wiki/Empathy
+  - **原文摘句**：Empathy is generally described as the ability to perceive another person's perspective, to understand, feel, and possibly share and respond to their experience
+
+42. **第 35 輪｜心理安全感與團隊成員人際信任**：
+  - **核心事實**：心理安全感是指人們相信自己不會因為提出想法、疑問、擔憂或犯錯而遭受懲罰或羞辱之信念。
+  - **出處**：https://en.wikipedia.org/wiki/Psychological_safety
+  - **證據網址**：https://en.wikipedia.org/wiki/Psychological_safety
+  - **原文摘句**：Psychological safety is the belief that one will not be punished or humiliated for speaking up with ideas, questions, concerns, or mistakes
+
+43. **第 36 輪｜服務設計與使用者體驗系統規劃**：
+  - **核心事實**：服務設計是規劃與安排服務的人員、基礎設施、溝通及實質組成要素，以改善服務品質與服務提供者及使用者之間互動之活動。
+  - **出處**：https://en.wikipedia.org/wiki/Service_design
+  - **證據網址**：https://en.wikipedia.org/wiki/Service_design
+  - **原文摘句**：Service design is the activity of planning and arranging people, infrastructure, communication, and material components of a service in order to improve its quality and the interaction between the service provider and its users
+
+44. **第 37 輪｜習慣養成與常規行為潛意識發生**：
+  - **核心事實**：習慣是一種規律重複且傾向於潛意識中發生的行為常規。
+  - **出處**：https://en.wikipedia.org/wiki/Habit
+  - **證據網址**：https://en.wikipedia.org/wiki/Habit
+  - **原文摘句**：routine of behavior that is repeated regularly and tends to occur subconsciously
+
+45. **第 38 輪｜利他主義與獨立於個人利益之關懷**：
+  - **核心事實**：利他主義是獨立於個人利益或互惠之外，對他人福祉與生活的關懷。
+  - **出處**：https://en.wikipedia.org/wiki/Altruism
+  - **證據網址**：https://en.wikipedia.org/wiki/Altruism
+  - **原文摘句**：Altruism is concern for the well-being and life of others independently of personal benefit or reciprocity
+
+46. **第 39 輪｜社會資本與促進目標之關係網絡**：
+  - **核心事實**：社會資本是社會學與經濟學用以定義關係網絡之概念，這些關係網絡對促進個人與群體的目標具有成效。
+  - **出處**：https://en.wikipedia.org/wiki/Social_capital
+  - **證據網址**：https://en.wikipedia.org/wiki/Social_capital
+  - **原文摘句**：Social capital is a concept used in sociology and economics to define networks of relationships which are productive towards advancing the goals of individuals and groups
+
+47. **第 40 輪｜複雜適應系統與動態網絡相互作用**：
+  - **核心事實**：複雜適應系統是複雜的系統，因為它是一個相互作用的動態網絡，但整體的行為可能無法依據各組成部分的行為進行預測。
+  - **出處**：https://en.wikipedia.org/wiki/Complex_adaptive_system
+  - **證據網址**：https://en.wikipedia.org/wiki/Complex_adaptive_system
+  - **原文摘句**：complex adaptive system ( CAS ) is a system that is complex in that it is a dynamic network of interactions , but the behavior of the ensemble may not be predictable according to the behavior of the components
+
+48. **第 41 輪｜Instagram 推薦排序非單一演算法**：
+  - **核心事實**：Instagram 並沒有單一演算法來掌控用戶在應用程式上看到與看不到的內容，而是使用多種演算法、分類器與流程，各自具備專屬用途。
+  - **出處**：https://about.instagram.com/blog/announcements/instagram-ranking-explained
+  - **證據網址**：https://about.instagram.com/blog/announcements/instagram-ranking-explained
+  - **原文摘句**：Instagram doesn’t have a singular algorithm that oversees what people do and don’t see on the app. We use a variety of algorithms, classifiers, and processes, each with its own purpose.
+
+49. **第 42 輪｜Threads 主題選擇與搜尋結果導向機制**：
+  - **核心事實**：當在 Threads 選擇特定主題時，系統會將用戶導向該主題的搜尋結果頁面。
+  - **出處**：https://about.instagram.com/blog/announcements/threads-trending-now
+  - **證據網址**：https://about.instagram.com/blog/announcements/threads-trending-now
+  - **原文摘句**：When you select a topic, you’ll be taken to search results for that topic.
+
+50. **第 43 輪｜Meta 開放平台禁止虛假互動與帳號交易行為**：
+  - **核心事實**：Meta 開放平台開發商政策明訂，不得參與任何推廣或促進購買、販賣或交換讚、分享、追蹤者、留言、帳號、粉絲專頁、個人檔案、社團或產品功能的計畫。
+  - **出處**：https://developers.facebook.com/devpolicy/
+  - **證據網址**：https://developers.facebook.com/devpolicy/
+  - **原文摘句**：不得參與任何推廣或促進下列行為的計畫：購買、販賣或交換「讚」、「分享」、「追蹤者」、「留言」、「帳號」、「粉絲專頁」、「個人檔案」、「社團」或我們的任何產品或功能。
+
+51. **第 44 輪｜Threads API 官方功能範圍文件（原主題未找到商家建議）**：
+  - **核心事實**：Meta 官方文件指出，使用 Threads API 可用來建立和發佈貼文、擷取影音內容和個人檔案、管理回覆以及存取洞察報告。
+  - **出處**：https://developers.facebook.com/docs/threads/
+  - **證據網址**：https://developers.facebook.com/docs/threads/
+  - **原文摘句**：使用 Threads API 來建立和發佈貼文、擷取影音內容和個人檔案、管理回覆以及存取洞察報告。
+
+52. **第 45 輪｜臺東縣環保局大型廢棄物清運與垃圾分類罰則**：
+  - **核心事實**：臺東縣環境保護局公告，垃圾應落實分類於垃圾車及資源回收車到來再攜出清運，切勿亂堆置，否則經查獲違法棄置依據廢棄物清理法可罰款 1,200 元到 6,000 元。
+  - **出處**：https://ttepb.taitung.gov.tw/News_Content.aspx?n=13490&s=136489
+  - **證據網址**：https://ttepb.taitung.gov.tw/News_Content.aspx?n=13490&s=136489
+  - **原文摘句**：另外垃圾應落實分類，於垃圾車、資源回收車到來再攜出交其清運，切勿亂堆(棄)置，否則經查獲違法棄置，依據廢棄物清理法可罰款1,200元到6,000元
+
+53. **第 46 輪｜衛福部全國高齡人口統計比例與超高齡社會進程**：
+  - **核心事實**：衛生福利部國民健康署引述內政部人口統計資料指出，民國 112 年我國 65 歲以上長者佔總人口比率為 18.02％，已屬高齡社會，預估民國 115 年將邁入超高齡社會。
+  - **出處**：https://www.hpa.gov.tw/Pages/Detail.aspx?nodeid=4809&pid=18182
+  - **證據網址**：https://www.hpa.gov.tw/Pages/Detail.aspx?nodeid=4809&pid=18182
+  - **原文摘句**：依據內政部人口統計資料顯示，民國112年我國65歲以上長者佔總人口比率為18.02％，已屬高齡社會，預估民國115年將邁入超高齡社會。
+
+54. **第 47 輪｜食品良好衛生規範準則外送員行為禁令**：
+  - **核心事實**：食品良好衛生規範準則規定，外送員取得及交付食品時，不得有吸菸、嚼檳榔、嚼口香糖或其他污染食品之行為。
+  - **出處**：https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040122
+  - **證據網址**：https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0040122
+  - **原文摘句**：外送員取得及交付食品時，不得有吸菸、嚼檳榔、嚼口香糖或其他污染食品之行為。
+
+55. **第 49 輪｜第三空間作為社區生活錨點與人際互動**：
+  - **核心事實**：社會學研究指出，第三空間是社區生活的錨點，能夠促進並培育更廣泛、更具創造力的人際互動。
+  - **出處**：https://en.wikipedia.org/wiki/Third_place
+  - **證據網址**：https://en.wikipedia.org/wiki/Third_place
+  - **原文摘句**：Third places, then, are "anchors" of community life and facilitate and foster broader, more creative interaction.
+
+56. **第 50 輪｜積極傾聽在敞開心扉與建立信任之作用**：
+  - **核心事實**：文獻指出，正確運用積極傾聽能夠促使人們敞開心扉、避免誤解、化解衝突並建立信任。
+  - **出處**：https://en.wikipedia.org/wiki/Active_listening
+  - **證據網址**：https://en.wikipedia.org/wiki/Active_listening
+  - **原文摘句**：The proper use of active listening results in getting people to open up, avoiding misunderstandings, resolving conflict, and building trust.

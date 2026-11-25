@@ -1,7 +1,13 @@
 ---
 name: facebook-publisher
-description: 將指定商品資料夾內的文案與圖片，全自動發布或預約排程發布至「生活管家，就醬點！」Facebook 粉絲專頁。
+description: 派發與排程圖文貼文至官方臉書粉絲專頁。在確認文案與圖片合格並準備推播發布時使用；撰寫行銷文案階段不用。
+metadata:
+  group: 發臉書
+  owner: 林納斯
+  status: draft
+  version: "1.0"
 ---
+
 # 臉書自動發文機 (Facebook Auto Publisher)
 
 ## 技能說明
@@ -13,6 +19,16 @@ description: 將指定商品資料夾內的文案與圖片，全自動發布或�
 * 「幫我排程在明天下午 3 點發布」、「預約 XX 日期發布」（👉 **預約排程模式**）
 
 ---
+
+## 🧩 所屬原子技能與調用順序 (Atom Sequence)
+
+本母體按以下先後順序協同原子技能完成全閉環運作：
+
+1. **執行 `atom-fb-preflight-gate`**：負責 審查臉書內文零外部連結、抽離第一留言導流與品牌紅線。
+2. **執行 `atom-fb-feed-dispatcher`**：負責 上傳多圖暫存池、組合貼文矩陣並執行即時或排程發布。
+
+---
+
 
 ## 執行步驟
 
@@ -43,9 +59,28 @@ import requests
 import json
 import sys
 import datetime
+import os
+from pathlib import Path
 
 PAGE_ID = '110505444816362'
-TOKEN = 'EAAP5P2YUe04BTCNcfv7QZCnIT86YhES87A9TdbPOl7MGLweZCTsQi8Q6DMmZBzG9AqIZCnWHnIpYt8fY7kpGRgClJepx4vHOi8bKZAQoKLMjNvFD22KgFA4s1rw1X7S5YGTA9EU2iY5CDmNuHyjCCImugJFjpR6uZC3TvjmvVGMUm7IdtzWFHamQWUKlY0RZClamdo2gIwIsQulBAYNXOoQMdcZD'
+# 從環境變數或設定檔讀取 Meta Page Access Token (資安防護：嚴禁代碼中出現明文金鑰)
+def load_fb_page_token():
+    # 1. 優先自系統環境變數讀取
+    token = os.environ.get("FB_PAGE_ACCESS_TOKEN")
+    if token:
+        return token
+    # 2. 次選讀取根目錄 .secrets.env、.env 或 config/fb_token.txt
+    for env_path in [Path(".secrets.env"), Path(".env"), Path("config/fb_token.txt")]:
+        if env_path.exists():
+            for line in env_path.read_text(encoding="utf-8").splitlines():
+                line = line.strip()
+                if line.startswith("FB_PAGE_ACCESS_TOKEN="):
+                    return line.split("=", 1)[1].strip().strip('"').strip("'")
+                elif env_path.suffix == ".txt" and line and not line.startswith("#"):
+                    return line
+    raise ValueError("找不到 FB_PAGE_ACCESS_TOKEN！請於 .secrets.env 或環境變數中設定。")
+
+TOKEN = load_fb_page_token()
 
 # 1. 圖片路徑清單
 image_paths = [

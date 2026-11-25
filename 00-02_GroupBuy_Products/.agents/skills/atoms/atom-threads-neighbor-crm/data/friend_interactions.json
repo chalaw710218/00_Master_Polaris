@@ -1,0 +1,48 @@
+{
+  "last_updated": "2026-11-13T18:57:44.513030",
+  "total_friends_count": 6,
+  "interactions": {
+    "hattcoffee": {
+      "name": "薄荷巴黎咖啡",
+      "category": "咖啡甜點",
+      "visits_count": 0,
+      "relationship_tier": "LEVEL_1_NEIGHBOR",
+      "last_visited": null
+    },
+    "howhow_sweets": {
+      "name": "好厚甜點工作室",
+      "category": "烘焙",
+      "visits_count": 0,
+      "relationship_tier": "LEVEL_1_NEIGHBOR",
+      "last_visited": null
+    },
+    "shuramen": {
+      "name": "修拉麵",
+      "category": "日式拉麵",
+      "visits_count": 0,
+      "relationship_tier": "LEVEL_1_NEIGHBOR",
+      "last_visited": null
+    },
+    "tiehua_craft": {
+      "name": "鐵花手作生活",
+      "category": "原民工藝",
+      "visits_count": 0,
+      "relationship_tier": "LEVEL_1_NEIGHBOR",
+      "last_visited": null
+    },
+    "tsaomin_bread": {
+      "name": "草民手作麵包",
+      "category": "野生酵母麵包",
+      "visits_count": 0,
+      "relationship_tier": "LEVEL_1_NEIGHBOR",
+      "last_visited": null
+    },
+    "travel_zztaitung": {
+      "name": "走走池上",
+      "category": "在地選品",
+      "visits_count": 0,
+      "relationship_tier": "LEVEL_1_NEIGHBOR",
+      "last_visited": null
+    }
+  }
+}

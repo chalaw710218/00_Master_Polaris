@@ -1,13 +1,17 @@
 ---
 name: atom-flywheel-launch-cockpit
-description: "創辦人極簡決策卡組裝與一鍵審批發射台原子技能。專門將各流水線產出之文案、5D 定價、海報與工單成果，精煉組裝為創辦人（品碩）專用之『3 秒極簡決策卡』(含業務類型、預覽文案、單元經濟/利潤、戴明出廠狀態)。內建品牌法定名稱零洩漏出廠熔斷閘門 (嚴禁對外出現極星)，創辦人僅需回覆『核准』或『批准』，即可秒級直連全網自動推播。"
+description: 組裝 3 秒極簡決策卡、審核安燈質檢並執行一鍵發射。在流水線成果完成準備呈報創辦人審批時使用；初期意圖分發時不用。只由 polaris-flywheel-orchestrator 呼叫，不單獨使用。
+metadata:
+  group: 飛輪總控
+  parent: polaris-flywheel-orchestrator
+  owner: 雪
+  status: draft
+  version: "1.0"
 ---
 
 # 🚀 創辦人極簡決策卡組裝與一鍵審批發射台原子技能 (Flywheel Launch Cockpit Atom)
 
-> **所屬技能組**：飛輪總控 / 創辦人決策總樞紐  
 > **核心職責**：專精於「流水線戰果極簡提煉、創辦人三秒決策卡組裝、品牌法定名稱零洩漏出廠熔斷、一鍵批准全網派發閉環」。  
-> **原技能母體**：`polaris-flywheel-orchestrator`
 
 ---
 

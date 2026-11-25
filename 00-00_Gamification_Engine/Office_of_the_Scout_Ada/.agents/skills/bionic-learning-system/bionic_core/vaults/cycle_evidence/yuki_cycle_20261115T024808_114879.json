@@ -1,0 +1,36 @@
+{
+  "office": "yuki",
+  "executed_at": "2026-11-15T02:48:08.114879",
+  "meta": {
+    "dispatch_ledger": "C:\\Users\\lenovo\\我的雲端硬碟\\00_Master_Polaris\\.agents\\skills\\atom-yuki-autonomous-executive-learner\\vaults\\yuki_dispatch.jsonl",
+    "verified_samples_file": "C:\\Users\\lenovo\\我的雲端硬碟\\00_Master_Polaris\\.agents\\skills\\atom-yuki-autonomous-executive-learner\\vaults\\yuki_verified_route_samples.jsonl",
+    "status_output": "鏈檢查：鏈完整（0 筆）\n派工 0 筆；帳上簽收 0 筆（未驗證）",
+    "route_readiness": [
+      "尚未由創辦人執行 dispatch.py export-verified 匯出已驗簽結案樣本"
+    ],
+    "perceived_consumed": {
+      "count": 0,
+      "latest_titles": []
+    }
+  },
+  "discover": {
+    "office": "yuki",
+    "discovered_at": "2026-11-15T02:48:05",
+    "vault_file": "C:\\Users\\lenovo\\我的雲端硬碟\\00_Master_Polaris\\.agents\\skills\\bionic-learning-system\\bionic_core\\vaults\\perceived_yuki.jsonl",
+    "feeds_checked": 1,
+    "new_items_ingested": 0,
+    "results": [
+      {
+        "name": "arXiv CS.GT Computer Science and Game Theory",
+        "url": "http://export.arxiv.org/api/query?search_query=cat:cs.GT&sortBy=submittedDate&sortOrder=descending&max_results=3",
+        "ok": false,
+        "error": "robots.txt 不允許抓取，依規範不繞過"
+      }
+    ]
+  },
+  "proposed_or_verified_rules": [],
+  "evaluations": [],
+  "newly_promoted": [],
+  "active_rules": [],
+  "retired_by_sweep": []
+}

@@ -1,11 +1,11 @@
 {
-  "date": "2026-11-24",
+  "date": "2026-11-25",
   "max_comments": 15,
   "max_likes": 60,
   "min_comment_interval_seconds": 120,
-  "comments_count": 13,
-  "likes_count": 7,
-  "last_comment_timestamp": 1795521290.2025013,
+  "comments_count": 5,
+  "likes_count": 3,
+  "last_comment_timestamp": 1795591648.1889803,
   "history": [
     {
       "timestamp": "2026-11-23T22:39:48.794312",
@@ -206,6 +206,59 @@
     },
     {
       "timestamp": "2026-11-24T19:57:36.203673",
+      "type": "like",
+      "target_user": "taitung_search",
+      "post_url": "https://www.threads.net/search?q=台東生活"
+    },
+    {
+      "timestamp": "2026-11-25T15:18:09.903870",
+      "type": "comment",
+      "target_user": "sinapayan_youth",
+      "post_url": "https://www.threads.com/@sinapayan_youth/post/Ddjb15-E4hQ",
+      "comment_text": "辛苦了！台東的節奏就是要提醒大家累了先停下來喘口氣～今晚給自己點一杯好喝的好好犒賞一下吧 🌿"
+    },
+    {
+      "timestamp": "2026-11-25T15:20:28.730764",
+      "type": "comment",
+      "target_user": "howhow_sweets",
+      "post_url": "https://www.threads.com/@howhow_sweets/post/DfbgPIQlHXX",
+      "comment_text": "看著看著螢幕直接飄出香味是正常的嗎...默默收進小編私房口袋名單，這週放假一定要去朝聖！✨"
+    },
+    {
+      "timestamp": "2026-11-25T15:22:46.853467",
+      "type": "comment",
+      "target_user": "chaiyuan_bakery",
+      "post_url": "https://www.threads.com/@chaiyuan_bakery/post/Db5yi00Ee-7",
+      "comment_text": "看著看著螢幕直接飄出香味是正常的嗎...默默收進小編私房口袋名單，這週放假一定要去朝聖！✨"
+    },
+    {
+      "timestamp": "2026-11-25T15:25:04.168100",
+      "type": "comment",
+      "target_user": "yuanlung.667",
+      "post_url": "https://www.threads.com/@yuanlung.667/post/DXOwVsNAYNc",
+      "comment_text": "看著看著螢幕直接飄出香味是正常的嗎...默默收進小編私房口袋名單，這週放假一定要去朝聖！✨"
+    },
+    {
+      "timestamp": "2026-11-25T15:25:29.705296",
+      "type": "like",
+      "target_user": "hattcoffee",
+      "post_url": "https://www.threads.net/@hattcoffee"
+    },
+    {
+      "timestamp": "2026-11-25T15:27:28.188980",
+      "type": "comment",
+      "target_user": "lee_wu_ying_chih",
+      "post_url": "https://www.threads.net/@lee_wu_ying_chih/post/DgJe847EbeY",
+      "comment_text": "（探出毛毛頭）在台東看到 @lee_wu_ying_chih 的日常分享特別有共鳴，端上一塊剛烤好的小魚乾致敬，今天也辛苦囉！"
+    },
+    {
+      "timestamp": "2026-11-25T15:27:34.997071",
+      "type": "like",
+      "target_user": "taitung_search",
+      "post_url": "https://www.threads.net/search?q=台東生活"
+    },
+    {
+      "timestamp": "2026-11-25T15:27:39.471994",
       "type": "like",
       "target_user": "taitung_search",
       "post_url": "https://www.threads.net/search?q=台東生活"

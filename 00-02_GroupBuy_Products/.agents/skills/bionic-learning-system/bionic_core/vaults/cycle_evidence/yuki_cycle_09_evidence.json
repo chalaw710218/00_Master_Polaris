@@ -1,0 +1,16 @@
+{
+  "cycle": 9,
+  "office": "yuki",
+  "timestamp": "2026-11-15T02:52:26.319866",
+  "topic": "跨期資本配置與 114 天極限無債生存水庫 (Intertemporal Capital Allocation & OPEX Reservoir Dynamics)",
+  "hypothesis": "執行長在戰略擴張期最大的致死缺陷在於短視透支流動性。將營收嚴格提撥 15%~20% 注入 114 天極限無債生存水庫，確保在遭遇連續 45 天黑天鵝天災斷網時，核心骨幹與伺服器仍能堅定運轉，形成絕對的戰略底氣與定價權。",
+  "web_source": "Munger Capital Allocation Moat & Extreme Black Swan Survival Reservoir Dynamics (2024)",
+  "evidence_metrics": {
+    "survival_reservoir_days": 114.0,
+    "debt_leverage_ratio": 0.0,
+    "black_swan_durability": 100.0
+  },
+  "axiom_learned": "生存是繁榮的唯一前提。手握充足的無債浮存金與生存水庫，才能在別人恐慌時從容佈局。",
+  "validation_status": "未經來源驗證的假說",
+  "note": "數據為假說推演，非真實物理測量"
+}

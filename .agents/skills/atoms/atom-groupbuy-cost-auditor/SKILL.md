@@ -1,13 +1,17 @@
 ---
 name: atom-groupbuy-cost-auditor
-description: "商品供應鏈底價逆推與食安背調底座原子技能。專門在管家選品前，依據商品零售市價或廠商報價，精確拆解產地出貨價、大宗原料、冷鏈物流與耗損摩擦成本，逆推廠商真實毛利率與極限底價，排查負面食安背景，並生成老闆專用之高情商談判議價話術。"
+description: 逆推商品產地出貨價、大宗冷鏈耗損摩擦並排查食安合規。在選品初期成本逆推與供應商背調時使用；社群文案折射時不用。只由 sharp-groupbuy-analyzer 呼叫，不單獨使用。
+metadata:
+  group: 管家選品
+  parent: sharp-groupbuy-analyzer
+  owner: 算盤
+  status: draft
+  version: "1.0"
 ---
 
 # 🔬 商品供應鏈底價逆推與食安背調底座原子技能 (Groupbuy Cost Auditor Atom)
 
-> **所屬技能組**：選品審計 / 算盤財務工匠  
 > **核心職責**：專精於「市場批發/零售行情審計、供應鏈極限成本逆推、廠商真實毛利拆解、食安合規檢驗、高情商議價籌碼話術」。  
-> **原技能母體**：`sharp-groupbuy-analyzer`
 
 ---
 

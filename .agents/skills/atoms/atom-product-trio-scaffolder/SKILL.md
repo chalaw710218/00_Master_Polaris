@@ -1,13 +1,17 @@
 ---
 name: atom-product-trio-scaffolder
-description: "三合一商品化交付套版自動裝配原子技能。專門將任何未經修飾的新業務、生鮮選品、生活管家服務或 AI 課程，全自動初始化裝配為標準三合一骨架：『01_SOP_標準作業流程.md』(作業步驟/檢查清單/客訴防呆)、『02_產品規格與定價手冊.md』(服務邊界/5D明碼定價/老夥伴政策/家宅座標) 與『03_行銷文案與地推銷售話術.md』(FB長文故事/Threads短文/第一留言閉環)。"
+description: 自動裝配三合一交付套版物理檔案與結構化規格骨架。在新業務初始化裝配 SOP 與手冊時使用；出廠前黑臉審查時不用。只由 polaris-productization-master 呼叫，不單獨使用。
+metadata:
+  group: 商品化
+  parent: polaris-productization-master
+  owner: 雪
+  status: draft
+  version: "1.0"
 ---
 
 # 📦 三合一商品化交付套版自動裝配原子技能 (Product Trio Scaffolder Atom)
 
-> **所屬技能組**：商品化 / 業務主政  
 > **核心職責**：專精於「三合一交付套版物理檔案自動初始化、結構化欄位無遺漏裝配、5D 商業邊界設定、跨平台行銷骨架封裝」。  
-> **原技能母體**：`polaris-productization-master`
 
 ---
 

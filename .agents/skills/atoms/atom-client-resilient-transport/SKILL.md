@@ -1,13 +1,17 @@
 ---
 name: atom-client-resilient-transport
-description: "極限弱網穿透傳輸與斷線重放隊列原子技能。專門模擬並管理客戶端在暴雨弱網與斷網孤島下的『離線待發隊列 (Outbox WAL) 狀態機』。當斷網時，任何下單或派工操作均安全存入本地不可篡改隊列；當網路恢復時，自動透過指數退避或 WebTransport 管道進行靜默依序重放上傳，並以冪等 UUID 機制杜絕重複下單與重複扣款。"
+description: 管理極限弱網傳輸、離線待發隊列與冪等靜默重放狀態機。在暴雨弱網斷線排隊與網路恢復依序上傳時使用；本地 UI 渲染時不用。只由 polaris-client-architect 呼叫，不單獨使用。
+metadata:
+  group: 客戶端抗逆
+  parent: polaris-client-architect
+  owner: 林納斯
+  status: draft
+  version: "1.0"
 ---
 
 # ⚡ 極限弱網穿透傳輸與斷線重放隊列原子技能 (Client Resilient Transport & Outbox WAL Atom)
 
-> **所屬技能組**：客戶端抗逆 / 林納斯底層工匠  
 > **核心職責**：專精於「離線 Outbox WAL 狀態機、斷網自動排隊防丟單、網絡恢復靜默依序重放、冪等防重扣機制、弱網傳輸遙測」。  
-> **原技能母體**：`polaris-client-architect`
 
 ---
 

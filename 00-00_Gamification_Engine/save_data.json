@@ -3,18 +3,18 @@
   "player_name": "Pinshuo",
   "level": 16,
   "exp": {
-    "current": 50,
+    "current": 115,
     "next_level_requirement": 180,
-    "total": 3400
+    "total": 3465
   },
-  "gold": 340,
+  "gold": 346,
   "attributes": {
     "STR": 58.11,
-    "INT": 88.3,
-    "AGI": 71.84,
-    "WILL": 81.03,
-    "CHA": 77.21,
-    "IMP": 82.04
+    "INT": 88.54,
+    "AGI": 72.09,
+    "WILL": 81.28,
+    "CHA": 77.45,
+    "IMP": 82.29
   },
   "hidden_attributes": {},
   "unspent_points": {
@@ -35,5 +35,5 @@
     "【生活管家真實業務從容審批】以審批者身分調度內閣，享受閉環守門員帶來的零失誤出廠品質",
     "【午後 14:00 20分鐘 NSDR 深層修復】全力修復 STR 體能短板，維持神經系統高抗逆力"
   ],
-  "notes": "【事實庫去重清洗、知識門禁狀態機漏洞修復與跨內閣雙向對齊】"
+  "notes": "【極星技能組全域重構、單一真理源(SSOT)確立、Rule Diff Checker v2.1 研製與全內閣格式規範合規大躍升】"
 }

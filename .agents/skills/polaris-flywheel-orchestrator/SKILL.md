@@ -1,9 +1,11 @@
 ---
 name: polaris-flywheel-orchestrator
-description: ⚙️ 極星全域飛輪總控協議 (Polaris Flywheel Orchestrator Protocol v1.0 執行長旗艦作戰武器)。由執行長雪 (Yuki, CEO) 業務主政、首席品質長戴明 (Dr. Deming) 安燈監製、CTO 林納斯 (Linus) 確定性代碼驗收。專門將任何未經修飾的商業需求（生鮮選品、生活服務、AI開課、商業徵信），秒級解析並自動路由至九大天王流水線，內建「品牌法定命名零洩漏防火牆（出廠硬性攔截極星）」與「創辦人一鍵審批發射台」，實現全自律低熵運轉。
-version: v1.0 (Flagship Master Edition)
-role_key: yuki
-authorized_by: 陳品碩 (Pinshuo)
+description: 解析全域商業需求意圖、智慧路由流水線並組裝決策卡。在接收外部未修飾需求並啟動跨內閣作業時使用；單一業務專項執行時不用。
+metadata:
+  group: 飛輪總控
+  owner: 雪
+  status: draft
+  version: "1.0"
 ---
 
 # ⚙️ 極星全域飛輪總控協議 (Polaris Flywheel Orchestrator Protocol v1.0)
@@ -16,6 +18,16 @@ authorized_by: 陳品碩 (Pinshuo)
 > 📏 **核心定位**：**極星全域業務飛輪的中央神經調度引擎（Central Nervous Flywheel Orchestrator）**。將任何傳入的業務事件秒級路由至九天王流水線，經品牌防火牆（嚴禁極星洩漏）與戴明安燈質檢，組裝為極簡卡片呈報創辦人一鍵批准發布！
 
 ---
+
+## 🧩 所屬原子技能與調用順序 (Atom Sequence)
+
+本母體按以下先後順序協同原子技能完成全閉環運作：
+
+1. **執行 `atom-flywheel-event-router`**：負責 解析全域業務事件意圖並路由至四大作戰動脈流水線。
+2. **執行 `atom-flywheel-launch-cockpit`**：負責 組裝 3 秒極簡決策卡、審核安燈質檢並執行一鍵發射。
+
+---
+
 
 ## 🏗️ 第一章｜系統架構全貌 (System Architecture)
 

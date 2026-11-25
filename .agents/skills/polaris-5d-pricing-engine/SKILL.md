@@ -1,6 +1,11 @@
 ---
 name: polaris-5d-pricing-engine
-description: 北極星 5D 萬用商業價值精算時間矩陣引擎 (Polaris Universal 5D Pricing Engine v2.0)。創辦人（品碩）原創之全方位商業價值、專案成果、數位資產與勞務成本精算系統。融合 5 位諾貝爾經濟學獎理論與服務主導邏輯 (S-D Logic)，採「底層哲學同一、應用基數多型分離 (Base Polymorphism)」架構，包含 5D-Labor（勞務工時防禦型）、5D-Impact（成果價值捕獲型）與 5D-Asset（數位資產規模型），結合防彈衣四大鐵律與查理·蒙格代墊款風控線，全自動生成高情商防禦型報價、合約條款與客服話術。
+description: 精算商業價值、專案成果、數位資產與勞務成本時間矩陣。在需要為服務或專案制定防禦型報價與條款時使用；單純查詢歷史報價時不用。
+metadata:
+  group: 5D定價
+  owner: 算盤
+  status: draft
+  version: "1.0"
 ---
 
 # 北極星 5D 萬用價值精算時間矩陣系統 (Polaris Universal 5D Pricing Engine v2.0)
@@ -13,6 +18,16 @@ description: 北極星 5D 萬用商業價值精算時間矩陣引擎 (Polaris Un
 5D 矩陣將人類的心力付出、技術門檻、責任承擔與情緒價值徹底量化，並採用**「底層哲學同一、應用基數多型分離 (Base Polymorphism)」**架構，為每一次報價穿上「法律與營運防彈衣」，確保在保護自身利潤與現金流的前提下，提供極致安心的頂級服務。
 
 ---
+
+## 🧩 所屬原子技能與調用順序 (Atom Sequence)
+
+本母體按以下先後順序協同原子技能完成全閉環運作：
+
+1. **執行 `atom-pricing-5d-calculator`**：負責 校準 D1 到 D5 價值係數並精算勞務、成果與資產模態定價。
+2. **執行 `atom-pricing-bulletproof-clause`**：負責 裝配防彈衣四大鐵律條款、超時加收通知與高情商溝通話術。
+
+---
+
 
 ## 🏛️ 架構大綱：底層哲學同一 ✕ 應用基數多型分離
 

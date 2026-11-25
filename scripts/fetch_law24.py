@@ -1,0 +1,19 @@
+import urllib.request
+import ssl
+import re
+
+ctx = ssl.create_default_context()
+ctx.check_hostname = False
+ctx.verify_mode = ssl.CERT_NONE
+
+url = "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=L0060009&flno=24"
+req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+try:
+    with urllib.request.urlopen(req, context=ctx, timeout=10) as r:
+        html = r.read().decode("utf-8", errors="ignore")
+        matches = re.findall(r'<div class="line-0000">([^<]+)</div>', html)
+        print("Article 24 lines:")
+        for m in matches:
+            print(m.strip())
+except Exception as e:
+    print("Error:", e)
